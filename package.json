@@ -1,0 +1,33 @@
+{
+  "name": "gatsby",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "@freesewing/material-style": "^0.4.0",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^3.0.1",
+    "gatsby": "latest",
+    "gatsby-plugin-catch-links": "^2.0.3",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-typography": "^2.2.0",
+    "gatsby-source-filesystem": "^2.0.1",
+    "gatsby-transformer-remark": "^2.1.5",
+    "jss": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-helmet": "^5.2.0",
+    "react-jss": "latest",
+    "react-typography": "^0.16.13",
+    "typography": "^0.16.17"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "devDependencies": {
+    "core-js": "^2.5.7",
+    "node-sass": "^4.9.3"
+  }
+}
