@@ -1,14 +1,12 @@
 import React from "react"
-import Layout from "../components/layout"
+import PageLayout from "../components/PageLayout"
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
-import FsAppBar from '../components/fsappbar';
 
 export default () => (
-  <Layout>
-  <FsAppBar />
+  <PageLayout>
     <Grid
       container
       direction="row"
@@ -67,5 +65,5 @@ export default () => (
         </IconButton>
       </Grid>
     </Grid>
-  </Layout>
+  </PageLayout>
 )
