@@ -31,7 +31,7 @@ npm install
 Then, you can serve the site on localhost:8000:
 
 ```sh
-gatsby develope
+gatsby develop
 ```
 
 ## Questions / feedback / ideas / comments
