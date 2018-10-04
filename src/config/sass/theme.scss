@@ -1,8 +1,12 @@
 $primary: #212121;
-$secondary: #f5f5f5;
+$secondary: #ffffff;
+$link: #1565c0;
 
 body {
   background-color: $secondary;
+}
+div.fs-base {
+  margin-top: 64px;
 }
 
 @import 'mixins';

@@ -11,7 +11,8 @@
 
 # website
 
-This is a work in progress to build a new freesewing.org frontend to go along
+This is a work in progress to build [a new freesewing.org 
+frontend](https://beta.freesewing.org/) to go along
 the JavaScript rewrite of our core library.
 
 We're using the [Gatsby](https://www.gatsbyjs.org/) static site generator

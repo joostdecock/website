@@ -79,8 +79,11 @@ export default () => (
   </p>
 
   <h2 id="layout">Layout</h2>
+  <p>
     Ongoing. See the <a href="https://github.com/freesewing/website/issues/2">
-    <b>Layout: Build the basic skeleton for pages</b> issue on GitHub</a>.
+    <b>Layout: Build the basic skeleton for pages</b> issue on GitHub
+    </a> and <a href="/blog/announcing-freesewing">this example blog post</a>.
+  </p>
 
   <h2 id="typography">Typography</h2>
   <p>We are using the <a href="https://kyleamathews.github.io/typography.js/">typography.js

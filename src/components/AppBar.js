@@ -22,7 +22,7 @@ function FsAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="secondary" elevation={0}>
+      <AppBar color="secondary" elevation={0}>
         <Toolbar>
           <Button color="inherit" href="/">Freesewing</Button>
         </Toolbar>
