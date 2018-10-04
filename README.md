@@ -11,7 +11,8 @@
 
 # website
 
-This is a work in progress to build a new freesewing.org frontend to go along
+This is a work in progress to build [a new freesewing.org 
+frontend](https://beta.freesewing.org/) to go along
 the JavaScript rewrite of our core library.
 
 We're using the [Gatsby](https://www.gatsbyjs.org/) static site generator
@@ -30,7 +31,7 @@ npm install
 Then, you can serve the site on localhost:8000:
 
 ```sh
-gatsby develope
+gatsby develop
 ```
 
 ## Questions / feedback / ideas / comments

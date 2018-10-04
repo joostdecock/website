@@ -14,7 +14,7 @@
     "gatsby-plugin-sass": "^2.0.1",
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-transformer-remark": "^2.1.5",
+    "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-yaml": "^2.1.1",
     "jss": "latest",
     "prop-types": "latest",

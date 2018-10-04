@@ -18,7 +18,7 @@ export default {
       main: '#212121'
     },
     secondary: {
-      main: '#f5f5f5'
-    }
+      main: '#ffffff'
+    },
   },
 };

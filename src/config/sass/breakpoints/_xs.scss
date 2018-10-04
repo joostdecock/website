@@ -1,0 +1,15 @@
+@include xs-screen {
+
+  div.fs-page,
+  div.blog-post,
+  {
+    padding: 0 10%;
+  }
+
+  div.blog-header {
+    div.meta {
+      padding: 0 5%;
+    }
+  }
+}
+

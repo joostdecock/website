@@ -5,7 +5,7 @@ const typography = new Typography({
   baseLineHeight: 1.75,
   scaleRatio: 2.5,
   headerGray: 0,
-  bodyGray: 20,
+  bodyGray: 0,
   headerWeight: 400,
   bodyWeight: "normal",
 })
