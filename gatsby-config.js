@@ -9,21 +9,21 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-transformer-remark",
     "gatsby-plugin-sass",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/data/i18n`,
-        name: "i18n",
-        ignore: [`**/\.*`],
-      }
-    },
+    //{
+    //  resolve: `gatsby-source-filesystem`,
+    //  options: {
+    //    path: `${__dirname}/src/pages`,
+    //    name: "pages",
+    //  }
+    //},
+    //{
+    //  resolve: `gatsby-source-filesystem`,
+    //  options: {
+    //    path: `${__dirname}/src/data/i18n`,
+    //    name: "i18n",
+    //    ignore: [`**/\.*`],
+    //  }
+    //},
     {
       resolve: `gatsby-source-filesystem`,
       options: {
