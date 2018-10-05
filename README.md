@@ -28,6 +28,19 @@ cd website
 npm install
 ```
 
+Install the `gatsby-cli` package globally:
+
+```sh
+sudo npm install --global gatsby cli
+```
+
+> The gatsby image processing plugin requires `nasm`. If you're in Linux, you might need to install it:
+> 
+> ```sh
+> sudo apt-get install nasm
+> ```
+
+
 Then, you can serve the site on localhost:8000:
 
 ```sh

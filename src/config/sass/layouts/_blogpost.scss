@@ -1,18 +1,14 @@
 div.blog-header {
   padding: 0;
 
-  figure.blog {
+  figure {
     margin-bottom: 0.5rem;
-
-    img {
-      margin: 0;
-      padding: 0;
-    }
 
     figcaption {
       font-size: 80%;
       text-align: center;
       line-height: 1rem;
+      padding-top: 4px;
     }
   }
 }

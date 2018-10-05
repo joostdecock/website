@@ -1,4 +1,5 @@
 const i18nConfig = require('./src/config/i18n.js');
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -9,6 +10,8 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-transformer-remark",
     "gatsby-plugin-sass",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     //{
     //  resolve: `gatsby-source-filesystem`,
     //  options: {
@@ -25,17 +28,35 @@ module.exports = {
     //  }
     //},
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: path.join(__dirname, "src", "images"),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/markdown/blog`,
-        name: "blog",
+        path: path.join(__dirname, "src", "pages"),
+        name: "markdown",
         ignore: [`**/\.*`],
       }
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: []
+        plugins: [
+          "gatsby-remark-copy-linked-files",
+       		{
+        	  resolve: `gatsby-remark-images`,
+        	  options: {
+        	    maxWidth: 650,
+							showCaptions: true,
+							linkImagesToOriginal: true,
+							backgroundColor: '#212121',
+        	  },
+        	},
+				]
       }
     },
     {

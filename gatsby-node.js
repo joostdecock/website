@@ -35,7 +35,11 @@ exports.createPages = ({ actions, graphql }) => {
         createPage({
           path: node.frontmatter.path,
           component: blogPostTemplate,
-          context: { node }
+          context: {
+            node,
+            img: node.frontmatter.path.substring(1)+'/'+node.frontmatter.img,
+            id: node.id
+          }
         })
       })
     })
