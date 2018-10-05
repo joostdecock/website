@@ -3,8 +3,6 @@ import BlogLayout from '../components/BlogLayout';
 import Grid from '@material-ui/core/Grid';
 
 export default ( data ) => {
-  if(typeof(data.pageContext === 'undefined')) return '';
-
   const frontmatter = data.pageContext.node.frontmatter;
   const html = data.pageContext.node.html;
 
