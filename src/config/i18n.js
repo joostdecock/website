@@ -1,7 +1,10 @@
 module.exports = {
-  languages: {
-    en: "English",
-    nl: "Nederlands"
-  },
-  defaultLanguage: 'en'
+  languages: [
+    "en",
+    "de",
+    "es",
+    "fr",
+    "nl",
+  ],
+  defaultLanguage: "en"
 };

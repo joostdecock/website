@@ -1,0 +1,17 @@
+div.warning {
+  background: $primary;
+  color: white;
+  padding: 2rem;
+  margin: 1rem auto;
+  border-left: 10px solid orange;
+
+  h4:first-of-type {
+    margin-top: 0;
+  }
+
+  svg {
+    float: right;
+    margin: -1rem -1rem 0 0;
+    color: orange;
+  }
+}
