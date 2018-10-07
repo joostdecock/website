@@ -7,7 +7,9 @@ import LanguageWarning from "./LanguageWarning";
 export default ( { pageContext } ) => {
   const frontmatter = pageContext.node.frontmatter;
   const html = pageContext.node.html;
-console.log(pageContext);
+  let warning = false;
+  if(pageContext.pathLanguage !== pageContext.contentLanguage) warning = true;
+
   return (
   <BlogLayout>
     <Grid item xs={12} sm={10} md={8} lg={5} xl={5} className={'wmax'}>
@@ -26,9 +28,9 @@ console.log(pageContext);
     <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
       <div className="blog-post">
         <LanguageWarning
-          pathLanguage={pageContext.pathLanguage}
-          contentLanguage={pageContext.contentLanguage}
-          file={'test'}
+          show={warning}
+          title="This content is not available in the language of your choice"
+          message="FIXME: Meaningful message here"
         />
         <ul className="meta">
           <li>{frontmatter.date}</li>

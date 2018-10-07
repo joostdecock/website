@@ -4,12 +4,12 @@ import Translate from "@material-ui/icons/Translate";
 
 const LanguageWarning = ( props ) => {
 
-  if(props.pathLanguage === props.contentLangauge) return '';
+  if(props.show === false) return '';
   else return (
       <div className="warning">
         <Translate style={{ fontSize: 80 }}/>
-        <h4>This content is not available in your chosen langauge</h4>
-        <p>FIXME: Some meaningful text here</p>
+        <h4>{props.title}</h4>
+        <p>{props.message}</p>
       </div>
   );
 }

@@ -5,6 +5,7 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve("src/components/BlogPost.js");
+  const blogIndexTemplate = path.resolve("src/components/BlogIndex.js");
 
   const allBlogPostsQuery = `{
     allMarkdownRemark {
@@ -40,7 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
   }`;
 
 
-  loadAllBlogPosts = function() {
+  createAllBlogPosts = function() {
     let posts = {};
     let languagePosts = {};
     let englishPosts = {};
@@ -48,7 +49,7 @@ exports.createPages = ({ actions, graphql }) => {
       posts[lang] = {};
     }
 
-    return graphql(allBlogPostsQuery)
+    graphql(allBlogPostsQuery)
       .then(res => {
         if(res.errors) return Promise.reject(res.erros);
         Object.keys(res.data.allMarkdownRemark.edges).forEach( (key) => {
@@ -71,6 +72,7 @@ exports.createPages = ({ actions, graphql }) => {
               contentLanguage = lang;
               postNode = languagePosts[slug];
             }
+            // Create blog posts
             createPage({
               path: `/${lang}/blog/${slug}`,
               component: blogPostTemplate,
@@ -81,36 +83,20 @@ exports.createPages = ({ actions, graphql }) => {
               }
             })
           })
+          // Create blog index pages
+          createPage({
+            path: `/${lang}/blog`,
+            component: blogIndexTemplate,
+            context: {
+              posts: posts,
+              language: lang
+            }
+          })
         }
-
-        return posts;
       })
 
   }
 
-  let posts = loadAllBlogPosts();
-  console.log('posts', posts);
-
-  return graphql(allBlogPostsQuery)
-    .then(res => {
-      if(res.errors) return Promise.reject(res.erros);
-
-      Object.keys(res.data.allMarkdownRemark.edges).forEach( (key) => {
-        let node = res.data.allMarkdownRemark.edges[key].node;
-        if(typeof node.frontmatter !== 'undefined') {
-          createPage({
-            path: node.frontmatter.path,
-            component: blogPostTemplate,
-            context: {
-              node,
-              img: path.dirname(node.fileAbsolutePath)+'/'+node.frontmatter.img.name+node.frontmatter.img.ext,
-              id: node.id
-            }
-          })
-        } else {
-          console.log('WARNING: Could not generate page for', Object.keys(node));
-        }
-      })
-    })
+  createAllBlogPosts();
 }
 
