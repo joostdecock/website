@@ -82,7 +82,7 @@ export default () => (
   <p>
     Ongoing. See the <a href="https://github.com/freesewing/website/issues/2">
     <b>Layout: Build the basic skeleton for pages</b> issue on GitHub
-    </a> and <a href="/blog/">our blog posts</a>.
+    </a> and <a href="/en/blog/">our blog posts</a>.
   </p>
 
   <h2 id="typography">Typography</h2>
