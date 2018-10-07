@@ -1,12 +1,11 @@
 import React from "react"
 import BlogLayout from '../components/BlogLayout';
 import Grid from '@material-ui/core/Grid';
-import { graphql } from "gatsby"
 import Image from "gatsby-image"
 
-export default ( { data } ) => {
-  const frontmatter = data.post.frontmatter;
-  const html = data.post.html;
+export default ( { pageContext } ) => {
+  const frontmatter = pageContext.node.frontmatter;
+  const html = pageContext.node.html;
 
   return (
   <BlogLayout>
@@ -14,7 +13,7 @@ export default ( { data } ) => {
       <div className="blog-header">
         <figure>
           <Image
-            fluid={data.headerImage.childImageSharp.fluid}
+            fluid={frontmatter.img.childImageSharp.fluid}
             title={frontmatter.caption}
             alt={frontmatter.caption}
             backgroundColor={'#212121'}
@@ -35,28 +34,3 @@ export default ( { data } ) => {
     </Grid>
   </BlogLayout>
 ) }
-
-export const pageQuery = graphql`
-  query getBlogPost($id: String, $img: String){
-    headerImage: file(absolutePath: {eq: $img}) {
-      childImageSharp {
-        fluid(maxWidth: 2000) {
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    post: markdownRemark(id: {eq: $id}) {
-    frontmatter {
-      title
-      date(formatString: "MMMM Do, YYYY")
-      path
-      linktitle
-      img
-      caption
-      author
-      category
-      blurb
-    }
-    html
-  }
-}`;

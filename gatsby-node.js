@@ -17,7 +17,17 @@ exports.createPages = ({ actions, graphql }) => {
             path
             title
             linktitle
-            img
+    			  img {
+              childImageSharp {
+                fluid(maxWidth: 2000) {
+                   base64
+                   aspectRatio
+                   src
+                   srcSet
+                   sizes
+                }
+              }
+            }
             caption
             author
             category
@@ -32,16 +42,21 @@ exports.createPages = ({ actions, graphql }) => {
     .then(res => {
       if(res.errors) return Promise.reject(res.erros);
 
-      res.data.allMarkdownRemark.edges.forEach( ({node}) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate,
-          context: {
-            node,
-            img: path.dirname(node.fileAbsolutePath)+'/'+node.frontmatter.img,
-            id: node.id
-          }
-        })
+      Object.keys(res.data.allMarkdownRemark.edges).forEach( (key) => {
+        let node = res.data.allMarkdownRemark.edges[key].node;
+        if(typeof node.frontmatter !== 'undefined') {
+          createPage({
+            path: node.frontmatter.path,
+            component: blogPostTemplate,
+            context: {
+              node,
+              img: path.dirname(node.fileAbsolutePath)+'/'+node.frontmatter.img.name+node.frontmatter.img.ext,
+              id: node.id
+            }
+          })
+        } else {
+          console.log('WARNING: Could not generate page for', Object.keys(node));
+        }
       })
     })
 }
