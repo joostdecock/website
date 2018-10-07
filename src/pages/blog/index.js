@@ -1,27 +1,16 @@
 import React from "react";
-import path from 'path';
 import BlogIndex from '../../components/BlogIndex';
 import { graphql } from "gatsby"
 
 export default ( { data } ) => {
-  console.log('all data blog page', data);
   let posts = [];
-  for(let edge of data.posts.edges) {
-    posts.push(edge.node);
-  }
-  let images = {};
-  for(let edge of data.images.edges) {
-    //let imgName = path.basename(edge.node.relativePath);
-    let imgPath = path.basename(path.dirname(edge.node.relativePath))
-      .substring(5) + "/" + path.basename(edge.node.relativePath);
-    images[imgPath] = edge.node;
-  }
+  for(let edge of data.posts.edges) posts.push(edge.node);
 
   return (
-      <section>
+    <section>
       <h1>Blog</h1>
-  <BlogIndex posts={posts} images={images} />
-      </section>
+      <BlogIndex posts={posts} />
+    </section>
 ) }
 
 export const pageQuery = graphql`
@@ -38,7 +27,17 @@ export const pageQuery = graphql`
     			  path
     			  title
     			  linktitle
-    			  img
+    			  img {
+              childImageSharp {
+                fluid(maxWidth: 2000) {
+                   base64
+                   aspectRatio
+                   src
+                   srcSet
+                   sizes
+                }
+              }
+            }
     			  author
     			  category
     			  blurb
@@ -46,24 +45,4 @@ export const pageQuery = graphql`
   			}
 			}
 		}
-    images: allFile (
-			filter: {
-        relativePath: {regex: "/blog/"}
-        ext: {in: [".jpg"]}
-      }) {
-      edges {
-        node {
-          ext
-          relativePath
-          id
-          name
-          dir
-          childImageSharp {
-            fluid(maxWidth: 720) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-	      }
-	    }
-	  }
 	}`;
