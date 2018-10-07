@@ -1,6 +1,6 @@
 ---
 date: 2017-11-30
-path: "/blog/roundup-2017-11"
+path: "/en/blog/roundup-2017-11"
 title: "Monthly roundup - November 2017: Benjamin, on-boarding, showcases, and our on-demand tiler"
 linktitle: "Monthly roundup; November 2017 edition"
 img: potw.jpg

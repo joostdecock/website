@@ -3,7 +3,7 @@ date: 2017-03-24
 path: "/en/blog/test"
 title: "Announcing freesewing, an open source platform for made-to-measure sewing patterns"
 linktitle: "Announcing freesewing"
-img: logo.jpg
+img: why.jpg
 caption: "The freesewing logo"
 author: joost
 category: docs
