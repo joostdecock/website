@@ -23,7 +23,7 @@ export default () => (
   on Gitter</a> to to discuss this and all things freesewing.</p>
 
   <h2>Building blocks</h2>
-
+<img src="./logo.jpg" alt="logo"/>
   <p>Building a frontend for freesewing requires a solution for a
   number of challenges. As we are just getting started, our focus is on:
   </p>
@@ -82,7 +82,7 @@ export default () => (
   <p>
     Ongoing. See the <a href="https://github.com/freesewing/website/issues/2">
     <b>Layout: Build the basic skeleton for pages</b> issue on GitHub
-    </a> and <a href="/blog/announcing-freesewing">this example blog post</a>.
+    </a> and <a href="/blog/">our blog posts</a>.
   </p>
 
   <h2 id="typography">Typography</h2>

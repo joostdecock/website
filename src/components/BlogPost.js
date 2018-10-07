@@ -37,8 +37,8 @@ export default ( { data } ) => {
 ) }
 
 export const pageQuery = graphql`
-  query getBlogPost($img: String, $id: String){
-    headerImage: file(relativePath: {eq: $img}) {
+  query getBlogPost($id: String, $img: String){
+    headerImage: file(absolutePath: {eq: $img}) {
       childImageSharp {
         fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid_noBase64
@@ -60,4 +60,3 @@ export const pageQuery = graphql`
     html
   }
 }`;
-

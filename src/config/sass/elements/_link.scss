@@ -1,9 +1,13 @@
 a {
   color: $link;
 }
+
+/** Mark anchor links by preventing text decoration */
 a[href*=\#]:not([href$=\#]) {
   text-decoration: none;
 }
+
+/** Prevent anchor position from going under static header */
 :target:before {
   content: '';
   display: block;
@@ -12,3 +16,12 @@ a[href*=\#]:not([href$=\#]) {
   margin-top: -64px;
 }
 
+/** Helper for stacked links for image and text on top of it */
+.fs-block-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

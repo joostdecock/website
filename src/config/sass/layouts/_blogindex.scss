@@ -1,0 +1,30 @@
+div.teaser {
+  position: relative;
+
+  div.title {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+
+    p {
+      background: #0009;
+      font-size: 26px;
+      color: #fff;
+      padding: 8px 16px;
+      margin: 0;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      text-align: right;
+      display: inline-block;
+      font-weight: 300;
+      line-height: 1.1;
+
+      span.meta {
+        display: block;
+        font-size: 60%;
+        margin-top: 6px;
+        color: #FFFB;
+      }
+    }
+  }
+}
