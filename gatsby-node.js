@@ -9,6 +9,7 @@ exports.createPages = ({ actions, graphql }) => {
     allMarkdownRemark {
       edges {
         node {
+          fileAbsolutePath
           html
           id
           frontmatter {
@@ -37,7 +38,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: blogPostTemplate,
           context: {
             node,
-            img: node.frontmatter.path.substring(1)+'/'+node.frontmatter.img,
+            img: path.dirname(node.fileAbsolutePath)+'/'+node.frontmatter.img,
             id: node.id
           }
         })

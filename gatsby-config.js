@@ -10,35 +10,13 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-transformer-remark",
     "gatsby-plugin-sass",
-    "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    //{
-    //  resolve: `gatsby-source-filesystem`,
-    //  options: {
-    //    path: `${__dirname}/src/pages`,
-    //    name: "pages",
-    //  }
-    //},
-    //{
-    //  resolve: `gatsby-source-filesystem`,
-    //  options: {
-    //    path: `${__dirname}/src/data/i18n`,
-    //    name: "i18n",
-    //    ignore: [`**/\.*`],
-    //  }
-    //},
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: path.join(__dirname, "src", "images"),
-      },
-    },
+    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.join(__dirname, "src", "pages"),
-        name: "markdown",
+        name: "pages",
         ignore: [`**/\.*`],
       }
     },
