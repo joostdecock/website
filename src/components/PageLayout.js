@@ -11,6 +11,7 @@ export default ({ children }) => (
     direction="column"
     justify="center"
     alignItems="center"
+    className="page"
     >
     {children}
     </Grid>
