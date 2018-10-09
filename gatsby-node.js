@@ -8,7 +8,10 @@ exports.createPages = ({ actions, graphql }) => {
   const blogIndexTemplate = path.resolve("src/components/pages/BlogIndex.js");
 
   const allBlogPostsQuery = `{
-    allMarkdownRemark {
+    allMarkdownRemark(
+        filter: {frontmatter: {path: {regex: "/blog/"}}}
+        sort: {fields: [frontmatter___date], order: ASC}
+      ) {
       edges {
         node {
           fileAbsolutePath

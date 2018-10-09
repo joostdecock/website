@@ -3,7 +3,6 @@ import {Helmet} from "react-helmet";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import themeConfig from '../../config/theme';
 import AppBar from "../AppBar";
-import { languageFromSlug } from "../../utils";
 import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import de from 'react-intl/locale-data/de';

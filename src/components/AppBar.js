@@ -27,8 +27,12 @@ function FsAppBar(props) {
     <div className={classes.root}>
       <AppBar color="secondary" elevation={0}>
         <Toolbar>
-          <Button color="inherit" href={slugForLanguage('/', props.language)}>Freesewing</Button>
-          <Button color="inherit" href={slugForLanguage('/blog/', props.language)}>Blog</Button>
+          <Button color="inherit" href={slugForLanguage('/', props.language)}>
+            <FormattedMessage id="app.freesewing" />
+          </Button>
+          <Button color="inherit" href={slugForLanguage('/blog/', props.language)}>
+            <FormattedMessage id="app.blog" />
+          </Button>
           <span style={styles.grow} />
           <LanguageSwitcher language={props.language} slug={props.slug}/>
         </Toolbar>

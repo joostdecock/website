@@ -1,7 +1,6 @@
 import React from "react"
 import PageLayout from "../components/layouts/Page"
 import Grid from '@material-ui/core/Grid';
-import { Link } from "gatsby"
 import { FormattedMessage } from 'react-intl';
 
 export default ({pageContext}) => (
