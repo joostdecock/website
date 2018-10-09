@@ -98,6 +98,11 @@ exports.createPages = ({ actions, graphql }) => {
   return new Promise((resolve, reject) => {
     createPageRedirects();
     createBlogPosts();
+    /** FIXME: This is an embarassing hack because we return here before all pages are created
+     * and that causes webpack issues when deploying to netlify
+     * see: https://github.com/gatsbyjs/gatsby/issues/8936
+     * This ugly hack needs to go, in favor of proper promises
+     */
     setTimeout(() => {
       resolve();
     }, 10000);
