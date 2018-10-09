@@ -43,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
   }`;
 
-  createAllBlogPosts = async function() {
+  createAllBlogPosts = function() {
     let posts = {};
     let postOrder = {};
     let languagePosts = {};
