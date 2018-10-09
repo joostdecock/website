@@ -5,11 +5,21 @@ import optiongroups from "./optiongroups.yaml";
 import options from "./options.yaml";
 import patterns from "./patterns.yaml";
 
-export default {
+let topics = {
   app,
   i18n,
   measurements,
   optiongroups,
   options,
-  patterns
+  patterns,
 };
+
+let strings = {};
+
+for(let topic of Object.keys(topics)) {
+  for(let id of Object.keys(topics[topic])) {
+    strings[topic+'.'+id] = topics[topic][id];
+  }
+}
+
+export default strings;

@@ -26,6 +26,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "^5.2.0",
+    "react-intl": "2.7.1",
     "react-jss": "latest",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17"
