@@ -1,6 +1,7 @@
 import React from "react";
 import PageLayout from "../components/layouts/Page";
 import Grid from "@material-ui/core/Grid";
+import HomePageText from "../components/HomePageText";
 import { FormattedMessage } from "react-intl";
 
 export default ({ pageContext }) => (
@@ -10,6 +11,7 @@ export default ({ pageContext }) => (
         <h1>
           <FormattedMessage id="app.sewingPatternsForNonAveragePeople" />
         </h1>
+        <HomePageText />
       </Grid>
     </Grid>
   </PageLayout>
