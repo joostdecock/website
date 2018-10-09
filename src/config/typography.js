@@ -1,4 +1,4 @@
-import Typography from "typography"
+import Typography from "typography";
 
 const typography = new Typography({
   baseFontSize: "18px",
@@ -7,7 +7,7 @@ const typography = new Typography({
   headerGray: 0,
   bodyGray: 0,
   headerWeight: 400,
-  bodyWeight: "normal",
-})
+  bodyWeight: "normal"
+});
 
-export default typography
+export default typography;

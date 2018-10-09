@@ -11,14 +11,14 @@ let topics = {
   measurements,
   optiongroups,
   options,
-  patterns,
+  patterns
 };
 
 let strings = {};
 
-for(let topic of Object.keys(topics)) {
-  for(let id of Object.keys(topics[topic])) {
-    strings[topic+'.'+id] = topics[topic][id];
+for (let topic of Object.keys(topics)) {
+  for (let id of Object.keys(topics[topic])) {
+    strings[topic + "." + id] = topics[topic][id];
   }
 }
 

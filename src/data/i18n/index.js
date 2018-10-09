@@ -9,5 +9,5 @@ export default {
   de,
   es,
   fr,
-  nl,
+  nl
 };
