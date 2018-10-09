@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const styles = {
   root: {
@@ -26,6 +27,8 @@ function FsAppBar(props) {
         <Toolbar>
           <Button color="inherit" href="/">Freesewing</Button>
           <Button color="inherit" href="/en/blog/">Blog</Button>
+          <span style={styles.grow} />
+          <LanguageSwitcher language={props.language} slug={props.slug}/>
         </Toolbar>
       </AppBar>
     </div>
@@ -34,6 +37,8 @@ function FsAppBar(props) {
 
 FsAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(FsAppBar);

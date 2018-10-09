@@ -4,8 +4,8 @@ const path = require('path');
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve("src/components/BlogPost.js");
-  const blogIndexTemplate = path.resolve("src/components/BlogIndex.js");
+  const blogPostTemplate = path.resolve("src/components/pages/BlogPost.js");
+  const blogIndexTemplate = path.resolve("src/components/pages/BlogIndex.js");
 
   const allBlogPostsQuery = `{
     allMarkdownRemark {
@@ -79,7 +79,8 @@ exports.createPages = ({ actions, graphql }) => {
               context: {
                 node: postNode,
                 contentLanguage,
-                pathLanguage: lang
+                language: lang,
+                slug: `/${lang}/blog/${slug}`,
               }
             })
           })
@@ -89,7 +90,8 @@ exports.createPages = ({ actions, graphql }) => {
             component: blogIndexTemplate,
             context: {
               posts: posts,
-              language: lang
+              language: lang,
+              slug: `/${lang}/blog`,
             }
           })
         }

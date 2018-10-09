@@ -1,11 +1,9 @@
 import React from "react"
-import BaseLayout from '../components/BaseLayout';
-import FsAppBar from '../components/AppBar';
+import BaseLayout from './Base';
 import Grid from '@material-ui/core/Grid';
 
-export default ({ children }) => (
-  <BaseLayout>
-    <FsAppBar />
+export default ({ children, slug }) => (
+  <BaseLayout slug={slug}>
     <Grid
     container
     direction="column"

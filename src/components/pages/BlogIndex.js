@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PageLayout from './PageLayout';
-import BlogPostPreview from './BlogPostPreview';
+import PageLayout from '../layouts/Page';
+import BlogPostPreview from '../BlogPostPreview';
 import Grid from '@material-ui/core/Grid';
-import LanguageWarning from "./LanguageWarning";
+import LanguageWarning from "../LanguageWarning";
 
 export default class BlogIndex extends React.Component {
 
@@ -26,9 +26,9 @@ export default class BlogIndex extends React.Component {
       }
       list.push(<Grid item xs={12} sm={6}><BlogPostPreview post={post} correctLanguage={correctLanguage} /></Grid>)
     }
-
+console.log('props in blog index', this.props);
     return (
-      <PageLayout>
+      <PageLayout slug={this.props.pageContext.slug}>
         <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={'wmax'}>
           <h1 className="txt-center">Blog</h1>
           <LanguageWarning
