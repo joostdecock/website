@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 
-const Warning = ( props ) => {
-  if(props.show === false) return '';
-  else return <div className={props.type}>{props.children}</div>
-}
+const Warning = props => {
+  if (props.show === false) return "";
+  else return <div className={props.type}>{props.children}</div>;
+};
 
 Warning.propTypes = {
   show: PropTypes.string.isRequired,
@@ -13,7 +13,7 @@ Warning.propTypes = {
 
 Warning.defaultProps = {
   show: true,
-  type: 'warning'
-}
+  type: "warning"
+};
 
 export default Warning;

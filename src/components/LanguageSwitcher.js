@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuItem from '@material-ui/core/MenuItem';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import Menu from '@material-ui/core/Menu';
+import React from "react";
+import PropTypes from "prop-types";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import MenuItem from "@material-ui/core/MenuItem";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import Menu from "@material-ui/core/Menu";
 import i18nConfig from "../config/i18n";
 import { slugForLanguage } from "../utils";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 
 class LanguageSwitcher extends React.Component {
   state = {
     anchorEl: null,
-    selectedIndex: i18nConfig.languages.indexOf(this.props.language),
+    selectedIndex: i18nConfig.languages.indexOf(this.props.language)
   };
 
   handleClickListItem = event => {
@@ -32,7 +32,7 @@ class LanguageSwitcher extends React.Component {
     const { anchorEl } = this.state;
     return (
       <div>
-        <List component="nav" style={{padding: 0}}>
+        <List component="nav" style={{ padding: 0 }}>
           <ListItem
             button
             aria-haspopup="true"
@@ -41,8 +41,13 @@ class LanguageSwitcher extends React.Component {
             onClick={this.handleClickListItem}
           >
             <ListItemText>
-             <div style={{display: "inline-block" }} dangerouslySetInnerHTML={{__html: i18nConfig.icons[this.props.language] }}></div>
-             <ArrowDropDownIcon />
+              <div
+                style={{ display: "inline-block" }}
+                dangerouslySetInnerHTML={{
+                  __html: i18nConfig.icons[this.props.language]
+                }}
+              />
+              <ArrowDropDownIcon />
             </ListItemText>
           </ListItem>
         </List>
@@ -60,8 +65,11 @@ class LanguageSwitcher extends React.Component {
             >
               <Link
                 className="menu"
-                to={slugForLanguage(this.props.slug,option)}
-                dangerouslySetInnerHTML={{__html: i18nConfig.icons[option]+i18nConfig.translations[option]}}
+                to={slugForLanguage(this.props.slug, option)}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    i18nConfig.icons[option] + i18nConfig.translations[option]
+                }}
               />
             </MenuItem>
           ))}
@@ -73,7 +81,7 @@ class LanguageSwitcher extends React.Component {
 
 LanguageSwitcher.propTypes = {
   language: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired
 };
 
 export default LanguageSwitcher;
