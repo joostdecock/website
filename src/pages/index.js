@@ -1,11 +1,11 @@
 import React from "react"
-import PageLayout from "../components/PageLayout"
+import PageLayout from "../components/layouts/Page"
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import { Link } from "gatsby"
 
-export default () => (
-  <PageLayout>
+export default ({pageContext}) => (
+  <PageLayout slug={pageContext.slug}>
   <Grid
   container
   direction="row"

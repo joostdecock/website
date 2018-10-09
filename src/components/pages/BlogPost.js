@@ -1,17 +1,16 @@
 import React from "react"
-import BlogLayout from './BlogLayout';
+import BlogLayout from '../layouts/Blog';
 import Grid from '@material-ui/core/Grid';
 import Image from "gatsby-image"
-import LanguageWarning from "./LanguageWarning";
+import LanguageWarning from "../LanguageWarning";
 
 export default ( { pageContext } ) => {
   const frontmatter = pageContext.node.frontmatter;
   const html = pageContext.node.html;
   let warning = false;
   if(pageContext.pathLanguage !== pageContext.contentLanguage) warning = true;
-
   return (
-  <BlogLayout>
+  <BlogLayout slug={pageContext.slug}>
     <Grid item xs={12} sm={10} md={8} lg={5} xl={5} className={'wmax'}>
       <div className="blog-header">
         <figure>

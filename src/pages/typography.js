@@ -1,12 +1,12 @@
 import React from "react"
-import PageLayout from "../components/PageLayout"
+import PageLayout from "../components/layouts/Page"
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-export default () => (
-  <PageLayout>
+export default ({pageContext}) => (
+  <PageLayout slug={pageContext.slug}>
     <Grid
       container
       direction="row"

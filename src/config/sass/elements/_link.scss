@@ -25,3 +25,13 @@ a[href*=\#]:not([href$=\#]) {
   left: 0;
   z-index: 1;
 }
+
+a.menu {
+  color: $primary;
+  text-decoration: none;
+  font-size: 80%;
+
+  svg.language-icon {
+    padding-right: 15px;
+  }
+}
