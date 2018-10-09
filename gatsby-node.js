@@ -2,7 +2,7 @@ const i18nConfig = require("./src/config/i18n");
 const path = require('path');
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   const blogPostTemplate = path.resolve("src/components/pages/BlogPost.js");
   const blogIndexTemplate = path.resolve("src/components/pages/BlogIndex.js");
@@ -40,8 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
   }`;
 
-
-  createAllBlogPosts = function() {
+  createAllBlogPosts = async function() {
     let posts = {};
     let languagePosts = {};
     let englishPosts = {};
@@ -57,6 +56,13 @@ exports.createPages = ({ actions, graphql }) => {
           let slug = path.basename(node.frontmatter.path);
           let language = node.frontmatter.path.split("/")[1];
           posts[language][slug] = node;
+          // Redirect naked path to default language
+          createRedirect({
+            fromPath: "/blog/"+slug,
+            isPermanent: true,
+            redirectInBrowser: true,
+            toPath: "/"+i18nConfig.defaultLanguage+"/blog/"+slug,
+          })
         })
         for(let lang of i18nConfig.languages) {
           languagePosts = posts[lang];
@@ -100,5 +106,22 @@ exports.createPages = ({ actions, graphql }) => {
   }
 
   createAllBlogPosts();
+
+  /** Naked paths (without language)
+    * we'll redirect these to the default language equivalent later */
+  let naked = [
+    '/',
+    '/blog'
+  ];
+  // Redirects from naked paths to default language
+  for(nakedPath of naked) {
+    createRedirect({
+      fromPath: nakedPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: "/"+i18nConfig.defaultLanguage+nakedPath,
+    })
+  }
+
 }
 
