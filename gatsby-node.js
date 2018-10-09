@@ -1,124 +1,105 @@
 const i18nConfig = require("./src/config/i18n");
+const queries = require("./src/queries");
 const path = require("path");
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage, createRedirect } = actions;
-
   const blogPostTemplate = path.resolve("src/components/pages/BlogPost.js");
   const blogIndexTemplate = path.resolve("src/components/pages/BlogIndex.js");
+  const naked = ["/", "/blog"];
 
-  const allBlogPostsQuery = `{
-    allMarkdownRemark(
-        filter: {frontmatter: {path: {regex: "/blog/"}}}
-        sort: {fields: [frontmatter___date], order: ASC}
-      ) {
-      edges {
-        node {
-          fileAbsolutePath
-          html
-          id
-          frontmatter {
-            date(formatString: "MMMM Do, YYYY")
-            path
-            title
-            linktitle
-    			  img {
-              childImageSharp {
-                fluid(maxWidth: 2000) {
-                   base64
-                   aspectRatio
-                   src
-                   srcSet
-                   sizes
-                }
-              }
-            }
-            caption
-            author
-            category
-            blurb
-          }
-        }
-      }
+  createPageRedirects = function() {
+    for (nakedPath of naked) {
+      createRedirect({
+        fromPath: nakedPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "/" + i18nConfig.defaultLanguage + nakedPath
+      });
     }
-  }`;
+  };
 
-  createAllBlogPosts = function() {
+  createBlogPostRedirect = function(slug) {
+    createRedirect({
+      fromPath: "/blog/" + slug,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: "/" + i18nConfig.defaultLanguage + "/blog/" + slug
+    });
+  };
+
+  createBlogIndex = function(language, posts) {
+    createPage({
+      path: `/${language}/blog`,
+      component: blogIndexTemplate,
+      context: {
+        posts,
+        language,
+        slug: `/${language}/blog`
+      }
+    });
+  };
+
+  createBlogPost = function(language, contentLanguage, slug, node) {
+    createPage({
+      path: `/${language}/blog/${slug}`,
+      component: blogPostTemplate,
+      context: {
+        node,
+        contentLanguage,
+        language,
+        slug: `/${language}/blog/${slug}`
+      }
+    });
+  };
+
+  createBlogPosts = function() {
     let posts = {};
     let postOrder = {};
-    let languagePosts = {};
     for (let lang of i18nConfig.languages) {
       posts[lang] = {};
       postOrder[lang] = [];
     }
 
-    graphql(allBlogPostsQuery).then(res => {
+    graphql(queries.allBlogPosts).then(res => {
       if (res.errors) return Promise.reject(res.erros);
+
+      // Sort all posts into posts object and postOrder array
       Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
         let node = res.data.allMarkdownRemark.edges[key].node;
         let slug = path.basename(node.frontmatter.path);
         let language = node.frontmatter.path.split("/")[1];
         posts[language][slug] = node;
         postOrder[language].push(slug);
-        // Redirect naked path to default language
-        createRedirect({
-          fromPath: "/blog/" + slug,
-          isPermanent: true,
-          redirectInBrowser: true,
-          toPath: "/" + i18nConfig.defaultLanguage + "/blog/" + slug
-        });
+        createBlogPostRedirect(slug);
       });
+
+      // Create pages for blog posts in all languages
       for (let lang of i18nConfig.languages) {
-        languagePosts = posts[lang];
         for (slug of postOrder[i18nConfig.defaultLanguage]) {
           let contentLanguage;
           let postNode;
-          let origNode = languagePosts[slug];
-          if (typeof languagePosts[slug] === "undefined") {
+          let origNode = posts[lang][slug];
+          if (typeof posts[lang][slug] === "undefined") {
+            // Post not available in this language, use default language instead
             contentLanguage = i18nConfig.defaultLanguage;
             postNode = posts[i18nConfig.defaultLanguage][slug];
           } else {
             contentLanguage = lang;
-            postNode = languagePosts[slug];
+            postNode = posts[lang][slug];
           }
-          // Create blog posts
-          createPage({
-            path: `/${lang}/blog/${slug}`,
-            component: blogPostTemplate,
-            context: {
-              node: postNode,
-              contentLanguage,
-              language: lang,
-              slug: `/${lang}/blog/${slug}`
-            }
-          });
+          createBlogPost(lang, contentLanguage, slug, postNode);
         }
-        // Create blog index pages
-        createPage({
-          path: `/${lang}/blog`,
-          component: blogIndexTemplate,
-          context: {
-            posts: posts,
-            language: lang,
-            slug: `/${lang}/blog`
-          }
-        });
+        createBlogIndex(lang, posts);
       }
     });
   };
 
-  createAllBlogPosts();
-
-  /** Naked paths (without language)
-   * we'll redirect these to the default language equivalent later */
-  let naked = ["/", "/blog"];
-  // Redirects from naked paths to default language
-  for (nakedPath of naked) {
-    createRedirect({
-      fromPath: nakedPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: "/" + i18nConfig.defaultLanguage + nakedPath
-    });
-  }
+  return new Promise((resolve, reject) => {
+    createPageRedirects();
+    createBlogPosts();
+    setTimeout(() => {
+      resolve();
+    }, 10000);
+  });
 };
