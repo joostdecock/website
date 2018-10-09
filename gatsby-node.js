@@ -42,10 +42,11 @@ exports.createPages = ({ actions, graphql }) => {
 
   createAllBlogPosts = async function() {
     let posts = {};
+    let postOrder = {};
     let languagePosts = {};
-    let englishPosts = {};
     for(let lang of i18nConfig.languages) {
       posts[lang] = {};
+      postOrder[lang] = [];
     }
 
     graphql(allBlogPostsQuery)
@@ -56,6 +57,7 @@ exports.createPages = ({ actions, graphql }) => {
           let slug = path.basename(node.frontmatter.path);
           let language = node.frontmatter.path.split("/")[1];
           posts[language][slug] = node;
+          postOrder[language].push(slug);
           // Redirect naked path to default language
           createRedirect({
             fromPath: "/blog/"+slug,
@@ -66,14 +68,13 @@ exports.createPages = ({ actions, graphql }) => {
         })
         for(let lang of i18nConfig.languages) {
           languagePosts = posts[lang];
-          englishPosts = posts.en;
-          Object.keys(englishPosts).forEach((slug) => {
+          for(slug of postOrder[i18nConfig.defaultLanguage]) {
             let contentLanguage;
             let postNode;
             let origNode = languagePosts[slug];
             if(typeof languagePosts[slug] === 'undefined') {
-              contentLanguage = 'en';
-              postNode = englishPosts[slug];
+              contentLanguage = i18nConfig.defaultLanguage;
+              postNode = posts[i18nConfig.defaultLanguage][slug];
             } else {
               contentLanguage = lang;
               postNode = languagePosts[slug];
@@ -89,7 +90,7 @@ exports.createPages = ({ actions, graphql }) => {
                 slug: `/${lang}/blog/${slug}`,
               }
             })
-          })
+          }
           // Create blog index pages
           createPage({
             path: `/${lang}/blog`,
