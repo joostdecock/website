@@ -5,6 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import LanguageSwitcher from './LanguageSwitcher';
+import { slugForLanguage } from "../utils";
+import { FormattedMessage } from 'react-intl';
 
 const styles = {
   root: {
@@ -25,8 +27,8 @@ function FsAppBar(props) {
     <div className={classes.root}>
       <AppBar color="secondary" elevation={0}>
         <Toolbar>
-          <Button color="inherit" href="/">Freesewing</Button>
-          <Button color="inherit" href="/en/blog/">Blog</Button>
+          <Button color="inherit" href={slugForLanguage('/', props.language)}>Freesewing</Button>
+          <Button color="inherit" href={slugForLanguage('/blog/', props.language)}>Blog</Button>
           <span style={styles.grow} />
           <LanguageSwitcher language={props.language} slug={props.slug}/>
         </Toolbar>

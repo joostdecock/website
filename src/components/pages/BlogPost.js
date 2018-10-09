@@ -2,13 +2,15 @@ import React from "react"
 import BlogLayout from '../layouts/Blog';
 import Grid from '@material-ui/core/Grid';
 import Image from "gatsby-image"
-import LanguageWarning from "../LanguageWarning";
+import Warning from "../Warning";
+import Translate from "@material-ui/icons/Translate";
+import { FormattedMessage } from 'react-intl';
 
 export default ( { pageContext } ) => {
   const frontmatter = pageContext.node.frontmatter;
   const html = pageContext.node.html;
   let warning = false;
-  if(pageContext.pathLanguage !== pageContext.contentLanguage) warning = true;
+  if(pageContext.language !== pageContext.contentLanguage) warning = true;
   return (
   <BlogLayout slug={pageContext.slug}>
     <Grid item xs={12} sm={10} md={8} lg={5} xl={5} className={'wmax'}>
@@ -26,11 +28,11 @@ export default ( { pageContext } ) => {
     </Grid>
     <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
       <div className="blog-post">
-        <LanguageWarning
-          show={warning}
-          title="This content is not available in the language of your choice"
-          message="FIXME: Meaningful message here"
-        />
+        <Warning show={warning}>
+          <Translate />
+          <h3><FormattedMessage id="app.thisContentIsNotAvailableInLanguage" /></h3>
+          <p><FormattedMessage id="app.contentLocaleFallback" /></p>
+        </Warning>
         <ul className="meta">
           <li>{frontmatter.date}</li>
           <li>#{frontmatter.category}</li>
