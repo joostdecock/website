@@ -51,6 +51,7 @@ module.exports = {
         langKeyDefault: i18nConfig.defaultLanguage,
         useLangKeyLayout: false
       }
-    }
+    },
+    "gatsby-plugin-netlify",
   ]
 };

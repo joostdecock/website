@@ -1,11 +1,11 @@
 div.warning {
   background: $primary;
   color: white;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem 2rem;
   margin: 1rem auto;
   border-left: 10px solid orange;
 
-  h4:first-of-type {
+  h3:first-of-type {
     margin-top: 0;
   }
 
@@ -13,5 +13,6 @@ div.warning {
     float: right;
     margin: -1rem -1rem 0 0;
     color: orange;
+    font-size: 80px;
   }
 }

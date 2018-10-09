@@ -3,6 +3,7 @@ import PageLayout from "../components/layouts/Page"
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import { Link } from "gatsby"
+import { FormattedMessage } from 'react-intl';
 
 export default ({pageContext}) => (
   <PageLayout slug={pageContext.slug}>
@@ -13,7 +14,7 @@ export default ({pageContext}) => (
   alignItems="center"
   >
   <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-  <h1>freesewing frontend</h1>
+  <h1><FormattedMessage id="app.sewingPatternsForNonAveragePeople" /></h1>
 
   <p>This is a work in progress to build a new freesewing.org
   frontend to go along the JavaScript rewrite of our core library.</p>

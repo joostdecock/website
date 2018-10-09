@@ -2,13 +2,16 @@ const i18nConfig = require("./src/config/i18n");
 const path = require('path');
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   const blogPostTemplate = path.resolve("src/components/pages/BlogPost.js");
   const blogIndexTemplate = path.resolve("src/components/pages/BlogIndex.js");
 
   const allBlogPostsQuery = `{
-    allMarkdownRemark {
+    allMarkdownRemark(
+        filter: {frontmatter: {path: {regex: "/blog/"}}}
+        sort: {fields: [frontmatter___date], order: ASC}
+      ) {
       edges {
         node {
           fileAbsolutePath
@@ -40,13 +43,13 @@ exports.createPages = ({ actions, graphql }) => {
     }
   }`;
 
-
-  createAllBlogPosts = function() {
+  createAllBlogPosts = async function() {
     let posts = {};
+    let postOrder = {};
     let languagePosts = {};
-    let englishPosts = {};
     for(let lang of i18nConfig.languages) {
       posts[lang] = {};
+      postOrder[lang] = [];
     }
 
     graphql(allBlogPostsQuery)
@@ -57,17 +60,24 @@ exports.createPages = ({ actions, graphql }) => {
           let slug = path.basename(node.frontmatter.path);
           let language = node.frontmatter.path.split("/")[1];
           posts[language][slug] = node;
+          postOrder[language].push(slug);
+          // Redirect naked path to default language
+          createRedirect({
+            fromPath: "/blog/"+slug,
+            isPermanent: true,
+            redirectInBrowser: true,
+            toPath: "/"+i18nConfig.defaultLanguage+"/blog/"+slug,
+          })
         })
         for(let lang of i18nConfig.languages) {
           languagePosts = posts[lang];
-          englishPosts = posts.en;
-          Object.keys(englishPosts).forEach((slug) => {
+          for(slug of postOrder[i18nConfig.defaultLanguage]) {
             let contentLanguage;
             let postNode;
             let origNode = languagePosts[slug];
             if(typeof languagePosts[slug] === 'undefined') {
-              contentLanguage = 'en';
-              postNode = englishPosts[slug];
+              contentLanguage = i18nConfig.defaultLanguage;
+              postNode = posts[i18nConfig.defaultLanguage][slug];
             } else {
               contentLanguage = lang;
               postNode = languagePosts[slug];
@@ -83,7 +93,7 @@ exports.createPages = ({ actions, graphql }) => {
                 slug: `/${lang}/blog/${slug}`,
               }
             })
-          })
+          }
           // Create blog index pages
           createPage({
             path: `/${lang}/blog`,
@@ -100,5 +110,22 @@ exports.createPages = ({ actions, graphql }) => {
   }
 
   createAllBlogPosts();
+
+  /** Naked paths (without language)
+    * we'll redirect these to the default language equivalent later */
+  let naked = [
+    '/',
+    '/blog'
+  ];
+  // Redirects from naked paths to default language
+  for(nakedPath of naked) {
+    createRedirect({
+      fromPath: nakedPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: "/"+i18nConfig.defaultLanguage+nakedPath,
+    })
+  }
+
 }
 
