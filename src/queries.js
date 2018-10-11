@@ -68,7 +68,27 @@ const allShowcasePosts = `{
   }
 }`;
 
+const allDocumentation = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        fileAbsolutePath
+        html
+        id
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
 module.exports = {
   allBlogPosts,
-  allShowcasePosts
+  allShowcasePosts,
+  allDocumentation
 };

@@ -12,10 +12,21 @@ exports.createPages = ({ actions, graphql }) => {
   const showcaseIndexTemplate = path.resolve(
     "src/components/pages/ShowcaseIndex.js"
   );
+  const documentationTemplate = path.resolve(
+    "src/components/pages/Documentation.js"
+  );
+
+  // FIXME: Add naked markdown links (/about /contact and so on)
   const naked = ["/", "/blog", "/showcase"];
 
   createPageRedirects = function() {
     for (nakedPath of naked) {
+      console.log(
+        "Creating redirect from",
+        nakedPath,
+        "to",
+        "/" + i18nConfig.defaultLanguage + nakedPath
+      );
       createRedirect({
         fromPath: nakedPath,
         isPermanent: true,
@@ -26,6 +37,12 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogPostRedirect = function(slug) {
+    console.log(
+      "Creating redirect from",
+      "/blog/" + slug,
+      "to",
+      "/" + i18nConfig.defaultLanguage + "/blog/" + slug
+    );
     createRedirect({
       fromPath: "/blog/" + slug,
       isPermanent: true,
@@ -35,6 +52,12 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePostRedirect = function(slug) {
+    console.log(
+      "Creating redirect from",
+      "/showcase/" + slug,
+      "to",
+      "/" + i18nConfig.defaultLanguage + "/showcase/" + slug
+    );
     createRedirect({
       fromPath: "/showcase/" + slug,
       isPermanent: true,
@@ -43,7 +66,23 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
+  createDocumentationRedirect = function(slug) {
+    console.log(
+      "Creating redirect from",
+      slug,
+      "to",
+      "/" + i18nConfig.defaultLanguage + slug
+    );
+    createRedirect({
+      fromPath: slug,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: "/" + i18nConfig.defaultLanguage + slug
+    });
+  };
+
   createBlogIndex = function(language, posts) {
+    console.log("Creating blog index page for", language);
     createPage({
       path: `/${language}/blog`,
       component: blogIndexTemplate,
@@ -56,6 +95,7 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcaseIndex = function(language, posts) {
+    console.log("Creating showcase index page for", language);
     createPage({
       path: `/${language}/showcase`,
       component: showcaseIndexTemplate,
@@ -68,6 +108,7 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogPost = function(language, contentLanguage, slug, node) {
+    console.log("Creating blog post", `/${language}/blog/${slug}`);
     createPage({
       path: `/${language}/blog/${slug}`,
       component: blogPostTemplate,
@@ -81,6 +122,7 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePost = function(language, contentLanguage, slug, node) {
+    console.log("Creating showcase post", `/${language}/showcase/${slug}`);
     createPage({
       path: `/${language}/showcase/${slug}`,
       component: showcasePostTemplate,
@@ -89,6 +131,20 @@ exports.createPages = ({ actions, graphql }) => {
         contentLanguage,
         language,
         slug: `/${language}/showcase/${slug}`
+      }
+    });
+  };
+
+  createDocumentationPage = function(language, contentLanguage, slug, node) {
+    console.log("Creating documentation page", `/${language}${slug}`);
+    createPage({
+      path: `/${language}${slug}`,
+      component: documentationTemplate,
+      context: {
+        node,
+        contentLanguage,
+        language,
+        slug: `/${language}${slug}`
       }
     });
   };
@@ -177,10 +233,48 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
+  createDocumentation = function() {
+    let pages = {};
+    for (let lang of i18nConfig.languages) pages[lang] = {};
+
+    graphql(queries.allDocumentation).then(res => {
+      if (res.errors) return Promise.reject(res.erros);
+
+      // Sort all pages into pages object
+      Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
+        let node = res.data.allMarkdownRemark.edges[key].node;
+        let language = node.frontmatter.path.split("/")[1];
+        let slug = node.frontmatter.path.substr(language.length + 1);
+        pages[language][slug] = node;
+        createDocumentationRedirect(slug);
+      });
+      // Create documentation pages all languages
+      for (let lang of i18nConfig.languages) {
+        Object.keys(pages[i18nConfig.defaultLanguage]).forEach(slug => {
+          let contentLanguage;
+          let pageNode;
+          let origNode = pages[lang][slug];
+          if (typeof pages[lang][slug] === "undefined") {
+            // Page not available in this language, use default language instead
+            contentLanguage = i18nConfig.defaultLanguage;
+            pageNode = pages[i18nConfig.defaultLanguage][slug];
+          } else {
+            contentLanguage = lang;
+            pageNode = pages[lang][slug];
+          }
+          createDocumentationPage(lang, contentLanguage, slug, pageNode);
+        });
+        // FIXME: Create documentation indexes
+        //createShowcaseIndex(lang, pages);
+      }
+    });
+  };
+
   return new Promise((resolve, reject) => {
     createPageRedirects();
     createBlogPosts();
     createShowcasePosts();
+    createDocumentation();
     /** FIXME: This is an embarassing hack because we return here before all pages are created
      * and that causes webpack issues when deploying to netlify
      * see: https://github.com/gatsbyjs/gatsby/issues/8936
@@ -189,5 +283,6 @@ exports.createPages = ({ actions, graphql }) => {
     setTimeout(() => {
       resolve();
     }, 15000);
+    resolve();
   });
 };
