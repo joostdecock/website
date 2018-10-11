@@ -1,6 +1,4 @@
 import React from "react";
-import Icon from "@material-ui/core/Icon";
-import { Link } from "gatsby";
 
 export default () => (
   <div>
@@ -21,6 +19,6 @@ export default () => (
       </a>{" "}
       for <a href="https://github.com/freesewing/website">this repository</a>.
     </p>
-    <p>If you want to click on things, the blog works, as does translation.</p>
+    <p>If you want to click on things, all the links in the menu work. </p>
   </div>
 );
