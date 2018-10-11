@@ -71,6 +71,22 @@ function FsAppBar(props) {
     ]
   };
 
+  const documentationMenu = {
+    label: "app.docs",
+    items: [
+      {
+        link: slugForLanguage("/docs/about", props.language),
+        label: "app.aboutFreesewing",
+        icon: "info"
+      },
+      {
+        link: "https://developer.freesewing.org/",
+        label: "app.documentationForDevelopers",
+        icon: "code"
+      }
+    ]
+  };
+
   return (
     <div className={classes.root}>
       <AppBar color="secondary" elevation={0}>
@@ -84,6 +100,7 @@ function FsAppBar(props) {
           >
             <FormattedMessage id="app.blog" />
           </Button>
+          <DropDownButton language={props.language} {...documentationMenu} />
           <DropDownButton language={props.language} {...communityMenu} />
           <span style={styles.grow} />
           <DropDownButton language={props.language} {...languageMenu} />
