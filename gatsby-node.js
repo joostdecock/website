@@ -188,6 +188,6 @@ exports.createPages = ({ actions, graphql }) => {
      */
     setTimeout(() => {
       resolve();
-    }, 10000);
+    }, 15000);
   });
 };

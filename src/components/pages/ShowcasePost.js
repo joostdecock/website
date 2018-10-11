@@ -9,7 +9,6 @@ import { FormattedMessage } from "react-intl";
 export default ({ pageContext }) => {
   const frontmatter = pageContext.node.frontmatter;
   const html = pageContext.node.html;
-  console.log(frontmatter);
   let warning = false;
   if (pageContext.language !== pageContext.contentLanguage) warning = true;
   return (
