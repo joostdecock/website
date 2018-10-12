@@ -9,11 +9,12 @@ author: joost
 category: roundup
 blurb: "A roundup of all the freesewing news of the last month"
 ---
+
 This is your monthly roundup of the freesewing news of the last four weeks, and a look at what lies ahead in the next month.
 
 ## Looking back at November
 November has been busy around here. While lot of the work has been happening behind the scenes
---- more on that in December --- there's also a list of things that are already rolled out.
+-- more on that in December -- there's also a list of things that are already rolled out.
 
 Here's the most important changes:
 
@@ -25,7 +26,7 @@ First up: a new pattern. The Benjamin Bow tie is [now available](/patterns/benja
 
 ![More bow ties from Wouter's personal stash](bowties.jpg)
 
-Benjamin is a bow tie, and as I explained in [the announcement blog post](/blog/benjamin-bow-tie-beta/) 
+Benjamin is a bow tie, and as I explained in [the announcement blog post](/en/blog/benjamin-bow-tie-beta/) 
 this release is kind of a big deal.
 
 That's because it's the first ever pattern to have been contributed by the community.
@@ -163,4 +164,3 @@ But that news will have to play second fiddle to our wrap up of the year
 we'll also be rolling out some changes to safeguard the future of this project.
 
 10 more sleeps :)
-
