@@ -19,25 +19,6 @@ exports.createPages = ({ actions, graphql }) => {
   // FIXME: Add naked markdown links (/about /contact and so on)
   const naked = ["/", "/blog", "/showcase"];
 
-  createPageRedirects = function() {
-    for (nakedPath of naked) {
-      /*
-      console.log(
-        "Creating redirect from",
-        nakedPath,
-        "to",
-        "/" + i18nConfig.defaultLanguage + nakedPath
-      );
-      */
-      createRedirect({
-        fromPath: nakedPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "/" + i18nConfig.defaultLanguage + nakedPath
-      });
-    }
-  };
-
   createBlogPostRedirect = function(slug) {
     /*
     console.log(
@@ -167,140 +148,183 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
-  createBlogPosts = function() {
-    let posts = {};
-    let postOrder = {};
-    for (let lang of i18nConfig.languages) {
-      posts[lang] = {};
-      postOrder[lang] = [];
-    }
-
-    graphql(queries.allBlogPosts).then(res => {
-      if (res.errors) return Promise.reject(res.erros);
-
-      // Sort all posts into posts object and postOrder array
-      Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
-        let node = res.data.allMarkdownRemark.edges[key].node;
-        let slug = path.basename(node.frontmatter.path);
-        let language = node.frontmatter.path.split("/")[1];
-        posts[language][slug] = node;
-        postOrder[language].push(slug);
-        createBlogPostRedirect(slug);
-      });
-
-      // Create pages for blog posts in all languages
-      for (let lang of i18nConfig.languages) {
-        for (slug of postOrder[i18nConfig.defaultLanguage]) {
-          let contentLanguage;
-          let postNode;
-          let origNode = posts[lang][slug];
-          if (typeof posts[lang][slug] === "undefined") {
-            // Post not available in this language, use default language instead
-            contentLanguage = i18nConfig.defaultLanguage;
-            postNode = posts[i18nConfig.defaultLanguage][slug];
-          } else {
-            contentLanguage = lang;
-            postNode = posts[lang][slug];
-          }
-          createBlogPost(lang, contentLanguage, slug, postNode);
-        }
-        createBlogIndex(lang, posts);
+  createPageRedirects = function() {
+    return new Promise((resolve, reject) => {
+      for (nakedPath of naked) {
+        /*
+        console.log(
+          "Creating redirect from",
+          nakedPath,
+          "to",
+          "/" + i18nConfig.defaultLanguage + nakedPath
+        );
+        */
+        createRedirect({
+          fromPath: nakedPath,
+          isPermanent: true,
+          redirectInBrowser: true,
+          toPath: "/" + i18nConfig.defaultLanguage + nakedPath
+        });
       }
+      /*
+      console.log('Page redirects created');
+      */
+      return resolve();
+    });
+  };
+
+  createBlogPosts = function() {
+    return new Promise((resolve, reject) => {
+      let posts = {};
+      let postOrder = {};
+      for (let lang of i18nConfig.languages) {
+        posts[lang] = {};
+        postOrder[lang] = [];
+      }
+
+      graphql(queries.allBlogPosts).then(res => {
+        if (res.errors) return Promise.reject(res.erros);
+
+        // Sort all posts into posts object and postOrder array
+        Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
+          let node = res.data.allMarkdownRemark.edges[key].node;
+          let slug = path.basename(node.frontmatter.path);
+          let language = node.frontmatter.path.split("/")[1];
+          posts[language][slug] = node;
+          postOrder[language].push(slug);
+          createBlogPostRedirect(slug);
+        });
+
+        // Create pages for blog posts in all languages
+        for (let lang of i18nConfig.languages) {
+          for (slug of postOrder[i18nConfig.defaultLanguage]) {
+            let contentLanguage;
+            let postNode;
+            let origNode = posts[lang][slug];
+            if (typeof posts[lang][slug] === "undefined") {
+              // Post not available in this language, use default language instead
+              contentLanguage = i18nConfig.defaultLanguage;
+              postNode = posts[i18nConfig.defaultLanguage][slug];
+            } else {
+              contentLanguage = lang;
+              postNode = posts[lang][slug];
+            }
+            createBlogPost(lang, contentLanguage, slug, postNode);
+          }
+          createBlogIndex(lang, posts);
+        }
+      });
+      /*
+      console.log('Blogposts created');
+      */
+      return resolve();
     });
   };
 
   createShowcasePosts = function() {
-    let posts = {};
-    let postOrder = {};
-    for (let lang of i18nConfig.languages) {
-      posts[lang] = {};
-      postOrder[lang] = [];
-    }
-
-    graphql(queries.allShowcasePosts).then(res => {
-      if (res.errors) return Promise.reject(res.erros);
-
-      // Sort all posts into posts object and postOrder array
-      Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
-        let node = res.data.allMarkdownRemark.edges[key].node;
-        let slug = path.basename(node.frontmatter.path);
-        let language = node.frontmatter.path.split("/")[1];
-        posts[language][slug] = node;
-        postOrder[language].push(slug);
-        createShowcasePostRedirect(slug);
-      });
-
-      // Create pages for showcase posts in all languages
+    return new Promise((resolve, reject) => {
+      let posts = {};
+      let postOrder = {};
       for (let lang of i18nConfig.languages) {
-        for (slug of postOrder[i18nConfig.defaultLanguage]) {
-          let contentLanguage;
-          let postNode;
-          let origNode = posts[lang][slug];
-          if (typeof posts[lang][slug] === "undefined") {
-            // Post not available in this language, use default language instead
-            contentLanguage = i18nConfig.defaultLanguage;
-            postNode = posts[i18nConfig.defaultLanguage][slug];
-          } else {
-            contentLanguage = lang;
-            postNode = posts[lang][slug];
-          }
-          createShowcasePost(lang, contentLanguage, slug, postNode);
-        }
-        createShowcaseIndex(lang, posts);
+        posts[lang] = {};
+        postOrder[lang] = [];
       }
+
+      graphql(queries.allShowcasePosts).then(res => {
+        if (res.errors) return Promise.reject(res.erros);
+
+        // Sort all posts into posts object and postOrder array
+        Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
+          let node = res.data.allMarkdownRemark.edges[key].node;
+          let slug = path.basename(node.frontmatter.path);
+          let language = node.frontmatter.path.split("/")[1];
+          posts[language][slug] = node;
+          postOrder[language].push(slug);
+          createShowcasePostRedirect(slug);
+        });
+
+        // Create pages for showcase posts in all languages
+        for (let lang of i18nConfig.languages) {
+          for (slug of postOrder[i18nConfig.defaultLanguage]) {
+            let contentLanguage;
+            let postNode;
+            let origNode = posts[lang][slug];
+            if (typeof posts[lang][slug] === "undefined") {
+              // Post not available in this language, use default language instead
+              contentLanguage = i18nConfig.defaultLanguage;
+              postNode = posts[i18nConfig.defaultLanguage][slug];
+            } else {
+              contentLanguage = lang;
+              postNode = posts[lang][slug];
+            }
+            createShowcasePost(lang, contentLanguage, slug, postNode);
+          }
+          createShowcaseIndex(lang, posts);
+        }
+      });
+      /*
+      console.log('Showcases created');
+      */
+      return resolve();
     });
   };
 
   createDocumentation = function() {
-    let pages = {};
-    for (let lang of i18nConfig.languages) pages[lang] = {};
+    return new Promise((resolve, reject) => {
+      let pages = {};
+      for (let lang of i18nConfig.languages) pages[lang] = {};
 
-    graphql(queries.allDocumentation).then(res => {
-      if (res.errors) return Promise.reject(res.erros);
+      graphql(queries.allDocumentation).then(res => {
+        if (res.errors) return Promise.reject(res.erros);
 
-      // Sort all pages into pages object
-      Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
-        let node = res.data.allMarkdownRemark.edges[key].node;
-        let language = node.frontmatter.path.split("/")[1];
-        let slug = node.frontmatter.path.substr(language.length + 1);
-        pages[language][slug] = node;
-        createDocumentationRedirect(slug);
-      });
-      // Create documentation pages all languages
-      for (let lang of i18nConfig.languages) {
-        Object.keys(pages[i18nConfig.defaultLanguage]).forEach(slug => {
-          let contentLanguage;
-          let pageNode;
-          let origNode = pages[lang][slug];
-          if (typeof pages[lang][slug] === "undefined") {
-            // Page not available in this language, use default language instead
-            contentLanguage = i18nConfig.defaultLanguage;
-            pageNode = pages[i18nConfig.defaultLanguage][slug];
-          } else {
-            contentLanguage = lang;
-            pageNode = pages[lang][slug];
-          }
-          createDocumentationPage(lang, contentLanguage, slug, pageNode);
+        // Sort all pages into pages object
+        Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
+          let node = res.data.allMarkdownRemark.edges[key].node;
+          let language = node.frontmatter.path.split("/")[1];
+          let slug = node.frontmatter.path.substr(language.length + 1);
+          pages[language][slug] = node;
+          createDocumentationRedirect(slug);
         });
-        // FIXME: Create documentation indexes
-        //createShowcaseIndex(lang, pages);
-      }
+        // Create documentation pages all languages
+        for (let lang of i18nConfig.languages) {
+          Object.keys(pages[i18nConfig.defaultLanguage]).forEach(slug => {
+            let contentLanguage;
+            let pageNode;
+            let origNode = pages[lang][slug];
+            if (typeof pages[lang][slug] === "undefined") {
+              // Page not available in this language, use default language instead
+              contentLanguage = i18nConfig.defaultLanguage;
+              pageNode = pages[i18nConfig.defaultLanguage][slug];
+            } else {
+              contentLanguage = lang;
+              pageNode = pages[lang][slug];
+            }
+            createDocumentationPage(lang, contentLanguage, slug, pageNode);
+          });
+          // FIXME: Create documentation indexes
+          //createShowcaseIndex(lang, pages);
+        }
+      });
+      /*
+      console.log('Documentation created');
+      */
+      return resolve();
     });
   };
 
   return new Promise((resolve, reject) => {
-    createPageRedirects();
-    createBlogPosts();
-    createShowcasePosts();
-    createDocumentation();
-    /** FIXME: This is an embarassing hack because we return here before all pages are created
-     * and that causes webpack issues when deploying to netlify
-     * see: https://github.com/gatsbyjs/gatsby/issues/8936
-     * This ugly hack needs to go, in favor of proper promises
-     */
-    setTimeout(() => {
-      resolve();
-    }, 25000);
-    resolve();
+    createPageRedirects()
+      .then(() => {
+        createBlogPosts();
+      })
+      .then(() => {
+        createShowcasePosts();
+      })
+      .then(() => {
+        createDocumentation();
+      })
+      .then(() => {
+        return resolve();
+      });
   });
 };
