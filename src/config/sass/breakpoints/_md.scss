@@ -1,0 +1,8 @@
+@include md-screen {
+  .not-on-mobile {
+    display: inherit;
+  }
+  .only-on-mobile {
+    display: none;
+  }
+}

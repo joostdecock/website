@@ -38,26 +38,30 @@ function FsAppBar(props) {
           <Button color="inherit" href={slugForLanguage("/", props.language)}>
             <FormattedMessage id="app.freesewing" />
           </Button>
-          <Button
-            color="inherit"
-            href={slugForLanguage("/blog/", props.language)}
-          >
-            <FormattedMessage id="app.blog" />
-          </Button>
-          <DropDownButton
-            language={props.language}
-            {...documentationMenu(props.language)}
-          />
-          <DropDownButton
-            language={props.language}
-            {...communityMenu(props.language)}
-          />
+          <div className="not-on-mobile">
+            <Button
+              color="inherit"
+              href={slugForLanguage("/blog/", props.language)}
+            >
+              <FormattedMessage id="app.blog" />
+            </Button>
+            <DropDownButton
+              language={props.language}
+              {...documentationMenu(props.language)}
+            />
+            <DropDownButton
+              language={props.language}
+              {...communityMenu(props.language)}
+            />
+          </div>
           <span style={styles.grow} />
           <DropDownButton
             language={props.language}
             {...languageMenu(props.slug, props.language)}
           />
-          <MobileMenu language={props.language} />
+          <div className="only-on-mobile">
+            <MobileMenu language={props.language} />
+          </div>
         </Toolbar>
       </AppBar>
     </div>

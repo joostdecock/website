@@ -3,6 +3,8 @@ import React from "react";
 export default () => (
   <div>
     <h4>(the rest of this text is not translated)</h4>
+    <p className="not-on-mobile">not on mobile</p>
+    <p className="only-on-mobile">only on mobile</p>
     <p>
       This is a work in progress to build a new freesewing.org frontend to go
       along the JavaScript rewrite of our core library.

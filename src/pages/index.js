@@ -9,7 +9,7 @@ export default ({ pageContext }) => (
   <PageLayout slug={pageContext.slug}>
     <Grid container direction="row" justify="center" alignItems="center">
       <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-        <h1>
+        <h1 className="not-on-sm">
           <FormattedMessage id="app.sewingPatternsForNonAveragePeople" />
         </h1>
         <p>

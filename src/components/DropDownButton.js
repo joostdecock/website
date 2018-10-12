@@ -38,7 +38,7 @@ class DropDownButton extends React.Component {
     let icon = "";
     let label = "";
     if (typeof this.props.text === "string") {
-      label = this.props.text;
+      label = <span className="not-on-mobile">{this.props.text}</span>;
     } else {
       label = <FormattedMessage id={this.props.label} />;
     }
