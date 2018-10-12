@@ -104,9 +104,6 @@ exports.createPages = ({ actions, graphql }) => {
     /*
     console.log("Creating blog post", `/${language}/blog/${slug}`);
     */
-    if (typeof node === "undefined") {
-      console.log("Could not load node for Blog post ", language, slug);
-    }
     createPage({
       path: `/${language}/blog/${slug}`,
       component: blogPostTemplate,
@@ -320,12 +317,12 @@ exports.createPages = ({ actions, graphql }) => {
       .then(() => {
         createBlogPosts();
       })
-      .then(() => {
-        createShowcasePosts();
-      })
-      .then(() => {
-        createDocumentation();
-      })
+      //.then(() => {
+      //  createShowcasePosts();
+      //})
+      //.then(() => {
+      //  createDocumentation();
+      //})
       .then(() => {
         return resolve();
       });
