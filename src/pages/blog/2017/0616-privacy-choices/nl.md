@@ -7,7 +7,6 @@ img: fence.jpg
 caption: "Foto door <a href='https://pixabay.com/en/users/herbert2512-2929941/' target='_BLANK' rel='nofollow'>Herbert</a>"
 author: joost
 category: site
-translators: joostdecock
 blurb: "Ik wou doen wat correct was. Dit zijn de keuzes die ik heb gemaakt."
 ---
 Het internet ondergraaft steeds meer je privacy. Facebook, Google, en een kluwen aan advertentienetwerken houden allemaal in de gaten wat zich afspeelt in je browser. Ze volgen je op het web van site tot site, en verzamelen zoveel mogelijk informatie over je om je te profileren. Die informatie verkopen ze dan aan adverteerders.
