@@ -17,4 +17,8 @@ documentationForDevelopers: Documentation for developers
 aboutFreesewing: About Freesewing
 toggleDarkMode: Toggle dark mode
 txt-footer: Freesewing is made by Joost De Cock & contributors<br>with the financial support of our Patrons
+contents: Contents
+translateThisContent: Translate this content
+translatorPitch: 'Even if you have never contributed to an open source project, translation is a smooth on-ramp towards contributor fame.'
+documentationForTranslators: Documentation for translators
 

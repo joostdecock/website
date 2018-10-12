@@ -16,4 +16,8 @@ docs: Documentation
 documentationForDevelopers: Documentation pour les développeurs
 aboutFreesewing: À propos de Freesewing
 txt-footer: Freesewing est la création de Joost De Cock et ses contributeurs<br>avec le soutien financier de mécènes
+contents: Contenus
+translateThisContent: Traduire ce contenu
+translatorPitch: 'Même si vous n''avez jamais contribué à un projet open source, la traduction est un bon point de départ vers la renommée des contributeurs.'
+documentationForTranslators: Documentation pour les traducteurs
 

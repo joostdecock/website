@@ -77,6 +77,7 @@ const allDocumentation = `{
       node {
         fileAbsolutePath
         html
+        tableOfContents(pathToSlugField: "frontmatter.path")
         id
         frontmatter {
           path

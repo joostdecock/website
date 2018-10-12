@@ -41,7 +41,16 @@ module.exports = {
               maxWidth: 650,
               showCaptions: true,
               linkImagesToOriginal: true,
-              backgroundColor: "#212121"
+              backgroundColor: "#000"
+            }
+          },
+          {
+            resolve: "gatsby-remark-toc",
+            options: {
+              header: "Table of Contents", // the custom header text
+              include: [
+                "markdown/**/*.md" // an include glob to match against
+              ]
             }
           }
         ]

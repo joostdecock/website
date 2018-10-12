@@ -14,4 +14,12 @@ const slugForLanguage = (slug, language) => {
   } else return "/" + language + slug;
 };
 
-export { languageFromSlug, slugForLanguage };
+const fileOnGithub = path => {
+  //FIXME: This will probably break on Windows
+  return (
+    "https://github.com/freesewing/website/edit/develop/src/" +
+    path.split("/src/")[1]
+  );
+};
+
+export { languageFromSlug, slugForLanguage, fileOnGithub };

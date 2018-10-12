@@ -1,2 +1,25 @@
 @import 'layouts/blogindex';
 @import 'layouts/blogpost';
+
+div.toc,
+div.cot {
+  position: sticky;
+  top: 84px;
+
+  h3 {
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+}
+
+div.toc {
+  padding-right: 1rem;
+  ul {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
