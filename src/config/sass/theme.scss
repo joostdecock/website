@@ -1,9 +1,12 @@
 $primary: #212121;
 $secondary: #ffffff;
-$link: #1565c0;
+$link: #2979ff;
+$black: #000;
+$grey: #ccc;
 
 body {
   background-color: $secondary;
+  color: $primary;
 }
 div.fs-base {
   margin-top: 64px;
@@ -17,5 +20,6 @@ div.fs-base {
 @import 'breakpoints';
 @import 'components';
 
+@import 'dark';
 @import 'utility';
 

@@ -16,3 +16,9 @@ div.warning {
     font-size: 80px;
   }
 }
+
+body.dark div.warning {
+  background: $black;
+  color: $grey;
+}
+

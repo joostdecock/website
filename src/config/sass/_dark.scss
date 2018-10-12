@@ -1,0 +1,8 @@
+body.dark {
+  background-color: $primary;
+  color: $grey;
+
+  figure img {
+    filter: brightness(50%);
+  }
+}
