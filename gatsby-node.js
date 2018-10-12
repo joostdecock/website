@@ -317,12 +317,12 @@ exports.createPages = ({ actions, graphql }) => {
       .then(() => {
         createBlogPosts();
       })
-      .then(() => {
-        createShowcasePosts();
-      })
-      .then(() => {
-        createDocumentation();
-      })
+      //.then(() => {
+      //  createShowcasePosts();
+      //})
+      //.then(() => {
+      //  createDocumentation();
+      //})
       .then(() => {
         return resolve();
       });
