@@ -57,7 +57,7 @@ class MobileMenu extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <div className="mobile-menu">
+          <div className="mobile-menu" onClick={this.handleClose}>
             <AppBar color="secondary" elevation={0}>
               <Toolbar>
                 <span style={styles.grow} />

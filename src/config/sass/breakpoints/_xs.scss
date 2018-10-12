@@ -1,4 +1,10 @@
 @include xs-screen {
+  .not-on-mobile {
+    display: none;
+  }
+  .only-on-mobile {
+    display: inherit;
+  }
 
   div.page,
   div.blog-post,
