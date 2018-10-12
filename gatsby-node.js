@@ -317,14 +317,17 @@ exports.createPages = ({ actions, graphql }) => {
       .then(() => {
         createBlogPosts();
       })
-      //.then(() => {
-      //  createShowcasePosts();
-      //})
-      //.then(() => {
-      //  createDocumentation();
-      //})
       .then(() => {
-        return resolve();
+        createShowcasePosts();
+      })
+      .then(() => {
+        createDocumentation();
+      })
+      .then(() => {
+        // FIXME: This hack has to go
+        setTimeout(function() {
+          resolve();
+        }, 30000);
       });
   });
 };
