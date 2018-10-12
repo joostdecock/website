@@ -21,12 +21,14 @@ exports.createPages = ({ actions, graphql }) => {
 
   createPageRedirects = function() {
     for (nakedPath of naked) {
+      /*
       console.log(
         "Creating redirect from",
         nakedPath,
         "to",
         "/" + i18nConfig.defaultLanguage + nakedPath
       );
+      */
       createRedirect({
         fromPath: nakedPath,
         isPermanent: true,
@@ -37,12 +39,14 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogPostRedirect = function(slug) {
+    /*
     console.log(
       "Creating redirect from",
       "/blog/" + slug,
       "to",
       "/" + i18nConfig.defaultLanguage + "/blog/" + slug
     );
+    */
     createRedirect({
       fromPath: "/blog/" + slug,
       isPermanent: true,
@@ -52,12 +56,14 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePostRedirect = function(slug) {
+    /*
     console.log(
       "Creating redirect from",
       "/showcase/" + slug,
       "to",
       "/" + i18nConfig.defaultLanguage + "/showcase/" + slug
     );
+    */
     createRedirect({
       fromPath: "/showcase/" + slug,
       isPermanent: true,
@@ -67,12 +73,14 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createDocumentationRedirect = function(slug) {
+    /*
     console.log(
       "Creating redirect from",
       slug,
       "to",
       "/" + i18nConfig.defaultLanguage + slug
     );
+    */
     createRedirect({
       fromPath: slug,
       isPermanent: true,
@@ -82,7 +90,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogIndex = function(language, posts) {
+    /*
     console.log("Creating blog index page for", language);
+    */
     createPage({
       path: `/${language}/blog`,
       component: blogIndexTemplate,
@@ -95,7 +105,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcaseIndex = function(language, posts) {
+    /*
     console.log("Creating showcase index page for", language);
+    */
     createPage({
       path: `/${language}/showcase`,
       component: showcaseIndexTemplate,
@@ -108,7 +120,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogPost = function(language, contentLanguage, slug, node) {
+    /*
     console.log("Creating blog post", `/${language}/blog/${slug}`);
+    */
     createPage({
       path: `/${language}/blog/${slug}`,
       component: blogPostTemplate,
@@ -122,7 +136,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePost = function(language, contentLanguage, slug, node) {
+    /*
     console.log("Creating showcase post", `/${language}/showcase/${slug}`);
+    */
     createPage({
       path: `/${language}/showcase/${slug}`,
       component: showcasePostTemplate,
@@ -136,7 +152,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createDocumentationPage = function(language, contentLanguage, slug, node) {
+    /*
     console.log("Creating documentation page", `/${language}${slug}`);
+    */
     createPage({
       path: `/${language}${slug}`,
       component: documentationTemplate,
@@ -282,7 +300,7 @@ exports.createPages = ({ actions, graphql }) => {
      */
     setTimeout(() => {
       resolve();
-    }, 15000);
+    }, 25000);
     resolve();
   });
 };
