@@ -11,12 +11,21 @@ import fr from "react-intl/locale-data/fr";
 import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
+import Footer from "../Footer";
 
 const theme = createMuiTheme(themeConfig);
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
 export default class Base extends React.Component {
+  state = {
+    dark: false
+  };
+
+  handleToggleDarkMode = () => {
+    this.setState({ dark: !this.state.dark });
+  };
+
   render() {
     return (
       <IntlProvider
@@ -29,10 +38,17 @@ export default class Base extends React.Component {
               rel="stylesheet"
               href="https://fonts.googleapis.com/icon?family=Material+Icons"
             />
+            <body className={this.state.dark ? "dark" : "light"} />
           </Helmet>
           <div className="fs-base">
-            <AppBar language={this.props.language} slug={this.props.slug} />
+            <AppBar
+              language={this.props.language}
+              slug={this.props.slug}
+              dark={this.state.dark}
+              toggleDarkMode={this.handleToggleDarkMode}
+            />
             {this.props.children}
+            <Footer />
           </div>
         </MuiThemeProvider>
       </IntlProvider>

@@ -4,11 +4,12 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-//import CommunityMenu from "./CommunityMenu";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
 import { slugForLanguage } from "../utils";
 import { FormattedMessage } from "react-intl";
+import DarkModeIcon from "@material-ui/icons/SettingsBrightness";
+
 import {
   languageMenu,
   communityMenu,
@@ -33,7 +34,7 @@ function FsAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar color="secondary" elevation={0}>
+      <AppBar color={props.dark ? "primary" : "secondary"} elevation={0}>
         <Toolbar>
           <Button color="inherit" href={slugForLanguage("/", props.language)}>
             <FormattedMessage id="app.freesewing" />
@@ -59,8 +60,15 @@ function FsAppBar(props) {
             language={props.language}
             {...languageMenu(props.slug, props.language)}
           />
+          <Button color="inherit" onClick={props.toggleDarkMode}>
+            <DarkModeIcon style={{ fontSize: "32px" }} />
+          </Button>
           <div className="only-on-mobile">
-            <MobileMenu language={props.language} />
+            <MobileMenu
+              language={props.language}
+              dark={props.dark}
+              toggleDarkMode={props.toggleDarkMode}
+            />
           </div>
         </Toolbar>
       </AppBar>

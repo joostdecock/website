@@ -26,6 +26,9 @@ div.mobile-menu {
       background: rgba(0, 0, 0, 0.08);
     }
   }
-
-
 }
+
+body.dark div.mobile-menu {
+  background: $primary;
+}
+

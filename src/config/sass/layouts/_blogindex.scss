@@ -28,3 +28,7 @@ div.teaser {
     }
   }
 }
+
+body.dark div.teaser p {
+  color: $grey;
+}
