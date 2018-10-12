@@ -314,9 +314,9 @@ exports.createPages = ({ actions, graphql }) => {
 
   return new Promise((resolve, reject) => {
     createPageRedirects()
-      //.then(() => {
-      //  createBlogPosts();
-      //})
+      .then(() => {
+        createBlogPosts();
+      })
       .then(() => {
         createShowcasePosts();
       })
