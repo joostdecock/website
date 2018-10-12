@@ -1,6 +1,10 @@
+import React from "react";
 import i18nConfig from "./i18n";
 import { slugForLanguage } from "../utils";
-import { gitter, github, twitter, instagram } from "../data/icons";
+import TwitterIcon from "../components/TwitterIcon";
+import GitterIcon from "../components/GitterIcon";
+import InstagramIcon from "../components/InstagramIcon";
+import GithubIcon from "../components/GithubIcon";
 
 const languageMenu = (slug, pageLanguage) => {
   let menu = {
@@ -31,22 +35,22 @@ const communityMenu = pageLanguage => {
       {
         link: "https://gitter.im/freesewing/freesewing",
         label: "app.chatOnGitter",
-        icon: { type: "inline", svg: gitter }
+        icon: { type: "component", svg: <GitterIcon /> }
       },
       {
         link: "https://github.com/freesewing",
         label: "app.github",
-        icon: { type: "inline", svg: github }
+        icon: { type: "component", svg: <GithubIcon /> }
       },
       {
         link: "https://twitter.com/freesewing_org",
         label: "app.twitter",
-        icon: { type: "inline", svg: twitter }
+        icon: { type: "component", svg: <TwitterIcon /> }
       },
       {
         link: "https://instagram.com/freesewing_org",
         label: "app.instagram",
-        icon: { type: "inline", svg: instagram }
+        icon: { type: "component", svg: <InstagramIcon /> }
       }
     ]
   };

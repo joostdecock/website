@@ -3,5 +3,11 @@ footer {
   color: $grey;
   text-align: center;
   margin-top: 3rem;
-  padding: 2rem;
+  padding: 3rem 1rem;
+
+  p {
+    font-size: 80%;
+    margin-top: 2rem;
+    line-height: 1.3;
+  }
 }
