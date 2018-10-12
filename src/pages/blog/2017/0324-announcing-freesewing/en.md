@@ -9,11 +9,9 @@ author: joost
 category: docs
 blurb: "I am are proud to announce freesewing core v1.0.0 and the accompanying documentation that describes the freesewing project in detail."
 ---
+
 I am are proud to announce [freesewing core v1.0.0](https://github.com/freesewing/core) 
 and the accompanying [documentation](/docs) that describes the freesewing project in detail.
-
-![logo test local](logo.jpg)
-
 
 But I'm also realistic, and understand that you don't have time to plow through pages upon pages of documentation.
 
@@ -83,4 +81,3 @@ Special thanks to [@scorchtorch](https://twitter.com/scorchtorch) for being the 
 Last but not least, this project would not exist without the users, supporters, and donors of [makemypattern.com](https://makemypattern.com/).
 
 Thanks guys!
-
