@@ -320,9 +320,9 @@ exports.createPages = ({ actions, graphql }) => {
       .then(() => {
         createShowcasePosts();
       })
-      .then(() => {
-        createDocumentation();
-      })
+      //.then(() => {
+      //  createDocumentation();
+      //})
       .then(() => {
         return resolve();
       });
