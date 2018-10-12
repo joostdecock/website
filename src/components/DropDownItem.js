@@ -5,6 +5,7 @@ import { FormattedMessage } from "react-intl";
 import Icon from "@material-ui/core/Icon";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import TwitterIcon from "./TwitterIcon";
 
 const DropDownItem = props => {
   let icon = "";
@@ -27,14 +28,13 @@ const DropDownItem = props => {
     );
   } else if (props.icon.type === "inline") {
     icon = (
-      <ListItemIcon>
-        <div
-          style={{ displa: "inline-block" }}
-          className="r10"
-          dangerouslySetInnerHTML={{ __html: props.icon.svg }}
-        />
-      </ListItemIcon>
+      <div
+        style={{ display: "inline-block", paddingRight: "10px" }}
+        dangerouslySetInnerHTML={{ __html: props.icon.svg }}
+      />
     );
+  } else if (props.icon.type === "component") {
+    icon = <ListItemIcon>{props.icon.svg}</ListItemIcon>;
   }
   if (props.link.substring(0, 4) === "http") link = { href: props.link };
   else link = { href: props.link };
