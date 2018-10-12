@@ -6,7 +6,11 @@ import Warning from "../Warning";
 import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
 
-export default ({ pageContext }) => {
+export default data => {
+  if (typeof data.pageContext === "undefined") {
+    console.log("Problem with page context. Data passed was", data);
+  }
+  const pageContext = data.pageContext;
   const frontmatter = pageContext.node.frontmatter;
   const html = pageContext.node.html;
   let warning = false;
