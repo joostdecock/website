@@ -7,6 +7,7 @@ const allBlogPosts = `{
       node {
         fileAbsolutePath
         html
+        tableOfContents(pathToSlugField: "frontmatter.path")
         id
         frontmatter {
           date(formatString: "MMMM Do, YYYY")

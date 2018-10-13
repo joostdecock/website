@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PageLayout from "../layouts/Page";
+import BaseLayout from "../layouts/Base";
 import ShowcasePostPreview from "../ShowcasePostPreview";
 import Grid from "@material-ui/core/Grid";
 import Message from "../Message";
@@ -32,28 +32,38 @@ export default class ShowcaseIndex extends React.Component {
       );
     }
     return (
-      <PageLayout slug={this.props.pageContext.slug}>
-        <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
-          <h1 className="txt-center">Showcase</h1>
-          <Message show={missingPosts}>
-            <Translate />
-            <h3>
-              <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
-            </h3>
-            <ul>
-              <li>
-                <FormattedMessage id="app.colourYes" />
-              </li>
-              <li>
-                <FormattedMessage id="app.monochromeNo" />
-              </li>
-            </ul>
-          </Message>
-          <Grid container spacing={24}>
-            {list}
+      <BaseLayout slug={this.props.pageContext.slug}>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          className="page"
+        >
+          <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
+            <h1 className="txt-center">
+              <FormattedMessage id="app.showcase" />
+            </h1>
+            <Message show={missingPosts} type="warning">
+              <Translate />
+              <h3>
+                <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
+              </h3>
+              <ul>
+                <li>
+                  <FormattedMessage id="app.colourYes" />
+                </li>
+                <li>
+                  <FormattedMessage id="app.monochromeNo" />
+                </li>
+              </ul>
+            </Message>
+            <Grid container spacing={24}>
+              {list}
+            </Grid>
           </Grid>
         </Grid>
-      </PageLayout>
+      </BaseLayout>
     );
   }
 }
