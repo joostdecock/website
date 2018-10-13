@@ -7,7 +7,7 @@ const Message = props => {
 };
 
 Message.propTypes = {
-  show: PropTypes.string.isRequired,
+  show: PropTypes.bool.isRequired,
   type: PropTypes.string.isRequired
 };
 

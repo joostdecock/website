@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "gatsby-image";
+import TimeAgo from "./TimeAgo";
 import { Link } from "gatsby";
 import { slugForLanguage } from "../utils";
 
@@ -31,8 +32,9 @@ const BlogPostPreview = props => {
           <p className="thetitle">
             {frontmatter.title}
             <span className="meta">
-              {frontmatter.date} by @{frontmatter.author} in #
-              {frontmatter.category}
+              {frontmatter.author} @ {frontmatter.category}
+              ,&nbsp;&nbsp;
+              <TimeAgo date={frontmatter.date} />
             </span>
           </p>
         </div>

@@ -15,11 +15,14 @@ div.blog-header {
 
 div.blog-post {
   ul.meta {
-    font-size: 80%;
+    font-size: 90%;
     line-height: 24px;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 1rem 0;
 
-    :last-child:before {
+    li:first-child:before {
+      content: '👉🏽';
+    }
+    li:before {
       content: '|';
       padding: 0 0.5rem;
     }

@@ -10,7 +10,7 @@ const allBlogPosts = `{
         tableOfContents(pathToSlugField: "frontmatter.path")
         id
         frontmatter {
-          date(formatString: "MMMM Do, YYYY")
+          date
           path
           title
           linktitle
@@ -46,7 +46,7 @@ const allShowcasePosts = `{
         html
         id
         frontmatter {
-          date(formatString: "MMMM Do, YYYY")
+          date
           path
           title
   			  img {

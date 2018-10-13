@@ -7,11 +7,15 @@ import InstagramIcon from "./InstagramIcon";
 import GitterIcon from "./GitterIcon";
 import GithubIcon from "./GithubIcon";
 import { FormattedHTMLMessage } from "react-intl";
+import { slugForLanguage } from "../utils";
+import { Link } from "gatsby";
 
 const Footer = props => {
   return (
     <footer>
-      <Logo size={96} color={"#fff"} />
+      <Link to={slugForLanguage("/", props.language)} title="🏠">
+        <Logo size={96} color={"#fff"} />
+      </Link>
       <p>
         <FormattedHTMLMessage id="app.txt-footer" />
       </p>

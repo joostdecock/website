@@ -5,6 +5,9 @@ import Image from "gatsby-image";
 import { FormattedMessage } from "react-intl";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
+import Datum from "../Datum";
+import { slugForLanguage } from "../../utils";
+import { Link } from "gatsby";
 
 export default data => {
   const pageContext = data.pageContext;
@@ -24,7 +27,7 @@ export default data => {
   }
   return (
     <BaseLayout slug={pageContext.slug}>
-      <Grid container direction="row" justify="center" alignItems="top">
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
         <Grid item xs={12} sm={10} md={7} lg={5} xl={4} classname={"wmax"}>
           <div className="blog-header">
@@ -44,7 +47,7 @@ export default data => {
         </Grid>
         <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
       </Grid>
-      <Grid container direction="row" justify="center" alignItems="top">
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3}>
           <div className="content toc">
             <h3>
@@ -56,8 +59,19 @@ export default data => {
         <Grid item xs={12} sm={10} md={7} lg={5} xl={4}>
           <div className="blog-post content">
             <ul className="meta">
-              <li>{frontmatter.date}</li>
-              <li>#{frontmatter.category}</li>
+              <li>
+                <Datum date={frontmatter.date} />
+              </li>
+              <li>
+                <Link
+                  to={slugForLanguage(
+                    "/blog/category/" + frontmatter.category,
+                    pageContext.language
+                  )}
+                >
+                  #{frontmatter.category}
+                </Link>
+              </li>
             </ul>
             <h1>{frontmatter.title}</h1>
             <article dangerouslySetInnerHTML={{ __html: html }} />

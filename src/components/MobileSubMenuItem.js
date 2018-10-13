@@ -43,7 +43,6 @@ const MobileSubMenuItem = props => {
       button={true}
       component="a"
       {...link}
-      onClick={event => props.onClick(event, props.label)}
       color="secondary"
     >
       {icon}
@@ -54,7 +53,6 @@ const MobileSubMenuItem = props => {
 
 MobileSubMenuItem.propTypes = {
   selected: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
   link: PropTypes.string,
   label: PropTypes.string,
   text: PropTypes.string

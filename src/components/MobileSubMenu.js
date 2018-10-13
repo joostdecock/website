@@ -4,7 +4,6 @@ import MobileSubMenuItem from "./MobileSubMenuItem";
 import { FormattedMessage } from "react-intl";
 
 const MobileSubMenu = props => {
-  console.log(props);
   let label = "";
   if (typeof props.text === "string") {
     label = props.text;
@@ -28,12 +27,10 @@ const MobileSubMenu = props => {
 };
 
 MobileSubMenu.propTypes = {
-  show: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 };
 
 MobileSubMenu.defaultProps = {
-  show: true,
   type: "warning"
 };
 

@@ -76,13 +76,14 @@ class DropDownButton extends React.Component {
 
 DropDownButton.propTypes = {
   language: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  text: PropTypes.string,
   icon: PropTypes.object,
   items: PropTypes.array.isRequired
 };
 
 DropDownButton.defaultProps = {
-  icon: false
+  icon: {}
 };
 
 export default DropDownButton;

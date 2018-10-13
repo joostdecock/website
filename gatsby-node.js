@@ -80,7 +80,24 @@ exports.createPages = ({ actions, graphql }) => {
       context: {
         posts,
         language,
-        slug: `/${language}/blog`
+        slug: `/${language}/blog`,
+        category: "all"
+      }
+    });
+  };
+
+  createBlogCategoryIndex = function(language, posts, category) {
+    /*
+    console.log("Creating blog categories for", language);
+    */
+    createPage({
+      path: `/${language}/blog/category/${category}`,
+      component: blogIndexTemplate,
+      context: {
+        posts,
+        language,
+        slug: `/${language}/blog/category/${category}`,
+        category: category
       }
     });
   };
@@ -177,6 +194,7 @@ exports.createPages = ({ actions, graphql }) => {
     return new Promise((resolve, reject) => {
       let posts = {};
       let postOrder = {};
+      let categories = new Set();
       for (let lang of i18nConfig.languages) {
         posts[lang] = {};
         postOrder[lang] = [];
@@ -192,6 +210,7 @@ exports.createPages = ({ actions, graphql }) => {
           let language = node.frontmatter.path.split("/")[1];
           posts[language][slug] = node;
           postOrder[language].push(slug);
+          categories.add(node.frontmatter.category);
           createBlogPostRedirect(slug);
         });
 
@@ -211,6 +230,9 @@ exports.createPages = ({ actions, graphql }) => {
             }
             createBlogPost(lang, contentLanguage, slug, postNode);
           }
+          categories.forEach(category => {
+            createBlogCategoryIndex(lang, posts, category);
+          });
           createBlogIndex(lang, posts);
         }
       });

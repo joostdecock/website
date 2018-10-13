@@ -10,7 +10,6 @@ import { slugForLanguage } from "../utils";
 import { FormattedMessage } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
-import DarkModeIcon from "@material-ui/icons/SettingsBrightness";
 
 import {
   languageMenu,
