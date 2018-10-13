@@ -81,7 +81,7 @@ exports.createPages = ({ actions, graphql }) => {
         posts,
         language,
         slug: `/${language}/blog`,
-        category: false
+        category: "all"
       }
     });
   };

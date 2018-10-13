@@ -26,9 +26,9 @@ export default class BlogIndex extends React.Component {
         correctLanguage = false;
         missingPosts = true;
       }
-      if (category === true || category === post.frontmatter.category) {
+      if (category === "all" || category === post.frontmatter.category) {
         list.push(
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} key={post.frontmatter.path}>
             <BlogPostPreview
               post={post}
               correctLanguage={correctLanguage}
@@ -50,7 +50,7 @@ export default class BlogIndex extends React.Component {
           <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
             <h1 className="txt-center">
               <FormattedMessage id="app.blog" />
-              {category === true ? "" : " #" + category}
+              {category === "all" ? "" : " #" + category}
             </h1>
             <Message show={missingPosts} type="warning">
               <Translate />

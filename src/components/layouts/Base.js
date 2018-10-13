@@ -49,7 +49,7 @@ export default class Base extends React.Component {
               toggleDarkMode={this.handleToggleDarkMode}
             />
             {this.props.children}
-            <Footer />
+            <Footer language={language} />
           </div>
         </MuiThemeProvider>
       </IntlProvider>

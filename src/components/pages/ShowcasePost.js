@@ -21,9 +21,9 @@ export default ({ pageContext }) => {
   }
   return (
     <BaseLayout slug={pageContext.slug}>
-      <Grid container direction="row" justify="center" alignItems="top">
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-        <Grid item xs={12} sm={10} md={7} lg={5} xl={4} classname={"wmax"}>
+        <Grid item xs={12} sm={10} md={7} lg={5} xl={4} className={"wmax"}>
           <div className="blog-header">
             {languageNotAvailable}
             <figure>
@@ -41,7 +41,7 @@ export default ({ pageContext }) => {
         </Grid>
         <Grid item xs={12} sm={10} md={0} lg={3} xl={3} />
       </Grid>
-      <Grid container direction="row" justify="center" alignItems="top">
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
         <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
           <div className="blog-post content">

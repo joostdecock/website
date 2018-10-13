@@ -10,7 +10,7 @@ const InstagramIcon = props => {
       height={props.size}
       viewBox={props.viewBox}
       color={props.color}
-      path={instagram}
+      pathString={instagram}
     />
   );
 };
