@@ -26,7 +26,7 @@ export default ({ pageContext }) => {
     <BaseLayout slug={pageContext.slug}>
       <Grid container direction="row" justify="center" alignItems="top">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-        <Grid item xs={12} sm={10} md={7} lg={5} xl={4}>
+        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
           <div className="docs">
             {languageNotAvailable}
             <h1>
@@ -38,7 +38,7 @@ export default ({ pageContext }) => {
             </h1>
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={0} lg={3} xl={3} />
+        <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
       </Grid>
       <Grid container direction="row" justify="center" alignItems="top">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3}>
@@ -49,12 +49,12 @@ export default ({ pageContext }) => {
             <aside dangerouslySetInnerHTML={{ __html: toc }} />
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={7} lg={5} xl={4}>
+        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
           <div className="docs">
             <article dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={0} lg={3} xl={3}>
+        <Grid item xs={12} sm={10} md={6} lg={3} xl={3}>
           <div className="docs cot">{pleaseTranslate}</div>
         </Grid>
       </Grid>

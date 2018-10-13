@@ -2,15 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import Image from "gatsby-image";
 import { Link } from "gatsby";
+import { slugForLanguage } from "../utils";
 
-const BlogPostPreview = data => {
+const BlogPostPreview = props => {
   let langClass = "";
-  let frontmatter = data.post.frontmatter;
-  if (data.correctLanguage !== true) langClass = "grayscale";
+  let frontmatter = props.post.frontmatter;
+  let postLink = frontmatter.path;
+  if (props.correctLanguage !== true) {
+    langClass = "grayscale";
+    postLink = slugForLanguage(frontmatter.path, props.language);
+  }
   return (
     <div>
       <div className="teaser">
-        <Link to={frontmatter.path} title={frontmatter.title}>
+        <Link to={postLink} title={frontmatter.title}>
           {/* This makes the link cover the entire image */}
           <span className="fs-block-link" />
         </Link>
@@ -38,7 +43,8 @@ const BlogPostPreview = data => {
 
 BlogPostPreview.propTypes = {
   post: PropTypes.object,
-  correctLangauge: PropTypes.string
+  langauge: PropTypes.string,
+  correctLangauge: PropTypes.bool
 };
 
 export default BlogPostPreview;
