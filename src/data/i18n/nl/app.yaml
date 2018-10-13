@@ -17,7 +17,10 @@ documentationForDevelopers: Documentatie voor ontwikkelaars
 aboutFreesewing: Over Freesewing
 txt-footer: Freesewing is een project van Joost De Cock & vrijwillige medewerkers<br>met de financiële steun van onze sponsors
 contents: Inhoud
-translateThisContent: Vertaal deze inhoud
-translatorPitch: 'Zelfs al heb je nog nooit bijgedragen aan een open source project, vertalen is de makkelijkste manier om aan de slag te gaan als vrijwillige medewerker'
 documentationForTranslators: Documentatie voor vertalers
+couldYouTranslateThis: Kan jij dit vertalen?
+becauseThatWouldBeReallyHelpful: Want dat zou ons echt vooruit helpen.
+startTranslatingNow: Begin meteen te vertalen
+startTranslatingNowOrRead: '{startTranslatingNow}, of lees eerst de {documentationForTranslators}.'
+
 

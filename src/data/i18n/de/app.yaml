@@ -17,8 +17,10 @@ documentationForDevelopers: Dokumentation für Entwickler
 aboutFreesewing: Über Freesewing
 txt-footer: 'Freesewing wurde von Joost De Cock & den Mitwirkenden<br> kreiert, mit der finanziellen Unterstützung unserer Gönner'
 contents: Inhalte
-translateThisContent: Übersetzen Sie diesen Inhalt
-translatorPitch: Auch wenn du noch nie zu einem OpenSource Projekt begetragen hast ist Uebersetzung ein glatter Einstig in Richtung Beitragsruhm.
 documentationForTranslators: Dokumentation für Übersetzer
+couldYouTranslateThis: Könnten Sie das übersetzen?
+becauseThatWouldBeReallyHelpful: Weil das wirklich hilfreich wäre.
+startTranslatingNow: Beginne jetzt mit dem Übersetzen
+startTranslatingNowOrRead: '{startTranslatingNow}, oder lies zuerst die {documentationForTranslators}.'
 
 

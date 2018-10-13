@@ -1,8 +1,9 @@
 import React from "react";
 import DocumentationLayout from "../layouts/Documentation";
 import Grid from "@material-ui/core/Grid";
-import Warning from "../Warning";
-import Translate from "@material-ui/icons/Translate";
+import Message from "../Message";
+import TranslateIcon from "@material-ui/icons/Translate";
+import LanguageIcon from "@material-ui/icons/Language";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
 import { Link } from "gatsby";
@@ -16,32 +17,34 @@ export default ({ pageContext }) => {
   if (pageContext.language !== pageContext.contentLanguage) warning = true;
   let translate = "";
   if (warning) {
+    let documentationForTranslators = (
+      <Link to={slugForLanguage("/docs/i18n/", pageContext.contentLanguage)}>
+        <FormattedMessage id="app.documentationForTranslators" />
+      </Link>
+    );
+    let startTranslatingNow = (
+      <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
+        <FormattedMessage id="app.startTranslatingNow" />
+      </a>
+    );
     translate = (
-      <div>
+      <Message>
+        <TranslateIcon />
         <h3>
-          <FormattedMessage id="app.translateThisContent" />
+          <FormattedMessage id="app.couldYouTranslateThis" />
         </h3>
         <p>
-          <FormattedMessage id="app.translatorPitch" />
+          <FormattedMessage id="app.becauseThatWouldBeReallyHelpful" />
+          <br />
+          <FormattedMessage
+            id="app.startTranslatingNowOrRead"
+            values={{
+              startTranslatingNow,
+              documentationForTranslators
+            }}
+          />
         </p>
-        <ul>
-          <li>
-            <Link
-              to={slugForLanguage("/docs/i18n/", pageContext.contentLanguage)}
-            >
-              <FormattedMessage id="app.documentationForTranslators" />
-            </Link>
-          </li>
-          <li>
-            <a
-              href={fileOnGithub(pageContext.node.fileAbsolutePath)}
-              target="_BLANK"
-            >
-              <FormattedMessage id="app.translateThisContent" />
-            </a>
-          </li>
-        </ul>
-      </div>
+      </Message>
     );
   }
   return (
@@ -50,15 +53,15 @@ export default ({ pageContext }) => {
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
         <Grid item xs={12} sm={10} md={7} lg={5} xl={4}>
           <div className="docs">
-            <Warning show={warning}>
-              <Translate />
+            <Message show={warning} type="warning">
+              <LanguageIcon />
               <h3>
                 <FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />
               </h3>
               <p>
                 <FormattedMessage id="app.contentLocaleFallback" />
               </p>
-            </Warning>
+            </Message>
             <h1>
               {frontmatter.title}
               &nbsp;&nbsp;
