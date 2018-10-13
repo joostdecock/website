@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PageLayout from "../layouts/Page";
 import BlogPostPreview from "../BlogPostPreview";
 import Grid from "@material-ui/core/Grid";
-import Warning from "../Warning";
+import Message from "../Message";
 import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
 
@@ -35,7 +35,7 @@ export default class BlogIndex extends React.Component {
       <PageLayout slug={this.props.pageContext.slug}>
         <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
           <h1 className="txt-center">Blog</h1>
-          <Warning show={missingPosts}>
+          <Message show={missingPosts}>
             <Translate />
             <h3>
               <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
@@ -48,7 +48,7 @@ export default class BlogIndex extends React.Component {
                 <FormattedMessage id="app.monochromeNo" />
               </li>
             </ul>
-          </Warning>
+          </Message>
           <Grid container spacing={24}>
             {list}
           </Grid>

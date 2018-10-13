@@ -2,7 +2,7 @@ import React from "react";
 import BlogLayout from "../layouts/Blog";
 import Grid from "@material-ui/core/Grid";
 import Image from "gatsby-image";
-import Warning from "../Warning";
+import Message from "../Message";
 import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
 
@@ -30,7 +30,7 @@ export default ({ pageContext }) => {
       </Grid>
       <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
         <div className="blog-post">
-          <Warning show={warning}>
+          <Message show={warning}>
             <Translate />
             <h3>
               <FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />
@@ -38,7 +38,7 @@ export default ({ pageContext }) => {
             <p>
               <FormattedMessage id="app.contentLocaleFallback" />
             </p>
-          </Warning>
+          </Message>
           <ul className="meta">
             <li>{frontmatter.date}</li>
             <li>#{frontmatter.patterns}</li>
