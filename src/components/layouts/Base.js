@@ -12,6 +12,7 @@ import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
+import { languageFromSlug } from "../../utils";
 
 const theme = createMuiTheme(themeConfig);
 
@@ -27,11 +28,9 @@ export default class Base extends React.Component {
   };
 
   render() {
+    let language = languageFromSlug(this.props.slug);
     return (
-      <IntlProvider
-        locale={this.props.language}
-        messages={strings[this.props.language]}
-      >
+      <IntlProvider locale={language} messages={strings[language]}>
         <MuiThemeProvider theme={theme}>
           <Helmet>
             <link
@@ -42,7 +41,7 @@ export default class Base extends React.Component {
           </Helmet>
           <div className="fs-base">
             <AppBar
-              language={this.props.language}
+              language={language}
               slug={this.props.slug}
               dark={this.state.dark}
               toggleDarkMode={this.handleToggleDarkMode}

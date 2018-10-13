@@ -1,6 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,16 +7,9 @@ import { slugForLanguage } from "../utils";
 import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
 import { Link } from "gatsby";
 import MobileSubMenu from "./MobileSubMenu";
-import {
-  languageMenu,
-  communityMenu,
-  documentationMenu
-} from "../config/menus";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import { communityMenu, documentationMenu } from "../config/menus";
 
 const styles = {
   root: {

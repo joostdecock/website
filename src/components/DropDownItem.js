@@ -5,7 +5,6 @@ import { FormattedMessage } from "react-intl";
 import Icon from "@material-ui/core/Icon";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import TwitterIcon from "./TwitterIcon";
 
 const DropDownItem = props => {
   let icon = "";
