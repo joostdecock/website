@@ -14,11 +14,12 @@ import Footer from "../Footer";
 import { languageFromSlug, loadTheme } from "../../utils";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
+const theme = loadTheme(false);
 
 export default class Base extends React.Component {
   state = {
     dark: false,
-    theme: loadTheme(false)
+    theme: theme
   };
 
   handleToggleDarkMode = () => {
