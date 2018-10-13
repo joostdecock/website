@@ -27,7 +27,11 @@ export default class BlogIndex extends React.Component {
       }
       list.push(
         <Grid item xs={12} sm={6}>
-          <BlogPostPreview post={post} correctLanguage={correctLanguage} />
+          <BlogPostPreview
+            post={post}
+            correctLanguage={correctLanguage}
+            language={language}
+          />
         </Grid>
       );
     }

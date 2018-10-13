@@ -42,7 +42,7 @@ export default data => {
             </figure>
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={0} lg={3} xl={3} />
+        <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
       </Grid>
       <Grid container direction="row" justify="center" alignItems="top">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3}>
@@ -63,7 +63,7 @@ export default data => {
             <article dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={0} lg={3} xl={3}>
+        <Grid item xs={12} sm={10} md={6} lg={3} xl={3}>
           <div className="docs cot">{pleaseTranslate}</div>
         </Grid>
       </Grid>

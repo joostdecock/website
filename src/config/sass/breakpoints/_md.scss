@@ -9,4 +9,29 @@
   div.cot {
     max-width: 600px;
   }
+
+  div.toc,
+  div.cot {
+    position: sticky;
+    top: 84px;
+    h3 {
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+  }
+
+  div.toc {
+    padding-right: 1rem;
+    aside > ul {
+      padding-bottom: 2rem;
+    }
+    aside {
+      height: calc(100vh - 130px);
+      overflow-y: auto;
+    }
+  }
+
+  div.cot {
+    padding-left: 1rem;
+  }
 }
