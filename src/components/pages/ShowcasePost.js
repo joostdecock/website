@@ -44,7 +44,7 @@ export default ({ pageContext }) => {
       <Grid container direction="row" justify="center" alignItems="top">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
         <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
-          <div className="blog-post">
+          <div className="blog-post content">
             <ul className="meta">
               <li>{frontmatter.date}</li>
               <li>#{frontmatter.patterns}</li>

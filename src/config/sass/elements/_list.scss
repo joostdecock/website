@@ -6,3 +6,24 @@ li {
   margin-bottom: 0;
   line-height: 1.5;
 }
+
+div.toc {
+  aside > ul {
+    padding-bottom: 2rem;
+  }
+  aside {
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    ul {
+      margin: 0 0 0 20px;
+    }
+    ul li p {
+      margin: 0;
+    }
+    ul {
+      font-size: 95%;
+    }
+  }
+}
+
+

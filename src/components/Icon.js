@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Icon = props => {
+  let classes = "icon";
+  if (props.color === "") classes += " css-fill";
   return (
     <svg
+      className={classes}
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}

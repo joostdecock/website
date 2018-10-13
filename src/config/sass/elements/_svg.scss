@@ -1,3 +1,17 @@
 svg.language-icon {
   margin-bottom: -6px!important;
 }
+
+svg.icon.css-fill {
+  path {
+    fill: rgba(0, 0, 0, 0.54);
+  }
+}
+
+body.dark {
+  svg.icon.css-fill {
+    path {
+      fill: #fff;
+    }
+  }
+}

@@ -13,12 +13,9 @@ export default {
       '"Segoe UI Symbol"'
     ].join(",")
   },
-  palette: {
-    primary: {
-      main: "#111"
-    },
-    secondary: {
-      main: "#ffffff"
+  props: {
+    MuiButtonBase: {
+      disableRipple: true // Disabling ripple everywhere
     }
   }
 };

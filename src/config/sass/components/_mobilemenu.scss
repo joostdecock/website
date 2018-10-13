@@ -10,7 +10,7 @@ div.mobile-menu {
     max-width: 400px;
 
     h3 {
-      color: #aaa;
+      color: #999;
       padding: 0;
     }
 
@@ -30,5 +30,13 @@ div.mobile-menu {
 
 body.dark div.mobile-menu {
   background: $primary;
+  div.mobile-menu-inner {
+    h3 a {
+      color: $secondary;
+    }
+    h3 a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 

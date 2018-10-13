@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import themeConfig from "../../config/theme";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "../AppBar";
 import { IntlProvider, addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
@@ -12,26 +11,28 @@ import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
-import { languageFromSlug } from "../../utils";
-
-const theme = createMuiTheme(themeConfig);
+import { languageFromSlug, loadTheme } from "../../utils";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
 export default class Base extends React.Component {
   state = {
-    dark: false
+    dark: false,
+    theme: loadTheme(false)
   };
 
   handleToggleDarkMode = () => {
-    this.setState({ dark: !this.state.dark });
+    this.setState({
+      dark: !this.state.dark,
+      theme: loadTheme(!this.state.dark)
+    });
   };
 
   render() {
     let language = languageFromSlug(this.props.slug);
     return (
       <IntlProvider locale={language} messages={strings[language]}>
-        <MuiThemeProvider theme={theme}>
+        <MuiThemeProvider theme={this.state.theme}>
           <Helmet>
             <link
               rel="stylesheet"
