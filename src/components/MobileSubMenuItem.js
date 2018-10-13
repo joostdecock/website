@@ -27,14 +27,13 @@ const MobileSubMenuItem = props => {
     );
   } else if (props.icon.type === "inline") {
     icon = (
-      <ListItemIcon>
-        <div
-          style={{ displa: "inline-block" }}
-          className="r10"
-          dangerouslySetInnerHTML={{ __html: props.icon.svg }}
-        />
-      </ListItemIcon>
+      <div
+        style={{ display: "inline-block", paddingRight: "10px" }}
+        dangerouslySetInnerHTML={{ __html: props.icon.svg }}
+      />
     );
+  } else if (props.icon.type === "component") {
+    icon = <ListItemIcon>{props.icon.svg}</ListItemIcon>;
   }
   if (props.link.substring(0, 4) === "http") link = { href: props.link };
   else link = { href: props.link };
@@ -45,6 +44,7 @@ const MobileSubMenuItem = props => {
       component="a"
       {...link}
       onClick={event => props.onClick(event, props.label)}
+      color="secondary"
     >
       {icon}
       {label}

@@ -8,6 +8,8 @@ import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
 import { slugForLanguage } from "../utils";
 import { FormattedMessage } from "react-intl";
+import DarkIcon from "@material-ui/icons/Brightness3";
+import LightIcon from "@material-ui/icons/WbSunny";
 import DarkModeIcon from "@material-ui/icons/SettingsBrightness";
 
 import {
@@ -31,10 +33,13 @@ const styles = {
 
 function FsAppBar(props) {
   const { classes } = props;
-
+  let darkModeIcon = (
+    <DarkIcon style={{ fontSize: "32px", transform: "rotate(35deg)" }} />
+  );
+  if (props.dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
   return (
     <div className={classes.root}>
-      <AppBar color={props.dark ? "primary" : "secondary"} elevation={0}>
+      <AppBar color="secondary" elevation={0}>
         <Toolbar>
           <Button color="inherit" href={slugForLanguage("/", props.language)}>
             <FormattedMessage id="app.freesewing" />
@@ -60,8 +65,12 @@ function FsAppBar(props) {
             language={props.language}
             {...languageMenu(props.slug, props.language)}
           />
-          <Button color="inherit" onClick={props.toggleDarkMode}>
-            <DarkModeIcon style={{ fontSize: "32px" }} />
+          <Button
+            color="inherit"
+            onClick={props.toggleDarkMode}
+            title="🌙 &nbsp;/&nbsp; 🌞"
+          >
+            {darkModeIcon}
           </Button>
           <div className="only-on-mobile">
             <MobileMenu

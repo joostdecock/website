@@ -35,22 +35,22 @@ const communityMenu = pageLanguage => {
       {
         link: "https://gitter.im/freesewing/freesewing",
         label: "app.chatOnGitter",
-        icon: { type: "component", svg: <GitterIcon /> }
+        icon: { type: "component", svg: <GitterIcon color="" /> }
       },
       {
         link: "https://github.com/freesewing",
         label: "app.github",
-        icon: { type: "component", svg: <GithubIcon /> }
+        icon: { type: "component", svg: <GithubIcon color="" /> }
       },
       {
         link: "https://twitter.com/freesewing_org",
         label: "app.twitter",
-        icon: { type: "component", svg: <TwitterIcon /> }
+        icon: { type: "component", svg: <TwitterIcon color="" /> }
       },
       {
         link: "https://instagram.com/freesewing_org",
         label: "app.instagram",
-        icon: { type: "component", svg: <InstagramIcon /> }
+        icon: { type: "component", svg: <InstagramIcon color="" /> }
       }
     ]
   };

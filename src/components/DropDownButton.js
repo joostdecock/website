@@ -23,15 +23,6 @@ class DropDownButton extends React.Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-  //{this.props.items.map((item, index) => (
-  //  <DropDownItem
-  //    selected={false}
-  //    onClick={this.handleMenuItemClick}
-  //    link={'/'}
-  //    label={'test'}
-  //    language={'en'}
-  //  />
-  //))}
 
   render() {
     const { anchorEl } = this.state;

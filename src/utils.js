@@ -1,4 +1,6 @@
 import i18nConfig from "./config/i18n";
+import { createMuiTheme } from "@material-ui/core/styles";
+import themeConfig from "./config/theme";
 
 const languageFromSlug = slug => {
   let lang = slug.split("/")[1];
@@ -22,4 +24,30 @@ const fileOnGithub = path => {
   );
 };
 
-export { languageFromSlug, slugForLanguage, fileOnGithub };
+const loadTheme = dark => {
+  let palette = {};
+  if (dark) {
+    palette = {
+      primary: {
+        main: "#fff"
+      },
+      secondary: {
+        main: "#111"
+      },
+      type: "dark"
+    };
+  } else {
+    palette = {
+      primary: {
+        main: "#111"
+      },
+      secondary: {
+        main: "#fff"
+      },
+      type: "light"
+    };
+  }
+  return createMuiTheme({ ...themeConfig, palette });
+};
+
+export { languageFromSlug, slugForLanguage, fileOnGithub, loadTheme };
