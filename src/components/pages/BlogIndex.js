@@ -16,6 +16,7 @@ export default class BlogIndex extends React.Component {
     let list = [];
     let slugs = Object.keys(posts.en).reverse();
     let missingPosts = false;
+    let category = this.props.pageContext.category;
     for (let postSlug of slugs) {
       if (typeof posts[language][postSlug] !== "undefined") {
         post = posts[language][postSlug];
@@ -25,15 +26,17 @@ export default class BlogIndex extends React.Component {
         correctLanguage = false;
         missingPosts = true;
       }
-      list.push(
-        <Grid item xs={12} sm={6}>
-          <BlogPostPreview
-            post={post}
-            correctLanguage={correctLanguage}
-            language={language}
-          />
-        </Grid>
-      );
+      if (category === true || category === post.frontmatter.category) {
+        list.push(
+          <Grid item xs={12} sm={6}>
+            <BlogPostPreview
+              post={post}
+              correctLanguage={correctLanguage}
+              language={language}
+            />
+          </Grid>
+        );
+      }
     }
     return (
       <BaseLayout slug={this.props.pageContext.slug}>
@@ -47,6 +50,7 @@ export default class BlogIndex extends React.Component {
           <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
             <h1 className="txt-center">
               <FormattedMessage id="app.blog" />
+              {category === true ? "" : " #" + category}
             </h1>
             <Message show={missingPosts} type="warning">
               <Translate />
