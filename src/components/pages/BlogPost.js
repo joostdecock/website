@@ -46,15 +46,15 @@ export default data => {
       </Grid>
       <Grid container direction="row" justify="center" alignItems="top">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3}>
-          <div className="docs toc">
+          <div className="content toc">
             <h3>
               <FormattedMessage id="app.contents" />
             </h3>
             <aside dangerouslySetInnerHTML={{ __html: toc }} />
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
-          <div className="blog-post">
+        <Grid item xs={12} sm={10} md={7} lg={5} xl={4}>
+          <div className="blog-post content">
             <ul className="meta">
               <li>{frontmatter.date}</li>
               <li>#{frontmatter.category}</li>
