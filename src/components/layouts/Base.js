@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "../AppBar";
@@ -12,25 +13,26 @@ import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
 import { languageFromSlug, loadTheme } from "../../utils";
+import { setDarkMode } from "../../store/actions/darkMode";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 const theme = loadTheme(false);
-
-export default class Base extends React.Component {
+class Base extends React.Component {
   state = {
-    dark: false,
     theme: theme
   };
 
   handleToggleDarkMode = () => {
+    const { dark, setDarkMode } = this.props;
     this.setState({
-      dark: !this.state.dark,
-      theme: loadTheme(!this.state.dark)
+      theme: loadTheme(!dark)
     });
+    setDarkMode(!dark);
   };
 
   render() {
     let language = languageFromSlug(this.props.slug);
+    const { dark } = this.props;
     return (
       <IntlProvider locale={language} messages={strings[language]}>
         <MuiThemeProvider theme={this.state.theme}>
@@ -39,13 +41,13 @@ export default class Base extends React.Component {
               rel="stylesheet"
               href="https://fonts.googleapis.com/icon?family=Material+Icons"
             />
-            <body className={this.state.dark ? "dark" : "light"} />
+            <body className={dark ? "dark" : "light"} />
           </Helmet>
           <div className="fs-base">
             <AppBar
               language={language}
               slug={this.props.slug}
-              dark={this.state.dark}
+              dark={dark}
               toggleDarkMode={this.handleToggleDarkMode}
             />
             {this.props.children}
@@ -56,3 +58,16 @@ export default class Base extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  dark: state.darkMode
+});
+
+const mapDispatchToProps = dispatch => ({
+  setDarkMode: dark => dispatch(setDarkMode(dark))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Base);

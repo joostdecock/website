@@ -31,38 +31,32 @@ const styles = {
 };
 
 function FsAppBar(props) {
-  const { classes } = props;
+  const { classes, dark, language } = props;
   let darkModeIcon = (
     <DarkIcon style={{ fontSize: "32px", transform: "rotate(35deg)" }} />
   );
-  if (props.dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
+  if (dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
   return (
     <div className={classes.root}>
       <AppBar color="secondary" elevation={0}>
         <Toolbar>
-          <Button color="inherit" href={slugForLanguage("/", props.language)}>
+          <Button color="inherit" href={slugForLanguage("/", language)}>
             <FormattedMessage id="app.freesewing" />
           </Button>
           <div className="not-on-mobile">
-            <Button
-              color="inherit"
-              href={slugForLanguage("/blog/", props.language)}
-            >
+            <Button color="inherit" href={slugForLanguage("/blog/", language)}>
               <FormattedMessage id="app.blog" />
             </Button>
             <DropDownButton
-              language={props.language}
-              {...documentationMenu(props.language)}
+              language={language}
+              {...documentationMenu(language)}
             />
-            <DropDownButton
-              language={props.language}
-              {...communityMenu(props.language)}
-            />
+            <DropDownButton language={language} {...communityMenu(language)} />
           </div>
           <span style={styles.grow} />
           <DropDownButton
-            language={props.language}
-            {...languageMenu(props.slug, props.language)}
+            language={language}
+            {...languageMenu(props.slug, language)}
           />
           <Button
             color="inherit"
@@ -73,8 +67,8 @@ function FsAppBar(props) {
           </Button>
           <div className="only-on-mobile">
             <MobileMenu
-              language={props.language}
-              dark={props.dark}
+              language={language}
+              dark={dark}
               toggleDarkMode={props.toggleDarkMode}
             />
           </div>
@@ -86,6 +80,7 @@ function FsAppBar(props) {
 
 FsAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired
 };
