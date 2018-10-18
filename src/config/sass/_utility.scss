@@ -7,8 +7,20 @@
 .grayscale {
   filter: grayscale(100%);
 }
+.pt10 {
+  padding-top: 10px;
+}
+.pt20 {
+  padding-top: 20px;
+}
 .pr10 {
   padding-right: 10px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.mr20 {
+  margin-right: 20px;
 }
 
 .content {

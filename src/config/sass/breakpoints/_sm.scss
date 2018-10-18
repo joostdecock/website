@@ -1,8 +1,8 @@
 @include sm-screen {
   .not-on-mobile {
-    display: none;
+    display: none!important;
   }
   .only-on-mobile {
-    display: inherit;
+    display: inherit!important;
   }
 }

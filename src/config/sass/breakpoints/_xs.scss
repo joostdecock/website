@@ -1,9 +1,9 @@
 @include xs-screen {
   .not-on-mobile {
-    display: none;
+    display: inherit!important;
   }
   .only-on-mobile {
-    display: inherit;
+    display: none!important;
   }
 
   div.page,

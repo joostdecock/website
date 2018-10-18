@@ -10,6 +10,7 @@ import { slugForLanguage } from "../utils";
 import { FormattedMessage } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
+import LoginIcon from "@material-ui/icons/VpnKey";
 
 import {
   languageMenu,
@@ -31,61 +32,62 @@ const styles = {
 };
 
 function FsAppBar(props) {
-  const { classes } = props;
+  const { dark, language } = props;
   let darkModeIcon = (
     <DarkIcon style={{ fontSize: "32px", transform: "rotate(35deg)" }} />
   );
-  if (props.dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
+  if (dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
   return (
-    <div className={classes.root}>
-      <AppBar color="secondary" elevation={0}>
-        <Toolbar>
-          <Button color="inherit" href={slugForLanguage("/", props.language)}>
-            <FormattedMessage id="app.freesewing" />
+    <AppBar color="secondary" elevation={0}>
+      <Toolbar>
+        <Button color="inherit" href={slugForLanguage("/", language)}>
+          <FormattedMessage id="app.freesewing" />
+        </Button>
+        <div className="not-on-mobile">
+          <Button color="inherit" href={slugForLanguage("/blog/", language)}>
+            <FormattedMessage id="app.blog" />
           </Button>
-          <div className="not-on-mobile">
-            <Button
-              color="inherit"
-              href={slugForLanguage("/blog/", props.language)}
-            >
-              <FormattedMessage id="app.blog" />
-            </Button>
-            <DropDownButton
-              language={props.language}
-              {...documentationMenu(props.language)}
-            />
-            <DropDownButton
-              language={props.language}
-              {...communityMenu(props.language)}
-            />
-          </div>
-          <span style={styles.grow} />
           <DropDownButton
-            language={props.language}
-            {...languageMenu(props.slug, props.language)}
+            language={language}
+            {...documentationMenu(language)}
           />
-          <Button
-            color="inherit"
-            onClick={props.toggleDarkMode}
-            title="🌙 &nbsp;/&nbsp; 🌞"
-          >
-            {darkModeIcon}
-          </Button>
-          <div className="only-on-mobile">
-            <MobileMenu
-              language={props.language}
-              dark={props.dark}
-              toggleDarkMode={props.toggleDarkMode}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+          <DropDownButton language={language} {...communityMenu(language)} />
+        </div>
+        <Button
+          href={slugForLanguage("/login", language)}
+          color="inherit"
+          title="🔐"
+          className="not-on-mobile"
+        >
+          <LoginIcon className="mr10" />
+          <FormattedMessage id="app.logIn" />
+        </Button>
+        <span style={styles.grow} />
+        <DropDownButton
+          language={language}
+          {...languageMenu(props.slug, language)}
+        />
+        <Button
+          color="inherit"
+          onClick={props.toggleDarkMode}
+          title="🌙 &nbsp;/&nbsp; 🌞"
+        >
+          {darkModeIcon}
+        </Button>
+        <div className="only-on-mobile">
+          <MobileMenu
+            language={language}
+            dark={dark}
+            toggleDarkMode={props.toggleDarkMode}
+          />
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 
 FsAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired
 };

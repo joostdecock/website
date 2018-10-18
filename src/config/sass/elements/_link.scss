@@ -7,6 +7,11 @@ a[href*=\#]:not([href$=\#]) {
   text-decoration: none;
 }
 
+/** Yet allow to disable this with the mimic class */
+a.mimic[href*=\#]:not([href$=\#]) {
+  text-decoration: underline;
+}
+
 /** Prevent anchor position from going under static header */
 :target:before {
   content: '';

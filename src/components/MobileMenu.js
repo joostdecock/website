@@ -10,6 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "gatsby";
 import MobileSubMenu from "./MobileSubMenu";
 import { communityMenu, documentationMenu } from "../config/menus";
+import LoginIcon from "@material-ui/icons/VpnKey";
+import BlogIcon from "@material-ui/icons/ImportContacts";
 
 const styles = {
   root: {
@@ -67,6 +69,7 @@ class MobileMenu extends React.Component {
                   onClick={this.handleClose}
                   to={slugForLanguage("/blog/", this.props.language)}
                 >
+                  <BlogIcon className="mr20" />
                   <FormattedMessage id="app.blog" />
                 </Link>
               </h3>
@@ -78,6 +81,15 @@ class MobileMenu extends React.Component {
                 language={this.props.language}
                 {...communityMenu(this.props.language)}
               />
+              <h3>
+                <Link
+                  onClick={this.handleClose}
+                  to={slugForLanguage("/login/", this.props.language)}
+                >
+                  <LoginIcon className="mr20" />
+                  <FormattedMessage id="app.logIn" />
+                </Link>
+              </h3>
             </div>
           </div>
         </Modal>
