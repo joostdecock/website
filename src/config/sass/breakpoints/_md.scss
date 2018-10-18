@@ -1,11 +1,10 @@
 @include md-screen {
   .not-on-mobile {
-    display: inherit;
+    display: none!important;
   }
   .only-on-mobile {
-    display: none;
+    display: inherit!important;
   }
-
   div.cot {
     max-width: 600px;
   }

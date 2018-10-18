@@ -17,7 +17,15 @@ exports.createPages = ({ actions, graphql }) => {
   );
 
   // FIXME: Add naked markdown links (/about /contact and so on)
-  const naked = ["/", "/blog", "/showcase"];
+  const naked = ["/", "/blog", "/showcase", "/login"];
+
+  // Non-markdown content in all languages
+  const jsPages = [
+    {
+      slug: "/login",
+      template: path.resolve("src/components/pages/Login.js")
+    }
+  ];
 
   createBlogPostRedirect = function(slug) {
     /*
@@ -159,6 +167,20 @@ exports.createPages = ({ actions, graphql }) => {
       context: {
         node,
         contentLanguage,
+        language,
+        slug: `/${language}${slug}`
+      }
+    });
+  };
+
+  createJsPage = function(language, slug, template) {
+    /*
+    console.log("Creating JS page", `/${language}${slug}`);
+    */
+    createPage({
+      path: `/${language}${slug}`,
+      component: template,
+      context: {
         language,
         slug: `/${language}${slug}`
       }
@@ -334,6 +356,17 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
+  createJsPages = function() {
+    return new Promise((resolve, reject) => {
+      // Create JS pages all languages
+      for (let lang of i18nConfig.languages) {
+        for (let jsPage of jsPages)
+          createJsPage(lang, jsPage.slug, jsPage.template);
+      }
+      return resolve();
+    });
+  };
+
   return new Promise((resolve, reject) => {
     createPageRedirects()
       .then(() => {
@@ -344,6 +377,9 @@ exports.createPages = ({ actions, graphql }) => {
       })
       .then(() => {
         createDocumentation();
+      })
+      .then(() => {
+        createJsPages();
       })
       .then(() => {
         // FIXME: This hack has to go

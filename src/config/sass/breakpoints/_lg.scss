@@ -1,9 +1,9 @@
 @include lg-screen {
   .not-on-mobile {
-    display: inherit;
+    display: inherit!important;
   }
   .only-on-mobile {
-    display: none;
+    display: none!important;
   }
   div.cot {
     padding: 0;

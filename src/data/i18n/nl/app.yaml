@@ -22,5 +22,15 @@ couldYouTranslateThis: Kan jij dit vertalen?
 becauseThatWouldBeReallyHelpful: Want dat zou ons echt vooruit helpen.
 startTranslatingNow: Begin meteen te vertalen
 startTranslatingNowOrRead: '{startTranslatingNow}, of lees eerst de {documentationForTranslators}.'
+logIn: Aanmelden
+troubleLoggingIn: Problemen met aanmelden?
+signUpForAFreeAccount: Schrijf je gratis in
+howCanWeHelpYou: Hoe kunnen we je helpen?
+contactUs: Neem contact op
+iForgotMyPassword: Ik ben mijn wachtwoord vergeten
+iForgotMyUsername: Ik ben mijn gebruikersnaam vergeten
+emailWorksToo: 'Als je je gebruikersnaam niet meer weet, vul dan je E-mail adres in. Dat werkt ook'
+forgotLoginInstructions: 'Vul hieronder je gebruikersnaam of E-mail adres in, en klik op de <b>Herstel wachtwoord</b> knop'
+resetPassword: Herstel wachtwoord
 
 

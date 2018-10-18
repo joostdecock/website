@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -32,7 +33,10 @@ class Base extends React.Component {
 
   render() {
     let language = languageFromSlug(this.props.slug);
-    const { dark } = this.props;
+    const { dark, splash } = this.props;
+    let footer = splash ? "" : <Footer language={language} />;
+    let classes = dark ? "dark" : "light";
+    if (splash) classes += " splash";
     return (
       <IntlProvider locale={language} messages={strings[language]}>
         <MuiThemeProvider theme={this.state.theme}>
@@ -41,7 +45,7 @@ class Base extends React.Component {
               rel="stylesheet"
               href="https://fonts.googleapis.com/icon?family=Material+Icons"
             />
-            <body className={dark ? "dark" : "light"} />
+            <body className={classes} />
           </Helmet>
           <div className="fs-base">
             <AppBar
@@ -51,7 +55,7 @@ class Base extends React.Component {
               toggleDarkMode={this.handleToggleDarkMode}
             />
             {this.props.children}
-            <Footer language={language} />
+            {footer}
           </div>
         </MuiThemeProvider>
       </IntlProvider>
@@ -66,6 +70,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark))
 });
+
+Base.propTypes = {
+  dark: PropTypes.bool,
+  splash: PropTypes.bool
+};
+
+Base.defaultProps = {
+  splash: false
+};
 
 export default connect(
   mapStateToProps,
