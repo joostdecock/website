@@ -10,6 +10,9 @@ const MobileSubMenuItem = props => {
   let icon = "";
   let label = "";
   let link = "";
+  let listItemIconClasses = {
+    root: "doIShpw"
+  };
   if (typeof props.text === "string") {
     label = <ListItemText>{props.text}</ListItemText>;
   } else {
@@ -22,7 +25,7 @@ const MobileSubMenuItem = props => {
   if (typeof props.icon === "string") {
     icon = (
       <ListItemIcon>
-        <Icon className="enu-icon">{props.icon}</Icon>
+        <Icon color="primary">{props.icon}</Icon>
       </ListItemIcon>
     );
   } else if (props.icon.type === "inline") {
@@ -33,7 +36,11 @@ const MobileSubMenuItem = props => {
       />
     );
   } else if (props.icon.type === "component") {
-    icon = <ListItemIcon>{props.icon.svg}</ListItemIcon>;
+    icon = (
+      <ListItemIcon classes={{ root: "inherit-color" }}>
+        {props.icon.svg}
+      </ListItemIcon>
+    );
   }
   if (props.link.substring(0, 4) === "http") link = { href: props.link };
   else link = { href: props.link };

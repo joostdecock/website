@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
+import Logo from "./Logo";
 import { slugForLanguage } from "../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
@@ -39,7 +40,10 @@ function FsAppBar(props) {
           size="small"
           title={intl.formatMessage({ id: "app.freesewing" })}
         >
-          <FormattedMessage id="app.freesewing" />
+          <Logo size={38} className="mr10" />
+          <span className="not-on-xs">
+            <FormattedMessage id="app.freesewing" />
+          </span>
         </Button>
         <div className="not-on-mobile">
           <Button

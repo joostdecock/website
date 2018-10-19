@@ -9,7 +9,6 @@ const InstagramIcon = props => {
       width={props.size}
       height={props.size}
       viewBox={props.viewBox}
-      color={props.color}
       pathString={instagram}
     />
   );
@@ -17,13 +16,11 @@ const InstagramIcon = props => {
 
 InstagramIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   viewBox: PropTypes.string
 };
 
 InstagramIcon.defaultProps = {
   size: 24,
-  color: "#00000080",
   viewBox: "0 0 24 24"
 };
 

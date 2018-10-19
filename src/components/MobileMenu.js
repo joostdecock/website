@@ -12,6 +12,7 @@ import MobileSubMenu from "./MobileSubMenu";
 import { communityMenu, documentationMenu } from "../config/menus";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import BlogIcon from "@material-ui/icons/ImportContacts";
+import Logo from "./Logo";
 
 const styles = {
   root: {
@@ -74,7 +75,7 @@ class MobileMenu extends React.Component {
                     id: "app.freesewing"
                   })}
                 >
-                  <BlogIcon className="mr20" />
+                  <Logo size={24} className="mr20" />
                   <FormattedMessage id="app.freesewing" />
                 </Link>
               </h3>
