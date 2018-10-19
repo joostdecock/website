@@ -10,9 +10,6 @@ const MobileSubMenuItem = props => {
   let icon = "";
   let label = "";
   let link = "";
-  let listItemIconClasses = {
-    root: "doIShpw"
-  };
   if (typeof props.text === "string") {
     label = <ListItemText>{props.text}</ListItemText>;
   } else {

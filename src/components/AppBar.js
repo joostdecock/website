@@ -12,6 +12,8 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
+import BlogIcon from "@material-ui/icons/ImportContacts";
+import SignupIcon from "@material-ui/icons/PersonAdd";
 
 import {
   languageMenu,
@@ -49,9 +51,9 @@ function FsAppBar(props) {
           <Button
             color="inherit"
             href={slugForLanguage("/blog/", language)}
-            size="small"
             title={intl.formatMessage({ id: "app.blog" })}
           >
+            <BlogIcon className="mr10" />
             <FormattedMessage id="app.blog" />
           </Button>
           <DropDownButton
@@ -69,11 +71,19 @@ function FsAppBar(props) {
           href={slugForLanguage("/login", language)}
           color="inherit"
           title={intl.formatMessage({ id: "app.logIn" })}
-          size="small"
           className="not-on-mobile"
         >
           <LoginIcon className="mr10" />
           <FormattedMessage id="app.logIn" />
+        </Button>
+        <Button
+          href={slugForLanguage("/signup", language)}
+          color="inherit"
+          title={intl.formatMessage({ id: "app.signUp" })}
+          className="not-on-mobile"
+        >
+          <SignupIcon className="mr10" />
+          <FormattedMessage id="app.signUp" />
         </Button>
         <span style={styles.grow} />
         <DropDownButton
