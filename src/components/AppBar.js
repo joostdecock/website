@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
 import { slugForLanguage } from "../utils";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
@@ -25,7 +25,7 @@ const styles = {
 };
 
 function FsAppBar(props) {
-  const { dark, language } = props;
+  const { dark, language, intl } = props;
   let darkModeIcon = (
     <DarkIcon style={{ fontSize: "28px", transform: "rotate(35deg)" }} />
   );
@@ -37,6 +37,7 @@ function FsAppBar(props) {
           color="inherit"
           href={slugForLanguage("/", language)}
           size="small"
+          title={intl.formatMessage({ id: "app.freesewing" })}
         >
           <FormattedMessage id="app.freesewing" />
         </Button>
@@ -45,19 +46,25 @@ function FsAppBar(props) {
             color="inherit"
             href={slugForLanguage("/blog/", language)}
             size="small"
+            title={intl.formatMessage({ id: "app.blog" })}
           >
             <FormattedMessage id="app.blog" />
           </Button>
           <DropDownButton
             language={language}
+            title={intl.formatMessage({ id: "app.docs" })}
             {...documentationMenu(language)}
           />
-          <DropDownButton language={language} {...communityMenu(language)} />
+          <DropDownButton
+            language={language}
+            title={intl.formatMessage({ id: "app.language" })}
+            {...communityMenu(language)}
+          />
         </div>
         <Button
           href={slugForLanguage("/login", language)}
           color="inherit"
-          title="🔐"
+          title={intl.formatMessage({ id: "app.logIn" })}
           size="small"
           className="not-on-mobile"
         >
@@ -66,13 +73,14 @@ function FsAppBar(props) {
         </Button>
         <span style={styles.grow} />
         <DropDownButton
+          title={intl.formatMessage({ id: "app.language" })}
           language={language}
           {...languageMenu(props.slug, language)}
         />
         <Button
           color="inherit"
           onClick={props.toggleDarkMode}
-          title="🌙 &nbsp;/&nbsp; 🌞"
+          title={intl.formatMessage({ id: "app.darkMode" })}
           size="small"
         >
           {darkModeIcon}
@@ -81,6 +89,7 @@ function FsAppBar(props) {
           <MobileMenu
             language={language}
             dark={dark}
+            intl={intl}
             toggleDarkMode={props.toggleDarkMode}
           />
         </div>
@@ -95,4 +104,4 @@ FsAppBar.propTypes = {
   slug: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(FsAppBar);
+export default withStyles(styles)(injectIntl(FsAppBar));

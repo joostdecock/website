@@ -50,6 +50,7 @@ class DropDownButton extends React.Component {
           aria-label={this.props.label}
           onClick={this.handleClickListItem}
           color="inherit"
+          title={this.props.title}
         >
           {icon}
           {label}

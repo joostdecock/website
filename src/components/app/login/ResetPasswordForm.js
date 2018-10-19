@@ -9,7 +9,8 @@ import { slugForLanguage } from "../../../utils";
 const ResetPasswordForm = ({
   language,
   handleToggleTrouble,
-  handlePasswordReset
+  handlePasswordReset,
+  intl
 }) => {
   return (
     <div>
@@ -30,7 +31,7 @@ const ResetPasswordForm = ({
           autoFocus={true}
           fullWidth={true}
           autoComplete="username"
-          label="Email address"
+          label={intl.formatMessage({ id: "app.emailAddress" })}
           margin="normal"
           variant="outlined"
         />

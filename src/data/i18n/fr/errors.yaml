@@ -1,0 +1,3 @@
+networkError: Le backend ou le réseau semble en panne
+requestFailedWithStatusCode401: Authentification échouée
+

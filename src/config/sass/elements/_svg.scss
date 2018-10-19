@@ -7,7 +7,9 @@ svg.icon.css-fill {
     fill: rgba(0, 0, 0, 0.54);
   }
 }
-
+svg.notification-icon {
+  margin: 0 15px -7px 0;
+}
 body.dark {
   svg.icon.css-fill {
     path {

@@ -27,10 +27,24 @@ troubleLoggingIn: Mühe dich einzuloggen?
 signUpForAFreeAccount: Registriere Dich für einen kostenlosen Account.
 howCanWeHelpYou: Wie können wir Dir helfen
 contactUs: Kontaktiere uns
-iForgotMyPassword: Ich habe mein Passwort vergessen
-iForgotMyUsername: Ich habe meinen Benutzernamen vergessen
 emailWorksToo: 'Wenn Du Deinen Benutzername nicht weißt: Deine E-mail Addresse funktioniert auch'
 forgotLoginInstructions: 'Benutzername oder Emailadresse eingeben und den <b>Passwort zurücksetzen</b> Knopf druecken'
 resetPassword: Passwort zurücksetzen
+darkMode: Dunkler Modus
+language: Sprache
+menu: Menü
+close: Schließen
+username: Benutzername
+password: Passwort
+emailAddress: E-mail Addresse
 
+
+
+
+
+
+
+
+iForgotMyPassword: Ich habe mein Passwort vergessen
+iForgotMyUsername: Ich habe meinen Benutzernamen vergessen
 

@@ -4,10 +4,12 @@ $link: #2979ff;
 $black: #000;
 $grey: #ccc;
 $pink: #ff5b77;
+$success: #1faa00;
+$warning: #ff8100;
+$danger: #d50000;
 
 body {
   background-color: $secondary;
-  color: $primary;
 }
 div.fs-base {
   margin-top: 64px;

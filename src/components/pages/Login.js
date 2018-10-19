@@ -8,6 +8,7 @@ const Login = props => {
       <LoginContainer
         slug={props.pageContext.slug}
         language={props.pageContext.language}
+        intl={props.intl}
       />
     </BaseLayout>
   );

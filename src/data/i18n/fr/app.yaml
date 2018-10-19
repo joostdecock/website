@@ -27,9 +27,26 @@ troubleLoggingIn: Un problème de connexion ?
 signUpForAFreeAccount: Créer un compte gratuit
 howCanWeHelpYou: Comment pouvons-nous vous aider ?
 contactUs: Nous contacter
-iForgotMyPassword: J'ai oublié mon mot de passe
-iForgotMyUsername: J'ai oublié mon nom d'utilisateur
 emailWorksToo: 'Si vous ne connaissez pas votre nom d''utilisateur, votre adresse mail fonctionne également'
 forgotLoginInstructions: 'Entrez votre nom d''utilisateur ou votre adresse e-mail ci-dessous et cliquez sur le bouton <b>Réintialiser le mot de passe</b>.'
 resetPassword: Réintialiser le mot de passe
+darkMode: Mode sombre
+language: Langue
+menu: Menu
+close: Fermer
+username: Nom d'utilisateur
+password: Mot de passe
+emailAddress: Adresse mail
+
+
+
+
+
+
+
+
+
+
+iForgotMyPassword: J'ai oublié mon mot de passe
+iForgotMyUsername: J'ai oublié mon nom d'utilisateur
 

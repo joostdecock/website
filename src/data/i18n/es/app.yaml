@@ -27,9 +27,24 @@ troubleLoggingIn: ¿Problemas para acceder?
 signUpForAFreeAccount: Regístrate para una cuenta gratuíta
 howCanWeHelpYou: ¿Cómo podemos ayudarte?
 contactUs: Contactáctanos
-iForgotMyPassword: Olvidé mi contraseña
-iForgotMyUsername: Olvidé mi nombre de usuario
 emailWorksToo: 'Si no conoces tu nombre de usuario, tu dirección de correo electrónico también funcionará'
 forgotLoginInstrcutions: Entra tu nombre de usuario o correo electrónico debajo y pulsa el botón de Restablecer contraseña
 resetPassword: Restablecer contraseña
+darkMode: Modo oscuro
+language: Idioma
+menu: Menú
+close: Cerrar
+username: Nombre de usuario
+password: Contraseña
+emailAddress: Dirección de correo electrónico
+
+
+
+
+
+
+
+
+iForgotMyPassword: Olvidé mi contraseña
+iForgotMyUsername: Olvidé mi nombre de usuario
 
