@@ -42,6 +42,7 @@ class MobileMenu extends React.Component {
           color="inherit"
           onClick={this.handleOpen}
           style={{ marginRight: "-24px" }}
+          title={this.props.intl.formatMessage({ id: "app.menu" })}
         >
           <MenuIcon style={{ fontSize: "48px" }} />
         </Button>
@@ -58,6 +59,7 @@ class MobileMenu extends React.Component {
                   color="inherit"
                   onClick={this.handleClose}
                   style={{ marginRight: "-24px" }}
+                  title={this.props.intl.formatMessage({ id: "app.close" })}
                 >
                   <CloseIcon style={{ fontSize: "48px" }} />
                 </Button>
@@ -68,6 +70,19 @@ class MobileMenu extends React.Component {
                 <Link
                   onClick={this.handleClose}
                   to={slugForLanguage("/blog/", this.props.language)}
+                  title={this.props.intl.formatMessage({
+                    id: "app.freesewing"
+                  })}
+                >
+                  <BlogIcon className="mr20" />
+                  <FormattedMessage id="app.freesewing" />
+                </Link>
+              </h3>
+              <h3>
+                <Link
+                  onClick={this.handleClose}
+                  to={slugForLanguage("/blog/", this.props.language)}
+                  title={this.props.intl.formatMessage({ id: "app.blog" })}
                 >
                   <BlogIcon className="mr20" />
                   <FormattedMessage id="app.blog" />
@@ -75,16 +90,19 @@ class MobileMenu extends React.Component {
               </h3>
               <MobileSubMenu
                 language={this.props.language}
+                intl={this.props.intl}
                 {...documentationMenu(this.props.language)}
               />
               <MobileSubMenu
                 language={this.props.language}
+                intl={this.props.intl}
                 {...communityMenu(this.props.language)}
               />
               <h3>
                 <Link
                   onClick={this.handleClose}
                   to={slugForLanguage("/login/", this.props.language)}
+                  title={this.props.intl.formatMessage({ id: "app.logIn" })}
                 >
                   <LoginIcon className="mr20" />
                   <FormattedMessage id="app.logIn" />

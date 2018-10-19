@@ -1,15 +1,65 @@
 import React from "react";
 import SplashBox from "../../SplashBox";
+import Notification from "../../Notification";
 import LoginForm from "./LoginForm";
 import ResetPasswordForm from "./ResetPasswordForm";
-import { login } from "../../../backend";
+import backend from "../../../backend";
+import { injectIntl } from "react-intl";
 
-export default class LoginContainer extends React.Component {
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
+class LoginContainer extends React.Component {
   state = {
+    dialog: false,
     trouble: false,
     username: "",
     password: "",
-    loading: false
+    loading: false,
+    userData: {},
+    notification: {
+      show: false,
+      message: "",
+      type: "info"
+    }
+  };
+
+  notify = (type, message) => {
+    this.setState({
+      //...this.state,
+      notification: {
+        show: true,
+        type: type,
+        message: message
+      }
+    });
+  };
+
+  handleNotificationOnClose = () => {
+    // Triggered on auto-close
+    if (this.state.notification.show === true) {
+      this.handleNotificationClose();
+    }
+  };
+
+  handleNotificationClose = () => {
+    this.setState({
+      ...this.state,
+      notification: {
+        ...this.state.notification,
+        show: false
+      }
+    });
+  };
+
+  handleDialogClose = () => {
+    this.setState({
+      ...this.state,
+      dialog: false
+    });
   };
 
   handleToggleTrouble = () => {
@@ -21,10 +71,23 @@ export default class LoginContainer extends React.Component {
 
   handleLogin = () => {
     this.startLoading();
-    login(this.state.username, this.state.password).then(res => {
-      this.stopLoading();
-      console.log("in container", res);
-    });
+    backend
+      .login(this.state.username, this.state.password)
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({
+            ...this.state,
+            userData: res.data,
+            dialog: true
+          });
+          this.stopLoading();
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.notify("error", err);
+        this.stopLoading();
+      });
   };
 
   handlePasswordReset = () => {
@@ -64,6 +127,7 @@ export default class LoginContainer extends React.Component {
       <SplashBox>
         {this.state.trouble ? (
           <ResetPasswordForm
+            intl={this.props.intl}
             loading={this.state.loading}
             language={this.props.language}
             handlePasswordReset={this.handlePasswordReset}
@@ -71,6 +135,7 @@ export default class LoginContainer extends React.Component {
           />
         ) : (
           <LoginForm
+            intl={this.props.intl}
             loading={this.state.loading}
             username={this.state.username}
             language={this.props.language}
@@ -80,7 +145,35 @@ export default class LoginContainer extends React.Component {
             handleToggleTrouble={this.handleToggleTrouble}
           />
         )}
+        <Notification
+          type={this.state.notification.type}
+          message={this.state.notification.message}
+          onClose={this.handleNotificationOnClose}
+          open={this.state.notification.show}
+          handleClose={this.handleNotificationClose}
+        />
+        <Dialog
+          open={this.state.dialog}
+          onClose={this.handleDialogClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Thanks for trying this 😀"}
+          </DialogTitle>
+          <DialogContent>
+            <b>Does this data look OK to you?</b>
+            <pre>{JSON.stringify(this.state.userData, null, 2)}</pre>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleDialogClose} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </SplashBox>
     );
   }
 }
+
+export default injectIntl(LoginContainer);

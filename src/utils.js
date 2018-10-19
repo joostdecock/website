@@ -2,6 +2,20 @@ import i18nConfig from "./config/i18n";
 import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
 
+/** Strips all whitespace and makes string lowercase */
+const toId = str => str.toLowerCase().replace(/\s+/g, "");
+
+/** Makes a string camelCase */
+const camelCase = str =>
+  str
+    .replace(/\s(.)/g, function($1) {
+      return $1.toUpperCase();
+    })
+    .replace(/\s/g, "")
+    .replace(/^(.)/, function($1) {
+      return $1.toLowerCase();
+    });
+
 /** Gets the language from a slug
  * A slug being the complete path of the URL
  * not just the last part
@@ -66,4 +80,11 @@ const loadTheme = dark => {
   return createMuiTheme({ ...themeConfig, palette });
 };
 
-export { languageFromSlug, slugForLanguage, fileOnGithub, loadTheme };
+export {
+  toId,
+  camelCase,
+  languageFromSlug,
+  slugForLanguage,
+  fileOnGithub,
+  loadTheme
+};

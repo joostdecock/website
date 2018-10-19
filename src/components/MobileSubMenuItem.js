@@ -43,6 +43,7 @@ const MobileSubMenuItem = props => {
       button={true}
       component="a"
       {...link}
+      title={props.intl.formatMessage({ id: props.label })}
       color="secondary"
     >
       {icon}

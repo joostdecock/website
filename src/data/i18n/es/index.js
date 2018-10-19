@@ -1,4 +1,5 @@
 import app from "./app.yaml";
+import errors from "./errors.yaml";
 import i18n from "./i18n.yaml";
 import measurements from "./measurements.yaml";
 import optiongroups from "./optiongroups.yaml";
@@ -7,6 +8,7 @@ import patterns from "./patterns.yaml";
 
 let topics = {
   app,
+  errors,
   i18n,
   measurements,
   optiongroups,

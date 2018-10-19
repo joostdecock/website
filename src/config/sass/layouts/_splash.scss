@@ -24,11 +24,7 @@ body.splash {
 
 body.light.splash {
   header {
-    background: rgba(255,255,255,0.2);
-    a[role="button"]:hover,
-    button:hover {
-      background: rgba(255,255,255,0.4);
-    }
+    background: rgba(255,255,255,0.4);
   }
 
   div.splash-box {
@@ -39,11 +35,7 @@ body.light.splash {
 body.dark.splash {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./img/potm.jpg");
   header {
-    background: rgba(0,0,0,0.2);
-    a[role="button"]:hover,
-    button:hover {
-      background: rgba(0,0,0,0.4);
-    }
+    background: rgba(0,0,0,0.4);
   }
   div.splash-box {
     background: rgba(0,0,0,0.5);

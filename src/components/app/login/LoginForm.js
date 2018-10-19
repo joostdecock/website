@@ -16,7 +16,8 @@ const LoginForm = ({
   handleLogin,
   handleUsernameUpdate,
   handlePasswordUpdate,
-  handleToggleTrouble
+  handleToggleTrouble,
+  intl
 }) => {
   return (
     <div>
@@ -29,7 +30,7 @@ const LoginForm = ({
           autoFocus={true}
           fullWidth={true}
           autoComplete="username"
-          label="Username or email"
+          label={intl.formatMessage({ id: "app.username" })}
           margin="normal"
           variant="outlined"
           value={username}
@@ -40,7 +41,7 @@ const LoginForm = ({
           fullWidth={true}
           type="password"
           autoComplete="password"
-          label="Password"
+          label={intl.formatMessage({ id: "app.password" })}
           margin="normal"
           variant="outlined"
           value={password}

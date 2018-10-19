@@ -18,6 +18,7 @@ const MobileSubMenu = props => {
         <MobileSubMenuItem
           key={item.label + "__" + index}
           onClick={props.handleClick}
+          intl={props.intl}
           selected={false}
           {...item}
         />
