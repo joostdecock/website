@@ -1,6 +1,7 @@
 body.splash {
   background: url("./img/potm.jpg") no-repeat center center fixed;
   background-size: cover;
+  margin: 0 7.5%;
   header {
     background: transparent;
   }
@@ -13,22 +14,21 @@ body.splash {
   }
 
   div.splash-box {
-    padding: 2rem 2rem 0.5rem 2rem;
+    padding: 2rem 4rem 1rem 4rem;
     max-width: 600px;
+    :first-child {
+      margin-top: 0;
+    }
   }
 }
 
 body.light.splash {
   header {
-    background-image: linear-gradient(
-      rgba(255,255,255,0),
-      rgba(255,255,255,0),
-      rgba(255,255,255,0.2),
-      rgba(255,255,255,0.25),
-      rgba(255,255,255,0.2),
-      rgba(255,255,255,0),
-      rgba(255,255,255,0)
-    );
+    background: rgba(255,255,255,0.2);
+    a[role="button"]:hover,
+    button:hover {
+      background: rgba(255,255,255,0.4);
+    }
   }
 
   div.splash-box {
@@ -39,15 +39,11 @@ body.light.splash {
 body.dark.splash {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./img/potm.jpg");
   header {
-    background-image: linear-gradient(
-      rgba(0,0,0,0),
-      rgba(0,0,0,0),
-      rgba(0,0,0,0.2),
-      rgba(0,0,0,0.25),
-      rgba(0,0,0,0.2),
-      rgba(0,0,0,0),
-      rgba(0,0,0,0)
-    );
+    background: rgba(0,0,0,0.2);
+    a[role="button"]:hover,
+    button:hover {
+      background: rgba(0,0,0,0.4);
+    }
   }
   div.splash-box {
     background: rgba(0,0,0,0.5);

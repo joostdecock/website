@@ -6,6 +6,7 @@
     "@freesewing/material-style": "^0.4.0",
     "@material-ui/core": "latest",
     "@material-ui/icons": "^3.0.1",
+    "axios": "0.18.0",
     "browser-lang": "0.0.1",
     "gatsby": "latest",
     "gatsby-image": "2.0.13",

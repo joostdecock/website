@@ -1,9 +1,9 @@
 @include xs-screen {
   .not-on-mobile {
-    display: inherit!important;
+    display: none!important;
   }
   .only-on-mobile {
-    display: none!important;
+    display: inherit!important;
   }
 
   div.page,
@@ -24,6 +24,11 @@
     position: inherit;
     margin: 0 10%;
     padding: 0;
+  }
+  body.splash{
+    div.splash-box {
+      padding: 2rem 2rem 1rem 2rem;
+    }
   }
 }
 

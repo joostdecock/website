@@ -13,25 +13,17 @@ const ResetPasswordForm = ({
 }) => {
   return (
     <div>
-      <h1 className="txt-center">
+      <h2 className="txt-left">
         <FormattedMessage id="app.troubleLoggingIn" />
-      </h1>
-      <h3 className="txt-left">
-        <FormattedMessage id="app.iForgotMyUsername" />
-      </h3>
-      <p className="txt-left">
-        <FormattedMessage id="app.emailWorksToo" />
-        :&nbsp;
-        <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
-          <FormattedMessage id="app.logIn" />
-        </a>
-      </p>
-      <h3 className="txt-left">
-        <FormattedMessage id="app.iForgotMyPassword" />
-      </h3>
-      <p className="txt-left">
-        <FormattedHTMLMessage id="app.forgotLoginInstructions" />.
-      </p>
+      </h2>
+      <ul className="txt-left">
+        <li>
+          <FormattedHTMLMessage id="app.emailWorksToo" />
+        </li>
+        <li>
+          <FormattedHTMLMessage id="app.forgotLoginInstructions" />.
+        </li>
+      </ul>
       <form>
         <TextField
           id="username"
@@ -42,28 +34,27 @@ const ResetPasswordForm = ({
           margin="normal"
           variant="outlined"
         />
+        <Button
+          color="primary"
+          size="large"
+          variant="contained"
+          onClick={handlePasswordReset}
+          classes={{ root: "mt10" }}
+        >
+          <FormattedMessage id="app.resetPassword" />
+        </Button>
       </form>
-      <Button
-        color="primary"
-        size="large"
-        variant="contained"
-        onClick={handlePasswordReset}
-      >
-        <FormattedMessage id="app.resetPassword" />
-      </Button>
-      <p className="pt20">
-        <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
-          <FormattedMessage id="app.logIn" />
-        </a>
-        &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/signup", language)}>
-          <FormattedMessage id="app.signUpForAFreeAccount" />
-        </Link>
-        &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/contact", language)}>
-          <FormattedMessage id="app.contactUs" />
-        </Link>
-      </p>
+      <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
+        <FormattedMessage id="app.logIn" />
+      </a>
+      &nbsp;|&nbsp;
+      <Link to={slugForLanguage("/signup", language)}>
+        <FormattedMessage id="app.signUpForAFreeAccount" />
+      </Link>
+      &nbsp;|&nbsp;
+      <Link to={slugForLanguage("/contact", language)}>
+        <FormattedMessage id="app.contactUs" />
+      </Link>
     </div>
   );
 };
