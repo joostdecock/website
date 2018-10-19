@@ -29,7 +29,7 @@ howCanWeHelpYou: How can we help you?
 contactUs: Contact us
 iForgotMyPassword: I forgot my password
 iForgotMyUsername: I forgot my username
-emailWorksToo: 'If you don''t know your username, you can use your E-mail address to login'
-forgotLoginInstructions: 'Enter your username or E-mail address below and click the <b>Reset password</b> button'
+emailWorksToo: 'If you don''t know your username, you can also use your E-mail address to login'
+forgotLoginInstructions: 'If you don''t remember your password, enter your username or E-mail address below and click the <b>Reset password</b> button'
 resetPassword: Reset password
 

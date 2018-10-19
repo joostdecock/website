@@ -29,8 +29,8 @@ howCanWeHelpYou: Hoe kunnen we je helpen?
 contactUs: Neem contact op
 iForgotMyPassword: Ik ben mijn wachtwoord vergeten
 iForgotMyUsername: Ik ben mijn gebruikersnaam vergeten
-emailWorksToo: 'Als je je gebruikersnaam niet meer weet, vul dan je E-mail adres in. Dat werkt ook'
-forgotLoginInstructions: 'Vul hieronder je gebruikersnaam of E-mail adres in, en klik op de <b>Herstel wachtwoord</b> knop'
+emailWorksToo: 'Als je je <b>gebruikersnaam</b> niet meer weet, vul dan je E-mail adres in. Dat werkt ook'
+forgotLoginInstructions: 'Als je je <b>wachtwoord</b> niet meer weet, vul dan hieronder je gebruikersnaam of E-mail adres in, en klik op de <b>Herstel wachtwoord</b> knop'
 resetPassword: Herstel wachtwoord
 
 

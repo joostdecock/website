@@ -19,32 +19,33 @@ import {
 } from "../config/menus";
 
 const styles = {
-  root: {
-    flexGrow: 1
-  },
   grow: {
     flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
   }
 };
 
 function FsAppBar(props) {
   const { dark, language } = props;
   let darkModeIcon = (
-    <DarkIcon style={{ fontSize: "32px", transform: "rotate(35deg)" }} />
+    <DarkIcon style={{ fontSize: "28px", transform: "rotate(35deg)" }} />
   );
-  if (dark) darkModeIcon = <LightIcon style={{ fontSize: "32px" }} />;
+  if (dark) darkModeIcon = <LightIcon style={{ fontSize: "28px" }} />;
   return (
     <AppBar color="secondary" elevation={0}>
       <Toolbar>
-        <Button color="inherit" href={slugForLanguage("/", language)}>
+        <Button
+          color="inherit"
+          href={slugForLanguage("/", language)}
+          size="small"
+        >
           <FormattedMessage id="app.freesewing" />
         </Button>
         <div className="not-on-mobile">
-          <Button color="inherit" href={slugForLanguage("/blog/", language)}>
+          <Button
+            color="inherit"
+            href={slugForLanguage("/blog/", language)}
+            size="small"
+          >
             <FormattedMessage id="app.blog" />
           </Button>
           <DropDownButton
@@ -57,6 +58,7 @@ function FsAppBar(props) {
           href={slugForLanguage("/login", language)}
           color="inherit"
           title="🔐"
+          size="small"
           className="not-on-mobile"
         >
           <LoginIcon className="mr10" />
@@ -71,6 +73,7 @@ function FsAppBar(props) {
           color="inherit"
           onClick={props.toggleDarkMode}
           title="🌙 &nbsp;/&nbsp; 🌞"
+          size="small"
         >
           {darkModeIcon}
         </Button>
