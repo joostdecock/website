@@ -6,11 +6,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
+import Logo from "./Logo";
 import { slugForLanguage } from "../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
+import BlogIcon from "@material-ui/icons/ImportContacts";
+import SignupIcon from "@material-ui/icons/PersonAdd";
 
 import {
   languageMenu,
@@ -39,15 +42,18 @@ function FsAppBar(props) {
           size="small"
           title={intl.formatMessage({ id: "app.freesewing" })}
         >
-          <FormattedMessage id="app.freesewing" />
+          <Logo size={38} className="mr10" />
+          <span className="not-on-xs">
+            <FormattedMessage id="app.freesewing" />
+          </span>
         </Button>
         <div className="not-on-mobile">
           <Button
             color="inherit"
             href={slugForLanguage("/blog/", language)}
-            size="small"
             title={intl.formatMessage({ id: "app.blog" })}
           >
+            <BlogIcon className="mr10" />
             <FormattedMessage id="app.blog" />
           </Button>
           <DropDownButton
@@ -65,11 +71,19 @@ function FsAppBar(props) {
           href={slugForLanguage("/login", language)}
           color="inherit"
           title={intl.formatMessage({ id: "app.logIn" })}
-          size="small"
           className="not-on-mobile"
         >
           <LoginIcon className="mr10" />
           <FormattedMessage id="app.logIn" />
+        </Button>
+        <Button
+          href={slugForLanguage("/signup", language)}
+          color="inherit"
+          title={intl.formatMessage({ id: "app.signUp" })}
+          className="not-on-mobile"
+        >
+          <SignupIcon className="mr10" />
+          <FormattedMessage id="app.signUp" />
         </Button>
         <span style={styles.grow} />
         <DropDownButton

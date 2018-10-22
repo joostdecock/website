@@ -9,7 +9,6 @@ const GithubIcon = props => {
       width={props.size}
       height={props.size}
       viewBox={props.viewBox}
-      color={props.color}
       pathString={github}
     />
   );
@@ -17,13 +16,11 @@ const GithubIcon = props => {
 
 GithubIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   viewBox: PropTypes.string
 };
 
 GithubIcon.defaultProps = {
   size: 24,
-  color: "#00000080",
   viewBox: "0 0 24 24"
 };
 

@@ -9,7 +9,6 @@ const GitterIcon = props => {
       width={props.size}
       height={props.size}
       viewBox={props.viewBox}
-      color={props.color}
       pathString={gitter}
     />
   );
@@ -17,13 +16,11 @@ const GitterIcon = props => {
 
 GitterIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   viewBox: PropTypes.string
 };
 
 GitterIcon.defaultProps = {
   size: 24,
-  color: "#00000080",
   viewBox: "0 0 24 24"
 };
 

@@ -21,19 +21,27 @@ const DropDownItem = props => {
   }
   if (typeof props.icon === "string") {
     icon = (
-      <ListItemIcon>
-        <Icon className="enu-icon">{props.icon}</Icon>
+      <ListItemIcon className="inherit-color">
+        <Icon>{props.icon}</Icon>
       </ListItemIcon>
     );
   } else if (props.icon.type === "inline") {
     icon = (
       <div
-        style={{ display: "inline-block", paddingRight: "10px" }}
+        style={{
+          display: "inline-block",
+          paddingRight: "10px",
+          color: "inherit"
+        }}
         dangerouslySetInnerHTML={{ __html: props.icon.svg }}
       />
     );
   } else if (props.icon.type === "component") {
-    icon = <ListItemIcon>{props.icon.svg}</ListItemIcon>;
+    icon = (
+      <ListItemIcon color="inherit" className="inherit-color">
+        {props.icon.svg}
+      </ListItemIcon>
+    );
   }
   if (props.link.substring(0, 4) === "http") link = { href: props.link };
   else link = { href: props.link };
