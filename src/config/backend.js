@@ -1,3 +1,5 @@
+console.log(process.env);
+
 export default {
-  url: process.env.FS_BACKEND || "http://localhost:3000"
+  url: process.env.GATSBY_BACKEND
 };
