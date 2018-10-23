@@ -9,8 +9,13 @@ import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "gatsby";
 import MobileSubMenu from "./MobileSubMenu";
-import { communityMenu, documentationMenu } from "../config/menus";
+import {
+  communityMenu,
+  documentationMenu,
+  getUserMenuItems
+} from "../config/menus";
 import LoginIcon from "@material-ui/icons/VpnKey";
+import SignupIcon from "@material-ui/icons/PersonAdd";
 import BlogIcon from "@material-ui/icons/ImportContacts";
 import Logo from "./Logo";
 
@@ -35,8 +40,46 @@ class MobileMenu extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
   render() {
+    let userMenu = "";
+    if (this.props.user) {
+      userMenu = (
+        <MobileSubMenu
+          language={this.props.language}
+          text={"@" + this.props.user.username}
+          intl={this.props.intl}
+          items={getUserMenuItems(
+            this.props.language,
+            this.props.user.username,
+            this.props.handleLogout
+          )}
+          key="userMenu"
+        />
+      );
+    } else {
+      userMenu = [
+        <h3 key="login">
+          <Link
+            onClick={this.handleClose}
+            to={slugForLanguage("/login/", this.props.language)}
+            title={this.props.intl.formatMessage({ id: "app.logIn" })}
+          >
+            <LoginIcon className="mr20" />
+            <FormattedMessage id="app.logIn" />
+          </Link>
+        </h3>,
+        <h3 key="logout">
+          <Link
+            onClick={this.handleClose}
+            to={slugForLanguage("/signup/", this.props.language)}
+            title={this.props.intl.formatMessage({ id: "app.signUp" })}
+          >
+            <SignupIcon className="mr20" />
+            <FormattedMessage id="app.signUp" />
+          </Link>
+        </h3>
+      ];
+    }
     return (
       <div>
         <Button
@@ -99,16 +142,7 @@ class MobileMenu extends React.Component {
                 intl={this.props.intl}
                 {...communityMenu(this.props.language)}
               />
-              <h3>
-                <Link
-                  onClick={this.handleClose}
-                  to={slugForLanguage("/login/", this.props.language)}
-                  title={this.props.intl.formatMessage({ id: "app.logIn" })}
-                >
-                  <LoginIcon className="mr20" />
-                  <FormattedMessage id="app.logIn" />
-                </Link>
-              </h3>
+              {userMenu}
             </div>
           </div>
         </Modal>

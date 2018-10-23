@@ -39,8 +39,11 @@ const MobileSubMenuItem = props => {
       </ListItemIcon>
     );
   }
-  if (props.link.substring(0, 4) === "http") link = { href: props.link };
-  else link = { href: props.link };
+  // Some items have no link, but only an onClick action
+  if (typeof props.link !== "undefined") {
+    if (props.link.substring(0, 4) === "http") link = { href: props.link };
+    else link = { href: props.link };
+  }
   return (
     <MenuItem
       key={"sdfs" + props.label}
@@ -49,6 +52,7 @@ const MobileSubMenuItem = props => {
       {...link}
       title={props.intl.formatMessage({ id: props.label })}
       color="secondary"
+      onClick={props.onClick}
     >
       {icon}
       {label}

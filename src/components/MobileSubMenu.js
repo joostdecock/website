@@ -14,15 +14,19 @@ const MobileSubMenu = props => {
   return (
     <div>
       <h3>{label}</h3>
-      {props.items.map((item, index) => (
-        <MobileSubMenuItem
-          key={item.label + "__" + index}
-          onClick={props.handleClick}
-          intl={props.intl}
-          selected={false}
-          {...item}
-        />
-      ))}
+      {props.items.map((item, index) => {
+        if (item === "divider") return <hr key={"divider" + index} />;
+        return (
+          <MobileSubMenuItem
+            key={item.label + "__" + index}
+            onClick={props.handleClick}
+            intl={props.intl}
+            selected={false}
+            divider={item === "divider" ? true : false}
+            {...item}
+          />
+        );
+      })}
     </div>
   );
 };

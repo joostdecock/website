@@ -12,6 +12,7 @@ div.mobile-menu {
     h3 {
       color: #999;
       padding: 0;
+      margin: 0.5rem 0;
     }
 
     h3 a {
@@ -24,6 +25,11 @@ div.mobile-menu {
 
     h3 a:hover {
       background: rgba(0, 0, 0, 0.08);
+    }
+
+    hr {
+      margin: 0.25rem 0;
+      border-top: 1px solid currentcolor;
     }
   }
 }

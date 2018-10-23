@@ -7,6 +7,7 @@ import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
+import { navigate } from "gatsby";
 
 class LoginContainer extends React.Component {
   state = {
@@ -74,7 +75,7 @@ class LoginContainer extends React.Component {
         if (res.status === 200) {
           this.props.setUserAccount(res.data);
           this.stopLoading();
-          if (typeof window !== "undefined") window.history.back();
+          navigate("/" + this.props.language);
         }
       })
       .catch(err => {
