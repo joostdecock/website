@@ -1,16 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import SplashBox from "../../SplashBox";
 import Notification from "../../Notification";
 import LoginForm from "./LoginForm";
 import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
-
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import { setUserAccount } from "../../../store/actions/user";
 
 class LoginContainer extends React.Component {
   state = {
@@ -69,18 +65,16 @@ class LoginContainer extends React.Component {
     });
   };
 
-  handleLogin = () => {
+  handleLogin = evt => {
+    evt.preventDefault();
     this.startLoading();
     backend
       .login(this.state.username, this.state.password)
       .then(res => {
         if (res.status === 200) {
-          this.setState({
-            ...this.state,
-            userData: res.data,
-            dialog: true
-          });
+          this.props.setUserAccount(res.data);
           this.stopLoading();
+          if (typeof window !== "undefined") window.history.back();
         }
       })
       .catch(err => {
@@ -152,28 +146,20 @@ class LoginContainer extends React.Component {
           open={this.state.notification.show}
           handleClose={this.handleNotificationClose}
         />
-        <Dialog
-          open={this.state.dialog}
-          onClose={this.handleDialogClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"Thanks for trying this 😀"}
-          </DialogTitle>
-          <DialogContent>
-            <b>Does this data look OK to you?</b>
-            <pre>{JSON.stringify(this.state.userData, null, 2)}</pre>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleDialogClose} color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
       </SplashBox>
     );
   }
 }
 
-export default injectIntl(LoginContainer);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  setUserAccount: account => dispatch(setUserAccount(account))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(injectIntl(LoginContainer));

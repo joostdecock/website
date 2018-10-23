@@ -5,12 +5,24 @@ footer {
   margin-top: 3rem;
   padding: 3rem 1rem;
 
-  p {
-    font-size: 80%;
-    margin-top: 2rem;
-    line-height: 1.3;
-  }
   a {
     color: $secondary;
+  }
+  a:hover {
+    color: $grey;
+  }
+  p.credits {
+    margin-top: 1rem;
+    font-size: 90%;
+    line-height: 1.3;
+  }
+  ul.social {
+    margin: 0;
+    padding-top: 1rem;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 0 20px;
+    }
   }
 }

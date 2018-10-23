@@ -15,23 +15,22 @@ import "../../config/sass/theme.scss";
 import Footer from "../Footer";
 import { languageFromSlug, loadTheme } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
+import { setUserAccount } from "../../store/actions/user";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
-const theme = loadTheme(false);
-class Base extends React.Component {
-  state = {
-    theme: theme
-  };
 
+class Base extends React.Component {
   handleToggleDarkMode = () => {
     const { dark, setDarkMode } = this.props;
-    this.setState({
-      theme: loadTheme(!dark)
-    });
     setDarkMode(!dark);
   };
 
+  handleLogout = () => {
+    this.props.setUserAccount(false);
+  };
+
   render() {
+    console.log("Base props", this.props);
     let language = languageFromSlug(this.props.slug);
     const { dark, splash } = this.props;
     let footer = splash ? "" : <Footer language={language} />;
@@ -39,7 +38,7 @@ class Base extends React.Component {
     if (splash) classes += " splash";
     return (
       <IntlProvider locale={language} messages={strings[language]}>
-        <MuiThemeProvider theme={this.state.theme}>
+        <MuiThemeProvider theme={loadTheme(this.props.dark)}>
           <Helmet>
             <link
               rel="stylesheet"
@@ -49,6 +48,8 @@ class Base extends React.Component {
           </Helmet>
           <div className="fs-base">
             <AppBar
+              user={this.props.user}
+              handleLogout={this.handleLogout}
               language={language}
               slug={this.props.slug}
               dark={dark}
@@ -64,11 +65,13 @@ class Base extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  dark: state.darkMode
+  dark: state.darkMode,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  setDarkMode: dark => dispatch(setDarkMode(dark))
+  setDarkMode: dark => dispatch(setDarkMode(dark)),
+  setUserAccount: account => dispatch(setUserAccount(account))
 });
 
 Base.propTypes = {

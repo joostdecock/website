@@ -38,14 +38,15 @@ username: Benutzername
 password: Passwort
 emailAddress: E-mail Addresse
 signUp: Registrieren
+newDraft: Neuer Entwurf
+newModel: Neues Modell
+drafts: Entwürfe
+models: Modelle (Personen)
+settings: Einstellungen
+profile: Profil
+logOut: Abmelden
 
 
 
 
-
-
-
-
-iForgotMyPassword: Ich habe mein Passwort vergessen
-iForgotMyUsername: Ich habe meinen Benutzernamen vergessen
 

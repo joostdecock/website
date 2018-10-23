@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 const DropDownItem = props => {
   let icon = "";
   let label = "";
-  let link = "";
+  let link = {};
   if (typeof props.text === "string") {
     label = <ListItemText>{props.text}</ListItemText>;
   } else {
@@ -43,8 +43,11 @@ const DropDownItem = props => {
       </ListItemIcon>
     );
   }
-  if (props.link.substring(0, 4) === "http") link = { href: props.link };
-  else link = { href: props.link };
+  // Some items have no link, but only an onClick action
+  if (typeof props.link !== "undefined") {
+    if (props.link.substring(0, 4) === "http") link = { href: props.link };
+    else link = { href: props.link };
+  }
   return (
     <MenuItem
       key={"sdfs" + props.label}

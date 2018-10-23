@@ -38,11 +38,15 @@ username: Username
 password: Password
 emailAddress: E-mail address
 signUp: Sign up
+newDraft: New draft
+newModel: New model
+drafts: Drafts
+models: Models
+settings: Settings
+profile: Profile
+logOut: Log out
 
 
 
 
-
-iForgotMyPassword: I forgot my password
-iForgotMyUsername: I forgot my username
 
