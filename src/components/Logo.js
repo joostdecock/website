@@ -8,7 +8,7 @@ const Logo = props => {
       width={props.size}
       height={props.size}
       viewBox="0 0 48 48"
-      class={props.className}
+      className={props.className}
     >
       <path
         fill="currentColor"
