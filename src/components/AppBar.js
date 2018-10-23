@@ -27,7 +27,7 @@ const styles = {
 };
 
 function FsAppBar(props) {
-  const { dark, language, intl, user, setUserAccount } = props;
+  const { dark, language, intl, user, handleLogout } = props;
   let darkModeIcon = (
     <DarkIcon style={{ fontSize: "28px", transform: "rotate(35deg)" }} />
   );
@@ -72,7 +72,7 @@ function FsAppBar(props) {
           },
           "divider",
           {
-            onClick: () => setUserAccount(false),
+            onClick: () => handleLogout(),
             label: "app.logOut",
             icon: "power_settings_new"
           }
@@ -154,6 +154,8 @@ function FsAppBar(props) {
         </Button>
         <div className="only-on-mobile">
           <MobileMenu
+            user={props.user}
+            handleLogout={props.handleLogout}
             language={language}
             dark={dark}
             intl={intl}
@@ -169,7 +171,7 @@ FsAppBar.propTypes = {
   dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  setUserAccount: PropTypes.func.isRequired
+  handleLogout: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(injectIntl(FsAppBar));

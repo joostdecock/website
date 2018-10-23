@@ -25,6 +25,10 @@ class Base extends React.Component {
     setDarkMode(!dark);
   };
 
+  handleLogout = () => {
+    this.props.setUserAccount(false);
+  };
+
   render() {
     console.log("Base props", this.props);
     let language = languageFromSlug(this.props.slug);
@@ -45,7 +49,7 @@ class Base extends React.Component {
           <div className="fs-base">
             <AppBar
               user={this.props.user}
-              setUserAccount={this.props.setUserAccount}
+              handleLogout={this.handleLogout}
               language={language}
               slug={this.props.slug}
               dark={dark}

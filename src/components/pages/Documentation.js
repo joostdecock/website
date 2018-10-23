@@ -41,7 +41,15 @@ export default ({ pageContext }) => {
         <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
       </Grid>
       <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item xs={12} sm={10} md={4} lg={3} xl={3}>
+        <Grid
+          item
+          xs={12}
+          sm={10}
+          md={4}
+          lg={3}
+          xl={3}
+          className="align-self-stretch"
+        >
           <div className="docs toc">
             <h3>
               <FormattedMessage id="app.contents" />

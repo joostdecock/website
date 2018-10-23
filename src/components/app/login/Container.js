@@ -8,12 +8,6 @@ import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
 
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-
 class LoginContainer extends React.Component {
   state = {
     dialog: false,
@@ -79,12 +73,8 @@ class LoginContainer extends React.Component {
       .then(res => {
         if (res.status === 200) {
           this.props.setUserAccount(res.data);
-          this.setState({
-            ...this.state,
-            userData: res.data,
-            dialog: true
-          });
           this.stopLoading();
+          window.history.back();
         }
       })
       .catch(err => {
@@ -156,25 +146,6 @@ class LoginContainer extends React.Component {
           open={this.state.notification.show}
           handleClose={this.handleNotificationClose}
         />
-        <Dialog
-          open={this.state.dialog}
-          onClose={this.handleDialogClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"Thanks for trying this 😀"}
-          </DialogTitle>
-          <DialogContent>
-            <b>Does this data look OK to you?</b>
-            <pre>{JSON.stringify(this.state.userData, null, 2)}</pre>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleDialogClose} color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
       </SplashBox>
     );
   }
