@@ -24,7 +24,7 @@ const LoginForm = ({
       <h1 className="txt-center">
         <FormattedMessage id="app.logIn" />
       </h1>
-      <form>
+      <form onSubmit={handleLogin}>
         <TextField
           id="username"
           autoFocus={true}
@@ -48,6 +48,7 @@ const LoginForm = ({
           onChange={handlePasswordUpdate}
         />
         <Button
+          type="submit"
           color="primary"
           size="large"
           variant="contained"

@@ -69,7 +69,8 @@ class LoginContainer extends React.Component {
     });
   };
 
-  handleLogin = () => {
+  handleLogin = evt => {
+    evt.preventDefault();
     this.startLoading();
     backend
       .login(this.state.username, this.state.password)
