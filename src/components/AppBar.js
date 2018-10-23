@@ -14,7 +14,6 @@ import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import BlogIcon from "@material-ui/icons/ImportContacts";
 import SignupIcon from "@material-ui/icons/PersonAdd";
-
 import {
   languageMenu,
   communityMenu,
@@ -28,11 +27,82 @@ const styles = {
 };
 
 function FsAppBar(props) {
-  const { dark, language, intl } = props;
+  const { dark, language, intl, user, setUserAccount } = props;
   let darkModeIcon = (
     <DarkIcon style={{ fontSize: "28px", transform: "rotate(35deg)" }} />
   );
   if (dark) darkModeIcon = <LightIcon style={{ fontSize: "28px" }} />;
+  let userMenu = "";
+  if (user) {
+    userMenu = [
+      <DropDownButton
+        language={language}
+        text={"@" + user.username}
+        items={[
+          {
+            link: slugForLanguage("/draft/", language),
+            label: "app.newDraft",
+            icon: "insert_drive_file"
+          },
+          {
+            link: slugForLanguage("/model/", language),
+            label: "app.newModel",
+            icon: "perm_identity"
+          },
+          "divider",
+          {
+            link: slugForLanguage("/drafts/", language),
+            label: "app.drafts",
+            icon: "folder_open"
+          },
+          {
+            link: slugForLanguage("/models/", language),
+            label: "app.models",
+            icon: "perm_contact_calendar"
+          },
+          {
+            link: slugForLanguage("/settings/", language),
+            label: "app.settings",
+            icon: "tune"
+          },
+          {
+            link: slugForLanguage("/user/" + user.username, language),
+            label: "app.profile",
+            icon: "fingerprint"
+          },
+          "divider",
+          {
+            onClick: () => setUserAccount(false),
+            label: "app.logOut",
+            icon: "power_settings_new"
+          }
+        ]}
+      />
+    ];
+  } else {
+    userMenu = [
+      <Button
+        href={slugForLanguage("/login", language)}
+        color="inherit"
+        title={intl.formatMessage({ id: "app.logIn" })}
+        className="not-on-mobile"
+        key="login"
+      >
+        <LoginIcon className="mr10" />
+        <FormattedMessage id="app.logIn" />
+      </Button>,
+      <Button
+        href={slugForLanguage("/signup", language)}
+        color="inherit"
+        title={intl.formatMessage({ id: "app.signUp" })}
+        className="not-on-mobile"
+        key="signup"
+      >
+        <SignupIcon className="mr10" />
+        <FormattedMessage id="app.signUp" />
+      </Button>
+    ];
+  }
   return (
     <AppBar color="secondary" elevation={0}>
       <Toolbar>
@@ -67,24 +137,7 @@ function FsAppBar(props) {
             {...communityMenu(language)}
           />
         </div>
-        <Button
-          href={slugForLanguage("/login", language)}
-          color="inherit"
-          title={intl.formatMessage({ id: "app.logIn" })}
-          className="not-on-mobile"
-        >
-          <LoginIcon className="mr10" />
-          <FormattedMessage id="app.logIn" />
-        </Button>
-        <Button
-          href={slugForLanguage("/signup", language)}
-          color="inherit"
-          title={intl.formatMessage({ id: "app.signUp" })}
-          className="not-on-mobile"
-        >
-          <SignupIcon className="mr10" />
-          <FormattedMessage id="app.signUp" />
-        </Button>
+        {userMenu}
         <span style={styles.grow} />
         <DropDownButton
           title={intl.formatMessage({ id: "app.language" })}
@@ -115,7 +168,8 @@ function FsAppBar(props) {
 FsAppBar.propTypes = {
   dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  setUserAccount: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(injectIntl(FsAppBar));

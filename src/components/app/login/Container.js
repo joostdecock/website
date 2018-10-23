@@ -1,10 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import SplashBox from "../../SplashBox";
 import Notification from "../../Notification";
 import LoginForm from "./LoginForm";
 import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
+import { setUserAccount } from "../../../store/actions/user";
 
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -76,6 +78,7 @@ class LoginContainer extends React.Component {
       .login(this.state.username, this.state.password)
       .then(res => {
         if (res.status === 200) {
+          this.props.setUserAccount(res.data);
           this.setState({
             ...this.state,
             userData: res.data,
@@ -177,4 +180,15 @@ class LoginContainer extends React.Component {
   }
 }
 
-export default injectIntl(LoginContainer);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  setUserAccount: account => dispatch(setUserAccount(account))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(injectIntl(LoginContainer));

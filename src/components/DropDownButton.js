@@ -5,6 +5,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import Button from "@material-ui/core/Button";
 import DropDownItem from "./DropDownItem";
 import { FormattedMessage } from "react-intl";
+import Divider from "@material-ui/core/Divider";
 
 class DropDownButton extends React.Component {
   state = {
@@ -62,14 +63,18 @@ class DropDownButton extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          {this.props.items.map((item, index) => (
-            <DropDownItem
-              key={item.label + "__" + index}
-              onClick={this.handleMenuItemClick}
-              selected={false}
-              {...item}
-            />
-          ))}
+          {this.props.items.map((item, index) => {
+            if (item === "divider") return <Divider />;
+            else
+              return (
+                <DropDownItem
+                  key={item.label + "__" + index}
+                  onClick={this.handleMenuItemClick}
+                  selected={false}
+                  {...item}
+                />
+              );
+          })}
         </Menu>
       </div>
     );

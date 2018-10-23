@@ -38,16 +38,13 @@ username: Nom d'utilisateur
 password: Mot de passe
 emailAddress: Adresse mail
 signUp: Créer un compte
+newDraft: Nouvelle ébauche
+newModel: Nouveau modèle
+drafts: Ébauches
+models: Modèles
+settings: Paramètres
+profile: Profil
+logOut: Déconnexion
 
 
-
-
-
-
-
-
-
-
-iForgotMyPassword: J'ai oublié mon mot de passe
-iForgotMyUsername: J'ai oublié mon nom d'utilisateur
 

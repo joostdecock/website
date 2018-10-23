@@ -38,12 +38,11 @@ username: Gebruikersnaam
 password: Wachtwoord
 emailAddress: E-mail adres
 signUp: Inschrijven
-
-
-
-
-
-
-iForgotMyPassword: Ik ben mijn wachtwoord vergeten
-iForgotMyUsername: Ik ben mijn gebruikersnaam vergeten
+newDraft: Nieuwe patroontekening
+newModel: Nieuw model
+drafts: Patroontekeningen
+models: Modellen
+settings: Instellingen
+profile: Profiel
+logOut: Afmelden
 

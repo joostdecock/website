@@ -15,6 +15,7 @@ import "../../config/sass/theme.scss";
 import Footer from "../Footer";
 import { languageFromSlug, loadTheme } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
+import { setUserAccount } from "../../store/actions/user";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -25,6 +26,7 @@ class Base extends React.Component {
   };
 
   render() {
+    console.log("Base props", this.props);
     let language = languageFromSlug(this.props.slug);
     const { dark, splash } = this.props;
     let footer = splash ? "" : <Footer language={language} />;
@@ -42,6 +44,8 @@ class Base extends React.Component {
           </Helmet>
           <div className="fs-base">
             <AppBar
+              user={this.props.user}
+              setUserAccount={this.props.setUserAccount}
               language={language}
               slug={this.props.slug}
               dark={dark}
@@ -57,11 +61,13 @@ class Base extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  dark: state.darkMode
+  dark: state.darkMode,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  setDarkMode: dark => dispatch(setDarkMode(dark))
+  setDarkMode: dark => dispatch(setDarkMode(dark)),
+  setUserAccount: account => dispatch(setUserAccount(account))
 });
 
 Base.propTypes = {
