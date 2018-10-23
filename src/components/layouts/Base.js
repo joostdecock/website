@@ -30,7 +30,6 @@ class Base extends React.Component {
   };
 
   render() {
-    console.log("Base props", this.props);
     let language = languageFromSlug(this.props.slug);
     const { dark, splash } = this.props;
     let footer = splash ? "" : <Footer language={language} />;
