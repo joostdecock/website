@@ -17,17 +17,10 @@ import { languageFromSlug, loadTheme } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
-const theme = loadTheme(false);
-class Base extends React.Component {
-  state = {
-    theme: theme
-  };
 
+class Base extends React.Component {
   handleToggleDarkMode = () => {
     const { dark, setDarkMode } = this.props;
-    this.setState({
-      theme: loadTheme(!dark)
-    });
     setDarkMode(!dark);
   };
 
@@ -39,7 +32,7 @@ class Base extends React.Component {
     if (splash) classes += " splash";
     return (
       <IntlProvider locale={language} messages={strings[language]}>
-        <MuiThemeProvider theme={this.state.theme}>
+        <MuiThemeProvider theme={loadTheme(this.props.dark)}>
           <Helmet>
             <link
               rel="stylesheet"
