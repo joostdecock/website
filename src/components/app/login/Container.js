@@ -74,7 +74,7 @@ class LoginContainer extends React.Component {
         if (res.status === 200) {
           this.props.setUserAccount(res.data);
           this.stopLoading();
-          window.history.back();
+          if (typeof window !== "undefined") window.history.back();
         }
       })
       .catch(err => {
