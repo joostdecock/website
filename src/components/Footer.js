@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Logo from "./Logo";
-import Button from "@material-ui/core/Button";
 import TwitterIcon from "./TwitterIcon";
 import InstagramIcon from "./InstagramIcon";
 import GitterIcon from "./GitterIcon";
@@ -9,10 +8,6 @@ import GithubIcon from "./GithubIcon";
 import { FormattedHTMLMessage, injectIntl } from "react-intl";
 import { slugForLanguage } from "../utils";
 import { Link } from "gatsby";
-
-const style = {
-  padding: "0 5px"
-};
 
 const Footer = props => {
   const { intl } = props;
