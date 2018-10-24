@@ -90,7 +90,8 @@ Base.propTypes = {
 };
 
 Base.defaultProps = {
-  splash: false
+  splash: false,
+  dark: false
 };
 
 export default connect(
