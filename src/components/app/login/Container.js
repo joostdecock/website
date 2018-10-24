@@ -36,6 +36,13 @@ class LoginContainer extends React.Component {
       .login(this.state.username, this.state.password)
       .then(res => {
         if (res.status === 200) {
+          console.log(res.data);
+          this.props.showNotification(
+            "success",
+            this.props.intl.formatMessage({ id: "app.welcome" }) +
+              " @" +
+              res.data.username
+          );
           this.props.setUserAccount(res.data);
           this.stopLoading();
           navigate("/" + this.props.language);
