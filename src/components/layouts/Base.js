@@ -16,6 +16,8 @@ import Footer from "../Footer";
 import { languageFromSlug, loadTheme } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
+import Notification from "../Notification";
+import { closeNotification } from "../../store/actions/notification";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -57,6 +59,13 @@ class Base extends React.Component {
             {this.props.children}
             {footer}
           </div>
+          <Notification
+            style={this.props.notification.style}
+            message={this.props.notification.message}
+            onClose={() => this.props.closeNotification()}
+            open={this.props.notification.show}
+            handleClose={() => this.props.closeNotification()}
+          />
         </MuiThemeProvider>
       </IntlProvider>
     );
@@ -65,12 +74,14 @@ class Base extends React.Component {
 
 const mapStateToProps = state => ({
   dark: state.darkMode,
-  user: state.user
+  user: state.user,
+  notification: state.notification
 });
 
 const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark)),
-  setUserAccount: account => dispatch(setUserAccount(account))
+  setUserAccount: account => dispatch(setUserAccount(account)),
+  closeNotification: () => dispatch(closeNotification())
 });
 
 Base.propTypes = {

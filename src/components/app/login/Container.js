@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import SplashBox from "../../SplashBox";
-import Notification from "../../Notification";
 import LoginForm from "./LoginForm";
 import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
+import {
+  showNotification,
+  closeNotification
+} from "../../../store/actions/notification";
 import { navigate } from "gatsby";
 
 class LoginContainer extends React.Component {
@@ -16,47 +19,7 @@ class LoginContainer extends React.Component {
     username: "",
     password: "",
     loading: false,
-    userData: {},
-    notification: {
-      show: false,
-      message: "",
-      type: "info"
-    }
-  };
-
-  notify = (type, message) => {
-    this.setState({
-      //...this.state,
-      notification: {
-        show: true,
-        type: type,
-        message: message
-      }
-    });
-  };
-
-  handleNotificationOnClose = () => {
-    // Triggered on auto-close
-    if (this.state.notification.show === true) {
-      this.handleNotificationClose();
-    }
-  };
-
-  handleNotificationClose = () => {
-    this.setState({
-      ...this.state,
-      notification: {
-        ...this.state.notification,
-        show: false
-      }
-    });
-  };
-
-  handleDialogClose = () => {
-    this.setState({
-      ...this.state,
-      dialog: false
-    });
+    userData: {}
   };
 
   handleToggleTrouble = () => {
@@ -80,7 +43,7 @@ class LoginContainer extends React.Component {
       })
       .catch(err => {
         console.log(err);
-        this.notify("error", err);
+        this.props.showNotification("error", err);
         this.stopLoading();
       });
   };
@@ -140,24 +103,21 @@ class LoginContainer extends React.Component {
             handleToggleTrouble={this.handleToggleTrouble}
           />
         )}
-        <Notification
-          type={this.state.notification.type}
-          message={this.state.notification.message}
-          onClose={this.handleNotificationOnClose}
-          open={this.state.notification.show}
-          handleClose={this.handleNotificationClose}
-        />
       </SplashBox>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  notification: state.notification
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUserAccount: account => dispatch(setUserAccount(account))
+  setUserAccount: account => dispatch(setUserAccount(account)),
+  showNotification: (style, message) =>
+    dispatch(showNotification(style, message)),
+  closeNotification: () => dispatch(closeNotification())
 });
 
 export default connect(

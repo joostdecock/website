@@ -13,7 +13,7 @@ const MobileSubMenu = props => {
 
   return (
     <div>
-      <h3>{label}</h3>
+      <h5>{label}</h5>
       {props.items.map((item, index) => {
         if (item === "divider") return <hr key={"divider" + index} />;
         return (

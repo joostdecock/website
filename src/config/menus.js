@@ -98,7 +98,7 @@ const getUserMenuItems = (language, username, handleLogout) => {
       icon: "perm_contact_calendar"
     },
     {
-      link: slugForLanguage("/settings/", language),
+      link: slugForLanguage("/account/", language),
       label: "app.settings",
       icon: "tune"
     },

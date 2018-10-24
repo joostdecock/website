@@ -52,7 +52,6 @@ const LoginForm = ({
           color="primary"
           size="large"
           variant="contained"
-          onClick={handleLogin}
           disabled={loading}
           classes={{ root: "mt10" }}
         >

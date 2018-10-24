@@ -9,7 +9,7 @@ import ErrorIcon from "@material-ui/icons/Error";
 import InfoIcon from "@material-ui/icons/Info";
 import NiceError from "./NiceError";
 
-const typeIcon = {
+const styleIcon = {
   success: CheckCircleIcon,
   warning: WarningIcon,
   error: ErrorIcon,
@@ -17,13 +17,13 @@ const typeIcon = {
 };
 
 function Notification(props) {
-  const { open, type, message, onClose, handleClose } = props;
-  const Icon = typeIcon[type];
+  const { open, style, message, onClose, handleClose } = props;
+  const Icon = styleIcon[style];
   let msg = message;
   if (message instanceof Error) msg = <NiceError err={message} />;
   return (
     <Snackbar
-      className={"ntfy-" + type}
+      className={"ntfy-" + style}
       anchorOrigin={{
         vertical: "top",
         horizontal: "right"
@@ -51,13 +51,13 @@ function Notification(props) {
 
 Notification.propTypes = {
   open: PropTypes.bool,
-  type: PropTypes.oneOf(["success", "warning", "error", "info"]),
+  style: PropTypes.oneOf(["success", "warning", "error", "info"]),
   onClose: PropTypes.func,
   handleClose: PropTypes.func
 };
 
 Notification.defaultProps = {
-  type: "info"
+  style: "info"
 };
 
 export default Notification;

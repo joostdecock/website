@@ -9,13 +9,14 @@ div.mobile-menu {
     margin: 64px auto;
     max-width: 400px;
 
-    h3 {
+    h5 {
       color: #999;
       padding: 0;
       margin: 0.5rem 0;
+      font-weight: normal;
     }
 
-    h3 a {
+    h5 a {
       display: block;
       color: $primary;
       text-decoration: none;
@@ -23,7 +24,7 @@ div.mobile-menu {
       margin-left: -8px;
     }
 
-    h3 a:hover {
+    h5 a:hover {
       background: rgba(0, 0, 0, 0.08);
     }
 

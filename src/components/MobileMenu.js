@@ -58,7 +58,7 @@ class MobileMenu extends React.Component {
       );
     } else {
       userMenu = [
-        <h3 key="login">
+        <h5 key="login">
           <Link
             onClick={this.handleClose}
             to={slugForLanguage("/login/", this.props.language)}
@@ -67,8 +67,8 @@ class MobileMenu extends React.Component {
             <LoginIcon className="mr20" />
             <FormattedMessage id="app.logIn" />
           </Link>
-        </h3>,
-        <h3 key="logout">
+        </h5>,
+        <h5 key="logout">
           <Link
             onClick={this.handleClose}
             to={slugForLanguage("/signup/", this.props.language)}
@@ -77,7 +77,7 @@ class MobileMenu extends React.Component {
             <SignupIcon className="mr20" />
             <FormattedMessage id="app.signUp" />
           </Link>
-        </h3>
+        </h5>
       ];
     }
     return (
@@ -110,7 +110,7 @@ class MobileMenu extends React.Component {
               </Toolbar>
             </AppBar>
             <div id="modal-menu-description" className="mobile-menu-inner">
-              <h3>
+              <h5>
                 <Link
                   onClick={this.handleClose}
                   to={slugForLanguage("/blog/", this.props.language)}
@@ -121,8 +121,8 @@ class MobileMenu extends React.Component {
                   <Logo size={24} className="mr20" />
                   <FormattedMessage id="app.freesewing" />
                 </Link>
-              </h3>
-              <h3>
+              </h5>
+              <h5>
                 <Link
                   onClick={this.handleClose}
                   to={slugForLanguage("/blog/", this.props.language)}
@@ -131,7 +131,7 @@ class MobileMenu extends React.Component {
                   <BlogIcon className="mr20" />
                   <FormattedMessage id="app.blog" />
                 </Link>
-              </h3>
+              </h5>
               <MobileSubMenu
                 language={this.props.language}
                 intl={this.props.intl}
