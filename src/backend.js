@@ -3,7 +3,7 @@ import config from "./config/backend";
 
 const api = axios.create({
   baseURL: config.url,
-  timeout: 1000
+  timeout: 5000
 });
 
 const backend = {};
