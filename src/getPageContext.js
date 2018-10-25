@@ -1,8 +1,5 @@
 import { SheetsRegistry } from "jss";
-import {
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
+import { createGenerateClassName } from "@material-ui/core/styles";
 import { loadTheme } from "./utils";
 
 /** This code is required for isomorphic rendering

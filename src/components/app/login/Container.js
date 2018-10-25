@@ -6,11 +6,13 @@ import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
+import { setToken } from "../../../store/actions/token";
 import {
   showNotification,
   closeNotification
 } from "../../../store/actions/notification";
 import { navigate } from "gatsby";
+import { saveToken } from "../../../utils";
 
 class LoginContainer extends React.Component {
   state = {
@@ -36,15 +38,16 @@ class LoginContainer extends React.Component {
       .login(this.state.username, this.state.password)
       .then(res => {
         if (res.status === 200) {
-          console.log(res.data);
           this.props.showNotification(
             "success",
             this.props.intl.formatMessage(
-              { id: "app.welcomeBack" },
-              { user: "@" + res.data.username }
+              { id: "app.goodToSeeYouAgain" },
+              { user: "@" + res.data.account.username }
             )
           );
-          this.props.setUserAccount(res.data);
+          this.props.setUserAccount(res.data.account);
+          this.props.setToken(res.data.token);
+          saveToken(res.data.token);
           this.stopLoading();
           navigate("/" + this.props.language);
         }
@@ -125,7 +128,8 @@ const mapDispatchToProps = dispatch => ({
   setUserAccount: account => dispatch(setUserAccount(account)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message)),
-  closeNotification: () => dispatch(closeNotification())
+  closeNotification: () => dispatch(closeNotification()),
+  setToken: token => dispatch(setToken(token))
 });
 
 export default connect(

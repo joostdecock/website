@@ -1,6 +1,19 @@
 import i18nConfig from "./config/i18n";
 import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
+import Storage from "./storage";
+
+const storage = new Storage();
+
+/** Stores JSON Web Token in local storage */
+const saveToken = token => {
+  return storage.set("token", token);
+};
+
+/** Returns JSON Web Token from local storage */
+const retrieveToken = () => {
+  return storage.get("token");
+};
 
 /** Strips all whitespace and makes string lowercase */
 const toId = str => str.toLowerCase().replace(/\s+/g, "");
@@ -86,5 +99,7 @@ export {
   languageFromSlug,
   slugForLanguage,
   fileOnGithub,
-  loadTheme
+  loadTheme,
+  saveToken,
+  retrieveToken
 };
