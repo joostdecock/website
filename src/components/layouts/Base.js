@@ -18,6 +18,7 @@ import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
+import withRoot from "../../withRoot";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -97,4 +98,4 @@ Base.defaultProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Base);
+)(withRoot(Base));
