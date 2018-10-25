@@ -45,4 +45,5 @@ models: Modellen
 settings: Instellingen
 profile: Profiel
 logOut: Afmelden
+goodToSeeYouAgain: Leuk je weer te zien {user}
 

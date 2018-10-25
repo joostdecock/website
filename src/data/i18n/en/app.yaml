@@ -45,7 +45,7 @@ models: Models
 settings: Settings
 profile: Profile
 logOut: Log out
-
+goodToSeeYouAgain: Good to see you again {user}
 
 
 

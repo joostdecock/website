@@ -39,9 +39,10 @@ class LoginContainer extends React.Component {
           console.log(res.data);
           this.props.showNotification(
             "success",
-            this.props.intl.formatMessage({ id: "app.welcome" }) +
-              " @" +
-              res.data.username
+            this.props.intl.formatMessage(
+              { id: "app.welcomeBack" },
+              { user: "@" + res.data.username }
+            )
           );
           this.props.setUserAccount(res.data);
           this.stopLoading();

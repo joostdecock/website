@@ -45,6 +45,7 @@ models: Modelos
 settings: Ajustes
 profile: Perfil
 logOut: cerrar sesión
+goodToSeeYouAgain: Bueno verte de nuevo {user}
 
 
 
