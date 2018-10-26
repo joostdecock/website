@@ -6,7 +6,6 @@ import ResetPasswordForm from "./ResetPasswordForm";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
-import { setToken } from "../../../store/actions/token";
 import {
   showNotification,
   closeNotification
@@ -46,7 +45,6 @@ class LoginContainer extends React.Component {
             )
           );
           this.props.setUserAccount(res.data.account);
-          this.props.setToken(res.data.token);
           saveToken(res.data.token);
           this.stopLoading();
           navigate("/" + this.props.language);
@@ -128,8 +126,7 @@ const mapDispatchToProps = dispatch => ({
   setUserAccount: account => dispatch(setUserAccount(account)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message)),
-  closeNotification: () => dispatch(closeNotification()),
-  setToken: token => dispatch(setToken(token))
+  closeNotification: () => dispatch(closeNotification())
 });
 
 export default connect(

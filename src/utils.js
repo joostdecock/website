@@ -6,14 +6,13 @@ import Storage from "./storage";
 const storage = new Storage();
 
 /** Stores JSON Web Token in local storage */
-const saveToken = token => {
-  return storage.set("token", token);
-};
+const saveToken = token => storage.set("token", token);
 
 /** Returns JSON Web Token from local storage */
-const retrieveToken = () => {
-  return storage.get("token");
-};
+const retrieveToken = () => storage.get("token");
+
+/** Clears JSON Web Token from local storage */
+const clearToken = () => storage.set("token", null);
 
 /** Strips all whitespace and makes string lowercase */
 const toId = str => str.toLowerCase().replace(/\s+/g, "");
@@ -101,5 +100,6 @@ export {
   fileOnGithub,
   loadTheme,
   saveToken,
-  retrieveToken
+  retrieveToken,
+  clearToken
 };

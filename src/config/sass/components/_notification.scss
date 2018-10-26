@@ -1,9 +1,12 @@
 div.ntfy-success > div {
   background-color: $success;
+  color: $white;
 }
 div.ntfy-warning > div {
   background-color: $warning;
+  color: $white;
 }
 div.ntfy-error > div {
   background-color: $danger;
+  color: $white;
 }

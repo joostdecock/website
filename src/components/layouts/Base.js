@@ -13,12 +13,18 @@ import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
-import { languageFromSlug, loadTheme } from "../../utils";
+import {
+  languageFromSlug,
+  loadTheme,
+  clearToken,
+  retrieveToken
+} from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
+import backend from "../../backend";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -29,8 +35,28 @@ class Base extends React.Component {
   };
 
   handleLogout = () => {
+    console.log("login handler");
+    clearToken();
     this.props.setUserAccount(false);
   };
+
+  componentDidMount() {
+    if (!this.props.user) {
+      let token = retrieveToken();
+      if (token) {
+        backend
+          .account()
+          .then(res => {
+            if (res.status === 200) {
+              this.props.setUserAccount(res.data.account);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    }
+  }
 
   render() {
     let language = languageFromSlug(this.props.slug);
