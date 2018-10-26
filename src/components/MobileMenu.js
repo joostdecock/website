@@ -113,7 +113,7 @@ class MobileMenu extends React.Component {
               <h5>
                 <Link
                   onClick={this.handleClose}
-                  to={slugForLanguage("/blog/", this.props.language)}
+                  to={slugForLanguage("/", this.props.language)}
                   title={this.props.intl.formatMessage({
                     id: "app.freesewing"
                   })}
