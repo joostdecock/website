@@ -1,3 +1,4 @@
 networkError: Le backend ou le réseau semble en panne
 requestFailedWithStatusCode401: Authentification échouée
+emailExists: Nous avons déjà un utilisateur avec cette adresse mail. Peut-être aimeriez-vous vous connecter à la place?
 

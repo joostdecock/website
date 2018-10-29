@@ -1,3 +1,4 @@
 networkError: El backend o la red parecen estar apagados
 requestFailedWithStatusCode401: Autenticación fallida
+emailExists: Ya tenemos un usuario con esa dirección de correo electrónico. Tal vez le gustaría iniciar sesión en su lugar?
 

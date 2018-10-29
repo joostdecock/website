@@ -46,7 +46,13 @@ settings: Settings
 profile: Profile
 logOut: Log out
 goodToSeeYouAgain: Good to see you again {user}
-
+enterEmailPickPassword: Enter your E-mail address, and pick a password
+weNeverShareYourEmail: We'll never share your email with anyone else
+noPasswordPolicy: We don't enforce a password policy
+resendActivationEmail: Re-send activation E-mail
+resendActivationEmailMessage: 'You can sign up again with the same E-mail address, and we''ll send you a new confirmation message.'
+pleaseEnterAValidEmailAddress: Please enter a valid E-mail address
+invalidTldMessage: '.{tld} is not a valid TLD'
 
 
 

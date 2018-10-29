@@ -46,6 +46,13 @@ settings: Einstellungen
 profile: Profil
 logOut: Abmelden
 goodToSeeYouAgain: Schön dich wieder zu sehen {user}
+enterEmailPickPassword: Gib Deine E-Mail Adresse ein und wähle ein Passwort
+weNeverShareYourEmail: Wir werden Deine E-Mail Adresse niemals weitergeben.
+noPasswordPolicy: Wir haben keine strikten Passwort-Rictlinien
+resendActivationEmail: Aktivierungs E-Mail erneut versenden
+resendActivationEmailMessage: Du kannst Dich nochmals mit der selben Emailadresse anmelden und wir senden dir eine neue Bestaetigung.
+pleaseEnterAValidEmailAddress: Bitte eine gueltige Email Adresse angeben
+invalidTldMessage: '.{tld} ist keine gültige TLD'
 
 
 

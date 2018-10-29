@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import WarningIcon from "@material-ui/icons/Warning";
 import ErrorIcon from "@material-ui/icons/Error";
@@ -17,7 +15,7 @@ const styleIcon = {
 };
 
 function Notification(props) {
-  const { open, style, message, onClose, handleClose } = props;
+  const { open, style, message, onClose } = props;
   const Icon = styleIcon[style];
   let msg = message;
   if (message instanceof Error) msg = <NiceError err={message} />;
@@ -35,16 +33,6 @@ function Notification(props) {
         <Icon key="icon" className="notification-icon" />,
         <span key="message">{msg}</span>
       ]}
-      action={
-        <IconButton
-          key="close"
-          aria-label="Close"
-          color="inherit"
-          onClick={handleClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      }
     />
   );
 }
@@ -52,8 +40,7 @@ function Notification(props) {
 Notification.propTypes = {
   open: PropTypes.bool,
   style: PropTypes.oneOf(["success", "warning", "error", "info"]),
-  onClose: PropTypes.func,
-  handleClose: PropTypes.func
+  onClose: PropTypes.func
 };
 
 Notification.defaultProps = {

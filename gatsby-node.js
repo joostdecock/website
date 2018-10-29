@@ -26,6 +26,10 @@ exports.createPages = ({ actions, graphql }) => {
       template: path.resolve("src/components/pages/Login.js")
     },
     {
+      slug: "/signup",
+      template: path.resolve("src/components/pages/Signup.js")
+    },
+    {
       slug: "/account",
       template: path.resolve("src/components/pages/Account.js")
     }

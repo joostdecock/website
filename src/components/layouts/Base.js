@@ -91,7 +91,6 @@ class Base extends React.Component {
             message={this.props.notification.message}
             onClose={() => this.props.closeNotification()}
             open={this.props.notification.show}
-            handleClose={() => this.props.closeNotification()}
           />
         </MuiThemeProvider>
       </IntlProvider>

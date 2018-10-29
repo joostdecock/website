@@ -46,6 +46,13 @@ settings: Ajustes
 profile: Perfil
 logOut: cerrar sesión
 goodToSeeYouAgain: Bueno verte de nuevo {user}
+enterEmailPickPassword: Introduce tu dirección de email y elige una contraseña
+weNeverShareYourEmail: Nunca compartiremos esto con nadie
+noPasswordPolicy: No aplicamos una política de contraseña
+resendActivationEmail: Reenviar email de activación
+resendActivationEmailMessage: 'Puedes iniciar sesión de nuevo con la misma dirección de E-mail, y te enviaremos un nuevo mensaje de confirmación.'
+pleaseEnterAValidEmailAddress: 'Por favor, entra una dirección de E-mail válida'
+invalidTldMessage: '.{tld} no es un TLD válido'
 
 
 

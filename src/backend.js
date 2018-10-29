@@ -14,9 +14,9 @@ const backend = {};
 backend.login = (username, password) =>
   api.post("/login", { username, password });
 
-backend.account = (token = retrieveToken()) => {
-  console.log("running backend.account");
-  return api.get("/account", auth(token));
-};
+backend.account = (token = retrieveToken()) => api.get("/account", auth(token));
+
+backend.signup = (email, password, language) =>
+  api.post("/signup", { email, password, language });
 
 export default backend;

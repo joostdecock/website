@@ -2,6 +2,7 @@ import i18nConfig from "./config/i18n";
 import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
 import Storage from "./storage";
+import tlds from "tlds";
 
 const storage = new Storage();
 
@@ -92,6 +93,26 @@ const loadTheme = dark => {
   return createMuiTheme({ ...themeConfig, palette });
 };
 
+/** Validates an email address for correct syntax */
+const validateEmail = email => {
+  // eslint-disable-next-line
+  let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  console.log(email, re.test(email));
+  return re.test(email);
+};
+
+/** Validates the top level domain (TLT) for an email address */
+const validateTld = email => {
+  let tld = email
+    .split("@")
+    .pop()
+    .split(".")
+    .pop()
+    .toLowerCase();
+  if (tlds.indexOf(tld) === -1) return tld;
+  else return true;
+};
+
 export {
   toId,
   camelCase,
@@ -101,5 +122,7 @@ export {
   loadTheme,
   saveToken,
   retrieveToken,
-  clearToken
+  clearToken,
+  validateEmail,
+  validateTld
 };

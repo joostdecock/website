@@ -46,4 +46,10 @@ settings: Instellingen
 profile: Profiel
 logOut: Afmelden
 goodToSeeYouAgain: Leuk je weer te zien {user}
-
+enterEmailPickPassword: Voer je E-mail adres in, en kies een wachtwoord
+weNeverShareYourEmail: We geven jouw E-mail adres nooit door aan derden
+noPasswordPolicy: We handhaven geen wachtwoordbeleid
+resendActivationEmail: Stuur een nieuwe activatie E-mail
+resendActivationEmailMessage: 'Je kan je weer inschrijven met hetzelfde E-mail adres, en dan sturen we je een nieuwe activatie E-mail.'
+pleaseEnterAValidEmailAddress: 'Gelieve een geldig E-mail adres in te voeren'
+invalidTldMessage: '.{tld} is geen geldige TLD'
