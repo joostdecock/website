@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SplashBox from "../../SplashBox";
 import SignupForm from "./SignupForm";
+import SuccessMessage from "./SuccessMessage";
 import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
@@ -19,6 +20,7 @@ class SignupContainer extends React.Component {
     email: "",
     password: "",
     loading: false,
+    success: false,
     userData: {}
   };
 
@@ -61,22 +63,12 @@ class SignupContainer extends React.Component {
     backend
       .signup(this.state.email, this.state.password, this.props.language)
       .then(res => {
-        console.log("hello?");
         if (res.status === 200) {
-          //this.props.showNotification(
-          //  "success",
-          //  this.props.intl.formatMessage(
-          //    { id: "app.goodToSeeYouAgain" },
-          //    { user: "@" + res.data.account.username }
-          //  )
-          //);
-          //this.props.setUserAccount(res.data.account);
-          //saveToken(res.data.token);
           this.stopLoading();
-          //navigate("/" + this.props.language);
-          console.log(res);
-        } else if (res.status === 400) {
-          console.log("response", res.data);
+          this.setState({
+            ...this.state,
+            success: true
+          });
         }
       })
       .catch(err => {
@@ -124,16 +116,20 @@ class SignupContainer extends React.Component {
   render() {
     return (
       <SplashBox>
-        <SignupForm
-          intl={this.props.intl}
-          loading={this.state.loading}
-          email={this.state.email}
-          language={this.props.language}
-          handleSignup={this.handleSignup}
-          handleEmailUpdate={this.handleEmailUpdate}
-          handlePasswordUpdate={this.handlePasswordUpdate}
-          handleResend={this.handleResend}
-        />
+        {this.state.success ? (
+          <SuccessMessage language={this.props.language} />
+        ) : (
+          <SignupForm
+            intl={this.props.intl}
+            loading={this.state.loading}
+            email={this.state.email}
+            language={this.props.language}
+            handleSignup={this.handleSignup}
+            handleEmailUpdate={this.handleEmailUpdate}
+            handlePasswordUpdate={this.handlePasswordUpdate}
+            handleResend={this.handleResend}
+          />
+        )}
       </SplashBox>
     );
   }

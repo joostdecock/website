@@ -53,6 +53,11 @@ resendActivationEmail: Re-send activation E-mail
 resendActivationEmailMessage: 'You can sign up again with the same E-mail address, and we''ll send you a new confirmation message.'
 pleaseEnterAValidEmailAddress: Please enter a valid E-mail address
 invalidTldMessage: '.{tld} is not a valid TLD'
-
+yay: Yay!
+goodJob: Good job
+checkInboxClickLinkInConfirmationEmail: Now check your inbox and click the link in the confirmation Email we've sent you.
+goAheadWeWillWait: Go ahead, we'll wait.
+justAMoment: Just a moment
+weAreValidatingYourConfirmationCode: We are validating your confirmation code
 
 

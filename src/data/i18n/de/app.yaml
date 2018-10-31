@@ -53,6 +53,13 @@ resendActivationEmail: Aktivierungs E-Mail erneut versenden
 resendActivationEmailMessage: Du kannst Dich nochmals mit der selben Emailadresse anmelden und wir senden dir eine neue Bestaetigung.
 pleaseEnterAValidEmailAddress: Bitte eine gueltige Email Adresse angeben
 invalidTldMessage: '.{tld} ist keine gültige TLD'
+yay: Yay!
+goodJob: Gut gemacht
+checkInboxClickLinkInConfirmationEmail: Überprüfen Sie jetzt Ihren Posteingang und klicken Sie auf den Link in der Bestätigungs-E-Mail, die wir Ihnen gesendet haben.
+goAheadWeWillWait: Mach weiter, wir warten.
+justAMoment: Einen Moment bitte
+weAreValidatingYourConfirmationCode: Wir prüfen deinen Bestätigungs-Code.
+
 
 
 
