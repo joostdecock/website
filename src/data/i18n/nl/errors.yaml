@@ -1,3 +1,5 @@
 networkError: Backend of netwerk probleem
 requestFailedWithStatusCode401: Authenticatie mislukt
 emailExists: We hebben al een gebruiker met dat E-mail adres. Misschien wil u zich eerder aanmelden?
+confirmationNotFound: Als u op deze pagina bent aangekomen via de link in een bevestigingsmail, raden we u aan dit probleem te melden.
+

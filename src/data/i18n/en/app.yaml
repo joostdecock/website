@@ -59,5 +59,7 @@ checkInboxClickLinkInConfirmationEmail: Now check your inbox and click the link 
 goAheadWeWillWait: Go ahead, we'll wait.
 justAMoment: Just a moment
 weAreValidatingYourConfirmationCode: We are validating your confirmation code
-
+weCouldNotValidateYourConfirmationCode: We could not validate your confirmation code
+ohNo: Oh no!
+reportThisOnGitHub: Report this on GitHub
 

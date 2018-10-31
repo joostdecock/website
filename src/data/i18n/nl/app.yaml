@@ -59,5 +59,7 @@ checkInboxClickLinkInConfirmationEmail: We hebben je een Email gestuurd ter beve
 goAheadWeWillWait: Doe maar, we wachten wel.
 justAMoment: Een ogenblikje
 weAreValidatingYourConfirmationCode: We valideren je bevestigingscode
-
+reportThisOnGitHub: Melden via GitHub
+weCouldNotValidateYourConfirmationCode: We kunnen uw bevestigingscode niet valideren
+ohNo: Oh nee!
 

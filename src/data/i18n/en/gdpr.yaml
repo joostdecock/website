@@ -1,0 +1,39 @@
+revokeConsent: Revoke consent
+consent: Consent
+consentForModelData: Consent for model data
+consentForProfileData: Consent for profile data
+consentGiven: Consent given
+noIDoNot: 'No, I do not'
+yesIDo: 'Yes, I do'
+yesIDoObject: 'Yes, I do object'
+createMyAccount: Create my account
+whatYouNeedToKnow: What you need to know
+furtherReading: Further reading
+
+modelQuestion: Do you give your consent to process your model data?
+profileQuestion: Do you give your consent to process your profile data?
+whyQuestion: Why do we need it?
+shareQuestion: Do we share it with others?
+timingQuestion: How long do we keep it?
+
+modelWhatAnswer: For each model their <b>measurements</b> and <b>breasts settings</b>.
+modelWhatAnswerOptional: 'Optional: A model <b>picture</b> and the <b>name</b> that you give your model.'
+modelWhyAnswer: 'To draft <b>made-to-measure sewing patterns</b>, we need <b>body measurements</b>.'
+modelNote1: 'Note: Freesewing publishes anonymized measurements as open data for scientific research.'
+modelNote2: 'This data is anonymous and used to study and understand the human form in all its shapes, so we can get better sewing patterns, and better fitting garments.'
+modelWhatQuestion: What is model data?
+
+profileShareAnswer: '<b>No</b>, never.'
+profileTimingAnswer: '<b>12 months</b> after your last login, or until you <b>remove</b> your account or <b>revoke</b> this consent.'
+profileWhatAnswer: 'Your <b>email address</b>, <b>username</b>, and <b>password</b>.'
+profileWhatAnswerOptional: 'Optional: A <b>profile picture</b>, and <b>social media accounts</b>'
+profileWhyAnswer: 'To <b>authenticate</b> you, <b>contact</b> you when needed, and build a <b>community</b>.'
+profileWhatQuestion: What is profile data?
+
+intro1: The General Data Protection Regulation (GDPR) of the European Union (EU) protects your personal data from unscrupulous data hoarders. That's a good thing.
+intro2: 'One of the things it imposes is for us to get your consent — in other words, your permission — to process your personal data.'
+intro3: 'This consent is the legal basis for us to process your data. Without it, we cannot store your data. When you revoke it, we have no choice but to remove all your data.'
+intro4: Strictly speaking, GDPR only applies to citizens of the European Union. However, we apply the same data protection rules to all our users, regardless of nationality.
+intro5: For more information, please read our privacy notice
+compliant: Freesewing.org respects your privacy and your rights. We apply the General Data Protection Regulation (GDPR) of the European Union (EU).
+

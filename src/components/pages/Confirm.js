@@ -10,6 +10,7 @@ const Signup = props => {
         slug={props.pageContext.slug}
         language={props.pageContext.language}
         intl={props.intl}
+        location={props.location}
       />
     </BaseLayout>
   );

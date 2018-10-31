@@ -59,6 +59,9 @@ checkInboxClickLinkInConfirmationEmail: Ahora revise su bandeja de entrada y hag
 goAheadWeWillWait: Adelante, esperaremos.
 justAMoment: Un momento
 weAreValidatingYourConfirmationCode: Estamos validando tu código de confirmación
+reportThisOnGitHub: Notifícalo en GitHub
+weCouldNotValidateYourConfirmationCode: No pudimos validar su código de confirmación
+ohNo: ¡Oh no!
 
 
 
