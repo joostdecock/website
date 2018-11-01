@@ -1,6 +1,19 @@
 import i18nConfig from "./config/i18n";
 import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
+import Storage from "./storage";
+import tlds from "tlds";
+
+const storage = new Storage();
+
+/** Stores JSON Web Token in local storage */
+const saveToken = token => storage.set("token", token);
+
+/** Returns JSON Web Token from local storage */
+const retrieveToken = () => storage.get("token");
+
+/** Clears JSON Web Token from local storage */
+const clearToken = () => storage.set("token", null);
 
 /** Strips all whitespace and makes string lowercase */
 const toId = str => str.toLowerCase().replace(/\s+/g, "");
@@ -80,11 +93,36 @@ const loadTheme = dark => {
   return createMuiTheme({ ...themeConfig, palette });
 };
 
+/** Validates an email address for correct syntax */
+const validateEmail = email => {
+  // eslint-disable-next-line
+  let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  console.log(email, re.test(email));
+  return re.test(email);
+};
+
+/** Validates the top level domain (TLT) for an email address */
+const validateTld = email => {
+  let tld = email
+    .split("@")
+    .pop()
+    .split(".")
+    .pop()
+    .toLowerCase();
+  if (tlds.indexOf(tld) === -1) return tld;
+  else return true;
+};
+
 export {
   toId,
   camelCase,
   languageFromSlug,
   slugForLanguage,
   fileOnGithub,
-  loadTheme
+  loadTheme,
+  saveToken,
+  retrieveToken,
+  clearToken,
+  validateEmail,
+  validateTld
 };

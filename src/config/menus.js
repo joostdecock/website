@@ -74,4 +74,46 @@ const documentationMenu = pageLanguage => {
   };
 };
 
-export { languageMenu, communityMenu, documentationMenu };
+const getUserMenuItems = (language, username, handleLogout) => {
+  return [
+    {
+      link: slugForLanguage("/draft/", language),
+      label: "app.newDraft",
+      icon: "insert_drive_file"
+    },
+    {
+      link: slugForLanguage("/model/", language),
+      label: "app.newModel",
+      icon: "perm_identity"
+    },
+    "divider",
+    {
+      link: slugForLanguage("/drafts/", language),
+      label: "app.drafts",
+      icon: "folder_open"
+    },
+    {
+      link: slugForLanguage("/models/", language),
+      label: "app.models",
+      icon: "perm_contact_calendar"
+    },
+    {
+      link: slugForLanguage("/account/", language),
+      label: "app.settings",
+      icon: "tune"
+    },
+    {
+      link: slugForLanguage("/user/" + username, language),
+      label: "app.profile",
+      icon: "fingerprint"
+    },
+    "divider",
+    {
+      onClick: () => handleLogout(),
+      label: "app.logOut",
+      icon: "power_settings_new"
+    }
+  ];
+};
+
+export { languageMenu, communityMenu, documentationMenu, getUserMenuItems };

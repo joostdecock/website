@@ -1,0 +1,16 @@
+.masonry {
+    display: block;
+    @include sm-screen {
+        column-count: 2;
+        column-gap: 30px;
+    }
+    @include lg-screen {
+        column-count: 3;
+        column-gap: 40px;
+    }
+    > div {
+      width: 100%;
+      max-width: 100%;
+      display: inline-block;
+    }
+  }

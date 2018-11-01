@@ -2,13 +2,15 @@ $primary: #111;
 $secondary: #ffffff;
 $link: #2979ff;
 $black: #000;
+$white: #fff;
 $grey: #ccc;
 $pink: #ff5b77;
 $success: #1faa00;
 $warning: #ff8100;
 $danger: #d50000;
 
-body {
+body,
+body.light {
   background-color: $secondary;
 }
 div.fs-base {

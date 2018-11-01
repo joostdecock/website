@@ -17,7 +17,8 @@ import SignupIcon from "@material-ui/icons/PersonAdd";
 import {
   languageMenu,
   communityMenu,
-  documentationMenu
+  documentationMenu,
+  getUserMenuItems
 } from "../config/menus";
 
 const styles = {
@@ -36,47 +37,10 @@ function FsAppBar(props) {
   if (user) {
     userMenu = [
       <DropDownButton
+        key="userMenu"
         language={language}
         text={"@" + user.username}
-        items={[
-          {
-            link: slugForLanguage("/draft/", language),
-            label: "app.newDraft",
-            icon: "insert_drive_file"
-          },
-          {
-            link: slugForLanguage("/model/", language),
-            label: "app.newModel",
-            icon: "perm_identity"
-          },
-          "divider",
-          {
-            link: slugForLanguage("/drafts/", language),
-            label: "app.drafts",
-            icon: "folder_open"
-          },
-          {
-            link: slugForLanguage("/models/", language),
-            label: "app.models",
-            icon: "perm_contact_calendar"
-          },
-          {
-            link: slugForLanguage("/settings/", language),
-            label: "app.settings",
-            icon: "tune"
-          },
-          {
-            link: slugForLanguage("/user/" + user.username, language),
-            label: "app.profile",
-            icon: "fingerprint"
-          },
-          "divider",
-          {
-            onClick: () => handleLogout(),
-            label: "app.logOut",
-            icon: "power_settings_new"
-          }
-        ]}
+        items={getUserMenuItems(language, user.username, handleLogout)}
       />
     ];
   } else {
@@ -85,7 +49,6 @@ function FsAppBar(props) {
         href={slugForLanguage("/login", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.logIn" })}
-        className="not-on-mobile"
         key="login"
       >
         <LoginIcon className="mr10" />
@@ -95,7 +58,6 @@ function FsAppBar(props) {
         href={slugForLanguage("/signup", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.signUp" })}
-        className="not-on-mobile"
         key="signup"
       >
         <SignupIcon className="mr10" />
@@ -137,7 +99,7 @@ function FsAppBar(props) {
             {...communityMenu(language)}
           />
         </div>
-        {userMenu}
+        <div className="not-on-mobile">{userMenu}</div>
         <span style={styles.grow} />
         <DropDownButton
           title={intl.formatMessage({ id: "app.language" })}

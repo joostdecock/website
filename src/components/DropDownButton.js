@@ -64,7 +64,7 @@ class DropDownButton extends React.Component {
           onClose={this.handleClose}
         >
           {this.props.items.map((item, index) => {
-            if (item === "divider") return <Divider />;
+            if (item === "divider") return <Divider key={"divider" + index} />;
             else
               return (
                 <DropDownItem

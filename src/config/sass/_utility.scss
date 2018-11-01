@@ -17,14 +17,24 @@
   padding-right: 10px;
 }
 .mt10,
+a.mt10,
 button.mt10 {
   margin-top: 10px;
 }
 .mr10 {
   margin-right: 10px;
 }
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
 .mr20 {
   margin-right: 20px;
+}
+.mh60vh {
+  min-height: 60vh;
 }
 
 .content {
@@ -38,4 +48,9 @@ button.mt10 {
 .align-self-stretch {
   align-self: stretch
 }
-
+.box {
+  margin: 3rem auto;
+  border: 1px dashed #808080;
+  padding: 1rem 2rem;
+  font-size: 95%;
+}

@@ -13,9 +13,18 @@ import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
-import { languageFromSlug, loadTheme } from "../../utils";
+import {
+  languageFromSlug,
+  loadTheme,
+  clearToken,
+  retrieveToken
+} from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
+import Notification from "../Notification";
+import { closeNotification } from "../../store/actions/notification";
+import withRoot from "../../withRoot";
+import backend from "../../backend";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -26,11 +35,30 @@ class Base extends React.Component {
   };
 
   handleLogout = () => {
+    console.log("login handler");
+    clearToken();
     this.props.setUserAccount(false);
   };
 
+  componentDidMount() {
+    if (!this.props.user) {
+      let token = retrieveToken();
+      if (token) {
+        backend
+          .account()
+          .then(res => {
+            if (res.status === 200) {
+              this.props.setUserAccount(res.data.account);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    }
+  }
+
   render() {
-    console.log("Base props", this.props);
     let language = languageFromSlug(this.props.slug);
     const { dark, splash } = this.props;
     let footer = splash ? "" : <Footer language={language} />;
@@ -58,6 +86,12 @@ class Base extends React.Component {
             {this.props.children}
             {footer}
           </div>
+          <Notification
+            style={this.props.notification.style}
+            message={this.props.notification.message}
+            onClose={() => this.props.closeNotification()}
+            open={this.props.notification.show}
+          />
         </MuiThemeProvider>
       </IntlProvider>
     );
@@ -66,12 +100,14 @@ class Base extends React.Component {
 
 const mapStateToProps = state => ({
   dark: state.darkMode,
-  user: state.user
+  user: state.user,
+  notification: state.notification
 });
 
 const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark)),
-  setUserAccount: account => dispatch(setUserAccount(account))
+  setUserAccount: account => dispatch(setUserAccount(account)),
+  closeNotification: () => dispatch(closeNotification())
 });
 
 Base.propTypes = {
@@ -80,10 +116,11 @@ Base.propTypes = {
 };
 
 Base.defaultProps = {
-  splash: false
+  splash: false,
+  dark: false
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Base);
+)(withRoot(Base));

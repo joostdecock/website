@@ -24,18 +24,27 @@ exports.createPages = ({ actions, graphql }) => {
     {
       slug: "/login",
       template: path.resolve("src/components/pages/Login.js")
+    },
+    {
+      slug: "/signup",
+      template: path.resolve("src/components/pages/Signup.js")
+    },
+    {
+      slug: "/confirm",
+      match: "/confirm/*",
+      template: path.resolve("src/components/pages/Confirm.js")
+    },
+    {
+      slug: "/welcome",
+      template: path.resolve("src/components/pages/Welcome.js")
+    },
+    {
+      slug: "/account",
+      template: path.resolve("src/components/pages/Account.js")
     }
   ];
 
   createBlogPostRedirect = function(slug) {
-    /*
-    console.log(
-      "Creating redirect from",
-      "/blog/" + slug,
-      "to",
-      "/" + i18nConfig.defaultLanguage + "/blog/" + slug
-    );
-    */
     createRedirect({
       fromPath: "/blog/" + slug,
       isPermanent: true,
@@ -45,14 +54,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePostRedirect = function(slug) {
-    /*
-    console.log(
-      "Creating redirect from",
-      "/showcase/" + slug,
-      "to",
-      "/" + i18nConfig.defaultLanguage + "/showcase/" + slug
-    );
-    */
     createRedirect({
       fromPath: "/showcase/" + slug,
       isPermanent: true,
@@ -62,14 +63,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createDocumentationRedirect = function(slug) {
-    /*
-    console.log(
-      "Creating redirect from",
-      slug,
-      "to",
-      "/" + i18nConfig.defaultLanguage + slug
-    );
-    */
     createRedirect({
       fromPath: slug,
       isPermanent: true,
@@ -79,9 +72,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogIndex = function(language, posts) {
-    /*
-    console.log("Creating blog index page for", language);
-    */
     createPage({
       path: `/${language}/blog`,
       component: blogIndexTemplate,
@@ -95,9 +85,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogCategoryIndex = function(language, posts, category) {
-    /*
-    console.log("Creating blog categories for", language);
-    */
     createPage({
       path: `/${language}/blog/category/${category}`,
       component: blogIndexTemplate,
@@ -111,9 +98,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcaseIndex = function(language, posts) {
-    /*
-    console.log("Creating showcase index page for", language);
-    */
     createPage({
       path: `/${language}/showcase`,
       component: showcaseIndexTemplate,
@@ -126,9 +110,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createBlogPost = function(language, contentLanguage, slug, node) {
-    /*
-    console.log("Creating blog post", `/${language}/blog/${slug}`);
-    */
     createPage({
       path: `/${language}/blog/${slug}`,
       component: blogPostTemplate,
@@ -142,9 +123,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createShowcasePost = function(language, contentLanguage, slug, node) {
-    /*
-    console.log("Creating showcase post", `/${language}/showcase/${slug}`);
-    */
     createPage({
       path: `/${language}/showcase/${slug}`,
       component: showcasePostTemplate,
@@ -158,9 +136,6 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createDocumentationPage = function(language, contentLanguage, slug, node) {
-    /*
-    console.log("Creating documentation page", `/${language}${slug}`);
-    */
     createPage({
       path: `/${language}${slug}`,
       component: documentationTemplate,
@@ -173,31 +148,22 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
-  createJsPage = function(language, slug, template) {
-    /*
-    console.log("Creating JS page", `/${language}${slug}`);
-    */
-    createPage({
+  createJsPage = function(language, slug, template, match = false) {
+    let page = {
       path: `/${language}${slug}`,
       component: template,
       context: {
         language,
         slug: `/${language}${slug}`
       }
-    });
+    };
+    if (match) page.matchPath = "/" + language + "/confirm/" + "*";
+    createPage(page);
   };
 
   createPageRedirects = function() {
     return new Promise((resolve, reject) => {
       for (nakedPath of naked) {
-        /*
-        console.log(
-          "Creating redirect from",
-          nakedPath,
-          "to",
-          "/" + i18nConfig.defaultLanguage + nakedPath
-        );
-        */
         createRedirect({
           fromPath: nakedPath,
           isPermanent: true,
@@ -205,9 +171,6 @@ exports.createPages = ({ actions, graphql }) => {
           toPath: "/" + i18nConfig.defaultLanguage + nakedPath
         });
       }
-      /*
-      console.log('Page redirects created');
-      */
       return resolve();
     });
   };
@@ -258,9 +221,6 @@ exports.createPages = ({ actions, graphql }) => {
           createBlogIndex(lang, posts);
         }
       });
-      /*
-      console.log('Blogposts created');
-      */
       return resolve();
     });
   };
@@ -306,9 +266,6 @@ exports.createPages = ({ actions, graphql }) => {
           createShowcaseIndex(lang, posts);
         }
       });
-      /*
-      console.log('Showcases created');
-      */
       return resolve();
     });
   };
@@ -349,9 +306,6 @@ exports.createPages = ({ actions, graphql }) => {
           //createShowcaseIndex(lang, pages);
         }
       });
-      /*
-      console.log('Documentation created');
-      */
       return resolve();
     });
   };
@@ -361,7 +315,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Create JS pages all languages
       for (let lang of i18nConfig.languages) {
         for (let jsPage of jsPages)
-          createJsPage(lang, jsPage.slug, jsPage.template);
+          createJsPage(lang, jsPage.slug, jsPage.template, jsPage.match);
       }
       return resolve();
     });
