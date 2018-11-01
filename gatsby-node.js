@@ -35,6 +35,10 @@ exports.createPages = ({ actions, graphql }) => {
       template: path.resolve("src/components/pages/Confirm.js")
     },
     {
+      slug: "/welcome",
+      template: path.resolve("src/components/pages/Welcome.js")
+    },
+    {
       slug: "/account",
       template: path.resolve("src/components/pages/Account.js")
     }
@@ -153,12 +157,7 @@ exports.createPages = ({ actions, graphql }) => {
         slug: `/${language}${slug}`
       }
     };
-    if (match) {
-      page.matchPath = "/" + language + "/confirm/" + "*";
-      console.log("match for page", page);
-    } else {
-      console.log("no match for page", page);
-    }
+    if (match) page.matchPath = "/" + language + "/confirm/" + "*";
     createPage(page);
   };
 
@@ -222,9 +221,6 @@ exports.createPages = ({ actions, graphql }) => {
           createBlogIndex(lang, posts);
         }
       });
-      /*
-      console.log('Blogposts created');
-      */
       return resolve();
     });
   };
@@ -270,9 +266,6 @@ exports.createPages = ({ actions, graphql }) => {
           createShowcaseIndex(lang, posts);
         }
       });
-      /*
-      console.log('Showcases created');
-      */
       return resolve();
     });
   };
@@ -313,9 +306,6 @@ exports.createPages = ({ actions, graphql }) => {
           //createShowcaseIndex(lang, pages);
         }
       });
-      /*
-      console.log('Documentation created');
-      */
       return resolve();
     });
   };

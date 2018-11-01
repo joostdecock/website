@@ -48,39 +48,42 @@ const ProfileConsent = ({
       <h1>
         <FormattedMessage id="gdpr.profileQuestion" />
       </h1>
+      <span>Loading: {loading ? "yes" : "no"}</span>
       <form onSubmit={handleConsentSubmit}>
-        <RadioGroup
-          name="profile-consent"
-          onChange={handleConsentChange}
-          value={consent}
-        >
-          <FormControlLabel
-            control={<Radio color="primary" />}
-            value="no"
-            checked={!consent}
-            label={intl.formatMessage({ id: "gdpr.noIDoNot" })}
-          />
-          <FormControlLabel
-            control={<Radio color="primary" />}
-            checked={consent}
-            value="yes"
-            label={intl.formatMessage({ id: "gdpr.yesIDo" })}
-          />
-        </RadioGroup>
-        <Button
-          type="submit"
-          color="primary"
-          size="large"
-          variant="contained"
-          disabled={consent === "yes" ? false : true}
-          classes={{ root: "mt10" }}
-        >
-          <ButtonSpinner
-            loading={loading}
-            icon={<ConfirmIcon className="btn-icon" />}
-          />
-          <FormattedMessage id="gdpr.createMyAccount" />
-        </Button>
+        <blockquote>
+          <RadioGroup
+            name="profile-consent"
+            onChange={handleConsentChange}
+            value={consent}
+          >
+            <FormControlLabel
+              control={<Radio color="primary" />}
+              value="no"
+              checked={!consent}
+              label={intl.formatMessage({ id: "gdpr.noIDoNot" })}
+            />
+            <FormControlLabel
+              control={<Radio color="primary" />}
+              checked={consent}
+              value="yes"
+              label={intl.formatMessage({ id: "gdpr.yesIDo" })}
+            />
+          </RadioGroup>
+          <Button
+            type="submit"
+            color="primary"
+            size="large"
+            variant="contained"
+            disabled={consent === "yes" ? false : true}
+            classes={{ root: "mt10" }}
+          >
+            <ButtonSpinner
+              loading={loading}
+              icon={<ConfirmIcon className="btn-icon" />}
+            />
+            <FormattedMessage id="gdpr.createMyAccount" />
+          </Button>
+        </blockquote>
       </form>
       <div className="box">
         <h5>

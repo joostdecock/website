@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import LoadingMessage from "./LoadingMessage";
-import FailureMessage from "./FailureMessage";
 import backend from "../../../backend";
 import ProfileConsent from "../../ProfileConsent";
 import { injectIntl } from "react-intl";
@@ -13,7 +12,7 @@ import {
 import { navigate } from "gatsby";
 import { saveToken } from "../../../utils";
 
-class ConfirmContainer extends React.Component {
+class WelcomeContainer extends React.Component {
   state = {
     loading: true,
     consentLoading: false,
@@ -96,27 +95,7 @@ class ConfirmContainer extends React.Component {
 
   render() {
     let content = "";
-    if (this.state.error)
-      content = (
-        <FailureMessage
-          language={this.props.language}
-          id={this.getConfirmId()}
-        />
-      );
-    else if (this.state.showConsent)
-      content = (
-        <ProfileConsent
-          language={this.props.language}
-          intro={true}
-          outro={true}
-          handleConsentSubmit={this.handleConsentSubmit}
-          handleConsentChange={this.handleConsentChange}
-          intl={this.props.intl}
-          consent={this.state.consent || "no"}
-          loading={this.state.consentLoading}
-        />
-      );
-    else content = <LoadingMessage language={this.props.language} />;
+    content = <LoadingMessage language={this.props.language} />;
     return content;
   }
 }
@@ -135,4 +114,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(injectIntl(ConfirmContainer));
+)(injectIntl(WelcomeContainer));

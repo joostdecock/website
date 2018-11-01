@@ -19,6 +19,8 @@ backend.account = (token = retrieveToken()) => api.get("/account", auth(token));
 backend.signup = (email, password, language) =>
   api.post("/signup", { email, password, language });
 
-backend.confirm = id => api.post("/confirm", { id });
+backend.confirm = confirmId => api.post("/confirm", { id: confirmId });
+
+backend.createAccount = confirmId => api.post("/user", { id: confirmId });
 
 export default backend;

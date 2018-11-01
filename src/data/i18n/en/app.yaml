@@ -62,4 +62,8 @@ weAreValidatingYourConfirmationCode: We are validating your confirmation code
 weCouldNotValidateYourConfirmationCode: We could not validate your confirmation code
 ohNo: Oh no!
 reportThisOnGitHub: Report this on GitHub
+accountCreated: Account created
+welcomeAboard: Welcome aboard
+thisPageRequiresAuthentication: This page requires authentication
+youAreNotLoggedIn: You are not logged in
 
