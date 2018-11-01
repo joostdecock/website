@@ -58,7 +58,7 @@ export default class ShowcaseIndex extends React.Component {
                 </li>
               </ul>
             </Message>
-            <Grid container spacing={24}>
+            <Grid container spacing={24} class="masonry">
               {list}
             </Grid>
           </Grid>
