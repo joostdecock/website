@@ -45,10 +45,9 @@ const ProfileConsent = ({
   );
   return (
     <div className="content">
-      <h1>
+      <h3>
         <FormattedMessage id="gdpr.profileQuestion" />
-      </h1>
-      <span>Loading: {loading ? "yes" : "no"}</span>
+      </h3>
       <form onSubmit={handleConsentSubmit}>
         <blockquote>
           <RadioGroup
@@ -86,13 +85,13 @@ const ProfileConsent = ({
         </blockquote>
       </form>
       <div className="box">
-        <h5>
+        <h4>
           <FormattedMessage id="gdpr.whatYouNeedToKnow" />
-        </h5>
-        <h3>
+        </h4>
+        <h5>
           <ProfileDataIcon className="mr10" fontSize="inherit" />
           <FormattedMessage id="gdpr.profileWhatQuestion" />
-        </h3>
+        </h5>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileWhatAnswer" />
@@ -101,28 +100,28 @@ const ProfileConsent = ({
             <FormattedHTMLMessage id="gdpr.profileWhatAnswerOptional" />
           </li>
         </ul>
-        <h3>
+        <h5>
           <WhyIcon className="mr10" fontSize="inherit" />
           <FormattedMessage id="gdpr.whyQuestion" />
-        </h3>
+        </h5>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileWhyAnswer" />
           </li>
         </ul>
-        <h3>
+        <h5>
           <TimingIcon className="mr10" fontSize="inherit" />
           <FormattedMessage id="gdpr.timingQuestion" />
-        </h3>
+        </h5>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileTimingAnswer" />
           </li>
         </ul>
-        <h3>
+        <h5>
           <ShareIcon className="mr10" fontSize="inherit" />
           <FormattedMessage id="gdpr.shareQuestion" />
-        </h3>
+        </h5>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileShareAnswer" />
@@ -131,9 +130,9 @@ const ProfileConsent = ({
       </div>
       {outro ? (
         <div className="box">
-          <h5>
+          <h4>
             <FormattedMessage id="gdpr.furtherReading" />
-          </h5>
+          </h4>
           {outroContent}
         </div>
       ) : (

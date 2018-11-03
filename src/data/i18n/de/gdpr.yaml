@@ -1,22 +1,37 @@
-revokeConsent: Revoke consent
-weNeedYourConsent: We need your consent
+revokeConsent: Zustimmung widerrufen
+consent: Zustimmung
+consentForModelData:  Zustimmung für Modelldaten
+consentForProfileData: Zustimmung für Profildaten
+consentGiven: Zustimmung erteilt
+noIDoNot: 'Nein, ich nicht'
+yesIDo: 'Ja, das mache ich'
+yesIDoObject: 'Ja, ich widerspreche'
+createMyAccount: Erstelle mein Konto
+whatYouNeedToKnow: Was Sie wissen müssen
+furtherReading: Weiter lesen
+modelQuestion: Geben Sie Ihre Zustimmung zur Verarbeitung Ihrer Modelldaten?
+profileQuestion: Geben Sie Ihr Einverständnis zur Verarbeitung Ihrer Profildaten?
+whyQuestion: Warum brauchen wir es?
+shareQuestion: Teilen wir es mit anderen?
+timingQuestion: Wie lange halten wir es?
 
-modelQuestion: Do you give your consent to process your model data?
-profileQuestion: Do you give your consent to process your profile data?
-whyQuestion: Why do we need it?
-shareQuestion: Do we share it with others?
-timingQuestion: How long do we keep it?
+modelWhatAnswer: Für jedes Modell deren <b>Messwerte</b> und <b>Brusteinstellungen</b>
+modelWhatAnswerOptional: 'Optional: Ein <b> Modell </ b> und der <b> Name </ b>, den Sie Ihrem Modell geben.'
+modelWhyAnswer: 'Zum Erstellen von <b> Nähen nach Maß </b> benötigen wir <b> Körpermaße </b>.'
+modelNote1: 'Hinweis: Freesewing veröffentlicht anonymisierte Messungen als offene Daten für wissenschaftliche Forschung.'
+modelNote2: 'Diese Daten sind anonym und werden verwendet, um die menschliche Form in all ihren Formen zu studieren und zu verstehen, sodass wir bessere Schnittmuster und besser passende Kleidungsstücke erhalten.'
+modelWhatQuestion: Was sind Modelldaten?
 
-modelWhatAnswer: For each model their <b>measurements</b> and <b>breasts settings</b>.
-modelWhatAnswerOptional: 'Optional: A model <b>picture</b> and the <b>name</b> that you give your model.'
-modelWhyAnswer: 'To draft <b>made-to-measure sewing patterns</b>, we need <b>body measurements</b>.'
-modelNote1: 'Note: Freesewing publishes anonymized measurements as open data for scientific research.'
-modelNote2: 'This data is anonymous and used to study and understand the human form in all its shapes, so we can get better sewing patterns, and better fitting garments.'
-modelWhatQuestion: What is model data?
+profileShareAnswer: '<b>Nein</b>, niemals.'
+profileTimingAnswer: '<b>12 Monate</b> nach Ihrem letzten Login oder bis Sie <b> Ihr Konto entfernen oder <b> diese Einwilligung widerrufen.'
+profileWhatAnswer: 'Ihre <b> E-Mail-Adresse </b>, <b> Benutzername </b> und <b> Passwort </b>.'
+profileWhatAnswerOptional: 'Optional: Ein <b> Profilbild </b>, <b>bio</b>, und <b> Social-Media-Konten </b>'
+profileWhyAnswer: 'Um sich <b> zu authentifizieren </b>, kontaktieren Sie <b> Sie </b>, wenn Sie benötigt werden, und bauen eine <b> Community </b> auf.'
+profileWhatQuestion: Was sind Profildaten?
 
-profileShareAnswer: '<b>No</b>, never.'
-profileTimingAnswer: '<b>12 months</b> after your last login, or until you <b>remove</b> your account or <b>revoke</b> this consent.'
-profileWhatAnswer: 'Your <b>email address</b>, <b>username</b>, and <b>password</b>.'
-profileWhatAnswerOptional: 'Optional: A <b>profile picture</b>, and <b>social media accounts</b>'
-profileWhyAnswer: 'To <b>authenticate</b> you, <b>contact</b> you when needed, and build a <b>community</b>.'
-profileWhatQuestion: What is profile data?
+intro1: Die Datenschutzerklärung der Europäischen Union (EU) schützt Ihre personenbezogenen Daten vor skrupellosen Datenhortern. Das ist gut.
+intro2: "Es gehört dazu, dass wir Ihre Einwilligung, also Ihre Erlaubnis, zur Verarbeitung Ihrer persönlichen Daten benötigen."
+intro3: 'Diese Einwilligung ist die Rechtsgrundlage für die Verarbeitung Ihrer Daten. Ohne sie können wir Ihre Daten nicht speichern. Wenn Sie es widerrufen, haben wir keine andere Wahl, als alle Ihre Daten zu entfernen. '
+intro4: Streng genommen gilt die GDPR nur für Bürger der Europäischen Union. Wir wenden jedoch unabhängig von der Nationalität für alle Benutzer dieselben Datenschutzregeln an.
+intro5: Weitere Informationen finden Sie in unseren Datenschutzbestimmungen
+compliant: Freesewing.org respektiert Ihre Privatsphäre und Ihre Rechte. Wir wenden die Allgemeine Datenschutzverordnung (DSGVO) der Europäischen Union (EU) an.
