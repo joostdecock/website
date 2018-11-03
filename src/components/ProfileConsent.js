@@ -143,13 +143,13 @@ const ProfileConsent = ({
   );
 };
 
-Notification.propTypes = {
+ProfileConsent.propTypes = {
   given: PropTypes.bool,
   outro: PropTypes.bool
   //onClose: PropTypes.func
 };
 
-Notification.defaultProps = {
+ProfileConsent.defaultProps = {
   consent: "no",
   outro: true
 };
