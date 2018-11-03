@@ -63,6 +63,35 @@ reportThisOnGitHub: Le signaler sur Github
 ohNo: Oh non !
 weCouldNotValidateYourConfirmationCode: Nous n'avons pas pu valider votre code de confirmation
 
-
+accountCreated: Compte créé
+welcomeAboard: Bienvenue à bord
+thisPageRequiresAuthentication: Cette page nécessite une authentification
+youAreNotLoggedIn: Vous n'êtes pas connecté
+back: Retour
+units: Unités
+avatar: Avatar
+social: Social
+metricUnits: Unités métriques (cm)
+imperialUnits: Unités impériales (pouces)
+welcomeUnitsTitle: Veuillez sélectionner le système d'unités que vous préférez
+welcomeUnitsText: Freesewing prend en charge le système métrique et les mesures impériales. Sélectionnez simplement celui que vous souhaitez utiliser, puis cliquez sur le bouton <b> Enregistrer </ b> lorsque vous êtes prêt.
+welcomeUsernameTitle: Veuillez choisir votre nom d'utilisateur
+welcomeUsernameText: Vous avez actuellement un nom d'utilisateur généré de manière aléatoire. Ce n'est pas très personnel, vous pouvez donc changer votre nom d'utilisateur pour quelque chose de plus vous. Comme votre nom, <em> queenoffarts </ em> ou autre chose. Il vous suffit de saisir le nom d'utilisateur souhaité et de cliquer sur le bouton <b> Enregistrer </ b> lorsque vous êtes satisfait de votre nouveau nom d'utilisateur.
+welcomeAvatarTitle: Configurez votre photo de profil
+welcomeAvatarText: Votre avatar ou votre photo de profil s'afficheront à côté de vos commentaires et sur votre page de profil. Vous pouvez télécharger une photo ou vous en tenir à celle qui a été générée pour vous.
+welcomeBioTitle: Rédigez une courte biographie
+welcomeBioText: C’est ici que vous pouvez parler un peu de vous aux autres utilisateurs de freesewing. Ce champ prend en charge MarkDown, vous pouvez donc également inclure des liens. Si vous avez un blog, c’est là que vous vous connectez pour que les autres puissent le découvrir.
+welcomeSocialTitle: Laissez les gens vous suivre ailleurs
+welcomeSocialText: Si vous fournissez votre nom d'utilisateur GitHub, Twitter ou Instagram, votre page de profil contiendra des liens vers vos comptes sur ces sites. Cela permet aux utilisateurs de freesewing de vous suivre. <br> Nous ne contactons aucun de ces sites en votre nom. C'est simplement pour que les gens puissent relier les points et savoir que, par exemple, l'utilisateur @joost sur freesewing est la même personne que l'utilisateur @j__st sur twitter.
+save: Sauvegarder
+fieldSaved: "{field} enregistré"
+dragAndDropImageHere: Glissez et déposez l'image ici, ou sélectionnez-en une manuellement à l'aide du bouton ci-dessous
+selectImage: Sélectionner une image
+remove: Supprimer
+noChanges: Pas de changement
+bio: Bio
+preview: Aperçu
+markdownHelp: Aide de MarkDown
+thisFieldSupportsMarkdown: Ce champ prend en charge Markdown
 
 

@@ -36,7 +36,8 @@ exports.createPages = ({ actions, graphql }) => {
     },
     {
       slug: "/welcome",
-      template: path.resolve("src/components/pages/Welcome.js")
+      template: path.resolve("src/components/pages/Welcome.js"),
+      query: queries.markdownHelp
     },
     {
       slug: "/account",
@@ -148,7 +149,13 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
-  createJsPage = function(language, slug, template, match = false) {
+  createJsPage = function(
+    language,
+    slug,
+    template,
+    match = false,
+    query = false
+  ) {
     let page = {
       path: `/${language}${slug}`,
       component: template,
@@ -158,7 +165,12 @@ exports.createPages = ({ actions, graphql }) => {
       }
     };
     if (match) page.matchPath = "/" + language + "/confirm/" + "*";
-    createPage(page);
+    if (query) {
+      graphql(query).then(res => {
+        page.context.data = res.data;
+        createPage(page);
+      });
+    } else createPage(page);
   };
 
   createPageRedirects = function() {
@@ -186,7 +198,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       graphql(queries.allBlogPosts).then(res => {
-        if (res.errors) return Promise.reject(res.erros);
+        if (res.errors) return Promise.reject(res.errors);
 
         // Sort all posts into posts object and postOrder array
         Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
@@ -235,7 +247,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       graphql(queries.allShowcasePosts).then(res => {
-        if (res.errors) return Promise.reject(res.erros);
+        if (res.errors) return Promise.reject(res.errors);
 
         // Sort all posts into posts object and postOrder array
         Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
@@ -276,7 +288,7 @@ exports.createPages = ({ actions, graphql }) => {
       for (let lang of i18nConfig.languages) pages[lang] = {};
 
       graphql(queries.allDocumentation).then(res => {
-        if (res.errors) return Promise.reject(res.erros);
+        if (res.errors) return Promise.reject(res.errors);
 
         // Sort all pages into pages object
         Object.keys(res.data.allMarkdownRemark.edges).forEach(key => {
@@ -315,7 +327,13 @@ exports.createPages = ({ actions, graphql }) => {
       // Create JS pages all languages
       for (let lang of i18nConfig.languages) {
         for (let jsPage of jsPages)
-          createJsPage(lang, jsPage.slug, jsPage.template, jsPage.match);
+          createJsPage(
+            lang,
+            jsPage.slug,
+            jsPage.template,
+            jsPage.match,
+            jsPage.query
+          );
       }
       return resolve();
     });

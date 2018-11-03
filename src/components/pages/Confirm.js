@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/Base";
 import ConfirmContainer from "../app/confirm/Container";
 
 const Signup = props => {
-  console.log("page props", props);
   return (
     <BaseLayout slug={props.pageContext.slug}>
       <ConfirmContainer

@@ -66,4 +66,29 @@ accountCreated: Account created
 welcomeAboard: Welcome aboard
 thisPageRequiresAuthentication: This page requires authentication
 youAreNotLoggedIn: You are not logged in
-
+back: Back
+units: Units
+avatar: Avatar
+social: Social
+metricUnits: Metric units (cm)
+imperialUnits: Imperial units (inch)
+welcomeUnitsTitle: Please select the unit system you are most familiar with
+welcomeUnitsText: Freesewing supports both the metric system, and imperial measurements. Simply select which one you would like to use, and click the <b>Save</b> button when you're ready.
+welcomeUsernameTitle: Please choose your username
+welcomeUsernameText: You currently have a randomly generated username. That isn't very personal, so you can change your username to something more you. Like your name, or <em>queenoffarts</em> or whatever. Simply type the username you'd like to have, and click the <b>Save</b> button when you're happy with your new username.
+welcomeAvatarTitle: Set your profile picture
+welcomeAvatarText: Your avatar or profile picture will be shown next to your comments, and on your profile page. You can upload a picture, or stick with the one that's been generated for you.
+welcomeBioTitle: Write a short bio
+welcomeBioText: This is where you can tell other freesewing users a little bit about yourself. This field supports MarkDown, so you can also include links. If you have a blog, this is where you link to it so others can discover it.
+welcomeSocialTitle: Let people follow you elsewhere
+welcomeSocialText: If you provide your GitHub, Twitter, or Instagram username, your profile page will contain links to your accounts on these sites. This allows freesewing users to follow you there.<br>We are not contacting any of these sites on your behalf. This is just so that people can connect the dots and know that for example user @joost on freesewing is the same person as user @j__st on twitter.
+save: Save
+fieldSaved: "{field} saved"
+dragAndDropImageHere: Drag and drop and image here, or select one manually with the button below
+selectImage: Select image
+remove: Remove
+noChanges: No changes
+bio: Bio
+preview: Preview
+markdownHelp: MarkDown help
+thisFieldSupportsMarkdown: This field supports Markdown

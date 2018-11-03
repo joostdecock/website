@@ -21,7 +21,8 @@ a.mt10,
 button.mt10 {
   margin-top: 10px;
 }
-.mr10 {
+.mr10,
+button.mr10 {
   margin-right: 10px;
 }
 .mb10 {
@@ -53,4 +54,10 @@ button.mt10 {
   border: 1px dashed #808080;
   padding: 1rem 2rem;
   font-size: 95%;
+}
+.box.low {
+  margin: 1rem auto;
+}
+.nobg {
+  background: transparent!important;
 }

@@ -113,9 +113,12 @@ const validateTld = email => {
   else return true;
 };
 
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
 export {
   toId,
   camelCase,
+  capitalize,
   languageFromSlug,
   slugForLanguage,
   fileOnGithub,

@@ -2,4 +2,4 @@ networkError: Back-End oder Netzwerk scheint nicht verfügbar zu sein
 requestFailedWithStatusCode401: Authentifizierung fehlgeschlagen
 emailExists: Wir haben bereits einen Benutzer mit dieser E-Mail-Adresse. Vielleicht möchten Sie sich stattdessen einloggen?
 confirmationNotFound: Wenn Sie diese Seite über den Link in einer Bestätigungs-E-Mail erreicht haben, empfehlen wir Ihnen, dieses Problem zu melden.
-
+notAValidImageFormat: Kein gültiges Bildformat

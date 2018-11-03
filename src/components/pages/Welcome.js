@@ -5,7 +5,6 @@ import WelcomeContainer from "../app/welcome/Container";
 //import { languageFromSlug } from "../../../utils";
 
 const Welcome = props => {
-  console.log("page props", props);
   return (
     <BaseLayout slug={props.pageContext.slug}>
       <AuthContainer slug={props.pageContext.slug}>
@@ -13,6 +12,7 @@ const Welcome = props => {
           slug={props.pageContext.slug}
           intl={props.intl}
           location={props.location}
+          data={props.pageContext.data}
         />
       </AuthContainer>
     </BaseLayout>

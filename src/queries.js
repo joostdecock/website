@@ -89,8 +89,29 @@ const allDocumentation = `{
   }
 }`;
 
+const markdownHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/markdown/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        fileAbsolutePath
+        html
+        tableOfContents(pathToSlugField: "frontmatter.path")
+        id
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
 module.exports = {
   allBlogPosts,
   allShowcasePosts,
-  allDocumentation
+  allDocumentation,
+  markdownHelp
 };
