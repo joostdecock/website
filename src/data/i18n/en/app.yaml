@@ -92,3 +92,5 @@ bio: Bio
 preview: Preview
 markdownHelp: MarkDown help
 thisFieldSupportsMarkdown: This field supports Markdown
+completeSignupTitle: Complete your signup
+completeSignupText: "Before we start off on the wrong foot, let's make sure your account is set up correctly. Simply complete the steps below:"

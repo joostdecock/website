@@ -3,36 +3,36 @@ consent: Toestemming
 consentForModelData: Toestemming voor modelgegevens
 consentForProfileData: Toestemming voor profielgegevens
 consentGiven: Toestemming gegeven
-noIDoNot: 'Neen, dat doe ik niet'
-yesIDo: 'Ja, dat doe ik'
+noIDoNot: 'Neen, ik geef geen toestemming'
+yesIDo: 'Ja, ik geef mijn toestemming'
 yesIDoObject: 'Ja, ik maak bezwaar'
 createMyAccount: Maak mijn account aan
 whatYouNeedToKnow: Wat je moet weten
 furtherReading: Verder lezen
 
-modelQuestion: Geeft je je toestemming voor het verwerken van uw modelgegevens?
-profileQuestion: Geeft je je toestemming om uw profielgegevens te verwerken?
+modelQuestion: Geeft je de toestemming voor je modelgegevens te verwerken?
+profileQuestion: Geeft je de toestemming om je profielgegevens te verwerken?
 whyQuestion: Waarom hebben we ze nodig?
 shareQuestion: Delen we ze met anderen?
 timingQuestion: Hoe lang houden we ze?
 
 modelWhatAnswer: voor elk model hun <b> lichaamsmaten </b> en <b> borst instelling </b>.
-modelWhatAnswerOptional: 'Optioneel: een model <b> afbeelding </b> en de <b> naam </b> die u aan uw model geeft.'
+modelWhatAnswerOptional: 'Optioneel: een model <b> afbeelding </b> en de <b> naam </b> die je aan je model geeft.'
 modelWhyAnswer: 'Voor het tekenen van <b> op maat gemaakte naaipatronen </b> hebben we <b> lichaamsmaten </b> nodig.'
 modelNote1: 'Opmerking: Freesewing publiceert geanonimiseerde metingen als open gegevens voor wetenschappelijk onderzoek.'
 modelNote2: 'Deze gegevens zijn anoniem en worden gebruikt om de menselijke vorm in al zijn vormen te bestuderen en te begrijpen, zodat we betere naaipatronen en beter passende kledingstukken kunnen krijgen.'
 modelWhatQuestion: Wat zijn modelgegevens?
 
 profileShareAnswer: '<b> Nee </b>, nooit.'
-profileTimingAnswer: '<b> 12 maanden </b> na uw laatste aanmelding of totdat u <b> uw </b> account verwijdert of <b> intrekt </b> deze toestemming.'
-profileWhatAnswer: 'Uw <b> e-mailadres </b>, <b> gebruikersnaam </b> en <b> wachtwoord </b>.'
+profileTimingAnswer: '<b> 12 maanden </b> na je laatste aanmelding of totdat je je <b>account verwijdert</b> of <b>deze toestemming intrekt</b>.'
+profileWhatAnswer: 'Je <b> e-mailadres </b>, <b> gebruikersnaam </b> en <b> wachtwoord </b>.'
 profileWhatAnswerOptional: 'Optioneel: een <b> profielfoto </b>, <b>bio</b>, en <b> accounts voor sociale media </b>'
-profileWhyAnswer: 'om u te <b> authenticeren </b>, u te <b> contacteren </b> wanneer nodig, en een <b> gemeenschap</b> te bouwen.'
+profileWhyAnswer: 'Om jete <b>authenticeren</b>, je te <b> contacteren </b> wanneer nodig, en een <b>gemeenschap</b> te bouwen.'
 profileWhatQuestion: Wat zijn profielgegevens?
 
-intro1: De Algemene Verordening Gegevensbescherming (GDPR) van de Europese Unie (EU) beschermt uw persoonlijke gegevens tegen gewetenloze hoarders. Dat is een goed ding.
+intro1: De Algemene Verordening Gegevensbescherming (GDPR) van de Europese Unie (EU) beschermt je persoonlijke gegevens tegen gewetenloze data hamsteraars. Dat is een goeie zaak.
 intro2: 'Een van de dingen die het ons oplegt, is dat we je toestemming krijgen - met andere woorden, je toestemming - om je persoonlijke gegevens te verwerken.'
-intro3: 'Deze toestemming is de wettelijke basis voor ons om uw gegevens te verwerken. Zonder dit kunnen we uw gegevens niet opslaan. Wanneer je het intrekt, hebben we geen andere keus dan al je gegevens te verwijderen. '
+intro3: 'Deze toestemming is de wettelijke basis voor ons om je gegevens te verwerken. Zonder dit kunnen we je gegevens niet opslaan. Wanneer je ze intrekt, hebben we geen andere keuze dan al je gegevens te verwijderen. '
 intro4: Strikt genomen is GDPR alleen van toepassing op burgers van de Europese Unie. We passen echter dezelfde regels voor gegevensbeveiliging toe op al onze gebruikers, ongeacht hun nationaliteit.
 intro5: Lees voor meer informatie onze privacyverklaring
-compliant: Freesewing.org respecteert uw privacy en uw rechten. We passen de Algemene Verordening Gegevensbescherming (AVG) van de Europese Unie (EU) toe.
+compliant: Freesewing.org respecteert jouw privacy en je rechten. We passen de Algemene Verordening Gegevensbescherming (AVG) van de Europese Unie (EU) toe.

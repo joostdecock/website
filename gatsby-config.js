@@ -15,14 +15,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, "src", "pages"),
-        name: "pages",
-        ignore: [`**/\.*`]
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: path.join(__dirname, "src", "markdown"),
         name: "markdown",
         ignore: [`**/\.*`]
@@ -51,6 +43,13 @@ module.exports = {
               include: [
                 "markdown/**/*.md" // an include glob to match against
               ]
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: false,
+              noInlineHighlight: false
             }
           }
         ]

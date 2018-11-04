@@ -15,7 +15,7 @@ function Social({
   return (
     <div>
       <h5>
-        <FormattedMessage id="app.welcomeUsernameTitle" />
+        <FormattedMessage id="app.welcomeSocialTitle" />
       </h5>
       <TextField
         id="github"

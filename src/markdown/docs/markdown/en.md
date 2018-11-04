@@ -1,5 +1,5 @@
 ---
-title: Markdown syntax
+title: Markdown help
 path: /en/docs/markdown
 ---
 
@@ -32,7 +32,8 @@ this.
 You can make text *italic* or **bold** by wrapping it in 1 or 2 asterix respectively:
 
 ```md
-You can make text *italic* or **bold** by wrapping it in 1 or 2 asterix respectively:
+You can make text *italic* or **bold** 
+by wrapping it in 1 or 2 asterix respectively:
 ```
 
 ## Lists
@@ -40,28 +41,24 @@ You can make text *italic* or **bold** by wrapping it in 1 or 2 asterix respecti
 To make a list, just do as you would in plain text, making sure to start with a space:
 
 ```md
- - a
- - bullet
+ - a bullet
  - list
 
 or
 
- 1. A
- 2. numbered
- 3. list
+ 1. A numbered
+ 2. list
 ```
 
 Gives you:
 
- - a
- - bullet
+ - a bullet
  - list
 
 or
 
- 1. A
- 2. numbered
- 3. list
+ 1. A numbered
+ 2. list
 
 ## Links
 

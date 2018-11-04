@@ -9,21 +9,18 @@ import {
   closeNotification
 } from "../../../store/actions/notification";
 import { navigate } from "gatsby";
-import { capitalize } from "../../../utils";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import StepContent from "@material-ui/core/StepContent";
+import { capitalize, locLang } from "../../../utils";
+import MobileStepper from "@material-ui/core/MobileStepper";
 import Units from "./Units";
 import Username from "./Username";
 import AvatarUpload from "./AvatarUpload";
 import AvatarPreview from "./AvatarPreview";
 import Bio from "./Bio";
 import Social from "./Social";
-import BackIcon from "@material-ui/icons/KeyboardArrowUp";
-import SaveIcon from "@material-ui/icons/Save";
 import remark from "remark";
 import html from "remark-html";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
 class WelcomeContainer extends React.Component {
   state = {
@@ -38,7 +35,8 @@ class WelcomeContainer extends React.Component {
     bioPreview: false,
     github: false,
     twitter: false,
-    instagram: false
+    instagram: false,
+    maxSteps: 5
   };
 
   saveAccount = (data, field) => {
@@ -94,7 +92,7 @@ class WelcomeContainer extends React.Component {
       },
       "social"
     );
-    navigate("/");
+    navigate(locLang.get("/docs/getting-started", this.props.language));
   };
 
   getUnits = () => this.state.units || this.props.user.settings.units;
@@ -215,7 +213,7 @@ class WelcomeContainer extends React.Component {
     }));
   };
 
-  getSteps() {
+  getStepContent(index) {
     let units = {
       key: "units",
       content: (
@@ -284,65 +282,62 @@ class WelcomeContainer extends React.Component {
       )
     };
 
-    return [
+    let steps = [
       units,
       username,
       this.state.avatarPreview ? aPreview : aUpload,
       bio,
       social
     ];
+
+    return steps[index];
   }
 
   render() {
-    const { activeStep } = this.state;
+    const { activeStep, maxSteps } = this.state;
+    let step = this.getStepContent(activeStep);
     return (
-      <div className="content">
+      <div className="content mt3r">
+        <h2>
+          <FormattedMessage id="app.completeSignupTitle" />
+        </h2>
+        <p>
+          <FormattedMessage id="app.completeSignupText" />
+        </p>
         <form>
-          <Stepper
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
             activeStep={activeStep}
-            orientation="vertical"
             classes={{ root: "nobg" }}
-          >
-            {this.getSteps().map((step, index) => (
-              <Step key={index}>
-                <StepLabel>
-                  <FormattedMessage id={"app." + step.key} />
-                </StepLabel>
-                <StepContent>
-                  {step.content}
-                  <div className="txt-right">
-                    <Button
-                      variant="outlined"
-                      classes={{ root: "mr10" }}
-                      disabled={activeStep === 0}
-                      onClick={this.handleBack}
-                    >
-                      <BackIcon className="mr10" />
-                      <FormattedMessage id="app.back" />
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleNext}
-                    >
-                      <SaveIcon className="mr10" />
-                      <FormattedMessage id={"app.save"} />
-                    </Button>
-                  </div>
-                  <div className="box low">
-                    <h5>
-                      <FormattedMessage id={"app." + step.key} />
-                    </h5>
-                    <p>
-                      <FormattedHTMLMessage
-                        id={"app.welcome" + capitalize(step.key) + "Text"}
-                      />
-                    </p>
-                  </div>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
+            nextButton={
+              <Button size="small" onClick={this.handleNext}>
+                <FormattedMessage id="app.save" />
+                <KeyboardArrowRight />
+              </Button>
+            }
+            backButton={
+              <Button
+                size="small"
+                onClick={this.handleBack}
+                disabled={activeStep === 0}
+              >
+                <KeyboardArrowLeft />
+                <FormattedMessage id="app.back" />
+              </Button>
+            }
+          />
+          {step.content}
+          <div className="box low">
+            <h5>
+              <FormattedMessage id={"app." + step.key} />
+            </h5>
+            <p>
+              <FormattedHTMLMessage
+                id={"app.welcome" + capitalize(step.key) + "Text"}
+              />
+            </p>
+          </div>
         </form>
       </div>
     );

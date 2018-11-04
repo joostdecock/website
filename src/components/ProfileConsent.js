@@ -85,9 +85,9 @@ const ProfileConsent = ({
         </blockquote>
       </form>
       <div className="box">
-        <h5>
+        <h4>
           <FormattedMessage id="gdpr.whatYouNeedToKnow" />
-        </h5>
+        </h4>
         <h6>
           <ProfileDataIcon className="mr10 not-on-xs" fontSize="inherit" />
           <FormattedMessage id="gdpr.profileWhatQuestion" />
