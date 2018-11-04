@@ -32,7 +32,7 @@ export default class ShowcaseIndex extends React.Component {
       );
     }
     return (
-      <BaseLayout slug={this.props.pageContext.slug}>
+      <BaseLayout>
         <Grid
           container
           direction="column"

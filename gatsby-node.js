@@ -22,6 +22,10 @@ exports.createPages = ({ actions, graphql }) => {
   // Non-markdown content in all languages
   const jsPages = [
     {
+      slug: "/",
+      template: path.resolve("src/components/pages/HomePage.js")
+    },
+    {
       slug: "/login",
       template: path.resolve("src/components/pages/Login.js")
     },
@@ -79,7 +83,7 @@ exports.createPages = ({ actions, graphql }) => {
       context: {
         posts,
         language,
-        slug: `/${language}/blog`,
+        location: `/${language}/blog`,
         category: "all"
       }
     });
@@ -92,7 +96,7 @@ exports.createPages = ({ actions, graphql }) => {
       context: {
         posts,
         language,
-        slug: `/${language}/blog/category/${category}`,
+        location: `/${language}/blog/category/${category}`,
         category: category
       }
     });
@@ -105,7 +109,7 @@ exports.createPages = ({ actions, graphql }) => {
       context: {
         posts,
         language,
-        slug: `/${language}/showcase`
+        location: `/${language}/showcase`
       }
     });
   };
@@ -118,7 +122,7 @@ exports.createPages = ({ actions, graphql }) => {
         node,
         contentLanguage,
         language,
-        slug: `/${language}/blog/${slug}`
+        location: `/${language}/blog/${slug}`
       }
     });
   };
@@ -131,7 +135,7 @@ exports.createPages = ({ actions, graphql }) => {
         node,
         contentLanguage,
         language,
-        slug: `/${language}/showcase/${slug}`
+        location: `/${language}/showcase/${slug}`
       }
     });
   };
@@ -144,7 +148,7 @@ exports.createPages = ({ actions, graphql }) => {
         node,
         contentLanguage,
         language,
-        slug: `/${language}${slug}`
+        location: `/${language}${slug}`
       }
     });
   };
@@ -161,7 +165,7 @@ exports.createPages = ({ actions, graphql }) => {
       component: template,
       context: {
         language,
-        slug: `/${language}${slug}`
+        location: `/${language}${slug}`
       }
     };
     if (match) page.matchPath = "/" + language + "/confirm/" + "*";

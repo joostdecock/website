@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import Icon from "@material-ui/core/Icon";
 import i18nConfig from "../config/i18n";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
 import Button from "@material-ui/core/Button";
@@ -74,7 +74,7 @@ class CommunityMenu extends React.Component {
             >
               <Link
                 className="menu"
-                to={slugForLanguage(item.link, this.props.language)}
+                to={locLang.set(item.link, this.props.language)}
               >
                 <Icon className="menu-icon">{item.icon}</Icon>
                 <FormattedMessage id={"app." + item.label} />
@@ -88,8 +88,7 @@ class CommunityMenu extends React.Component {
 }
 
 CommunityMenu.propTypes = {
-  language: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired
 };
 
 export default CommunityMenu;

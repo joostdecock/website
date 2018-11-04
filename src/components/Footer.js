@@ -6,14 +6,14 @@ import InstagramIcon from "./InstagramIcon";
 import GitterIcon from "./GitterIcon";
 import GithubIcon from "./GithubIcon";
 import { FormattedHTMLMessage, injectIntl } from "react-intl";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import { Link } from "gatsby";
 
 const Footer = props => {
   const { intl } = props;
   return (
     <footer>
-      <Link to={slugForLanguage("/", props.language)} title="🏠">
+      <Link to={locLang.set("/", props.language)} title="🏠">
         <Logo size={96} />
       </Link>
       <p className="credits">

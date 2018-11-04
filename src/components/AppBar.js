@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
@@ -46,7 +46,7 @@ function FsAppBar(props) {
   } else {
     userMenu = [
       <Button
-        href={slugForLanguage("/login", language)}
+        href={locLang.set("/login", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.logIn" })}
         key="login"
@@ -55,7 +55,7 @@ function FsAppBar(props) {
         <FormattedMessage id="app.logIn" />
       </Button>,
       <Button
-        href={slugForLanguage("/signup", language)}
+        href={locLang.set("/signup", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.signUp" })}
         key="signup"
@@ -70,7 +70,7 @@ function FsAppBar(props) {
       <Toolbar>
         <Button
           color="inherit"
-          href={slugForLanguage("/", language)}
+          href={locLang.set("/", language)}
           size="small"
           title={intl.formatMessage({ id: "app.freesewing" })}
         >
@@ -82,7 +82,7 @@ function FsAppBar(props) {
         <div className="not-on-mobile">
           <Button
             color="inherit"
-            href={slugForLanguage("/blog/", language)}
+            href={locLang.set("/blog/", language)}
             title={intl.formatMessage({ id: "app.blog" })}
           >
             <BlogIcon className="mr10" />
@@ -104,7 +104,7 @@ function FsAppBar(props) {
         <DropDownButton
           title={intl.formatMessage({ id: "app.language" })}
           language={language}
-          {...languageMenu(props.slug, language)}
+          {...languageMenu(props.location, language)}
         />
         <Button
           color="inherit"
@@ -132,7 +132,7 @@ function FsAppBar(props) {
 FsAppBar.propTypes = {
   dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   handleLogout: PropTypes.func.isRequired
 };
 

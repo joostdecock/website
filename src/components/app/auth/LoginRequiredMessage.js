@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
-import { slugForLanguage, languageFromSlug } from "../../../utils";
+import { locLang } from "../../../utils";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
 import Button from "@material-ui/core/Button";
 import ButtonSpinner from "../../ButtonSpinner";
 
-const LoginRequiredMessage = ({ slug }) => {
-  let language = languageFromSlug(slug);
+const LoginRequiredMessage = ({ location }) => {
+  let language = locLang.get(location);
   return (
     <div className="content pt20 mh60vh txt-center">
       <h1>
@@ -19,7 +19,7 @@ const LoginRequiredMessage = ({ slug }) => {
       </h5>
       <br />
       <Button
-        href={slugForLanguage("/login", language)}
+        href={locLang.set("/login", language)}
         color="primary"
         size="large"
         variant="contained"
@@ -33,7 +33,7 @@ const LoginRequiredMessage = ({ slug }) => {
       <br />
       <Button
         classes={{ root: "mt10" }}
-        href={slugForLanguage("/signup", language)}
+        href={locLang.set("/signup", language)}
         color="secondary"
         size="large"
         variant="contained"

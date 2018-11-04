@@ -3,7 +3,7 @@ import Modal from "@material-ui/core/Modal";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -61,7 +61,7 @@ class MobileMenu extends React.Component {
         <h5 key="login">
           <Link
             onClick={this.handleClose}
-            to={slugForLanguage("/login/", this.props.language)}
+            to={locLang.set("/login/", this.props.language)}
             title={this.props.intl.formatMessage({ id: "app.logIn" })}
           >
             <LoginIcon className="mr20" />
@@ -71,7 +71,7 @@ class MobileMenu extends React.Component {
         <h5 key="logout">
           <Link
             onClick={this.handleClose}
-            to={slugForLanguage("/signup/", this.props.language)}
+            to={locLang.set("/signup/", this.props.language)}
             title={this.props.intl.formatMessage({ id: "app.signUp" })}
           >
             <SignupIcon className="mr20" />
@@ -113,7 +113,7 @@ class MobileMenu extends React.Component {
               <h5>
                 <Link
                   onClick={this.handleClose}
-                  to={slugForLanguage("/", this.props.language)}
+                  to={locLang.set("/", this.props.language)}
                   title={this.props.intl.formatMessage({
                     id: "app.freesewing"
                   })}
@@ -125,7 +125,7 @@ class MobileMenu extends React.Component {
               <h5>
                 <Link
                   onClick={this.handleClose}
-                  to={slugForLanguage("/blog/", this.props.language)}
+                  to={locLang.set("/blog/", this.props.language)}
                   title={this.props.intl.formatMessage({ id: "app.blog" })}
                 >
                   <BlogIcon className="mr20" />

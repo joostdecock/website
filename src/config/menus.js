@@ -1,12 +1,12 @@
 import React from "react";
 import i18nConfig from "./i18n";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import TwitterIcon from "../components/TwitterIcon";
 import GitterIcon from "../components/GitterIcon";
 import InstagramIcon from "../components/InstagramIcon";
 import GithubIcon from "../components/GithubIcon";
 
-const languageMenu = (slug, pageLanguage) => {
+const languageMenu = (location, pageLanguage) => {
   let menu = {
     text: i18nConfig.translations[pageLanguage],
     icon: { type: "inline", svg: i18nConfig.icons[pageLanguage] },
@@ -14,7 +14,7 @@ const languageMenu = (slug, pageLanguage) => {
   };
   for (let language of i18nConfig.languages) {
     menu.items.push({
-      link: slugForLanguage(slug, language),
+      link: locLang.set(location, language),
       text: i18nConfig.translations[language],
       icon: { type: "inline", svg: i18nConfig.icons[language] }
     });
@@ -28,7 +28,7 @@ const communityMenu = pageLanguage => {
     label: "app.community",
     items: [
       {
-        link: slugForLanguage("/showcase/", pageLanguage),
+        link: locLang.set("/showcase/", pageLanguage),
         label: "app.showcase",
         icon: "camera_alt"
       },
@@ -61,7 +61,7 @@ const documentationMenu = pageLanguage => {
     label: "app.docs",
     items: [
       {
-        link: slugForLanguage("/docs/about", pageLanguage),
+        link: locLang.set("/docs/about", pageLanguage),
         label: "app.aboutFreesewing",
         icon: "info"
       },
@@ -77,33 +77,33 @@ const documentationMenu = pageLanguage => {
 const getUserMenuItems = (language, username, handleLogout) => {
   return [
     {
-      link: slugForLanguage("/draft/", language),
+      link: locLang.set("/draft/", language),
       label: "app.newDraft",
       icon: "insert_drive_file"
     },
     {
-      link: slugForLanguage("/model/", language),
+      link: locLang.set("/model/", language),
       label: "app.newModel",
       icon: "perm_identity"
     },
     "divider",
     {
-      link: slugForLanguage("/drafts/", language),
+      link: locLang.set("/drafts/", language),
       label: "app.drafts",
       icon: "folder_open"
     },
     {
-      link: slugForLanguage("/models/", language),
+      link: locLang.set("/models/", language),
       label: "app.models",
       icon: "perm_contact_calendar"
     },
     {
-      link: slugForLanguage("/account/", language),
+      link: locLang.set("/account/", language),
       label: "app.settings",
       icon: "tune"
     },
     {
-      link: slugForLanguage("/user/" + username, language),
+      link: locLang.set("/user/" + username, language),
       label: "app.profile",
       icon: "fingerprint"
     },

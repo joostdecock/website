@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link } from "gatsby";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
-import { slugForLanguage } from "../../../utils";
+import { locLang } from "../../../utils";
 
 const ResetPasswordForm = ({
   language,
@@ -49,11 +49,11 @@ const ResetPasswordForm = ({
         <FormattedMessage id="app.logIn" />
       </a>
       &nbsp;|&nbsp;
-      <Link to={slugForLanguage("/signup", language)}>
+      <Link to={locLang.set("/signup", language)}>
         <FormattedMessage id="app.signUpForAFreeAccount" />
       </Link>
       &nbsp;|&nbsp;
-      <Link to={slugForLanguage("/contact", language)}>
+      <Link to={locLang.set("/contact", language)}>
         <FormattedMessage id="app.contactUs" />
       </Link>
     </div>

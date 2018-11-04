@@ -39,7 +39,7 @@ export default class BlogIndex extends React.Component {
       }
     }
     return (
-      <BaseLayout slug={this.props.pageContext.slug}>
+      <BaseLayout>
         <Grid
           container
           direction="column"

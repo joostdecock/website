@@ -1,22 +1,38 @@
-revokeConsent: Revoke consent
-weNeedYourConsent: We need your consent
+revokeConsent: Toestemming intrekken
+consent: Toestemming
+consentForModelData: Toestemming voor modelgegevens
+consentForProfileData: Toestemming voor profielgegevens
+consentGiven: Toestemming gegeven
+noIDoNot: 'Neen, dat doe ik niet'
+yesIDo: 'Ja, dat doe ik'
+yesIDoObject: 'Ja, ik maak bezwaar'
+createMyAccount: Maak mijn account aan
+whatYouNeedToKnow: Wat je moet weten
+furtherReading: Verder lezen
 
-modelQuestion: Do you give your consent to process your model data?
-profileQuestion: Do you give your consent to process your profile data?
-whyQuestion: Why do we need it?
-shareQuestion: Do we share it with others?
-timingQuestion: How long do we keep it?
+modelQuestion: Geeft je je toestemming voor het verwerken van uw modelgegevens?
+profileQuestion: Geeft je je toestemming om uw profielgegevens te verwerken?
+whyQuestion: Waarom hebben we ze nodig?
+shareQuestion: Delen we ze met anderen?
+timingQuestion: Hoe lang houden we ze?
 
-modelWhatAnswer: For each model their <b>measurements</b> and <b>breasts settings</b>.
-modelWhatAnswerOptional: 'Optional: A model <b>picture</b> and the <b>name</b> that you give your model.'
-modelWhyAnswer: 'To draft <b>made-to-measure sewing patterns</b>, we need <b>body measurements</b>.'
-modelNote1: 'Note: Freesewing publishes anonymized measurements as open data for scientific research.'
-modelNote2: 'This data is anonymous and used to study and understand the human form in all its shapes, so we can get better sewing patterns, and better fitting garments.'
-modelWhatQuestion: What is model data?
+modelWhatAnswer: voor elk model hun <b> lichaamsmaten </b> en <b> borst instelling </b>.
+modelWhatAnswerOptional: 'Optioneel: een model <b> afbeelding </b> en de <b> naam </b> die u aan uw model geeft.'
+modelWhyAnswer: 'Voor het tekenen van <b> op maat gemaakte naaipatronen </b> hebben we <b> lichaamsmaten </b> nodig.'
+modelNote1: 'Opmerking: Freesewing publiceert geanonimiseerde metingen als open gegevens voor wetenschappelijk onderzoek.'
+modelNote2: 'Deze gegevens zijn anoniem en worden gebruikt om de menselijke vorm in al zijn vormen te bestuderen en te begrijpen, zodat we betere naaipatronen en beter passende kledingstukken kunnen krijgen.'
+modelWhatQuestion: Wat zijn modelgegevens?
 
-profileShareAnswer: '<b>No</b>, never.'
-profileTimingAnswer: '<b>12 months</b> after your last login, or until you <b>remove</b> your account or <b>revoke</b> this consent.'
-profileWhatAnswer: 'Your <b>email address</b>, <b>username</b>, and <b>password</b>.'
-profileWhatAnswerOptional: 'Optional: A <b>profile picture</b>, and <b>social media accounts</b>'
-profileWhyAnswer: 'To <b>authenticate</b> you, <b>contact</b> you when needed, and build a <b>community</b>.'
-profileWhatQuestion: What is profile data?
+profileShareAnswer: '<b> Nee </b>, nooit.'
+profileTimingAnswer: '<b> 12 maanden </b> na uw laatste aanmelding of totdat u <b> uw </b> account verwijdert of <b> intrekt </b> deze toestemming.'
+profileWhatAnswer: 'Uw <b> e-mailadres </b>, <b> gebruikersnaam </b> en <b> wachtwoord </b>.'
+profileWhatAnswerOptional: 'Optioneel: een <b> profielfoto </b>, <b>bio</b>, en <b> accounts voor sociale media </b>'
+profileWhyAnswer: 'om u te <b> authenticeren </b>, u te <b> contacteren </b> wanneer nodig, en een <b> gemeenschap</b> te bouwen.'
+profileWhatQuestion: Wat zijn profielgegevens?
+
+intro1: De Algemene Verordening Gegevensbescherming (GDPR) van de Europese Unie (EU) beschermt uw persoonlijke gegevens tegen gewetenloze hoarders. Dat is een goed ding.
+intro2: 'Een van de dingen die het ons oplegt, is dat we je toestemming krijgen - met andere woorden, je toestemming - om je persoonlijke gegevens te verwerken.'
+intro3: 'Deze toestemming is de wettelijke basis voor ons om uw gegevens te verwerken. Zonder dit kunnen we uw gegevens niet opslaan. Wanneer je het intrekt, hebben we geen andere keus dan al je gegevens te verwijderen. '
+intro4: Strikt genomen is GDPR alleen van toepassing op burgers van de Europese Unie. We passen echter dezelfde regels voor gegevensbeveiliging toe op al onze gebruikers, ongeacht hun nationaliteit.
+intro5: Lees voor meer informatie onze privacyverklaring
+compliant: Freesewing.org respecteert uw privacy en uw rechten. We passen de Algemene Verordening Gegevensbescherming (AVG) van de Europese Unie (EU) toe.

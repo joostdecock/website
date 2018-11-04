@@ -31,7 +31,7 @@ class ConfirmContainer extends React.Component {
     });
   };
 
-  getConfirmId = () => this.props.location.pathname.split("/").pop();
+  getConfirmId = () => this.props.location.split("/").pop();
 
   handleConsentSubmit = evt => {
     evt.preventDefault();

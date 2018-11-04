@@ -13,18 +13,14 @@ import nl from "react-intl/locale-data/nl";
 import strings from "../../data/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
-import {
-  languageFromSlug,
-  loadTheme,
-  clearToken,
-  retrieveToken
-} from "../../utils";
+import { locLang, loadTheme, clearToken, retrieveToken } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
 import backend from "../../backend";
+import LocationProvider from "../LocationProvider";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -59,11 +55,15 @@ class Base extends React.Component {
   }
 
   render() {
-    let language = languageFromSlug(this.props.slug);
-    const { dark, splash } = this.props;
+    const { dark, splash, location } = this.props;
+    let language = locLang.get(location);
     let footer = splash ? "" : <Footer language={language} />;
     let classes = dark ? "dark" : "light";
     if (splash) classes += " splash";
+    // Passing location and language props down to children
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, { location, language });
+    });
     return (
       <IntlProvider locale={language} messages={strings[language]}>
         <MuiThemeProvider theme={loadTheme(this.props.dark)}>
@@ -79,11 +79,11 @@ class Base extends React.Component {
               user={this.props.user}
               handleLogout={this.handleLogout}
               language={language}
-              slug={this.props.slug}
+              location={location}
               dark={dark}
               toggleDarkMode={this.handleToggleDarkMode}
             />
-            {this.props.children}
+            {children}
             {footer}
           </div>
           <Notification
@@ -123,4 +123,4 @@ Base.defaultProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRoot(Base));
+)(withRoot(LocationProvider(Base)));

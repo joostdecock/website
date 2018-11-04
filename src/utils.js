@@ -33,11 +33,32 @@ const camelCase = str =>
  * A slug being the complete path of the URL
  * not just the last part
  * So for /en/blog/category/roundup this will return en
+ * REMOVEME - DEPRECATED
  */
 const languageFromSlug = slug => {
   let lang = slug.split("/")[1];
   if (i18nConfig.languages.indexOf(lang) !== -1) return lang;
   else return i18nConfig.defaultLanguage;
+};
+
+/** Gets the language from a location
+ * A location being the complete path of the URL
+ * not just the last part
+ * So for /en/blog/category/roundup this will return en
+ */
+const locLang = {
+  get: location => {
+    let lang = location.split("/")[1];
+    if (i18nConfig.languages.indexOf(lang) !== -1) return lang;
+    else return i18nConfig.defaultLanguage;
+  },
+  set: (location, language) => {
+    let chunks = location.split("/");
+    if (i18nConfig.languages.indexOf(chunks[1]) !== -1) {
+      let lang = chunks[1];
+      return "/" + language + location.substr(lang.length + 1);
+    } else return "/" + language + location;
+  }
 };
 
 /** Adatps a slug for a given language
@@ -116,6 +137,7 @@ const validateTld = email => {
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export {
+  locLang,
   toId,
   camelCase,
   capitalize,

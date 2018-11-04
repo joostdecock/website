@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import TranslateIcon from "@material-ui/icons/Translate";
 import Message from "./Message";
-import { fileOnGithub, slugForLanguage } from "../utils";
+import { fileOnGithub, locLang } from "../utils";
 import { Link } from "gatsby";
 
 const PleaseTranslate = props => {
   let documentationForTranslators = (
-    <Link to={slugForLanguage("/docs/i18n/", props.language)}>
+    <Link to={locLang.set("/docs/i18n/", props.language)}>
       <FormattedMessage id="app.documentationForTranslators" />
     </Link>
   );

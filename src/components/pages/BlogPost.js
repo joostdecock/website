@@ -6,7 +6,7 @@ import { FormattedMessage } from "react-intl";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
 import Datum from "../Datum";
-import { slugForLanguage } from "../../utils";
+import { locLang } from "../../utils";
 import { Link } from "gatsby";
 
 export default data => {
@@ -26,10 +26,10 @@ export default data => {
     );
   }
   return (
-    <BaseLayout slug={pageContext.slug}>
+    <BaseLayout>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-        <Grid item xs={12} sm={10} md={7} lg={5} xl={4} classname={"wmax"}>
+        <Grid item xs={12} sm={10} md={7} lg={5} xl={4} className={"wmax"}>
           <div className="blog-header">
             {languageNotAvailable}
             <figure>
@@ -72,7 +72,7 @@ export default data => {
               </li>
               <li>
                 <Link
-                  to={slugForLanguage(
+                  to={locLang.set(
                     "/blog/category/" + frontmatter.category,
                     pageContext.language
                   )}

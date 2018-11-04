@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Image from "gatsby-image";
 import TimeAgo from "./TimeAgo";
 import { Link } from "gatsby";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 
 const BlogPostPreview = props => {
   let langClass = "";
@@ -11,7 +11,7 @@ const BlogPostPreview = props => {
   let postLink = frontmatter.path;
   if (props.correctLanguage !== true) {
     langClass = "grayscale";
-    postLink = slugForLanguage(frontmatter.path, props.language);
+    postLink = locLang.set(frontmatter.path, props.language);
   }
   return (
     <div>

@@ -5,7 +5,7 @@ import LoginIcon from "@material-ui/icons/VpnKey";
 import Button from "@material-ui/core/Button";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
-import { slugForLanguage } from "../../../utils";
+import { locLang } from "../../../utils";
 import ButtonSpinner from "../../ButtonSpinner";
 
 const LoginForm = ({
@@ -66,7 +66,7 @@ const LoginForm = ({
         <FormattedMessage id="app.troubleLoggingIn" />
       </a>
       &nbsp;|&nbsp;
-      <Link to={slugForLanguage("/signup", language)}>
+      <Link to={locLang.set("/signup", language)}>
         <FormattedMessage id="app.signUpForAFreeAccount" />
       </Link>
     </div>
