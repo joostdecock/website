@@ -61,3 +61,18 @@ button.mr10 {
 .nobg {
   background: transparent!important;
 }
+.keyval {
+  .key {
+    display: block;
+    font-weight: bold;
+  }
+  .val {
+    display: block;
+    font-weight: normal;
+    font-size: 90%;
+  }
+}
+.overpad1 {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
