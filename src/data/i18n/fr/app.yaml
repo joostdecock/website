@@ -77,6 +77,7 @@ markdownHelp: Aide de MarkDown
 thisFieldSupportsMarkdown: Ce champ prend en charge Markdown
 completeSignupTitle: Complétez votre inscription
 completeSignupText: "Avant de commencer du mauvais pied, assurons-nous que votre compte est configuré correctement. Complétez simplement les étapes ci-dessous:"
+patron: Mécène
 no: Non
 patron-2: Powder monkey
 patron-4: Second
@@ -92,5 +93,3 @@ patronPitch: Si vous pensez que ce que nous faisons vaut la peine, et si vous po
 tellMeMore: En savoir plus
 patronHelp: Si vous avez des questions ou souhaitez modifier votre statut de Patron, veuillez contacter Joost.
 sendAnEmail: Envoyer un mail
-
-
