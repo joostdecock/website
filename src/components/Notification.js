@@ -31,7 +31,7 @@ function Notification(props) {
       onClose={onClose}
       message={[
         <Icon key="icon" className="notification-icon" />,
-        <span key="message">{msg}</span>
+        <span key="message" dangerouslySetInnerHTML={{ __html: msg }} />
       ]}
     />
   );

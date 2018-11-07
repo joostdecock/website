@@ -1,0 +1,50 @@
+units: Unidades
+unitsTitle: Seleccione el sistema de unidad con el que esté más familiarizado
+unitsInfo: Freesewing admite tanto el sistema métrico como las medidas imperiales. Simplemente seleccione cuál le gustaría usar y haga clic en el botón <b>Guardar</b> cuando esté listo.
+
+username: Nombre de usuario
+usernameTitle: Por favor, elija su nombre de usuario
+usernameInfo: Actualmente tienes un nombre de usuario generado aleatoriamente. Eso no es muy personal, por lo que puedes cambiar tu nombre de usuario a algo más para ti. Me gusta tu nombre, o <em> reinadepedos </em> o lo que sea. Simplemente escriba el nombre de usuario que desea tener y haga clic en el botón <b> Guardar </b> cuando esté satisfecho con su nuevo nombre de usuario.
+
+avatar: Avatar
+avatarTitle: Establece tu foto de perfil
+avatarInfo: Tu avatar o foto de perfil se mostrarán junto a tus comentarios y en tu página de perfil. Puedes subir una imagen o seguir con la que se ha generado para ti.
+
+bio: Bio
+bioTitle: Escribe una breve biografía
+bioInfo: Aquí es donde puede contarle a otros usuarios un poco sobre usted. Este campo admite MarkDown, por lo que también puede incluir enlaces. Si tienes un blog, aquí es donde te vinculas para que otros puedan descubrirlo.
+
+social: Social
+socialTitle: Deja que la gente te siga a otra parte
+socialInfo: Si proporciona su nombre de usuario de GitHub, Twitter o Instagram, su página de perfil contendrá enlaces a sus cuentas en estos sitios. Esto permite que los usuarios libres lo sigan allí. <br> No estamos contactando a ninguno de estos sitios en su nombre. Esto es solo para que las personas puedan conectar los puntos y saber que, por ejemplo, el usuario @joost en freesewing es la misma persona que el usuario @j__st en twitter.
+
+
+github: Github
+githubTitle: Rellene su nombre de usuario Github
+githubInfo: Si proporciona su nombre de usuario de GitHub, su página de perfil contendrá un enlace a su cuenta de Github, de modo que los visitantes puedan descubrir sus contribuciones de código, protagonizarlo o seguirlo.
+
+twitter: Twitter
+twitterTitle: Rellene su nombre de usuario Twitter
+twitterInfo: Si proporciona su nombre de usuario de Twitter, su página de perfil contendrá un enlace a su cuenta de Twitter, para que los visitantes puedan descubrir sus tweets y seguirlo.
+
+instagram: Instagram
+instagramTitle: Rellene su nombre de usuario Instagram
+instagramInfo: Si proporciona su nombre de usuario de Instagram, su página de perfil contendrá un enlace a su cuenta de Instagram, para que los visitantes puedan descubrir sus imágenes y seguirlo.
+
+email: Dirección de correo electrónico
+emailTitle: Ingrese la dirección de correo electrónico que desea vincular a esta cuenta
+emailInfo: La dirección de correo electrónico vinculada a su cuenta es importante, ya que se utilizará para recuperar el acceso a su cuenta si olvida su contraseña. Debido a esto, cambiar su dirección de correo electrónico requiere confirmación.
+
+password: Contraseña
+currentPassword: Contraseña actual
+newPassword: Nueva contraseña
+passwordTitle: Ingrese su contraseña actual y su nueva contraseña
+passwordInfo: Cambiar tu contraseña requiere tu contraseña actual. Rellene eso, luego complete su nueva contraseña también.
+
+language: Idioma
+languageTitle: Seleccione el idioma de su elección
+languageInfo: Esta opción de idioma determina en qué idioma recibirá los correos electrónicos de freesewing. No determina el idioma del sitio web, que se puede elegir en cada página
+
+patron: Patrocinador
+patronInfo: Los patrocinadores apoyan a Freesewing financieramente. Son partidarios leales que aseguran un futuro sostenible para freesewing.org, nuestro código, nuestros patrones y nuestra comunidad.
+

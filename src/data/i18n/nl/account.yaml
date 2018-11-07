@@ -1,0 +1,49 @@
+units: Eenheden
+unitsTitle: Selecteer het systeem waarmee u het meest vertrouwd bent
+unitsText: Freesewing ondersteunt zowel het metrische systeem als imperiale eenheden. Selecteer eenvoudig welke u wilt gebruiken en klik op de knop <b> Opslaan </b> wanneer u klaar bent.
+
+username: Gebruikersnaam
+usernameTitle: Kies een gebruikersnaam
+usernameText: Iedereen start met een willekeurig gegenereerde gebruikersnaam. Dat is niet erg persoonlijk, dus je kunt je gebruikersnaam veranderen in iets meer jij. Zoals je naam, of <em> scheetje </em> of wat dan ook. Typ gewoon de gebruikersnaam die u wilt hebben en klik op de knop <b> Opslaan </b> als u tevreden bent met uw nieuwe gebruikersnaam.
+
+avatar: Avatar
+avatarTitle: Stel je profielfoto in
+avatarText: Uw avatar- of profielfoto wordt naast uw opmerkingen en op uw profielpagina weergegeven. U kunt een afbeelding uploaden of bij de afbeelding blijven die voor u is gegenereerd.
+
+bio: Bio
+bioTitle: Schrijf een korte bio
+bioText: Hier kunt u andere freesewing-gebruikers een beetje over uzelf vertellen. Dit veld ondersteunt MarkDown, dus u kunt ook links opnemen. Als je een blog hebt, is dit waar je naar linkt, zodat anderen het kunnen ontdekken.
+
+social: Sociaal
+socialTitle: Laat mensen je elders volgen
+socialText: Als je je GitHub-, Twitter- of Instagram-gebruikersnaam opgeeft, bevat uw profielpagina links naar uw accounts op deze sites. Hiermee kunnen freesewing-gebruikers je volgen. <br> We nemen namens jou geen contact op met een van deze sites. De enige bedoeling is om te laten weten dat bijvoorbeeld gebruiker @joost op freesewing dezelfde persoon is als gebruiker @j__st op twitter.
+
+github: Github
+githubTitle: Vul je Github gebruikersnaam in
+githubText: Als je je GitHub-gebruikersnaam opgeeft, zal je profielpagina een link naar je Github-account bevatten. Op die manier kunnen anderen je codebijdragen kunnen ontdekken, je een ster toekennen, of je volgen.
+
+twitter: Twitter
+twitterTitle: Vul je Twitter gebruikersnaam in
+twitterText: Als je je Twitter-gebruikersnaam opgeeft, zal je profielpagina een link naar je Twitter-account bevatten. Op die manier kunnen anderen jouw tweets ontdekken en je volgen.
+
+instagram: Instagram
+instagramTitle: Vul je Instagram gebruikersnaam in
+instagramText: Als je je Instagram-gebruikersnaam opgeeft, zal je profielpagina een link naar je Instagram-account bevatten. Op die manier kunnen anderen jouw foto's ontdekken en je volgen.
+
+email: Email adres
+emailTitle: Voer het e-mailadres in dat u aan dit account wilt linken
+emailInfo: Het e-mailadres dat aan uw account is gekoppeld, is belangrijk omdat het zal worden gebruikt om weer toegang te krijgen tot uw account als u uw wachtwoord bent vergeten. Daarom is voor het wijzigen van uw e-mailadres een bevestiging vereist.
+
+password: Wachtwoord
+currentPassword: Huidig wachtwoord
+newPassword: Nieuw wachtwoord
+passwordTitle: Voer je huidige wachtwoord en je nieuwe wachtwoord in
+passwordInfo: Het wijzigen van uw wachtwoord vereist uw huidige wachtwoord. Vul dat in, en vul ook uw nieuwe wachtwoord in.
+
+language: Taal
+languageTitle: Selecteer de taal van uw keuze
+languageInfo: Deze taalkeuze bepaalt in welke taal u e-mails ontvangt van freesewing. Het bepaalt niet de taal van de website, die op elke pagina kan worden gekozen
+
+patron: Sponsor
+patronInfo: Mecenassen ondersteunen Freesewing financieel. Het zijn loyale supporters die zorgen voor een duurzame toekomst voor freesewing.org, onze code, onze patronen en onze gemeenschap.
+

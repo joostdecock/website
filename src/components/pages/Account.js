@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/Base";
 import AuthContainer from "../app/auth/Container";
 import AccountContainer from "../app/account/Container";
 
-const Account = () => (
+const Account = props => (
   <BaseLayout>
     <AuthContainer>
-      <AccountContainer />
+      <AccountContainer data={props.pageContext.data} />
     </AuthContainer>
   </BaseLayout>
 );

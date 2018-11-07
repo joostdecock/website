@@ -52,7 +52,7 @@ class Bio extends React.Component {
           rows="4"
           rowsMax="12"
           fullWidth={true}
-          label={intl.formatMessage({ id: "app.bio" })}
+          label={intl.formatMessage({ id: "account.bio" })}
           margin="normal"
           variant="outlined"
           value={bio}

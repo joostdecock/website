@@ -45,7 +45,8 @@ exports.createPages = ({ actions, graphql }) => {
     },
     {
       slug: "/account",
-      template: path.resolve("src/components/pages/Account.js")
+      template: path.resolve("src/components/pages/Account.js"),
+      query: queries.markdownHelp
     }
   ];
 

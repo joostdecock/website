@@ -4,14 +4,14 @@ import LoginRequiredMessage from "./LoginRequiredMessage";
 
 class AuthContainer extends React.Component {
   render() {
-    if (this.props.user.status === "active") return this.props.children;
+    // Passing location and language props down to children
+    const { location, language } = this.props;
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, { location, language });
+    });
+    if (this.props.user.status === "active") return children;
     else
-      return (
-        <LoginRequiredMessage
-          location={this.props.location}
-          language={this.props.language}
-        />
-      );
+      return <LoginRequiredMessage location={location} language={language} />;
   }
 }
 

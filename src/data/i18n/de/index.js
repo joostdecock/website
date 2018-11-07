@@ -6,6 +6,7 @@ import optiongroups from "./optiongroups.yaml";
 import options from "./options.yaml";
 import patterns from "./patterns.yaml";
 import gdpr from "./gdpr.yaml";
+import account from "./account.yaml";
 
 let topics = {
   app,
@@ -15,7 +16,8 @@ let topics = {
   optiongroups,
   options,
   patterns,
-  gdpr
+  gdpr,
+  account
 };
 
 let strings = {};

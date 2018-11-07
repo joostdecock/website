@@ -95,14 +95,14 @@ function FsAppBar(props) {
           />
           <DropDownButton
             language={language}
-            title={intl.formatMessage({ id: "app.language" })}
+            title={intl.formatMessage({ id: "account.language" })}
             {...communityMenu(language)}
           />
         </div>
         <div className="not-on-mobile">{userMenu}</div>
         <span style={styles.grow} />
         <DropDownButton
-          title={intl.formatMessage({ id: "app.language" })}
+          title={intl.formatMessage({ id: "account.language" })}
           language={language}
           {...languageMenu(props.location, language)}
         />

@@ -31,12 +31,8 @@ emailWorksToo: 'Si no conoces tu nombre de usuario, tu dirección de correo elec
 forgotLoginInstrcutions: Entra tu nombre de usuario o correo electrónico debajo y pulsa el botón de Restablecer contraseña
 resetPassword: Restablecer contraseña
 darkMode: Modo oscuro
-language: Idioma
 menu: Menú
 close: Cerrar
-username: Nombre de usuario
-password: Contraseña
-emailAddress: Dirección de correo electrónico
 signUp: Registrarse
 newDraft: Nuevo boceto
 newModel: Nuevo modelo
@@ -67,33 +63,34 @@ welcomeAboard: Bienvenido a bordo
 thisPageRequiresAuthentication: esta página requiere autenticación
 youAreNotLoggedIn:  No has iniciado sesión
 back: atras
-units: Unidades
-avatar: Avatar
-social: Social
 metricUnits: Unidades métricas (cm)
 imperialUnits: Unidades imperiales (pulgadas)
-welcomeUnitsTitle: Seleccione el sistema de unidad con el que esté más familiarizado
-welcomeUnitsText: Freesewing admite tanto el sistema métrico como las medidas imperiales. Simplemente seleccione cuál le gustaría usar y haga clic en el botón <b>Guardar</b> cuando esté listo.
-welcomeUsernameTitle: Por favor, elija su nombre de usuario
-welcomeUsernameText: Actualmente tienes un nombre de usuario generado aleatoriamente. Eso no es muy personal, por lo que puedes cambiar tu nombre de usuario a algo más para ti. Me gusta tu nombre, o <em> reinadepedos </em> o lo que sea. Simplemente escriba el nombre de usuario que desea tener y haga clic en el botón <b> Guardar </b> cuando esté satisfecho con su nuevo nombre de usuario.
-welcomeAvatarTitle: Establece tu foto de perfil
-welcomeAvatarText: Tu avatar o foto de perfil se mostrarán junto a tus comentarios y en tu página de perfil. Puedes subir una imagen o seguir con la que se ha generado para ti.
-welcomeBioTitle: Escribe una breve biografía
-welcomeBioText: Aquí es donde puede contarle a otros usuarios un poco sobre usted. Este campo admite MarkDown, por lo que también puede incluir enlaces. Si tienes un blog, aquí es donde te vinculas para que otros puedan descubrirlo.
-welcomeSocialTitle: Deja que la gente te siga a otra parte
-welcomeSocialText: Si proporciona su nombre de usuario de GitHub, Twitter o Instagram, su página de perfil contendrá enlaces a sus cuentas en estos sitios. Esto permite que los usuarios libres lo sigan allí. <br> No estamos contactando a ninguno de estos sitios en su nombre. Esto es solo para que las personas puedan conectar los puntos y saber que, por ejemplo, el usuario @joost en freesewing es la misma persona que el usuario @j__st en twitter.
 save: Guardar
 fieldSaved: "{field} guardado"
 dragAndDropImageHere: Arrastre y suelte una imagen aquí, o seleccione una manualmente con el botón de abajo
 selectImage: Seleccionar imagen
 remove: Eliminar
 noChanges: No hay cambios
-bio: Bio
 preview: vista previa
 markdownHelp: Markdown ayuda
 thisFieldSupportsMarkdown: Este campo admite Markdown
 completeSignupTitle: Complete su registro
 completeSignupText: "Antes de comenzar con el pie equivocado, asegurémonos de que su cuenta esté configurada correctamente. Simplemente complete los pasos a continuación:"
+no: No
+patron-2: Chico de la pólvora
+patron-4: Primer oficial
+patron-8: Capitán
+pendingConfirmation: Confirmación pendiente
+becomeAPatron: Conviértete en un mecenas
+youAreNotAPatron: Tu no eres un mecenas
+butThatCouldChange: Pero eso podría cambiar
+youAreAPatron: Eres un mecenas
+andThatIsAwesome: Y eso es genial
+patronsKeepUsAfloat: El apoyo financiero de nuestros mecenas posibilita la liberación gratuita. Mantienen este barco a flote.
+patronPitch: Si crees que lo que hacemos vale la pena, y si puedes ahorrar unas cuantas monedas cada mes, entonces también deberías convertirte en un mecenas de freesewing.
+tellMeMore: Dime más
+patronHelp: Si tiene alguna pregunta o desea realizar cambios en su estado de mecenas, comuníquese con Joost.
+sendAnEmail: Enviar un correo electrónico
 
 
 

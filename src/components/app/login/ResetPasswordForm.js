@@ -31,7 +31,7 @@ const ResetPasswordForm = ({
           autoFocus={true}
           fullWidth={true}
           autoComplete="username"
-          label={intl.formatMessage({ id: "app.emailAddress" })}
+          label={intl.formatMessage({ id: "account.email" })}
           margin="normal"
           variant="outlined"
         />

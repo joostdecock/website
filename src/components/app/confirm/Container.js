@@ -83,6 +83,32 @@ class ConfirmContainer extends React.Component {
               error: false,
               showConsent: true
             });
+          else if (res.data.type === "emailchange") {
+            backend
+              .saveAccount({
+                email: res.data.data.email.new,
+                confirmation: res.data._id
+              })
+              .then(res => {
+                if (res.status === 200) {
+                  let msg = this.props.intl.formatMessage(
+                    { id: "app.fieldSaved" },
+                    {
+                      field: this.props.intl.formatMessage({
+                        id: "account.email"
+                      })
+                    }
+                  );
+                  this.props.showNotification("success", msg);
+                  this.props.setUserAccount(res.data.account);
+                  navigate("/" + this.props.language + "/account");
+                }
+              })
+              .catch(err => {
+                console.log(err);
+                this.props.showNotification("error", err);
+              });
+          }
         }
       })
       .catch(err => {

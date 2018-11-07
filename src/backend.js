@@ -45,4 +45,9 @@ backend.account = () => api.get("/account", auth());
 // Update (PUT)
 backend.saveAccount = data => api.put("/user", data, auth());
 
+// Create (POST)
+// Check is a username is available
+backend.availableUsername = data =>
+  api.post("/available/username", data, auth());
+
 export default backend;
