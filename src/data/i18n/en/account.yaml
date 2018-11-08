@@ -46,3 +46,9 @@ languageInfo: This language choice determines in what language you will receive 
 
 patron: Patron
 patronInfo: Patrons support Freesewing financially. They are loyal supporters who ensure a sustainable future for freesewing.org, our code, our patterns, and our community.
+
+resetPassword: Reset password
+resetPasswordTitle: Enter your new password
+resetPasswordInfo: Enter a new password, and click the <b>Save</b> button.
+
+

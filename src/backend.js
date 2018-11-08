@@ -45,9 +45,16 @@ backend.account = () => api.get("/account", auth());
 // Update (PUT)
 backend.saveAccount = data => api.put("/user", data, auth());
 
-// Create (POST)
+// Create and other POST calls
 // Check is a username is available
 backend.availableUsername = data =>
   api.post("/available/username", data, auth());
+
+// Ask for a password reset
+backend.resetPassword = username =>
+  api.post("/reset/password", { username: username }, auth());
+
+// (re)set a new password
+backend.setPassword = data => api.post("/set/password", data, auth());
 
 export default backend;

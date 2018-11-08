@@ -187,6 +187,20 @@ class FieldForm extends React.Component {
             />
           </div>
         );
+      case "resetpassword":
+        return (
+          <div>
+            <TextField
+              id="newPassword"
+              name="password"
+              fullWidth={true}
+              label={intl.formatMessage({ id: "account.newPassword" })}
+              margin="normal"
+              variant="outlined"
+              type="password"
+            />
+          </div>
+        );
       case "bio":
         return (
           <div>

@@ -20,13 +20,15 @@ class LoginContainer extends React.Component {
     username: "",
     password: "",
     loading: false,
-    userData: {}
+    userData: {},
+    resetPasswordCheckInbox: false
   };
 
   handleToggleTrouble = () => {
     this.setState({
       ...this.state,
-      trouble: !this.state.trouble
+      trouble: !this.state.trouble,
+      resetPasswordCheckInbox: false
     });
   };
 
@@ -57,8 +59,25 @@ class LoginContainer extends React.Component {
       });
   };
 
-  handlePasswordReset = () => {
-    console.log("FIXME: Password reset");
+  handlePasswordReset = evt => {
+    evt.preventDefault();
+    this.startLoading();
+    backend
+      .resetPassword(evt.target.elements["username"].value)
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({
+            ...this.state,
+            resetPasswordCheckInbox: true
+          });
+          this.stopLoading();
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.showNotification("error", err);
+        this.stopLoading();
+      });
   };
 
   handleUsernameUpdate = el => {
@@ -99,6 +118,7 @@ class LoginContainer extends React.Component {
             language={this.props.language}
             handlePasswordReset={this.handlePasswordReset}
             handleToggleTrouble={this.handleToggleTrouble}
+            checkInbox={this.state.resetPasswordCheckInbox}
           />
         ) : (
           <LoginForm

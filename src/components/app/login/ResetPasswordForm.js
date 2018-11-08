@@ -10,8 +10,34 @@ const ResetPasswordForm = ({
   language,
   handleToggleTrouble,
   handlePasswordReset,
-  intl
+  intl,
+  checkInbox
 }) => {
+  if (checkInbox)
+    return (
+      <div>
+        <h2 className="xt-left">
+          <FormattedMessage id="app.yay" />
+        </h2>
+        <h3 className="xt-left">
+          <FormattedMessage id="app.checkInboxClickLinkInConfirmationEmail" />
+        </h3>
+        <h4 className="xt-left">
+          <FormattedMessage id="app.goAheadWeWillWait" />
+        </h4>
+        <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
+          <FormattedMessage id="app.logIn" />
+        </a>
+        &nbsp;|&nbsp;
+        <Link to={locLang.set("/signup", language)}>
+          <FormattedMessage id="app.signUpForAFreeAccount" />
+        </Link>
+        &nbsp;|&nbsp;
+        <Link to={locLang.set("/contact", language)}>
+          <FormattedMessage id="app.contactUs" />
+        </Link>
+      </div>
+    );
   return (
     <div>
       <h2 className="txt-left">
@@ -25,9 +51,10 @@ const ResetPasswordForm = ({
           <FormattedHTMLMessage id="app.forgotLoginInstructions" />.
         </li>
       </ul>
-      <form>
+      <form onSubmit={handlePasswordReset}>
         <TextField
           id="username"
+          name="username"
           autoFocus={true}
           fullWidth={true}
           autoComplete="username"
@@ -36,10 +63,10 @@ const ResetPasswordForm = ({
           variant="outlined"
         />
         <Button
+          type="submit"
           color="primary"
           size="large"
           variant="contained"
-          onClick={handlePasswordReset}
           classes={{ root: "mt10" }}
         >
           <FormattedMessage id="app.resetPassword" />
