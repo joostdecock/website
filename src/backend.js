@@ -42,6 +42,15 @@ backend.login = (username, password) =>
 // Try to authenticate based on stored token
 backend.account = () => api.get("/account", auth());
 
+// Export data
+backend.export = () => api.get("/export", auth());
+
+// Restrict data processing (freeze account)
+backend.restrict = () => api.get("/restrict", auth());
+
+// Remove account
+backend.remove = () => api.get("/remove", auth());
+
 // Update (PUT)
 backend.saveAccount = data => api.put("/user", data, auth());
 

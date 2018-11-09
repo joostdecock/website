@@ -31,7 +31,6 @@ class Base extends React.Component {
   };
 
   handleLogout = () => {
-    console.log("login handler");
     clearToken();
     this.props.setUserAccount(false);
   };

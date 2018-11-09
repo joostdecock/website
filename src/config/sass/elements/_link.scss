@@ -3,6 +3,7 @@ a {
 }
 
 /** Mark anchor links by preventing text decoration */
+a.nodec,
 a[href*=\#]:not([href$=\#]) {
   text-decoration: none;
 }

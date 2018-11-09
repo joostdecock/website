@@ -51,4 +51,16 @@ resetPassword: Reset password
 resetPasswordTitle: Enter your new password
 resetPasswordInfo: Enter a new password, and click the <b>Save</b> button.
 
+exportYourData: Export your data
+exportYourDataInfo: The EU's General Data Protection (GDPR) ensures your so-called <em>right to data portability</em> — the right to obtain and reuse your personal data for your own purposes, or across different services.<br><br>Freesewing.org has provided a data-export feature long before GDPR came into force, because it's the right thing to do.
+
+restrictProcessingOfYourData: Restrict processing of your data
+restrictProcessingOfYourDataInfo: The EU's General Data Protection (GDPR) ensures your so-called <em>right to restrict processing</em> — the right to put a halt on the processing of your data. You can invoke this right by switching the toggle on, and clicking the Save button.<br><br>Once you restrict processing, your account will be frozen, you will be logged out, and the only way to unfreeze your account will be to contact us.<br>In other words, <b>while this can be undone, it can't be undone by yourself</b>.
+accountRestricted: Account restricted
+
+removeYourAccount: Remove your account
+removeYourAccountInfo: This will remove your account, your drafts, your models, and all data we have stored for you.<br><br>There is no way back from this, so proceed with caution.
+accountRemoved: Account removed
+
+reviewYourConsent: Review your consent
 

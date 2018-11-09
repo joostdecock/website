@@ -18,6 +18,9 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import i18nConfig from "../../../config/i18n";
 import { Link } from "gatsby";
+import Dropzone from "react-dropzone";
+import Button from "@material-ui/core/Button";
+import SelectImageIcon from "@material-ui/icons/AddAPhoto";
 
 class FieldForm extends React.Component {
   state = {
@@ -25,7 +28,8 @@ class FieldForm extends React.Component {
     markdownPreview: "",
     markdownHelp: { title: "", html: "" },
     emailValid: true,
-    usernameValid: true
+    usernameValid: true,
+    avatarPreview: false
   };
 
   handleTabChange = () => {
@@ -351,6 +355,99 @@ class FieldForm extends React.Component {
               </blockquote>
             </div>
           );
+      case "avatar":
+        if (this.state.avatarPreview !== false) {
+          let style = {
+            height: "300px",
+            width: "300px",
+            backgroundSize: "cover",
+            backgroundPosition: "50% 50%",
+            border: "1px solid #666",
+            margin: "1rem 0"
+          };
+          var reader = new FileReader();
+          reader.readAsDataURL(this.state.avatarPreview);
+          reader.addEventListener(
+            "load",
+            function() {
+              imgRef.current.style.backgroundImage =
+                "url(" + reader.result + ")";
+            },
+            false
+          );
+          const imgRef = React.createRef();
+          const handleAvatarReset = () => {
+            this.setState(state => ({
+              ...state,
+              avatarPreview: false
+            }));
+          };
+          console.log(imgRef, this.state.avatarPreview);
+          return (
+            <div>
+              <input type="hidden" id="avatar" name="avatar" value={imgRef} />
+              {heading}
+              <div ref={imgRef} className="wmax" style={style} />
+              <Button
+                onClick={handleAvatarReset}
+                variant="outlined"
+                size="small"
+              >
+                <FormattedMessage id="app.remove" />
+              </Button>
+            </div>
+          );
+        } else {
+          const dropzoneRef = React.createRef();
+          const style = {
+            widht: "100%",
+            border: "4px dashed #666",
+            margin: "1rem 0",
+            textAlign: "center",
+            padding: "2rem 1rem"
+          };
+          const activeStyle = { borderColor: "#1faa00" };
+          const rejectStyle = { borderColor: "#d50000" };
+          const handleAvatarDrop = (accepted, rejected) => {
+            if (typeof accepted[0] !== "undefined") {
+              this.props.handleAvatarLoad(accepted[0]);
+              this.setState(state => ({
+                ...state,
+                avatarPreview: accepted[0]
+              }));
+            }
+          };
+
+          return (
+            <div>
+              {heading}
+              <Dropzone
+                ref={dropzoneRef}
+                onDrop={handleAvatarDrop}
+                style={style}
+                activeStyle={activeStyle}
+                rejectStyle={rejectStyle}
+                multiple={false}
+                accept="image/*"
+              >
+                <FormattedMessage id="app.dragAndDropImageHere" />
+                <br />
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  classes={{ root: "mt10" }}
+                  onClick={() => {
+                    dropzoneRef.current.open();
+                  }}
+                >
+                  <SelectImageIcon className="mr10" />
+                  <FormattedMessage id="app.selectImage" />
+                </Button>
+              </Dropzone>
+            </div>
+          );
+        }
         break;
       default:
         return "";

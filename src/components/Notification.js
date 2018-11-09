@@ -17,8 +17,11 @@ const styleIcon = {
 function Notification(props) {
   const { open, style, message, onClose } = props;
   const Icon = styleIcon[style];
+  let component = false;
   let msg = message;
   if (message instanceof Error) msg = <NiceError err={message} />;
+  else if (message instanceof String)
+    msg = <span key="message" dangerouslySetInnerHTML={{ __html: msg }} />;
   return (
     <Snackbar
       className={"ntfy-" + style}
@@ -29,10 +32,7 @@ function Notification(props) {
       open={open}
       autoHideDuration={5000}
       onClose={onClose}
-      message={[
-        <Icon key="icon" className="notification-icon" />,
-        <span key="message" dangerouslySetInnerHTML={{ __html: msg }} />
-      ]}
+      message={[<Icon key="icon" className="notification-icon" />, msg]}
     />
   );
 }

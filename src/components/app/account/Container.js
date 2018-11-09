@@ -14,6 +14,10 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
 import UsernameIcon from "@material-ui/icons/PermIdentity";
 import EmailIcon from "@material-ui/icons/Email";
+import GotoIcon from "@material-ui/icons/KeyboardArrowRight";
+import ExportIcon from "@material-ui/icons/CloudDownload";
+import PauseIcon from "@material-ui/icons/PauseCircleFilled";
+import RemoveIcon from "@material-ui/icons/DeleteForever";
 import PasswordIcon from "@material-ui/icons/VpnKey";
 import EditIcon from "@material-ui/icons/Edit";
 import TwitterIcon from "../../TwitterIcon";
@@ -22,9 +26,8 @@ import GithubIcon from "../../GithubIcon";
 import UnitsIcon from "@material-ui/icons/Public";
 import LanguageIcon from "@material-ui/icons/Translate";
 import PatronIcon from "@material-ui/icons/Favorite";
-import ConsentIcon from "@material-ui/icons/CheckCircleOutline";
+import ConsentIcon from "@material-ui/icons/DoneAll";
 import BioIcon from "@material-ui/icons/ChatBubbleOutline";
-import Switch from "@material-ui/core/Switch";
 import SocialLink from "../../SocialLink";
 import FieldInfo from "./FieldInfo";
 import FieldForm from "./FieldForm";
@@ -32,8 +35,9 @@ import Button from "@material-ui/core/Button";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import SaveIcon from "@material-ui/icons/Save";
 import backend from "../../../backend";
-import remark from "remark";
-import html from "remark-html";
+import { locLang } from "../../../utils";
+import { Link } from "gatsby";
+import Avatar from "@material-ui/core/Avatar";
 
 class AccountContainer extends React.Component {
   state = {
@@ -42,6 +46,8 @@ class AccountContainer extends React.Component {
     password: "******************",
     email: false,
     bio: false,
+    avatar: false,
+    avatarUri: false,
     units: false,
     language: false,
     github: false,
@@ -49,7 +55,8 @@ class AccountContainer extends React.Component {
     instagram: false,
     profile: false,
     model: false,
-    openData: false
+    openData: false,
+    loadedAvatar: false
   };
 
   componentDidMount() {
@@ -63,11 +70,16 @@ class AccountContainer extends React.Component {
       username: user.username,
       email: user.email,
       bio: user.bio,
+      avatar: user.picture,
+      avatarUri: user.pictureUris.xs + "?cachebust=" + Date.now(),
       units: user.settings.units,
       language: user.settings.language,
-      github: user.social.github || "",
-      twitter: user.social.twitter || "",
-      instagram: user.social.instagram || "",
+      github:
+        typeof user.social === "undefined" ? "" : user.social.github || "",
+      twitter:
+        typeof user.social === "undefined" ? "" : user.social.twitter || "",
+      instagram:
+        typeof user.social === "undefined" ? "" : user.social.instagram || "",
       patron: user.patron,
       profile: user.consent.profile,
       model: user.consent.model,
@@ -87,6 +99,13 @@ class AccountContainer extends React.Component {
     this.userToState();
   };
 
+  handleAvatarLoad = avatar => {
+    this.setState({
+      ...this.state,
+      loadedAvatar: avatar
+    });
+  };
+
   saveAccount = (data, field) => {
     backend
       .saveAccount(data)
@@ -102,6 +121,9 @@ class AccountContainer extends React.Component {
               this.props.intl.formatMessage({
                 id: "app.checkInboxClickLinkInConfirmationEmail"
               });
+          if (field === "avatar")
+            this.state.avatarUri =
+              res.data.account.pictureUris.xs + "?cachebust=" + Date.now();
           this.props.showNotification("success", msg);
           this.props.setUserAccount(res.data.account);
         }
@@ -148,6 +170,10 @@ class AccountContainer extends React.Component {
         data.social[field] = this.state[field];
         this.saveAccount(data, field);
         break;
+      case "avatar":
+        data = new FormData();
+        data.append("picture", this.state.loadedAvatar);
+        return this.saveAccount(data, "avatar");
       default:
         return "";
     }
@@ -196,7 +222,6 @@ class AccountContainer extends React.Component {
             😞{" "}
           </span>
         ];
-        break;
       case "units":
         return value ? <FormattedMessage id={"app." + value + "Units"} /> : "";
       case "github":
@@ -215,7 +240,6 @@ class AccountContainer extends React.Component {
             </span>
           );
         else return value;
-        break;
       default:
         return value;
     }
@@ -231,94 +255,80 @@ class AccountContainer extends React.Component {
   items = [
     {
       key: "username",
-      icon: <UsernameIcon />,
-      value: this.props.user.username
+      icon: <UsernameIcon />
     },
     {
       key: "email",
-      icon: <EmailIcon />,
-      value: this.props.user.email
+      icon: <EmailIcon />
     },
     {
       key: "password",
-      icon: <PasswordIcon />,
-      value: "****************"
+      icon: <PasswordIcon />
     },
     {
       key: "bio",
-      icon: <BioIcon />,
-      value: this.props.user.bio
+      icon: <BioIcon />
+    },
+    {
+      key: "avatar"
     },
     {
       key: "units",
-      icon: <UnitsIcon />,
-      value: (
-        <FormattedMessage
-          id={"app." + this.props.user.settings.units + "Units"}
-        />
-      )
+      icon: <UnitsIcon />
     },
     {
       key: "language",
-      icon: <LanguageIcon />,
-      value: (
-        <FormattedMessage id={"i18n." + this.props.user.settings.language} />
-      )
+      icon: <LanguageIcon />
     },
     {
       key: "github",
-      icon: <GithubIcon />,
-      value: this.props.user.social.github ? (
-        <SocialLink site="github" account={this.props.user.social.github} />
-      ) : (
-        ""
-      )
+      icon: <GithubIcon />
     },
     {
       key: "twitter",
-      icon: <TwitterIcon />,
-      value: this.props.user.social.twitter ? (
-        <SocialLink site="twitter" account={this.props.user.social.twitter} />
-      ) : (
-        ""
-      )
+      icon: <TwitterIcon />
     },
     {
       key: "instagram",
-      icon: <InstagramIcon className="primary" />,
-      value: this.props.user.social.instagram ? (
-        <SocialLink
-          site="instagram"
-          account={this.props.user.social.instagram}
-        />
-      ) : (
-        ""
-      )
+      icon: <InstagramIcon className="primary" />
     },
     {
       key: "patron",
       icon: <PatronIcon color="primary" />,
-      value: this.patronValue(this.props.user.patron),
       noSave: true
     }
   ];
 
-  consent = [
+  related = [
     {
-      key: "consentForProfileData",
-      icon: <ConsentIcon color="primary" />,
-      value: this.patronValue(this.props.user.patron)
+      key: "export",
+      to: "/account/export",
+      icon: <ExportIcon color="primary" />,
+      label: "exportYourData"
     },
     {
-      key: "consentForModelData",
+      key: "consent",
+      to: "/account/consent",
       icon: <ConsentIcon color="primary" />,
-      value: this.patronValue(this.props.user.patron)
+      label: "reviewYourConsent"
+    },
+    {
+      key: "restrict",
+      to: "/account/restrict",
+      icon: <PauseIcon classes={{ root: "txt-warning" }} />,
+      label: "restrictProcessingOfYourData"
+    },
+    {
+      key: "remove",
+      to: "/account/remove",
+      icon: <RemoveIcon classes={{ root: "txt-danger" }} />,
+      label: "removeYourAccount"
     }
   ];
 
   render() {
     let items = this.items;
-    let consent = this.consent;
+    let related = this.related;
     let edit = this.state.editing;
     return (
       <div className="content">
@@ -332,6 +342,7 @@ class AccountContainer extends React.Component {
               field={edit}
               value={this.state[edit]}
               handleValueUpdate={this.handleValueUpdate}
+              handleAvatarLoad={this.handleAvatarLoad}
               data={this.props.data}
               location={this.props.location}
             />
@@ -364,7 +375,17 @@ class AccountContainer extends React.Component {
                   key={"settingitem-" + index}
                   onClick={() => this.handleStartEditing(item.key)}
                 >
-                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemIcon>
+                    {item.key === "avatar" ? (
+                      <Avatar
+                        src={this.state.avatarUri}
+                        alt="avatar"
+                        className="m24"
+                      />
+                    ) : (
+                      item.icon
+                    )}
+                  </ListItemIcon>
                   <ListItemText>
                     <div className="keyval">
                       <span className="key" key={"key-" + index}>
@@ -380,10 +401,35 @@ class AccountContainer extends React.Component {
                       aria-label="Comments"
                       onClick={() => this.handleStartEditing(item.key)}
                     >
-                      <EditIcon />
+                      <EditIcon color="primary" />
                     </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
+              ))}
+              <ListItem>
+                <ListItemText>
+                  <h3>
+                    <FormattedMessage id="app.relatedLinks" />
+                  </h3>
+                </ListItemText>
+              </ListItem>
+              {related.map((item, index) => (
+                <Link
+                  to={locLang.set(item.to, locLang.get(this.props.location))}
+                  className="nodec"
+                >
+                  <ListItem button>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText>
+                      <FormattedMessage id={"account." + item.label} />
+                    </ListItemText>
+                    <ListItemSecondaryAction>
+                      <IconButton>
+                        <GotoIcon color="primary" />
+                      </IconButton>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </div>
@@ -392,21 +438,6 @@ class AccountContainer extends React.Component {
     );
   }
 }
-//{consent.map((item, index) => (
-//  <ListItem button={false} key={"consentitem-" + index}>
-//    <ListItemIcon>{item.icon}</ListItemIcon>
-//    <ListItemText>
-//      <div className="keyval">
-//        <span className="key">
-//          <FormattedMessage id={"gdpr." + item.key} />
-//        </span>
-//      </div>
-//    </ListItemText>
-//    <ListItemSecondaryAction>
-//      <Switch checked={item.value || false} color="primary" />
-//    </ListItemSecondaryAction>
-//  </ListItem>
-//))}
 
 const mapStateToProps = state => ({
   user: state.user,
