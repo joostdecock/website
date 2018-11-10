@@ -421,6 +421,7 @@ class AccountContainer extends React.Component {
                 <Link
                   to={locLang.set(item.to, locLang.get(this.props.location))}
                   className="nodec"
+                  key={"link" + index}
                 >
                   <ListItem button>
                     <ListItemIcon>{item.icon}</ListItemIcon>
