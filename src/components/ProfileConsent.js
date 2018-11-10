@@ -26,19 +26,14 @@ const ProfileConsent = ({
   let outroContent = (
     <div>
       <p>
-        <FormattedMessage id="gdpr.intro1" />
+        <FormattedMessage id="gdpr.compliant" />
       </p>
       <p>
-        <FormattedMessage id="gdpr.intro2" />
-        <br />
-        <FormattedMessage id="gdpr.intro3" />
-      </p>
-      <p>
-        <FormattedMessage id="gdpr.intro4" />
+        <FormattedMessage id="gdpr.consentWhyAnswer" />
       </p>
       <blockquote>
         <Link to={locLang.set("/docs/privacy", language)}>
-          <FormattedMessage id="gdpr.intro5" />
+          <FormattedMessage id="gdpr.readMore" />
         </Link>
       </blockquote>
     </div>

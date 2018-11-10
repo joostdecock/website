@@ -48,3 +48,20 @@ languageInfo: Esta opción de idioma determina en qué idioma recibirá los corr
 patron: Patrocinador
 patronInfo: Los patrocinadores apoyan a Freesewing financieramente. Son partidarios leales que aseguran un futuro sostenible para freesewing.org, nuestro código, nuestros patrones y nuestra comunidad.
 
+resetPassword: Restablecer contraseña
+resetPasswordTitle: Ingrese su nueva contraseña
+resetPasswordInfo: Ingrese una nueva contraseña y haga clic en el botón <b>Guardar</b>.
+
+exportYourData: Exporta tus datos
+exportYourDataInfo: La Protección de datos general (GDPR) de la UE garantiza su así llamado derecho a la portabilidad de datos. Freesewing.org tiene una función de exportación de datos mucho antes de que GDPR entrara en vigor, porque es lo correcto.
+
+restrictProcessingOfYourData: Restringir el procesamiento de sus datos
+restrictProcessingOfYourDataInfo: "La Protección de datos general (GDPR) de la UE garantiza su llamado <em> derecho a restringir el procesamiento </em>: el derecho a detener el procesamiento de sus datos."
+restrictProcessingWarning: Si bien no se eliminarán los datos, esto lo desconectará y congelará su cuenta. Además, puede interesarle su propio negocio, pero deberá comunicarse con nosotros cuando desee restaurar el acceso a su cuenta.
+accountRestricted: Cuenta restringida
+
+removeYourAccount: Elimina tu cuenta
+removeYourAccountInfo: Esto eliminará su cuenta, sus borradores, sus modelos y todos los datos que tenemos almacenados para usted. No hay vuelta atrás, así que proceda con precaución.
+accountRemoved: Cuenta eliminada
+
+reviewYourConsent: Revisa tu consentimiento

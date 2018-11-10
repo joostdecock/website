@@ -47,3 +47,23 @@ languageInfo: Ce choix de langue détermine dans quelle langue vous recevrez les
 patron: Mécène
 patronInfo: Les mécènes soutiennent financièrement Freesewing. Ce sont des partisans fidèles qui assurent un avenir durable à freesewing.org, à notre code, à nos patrons et à notre communauté.
 
+
+resetPassword: Réinitialiser le mot de passe
+resetPasswordTitle: Entrez votre nouveau mot de passe
+resetPasswordInfo: Saisissez un nouveau mot de passe, puis cliquez sur le bouton <b> Enregistrer </b>.
+
+exportYourData: Exportez vos données
+exportYourDataInfo: La protection générale des données de l'UE (GDPR) garantit votre droit à la portabilité des données. Freesewing.org a une fonctionnalité d'exportation de données bien avant l'entrée en vigueur du GDPR, car c'est la bonne chose à faire.
+
+restrictProcessingOfYourData: Restreindre le traitement de vos données
+restrictProcessingOfYourDataInfo: La protection générale des données (GDPR) de l’UE garantit à votre soi-disant <em> droit de restreindre le traitement </em> - le droit de suspendre le traitement de vos données.
+restrictProcessingWarning: Bien qu'aucune donnée ne soit supprimée, ceci se déconnectera et gèlera votre compte. De plus, vous ne pouvez pas annuler cela vous-même, mais vous devrez nous contacter lorsque vous souhaitez restaurer l'accès à votre compte.
+accountRestricted: Compte restreint
+
+removeYourAccount: Supprimer votre compte
+removeYourAccountInfo: Cela supprimera votre compte, vos brouillons, vos modèles et toutes les données que nous avons stockées pour vous. <br> <br> Il n'y a aucun moyen de revenir en arrière, procédez donc avec prudence.
+accountRemoved: Compte supprimé
+
+reviewYourConsent: Révisez votre consentement
+
+

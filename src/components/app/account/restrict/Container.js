@@ -18,6 +18,7 @@ import PauseIcon from "@material-ui/icons/PauseCircleFilled";
 import Switch from "@material-ui/core/Switch";
 import SaveIcon from "@material-ui/icons/Save";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
+import WarningIcon from "@material-ui/icons/Warning";
 
 class AccountRestrictContainer extends React.Component {
   state = {
@@ -96,6 +97,19 @@ class AccountRestrictContainer extends React.Component {
               </ListItemSecondaryAction>
             </ListItem>
           </List>
+          {this.state.restrict ? (
+            <div className="box low">
+              <h5>
+                <WarningIcon classes={{ root: "txt-danger mr10 mb-4" }} />
+                <FormattedMessage id="app.proceedWithCaution" />
+              </h5>
+              <p>
+                <FormattedMessage id="account.restrictProcessingWarning" />
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="txt-right">
             <Link
               to={locLang.set("/account", locLang.get(this.props.location))}
@@ -110,7 +124,7 @@ class AccountRestrictContainer extends React.Component {
               </Button>
             </Link>
             <Button
-              className="mr10 mt10 button-warning"
+              className="mr10 mt10"
               variant="contained"
               color="primary"
               size="large"

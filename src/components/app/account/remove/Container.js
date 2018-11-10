@@ -17,6 +17,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import RemoveIcon from "@material-ui/icons/DeleteForever";
 import Switch from "@material-ui/core/Switch";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
+import WarningIcon from "@material-ui/icons/Warning";
 
 class AccountRemoveContainer extends React.Component {
   state = {
@@ -84,6 +85,19 @@ class AccountRemoveContainer extends React.Component {
               </ListItemSecondaryAction>
             </ListItem>
           </List>
+          {this.state.remove ? (
+            <div className="box low">
+              <h5>
+                <WarningIcon classes={{ root: "txt-danger mr10 mb-4" }} />
+                <FormattedMessage id="app.proceedWithCaution" />
+              </h5>
+              <p>
+                <FormattedMessage id="account.removeYourAccountInfo" />
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="txt-right">
             <Link
               to={locLang.set("/account", locLang.get(this.props.location))}

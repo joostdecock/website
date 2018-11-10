@@ -3,6 +3,7 @@ consent: Consentimiento
 consentForModelData: Consentimiento para datos modelo
 consentForProfileData: Consentimiento para datos de perfil
 consentGiven: Consentimiento dado
+consentNotGiven: Consentimiento no dado
 noIDoNot: 'No, no lo hago'
 yesIDo: 'Sí, lo hago'
 yesIDoObject: 'Sí, me opongo'
@@ -19,8 +20,6 @@ timingQuestion: ¿Cuánto tiempo lo mantenemos?
 modelWhatAnswer: Para cada modelo sus <b> medidas </b> y <b> configuración de senos </b>.
 modelWhatAnswerOptional: 'Opcional: una <b> imagen </b> y el <b> nombre </b> que le das a tu modelo.'
 modelWhyAnswer: 'Para redactar <b> patrones de costura hechos a medida </b>, necesitamos <b> medidas corporales </b>.'
-modelNote1: 'Nota: Freesewing publica mediciones anónimas como datos abiertos para la investigación científica.'
-modelNote2: 'Esta información es anónima y se usa para estudiar y comprender la forma humana en todas sus formas, por lo que podemos obtener mejores patrones de costura y prendas que se ajusten mejor.'
 modelWhatQuestion: ¿Qué son los datos del modelo?
 
 profileShareAnswer: '<b> No </b>, nunca.'
@@ -30,9 +29,14 @@ profileWhatAnswerOptional: 'Opcional: una <b> foto de perfil </b>, <b>bio</b>, y
 profileWhyAnswer: 'Para <b> autenticar </b> usted, <b> contactarse </b> con usted cuando sea necesario y crear una <b> comunidad </b>.'
 profileWhatQuestion: ¿Qué son los datos de perfil?
 
-intro1: El Reglamento general de protección de datos (GDPR) de la Unión Europea (UE) protege sus datos personales de acumuladores de datos sin escrúpulos. Eso es bueno.
-intro2: 'Una de las cosas que nos impone es que obtengamos su consentimiento, en otras palabras, su permiso para procesar sus datos personales.'
-intro3: 'Este consentimiento es la base legal para que procesemos sus datos. Sin ella, no podemos almacenar sus datos. Cuando lo revoque, no tenemos más remedio que eliminar todos sus datos.'
-intro4: Estrictamente hablando, GDPR solo se aplica a los ciudadanos de la Unión Europea. Sin embargo, aplicamos las mismas reglas de protección de datos a todos nuestros usuarios, independientemente de su nacionalidad.
-intro5: Para obtener más información, lea nuestro aviso de privacidad
-compliant: Freesewing.org respeta su privacidad y sus derechos. Aplicamos el Reglamento General de Protección de Datos (GDPR) de la Unión Europea (UE).
+compliant: Freesewing.org respeta tu privacidad y tus derechos. Aplicamos la Regulación General de Protección de Datos (RGPD) de la Unión Europea (UE).
+consentWhyAnswer: Bajo el RGPD, el procesamiento de sus datos personales requiere su consentimiento; en otras palabras, su permiso.
+
+readMore: Para más información, lea nuestro aviso de privacidad.
+
+openDataQuestion: Compartir mediciones anonimizadas como datos abiertos.
+openDataInfo: Estos datos se utilizan para estudiar y comprender la forma humana en todas sus formas, para que podamos obtener mejores patrones de costura y que se ajusten mejor a las prendas. Aunque esta información es anónima, tiene derecho a objetar esto.
+
+profileWarning: La revocación de este consentimiento activará la eliminación de todos sus datos. Tiene exactamente el mismo efecto que la eliminación de su cuenta.
+modelWarning: Revocar este consentimiento lo bloqueará de todos los datos de su modelo, así como desactivará la funcionalidad que depende de ello.
+
