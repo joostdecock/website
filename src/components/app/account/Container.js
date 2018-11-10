@@ -121,9 +121,13 @@ class AccountContainer extends React.Component {
               this.props.intl.formatMessage({
                 id: "app.checkInboxClickLinkInConfirmationEmail"
               });
-          if (field === "avatar")
-            this.state.avatarUri =
-              res.data.account.pictureUris.xs + "?cachebust=" + Date.now();
+          if (field === "avatar") {
+            this.setState({
+              ...this.state,
+              avatarUri:
+                res.data.account.pictureUris.xs + "?cachebust=" + Date.now()
+            });
+          }
           this.props.showNotification("success", msg);
           this.props.setUserAccount(res.data.account);
         }

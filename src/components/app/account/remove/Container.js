@@ -16,7 +16,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import RemoveIcon from "@material-ui/icons/DeleteForever";
 import Switch from "@material-ui/core/Switch";
-import SaveIcon from "@material-ui/icons/Save";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 
 class AccountRemoveContainer extends React.Component {

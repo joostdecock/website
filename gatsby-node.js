@@ -59,6 +59,10 @@ exports.createPages = ({ actions, graphql }) => {
     {
       slug: "/account/remove",
       template: path.resolve("src/components/pages/AccountRemove.js")
+    },
+    {
+      slug: "/account/consent",
+      template: path.resolve("src/components/pages/AccountConsent.js")
     }
   ];
 

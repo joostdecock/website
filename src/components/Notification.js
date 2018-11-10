@@ -17,7 +17,6 @@ const styleIcon = {
 function Notification(props) {
   const { open, style, message, onClose } = props;
   const Icon = styleIcon[style];
-  let component = false;
   let msg = message;
   if (message instanceof Error) msg = <NiceError err={message} />;
   else if (message instanceof String)

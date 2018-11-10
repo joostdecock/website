@@ -3,6 +3,7 @@ consent: Consent
 consentForModelData: Consent for model data
 consentForProfileData: Consent for profile data
 consentGiven: Consent given
+consentNotGiven: Consent not given
 noIDoNot: 'No, I do not'
 yesIDo: 'Yes, I do'
 yesIDoObject: 'Yes, I do object'
@@ -19,8 +20,6 @@ timingQuestion: How long do we keep it?
 modelWhatAnswer: For each model their <b>measurements</b> and <b>breasts settings</b>.
 modelWhatAnswerOptional: 'Optional: A model <b>picture</b> and the <b>name</b> that you give your model.'
 modelWhyAnswer: 'To draft <b>made-to-measure sewing patterns</b>, we need <b>body measurements</b>.'
-modelNote1: 'Note: Freesewing publishes anonymized measurements as open data for scientific research.'
-modelNote2: 'This data is anonymous and used to study and understand the human form in all its shapes, so we can get better sewing patterns, and better fitting garments.'
 modelWhatQuestion: What is model data?
 
 profileShareAnswer: '<b>No</b>, never.'
@@ -30,10 +29,13 @@ profileWhatAnswerOptional: 'Optional: A <b>profile picture</b>, and <b>social me
 profileWhyAnswer: 'To <b>authenticate</b> you, <b>contact</b> you when needed, and build a <b>community</b>.'
 profileWhatQuestion: What is profile data?
 
-intro1: The General Data Protection Regulation (GDPR) of the European Union (EU) protects your personal data from unscrupulous data hoarders. That's a good thing.
-intro2: 'One of the things it imposes is for us to get your consent — in other words, your permission — to process your personal data.'
-intro3: 'This consent is the legal basis for us to process your data. Without it, we cannot store your data. When you revoke it, we have no choice but to remove all your data.'
-intro4: Strictly speaking, GDPR only applies to citizens of the European Union. However, we apply the same data protection rules to all our users, regardless of nationality.
-intro5: For more information, please read our privacy notice
 compliant: Freesewing.org respects your privacy and your rights. We apply the General Data Protection Regulation (GDPR) of the European Union (EU).
+consentWhyAnswer: Under the GDPR, processing of your personal data requires your consent — in other words, your permission.
+readMore: For more information, please read our privacy notice
 
+openDataQuestion: Share anonymized measurements as open data
+openDataInfo: This data is used to study and understand the human form in all its shapes, so we can get better sewing patterns, and better fitting garments. Even though this data is anonymized, you have the right to object to this.
+youObjectToOpenData: You do object to publishing anonymized open data
+
+profileWarning: Revoking this consent will trigger the removal of all of your data. It has the exact same affect as removing your account.
+modelWarning: Revoking this consent will lock you out of all your model data, as well as disable functionality that depends on it.

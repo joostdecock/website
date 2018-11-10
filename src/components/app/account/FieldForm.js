@@ -448,7 +448,6 @@ class FieldForm extends React.Component {
             </div>
           );
         }
-        break;
       default:
         return "";
     }
