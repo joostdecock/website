@@ -52,7 +52,8 @@ resetPasswordTitle: Geben Sie Ihr neues Passwort ein
 resetPasswordInfo: Geben Sie ein neues Passwort ein und klicken Sie auf die Schaltfläche <b>Speichern</b>.
 
 exportYourData: Exportieren Sie Ihre Daten
-exportYourDataInfo: Der Allgemeine Datenschutz der EU (DSGVO) sichert Ihr sogenanntes Recht auf Datenportabilität. Freesewing.org hat lange vor dem Inkrafttreten der DSGVO eine Datenexportfunktion, da dies das Richtige ist.
+exportYourDataTitle: Klicken Sie unten, um Ihre persönlichen Daten herunterzuladen
+exportYourDataInfo: Der Allgemeine Datenschutz der EU (DSGVO) sichert Ihr sogenanntes Recht auf Datenportabilität.
 
 
 restrictProcessingOfYourData: Beschränken Sie die Verarbeitung Ihrer Daten

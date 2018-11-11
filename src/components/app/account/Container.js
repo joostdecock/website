@@ -35,7 +35,7 @@ import Button from "@material-ui/core/Button";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import SaveIcon from "@material-ui/icons/Save";
 import backend from "../../../backend";
-import { locLang } from "../../../utils";
+import { locLang, scrollToTop } from "../../../utils";
 import { Link } from "gatsby";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -61,6 +61,10 @@ class AccountContainer extends React.Component {
 
   componentDidMount() {
     this.userToState();
+  }
+
+  componentDidUpdate() {
+    if (this.state.editing) scrollToTop();
   }
 
   userToState() {
@@ -294,11 +298,11 @@ class AccountContainer extends React.Component {
     },
     {
       key: "instagram",
-      icon: <InstagramIcon className="primary" />
+      icon: <InstagramIcon />
     },
     {
       key: "patron",
-      icon: <PatronIcon color="primary" />,
+      icon: <PatronIcon />,
       noSave: true
     }
   ];
@@ -307,25 +311,25 @@ class AccountContainer extends React.Component {
     {
       key: "export",
       to: "/account/export",
-      icon: <ExportIcon color="primary" />,
+      icon: <ExportIcon />,
       label: "exportYourData"
     },
     {
       key: "consent",
       to: "/account/consent",
-      icon: <ConsentIcon color="primary" />,
+      icon: <ConsentIcon />,
       label: "reviewYourConsent"
     },
     {
       key: "restrict",
       to: "/account/restrict",
-      icon: <PauseIcon classes={{ root: "txt-warning" }} />,
+      icon: <PauseIcon />,
       label: "restrictProcessingOfYourData"
     },
     {
       key: "remove",
       to: "/account/remove",
-      icon: <RemoveIcon classes={{ root: "txt-danger" }} />,
+      icon: <RemoveIcon />,
       label: "removeYourAccount"
     }
   ];

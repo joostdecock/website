@@ -53,7 +53,8 @@ resetPasswordTitle: Ingrese su nueva contraseña
 resetPasswordInfo: Ingrese una nueva contraseña y haga clic en el botón <b>Guardar</b>.
 
 exportYourData: Exporta tus datos
-exportYourDataInfo: La Protección de datos general (GDPR) de la UE garantiza su así llamado derecho a la portabilidad de datos. Freesewing.org tiene una función de exportación de datos mucho antes de que GDPR entrara en vigor, porque es lo correcto.
+exportYourDataTitle: Haga clic abajo para descargar sus datos personales.
+exportYourDataInfo: La Protección de datos general (GDPR) de la UE garantiza su así llamado derecho a la portabilidad de datos.
 
 restrictProcessingOfYourData: Restringir el procesamiento de sus datos
 restrictProcessingOfYourDataInfo: "La Protección de datos general (GDPR) de la UE garantiza su llamado <em> derecho a restringir el procesamiento </em>: el derecho a detener el procesamiento de sus datos."

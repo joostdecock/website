@@ -53,7 +53,8 @@ resetPasswordTitle: Voer je nieuwe wachtwoord in
 resetPasswordInfo: Voer een nieuw wachtwoord in en klik op de knop <b> Opslaan </b>.
 
 exportYourData: Exporteer je gegevens
-exportYourDataInfo: "De algemene verordening gegevensbescherming van de EU (AVG) waarborgt uw zogenaamde <em> recht op gegevensportabiliteit </em>: het recht om uw persoonlijke gegevens te verkrijgen voor uw eigen doeleinden of voor verschillende diensten. Freesewing.org had al lang voordat AVG van kracht werd een export functie voorzien, omdat het het juiste is om te doen."
+exportYourDataTitle: Klik hieronder om uw persoonlijke gegevens te downloaden
+exportYourDataInfo: "De algemene verordening gegevensbescherming van de EU (AVG) waarborgt uw zogenaamd <em>recht op gegevensportabiliteit</em>: het recht om uw persoonlijke gegevens te verkrijgen voor uw eigen doeleinden of voor andere diensten."
 
 restrictProcessingOfYourData: Beperk de verwerking van uw gegevens
 restrictProcessingOfYourDataInfo: De algemene verordening gegevensbescherming van de EU (AVG) verzekert uw zogenaamde <em> recht om verwerking te beperken </em> - het recht om een einde te maken aan de verwerking van uw gegevens.

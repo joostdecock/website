@@ -60,10 +60,21 @@ class AccountConsentContainer extends React.Component {
   };
 
   showConsent = key => {
-    this.setState({
-      ...this.state,
-      consent: key
-    });
+    if (key === false) {
+      let user = this.props.user;
+      this.setState({
+        ...this.state,
+        modelConsent: user.consent.model,
+        profileConsent: user.consent.profile,
+        opendataConsent: user.consent.openData,
+        consent: false
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        consent: key
+      });
+    }
   };
 
   removeAccount = () => {

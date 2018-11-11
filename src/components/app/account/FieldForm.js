@@ -297,13 +297,13 @@ class FieldForm extends React.Component {
               value={value}
             >
               {i18nConfig.languages.map((language, index) => {
-                console.log(typeof value, typeof language);
                 return (
                   <FormControlLabel
                     control={<Radio color="primary" />}
                     value={language}
                     checked={value === language ? true : false}
                     label={intl.formatMessage({ id: "i18n." + language })}
+                    key={language}
                   />
                 );
               })}

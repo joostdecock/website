@@ -136,7 +136,12 @@ const validateTld = email => {
 
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
+const scrollToTop = () => {
+  if (typeof window !== "undefined") window.scrollTo(0, 0);
+};
+
 export {
+  scrollToTop,
   locLang,
   toId,
   camelCase,

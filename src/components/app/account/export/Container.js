@@ -31,7 +31,9 @@ class AccountExportContainer extends React.Component {
         <h1>
           <FormattedMessage id="account.exportYourData" />
         </h1>
-        <p>This button does exactly what you think it does:</p>
+        <p>
+          <FormattedMessage id="account.exportYourDataTitle" />
+        </p>
         <Button
           className="mr10"
           variant="contained"
@@ -44,7 +46,7 @@ class AccountExportContainer extends React.Component {
             loading={this.state.loading}
             icon={<ExportIcon className="btn-icon" />}
           />
-          <FormattedMessage id="account.exportYourData" />
+          <FormattedMessage id="app.download" />
         </Button>
         <div className="box">
           <h5>
