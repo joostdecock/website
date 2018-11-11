@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import { FormattedMessage } from "react-intl";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 function Social({
   github,
@@ -12,10 +13,13 @@ function Social({
   handleInstagramChange,
   intl
 }) {
+  let at = {
+    startAdornment: <InputAdornment position="start">@</InputAdornment>
+  };
   return (
     <div>
       <h5>
-        <FormattedMessage id="app.welcomeSocialTitle" />
+        <FormattedMessage id="account.socialTitle" />
       </h5>
       <TextField
         id="github"
@@ -25,6 +29,7 @@ function Social({
         variant="outlined"
         value={github}
         onChange={handleGithubChange}
+        InputProps={at}
       />
       <TextField
         id="twitter"
@@ -34,6 +39,7 @@ function Social({
         variant="outlined"
         value={twitter}
         onChange={handleTwitterChange}
+        InputProps={at}
       />
       <TextField
         id="instagram"
@@ -43,6 +49,7 @@ function Social({
         variant="outlined"
         value={instagram}
         onChange={handleInstagramChange}
+        InputProps={at}
       />
     </div>
   );

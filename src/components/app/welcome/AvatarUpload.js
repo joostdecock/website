@@ -19,7 +19,7 @@ function AvatarUpload({ username, handleAvatarDrop, image, intl }) {
   return (
     <div>
       <h5>
-        <FormattedMessage id="app.welcomeAvatarTitle" />
+        <FormattedMessage id="account.avatarTitle" />
       </h5>
       <Dropzone
         ref={dropzoneRef}

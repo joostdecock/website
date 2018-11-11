@@ -25,7 +25,7 @@ function AvatarPreview({ avatar, handleAvatarReset }) {
   return (
     <div>
       <h5>
-        <FormattedMessage id="app.welcomeAvatarTitle" />
+        <FormattedMessage id="account.avatarTitle" />
       </h5>
       <div ref={imgRef} className="wmax" style={style} />
       <Button onClick={handleAvatarReset} variant="outlined" size="small">

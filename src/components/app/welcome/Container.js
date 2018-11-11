@@ -12,7 +12,6 @@ import { navigate } from "gatsby";
 import { capitalize, locLang } from "../../../utils";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import Units from "./Units";
-import Username from "./Username";
 import AvatarUpload from "./AvatarUpload";
 import AvatarPreview from "./AvatarPreview";
 import Bio from "./Bio";
@@ -21,6 +20,7 @@ import remark from "remark";
 import html from "remark-html";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import FieldForm from "../account/FieldForm";
 
 class WelcomeContainer extends React.Component {
   state = {
@@ -227,10 +227,11 @@ class WelcomeContainer extends React.Component {
     let username = {
       key: "username",
       content: (
-        <Username
+        <FieldForm
           intl={this.props.intl}
-          username={this.state.username || this.props.user.username}
-          handleUsernameChange={this.handleUsernameChange}
+          field="username"
+          value={this.state.username || ""}
+          handleValueUpdate={this.handleUsernameChange}
         />
       )
     };
@@ -330,12 +331,10 @@ class WelcomeContainer extends React.Component {
           {step.content}
           <div className="box low">
             <h5>
-              <FormattedMessage id={"app." + step.key} />
+              <FormattedMessage id={"account." + step.key} />
             </h5>
             <p>
-              <FormattedHTMLMessage
-                id={"app.welcome" + capitalize(step.key) + "Text"}
-              />
+              <FormattedHTMLMessage id={"account." + step.key + "Info"} />
             </p>
           </div>
         </form>

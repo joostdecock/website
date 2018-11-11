@@ -40,7 +40,7 @@ class Bio extends React.Component {
     return (
       <div>
         <h5>
-          <FormattedMessage id="app.welcomeBioTitle" />
+          <FormattedMessage id="account.bioTitle" />
           &nbsp;
           <small>
             (<FormattedMessage id="app.thisFieldSupportsMarkdown" />)

@@ -9,7 +9,7 @@ function Units({ units, handleUnitsChange, intl }) {
   return (
     <div>
       <h5>
-        <FormattedMessage id="app.welcomeUnitsTitle" />
+        <FormattedMessage id="account.unitsTitle" />
       </h5>
       <RadioGroup name="units" onChange={handleUnitsChange} value={units}>
         <FormControlLabel
