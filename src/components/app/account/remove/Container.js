@@ -37,7 +37,6 @@ class AccountRemoveContainer extends React.Component {
       ...this.state,
       loading: true
     });
-    console.log("remove");
     backend
       .remove()
       .then(res => {

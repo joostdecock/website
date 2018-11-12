@@ -63,6 +63,11 @@ exports.createPages = ({ actions, graphql }) => {
     {
       slug: "/account/consent",
       template: path.resolve("src/components/pages/AccountConsent.js")
+    },
+    {
+      slug: "/users",
+      match: "/users/*",
+      template: path.resolve("src/components/pages/Profile.js")
     }
   ];
 
@@ -185,7 +190,7 @@ exports.createPages = ({ actions, graphql }) => {
         location: `/${language}${slug}`
       }
     };
-    if (match) page.matchPath = "/" + language + "/confirm/" + "*";
+    if (match) page.matchPath = "/" + language + match;
     if (query) {
       graphql(query).then(res => {
         page.context.data = res.data;

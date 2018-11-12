@@ -1,0 +1,25 @@
+.tray {
+  border-top: 5px solid $primary;
+  padding: 2rem;
+  padding-bottom: 0;
+
+  .tray-footer {
+    margin: 1rem -2rem 0;
+    padding: 0.5rem 2rem;
+    background: $bw7;
+  }
+  .bio {
+    font-size: 110%;
+    padding: 0.5rem;
+    line-height: 1.3;
+  }
+}
+
+body.dark .tray {
+  border-top: 5px solid $secondary;
+
+  .tray-footer {
+    background: $bw2;
+  }
+}
+

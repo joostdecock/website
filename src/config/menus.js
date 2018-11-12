@@ -103,7 +103,7 @@ const getUserMenuItems = (language, username, handleLogout) => {
       icon: "tune"
     },
     {
-      link: locLang.set("/user/" + username, language),
+      link: locLang.set("/users/" + username, language),
       label: "app.profile",
       icon: "fingerprint"
     },

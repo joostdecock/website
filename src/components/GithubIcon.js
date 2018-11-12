@@ -10,6 +10,7 @@ const GithubIcon = props => {
       height={props.size}
       viewBox={props.viewBox}
       pathString={github}
+      className={props.className}
     />
   );
 };

@@ -3,6 +3,8 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
 import Storage from "./storage";
 import tlds from "tlds";
+import remark from "remark";
+import html from "remark-html";
 
 const storage = new Storage();
 
@@ -118,7 +120,6 @@ const loadTheme = dark => {
 const validateEmail = email => {
   // eslint-disable-next-line
   let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  console.log(email, re.test(email));
   return re.test(email);
 };
 
@@ -140,7 +141,30 @@ const scrollToTop = () => {
   if (typeof window !== "undefined") window.scrollTo(0, 0);
 };
 
+const socialLink = (user, site) => {
+  if (typeof user.social === "undefined") return false;
+  if (
+    typeof user.social[site] === "undefined" ||
+    user.social[site] === "" ||
+    user.social[site] === false
+  )
+    return false;
+  return "https://" + site + ".com/" + user.social[site];
+};
+
+const renderMarkdown = md => {
+  return new Promise((resolve, reject) => {
+    remark()
+      .use(html)
+      .process(md, (err, file) => {
+        resolve(file);
+      });
+  });
+};
+
 export {
+  renderMarkdown,
+  socialLink,
   scrollToTop,
   locLang,
   toId,

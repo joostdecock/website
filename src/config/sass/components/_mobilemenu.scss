@@ -10,7 +10,7 @@ div.mobile-menu {
     max-width: 400px;
 
     h5 {
-      color: #999;
+      color: $bw5;
       padding: 0;
       margin: 0.5rem 0;
       font-weight: normal;
@@ -38,6 +38,7 @@ div.mobile-menu {
 body.dark div.mobile-menu {
   background: $primary;
   div.mobile-menu-inner {
+    a,
     h5 a {
       color: $secondary;
     }

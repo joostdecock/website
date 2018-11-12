@@ -1,6 +1,9 @@
 a {
   color: $link;
 }
+body.dark a {
+  color: $linkFaded;
+}
 
 /** Mark anchor links by preventing text decoration */
 a.nodec,

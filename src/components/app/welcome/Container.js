@@ -9,7 +9,7 @@ import {
   closeNotification
 } from "../../../store/actions/notification";
 import { navigate } from "gatsby";
-import { capitalize, locLang } from "../../../utils";
+import { locLang } from "../../../utils";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import Units from "./Units";
 import AvatarUpload from "./AvatarUpload";

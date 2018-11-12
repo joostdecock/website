@@ -33,6 +33,9 @@ backend.createAccount = confirmId => api.post("/user", { id: confirmId });
 backend.login = (username, password) =>
   api.post("/login", { username, password });
 
+// Load user profile
+backend.profile = username => api.get("/users/" + username);
+
 /**
  * Authenticated calls
  */

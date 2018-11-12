@@ -6,4 +6,7 @@ div.header-wrapper {
   display: flex;
 }
 
-
+body.dark header a,
+body.dark ul[role="menu"] a {
+  color: $bw9;
+}

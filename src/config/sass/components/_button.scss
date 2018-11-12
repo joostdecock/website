@@ -7,19 +7,19 @@
 .button-danger {
   background-color: $danger!important;
 }
-.button-pink {
-  background-color: $pink!important;
+.button-accent {
+  background-color: $accent!important;
 }
 
 .button-success:disabled,
 .button-warning:disabled,
 .button-danger:disabled,
-.button-pink:disabled {
+.button-accent:disabled {
   background-color: rgba(0, 0, 0, 0.12)!important;
 }
 body.dark .button-success:disabled,
 body.dark .button-warning:disabled,
 body.dark .button-danger:disabled,
-body.dark .button-pink:disabled {
+body.dark .button-accent:disabled {
   background-color: rgba(255, 255, 255, 0.12)!important;
 }

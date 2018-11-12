@@ -22,12 +22,12 @@
     background-color: $danger!important;
   }
 }
-.switch-pink {
+.switch-accent {
   span[class*="checked"] > span > span {
-    color: $pink;
+    color: $accent;
   }
   span[class*="bar"] {
-    background-color: $pink!important;
+    background-color: $accent!important;
   }
 }
 

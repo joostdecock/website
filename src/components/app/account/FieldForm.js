@@ -382,7 +382,6 @@ class FieldForm extends React.Component {
               avatarPreview: false
             }));
           };
-          console.log(imgRef, this.state.avatarPreview);
           return (
             <div>
               <input type="hidden" id="avatar" name="avatar" value={imgRef} />
