@@ -12,8 +12,10 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
-import BlogIcon from "@material-ui/icons/ImportContacts";
+import HomeIcon from "@material-ui/icons/Home";
 import SignupIcon from "@material-ui/icons/PersonAdd";
+import IconButton from "@material-ui/core/IconButton";
+import { Link } from "gatsby";
 import {
   languageMenu,
   communityMenu,
@@ -39,7 +41,7 @@ function FsAppBar(props) {
       <DropDownButton
         key="userMenu"
         language={language}
-        text={"@" + user.username}
+        text={intl.formatMessage({ id: "app.account" })}
         items={getUserMenuItems(language, user.username, handleLogout)}
       />
     ];
@@ -66,66 +68,67 @@ function FsAppBar(props) {
     ];
   }
   return (
-    <AppBar color="secondary" elevation={0}>
-      <Toolbar>
-        <Button
-          color="inherit"
-          href={locLang.set("/", language)}
-          size="small"
-          title={intl.formatMessage({ id: "app.freesewing" })}
-        >
-          <Logo size={38} className="mr10" />
-          <span className="not-on-xs">
-            <FormattedMessage id="app.freesewing" />
-          </span>
-        </Button>
-        <div className="not-on-mobile">
-          <Button
-            color="inherit"
-            href={locLang.set("/blog/", language)}
-            title={intl.formatMessage({ id: "app.blog" })}
-          >
-            <BlogIcon className="mr10" />
-            <FormattedMessage id="app.blog" />
-          </Button>
+    <nav className="appbar">
+      <AppBar color="secondary" elevation={0} position="relative">
+        <Toolbar>
+          <Link to={locLang.set("/", language)}>
+            <IconButton
+              color="primary"
+              title={intl.formatMessage({ id: "app.freesewing" })}
+            >
+              <HomeIcon />
+            </IconButton>
+          </Link>
+          <div className="not-on-mobile">
+            <Link to={locLang.set("/patterns/", language)}>
+              <Button title={intl.formatMessage({ id: "app.patterns" })}>
+                <FormattedMessage id="app.patterns" />
+              </Button>
+            </Link>
+            <Link to={locLang.set("/blog/", language)}>
+              <Button title={intl.formatMessage({ id: "app.blog" })}>
+                <FormattedMessage id="app.blog" />
+              </Button>
+            </Link>
+            <DropDownButton
+              language={language}
+              title={intl.formatMessage({ id: "app.docs" })}
+              {...documentationMenu(language)}
+            />
+            <DropDownButton
+              language={language}
+              title={intl.formatMessage({ id: "account.language" })}
+              {...communityMenu(language)}
+            />
+          </div>
+          <span style={styles.grow} />
+          <div className="not-on-mobile">{userMenu}</div>
           <DropDownButton
-            language={language}
-            title={intl.formatMessage({ id: "app.docs" })}
-            {...documentationMenu(language)}
-          />
-          <DropDownButton
-            language={language}
             title={intl.formatMessage({ id: "account.language" })}
-            {...communityMenu(language)}
-          />
-        </div>
-        <div className="not-on-mobile">{userMenu}</div>
-        <span style={styles.grow} />
-        <DropDownButton
-          title={intl.formatMessage({ id: "account.language" })}
-          language={language}
-          {...languageMenu(props.location, language)}
-        />
-        <Button
-          color="inherit"
-          onClick={props.toggleDarkMode}
-          title={intl.formatMessage({ id: "app.darkMode" })}
-          size="small"
-        >
-          {darkModeIcon}
-        </Button>
-        <div className="only-on-mobile">
-          <MobileMenu
-            user={props.user}
-            handleLogout={props.handleLogout}
             language={language}
-            dark={dark}
-            intl={intl}
-            toggleDarkMode={props.toggleDarkMode}
+            {...languageMenu(props.location, language)}
           />
-        </div>
-      </Toolbar>
-    </AppBar>
+          <IconButton
+            color="inherit"
+            onClick={props.toggleDarkMode}
+            title={intl.formatMessage({ id: "app.darkMode" })}
+            size="small"
+          >
+            {darkModeIcon}
+          </IconButton>
+          <div className="only-on-mobile">
+            <MobileMenu
+              user={props.user}
+              handleLogout={props.handleLogout}
+              language={language}
+              dark={dark}
+              intl={intl}
+              toggleDarkMode={props.toggleDarkMode}
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
+    </nav>
   );
 }
 

@@ -1,0 +1,26 @@
+nav.breadcrumbs {
+  ul {
+    margin-left: 0;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+
+      button:disabled {
+        color: $bw3;
+      }
+    }
+  }
+}
+
+body.dark {
+  nav.breadcrumbs {
+    ul {
+      li {
+        button:disabled {
+          color: $bw7;
+        }
+      }
+    }
+  }
+}

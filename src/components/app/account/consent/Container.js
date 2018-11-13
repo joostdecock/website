@@ -26,6 +26,7 @@ import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import ConsentIcon from "@material-ui/icons/DoneAll";
 import RemoveIcon from "@material-ui/icons/DeleteForever";
+import Breadcrumbs from "../../../Breadcrumbs";
 
 class AccountConsentContainer extends React.Component {
   state = {
@@ -214,6 +215,14 @@ class AccountConsentContainer extends React.Component {
         );
       return (
         <div className="content">
+          <Breadcrumbs
+            via={[
+              { link: "/account", label: "app.settings" },
+              { link: "/account/consent", label: "account.reviewYourConsent" }
+            ]}
+          >
+            <FormattedMessage id={`gdpr.consentFor${Type}Data`} />
+          </Breadcrumbs>
           <h1>
             <FormattedMessage id={`gdpr.consentFor${Type}Data`} />
           </h1>
@@ -352,6 +361,9 @@ class AccountConsentContainer extends React.Component {
     } else
       return (
         <div className="content">
+          <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
+            <FormattedMessage id="account.reviewYourConsent" />
+          </Breadcrumbs>
           <h1>
             <FormattedMessage id="account.reviewYourConsent" />
           </h1>

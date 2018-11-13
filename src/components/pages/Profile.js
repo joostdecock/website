@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../layouts/Base";
 import backend from "../../backend";
 import UserProfile from "../UserProfile";
+import Breadcrumbs from "../Breadcrumbs";
 import { FormattedMessage } from "react-intl";
 
 class Profile extends React.Component {
@@ -24,10 +25,19 @@ class Profile extends React.Component {
       });
   }
 
+  via = [{ link: "/users", label: "app.users" }];
+
   render() {
+    console.log("page props", this.props, this.props.pageContext.language);
     return (
       <BaseLayout>
         <section className="content">
+          <Breadcrumbs
+            via={this.via}
+            language={this.props.pageContext.langauge}
+          >
+            {this.state.profile.username}
+          </Breadcrumbs>
           <h1>
             <FormattedMessage id="app.profile" />
           </h1>

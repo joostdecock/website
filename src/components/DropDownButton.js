@@ -45,7 +45,6 @@ class DropDownButton extends React.Component {
     return (
       <div>
         <Button
-          size="small"
           aria-haspopup="true"
           aria-controls={this.props.label}
           aria-label={this.props.label}

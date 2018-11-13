@@ -1,11 +1,12 @@
-div.header-wrapper {
+nav.appbar {
   position: fixed;
   top: 0;
-  left: 50%;
-  margin-left: 25%;
-  display: flex;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 1400px;
+  z-index: 1;
 }
-
 body.dark header a,
 body.dark ul[role="menu"] a {
   color: $bw9;
