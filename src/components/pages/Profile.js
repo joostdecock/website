@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../layouts/Base";
 import backend from "../../backend";
 import UserProfile from "../UserProfile";
+import { FormattedMessage } from "react-intl";
 
 class Profile extends React.Component {
   state = {
@@ -27,6 +28,9 @@ class Profile extends React.Component {
     return (
       <BaseLayout>
         <section className="content">
+          <h1>
+            <FormattedMessage id="app.profile" />
+          </h1>
           {this.state.profile ? (
             <UserProfile user={this.state.profile} />
           ) : (

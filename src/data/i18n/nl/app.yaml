@@ -96,4 +96,5 @@ sendAnEmail: Stuur een email
 relatedLinks: Gerelateerde links
 download: Download
 proceedWithCaution: Ga voorzichtig te werk
+userHasBeenWithUsSince: '{user} hoort erbij sinds {since}'
 

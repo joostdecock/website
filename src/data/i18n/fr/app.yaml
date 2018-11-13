@@ -96,4 +96,5 @@ sendAnEmail: Envoyer un mail
 relatedLinks: Liens connexes
 download: Télécharger
 proceedWithCaution: Procéder avec prudence
+userHasBeenWithUsSince: '{user} est parmi nous depuis {since}'
 
