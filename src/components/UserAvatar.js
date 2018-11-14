@@ -23,7 +23,7 @@ UserAvatar.propTypes = {
   shape: PropTypes.oneOf(["round", "square"])
 };
 
-Notification.defaultProps = {
+UserAvatar.defaultProps = {
   shape: "round"
 };
 
