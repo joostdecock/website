@@ -17,7 +17,7 @@ function UserAvatar({ username, uris, shape }) {
   );
 }
 
-Notification.propTypes = {
+UserAvatar.propTypes = {
   username: PropTypes.string,
   uris: PropTypes.object,
   shape: PropTypes.oneOf(["round", "square"])
