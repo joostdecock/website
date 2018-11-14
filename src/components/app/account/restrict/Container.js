@@ -19,6 +19,11 @@ import Switch from "@material-ui/core/Switch";
 import SaveIcon from "@material-ui/icons/Save";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import WarningIcon from "@material-ui/icons/Warning";
+import Breadcrumbs from "../../../Breadcrumbs";
+import Tray from "../../../Tray";
+import TrayTitle from "../../../TrayTitle";
+import TrayFooter from "../../../TrayFooter";
+import WhyIcon from "@material-ui/icons/Help";
 
 class AccountRestrictContainer extends React.Component {
   state = {
@@ -71,13 +76,15 @@ class AccountRestrictContainer extends React.Component {
 
   render() {
     return (
-      <div className="content">
+      <div className="wrap">
+        <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
+          <FormattedMessage id="account.restrictProcessingOfYourData" />
+        </Breadcrumbs>
         <h1>
           <FormattedMessage id="account.restrictProcessingOfYourData" />
         </h1>
-
         <div className="overpad1">
-          <List component="nav">
+          <List component="nav" className="m700">
             <ListItem button onClick={this.handleToggle}>
               <ListItemIcon>
                 <PauseIcon
@@ -97,56 +104,59 @@ class AccountRestrictContainer extends React.Component {
               </ListItemSecondaryAction>
             </ListItem>
           </List>
-          {this.state.restrict ? (
-            <div className="box low">
-              <h5>
-                <WarningIcon classes={{ root: "txt-danger mr10 mb-4" }} />
-                <FormattedMessage id="app.proceedWithCaution" />
-              </h5>
-              <p>
-                <FormattedMessage id="account.restrictProcessingWarning" />
-              </p>
-            </div>
-          ) : (
-            ""
-          )}
-          <div className="txt-right">
-            <Link
-              to={locLang.set("/account", locLang.get(this.props.location))}
-            >
-              <Button
-                onClick={this.handleStopEditing}
-                className="mr10 mt10"
-                variant="outlined"
-              >
-                <BackIcon />
-                <FormattedMessage id="app.back" />
-              </Button>
-            </Link>
-            <Button
-              className="mr10 mt10"
-              variant="contained"
-              color="primary"
-              size="large"
-              disabled={this.state.restrict ? false : true}
-              onClick={this.handleRestrict}
-            >
-              <ButtonSpinner
-                loading={this.state.loading}
-                icon={<SaveIcon className="btn-icon" />}
-              />
-              <FormattedMessage id="app.save" disabled={!this.state.restrict} />
-            </Button>
-          </div>
         </div>
-        <div className="box">
-          <h5>
-            <FormattedMessage id="account.restrictProcessingOfYourData" />
-          </h5>
+        {this.state.restrict ? (
+          <Tray className="vspace2 danger">
+            <TrayTitle icon={<WarningIcon />}>
+              <FormattedMessage id="app.proceedWithCaution" />
+            </TrayTitle>
+            <p>
+              <FormattedMessage id="account.restrictProcessingWarning" />
+            </p>
+            <TrayFooter className="txt-right">
+              <Link
+                to={locLang.set("/account", locLang.get(this.props.location))}
+              >
+                <Button onClick={this.handleStopEditing}>
+                  <BackIcon />
+                  <FormattedMessage id="app.back" />
+                </Button>
+              </Link>
+              <Button onClick={this.handleRestrict}>
+                <ButtonSpinner
+                  loading={this.state.loading}
+                  icon={<SaveIcon className="btn-icon" />}
+                />
+                <FormattedMessage
+                  id="app.save"
+                  disabled={!this.state.restrict}
+                />
+              </Button>
+            </TrayFooter>
+          </Tray>
+        ) : (
+          ""
+        )}
+        <Tray className="vspace2">
+          <TrayTitle icon={<WhyIcon />}>
+            <FormattedMessage id="app.whatIsThis" />
+          </TrayTitle>
           <p>
             <FormattedHTMLMessage id="account.restrictProcessingOfYourDataInfo" />
           </p>
-        </div>
+          <p>
+            <FormattedMessage id="gdpr.readRights" />
+          </p>
+          <TrayFooter className="txt-right">
+            <Link
+              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+            >
+              <Button>
+                <FormattedMessage id="app.yourRights" />
+              </Button>
+            </Link>
+          </TrayFooter>
+        </Tray>
       </div>
     );
   }

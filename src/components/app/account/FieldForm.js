@@ -21,6 +21,10 @@ import { Link } from "gatsby";
 import Dropzone from "react-dropzone";
 import Button from "@material-ui/core/Button";
 import SelectImageIcon from "@material-ui/icons/AddAPhoto";
+import Tray from "../../Tray";
+import TrayTitle from "../../TrayTitle";
+import TrayFooter from "../../TrayFooter";
+import HeartIcon from "@material-ui/icons/Favorite";
 
 class FieldForm extends React.Component {
   state = {
@@ -227,7 +231,7 @@ class FieldForm extends React.Component {
               value={value}
               onChange={this.handleValueUpdateLocal}
             />
-            <div className="box low">
+            <div>
               <Tabs
                 value={tab}
                 onChange={this.handleTabChange}
@@ -340,19 +344,26 @@ class FieldForm extends React.Component {
               <p>
                 <FormattedMessage id="app.patronsKeepUsAfloat" />
               </p>
-              <blockquote>
-                <FormattedMessage id="app.patronPitch" />
-                <br />
-                <br />
-                <Link
-                  to={locLang.set(
-                    "/patrons/join",
-                    locLang.get(this.props.location)
-                  )}
-                >
-                  <FormattedMessage id="app.tellMeMore" />
-                </Link>
-              </blockquote>
+              <Tray className="vspace2 accent">
+                <TrayTitle icon={<HeartIcon />}>
+                  <FormattedMessage id="app.becomeAPatron" />
+                </TrayTitle>
+                <p>
+                  <FormattedMessage id="app.patronPitch" />
+                </p>
+                <TrayFooter>
+                  <Link
+                    to={locLang.set(
+                      "/patrons/join",
+                      locLang.get(this.props.location)
+                    )}
+                  >
+                    <Button>
+                      <FormattedMessage id="app.becomeAPatron" />
+                    </Button>
+                  </Link>
+                </TrayFooter>
+              </Tray>
             </div>
           );
       case "avatar":

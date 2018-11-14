@@ -18,6 +18,11 @@ import RemoveIcon from "@material-ui/icons/DeleteForever";
 import Switch from "@material-ui/core/Switch";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import WarningIcon from "@material-ui/icons/Warning";
+import Breadcrumbs from "../../../Breadcrumbs";
+import Tray from "../../../Tray";
+import TrayTitle from "../../../TrayTitle";
+import TrayFooter from "../../../TrayFooter";
+import WhyIcon from "@material-ui/icons/Help";
 
 class AccountRemoveContainer extends React.Component {
   state = {
@@ -58,13 +63,15 @@ class AccountRemoveContainer extends React.Component {
 
   render() {
     return (
-      <div className="content">
+      <div className="wrap">
+        <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
+          <FormattedMessage id="account.removeYourAccount" />
+        </Breadcrumbs>
         <h1>
           <FormattedMessage id="account.removeYourAccount" />
         </h1>
-
         <div className="overpad1">
-          <List component="nav">
+          <List component="nav" className="m700">
             <ListItem button onClick={this.handleToggle}>
               <ListItemIcon>
                 <RemoveIcon
@@ -84,55 +91,56 @@ class AccountRemoveContainer extends React.Component {
               </ListItemSecondaryAction>
             </ListItem>
           </List>
-          {this.state.remove ? (
-            <div className="box low">
-              <h5>
-                <WarningIcon classes={{ root: "txt-danger mr10 mb-4" }} />
-                <FormattedMessage id="app.proceedWithCaution" />
-              </h5>
-              <p>
-                <FormattedMessage id="account.removeYourAccountInfo" />
-              </p>
-            </div>
-          ) : (
-            ""
-          )}
-          <div className="txt-right">
-            <Link
-              to={locLang.set("/account", locLang.get(this.props.location))}
-            >
-              <Button className="mr10 mt10" variant="outlined">
-                <BackIcon />
-                <FormattedMessage id="app.back" />
-              </Button>
-            </Link>
-            <Button
-              className="mr10 mt10 button-danger"
-              variant="contained"
-              color="primary"
-              size="large"
-              disabled={this.state.remove ? false : true}
-              onClick={this.handleRemove}
-            >
-              <ButtonSpinner
-                loading={this.state.loading}
-                icon={<RemoveIcon className="btn-icon" />}
-              />
-              <FormattedMessage
-                id="account.removeYourAccount"
-                disabled={!this.state.remove}
-              />
-            </Button>
-          </div>
         </div>
-        <div className="box">
-          <h5>
-            <FormattedMessage id="account.removeYourAccount" />
-          </h5>
+        {this.state.remove ? (
+          <Tray className="vspace1 danger">
+            <TrayTitle icon={<WarningIcon />}>
+              <FormattedMessage id="app.proceedWithCaution" />
+            </TrayTitle>
+            <p>
+              <FormattedHTMLMessage id="account.removeYourAccountWarning" />
+            </p>
+            <TrayFooter className="txt-right">
+              <Link
+                to={locLang.set("/account", locLang.get(this.props.location))}
+              >
+                <Button className="mr10">
+                  <BackIcon />
+                  <FormattedMessage id="app.back" />
+                </Button>
+              </Link>
+              <Button onClick={this.handleRemove}>
+                <ButtonSpinner
+                  loading={this.state.loading}
+                  icon={<RemoveIcon className="btn-icon" />}
+                />
+                <FormattedMessage id="account.removeYourAccount" />
+              </Button>
+            </TrayFooter>
+          </Tray>
+        ) : (
+          ""
+        )}
+        <Tray className="vspace2">
+          <TrayTitle icon={<WhyIcon />}>
+            <FormattedMessage id="app.whatIsThis" />
+          </TrayTitle>
           <p>
             <FormattedHTMLMessage id="account.removeYourAccountInfo" />
           </p>
-        </div>
+          <p>
+            <FormattedMessage id="gdpr.readRights" />
+          </p>
+          <TrayFooter className="txt-right">
+            <Link
+              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+            >
+              <Button>
+                <FormattedMessage id="app.yourRights" />
+              </Button>
+            </Link>
+          </TrayFooter>
+        </Tray>
       </div>
     );
   }

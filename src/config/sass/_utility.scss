@@ -43,8 +43,21 @@ button.mr10 {
 .mb-4 {
   margin-bottom: -4px;
 }
+.vspace1 {
+  margin: 1rem 0;
+}
+.vspace2 {
+  margin: 2rem 0;
+}
+.m700,
 .content {
-  max-width: 650px;
+  max-width: 700px;
+}
+.center {
+  margin: auto;
+}
+.wrap {
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -83,10 +96,6 @@ button.mr10 {
     line-height: 1.1;
     padding: 0 0.5rem 0 0;
   }
-}
-.overpad1 {
-  margin-left: -1rem;
-  margin-right: -1rem;
 }
 .txt-success {
   color: $success;

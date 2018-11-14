@@ -27,6 +27,9 @@ import EditIcon from "@material-ui/icons/Edit";
 import ConsentIcon from "@material-ui/icons/DoneAll";
 import RemoveIcon from "@material-ui/icons/DeleteForever";
 import Breadcrumbs from "../../../Breadcrumbs";
+import Tray from "../../../Tray";
+import TrayTitle from "../../../TrayTitle";
+import TrayFooter from "../../../TrayFooter";
 
 class AccountConsentContainer extends React.Component {
   state = {
@@ -214,20 +217,15 @@ class AccountConsentContainer extends React.Component {
           </ListItem>
         );
       return (
-        <div className="content">
-          <Breadcrumbs
-            via={[
-              { link: "/account", label: "app.settings" },
-              { link: "/account/consent", label: "account.reviewYourConsent" }
-            ]}
-          >
-            <FormattedMessage id={`gdpr.consentFor${Type}Data`} />
+        <div className="wrap">
+          <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
+            <FormattedMessage id="account.reviewYourConsent" />
           </Breadcrumbs>
           <h1>
             <FormattedMessage id={`gdpr.consentFor${Type}Data`} />
           </h1>
           <div className="overpad1">
-            <List component="nav">
+            <List component="nav" className="m700">
               <ListItem button onClick={() => this.toggleConsent(type)}>
                 <ListItemIcon>
                   <ConsentIcon
@@ -259,24 +257,48 @@ class AccountConsentContainer extends React.Component {
               </ListItem>
               {value ? opendataListItem : ""}
             </List>
-            {profileDanger || modelDanger ? (
-              <div className="box low">
-                <h5>
-                  <WarningIcon classes={{ root: "txt-danger mr10 mb-4" }} />
-                  <FormattedMessage id="app.proceedWithCaution" />
-                </h5>
-                <p>
+          </div>
+          {profileDanger || modelDanger ? (
+            <Tray className="danger vspace1">
+              <TrayTitle icon={<WarningIcon />}>
+                <FormattedMessage id="app.proceedWithCaution" />
+              </TrayTitle>
+              <p>
+                {profileDanger ? (
+                  <FormattedMessage id="gdpr.profileWarning" />
+                ) : (
+                  <FormattedMessage id="gdpr.modelWarning" />
+                )}
+              </p>
+              <TrayFooter className="txt-right">
+                <Button
+                  onClick={() => this.showConsent(false)}
+                  className="mr10"
+                >
+                  <BackIcon />
+                  <FormattedMessage id="app.back" />
+                </Button>
+                <Button color="primary" onClick={this.handleSave}>
+                  <ButtonSpinner
+                    loading={this.state.loading}
+                    icon={
+                      profileDanger ? (
+                        <RemoveIcon className="btn-icon" />
+                      ) : (
+                        <SaveIcon className="btn-icon" />
+                      )
+                    }
+                  />
                   {profileDanger ? (
-                    <FormattedMessage id="gdpr.profileWarning" />
+                    <FormattedMessage id="account.removeYourAccount" />
                   ) : (
-                    <FormattedMessage id="gdpr.modelWarning" />
+                    <FormattedMessage id="app.save" />
                   )}
-                </p>
-              </div>
-            ) : (
-              ""
-            )}
-            <div className="txt-right">
+                </Button>
+              </TrayFooter>
+            </Tray>
+          ) : (
+            <div className="txt-right m700">
               <Button
                 onClick={() => this.showConsent(false)}
                 className="mr10 mt10"
@@ -286,9 +308,7 @@ class AccountConsentContainer extends React.Component {
                 <FormattedMessage id="app.back" />
               </Button>
               <Button
-                className={
-                  profileDanger ? "mr19 mt10 button-danger" : "mr10 mt10"
-                }
+                className="mr10 mt10"
                 variant="contained"
                 color="primary"
                 size="large"
@@ -296,71 +316,58 @@ class AccountConsentContainer extends React.Component {
               >
                 <ButtonSpinner
                   loading={this.state.loading}
-                  icon={
-                    profileDanger ? (
-                      <RemoveIcon className="btn-icon" />
-                    ) : (
-                      <SaveIcon className="btn-icon" />
-                    )
-                  }
+                  icon={<SaveIcon className="btn-icon" />}
                 />
-                {profileDanger ? (
-                  <FormattedMessage id="account.removeYourAccount" />
-                ) : (
-                  <FormattedMessage id="app.save" />
-                )}
+                <FormattedMessage id="app.save" />
               </Button>
             </div>
-          </div>
-          <div className="box">
-            <h4>
-              <FormattedMessage id="gdpr.whatYouNeedToKnow" />
-            </h4>
-            <h6>
-              <ProfileDataIcon className="mr10 not-on-xs" fontSize="inherit" />
+          )}
+          <Tray className="vspace2">
+            <TrayTitle icon={<ProfileDataIcon />}>
               <FormattedMessage id={`gdpr.${type}WhatQuestion`} />
-            </h6>
-            <ul>
-              <li>
-                <FormattedHTMLMessage id={`gdpr.${type}WhatAnswer`} />
-              </li>
-              <li>
-                <FormattedHTMLMessage id={`gdpr.${type}WhatAnswerOptional`} />
-              </li>
-            </ul>
-            <h6>
-              <WhyIcon className="mr10 not-on-xs" fontSize="inherit" />
+            </TrayTitle>
+            <p>
+              <FormattedHTMLMessage id={`gdpr.${type}WhatAnswer`} />
+            </p>
+            <p>
+              <FormattedHTMLMessage id={`gdpr.${type}WhatAnswerOptional`} />
+            </p>
+            <TrayTitle icon={<WhyIcon />}>
               <FormattedMessage id="gdpr.whyQuestion" />
-            </h6>
-            <ul>
-              <li>
-                <FormattedHTMLMessage id={`gdpr.${type}WhyAnswer`} />
-              </li>
-            </ul>
-            <h6>
-              <TimingIcon className="mr10 not-on-xs" fontSize="inherit" />
+            </TrayTitle>
+            <p>
+              <FormattedHTMLMessage id={`gdpr.${type}WhyAnswer`} />
+            </p>
+            <TrayTitle icon={<TimingIcon />}>
               <FormattedMessage id="gdpr.timingQuestion" />
-            </h6>
-            <ul>
-              <li>
-                <FormattedHTMLMessage id="gdpr.profileTimingAnswer" />
-              </li>
-            </ul>
-            <h6>
-              <ShareIcon className="mr10 not-on-xs" fontSize="inherit" />
+            </TrayTitle>
+            <p>
+              <FormattedHTMLMessage id="gdpr.profileTimingAnswer" />
+            </p>
+            <TrayTitle icon={<ShareIcon />}>
               <FormattedMessage id="gdpr.shareQuestion" />
-            </h6>
-            <ul>
-              <li>
-                <FormattedHTMLMessage id="gdpr.profileShareAnswer" />
-              </li>
-            </ul>
-          </div>
+            </TrayTitle>
+            <p>
+              <FormattedHTMLMessage id="gdpr.profileShareAnswer" />
+            </p>
+            <TrayFooter className="txt-right">
+              <Link
+                to={locLang.set(
+                  "/docs/privacy",
+                  locLang.get(this.props.location)
+                )}
+              >
+                <Button>
+                  <FormattedMessage id="app.privacyNotice" />
+                </Button>
+              </Link>
+            </TrayFooter>
+          </Tray>
         </div>
       );
     } else
       return (
-        <div className="content">
+        <div className="wrap">
           <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
             <FormattedMessage id="account.reviewYourConsent" />
           </Breadcrumbs>
@@ -368,7 +375,7 @@ class AccountConsentContainer extends React.Component {
             <FormattedMessage id="account.reviewYourConsent" />
           </h1>
           <div className="overpad1">
-            <List component="nav">
+            <List component="nav" className="m700">
               {this.consentTypes.map((type, index) => {
                 const Type = capitalize(type);
                 return (
@@ -409,27 +416,32 @@ class AccountConsentContainer extends React.Component {
               })}
             </List>
           </div>
-          <div className="box">
-            <h5>
-              <FormattedMessage id="account.reviewYourConsent" />
-            </h5>
+          <Tray className="vspace2">
+            <TrayTitle icon={<WhyIcon />}>
+              <FormattedMessage id="app.whatIsThis" />
+            </TrayTitle>
             <p>
               <FormattedHTMLMessage id="gdpr.compliant" />
             </p>
             <p>
               <FormattedHTMLMessage id="gdpr.consentWhyAnswer" />
             </p>
-            <blockquote>
+            <p>
+              <FormattedMessage id="gdpr.readMore" />.
+            </p>
+            <TrayFooter className="txt-right">
               <Link
                 to={locLang.set(
                   "/docs/privacy",
                   locLang.get(this.props.location)
                 )}
               >
-                <FormattedMessage id="gdpr.readMore" />
+                <Button>
+                  <FormattedMessage id="app.privacyNotice" />
+                </Button>
               </Link>
-            </blockquote>
-          </div>
+            </TrayFooter>
+          </Tray>
         </div>
       );
   }

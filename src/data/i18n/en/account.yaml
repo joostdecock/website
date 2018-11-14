@@ -61,7 +61,8 @@ restrictProcessingWarning: While no data will be removed, this will log you out 
 accountRestricted: Account restricted
 
 removeYourAccount: Remove your account
-removeYourAccountInfo: This will remove your account, your drafts, your models, and all data we have stored for you.<br><br>There is no way back from this, so proceed with caution.
+removeYourAccountInfo: The EU's General Data Protection (GDPR) ensures your so-called <em>right to data erasure</em> — the right to have your personal data removed.
+removeYourAccountWarning: This will remove your account, your drafts, your models, and all data we have stored for you. There is no way back from this.
 accountRemoved: Account removed
 
 reviewYourConsent: Review your consent

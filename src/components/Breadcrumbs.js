@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import HomeIcon from "@material-ui/icons/Home";
 import RightIcon from "@material-ui/icons/ChevronRight";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 import { locLang } from "../utils";
 import { Link } from "gatsby";
 import { FormattedMessage, injectIntl } from "react-intl";
@@ -25,9 +23,7 @@ function Breadcrumbs(props) {
             to={locLang.set("/", props.intl.locale)}
             title={props.intl.formatMessage({ id: "app.home" })}
           >
-            <IconButton color="primary">
-              <HomeIcon />
-            </IconButton>
+            <FormattedMessage id="app.home" />
           </Link>
         </li>
         {spacer}
@@ -36,21 +32,15 @@ function Breadcrumbs(props) {
             <li>
               <Link
                 to={locLang.set(step.link, props.intl.locale)}
-                title={props.intl.formatMessage({ id: "app.home" })}
+                title={props.intl.formatMessage({ id: step.label })}
               >
-                <Button size="small">
-                  <FormattedMessage id={step.label} />
-                </Button>
+                <FormattedMessage id={step.label} />
               </Link>
             </li>,
             spacer
           ];
         })}
-        <li>
-          <Button size="small" disabled={true}>
-            {props.children}
-          </Button>
-        </li>
+        <li>{props.children}</li>
       </ul>
     </nav>
   );

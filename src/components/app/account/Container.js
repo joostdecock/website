@@ -38,6 +38,7 @@ import backend from "../../../backend";
 import { locLang, scrollToTop } from "../../../utils";
 import { Link } from "gatsby";
 import Avatar from "@material-ui/core/Avatar";
+import Breadcrumbs from "../../Breadcrumbs";
 
 class AccountContainer extends React.Component {
   state = {
@@ -339,12 +340,19 @@ class AccountContainer extends React.Component {
     let related = this.related;
     let edit = this.state.editing;
     return (
-      <div className="content">
+      <div className="wrap">
+        <Breadcrumbs>
+          <FormattedMessage id="app.settings" />
+        </Breadcrumbs>
         <h1>
           <FormattedMessage id="app.settings" />
         </h1>
         {edit !== false ? (
-          <form onSubmit={this.handleValueSave} data-field={edit}>
+          <form
+            onSubmit={this.handleValueSave}
+            data-field={edit}
+            className="m700"
+          >
             <FieldForm
               intl={this.props.intl}
               field={edit}
@@ -376,7 +384,7 @@ class AccountContainer extends React.Component {
           </form>
         ) : (
           <div className="overpad1">
-            <List component="nav">
+            <List component="nav" className="m700">
               {items.map((item, index) => (
                 <ListItem
                   button

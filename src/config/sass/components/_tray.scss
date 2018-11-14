@@ -1,12 +1,29 @@
 .tray {
   border-top: 5px solid $primary;
   padding: 2rem;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
+  max-width: 700px;
 
+  .tray-title:first-of-type {
+    margin-top: -1.5rem;
+  }
+  .tray-title {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    svg {
+      margin: 0 1rem -14px 0;
+      width: 48px;
+      height: 48px;
+      background: $bw6;
+      border-radius: 50%;
+      padding: 6px;
+    }
+  }
   .tray-footer {
-    margin: 1rem -2rem 0;
+    margin: 0 -2rem -1rem;
     padding: 0.5rem 2rem;
     background: $bw7;
+    text-align: right;
   }
   .bio {
     font-size: 110%;
@@ -15,11 +32,137 @@
   }
 }
 
-body.dark .tray {
-  border-top: 5px solid $secondary;
-
+.tray.danger {
+  border-top: 5px solid $danger;
+  .tray-title {
+    svg {
+      background: $dangerWhite;
+      color: $danger;
+    }
+  }
   .tray-footer {
-    background: $bw2;
+    background: $dangerWhite;
+  }
+}
+
+.tray.warning {
+  border-top: 5px solid $warning;
+  .tray-title {
+    svg {
+      background: $warningWhite;
+      color: $warning;
+    }
+  }
+  .tray-footer {
+    background: $warningWhite;
+  }
+}
+
+.tray.success {
+  border-top: 5px solid $success;
+  .tray-title {
+    svg {
+      background: $successWhite;
+      color: $success;
+    }
+  }
+  .tray-footer {
+    background: $successWhite;
+  }
+}
+
+.tray.link {
+  border-top: 5px solid $link;
+  .tray-title {
+    svg {
+      background: $linkWhite;
+      color: $link;
+    }
+  }
+  .tray-footer {
+    background: $linkWhite;
+  }
+}
+
+.tray.accent {
+  border-top: 5px solid $accent;
+  .tray-title {
+    svg {
+      background: $accentWhite;
+      color: $accent;
+    }
+  }
+  .tray-footer {
+    background: $accentWhite;
+  }
+}
+
+body.dark {
+  .tray {
+    border-top: 5px solid $bw6;
+    .tray-title {
+      svg {
+        background: $bw3;
+      }
+    }
+    .tray-footer {
+      background: $bw2;
+    }
+  }
+  .tray.danger {
+    border-top: 5px solid $danger;
+    .tray-title {
+      svg {
+        background: $dangerWhite;
+      }
+    }
+    .tray-footer {
+      background: $dangerBlack;
+    }
+  }
+  .tray.warning {
+    border-top: 5px solid $warning;
+    .tray-title {
+      svg {
+        background: $warningWhite;
+      }
+    }
+    .tray-footer {
+      background: $warningBlack;
+    }
+  }
+  .tray.success {
+    border-top: 5px solid $success;
+    .tray-title {
+      svg {
+        background: $successWhite;
+      }
+    }
+    .tray-footer {
+      background: $successBlack;
+    }
+  }
+  .tray.link {
+    border-top: 5px solid $link;
+    .tray-title {
+      svg {
+        background: $linkWhite;
+      }
+    }
+    .tray-footer {
+      background: $linkBlack;
+    }
+  }
+  .tray.accent {
+    border-top: 5px solid $accent;
+    .tray-title {
+      svg {
+        background: $accentWhite;
+      }
+    }
+    .tray-footer {
+      background: $accentBlack;
+    }
   }
 }
 

@@ -5,6 +5,13 @@ import Button from "@material-ui/core/Button";
 import backend from "../../../../backend";
 import ExportIcon from "@material-ui/icons/CloudDownload";
 import ButtonSpinner from "../../../ButtonSpinner";
+import Breadcrumbs from "../../../Breadcrumbs";
+import Tray from "../../../Tray";
+import TrayTitle from "../../../TrayTitle";
+import TrayFooter from "../../../TrayFooter";
+import WhyIcon from "@material-ui/icons/Help";
+import { Link } from "gatsby";
+import { locLang } from "../../../../utils";
 
 class AccountExportContainer extends React.Component {
   state = { loading: false };
@@ -27,7 +34,10 @@ class AccountExportContainer extends React.Component {
 
   render() {
     return (
-      <div className="content">
+      <div className="wrap">
+        <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
+          <FormattedMessage id="account.exportYourData" />
+        </Breadcrumbs>
         <h1>
           <FormattedMessage id="account.exportYourData" />
         </h1>
@@ -48,14 +58,26 @@ class AccountExportContainer extends React.Component {
           />
           <FormattedMessage id="app.download" />
         </Button>
-        <div className="box">
-          <h5>
-            <FormattedMessage id="account.exportYourData" />
-          </h5>
+        <Tray className="vspace2">
+          <TrayTitle icon={<WhyIcon />}>
+            <FormattedMessage id="app.whatIsThis" />
+          </TrayTitle>
           <p>
             <FormattedHTMLMessage id="account.exportYourDataInfo" />
           </p>
-        </div>
+          <p>
+            <FormattedMessage id="gdpr.readRights" />
+          </p>
+          <TrayFooter className="txt-right">
+            <Link
+              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+            >
+              <Button>
+                <FormattedMessage id="app.yourRights" />
+              </Button>
+            </Link>
+          </TrayFooter>
+        </Tray>
       </div>
     );
   }
