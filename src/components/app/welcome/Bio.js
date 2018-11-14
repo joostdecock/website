@@ -58,7 +58,7 @@ class Bio extends React.Component {
           value={bio}
           onChange={handleBioChange}
         />
-        <div className="box low">
+        <div className="ox ow">
           <Tabs
             value={tab}
             onChange={handleTabChange}

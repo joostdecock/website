@@ -21,6 +21,11 @@ import html from "remark-html";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import FieldForm from "../account/FieldForm";
+import Tray from "../../Tray";
+import TrayTitle from "../../TrayTitle";
+import TrayFooter from "../../TrayFooter";
+import Breadcrumbs from "../../Breadcrumbs";
+import WhyIcon from "@material-ui/icons/Help";
 
 class WelcomeContainer extends React.Component {
   state = {
@@ -298,14 +303,17 @@ class WelcomeContainer extends React.Component {
     const { activeStep, maxSteps } = this.state;
     let step = this.getStepContent(activeStep);
     return (
-      <div className="content mt3r">
+      <div className="wrap">
+        <Breadcrumbs>
+          <FormattedMessage id="app.welcome" />
+        </Breadcrumbs>
         <h2>
           <FormattedMessage id="app.completeSignupTitle" />
         </h2>
-        <p>
+        <p className="m700">
           <FormattedMessage id="app.completeSignupText" />
         </p>
-        <form>
+        <form className="m700">
           <MobileStepper
             steps={maxSteps}
             position="static"
@@ -329,14 +337,15 @@ class WelcomeContainer extends React.Component {
             }
           />
           {step.content}
-          <div className="box low">
-            <h5>
-              <FormattedMessage id={"account." + step.key} />
-            </h5>
+          <Tray className="vspace1">
+            <TrayTitle icon={<WhyIcon />}>
+              <FormattedMessage id={"app.whatIsThis"} />
+            </TrayTitle>
             <p>
               <FormattedHTMLMessage id={"account." + step.key + "Info"} />
             </p>
-          </div>
+            <TrayFooter />
+          </Tray>
         </form>
       </div>
     );

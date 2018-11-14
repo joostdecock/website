@@ -28,10 +28,9 @@ class Profile extends React.Component {
   via = [{ link: "/users", label: "app.users" }];
 
   render() {
-    console.log("page props", this.props, this.props.pageContext.language);
     return (
       <BaseLayout>
-        <section className="content">
+        <section className="wrap">
           <Breadcrumbs
             via={this.via}
             language={this.props.pageContext.langauge}
@@ -44,7 +43,7 @@ class Profile extends React.Component {
           {this.state.profile ? (
             <UserProfile user={this.state.profile} />
           ) : (
-            <p>Loading...</p>
+            <p>FIXME: Loading...</p>
           )}
         </section>
       </BaseLayout>

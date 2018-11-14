@@ -4,6 +4,11 @@ import Grid from "@material-ui/core/Grid";
 import Image from "gatsby-image";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
+import Tray from "../Tray";
+import TrayTitle from "../TrayTitle";
+import TocIcon from "@material-ui/icons/Bookmark";
+import Datum from "../Datum";
+import Breadcrumbs from "../Breadcrumbs";
 
 export default ({ pageContext }) => {
   const frontmatter = pageContext.node.frontmatter;
@@ -24,6 +29,9 @@ export default ({ pageContext }) => {
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
         <Grid item xs={12} sm={10} md={7} lg={5} xl={4} className={"wmax"}>
+          <Breadcrumbs via={[{ link: "/showcase", label: "app.showcase" }]}>
+            {frontmatter.title}
+          </Breadcrumbs>
           <div className="blog-header">
             {languageNotAvailable}
             <figure>
@@ -46,7 +54,9 @@ export default ({ pageContext }) => {
         <Grid item xs={12} sm={10} md={8} lg={5} xl={4}>
           <div className="blog-post content">
             <ul className="meta">
-              <li>{frontmatter.date}</li>
+              <li>
+                <Datum date={frontmatter.date} />
+              </li>
               <li>#{frontmatter.patterns}</li>
             </ul>
             <h1>{frontmatter.title}</h1>

@@ -4,6 +4,7 @@ import UserAvatar from "./UserAvatar";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Tray from "./Tray";
+import TrayTitle from "./TrayTitle";
 import TrayFooter from "./TrayFooter";
 import GithubIcon from "./GithubIcon";
 import TwitterIcon from "./TwitterIcon";
@@ -11,6 +12,7 @@ import InstagramIcon from "./InstagramIcon";
 import { socialLink, renderMarkdown } from "../utils";
 import { FormattedRelative, FormattedMessage } from "react-intl";
 import i18nConfig from "../config/i18n";
+import UserIcon from "@material-ui/icons/PermIdentity";
 
 class UserProfile extends React.Component {
   state = {
@@ -37,11 +39,11 @@ class UserProfile extends React.Component {
           alignItems="flex-start"
           className=""
         >
-          <Grid item xs={4} className={"wmax"}>
+          <Grid item xs={12} sm={4} className={"wmax mb10"}>
             <UserAvatar
               username={user.username}
               uris={user.pictureUris}
-              shape="square"
+              shape="untray"
             />
             <p className="mini txt-center">
               <FormattedMessage
@@ -53,8 +55,8 @@ class UserProfile extends React.Component {
               />
             </p>
           </Grid>
-          <Grid item xs={8} style={{ padding: "0 1rem" }}>
-            <h2 className="mt0">@{user.username}</h2>
+          <Grid item xs={12} sm={8} className="pl1nxs">
+            <TrayTitle icon={<UserIcon />}>@{user.username}</TrayTitle>
             <div
               className="bio"
               dangerouslySetInnerHTML={{ __html: this.state.bio }}

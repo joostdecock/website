@@ -17,10 +17,13 @@ div.blog-post {
   ul.meta {
     font-size: 90%;
     line-height: 24px;
-    margin: 1rem 0 1rem 0;
+    margin: 0 0 1rem 0;
+    background: $bw7;
+    padding: 4px;
+    border-radius: 4px;
 
     li:first-child:before {
-      content: '👉🏽';
+      content: '';
     }
     li:before {
       content: '|';
@@ -34,4 +37,13 @@ div.blog-post {
     }
   }
 }
+
+body.dark {
+  div.blog-post {
+    ul.meta {
+      background: $bw2;
+    }
+  }
+}
+
 

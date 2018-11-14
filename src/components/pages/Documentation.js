@@ -6,6 +6,9 @@ import LanguageNotAvailable from "../LanguageNotAvailable";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
+import Tray from "../Tray";
+import TrayTitle from "../TrayTitle";
+import TocIcon from "@material-ui/icons/Bookmark";
 
 export default ({ pageContext }) => {
   const frontmatter = pageContext.node.frontmatter;
@@ -14,7 +17,12 @@ export default ({ pageContext }) => {
   let languageNotAvailable = "";
   let pleaseTranslate = "";
   if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = <LanguageNotAvailable />;
+    languageNotAvailable = (
+      <LanguageNotAvailable
+        className="vspace1"
+        language={pageContext.language}
+      />
+    );
     pleaseTranslate = (
       <PleaseTranslate
         filePath={pageContext.node.fileAbsolutePath}
@@ -50,20 +58,30 @@ export default ({ pageContext }) => {
           xl={3}
           className="align-self-stretch"
         >
-          <div className="docs toc">
-            <h3>
-              <FormattedMessage id="app.contents" />
-            </h3>
-            <aside dangerouslySetInnerHTML={{ __html: toc }} />
-          </div>
+          <aside className="toc">
+            <Tray>
+              <TrayTitle icon={<TocIcon />}>
+                <FormattedMessage id="app.contents" />
+              </TrayTitle>
+              <div dangerouslySetInnerHTML={{ __html: toc }} />
+            </Tray>
+          </aside>
         </Grid>
         <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
           <div className="docs">
             <article dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={3} xl={3}>
-          <div className="docs cot">{pleaseTranslate}</div>
+        <Grid
+          item
+          xs={12}
+          sm={10}
+          md={6}
+          lg={3}
+          xl={3}
+          className="align-self-stretch"
+        >
+          <aside className="cot">{pleaseTranslate}</aside>
         </Grid>
       </Grid>
     </BaseLayout>

@@ -20,8 +20,8 @@
     }
   }
 
-  div.toc,
-  div.cot {
+  aside.toc,
+  aside.cot {
     position: inherit;
     margin: 0 10%;
     padding: 0;
@@ -45,8 +45,24 @@
     margin-left: -1rem;
     margin-right: -1rem;
   }
+  .overpad2 {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  img.avatar.avatar-untray,
+  body.dark img.avatar.avatar-untray {
+    margin-left: -2rem!important;
+    margin-right: -2rem!important;
+    margin-top: -2rem!important;
+    width: calc(100% + 4rem);
+    max-width: none;
+    border: none;
+  }
   .wrap {
     padding: 0 1rem;
+  }
+  .pl1nxs {
+    padding-left: 0;
   }
 }
 

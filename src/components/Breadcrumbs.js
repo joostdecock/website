@@ -14,7 +14,6 @@ function Breadcrumbs(props) {
       </IconButton>
     </li>
   );
-  console.log("bread props", props);
   return (
     <nav className="breadcrumbs">
       <ul>

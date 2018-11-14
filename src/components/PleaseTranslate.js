@@ -5,6 +5,9 @@ import TranslateIcon from "@material-ui/icons/Translate";
 import Message from "./Message";
 import { fileOnGithub, locLang } from "../utils";
 import { Link } from "gatsby";
+import Tray from "./Tray";
+import TrayTitle from "./TrayTitle";
+import TocIcon from "@material-ui/icons/Bookmark";
 
 const PleaseTranslate = props => {
   let documentationForTranslators = (
@@ -18,11 +21,10 @@ const PleaseTranslate = props => {
     </a>
   );
   return (
-    <Message>
-      <TranslateIcon />
-      <h3>
+    <Tray>
+      <TrayTitle icon={<TranslateIcon />}>
         <FormattedMessage id="app.couldYouTranslateThis" />
-      </h3>
+      </TrayTitle>
       <p>
         <FormattedMessage id="app.becauseThatWouldBeReallyHelpful" />
         <br />
@@ -34,7 +36,7 @@ const PleaseTranslate = props => {
           }}
         />
       </p>
-    </Message>
+    </Tray>
   );
 };
 

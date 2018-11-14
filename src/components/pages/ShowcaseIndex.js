@@ -6,6 +6,13 @@ import Grid from "@material-ui/core/Grid";
 import Message from "../Message";
 import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
+import Breadcrumbs from "../Breadcrumbs";
+import Tray from "../Tray";
+import TrayTitle from "../TrayTitle";
+import TrayFooter from "../TrayFooter";
+import { Link } from "gatsby";
+import { locLang } from "../../utils";
+import Button from "@material-ui/core/Button";
 
 export default class ShowcaseIndex extends React.Component {
   render() {
@@ -41,23 +48,36 @@ export default class ShowcaseIndex extends React.Component {
           className="page"
         >
           <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
+            <Breadcrumbs>
+              <FormattedMessage id="app.showcase" />
+            </Breadcrumbs>
             <h1 className="txt-center">
               <FormattedMessage id="app.showcase" />
             </h1>
-            <Message show={missingPosts} type="warning">
-              <Translate />
-              <h3>
-                <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
-              </h3>
-              <ul>
-                <li>
-                  <FormattedMessage id="app.colourYes" />
-                </li>
-                <li>
-                  <FormattedMessage id="app.monochromeNo" />
-                </li>
-              </ul>
-            </Message>
+            {missingPosts ? (
+              <Tray className="warning vspace2">
+                <TrayTitle icon={<Translate />}>
+                  <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
+                </TrayTitle>
+                <ul>
+                  <li>
+                    <FormattedMessage id="app.colourYes" />
+                  </li>
+                  <li>
+                    <FormattedMessage id="app.monochromeNo" />
+                  </li>
+                </ul>
+                <TrayFooter>
+                  <Link to={locLang.set("/docs/i18n", language)}>
+                    <Button>
+                      <FormattedMessage id="app.helpUsTranslate" />
+                    </Button>
+                  </Link>
+                </TrayFooter>
+              </Tray>
+            ) : (
+              ""
+            )}
             <Grid container spacing={24} class="masonry">
               {list}
             </Grid>

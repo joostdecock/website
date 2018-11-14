@@ -2,18 +2,31 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import LanguageIcon from "@material-ui/icons/Language";
 import Message from "./Message";
+import Button from "@material-ui/core/Button";
+import Tray from "./Tray";
+import TrayTitle from "./TrayTitle";
+import TrayFooter from "./TrayFooter";
+import TocIcon from "@material-ui/icons/Bookmark";
+import { Link } from "gatsby";
+import { locLang } from "../utils";
 
 const LanguageNotAvailable = props => {
   return (
-    <Message type="warning">
-      <LanguageIcon />
-      <h3>
+    <Tray className="warning vspace2">
+      <TrayTitle icon={<LanguageIcon />}>
         <FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />
-      </h3>
+      </TrayTitle>
       <p>
         <FormattedMessage id="app.contentLocaleFallback" />
       </p>
-    </Message>
+      <TrayFooter>
+        <Link to={locLang.set("/docs/i18n", props.language)}>
+          <Button>
+            <FormattedMessage id="app.helpUsTranslate" />
+          </Button>
+        </Link>
+      </TrayFooter>
+    </Tray>
   );
 };
 
