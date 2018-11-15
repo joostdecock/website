@@ -34,7 +34,7 @@ class AccountExportContainer extends React.Component {
 
   render() {
     return (
-      <div className="wrap">
+      <div>
         <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
           <FormattedMessage id="account.exportYourData" />
         </Breadcrumbs>
@@ -45,7 +45,6 @@ class AccountExportContainer extends React.Component {
           <FormattedMessage id="account.exportYourDataTitle" />
         </p>
         <Button
-          className="mr10"
           variant="contained"
           color="primary"
           size="large"
@@ -58,7 +57,7 @@ class AccountExportContainer extends React.Component {
           />
           <FormattedMessage id="app.download" />
         </Button>
-        <Tray className="vspace2">
+        <Tray className="my1 maxw700">
           <TrayTitle icon={<WhyIcon />}>
             <FormattedMessage id="app.whatIsThis" />
           </TrayTitle>

@@ -55,15 +55,14 @@ exportYourData: Exportieren Sie Ihre Daten
 exportYourDataTitle: Klicken Sie unten, um Ihre persönlichen Daten herunterzuladen
 exportYourDataInfo: Der Allgemeine Datenschutz der EU (DSGVO) sichert Ihr sogenanntes Recht auf Datenportabilität.
 
-
 restrictProcessingOfYourData: Beschränken Sie die Verarbeitung Ihrer Daten
 restrictProcessingOfYourDataInfo: Das Allgemeine Datenschutzgesetz (DSGVO) der EU gewährleistet, dass Ihr sogenanntes <em> Recht, die Verarbeitung zu beschränken </em> - das Recht, die Verarbeitung Ihrer Daten zu unterbinden.
 restrictProcessingWarning: Es werden zwar keine Daten gelöscht, dies wird Sie jedoch abmelden und Ihr Konto einfrieren. Darüber hinaus sind Sie möglicherweise an Ihrem eigenen Geschäft interessiert, müssen sich aber mit uns in Verbindung setzen, wenn Sie den Zugriff auf Ihr Konto wiederherstellen möchten.
-
 accountRestricted: Konto eingeschränkt
 
 removeYourAccount: Entfernen Sie Ihr Konto
-removeYourAccountInfo: Dadurch werden Ihr Konto, Ihre Entwürfe, Ihre Modelle und alle Daten, die wir für Sie gespeichert haben, entfernt. <br> <br> Es gibt keinen Weg zurück, gehen Sie also vorsichtig vor.
+removeYourAccountInfo: FIXME
+removeYourAccountWarning: Dadurch werden Ihr Konto, Ihre Entwürfe, Ihre Modelle und alle Daten, die wir für Sie gespeichert haben, entfernt. Es gibt keinen Weg zurück.
 accountRemoved: Konto entfernt
 
 reviewYourConsent: Überprüfen Sie Ihre Zustimmung

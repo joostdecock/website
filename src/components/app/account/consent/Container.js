@@ -217,7 +217,7 @@ class AccountConsentContainer extends React.Component {
           </ListItem>
         );
       return (
-        <div className="wrap">
+        <div>
           <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
             <FormattedMessage id="account.reviewYourConsent" />
           </Breadcrumbs>
@@ -225,7 +225,7 @@ class AccountConsentContainer extends React.Component {
             <FormattedMessage id={`gdpr.consentFor${Type}Data`} />
           </h1>
           <div className="overpad1">
-            <List component="nav" className="m700">
+            <List component="nav" className="maxw700">
               <ListItem button onClick={() => this.toggleConsent(type)}>
                 <ListItemIcon>
                   <ConsentIcon
@@ -259,7 +259,7 @@ class AccountConsentContainer extends React.Component {
             </List>
           </div>
           {profileDanger || modelDanger ? (
-            <Tray className="danger vspace1">
+            <Tray className="danger my1 maxw700">
               <TrayTitle icon={<WarningIcon />}>
                 <FormattedMessage id="app.proceedWithCaution" />
               </TrayTitle>
@@ -298,17 +298,16 @@ class AccountConsentContainer extends React.Component {
               </TrayFooter>
             </Tray>
           ) : (
-            <div className="txt-right m700">
+            <div className="txt-right maxw700 my1">
               <Button
                 onClick={() => this.showConsent(false)}
-                className="mr10 mt10"
+                className="mr1"
                 variant="outlined"
               >
                 <BackIcon />
                 <FormattedMessage id="app.back" />
               </Button>
               <Button
-                className="mr10 mt10"
                 variant="contained"
                 color="primary"
                 size="large"
@@ -322,7 +321,7 @@ class AccountConsentContainer extends React.Component {
               </Button>
             </div>
           )}
-          <Tray className="vspace2">
+          <Tray className="my1 maxw700">
             <TrayTitle icon={<ProfileDataIcon />}>
               <FormattedMessage id={`gdpr.${type}WhatQuestion`} />
             </TrayTitle>
@@ -367,7 +366,7 @@ class AccountConsentContainer extends React.Component {
       );
     } else
       return (
-        <div className="wrap">
+        <div>
           <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
             <FormattedMessage id="account.reviewYourConsent" />
           </Breadcrumbs>
@@ -375,7 +374,7 @@ class AccountConsentContainer extends React.Component {
             <FormattedMessage id="account.reviewYourConsent" />
           </h1>
           <div className="overpad1">
-            <List component="nav" className="m700">
+            <List component="nav" className="maxw700">
               {this.consentTypes.map((type, index) => {
                 const Type = capitalize(type);
                 return (
@@ -416,7 +415,7 @@ class AccountConsentContainer extends React.Component {
               })}
             </List>
           </div>
-          <Tray className="vspace2">
+          <Tray className="my1 maxw700">
             <TrayTitle icon={<WhyIcon />}>
               <FormattedMessage id="app.whatIsThis" />
             </TrayTitle>

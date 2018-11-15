@@ -76,7 +76,7 @@ class AccountRestrictContainer extends React.Component {
 
   render() {
     return (
-      <div className="wrap">
+      <div>
         <Breadcrumbs via={[{ link: "/account", label: "app.settings" }]}>
           <FormattedMessage id="account.restrictProcessingOfYourData" />
         </Breadcrumbs>
@@ -84,7 +84,7 @@ class AccountRestrictContainer extends React.Component {
           <FormattedMessage id="account.restrictProcessingOfYourData" />
         </h1>
         <div className="overpad1">
-          <List component="nav" className="m700">
+          <List component="nav" className="maxw700">
             <ListItem button onClick={this.handleToggle}>
               <ListItemIcon>
                 <PauseIcon
@@ -106,7 +106,7 @@ class AccountRestrictContainer extends React.Component {
           </List>
         </div>
         {this.state.restrict ? (
-          <Tray className="vspace2 danger">
+          <Tray className="my1 maxw700 danger">
             <TrayTitle icon={<WarningIcon />}>
               <FormattedMessage id="app.proceedWithCaution" />
             </TrayTitle>
@@ -137,7 +137,7 @@ class AccountRestrictContainer extends React.Component {
         ) : (
           ""
         )}
-        <Tray className="vspace2">
+        <Tray className="my1 maxw700">
           <TrayTitle icon={<WhyIcon />}>
             <FormattedMessage id="app.whatIsThis" />
           </TrayTitle>

@@ -389,7 +389,7 @@ upgrade: Upgrade DONE
 upgradeRequired: Upgrade noetig
 useDecimalsOrFractions: Verwende Dezimalzahlen (1.25) oder Bruchzahlen (1 1/4)
 user: Benutzer
-userHasBeenWithUsSince: '{user} ist seit {since} bei uns'
+u1serHasBeenWithUsSince: '{user} ist seit {since} bei uns'
 userIsAPatron: '{user} ist ein Patron'
 username: Benutzername
 usernameOrEmail: '@:username oder @:emailAddress'

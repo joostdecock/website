@@ -34,11 +34,16 @@ import FieldForm from "./FieldForm";
 import Button from "@material-ui/core/Button";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import SaveIcon from "@material-ui/icons/Save";
+import LinkIcon from "@material-ui/icons/Link";
 import backend from "../../../backend";
 import { locLang, scrollToTop } from "../../../utils";
 import { Link } from "gatsby";
 import Avatar from "@material-ui/core/Avatar";
 import Breadcrumbs from "../../Breadcrumbs";
+import Tray from "../../Tray";
+import TrayTitle from "../../TrayTitle";
+import TrayFooter from "../../TrayFooter";
+import Grid from "@material-ui/core/Grid";
 
 class AccountContainer extends React.Component {
   state = {
@@ -348,11 +353,7 @@ class AccountContainer extends React.Component {
           <FormattedMessage id="app.settings" />
         </h1>
         {edit !== false ? (
-          <form
-            onSubmit={this.handleValueSave}
-            data-field={edit}
-            className="m700"
-          >
+          <form onSubmit={this.handleValueSave} data-field={edit}>
             <FieldForm
               intl={this.props.intl}
               field={edit}
@@ -365,7 +366,7 @@ class AccountContainer extends React.Component {
             <div className="txt-right">
               <Button
                 onClick={this.handleStopEditing}
-                className="mr10"
+                className="mr1"
                 variant="outlined"
               >
                 <BackIcon />
@@ -375,7 +376,7 @@ class AccountContainer extends React.Component {
                 ""
               ) : (
                 <Button type="submit" variant="contained" color="primary">
-                  <SaveIcon className="mr10" />
+                  <SaveIcon className="mr1" />
                   <FormattedMessage id="app.save" />
                 </Button>
               )}
@@ -383,73 +384,96 @@ class AccountContainer extends React.Component {
             <FieldInfo intl={this.props.intl} field={edit} />
           </form>
         ) : (
-          <div className="overpad1">
-            <List component="nav" className="m700">
-              {items.map((item, index) => (
-                <ListItem
-                  button
-                  key={"settingitem-" + index}
-                  onClick={() => this.handleStartEditing(item.key)}
-                >
-                  <ListItemIcon>
-                    {item.key === "avatar" ? (
-                      <Avatar
-                        src={this.state.avatarUri}
-                        alt="avatar"
-                        className="m24"
-                      />
-                    ) : (
-                      item.icon
-                    )}
-                  </ListItemIcon>
-                  <ListItemText>
-                    <div className="keyval">
-                      <span className="key" key={"key-" + index}>
-                        <FormattedMessage id={"account." + item.key} />
-                      </span>
-                      <span className="val" key={"val-" + index}>
-                        {this.formatValue(item.key, this.state[item.key])}
-                      </span>
-                    </div>
-                  </ListItemText>
-                  <ListItemSecondaryAction>
-                    <IconButton
-                      aria-label="Comments"
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <Grid item xs={12} sm={10} md={6} lg={6} xl={6}>
+              <div className="overpad1">
+                <List component="nav" className="m700">
+                  {items.map((item, index) => (
+                    <ListItem
+                      button
+                      key={"settingitem-" + index}
                       onClick={() => this.handleStartEditing(item.key)}
                     >
-                      <EditIcon color="primary" />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              ))}
-              <ListItem>
-                <ListItemText>
-                  <h3>
-                    <FormattedMessage id="app.relatedLinks" />
-                  </h3>
-                </ListItemText>
-              </ListItem>
-              {related.map((item, index) => (
-                <Link
-                  to={locLang.set(item.to, locLang.get(this.props.location))}
-                  className="nodec"
-                  key={"link" + index}
-                >
-                  <ListItem button>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText>
-                      <FormattedMessage id={"account." + item.label} />
-                    </ListItemText>
-                    <ListItemSecondaryAction>
-                      <IconButton>
-                        <GotoIcon color="primary" />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                  </ListItem>
-                </Link>
-              ))}
-            </List>
-          </div>
+                      <ListItemIcon>
+                        {item.key === "avatar" ? (
+                          <Avatar
+                            src={this.state.avatarUri}
+                            alt="avatar"
+                            className="m24"
+                          />
+                        ) : (
+                          item.icon
+                        )}
+                      </ListItemIcon>
+                      <ListItemText>
+                        <div className="keyval">
+                          <span className="key" key={"key-" + index}>
+                            <FormattedMessage id={"account." + item.key} />
+                          </span>
+                          <span className="val" key={"val-" + index}>
+                            {this.formatValue(item.key, this.state[item.key])}
+                          </span>
+                        </div>
+                      </ListItemText>
+                      <ListItemSecondaryAction>
+                        <IconButton
+                          aria-label="Comments"
+                          onClick={() => this.handleStartEditing(item.key)}
+                        >
+                          <EditIcon color="primary" />
+                        </IconButton>
+                      </ListItemSecondaryAction>
+                    </ListItem>
+                  ))}
+                </List>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={10}
+              md={6}
+              lg={5}
+              xl={6}
+              className="align-self-stretch pl1nsm"
+            >
+              <Tray className="my1 stick">
+                <TrayTitle icon={<LinkIcon />}>
+                  <FormattedMessage id="app.relatedLinks" />
+                </TrayTitle>
+                <List className="overpad1">
+                  {related.map((item, index) => (
+                    <Link
+                      to={locLang.set(
+                        item.to,
+                        locLang.get(this.props.location)
+                      )}
+                      className="nodec"
+                      key={"link" + index}
+                    >
+                      <ListItem button>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemText>
+                          <FormattedMessage id={"account." + item.label} />
+                        </ListItemText>
+                        <ListItemSecondaryAction>
+                          <IconButton>
+                            <GotoIcon color="primary" />
+                          </IconButton>
+                        </ListItemSecondaryAction>
+                      </ListItem>
+                    </Link>
+                  ))}
+                </List>
+                <TrayFooter />
+              </Tray>
+            </Grid>
+          </Grid>
         )}
       </div>
     );
