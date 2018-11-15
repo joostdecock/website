@@ -340,6 +340,9 @@ exports.createPages = ({ actions, graphql }) => {
   };
 
   createDocumentation = function() {
+    let prefix = {
+      measurements: "/docs/measurements/"
+    };
     return new Promise((resolve, reject) => {
       let pages = {};
       for (let lang of i18nConfig.languages) pages[lang] = {};
@@ -370,6 +373,11 @@ exports.createPages = ({ actions, graphql }) => {
               contentLanguage = lang;
               pageNode = pages[lang][slug];
             }
+            if (
+              slug.substring(0, prefix.measurements.length) ===
+              prefix.measurements
+            )
+              pageNode.frontmatter.measurement = slug.split("/").pop();
             pageNode.frontmatter.breadcrumbs = documentationBreadcrumbs(
               slug,
               lang,

@@ -28,7 +28,7 @@ function Breadcrumbs(props) {
         {spacer}
         {props.via.map((step, index) => {
           return [
-            <li>
+            <li key={"crumb" + index}>
               <Link
                 to={locLang.set(step.link, props.intl.locale)}
                 title={props.intl.formatMessage({ id: step.label })}

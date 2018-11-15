@@ -1,7 +1,6 @@
 ---
 title: Neck circumference
 path: /en/docs/measurements/neckcircumference
-measurement: neckCircumference
 ---
 
 The **neck circumference** is the measurement around your neck, at the level you would wear your shirt collar, or tie.

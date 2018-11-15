@@ -4,15 +4,11 @@ import Grid from "@material-ui/core/Grid";
 import Image from "gatsby-image";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
-import Tray from "../Tray";
-import TrayTitle from "../TrayTitle";
-import TocIcon from "@material-ui/icons/Bookmark";
 import Datum from "../Datum";
 import Breadcrumbs from "../Breadcrumbs";
 import GithubIcon from "../GithubIcon";
 import { locLang, fileOnGithub } from "../../utils";
 import { Link } from "gatsby";
-import { FormattedMessage } from "react-intl";
 
 export default ({ pageContext }) => {
   const frontmatter = pageContext.node.frontmatter;
@@ -88,7 +84,7 @@ export default ({ pageContext }) => {
           <article dangerouslySetInnerHTML={{ __html: html }} />
           {pleaseTranslate}
         </Grid>
-        <Grid item xs={0} sm={0} md={0} lg={1} xl={1} />
+        <Grid item xs={false} sm={false} md={false} lg={1} xl={1} />
         <Grid
           item
           xs={12}

@@ -1,7 +1,6 @@
 ---
 title: High bust
 path: /en/docs/measurements/highbust
-measurement: highBust
 ---
 
 The **high bust** measurement is your chest circumference measured just under your arms, above the fullest part of your bust.

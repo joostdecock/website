@@ -1,7 +1,6 @@
 ---
 title: Ankle circumference
 path: /en/docs/measurements/anklecircumference 
-measurement: ankleCircumference
 ---
 The **ankle circumference** measurement goes around your ankle.
 

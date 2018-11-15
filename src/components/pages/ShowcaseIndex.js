@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import BaseLayout from "../layouts/Base";
 import ShowcasePostPreview from "../ShowcasePostPreview";
 import Grid from "@material-ui/core/Grid";
-import Message from "../Message";
 import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
 import Breadcrumbs from "../Breadcrumbs";

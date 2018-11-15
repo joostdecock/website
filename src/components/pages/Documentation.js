@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/Base";
 import Grid from "@material-ui/core/Grid";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
+import OtherMeasurements from "../OtherMeasurements";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
@@ -17,6 +18,9 @@ export default ({ pageContext }) => {
   const toc = pageContext.node.tableOfContents;
   let languageNotAvailable = "";
   let pleaseTranslate = "";
+  let measurementsBox = "";
+  let wrapReverse = true;
+  let tocBox = "";
   if (pageContext.language !== pageContext.contentLanguage) {
     languageNotAvailable = (
       <LanguageNotAvailable className="mb1" language={pageContext.language} />
@@ -31,17 +35,31 @@ export default ({ pageContext }) => {
   }
   if (frontmatter.breadcrumbs[0].link !== "/docs")
     frontmatter.breadcrumbs.unshift({ link: "/docs", label: "app.docs" });
+  // Measurements
+  if (typeof frontmatter.measurement === "string") {
+    measurementsBox = <OtherMeasurements language={pageContext.language} />;
+    wrapReverse = false;
+  } else {
+    tocBox = (
+      <Tray className="mb1 stick">
+        <TrayTitle icon={<TocIcon />}>
+          <FormattedMessage id="app.contents" />
+        </TrayTitle>
+        <div dangerouslySetInnerHTML={{ __html: toc }} />
+      </Tray>
+    );
+  }
   return (
     <BaseLayout>
-      <Grid container direction="row" justify="flex-start" alignItems="center">
-        <Grid item xs={12}>
-          <Breadcrumbs via={frontmatter.breadcrumbs}>
-            {frontmatter.title}
-          </Breadcrumbs>
-        </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={3} xl={4} />
-      </Grid>
-      <Grid container direction="row" justify="flex-start" wrap="wrap-reverse">
+      <Breadcrumbs via={frontmatter.breadcrumbs}>
+        {frontmatter.title}
+      </Breadcrumbs>
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        wrap={wrapReverse ? "wrap-reverse" : "wrap"}
+      >
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <h1>
             {frontmatter.title}
@@ -53,7 +71,7 @@ export default ({ pageContext }) => {
           <article dangerouslySetInnerHTML={{ __html: html }} />
           {pleaseTranslate}
         </Grid>
-        <Grid item xs={0} sm={0} md={0} lg={1} xl={1} />
+        <Grid item xs={false} sm={false} md={false} lg={1} xl={1} />
         <Grid
           item
           xs={12}
@@ -64,12 +82,8 @@ export default ({ pageContext }) => {
           className="align-self-stretch pl1nsm"
         >
           {languageNotAvailable}
-          <Tray className="mb1 stick opaque">
-            <TrayTitle icon={<TocIcon />}>
-              <FormattedMessage id="app.contents" />
-            </TrayTitle>
-            <div dangerouslySetInnerHTML={{ __html: toc }} />
-          </Tray>
+          {measurementsBox}
+          {tocBox}
         </Grid>
       </Grid>
     </BaseLayout>

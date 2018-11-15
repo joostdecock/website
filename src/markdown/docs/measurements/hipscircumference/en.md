@@ -1,7 +1,6 @@
 ---
 title: Hips circumference
 path: /en/docs/measurements/hipscircumference
-measurement: hipsCircumference
 ---
 
 The **hips circumference** is measured at the top of your hipbones.

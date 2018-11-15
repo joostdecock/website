@@ -1,20 +1,11 @@
 a {
   color: $link;
-}
-body.dark a {
-  color: $linkFaded;
-}
-
-/** Mark anchor links by preventing text decoration */
-a.nodec,
-a[href*=\#]:not([href$=\#]) {
   text-decoration: none;
 }
+a:hover { color: $success; }
 
-/** Yet allow to disable this with the mimic class */
-a.mimic[href*=\#]:not([href$=\#]) {
-  text-decoration: underline;
-}
+body.dark a { color: $linkFaded; }
+body.dark a:hover { color: $successFaded; }
 
 /** Prevent anchor position from going under static header */
 :target:before {

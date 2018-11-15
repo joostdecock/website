@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import TranslateIcon from "@material-ui/icons/Translate";
-import Message from "./Message";
 import { fileOnGithub, locLang } from "../utils";
 import { Link } from "gatsby";
 import Tray from "./Tray";
 import TrayTitle from "./TrayTitle";
 import TrayFooter from "./TrayFooter";
-import TocIcon from "@material-ui/icons/Bookmark";
 
 const PleaseTranslate = props => {
   let documentationForTranslators = (

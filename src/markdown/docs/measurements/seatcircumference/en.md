@@ -1,7 +1,6 @@
 ---
 title: Seat circumference
 path: /en/docs/measurements/seatcircumference
-measurement: seatCircumference
 ---
 
 The **seat circumference** is the measurement around the fullest part of your bum.
