@@ -10,7 +10,6 @@ import { locLang } from "../utils";
 import measurements from "../data/i18n/en/measurements.yaml";
 
 const OtherMeasurements = props => {
-  console.log(Object.keys(measurements));
   return (
     <Tray className="my1">
       <TrayTitle icon={<LanguageIcon />}>

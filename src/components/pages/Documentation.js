@@ -33,7 +33,11 @@ export default ({ pageContext }) => {
       />
     );
   }
-  if (frontmatter.breadcrumbs[0].link !== "/docs")
+  if (
+    typeof frontmatter.breadcrumbs !== "undefined" &&
+    typeof frontmatter.breadcrumbs[0] !== "undefined" &&
+    frontmatter.breadcrumbs[0].link !== "/docs"
+  )
     frontmatter.breadcrumbs.unshift({ link: "/docs", label: "app.docs" });
   // Measurements
   if (typeof frontmatter.measurement === "string") {
