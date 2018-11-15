@@ -7,24 +7,9 @@
     display: inherit!important;
   }
 
-  div.page,
-  div.docs,
-  div.blog-post,
-  {
-    padding: 0 10%;
-  }
-
-  div.blog-header {
-    div.meta {
-      padding: 0 5%;
-    }
-  }
-
   aside.toc,
   aside.cot {
     position: inherit;
-    margin: 0 10%;
-    padding: 0;
   }
   body.splash{
     div.splash-box {

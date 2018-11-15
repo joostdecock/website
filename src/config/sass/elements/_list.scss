@@ -1,10 +1,37 @@
 ul, ol {
-  margin: 1rem 1rem 1rem 2rem;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 li {
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  ul {
+    margin-top: 0;
+  }
+}
+
+ul.meta {
+  font-size: 90%;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  color: $bw4;
+
+  li:first-child:before {
+    content: '';
+    padding: 0;
+  }
+  li:before {
+    content: '/';
+    padding: 0 0.5rem;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    line-height: 1rem;
+  }
 }
 
 aside.toc {

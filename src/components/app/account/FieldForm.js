@@ -397,7 +397,7 @@ class FieldForm extends React.Component {
             <div>
               <input type="hidden" id="avatar" name="avatar" value={imgRef} />
               {heading}
-              <div ref={imgRef} className="wmax" style={style} />
+              <div ref={imgRef} className="w100" style={style} />
               <Button
                 onClick={handleAvatarReset}
                 variant="outlined"

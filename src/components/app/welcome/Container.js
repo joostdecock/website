@@ -303,17 +303,17 @@ class WelcomeContainer extends React.Component {
     const { activeStep, maxSteps } = this.state;
     let step = this.getStepContent(activeStep);
     return (
-      <div className="wrap">
+      <div>
         <Breadcrumbs>
           <FormattedMessage id="app.welcome" />
         </Breadcrumbs>
-        <h2>
+        <h1>
           <FormattedMessage id="app.completeSignupTitle" />
-        </h2>
-        <p className="m700">
+        </h1>
+        <p className="maxw700">
           <FormattedMessage id="app.completeSignupText" />
         </p>
-        <form className="m700">
+        <form className="maxw700">
           <MobileStepper
             steps={maxSteps}
             position="static"
@@ -337,7 +337,7 @@ class WelcomeContainer extends React.Component {
             }
           />
           {step.content}
-          <Tray className="vspace1">
+          <Tray className="my1">
             <TrayTitle icon={<WhyIcon />}>
               <FormattedMessage id={"app.whatIsThis"} />
             </TrayTitle>

@@ -82,7 +82,7 @@ class Base extends React.Component {
               dark={dark}
               toggleDarkMode={this.handleToggleDarkMode}
             />
-            {children}
+            <div className="wrap">{children}</div>
             {footer}
           </div>
           <Notification

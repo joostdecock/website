@@ -51,44 +51,42 @@ export default class BlogIndex extends React.Component {
           container
           direction="column"
           justify="center"
-          alignItems="center"
+          alignItems="start"
           className="page"
         >
-          <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
-            <Breadcrumbs>
-              <FormattedMessage id="app.blog" />
-            </Breadcrumbs>
-            <h1 className="xt-center">
-              <FormattedMessage id="app.blog" />
-              {category === "all" ? "" : " #" + category}
-            </h1>
-            {missingPosts ? (
-              <Tray className="warning vspace2">
-                <TrayTitle icon={<Translate />}>
-                  <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
-                </TrayTitle>
-                <ul>
-                  <li>
-                    <FormattedMessage id="app.colourYes" />
-                  </li>
-                  <li>
-                    <FormattedMessage id="app.monochromeNo" />
-                  </li>
-                </ul>
-                <TrayFooter>
-                  <Link to={locLang.set("/docs/i18n", language)}>
-                    <Button>
-                      <FormattedMessage id="app.helpUsTranslate" />
-                    </Button>
-                  </Link>
-                </TrayFooter>
-              </Tray>
-            ) : (
-              ""
-            )}
-            <Grid container spacing={24} class="masonry">
-              {list}
-            </Grid>
+          <Breadcrumbs>
+            <FormattedMessage id="app.blog" />
+          </Breadcrumbs>
+          <h1 className="hide">
+            <FormattedMessage id="app.blog" />
+            {category === "all" ? "" : " #" + category}
+          </h1>
+          {missingPosts ? (
+            <Tray className="warning mb1">
+              <TrayTitle icon={<Translate />}>
+                <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
+              </TrayTitle>
+              <ul>
+                <li>
+                  <FormattedMessage id="app.colourYes" />
+                </li>
+                <li>
+                  <FormattedMessage id="app.monochromeNo" />
+                </li>
+              </ul>
+              <TrayFooter>
+                <Link to={locLang.set("/docs/i18n", language)}>
+                  <Button>
+                    <FormattedMessage id="app.helpUsTranslate" />
+                  </Button>
+                </Link>
+              </TrayFooter>
+            </Tray>
+          ) : (
+            ""
+          )}
+          <Grid container spacing={24} class="masonry w100">
+            {list}
           </Grid>
         </Grid>
       </BaseLayout>

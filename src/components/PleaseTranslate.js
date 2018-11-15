@@ -7,6 +7,7 @@ import { fileOnGithub, locLang } from "../utils";
 import { Link } from "gatsby";
 import Tray from "./Tray";
 import TrayTitle from "./TrayTitle";
+import TrayFooter from "./TrayFooter";
 import TocIcon from "@material-ui/icons/Bookmark";
 
 const PleaseTranslate = props => {
@@ -21,7 +22,7 @@ const PleaseTranslate = props => {
     </a>
   );
   return (
-    <Tray>
+    <Tray className={props.className}>
       <TrayTitle icon={<TranslateIcon />}>
         <FormattedMessage id="app.couldYouTranslateThis" />
       </TrayTitle>
@@ -36,13 +37,19 @@ const PleaseTranslate = props => {
           }}
         />
       </p>
+      <TrayFooter />
     </Tray>
   );
 };
 
 PleaseTranslate.propTypes = {
   language: PropTypes.string.isRequired,
-  filePath: PropTypes.string.isRequired
+  filePath: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+
+PleaseTranslate.defaultProps = {
+  className: ""
 };
 
 export default PleaseTranslate;

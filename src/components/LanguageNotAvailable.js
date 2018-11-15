@@ -12,7 +12,7 @@ import { locLang } from "../utils";
 
 const LanguageNotAvailable = props => {
   return (
-    <Tray className="warning vspace2">
+    <Tray className="warning my1">
       <TrayTitle icon={<LanguageIcon />}>
         <FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />
       </TrayTitle>

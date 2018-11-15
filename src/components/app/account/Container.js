@@ -340,7 +340,7 @@ class AccountContainer extends React.Component {
     let related = this.related;
     let edit = this.state.editing;
     return (
-      <div className="wrap">
+      <div>
         <Breadcrumbs>
           <FormattedMessage id="app.settings" />
         </Breadcrumbs>

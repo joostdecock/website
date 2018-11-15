@@ -47,15 +47,15 @@ export default class ShowcaseIndex extends React.Component {
           alignItems="center"
           className="page"
         >
-          <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className={"wmax"}>
+          <Grid item xs={12} className={"w100"}>
             <Breadcrumbs>
               <FormattedMessage id="app.showcase" />
             </Breadcrumbs>
-            <h1 className="txt-center">
+            <h1 className="hide">
               <FormattedMessage id="app.showcase" />
             </h1>
             {missingPosts ? (
-              <Tray className="warning vspace2">
+              <Tray className="warning my1">
                 <TrayTitle icon={<Translate />}>
                   <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
                 </TrayTitle>

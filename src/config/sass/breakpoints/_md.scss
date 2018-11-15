@@ -1,29 +1,17 @@
 @include md-screen {
-  .not-on-mobile {
-    display: none!important;
-  }
-  .only-on-mobile {
-    display: inherit!important;
-  }
-  div.cot {
-    max-width: 600px;
-  }
+  .not-on-mobile { display: none!important; }
+  .only-on-mobile { display: inherit!important; }
+  aside.left { padding-right: 1rem; }
+  aside.right { padding-left: 1rem; }
+  .pl1nsm { padding-left: 1rem; }
 
-  aside.toc,
-  aside.cot {
+  .stick {
     position: sticky;
     top: 84px;
   }
 
-  aside.toc {
-    padding-right: 1rem;
-    aside {
-      height: calc(100vh - 130px);
-      overflow-y: auto;
-    }
-  }
-
-  div.cot {
-    padding-left: 1rem;
+  .scrollable {
+    height: calc(100vh - 130px);
+    overflow-y: auto;
   }
 }

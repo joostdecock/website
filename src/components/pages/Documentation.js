@@ -8,6 +8,7 @@ import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
 import Tray from "../Tray";
 import TrayTitle from "../TrayTitle";
+import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
 
 export default ({ pageContext }) => {
@@ -18,70 +19,59 @@ export default ({ pageContext }) => {
   let pleaseTranslate = "";
   if (pageContext.language !== pageContext.contentLanguage) {
     languageNotAvailable = (
-      <LanguageNotAvailable
-        className="vspace1"
-        language={pageContext.language}
-      />
+      <LanguageNotAvailable className="mb1" language={pageContext.language} />
     );
     pleaseTranslate = (
       <PleaseTranslate
         filePath={pageContext.node.fileAbsolutePath}
         language={pageContext.language}
+        className="mb1"
       />
     );
   }
   return (
     <BaseLayout>
       <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-          <div className="docs">
-            {languageNotAvailable}
-            <h1>
-              {frontmatter.title}
-              &nbsp;&nbsp;
-              <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
-                <GithubIcon color={"#2979ff"} />
-              </a>
-            </h1>
-          </div>
+        <Grid item xs={12}>
+          <Breadcrumbs>FIXME: {frontmatter.title}</Breadcrumbs>
         </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
+        <Grid item xs={12} sm={10} md={6} lg={3} xl={4} />
       </Grid>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        alignItems="center"
+        wrap="wrap-reverse"
+      >
+        <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
+          <h1>
+            {frontmatter.title}
+            &nbsp;&nbsp;
+            <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
+              <GithubIcon color={"#2979ff"} />
+            </a>
+          </h1>
+          <article dangerouslySetInnerHTML={{ __html: html }} />
+          {pleaseTranslate}
+        </Grid>
+        <Grid item xs={0} sm={0} md={0} lg={1} xl={1} />
         <Grid
           item
           xs={12}
           sm={10}
-          md={4}
-          lg={3}
-          xl={3}
-          className="align-self-stretch"
+          md={5}
+          lg={5}
+          xl={4}
+          className="align-self-stretch pl1nsm"
         >
-          <aside className="toc">
-            <Tray>
-              <TrayTitle icon={<TocIcon />}>
-                <FormattedMessage id="app.contents" />
-              </TrayTitle>
-              <div dangerouslySetInnerHTML={{ __html: toc }} />
-            </Tray>
-          </aside>
-        </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-          <div className="docs">
-            <article dangerouslySetInnerHTML={{ __html: html }} />
-          </div>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={10}
-          md={6}
-          lg={3}
-          xl={3}
-          className="align-self-stretch"
-        >
-          <aside className="cot">{pleaseTranslate}</aside>
+          {languageNotAvailable}
+          <Tray className="mb1 stick opaque">
+            <TrayTitle icon={<TocIcon />}>
+              <FormattedMessage id="app.contents" />
+            </TrayTitle>
+            <div dangerouslySetInnerHTML={{ __html: toc }} />
+          </Tray>
         </Grid>
       </Grid>
     </BaseLayout>

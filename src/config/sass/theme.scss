@@ -33,13 +33,8 @@ $accentFaded: #AD8DDE;
 $accentWhite: #EAE2F6;
 $accentBlack: #291548;
 
-body,
-body.light {
-  background-color: $secondary;
-}
-div.fs-base {
-  margin-top: 64px;
-}
+body, body.light { background-color: $secondary; }
+div.fs-base { margin-top: 64px; }
 
 @import 'mixins';
 

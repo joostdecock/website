@@ -39,7 +39,7 @@ class UserProfile extends React.Component {
           alignItems="flex-start"
           className=""
         >
-          <Grid item xs={12} sm={4} className={"wmax mb10"}>
+          <Grid item xs={12} sm={4} className={"w100 mb1"}>
             <UserAvatar
               username={user.username}
               uris={user.pictureUris}
