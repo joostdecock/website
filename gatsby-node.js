@@ -308,6 +308,37 @@ exports.createPages = ({ actions, graphql }) => {
     });
   };
 
+  parentSlug = function(slug) {
+    let len = slug.trim().length;
+    if (slug.trim().substring(len - 1, len) === "/")
+      slug = slug.substring(0, len - 1);
+
+    return slug
+      .split("/")
+      .slice(0, -1)
+      .join("/");
+  };
+
+  documentationBreadcrumbs = function(slug, language, pages) {
+    let crumbs = [];
+    let root = "/docs";
+    let parent = parentSlug(slug);
+    while (parent.length > root.length) {
+      crumbs.push({ link: parent, label: crumbLabel(parent, language, pages) });
+      parent = parentSlug(parent);
+    }
+
+    return crumbs.reverse();
+  };
+
+  crumbLabel = function(slug, lang, pages) {
+    if (typeof pages[lang][slug] !== "undefined") {
+      return pages[lang][slug].frontmatter.title;
+    } else if (typeof pages[i18nConfig.defaultLanguage][slug] !== "undefined") {
+      return pages[i18nConfig.defaultLanguage][slug].frontmatter.title;
+    } else return slug.split("/").pop();
+  };
+
   createDocumentation = function() {
     return new Promise((resolve, reject) => {
       let pages = {};
@@ -324,6 +355,7 @@ exports.createPages = ({ actions, graphql }) => {
           pages[language][slug] = node;
           createDocumentationRedirect(slug);
         });
+
         // Create documentation pages all languages
         for (let lang of i18nConfig.languages) {
           Object.keys(pages[i18nConfig.defaultLanguage]).forEach(slug => {
@@ -338,6 +370,11 @@ exports.createPages = ({ actions, graphql }) => {
               contentLanguage = lang;
               pageNode = pages[lang][slug];
             }
+            pageNode.frontmatter.breadcrumbs = documentationBreadcrumbs(
+              slug,
+              lang,
+              pages
+            );
             createDocumentationPage(lang, contentLanguage, slug, pageNode);
           });
           // FIXME: Create documentation indexes

@@ -29,21 +29,19 @@ export default ({ pageContext }) => {
       />
     );
   }
+  if (frontmatter.breadcrumbs[0].link !== "/docs")
+    frontmatter.breadcrumbs.unshift({ link: "/docs", label: "app.docs" });
   return (
     <BaseLayout>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justify="flex-start" alignItems="center">
         <Grid item xs={12}>
-          <Breadcrumbs>FIXME: {frontmatter.title}</Breadcrumbs>
+          <Breadcrumbs via={frontmatter.breadcrumbs}>
+            {frontmatter.title}
+          </Breadcrumbs>
         </Grid>
         <Grid item xs={12} sm={10} md={6} lg={3} xl={4} />
       </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="flex-start"
-        alignItems="center"
-        wrap="wrap-reverse"
-      >
+      <Grid container direction="row" justify="flex-start" wrap="wrap-reverse">
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <h1>
             {frontmatter.title}
