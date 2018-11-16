@@ -11,6 +11,7 @@ import Tray from "../Tray";
 import TrayTitle from "../TrayTitle";
 import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
+import MeasurementImages from "../MeasurementImages";
 
 export default ({ pageContext }) => {
   const frontmatter = pageContext.node.frontmatter;
@@ -19,6 +20,7 @@ export default ({ pageContext }) => {
   let languageNotAvailable = "";
   let pleaseTranslate = "";
   let measurementsBox = "";
+  let isMeasurement = false;
   let wrapReverse = true;
   let tocBox = "";
   if (pageContext.language !== pageContext.contentLanguage) {
@@ -41,6 +43,7 @@ export default ({ pageContext }) => {
     frontmatter.breadcrumbs.unshift({ link: "/docs", label: "app.docs" });
   // Measurements
   if (typeof frontmatter.measurement === "string") {
+    isMeasurement = true;
     measurementsBox = <OtherMeasurements language={pageContext.language} />;
     wrapReverse = false;
   } else {
@@ -72,6 +75,11 @@ export default ({ pageContext }) => {
               <GithubIcon color={"#2979ff"} />
             </a>
           </h1>
+          {isMeasurement ? (
+            <MeasurementImages measurement={frontmatter.measurement} />
+          ) : (
+            ""
+          )}
           <article dangerouslySetInnerHTML={{ __html: html }} />
           {pleaseTranslate}
         </Grid>

@@ -24,7 +24,7 @@ const OtherMeasurements = props => {
       </TrayTitle>
       <ul>
         {Object.keys(measurements).map((m, index) => (
-          <li>
+          <li key={"om" + index}>
             <Link to={"/docs/measurements/" + m.toLowerCase()}>
               <FormattedMessage id={"measurements." + m} />
             </Link>
