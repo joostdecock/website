@@ -4,6 +4,7 @@ import TrayFooter from "./TrayFooter";
 import InfoIcon from "@material-ui/icons/Info";
 import ExpandIcon from "@material-ui/icons/ArrowDropDown";
 import CollapseIcon from "@material-ui/icons/ArrowDropUp";
+import IconButton from "@material-ui/core/IconButton";
 
 class Tray extends React.Component {
   state = {
@@ -32,12 +33,15 @@ class Tray extends React.Component {
         ) : (
           <TrayTitle icon={this.props.icon}>
             {this.props.title}
-            <a className="toggle expand" onClick={this.handleExpand}>
+            <IconButton className="toggle expand" onClick={this.handleExpand}>
               <ExpandIcon className="toggle" />
-            </a>
-            <a className="toggle collapse" onClick={this.handleCollapse}>
+            </IconButton>
+            <IconButton
+              className="toggle collapse"
+              onClick={this.handleCollapse}
+            >
               <CollapseIcon className="toggle" />
-            </a>
+            </IconButton>
           </TrayTitle>
         )}
         <div className="content">

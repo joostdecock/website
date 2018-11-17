@@ -18,7 +18,7 @@
         padding: 0;
     }
   }
-  a.toggle {
+  button.toggle {
     color: $bw4;
     position: absolute;
     display: block;
@@ -36,11 +36,12 @@
       padding: 0;
     }
   }
-  a.toggle:hover {
+  button.toggle:hover {
     cursor: pointer;
     color: $secondary;
+    background-color: transparent;
   }
-  a.toggle.collapse,
+  button.toggle.collapse,
   .content { display: none; }
-  a.toggle.expand { display: block; }
+  button.toggle.expand { display: block; }
 }

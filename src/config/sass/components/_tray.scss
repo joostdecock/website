@@ -5,7 +5,7 @@
   border-top-color: $color!important;
   .tray-title {
     svg { color: $color; }
-    a.toggle svg { color: inherit; }
+    button.toggle svg { color: inherit; }
   }
 }
 
@@ -20,7 +20,7 @@
 }
 
 .always-expanded.tray {
-  a.toggle { display: none!important; }
+  button.toggle { display: none!important; }
 }
 
 .tray.success { @include tray-color-expanded($success) }
@@ -33,7 +33,7 @@ body.dark {
   .tray {
     border-top-color: $bw6;
     h3.tray-title span.tray-title-icon svg { background: $bw1; }
-    a.toggle:hover { color: $secondary; }
+    button.toggle:hover { color: $secondary; }
     .tray-footer {
       background: $bw2;
       a { color: $bw8; }
@@ -58,4 +58,9 @@ body.dark {
   .force-expaded.tray {
     @include tray-expanded;
   }
+}
+
+h3.tray-title button.toggle span {
+  justify-content: right;
+  margin-top: -13px;
 }

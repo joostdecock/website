@@ -32,7 +32,7 @@
     font-size: 110%;
     line-height: 1.3;
   }
-  a.toggle {
+  button.toggle {
     color: $bw4;
     position: absolute;
     display: block;
@@ -48,11 +48,12 @@
       padding: 0;
     }
   }
-  a.toggle:hover {
+  button.toggle:hover {
     cursor: pointer;
     color: $primary;
+    background-color: transparent;
   }
-  a.toggle.expand { display: none; }
-  a.toggle.collapse { display: block; }
+  button.toggle.expand { display: none; }
+  button.toggle.collapse { display: block; }
   .content { display: block; }
 }
