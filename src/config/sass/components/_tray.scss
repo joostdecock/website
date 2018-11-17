@@ -14,8 +14,13 @@
   @include tray-collapsed;
 }
 
+.always-expanded.tray,
 .force-expanded.tray {
   @include tray-expanded;
+}
+
+.always-expanded.tray {
+  a.toggle { display: none!important; }
 }
 
 .tray.success { @include tray-color-expanded($success) }
@@ -34,6 +39,7 @@ body.dark {
       a { color: $bw8; }
     }
   }
+  .always-expanded.tray,
   .force-expanded.tray {
     .tray-title {
       .tray-title-icon svg { background-color: $bw2; }
@@ -48,6 +54,7 @@ body.dark {
 
 @include md-screen {
   .unforced.tray,
+  .always-expaded.tray,
   .force-expaded.tray {
     @include tray-expanded;
   }

@@ -10,7 +10,6 @@ import Breadcrumbs from "../Breadcrumbs";
 import { locLang } from "../../utils";
 import { Link } from "gatsby";
 import Tray from "../Tray";
-import TrayTitle from "../TrayTitle";
 import TocIcon from "@material-ui/icons/Bookmark";
 import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
@@ -23,7 +22,9 @@ export default data => {
   let languageNotAvailable = "";
   let pleaseTranslate = "";
   if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = <LanguageNotAvailable />;
+    languageNotAvailable = (
+      <LanguageNotAvailable language={pageContext.language} />
+    );
     pleaseTranslate = (
       <PleaseTranslate
         filePath={pageContext.node.fileAbsolutePath}
@@ -97,10 +98,11 @@ export default data => {
           className="align-self-stretch pl1nsm"
         >
           {languageNotAvailable}
-          <Tray className="mb1 stick scrollable">
-            <TrayTitle icon={<TocIcon />}>
-              <FormattedMessage id="app.contents" />
-            </TrayTitle>
+          <Tray
+            className="mb1 stick scrollable"
+            icon={<TocIcon />}
+            title={<FormattedMessage id="app.contents" />}
+          >
             <div dangerouslySetInnerHTML={{ __html: toc }} />
           </Tray>
         </Grid>

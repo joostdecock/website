@@ -21,9 +21,9 @@ import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import WarningIcon from "@material-ui/icons/Warning";
 import Breadcrumbs from "../../../Breadcrumbs";
 import Tray from "../../../Tray";
-import TrayTitle from "../../../TrayTitle";
-import TrayFooter from "../../../TrayFooter";
 import WhyIcon from "@material-ui/icons/Help";
+import TwoColumns from "../../../TwoColumns";
+import Column from "../../../Column";
 
 class AccountRestrictContainer extends React.Component {
   state = {
@@ -83,80 +83,98 @@ class AccountRestrictContainer extends React.Component {
         <h1>
           <FormattedMessage id="account.restrictProcessingOfYourData" />
         </h1>
-        <div className="overpad1">
-          <List component="nav" className="maxw700">
-            <ListItem button onClick={this.handleToggle}>
-              <ListItemIcon>
-                <PauseIcon
-                  classes={{ root: this.state.restrict ? "txt-warning" : "" }}
-                />
-              </ListItemIcon>
-              <ListItemText>
-                <FormattedMessage id="account.restrictProcessingOfYourData" />
-              </ListItemText>
-              <ListItemSecondaryAction>
-                <Switch
-                  className="switch-warning"
-                  color="primary"
-                  onClick={this.handleToggle}
-                  checked={this.state.restrict}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
-          </List>
-        </div>
-        {this.state.restrict ? (
-          <Tray className="my1 maxw700 danger">
-            <TrayTitle icon={<WarningIcon />}>
-              <FormattedMessage id="app.proceedWithCaution" />
-            </TrayTitle>
-            <p>
-              <FormattedMessage id="account.restrictProcessingWarning" />
-            </p>
-            <TrayFooter className="txt-right">
-              <Link
-                to={locLang.set("/account", locLang.get(this.props.location))}
+        <TwoColumns>
+          <Column>
+            <div className="overpad1">
+              <List component="nav" className="maxw700">
+                <ListItem button onClick={this.handleToggle}>
+                  <ListItemIcon>
+                    <PauseIcon
+                      classes={{
+                        root: this.state.restrict ? "txt-warning" : ""
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <FormattedMessage id="account.restrictProcessingOfYourData" />
+                  </ListItemText>
+                  <ListItemSecondaryAction>
+                    <Switch
+                      className="switch-warning"
+                      color="primary"
+                      onClick={this.handleToggle}
+                      checked={this.state.restrict}
+                    />
+                  </ListItemSecondaryAction>
+                </ListItem>
+              </List>
+            </div>
+            {this.state.restrict ? (
+              <Tray
+                className="my1 danger always-expanded"
+                icon={<WarningIcon />}
+                title={<FormattedMessage id="app.proceedWithCaution" />}
+                footer={
+                  <div>
+                    <Link
+                      to={locLang.set(
+                        "/account",
+                        locLang.get(this.props.location)
+                      )}
+                    >
+                      <Button onClick={this.handleStopEditing}>
+                        <BackIcon />
+                        <FormattedMessage id="app.back" />
+                      </Button>
+                    </Link>
+                    <Button onClick={this.handleRestrict}>
+                      <ButtonSpinner
+                        loading={this.state.loading}
+                        icon={<SaveIcon className="btn-icon" />}
+                      />
+                      <FormattedMessage
+                        id="app.save"
+                        disabled={!this.state.restrict}
+                      />
+                    </Button>
+                  </div>
+                }
               >
-                <Button onClick={this.handleStopEditing}>
-                  <BackIcon />
-                  <FormattedMessage id="app.back" />
-                </Button>
-              </Link>
-              <Button onClick={this.handleRestrict}>
-                <ButtonSpinner
-                  loading={this.state.loading}
-                  icon={<SaveIcon className="btn-icon" />}
-                />
-                <FormattedMessage
-                  id="app.save"
-                  disabled={!this.state.restrict}
-                />
-              </Button>
-            </TrayFooter>
-          </Tray>
-        ) : (
-          ""
-        )}
-        <Tray className="my1 maxw700">
-          <TrayTitle icon={<WhyIcon />}>
-            <FormattedMessage id="app.whatIsThis" />
-          </TrayTitle>
-          <p>
-            <FormattedHTMLMessage id="account.restrictProcessingOfYourDataInfo" />
-          </p>
-          <p>
-            <FormattedMessage id="gdpr.readRights" />
-          </p>
-          <TrayFooter className="txt-right">
-            <Link
-              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+                <p>
+                  <FormattedMessage id="account.restrictProcessingWarning" />
+                </p>
+              </Tray>
+            ) : (
+              ""
+            )}
+          </Column>
+          <Column side="right">
+            <Tray
+              className="my1"
+              icon={<WhyIcon />}
+              title={<FormattedMessage id="app.whatIsThis" />}
+              footer={
+                <Link
+                  to={locLang.set(
+                    "/docs/rights",
+                    locLang.get(this.props.location)
+                  )}
+                >
+                  <Button>
+                    <FormattedMessage id="app.yourRights" />
+                  </Button>
+                </Link>
+              }
             >
-              <Button>
-                <FormattedMessage id="app.yourRights" />
-              </Button>
-            </Link>
-          </TrayFooter>
-        </Tray>
+              <p>
+                <FormattedHTMLMessage id="account.restrictProcessingOfYourDataInfo" />
+              </p>
+              <p>
+                <FormattedMessage id="gdpr.readRights" />
+              </p>
+            </Tray>
+          </Column>
+        </TwoColumns>
       </div>
     );
   }

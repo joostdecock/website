@@ -41,9 +41,8 @@ import { Link } from "gatsby";
 import Avatar from "@material-ui/core/Avatar";
 import Breadcrumbs from "../../Breadcrumbs";
 import Tray from "../../Tray";
-import TrayTitle from "../../TrayTitle";
-import TrayFooter from "../../TrayFooter";
-import Grid from "@material-ui/core/Grid";
+import TwoColumns from "../../TwoColumns";
+import Column from "../../Column";
 
 class AccountContainer extends React.Component {
   state = {
@@ -352,47 +351,41 @@ class AccountContainer extends React.Component {
         <h1>
           <FormattedMessage id="app.settings" />
         </h1>
-        {edit !== false ? (
-          <form onSubmit={this.handleValueSave} data-field={edit}>
-            <FieldForm
-              intl={this.props.intl}
-              field={edit}
-              value={this.state[edit]}
-              handleValueUpdate={this.handleValueUpdate}
-              handleAvatarLoad={this.handleAvatarLoad}
-              data={this.props.data}
-              location={this.props.location}
-            />
-            <div className="txt-right">
-              <Button
-                onClick={this.handleStopEditing}
-                className="mr1"
-                variant="outlined"
-              >
-                <BackIcon />
-                <FormattedMessage id="app.back" />
-              </Button>
-              {edit === "patron" ? (
-                ""
-              ) : (
-                <Button type="submit" variant="contained" color="primary">
-                  <SaveIcon className="mr1" />
-                  <FormattedMessage id="app.save" />
-                </Button>
-              )}
-            </div>
-            <FieldInfo intl={this.props.intl} field={edit} />
-          </form>
-        ) : (
-          <Grid
-            container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
-          >
-            <Grid item xs={12} sm={10} md={6} lg={6} xl={6}>
+        <TwoColumns>
+          <Column>
+            {edit !== false ? (
+              <form onSubmit={this.handleValueSave} data-field={edit}>
+                <FieldForm
+                  intl={this.props.intl}
+                  field={edit}
+                  value={this.state[edit]}
+                  handleValueUpdate={this.handleValueUpdate}
+                  handleAvatarLoad={this.handleAvatarLoad}
+                  data={this.props.data}
+                  location={this.props.location}
+                />
+                <div className="txt-right">
+                  <Button
+                    onClick={this.handleStopEditing}
+                    className="mr1"
+                    variant="outlined"
+                  >
+                    <BackIcon />
+                    <FormattedMessage id="app.back" />
+                  </Button>
+                  {edit === "patron" ? (
+                    ""
+                  ) : (
+                    <Button type="submit" variant="contained" color="primary">
+                      <SaveIcon className="mr1" />
+                      <FormattedMessage id="app.save" />
+                    </Button>
+                  )}
+                </div>
+              </form>
+            ) : (
               <div className="overpad1">
-                <List component="nav" className="m700">
+                <List component="nav">
                   {items.map((item, index) => (
                     <ListItem
                       button
@@ -432,20 +425,17 @@ class AccountContainer extends React.Component {
                   ))}
                 </List>
               </div>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={10}
-              md={6}
-              lg={5}
-              xl={6}
-              className="align-self-stretch pl1nsm"
-            >
-              <Tray className="my1 stick">
-                <TrayTitle icon={<LinkIcon />}>
-                  <FormattedMessage id="app.relatedLinks" />
-                </TrayTitle>
+            )}
+          </Column>
+          <Column side="right">
+            {edit !== false ? (
+              <FieldInfo intl={this.props.intl} field={edit} />
+            ) : (
+              <Tray
+                className="my1 stick always-expanded"
+                icon={<LinkIcon />}
+                title={<FormattedMessage id="app.relatedLinks" />}
+              >
                 <List className="overpad1">
                   {related.map((item, index) => (
                     <Link
@@ -470,11 +460,10 @@ class AccountContainer extends React.Component {
                     </Link>
                   ))}
                 </List>
-                <TrayFooter />
               </Tray>
-            </Grid>
-          </Grid>
-        )}
+            )}
+          </Column>
+        </TwoColumns>
       </div>
     );
   }

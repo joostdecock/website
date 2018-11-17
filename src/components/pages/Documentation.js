@@ -8,7 +8,6 @@ import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
 import Tray from "../Tray";
-import TrayTitle from "../TrayTitle";
 import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
 import MeasurementImages from "../MeasurementImages";
@@ -48,10 +47,11 @@ export default ({ pageContext }) => {
     wrapReverse = false;
   } else {
     tocBox = (
-      <Tray className="mb1 stick">
-        <TrayTitle icon={<TocIcon />}>
-          <FormattedMessage id="app.contents" />
-        </TrayTitle>
+      <Tray
+        className="mb1 stick"
+        icon={<TocIcon />}
+        title={<FormattedMessage id="app.contents" />}
+      >
         <div dangerouslySetInnerHTML={{ __html: toc }} />
       </Tray>
     );

@@ -6,12 +6,14 @@ import Tray from "./Tray";
 import { Link } from "gatsby";
 import { locLang } from "../utils";
 
-const LanguageNotAvailable = props => {
+const LanguageNotAlwaysAvailable = props => {
   return (
     <Tray
       className="warning my1"
       icon={<LanguageIcon />}
-      title={<FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />}
+      title={
+        <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
+      }
       footer={
         <Link to={locLang.set("/docs/i18n", props.language)}>
           <Button>
@@ -20,11 +22,16 @@ const LanguageNotAvailable = props => {
         </Link>
       }
     >
-      <p>
-        <FormattedMessage id="app.contentLocaleFallback" />
-      </p>
+      <ul>
+        <li>
+          <FormattedMessage id="app.colourYes" />
+        </li>
+        <li>
+          <FormattedMessage id="app.monochromeNo" />
+        </li>
+      </ul>
     </Tray>
   );
 };
 
-export default LanguageNotAvailable;
+export default LanguageNotAlwaysAvailable;

@@ -6,12 +6,12 @@
   .pl1nsm { padding-left: 1rem; }
 
   .stick {
-    position: sticky;
+    position: sticky!important;
     top: 84px;
   }
 
   .scrollable {
-    height: calc(100vh - 130px);
+    max-height: calc(100vh - 130px);
     overflow-y: auto;
   }
 }

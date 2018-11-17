@@ -20,9 +20,9 @@ import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import WarningIcon from "@material-ui/icons/Warning";
 import Breadcrumbs from "../../../Breadcrumbs";
 import Tray from "../../../Tray";
-import TrayTitle from "../../../TrayTitle";
-import TrayFooter from "../../../TrayFooter";
 import WhyIcon from "@material-ui/icons/Help";
+import TwoColumns from "../../../TwoColumns";
+import Column from "../../../Column";
 
 class AccountRemoveContainer extends React.Component {
   state = {
@@ -70,77 +70,93 @@ class AccountRemoveContainer extends React.Component {
         <h1>
           <FormattedMessage id="account.removeYourAccount" />
         </h1>
-        <div className="overpad1">
-          <List component="nav" className="maxw700">
-            <ListItem button onClick={this.handleToggle}>
-              <ListItemIcon>
-                <RemoveIcon
-                  classes={{ root: this.state.remove ? "txt-danger" : "" }}
-                />
-              </ListItemIcon>
-              <ListItemText>
-                <FormattedMessage id="account.removeYourAccount" />
-              </ListItemText>
-              <ListItemSecondaryAction>
-                <Switch
-                  color="primary"
-                  className="switch-danger"
-                  onClick={this.handleToggle}
-                  checked={this.state.remove}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
-          </List>
-        </div>
-        {this.state.remove ? (
-          <Tray className="my1 maxw700 danger">
-            <TrayTitle icon={<WarningIcon />}>
-              <FormattedMessage id="app.proceedWithCaution" />
-            </TrayTitle>
-            <p>
-              <FormattedHTMLMessage id="account.removeYourAccountWarning" />
-            </p>
-            <TrayFooter className="txt-right">
-              <Link
-                to={locLang.set("/account", locLang.get(this.props.location))}
+        <TwoColumns>
+          <Column>
+            <div className="overpad1">
+              <List component="nav" className="maxw700">
+                <ListItem button onClick={this.handleToggle}>
+                  <ListItemIcon>
+                    <RemoveIcon
+                      classes={{ root: this.state.remove ? "txt-danger" : "" }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <FormattedMessage id="account.removeYourAccount" />
+                  </ListItemText>
+                  <ListItemSecondaryAction>
+                    <Switch
+                      color="primary"
+                      className="switch-danger"
+                      onClick={this.handleToggle}
+                      checked={this.state.remove}
+                    />
+                  </ListItemSecondaryAction>
+                </ListItem>
+              </List>
+            </div>
+            {this.state.remove ? (
+              <Tray
+                className="my1 danger always-expanded"
+                icon={<WarningIcon />}
+                title={<FormattedMessage id="app.proceedWithCaution" />}
+                footer={
+                  <div>
+                    <Link
+                      to={locLang.set(
+                        "/account",
+                        locLang.get(this.props.location)
+                      )}
+                    >
+                      <Button className="mr10">
+                        <BackIcon />
+                        <FormattedMessage id="app.back" />
+                      </Button>
+                    </Link>
+                    <Button onClick={this.handleRemove}>
+                      <ButtonSpinner
+                        loading={this.state.loading}
+                        icon={<RemoveIcon className="btn-icon" />}
+                      />
+                      <FormattedMessage id="account.removeYourAccount" />
+                    </Button>
+                  </div>
+                }
               >
-                <Button className="mr10">
-                  <BackIcon />
-                  <FormattedMessage id="app.back" />
-                </Button>
-              </Link>
-              <Button onClick={this.handleRemove}>
-                <ButtonSpinner
-                  loading={this.state.loading}
-                  icon={<RemoveIcon className="btn-icon" />}
-                />
-                <FormattedMessage id="account.removeYourAccount" />
-              </Button>
-            </TrayFooter>
-          </Tray>
-        ) : (
-          ""
-        )}
-        <Tray className="my1 maxw700">
-          <TrayTitle icon={<WhyIcon />}>
-            <FormattedMessage id="app.whatIsThis" />
-          </TrayTitle>
-          <p>
-            <FormattedHTMLMessage id="account.removeYourAccountInfo" />
-          </p>
-          <p>
-            <FormattedMessage id="gdpr.readRights" />
-          </p>
-          <TrayFooter className="txt-right">
-            <Link
-              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+                <p>
+                  <FormattedHTMLMessage id="account.removeYourAccountWarning" />
+                </p>
+              </Tray>
+            ) : (
+              ""
+            )}
+          </Column>
+          <Column side="right">
+            <Tray
+              className="my1"
+              icon={<WhyIcon />}
+              title={<FormattedMessage id="app.whatIsThis" />}
+              footer={
+                <Link
+                  to={locLang.set(
+                    "/docs/rights",
+                    locLang.get(this.props.location)
+                  )}
+                >
+                  <Button>
+                    <FormattedMessage id="app.yourRights" />
+                  </Button>
+                </Link>
+              }
             >
-              <Button>
-                <FormattedMessage id="app.yourRights" />
-              </Button>
-            </Link>
-          </TrayFooter>
-        </Tray>
+              <p>
+                <FormattedHTMLMessage id="account.removeYourAccountInfo" />
+              </p>
+              <p>
+                <FormattedMessage id="gdpr.readRights" />
+              </p>
+            </Tray>
+          </Column>
+        </TwoColumns>
       </div>
     );
   }

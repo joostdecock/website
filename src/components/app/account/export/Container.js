@@ -7,8 +7,8 @@ import ExportIcon from "@material-ui/icons/CloudDownload";
 import ButtonSpinner from "../../../ButtonSpinner";
 import Breadcrumbs from "../../../Breadcrumbs";
 import Tray from "../../../Tray";
-import TrayTitle from "../../../TrayTitle";
-import TrayFooter from "../../../TrayFooter";
+import TwoColumns from "../../../TwoColumns";
+import Column from "../../../Column";
 import WhyIcon from "@material-ui/icons/Help";
 import { Link } from "gatsby";
 import { locLang } from "../../../../utils";
@@ -41,42 +41,52 @@ class AccountExportContainer extends React.Component {
         <h1>
           <FormattedMessage id="account.exportYourData" />
         </h1>
-        <p>
-          <FormattedMessage id="account.exportYourDataTitle" />
-        </p>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          disabled={this.state.loading ? true : false}
-          onClick={this.handleExport}
-        >
-          <ButtonSpinner
-            loading={this.state.loading}
-            icon={<ExportIcon className="btn-icon" />}
-          />
-          <FormattedMessage id="app.download" />
-        </Button>
-        <Tray className="my1 maxw700">
-          <TrayTitle icon={<WhyIcon />}>
-            <FormattedMessage id="app.whatIsThis" />
-          </TrayTitle>
-          <p>
-            <FormattedHTMLMessage id="account.exportYourDataInfo" />
-          </p>
-          <p>
-            <FormattedMessage id="gdpr.readRights" />
-          </p>
-          <TrayFooter className="txt-right">
-            <Link
-              to={locLang.set("/docs/rights", locLang.get(this.props.location))}
+        <TwoColumns>
+          <Column>
+            <p>
+              <FormattedMessage id="account.exportYourDataTitle" />
+            </p>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              disabled={this.state.loading ? true : false}
+              onClick={this.handleExport}
             >
-              <Button>
-                <FormattedMessage id="app.yourRights" />
-              </Button>
-            </Link>
-          </TrayFooter>
-        </Tray>
+              <ButtonSpinner
+                loading={this.state.loading}
+                icon={<ExportIcon className="btn-icon" />}
+              />
+              <FormattedMessage id="app.download" />
+            </Button>
+          </Column>
+          <Column side="right">
+            <Tray
+              className="my1"
+              icon={<WhyIcon />}
+              title={<FormattedMessage id="app.whatIsThis" />}
+              footer={
+                <Link
+                  to={locLang.set(
+                    "/docs/rights",
+                    locLang.get(this.props.location)
+                  )}
+                >
+                  <Button>
+                    <FormattedMessage id="app.yourRights" />
+                  </Button>
+                </Link>
+              }
+            >
+              <p>
+                <FormattedHTMLMessage id="account.exportYourDataInfo" />
+              </p>
+              <p>
+                <FormattedMessage id="gdpr.readRights" />
+              </p>
+            </Tray>
+          </Column>
+        </TwoColumns>
       </div>
     );
   }

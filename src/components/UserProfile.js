@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Tray from "./Tray";
 import TrayTitle from "./TrayTitle";
-import TrayFooter from "./TrayFooter";
 import GithubIcon from "./GithubIcon";
 import TwitterIcon from "./TwitterIcon";
 import InstagramIcon from "./InstagramIcon";
@@ -31,7 +30,45 @@ class UserProfile extends React.Component {
     const twitter = socialLink(this.props.user, "twitter");
     const instagram = socialLink(this.props.user, "instagram");
     return (
-      <Tray>
+      <Tray
+        className="always-expanded"
+        title={false}
+        footer={
+          <div>
+            <div
+              style={{
+                display: "inline-block",
+                paddingRight: "10px",
+                color: "inherit"
+              }}
+              dangerouslySetInnerHTML={{
+                __html: i18nConfig.icons[user.settings.language]
+              }}
+            />
+            {twitter ? (
+              <IconButton href={twitter} color="primary" className="mr10">
+                <TwitterIcon />
+              </IconButton>
+            ) : (
+              ""
+            )}
+            {instagram ? (
+              <IconButton href={instagram} color="primary" className="mr10">
+                <InstagramIcon />
+              </IconButton>
+            ) : (
+              ""
+            )}
+            {github ? (
+              <IconButton href={github} color="primary" className="mr10">
+                <GithubIcon />
+              </IconButton>
+            ) : (
+              ""
+            )}
+          </div>
+        }
+      >
         <Grid
           container
           direction="row"
@@ -63,39 +100,6 @@ class UserProfile extends React.Component {
             />
           </Grid>
         </Grid>
-        <TrayFooter className="txt-right">
-          <div
-            style={{
-              display: "inline-block",
-              paddingRight: "10px",
-              color: "inherit"
-            }}
-            dangerouslySetInnerHTML={{
-              __html: i18nConfig.icons[user.settings.language]
-            }}
-          />
-          {twitter ? (
-            <IconButton href={twitter} color="primary" className="mr10">
-              <TwitterIcon />
-            </IconButton>
-          ) : (
-            ""
-          )}
-          {instagram ? (
-            <IconButton href={instagram} color="primary" className="mr10">
-              <InstagramIcon />
-            </IconButton>
-          ) : (
-            ""
-          )}
-          {github ? (
-            <IconButton href={github} color="primary" className="mr10">
-              <GithubIcon />
-            </IconButton>
-          ) : (
-            ""
-          )}
-        </TrayFooter>
       </Tray>
     );
   }

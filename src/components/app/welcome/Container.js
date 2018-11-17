@@ -22,8 +22,6 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import FieldForm from "../account/FieldForm";
 import Tray from "../../Tray";
-import TrayTitle from "../../TrayTitle";
-import TrayFooter from "../../TrayFooter";
 import Breadcrumbs from "../../Breadcrumbs";
 import WhyIcon from "@material-ui/icons/Help";
 
@@ -337,14 +335,14 @@ class WelcomeContainer extends React.Component {
             }
           />
           {step.content}
-          <Tray className="my1">
-            <TrayTitle icon={<WhyIcon />}>
-              <FormattedMessage id={"app.whatIsThis"} />
-            </TrayTitle>
+          <Tray
+            className="my1 always-expanded"
+            icon={<WhyIcon />}
+            title={<FormattedMessage id={"app.whatIsThis"} />}
+          >
             <p>
               <FormattedHTMLMessage id={"account." + step.key + "Info"} />
             </p>
-            <TrayFooter />
           </Tray>
         </form>
       </div>

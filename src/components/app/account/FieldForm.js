@@ -22,8 +22,6 @@ import Dropzone from "react-dropzone";
 import Button from "@material-ui/core/Button";
 import SelectImageIcon from "@material-ui/icons/AddAPhoto";
 import Tray from "../../Tray";
-import TrayTitle from "../../TrayTitle";
-import TrayFooter from "../../TrayFooter";
 import HeartIcon from "@material-ui/icons/Favorite";
 
 class FieldForm extends React.Component {
@@ -344,14 +342,11 @@ class FieldForm extends React.Component {
               <p>
                 <FormattedMessage id="app.patronsKeepUsAfloat" />
               </p>
-              <Tray className="vspace2 accent">
-                <TrayTitle icon={<HeartIcon />}>
-                  <FormattedMessage id="app.becomeAPatron" />
-                </TrayTitle>
-                <p>
-                  <FormattedMessage id="app.patronPitch" />
-                </p>
-                <TrayFooter>
+              <Tray
+                className="my1 always-expanded accent"
+                icon={<HeartIcon />}
+                title={<FormattedMessage id="app.becomeAPatron" />}
+                footer={
                   <Link
                     to={locLang.set(
                       "/patrons/join",
@@ -362,7 +357,11 @@ class FieldForm extends React.Component {
                       <FormattedMessage id="app.becomeAPatron" />
                     </Button>
                   </Link>
-                </TrayFooter>
+                }
+              >
+                <p>
+                  <FormattedMessage id="app.patronPitch" />
+                </p>
               </Tray>
             </div>
           );

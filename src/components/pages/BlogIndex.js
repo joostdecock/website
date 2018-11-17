@@ -3,15 +3,9 @@ import PropTypes from "prop-types";
 import BaseLayout from "../layouts/Base";
 import BlogPostPreview from "../BlogPostPreview";
 import Grid from "@material-ui/core/Grid";
-import Translate from "@material-ui/icons/Translate";
 import { FormattedMessage } from "react-intl";
 import Breadcrumbs from "../Breadcrumbs";
-import Tray from "../Tray";
-import TrayTitle from "../TrayTitle";
-import TrayFooter from "../TrayFooter";
-import { Link } from "gatsby";
-import { locLang } from "../../utils";
-import Button from "@material-ui/core/Button";
+import LanguageNotAlwaysAvailable from "../LanguageNotAlwaysAvailable";
 
 export default class BlogIndex extends React.Component {
   render() {
@@ -60,30 +54,7 @@ export default class BlogIndex extends React.Component {
             <FormattedMessage id="app.blog" />
             {category === "all" ? "" : " #" + category}
           </h1>
-          {missingPosts ? (
-            <Tray className="warning mb1">
-              <TrayTitle icon={<Translate />}>
-                <FormattedMessage id="app.notAllOfThisContentIsAvailableInLanguage" />
-              </TrayTitle>
-              <ul>
-                <li>
-                  <FormattedMessage id="app.colourYes" />
-                </li>
-                <li>
-                  <FormattedMessage id="app.monochromeNo" />
-                </li>
-              </ul>
-              <TrayFooter>
-                <Link to={locLang.set("/docs/i18n", language)}>
-                  <Button>
-                    <FormattedMessage id="app.helpUsTranslate" />
-                  </Button>
-                </Link>
-              </TrayFooter>
-            </Tray>
-          ) : (
-            ""
-          )}
+          {missingPosts ? <LanguageNotAlwaysAvailable /> : ""}
           <Grid container spacing={24} class="masonry w100">
             {list}
           </Grid>

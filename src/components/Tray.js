@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TrayTitle from "./TrayTitle";
 import TrayFooter from "./TrayFooter";
 import InfoIcon from "@material-ui/icons/Info";
@@ -28,18 +27,21 @@ class Tray extends React.Component {
           this.state.extraClasses + " tray shadow1 " + this.props.className
         }
       >
-        <TrayTitle icon={this.props.icon}>
-          {this.props.title}
-          <a className="toggle expand" onClick={this.handleExpand}>
-            <ExpandIcon className="toggle" />
-          </a>
-          <a className="toggle collapse" onClick={this.handleCollapse}>
-            <CollapseIcon className="toggle" />
-          </a>
-        </TrayTitle>
+        {this.props.title === false ? (
+          ""
+        ) : (
+          <TrayTitle icon={this.props.icon}>
+            {this.props.title}
+            <a className="toggle expand" onClick={this.handleExpand}>
+              <ExpandIcon className="toggle" />
+            </a>
+            <a className="toggle collapse" onClick={this.handleCollapse}>
+              <CollapseIcon className="toggle" />
+            </a>
+          </TrayTitle>
+        )}
         <div className="content">
           {this.props.children}
-          <pre>{this.state.collapsed ? "Collapsed" : "Not collapsed"}</pre>
           <TrayFooter>{this.props.footer}</TrayFooter>
         </div>
       </div>
@@ -47,11 +49,10 @@ class Tray extends React.Component {
   }
 }
 
-Tray.propTypes = {};
-
 Tray.defaultProps = {
   icon: <InfoIcon />,
-  footer: ""
+  footer: "",
+  title: ""
 };
 
 export default Tray;
