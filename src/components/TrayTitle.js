@@ -1,10 +1,8 @@
 import React from "react";
 
 export default props => (
-  <div className={"tray-title " + (props.className || "")}>
-    <h3>
-      {props.icon}
-      {props.children}
-    </h3>
-  </div>
+  <h3 className={"tray-title " + (props.className || "")}>
+    <span className="tray-title-icon">{props.icon}</span>
+    {props.children}
+  </h3>
 );

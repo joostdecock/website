@@ -1,172 +1,54 @@
-.tray {
-  border-top: 5px solid $primary;
-  padding: 2rem;
-  padding-bottom: 1rem;
+@import 'tray-expanded';
+@import 'tray-collapsed';
 
-  .tray-title:first-of-type {
-    margin-top: -1.5rem;
-  }
+@mixin tray-color-expanded($color) {
+  border-top-color: $color!important;
   .tray-title {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-    svg {
-      margin: 0 1rem -14px 0;
-      width: 48px;
-      height: 48px;
-      background: $bw6;
-      border-radius: 50%;
-      padding: 6px;
-    }
-    h3 {
-      line-height: 1.5;
-    }
-  }
-  .tray-footer {
-    margin: 0.5rem -2rem -1rem;
-    padding: 0.5rem 2rem;
-    background: $bw7;
-    text-align: right;
-  }
-  .bio {
-    font-size: 110%;
-    line-height: 1.3;
+    svg { color: $color; }
+    a.toggle svg { color: inherit; }
   }
 }
 
-.tray.danger {
-  border-top: 5px solid $danger;
-  .tray-title {
-    svg {
-      background: $dangerWhite;
-      color: $danger;
-    }
-  }
-  .tray-footer {
-    background: $dangerWhite;
-  }
+.unforced.tray,
+.force-collapsed.tray {
+  @include tray-collapsed;
 }
 
-.tray.warning {
-  border-top: 5px solid $warning;
-  .tray-title {
-    svg {
-      background: $warningWhite;
-      color: $warning;
-    }
-  }
-  .tray-footer {
-    background: $warningWhite;
-  }
+.force-expanded.tray {
+  @include tray-expanded;
 }
 
-.tray.success {
-  border-top: 5px solid $success;
-  .tray-title {
-    svg {
-      background: $successWhite;
-      color: $success;
-    }
-  }
-  .tray-footer {
-    background: $successWhite;
-  }
-}
-
-.tray.link {
-  border-top: 5px solid $link;
-  .tray-title {
-    svg {
-      background: $linkWhite;
-      color: $link;
-    }
-  }
-  .tray-footer {
-    background: $linkWhite;
-  }
-}
-
-.tray.accent {
-  border-top: 5px solid $accent;
-  .tray-title {
-    svg {
-      background: $accentWhite;
-      color: $accent;
-    }
-  }
-  .tray-footer {
-    background: $accentWhite;
-  }
-}
+.tray.success { @include tray-color-expanded($success) }
+.tray.warning { @include tray-color-expanded($warning) }
+.tray.danger  { @include tray-color-expanded($danger) }
+.tray.accent  { @include tray-color-expanded($accent) }
+.tray.link  { @include tray-color-expanded($link) }
 
 body.dark {
   .tray {
-    border-top: 5px solid $bw6;
-    .tray-title {
-      svg {
-        background: $bw3;
-      }
-    }
+    border-top-color: $bw6;
+    h3.tray-title span.tray-title-icon svg { background: $bw1; }
+    a.toggle:hover { color: $secondary; }
     .tray-footer {
       background: $bw2;
-      a {
-        color: $bw8;
-      }
+      a { color: $bw8; }
     }
   }
-  .tray.danger {
-    border-top: 5px solid $danger;
+  .force-expanded.tray {
     .tray-title {
-      svg {
-        background: $dangerWhite;
-      }
-    }
-    .tray-footer {
-      background: $dangerBlack;
+      .tray-title-icon svg { background-color: $bw2; }
     }
   }
-  .tray.warning {
-    border-top: 5px solid $warning;
-    .tray-title {
-      svg {
-        background: $warningWhite;
-      }
-    }
-    .tray-footer {
-      background: $warningBlack;
-    }
-  }
-  .tray.success {
-    border-top: 5px solid $success;
-    .tray-title {
-      svg {
-        background: $successWhite;
-      }
-    }
-    .tray-footer {
-      background: $successBlack;
-    }
-  }
-  .tray.link {
-    border-top: 5px solid $link;
-    .tray-title {
-      svg {
-        background: $linkWhite;
-      }
-    }
-    .tray-footer {
-      background: $linkBlack;
-    }
-  }
-  .tray.accent {
-    border-top: 5px solid $accent;
-    .tray-title {
-      svg {
-        background: $accentWhite;
-      }
-    }
-    .tray-footer {
-      background: $accentBlack;
-    }
-  }
+  .tray.success { @include tray-color-expanded($success) }
+  .tray.warning { @include tray-color-expanded($warning) }
+  .tray.danger  { @include tray-color-expanded($danger) }
+  .tray.accent  { @include tray-color-expanded($accent) }
+  .tray.link  { @include tray-color-expanded($link) }
 }
 
+@include md-screen {
+  .unforced.tray,
+  .force-expaded.tray {
+    @include tray-expanded;
+  }
+}
