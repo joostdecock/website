@@ -1,5 +1,6 @@
 @include xs-screen {
   .not-on-xs,
+  .not-on-md,
   .not-on-mobile {
     display: none!important;
   }

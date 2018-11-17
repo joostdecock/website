@@ -30,7 +30,9 @@ div.mobile-menu {
 
     hr {
       margin: 0.25rem 0;
-      border-top: 1px solid currentcolor;
+      border-top: 1px dashed $bw7;
+      color: transparent;
+      height: 0;
     }
   }
 }
@@ -44,6 +46,9 @@ body.dark div.mobile-menu {
     }
     h5 a:hover {
       background: rgba(255, 255, 255, 0.1);
+    }
+    hr {
+      border-color: $bw3;
     }
   }
 }

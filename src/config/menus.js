@@ -8,7 +8,7 @@ import GithubIcon from "../components/GithubIcon";
 
 const languageMenu = (location, pageLanguage) => {
   let menu = {
-    text: i18nConfig.translations[pageLanguage],
+    text: "",
     icon: { type: "inline", svg: i18nConfig.icons[pageLanguage] },
     items: []
   };

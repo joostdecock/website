@@ -16,8 +16,6 @@ import {
 } from "../config/menus";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
-import BlogIcon from "@material-ui/icons/ImportContacts";
-import Logo from "./Logo";
 
 const styles = {
   root: {
@@ -118,8 +116,7 @@ class MobileMenu extends React.Component {
                     id: "app.freesewing"
                   })}
                 >
-                  <Logo size={24} className="mr20" />
-                  <FormattedMessage id="app.freesewing" />
+                  <FormattedMessage id="app.home" />
                 </Link>
               </h5>
               <h5>
@@ -128,7 +125,6 @@ class MobileMenu extends React.Component {
                   to={locLang.set("/blog/", this.props.language)}
                   title={this.props.intl.formatMessage({ id: "app.blog" })}
                 >
-                  <BlogIcon className="mr20" />
                   <FormattedMessage id="app.blog" />
                 </Link>
               </h5>

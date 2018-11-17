@@ -1,6 +1,7 @@
 @include md-screen {
-  .not-on-mobile { display: none!important; }
-  .only-on-mobile { display: inherit!important; }
+  .not-on-mobile { display: inherit!important; }
+  .not-on-md,
+  .only-on-mobile { display: none!important; }
   aside.left { padding-right: 1rem; }
   aside.right { padding-left: 1rem; }
   .pl1nsm { padding-left: 1rem; }

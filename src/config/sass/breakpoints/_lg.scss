@@ -1,5 +1,6 @@
 @include lg-screen {
-  .not-on-mobile {
+  .not-on-mobile,
+  .not-on-md {
     display: inherit!important;
   }
   .only-on-mobile {

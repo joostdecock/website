@@ -15,7 +15,8 @@ const MobileSubMenu = props => {
     <div>
       <h5>{label}</h5>
       {props.items.map((item, index) => {
-        if (item === "divider") return <hr key={"divider" + index} />;
+        if (item === "divider")
+          return <hr key={"divider" + index} className="divider" />;
         return (
           <MobileSubMenuItem
             key={item.label + "__" + index}
