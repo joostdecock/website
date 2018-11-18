@@ -23,7 +23,8 @@ exports.createPages = ({ actions, graphql }) => {
   const jsPages = [
     {
       slug: "/",
-      template: path.resolve("src/components/pages/HomePage.js")
+      template: path.resolve("src/components/pages/HomePage.js"),
+      query: queries.showcasePreviews
     },
     {
       slug: "/login",

@@ -1,14 +1,3 @@
-@import 'tray-expanded';
-@import 'tray-collapsed';
-
-@mixin tray-color-expanded($color) {
-  border-top-color: $color!important;
-  .tray-title {
-    svg { color: $color; }
-    button.toggle svg { color: inherit; }
-  }
-}
-
 .unforced.tray,
 .force-collapsed.tray {
   @include tray-collapsed;

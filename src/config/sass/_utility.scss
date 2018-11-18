@@ -63,11 +63,8 @@ p.mini,
 .grayscale { filter: grayscale(100%); }
 
 // Shadows
-.shadow1 { box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12); }
-body.dark .shadow1 {
-  box-shadow: 3px 3px 0 #000;
-  border: 1px solid $bw2;
-}
+.shadow1 { @include shadow; }
+body.dark .shadow1 { @include shadow-dark; }
 
 // Various
 .inherit-color { color: inherit!important; }

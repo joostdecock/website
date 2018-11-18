@@ -1,0 +1,26 @@
+.slide {
+  @include shadow;
+  border-radius: 3px;
+}
+.slide-card {
+  height: 300px;
+  width: 220px!important;
+  background: $bw1;
+  position: relative;
+  padding: 0 0.5rem;
+  padding-top: 40%;
+  margin: 0 8px;
+  a { color: $bw6; }
+  a:hover { color: $secondary; }
+}
+.slick-chip { margin: 0 3px; }
+body.dark {
+  .slide {
+    @include shadow-dark;
+  }
+  a { color: $bw6; }
+  a:hover { color: $secondary; }
+  .slick-dots li button::before {
+    color: $bw7;
+  }
+}

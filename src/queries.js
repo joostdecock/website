@@ -69,6 +69,38 @@ const allShowcasePosts = `{
   }
 }`;
 
+const showcasePreviews = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/en/showcase/"}}}
+      sort: {fields: [frontmatter___date], order: DESC}
+    ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          path
+          title
+  			  img {
+            childImageSharp {
+              fixed(height: 300) {
+                 base64
+                 aspectRatio
+                 src
+                 srcSet
+                 width
+                 height
+              }
+            }
+          }
+          caption
+          author
+          patterns
+        }
+      }
+    }
+  }
+}`;
+
 const allDocumentation = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/"}}}
@@ -113,5 +145,6 @@ module.exports = {
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
-  markdownHelp
+  markdownHelp,
+  showcasePreviews
 };

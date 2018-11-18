@@ -13,3 +13,130 @@
 @mixin xl-screen {
   @media (min-width: 1920px) { @content; }
 }
+
+@mixin shadow {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+@mixin shadow-dark {
+  box-shadow: 3px 3px 0 #000;
+  border: 1px solid $bw2;
+}
+
+@mixin tray-expanded {
+  border-top: 5px solid $primary;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  position: relative;
+
+  .tray-title:first-of-type {
+    margin-top: -0.5rem;
+  }
+  h3.tray-title {
+    margin: 1.5rem 0 2rem 0;
+    line-height: 1.5;
+    background: inherit;
+    color: inherit;
+    font-size: 1.4427rem;
+    svg {
+      margin: 0 1rem -14px 0;
+      width: 48px;
+      height: 48px;
+      background: $bw6;
+      border-radius: 50%;
+      padding: 6px;
+    }
+  }
+  .tray-footer {
+    margin: 0.5rem -2rem -1rem;
+    padding: 0.5rem 2rem;
+    background: $bw7;
+    text-align: right;
+  }
+  .bio {
+    font-size: 110%;
+    line-height: 1.3;
+  }
+  button.toggle {
+    color: $bw4;
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: right;
+    top: 0;
+    right: 0;
+    svg {
+      margin-right: 5px;
+      width: 48px;
+      height: 48px;
+      background: transparent;
+      padding: 0;
+    }
+  }
+  button.toggle:hover {
+    cursor: pointer;
+    color: $primary;
+    background-color: transparent;
+  }
+  button.toggle.expand { display: none; }
+  button.toggle.collapse { display: block; }
+  .content { display: block; }
+}
+
+@mixin tray-collapsed {
+  border: 0;
+  padding: 0;
+  position: relative;
+  h3.tray-title {
+    border-radius: 3px;
+    font-size: 1rem;
+    margin: 0;
+    padding: 8px 1rem;
+    background: $primary;
+    color: $secondary;
+    svg {
+        margin: 0 1rem -5px 0;
+        width: 22px;
+        height: 22px;
+        background: transparent;
+        border-radius: 50%;
+        padding: 0;
+    }
+  }
+  button.toggle {
+    color: $bw4;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2rem;
+    text-align: right;
+    top: 0;
+    right: 0;
+    svg {
+      margin-right: 5px;
+      margin-top: -4px;
+      width: 48px;
+      height: 48px;
+      background: transparent;
+      padding: 0;
+    }
+  }
+  button.toggle:hover {
+    cursor: pointer;
+    color: $secondary;
+    background-color: transparent;
+  }
+  button.toggle.collapse,
+  .content { display: none; }
+  button.toggle.expand { display: block; }
+}
+
+@mixin tray-color-expanded($color) {
+  border-top-color: $color!important;
+  .tray-title {
+    svg { color: $color; }
+    button.toggle svg { color: inherit; }
+  }
+}
+
+

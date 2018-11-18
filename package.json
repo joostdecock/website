@@ -37,9 +37,11 @@
     "react-intl": "2.7.1",
     "react-jss": "latest",
     "react-redux": "^5.0.7",
+    "react-slick": "0.23.2",
     "react-typography": "^0.16.13",
     "redux": "^4.0.0",
     "remark-html": "8.0.0",
+    "slick-carousel": "1.8.1",
     "tlds": "1.203.1",
     "typography": "^0.16.17"
   },
