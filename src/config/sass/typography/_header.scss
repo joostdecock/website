@@ -11,9 +11,12 @@ h2,h3 {
 h4,h5,h6 {
   margin-top: 1rem;
   margin-bottom: 0.25rem;
-  font-weight: bold
+  font-weight: 500;
 }
 
-h4 { font-size: 22px; }
-h5 { font-size: 20px; }
-h6 { font-size: 18px; }
+h1 { font-size: 2.4rem; font-weight: 500; }
+h2 { font-size: 2.1rem; font-weight: 500; }
+h3 { font-size: 1.8rem; font-weight: 500; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.1rem; }

@@ -7,6 +7,8 @@ import { locLang } from "../utils";
 import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
+import BlogIcon from "@material-ui/icons/RssFeed";
 import { Link } from "gatsby";
 import MobileSubMenu from "./MobileSubMenu";
 import {
@@ -62,7 +64,7 @@ class MobileMenu extends React.Component {
             to={locLang.set("/login/", this.props.language)}
             title={this.props.intl.formatMessage({ id: "app.logIn" })}
           >
-            <LoginIcon className="mr20" />
+            <LoginIcon className="mr1" />
             <FormattedMessage id="app.logIn" />
           </Link>
         </h5>,
@@ -72,7 +74,7 @@ class MobileMenu extends React.Component {
             to={locLang.set("/signup/", this.props.language)}
             title={this.props.intl.formatMessage({ id: "app.signUp" })}
           >
-            <SignupIcon className="mr20" />
+            <SignupIcon className="mr1" />
             <FormattedMessage id="app.signUp" />
           </Link>
         </h5>
@@ -116,6 +118,7 @@ class MobileMenu extends React.Component {
                     id: "app.freesewing"
                   })}
                 >
+                  <HomeIcon className="mr1" />
                   <FormattedMessage id="app.home" />
                 </Link>
               </h5>
@@ -125,6 +128,7 @@ class MobileMenu extends React.Component {
                   to={locLang.set("/blog/", this.props.language)}
                   title={this.props.intl.formatMessage({ id: "app.blog" })}
                 >
+                  <BlogIcon className="mr1" />
                   <FormattedMessage id="app.blog" />
                 </Link>
               </h5>
