@@ -7,6 +7,36 @@ import { locLang } from "../../utils";
 import Chip from "@material-ui/core/Chip";
 import LinkIcon from "@material-ui/icons/Link";
 import { FormattedMessage } from "react-intl";
+import IconButton from "@material-ui/core/IconButton";
+import NextIcon from "@material-ui/icons/KeyboardArrowRight";
+import PrevIcon from "@material-ui/icons/KeyboardArrowLeft";
+
+/*
+
+
+
+*/
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <NextIcon
+      className={className}
+      style={{ ...style, display: "block", color: "grey" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <PrevIcon
+      className={className}
+      style={{ ...style, display: "block", color: "grey" }}
+      onClick={onClick}
+    />
+  );
+}
 
 const HomePage = props => {
   const showcases = props.pageContext.data.allMarkdownRemark.edges.slice(0, 10);
@@ -18,7 +48,9 @@ const HomePage = props => {
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
-    initialSlide: 1
+    initialSlide: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />
   };
   return (
     <BaseLayout>

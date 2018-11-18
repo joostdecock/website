@@ -13,7 +13,7 @@
   a { color: $bw6; }
   a:hover { color: $secondary; }
 }
-.slick-chip { margin: 0 3px; }
+.slick-chip { margin: 0 3px 0.5rem 0; }
 body.dark {
   .slide {
     @include shadow-dark;
@@ -24,3 +24,25 @@ body.dark {
     color: $bw7;
   }
 }
+.slick-slider {
+  height: 345px;
+  overflow: hidden;
+}
+
+@include xs-screen {
+.slick-dots,
+.slick-arrow {
+  display: none!important;
+}
+}
+@include md-screen {
+  .slick-dots,
+  .slick-arrow {
+    display: block!important;
+  }
+  .slick-slider {
+    height: auto;
+    overflow: inherit;
+  }
+}
+
