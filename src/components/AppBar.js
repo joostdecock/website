@@ -52,7 +52,7 @@ function FsAppBar(props) {
         title={intl.formatMessage({ id: "app.logIn" })}
         key="login"
       >
-        <LoginIcon className="mr10" />
+        <LoginIcon className="mr1" />
         <FormattedMessage id="app.logIn" />
       </Button>,
       <Button
@@ -61,7 +61,7 @@ function FsAppBar(props) {
         title={intl.formatMessage({ id: "app.signUp" })}
         key="signup"
       >
-        <SignupIcon className="mr10" />
+        <SignupIcon className="mr1" />
         <FormattedMessage id="app.signUp" />
       </Button>
     ];

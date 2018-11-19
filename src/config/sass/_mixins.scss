@@ -139,4 +139,5 @@
   }
 }
 
-
+@mixin body-font { font-family: 'Domine', serif; }
+@mixin title-font { font-family: 'Open Sans Condensed', sans-serif; }

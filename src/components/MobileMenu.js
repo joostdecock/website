@@ -9,7 +9,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import BlogIcon from "@material-ui/icons/RssFeed";
-import { Link } from "gatsby";
 import MobileSubMenu from "./MobileSubMenu";
 import {
   communityMenu,
@@ -59,7 +58,7 @@ class MobileMenu extends React.Component {
       );
     } else {
       userMenu = [
-        <hr />,
+        <hr key="user-hr" />,
         <MenuItem
           key="login"
           button={true}

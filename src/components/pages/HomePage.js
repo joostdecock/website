@@ -5,9 +5,7 @@ import Slider from "react-slick";
 import { Link } from "gatsby";
 import { locLang } from "../../utils";
 import Chip from "@material-ui/core/Chip";
-import LinkIcon from "@material-ui/icons/Link";
 import { FormattedMessage } from "react-intl";
-import IconButton from "@material-ui/core/IconButton";
 import NextIcon from "@material-ui/icons/KeyboardArrowRight";
 import PrevIcon from "@material-ui/icons/KeyboardArrowLeft";
 
@@ -69,7 +67,11 @@ const HomePage = props => {
           let frontmatter = showcase.node.frontmatter;
           let img = frontmatter.img.childImageSharp.fixed;
           return (
-            <div style={{ width: 20 + img.width }} className="txt-center">
+            <div
+              style={{ width: 20 + img.width }}
+              className="txt-center"
+              key={"showcase-" + index}
+            >
               <Link
                 to={locLang.set(frontmatter.path, props.pageContext.language)}
               >
@@ -89,6 +91,7 @@ const HomePage = props => {
                       "/patterns/" + pattern,
                       props.pageContext.language
                     )}
+                    key={"showcase-" + index + "-link-" + pindex}
                   >
                     <Chip
                       color="primary"

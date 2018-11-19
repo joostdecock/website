@@ -7,7 +7,9 @@ const typography = new Typography({
   headerGray: 0,
   bodyGray: 0,
   headerWeight: 400,
-  bodyWeight: "normal"
+  bodyWeight: "normal",
+  headerFontFamily: ["Open Sans Condensed", "sans-serif"],
+  bodyFontFamily: ["Domine", "serif"]
 });
 
 export default typography;

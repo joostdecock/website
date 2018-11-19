@@ -103,7 +103,7 @@ export default data => {
             icon={<TocIcon />}
             title={<FormattedMessage id="app.contents" />}
           >
-            <div dangerouslySetInnerHTML={{ __html: toc }} />
+            <div className="toc" dangerouslySetInnerHTML={{ __html: toc }} />
           </Tray>
         </Grid>
       </Grid>

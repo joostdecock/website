@@ -21,6 +21,8 @@ import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
 import backend from "../../backend";
 import LocationProvider from "../LocationProvider";
+import bodyFont from "typeface-domine";
+import titleFont from "typeface-open-sans-condensed";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
