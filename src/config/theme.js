@@ -6,6 +6,20 @@ export default {
     MuiButtonBase: {
       disableRipple: true // Disabling ripple everywhere
     }
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        fontFamily: "Open Sans Condensed",
+        fontWeight: "bold"
+      }
+    },
+    MuiMenuItem: {
+      root: {
+        fontFamily: "Open Sans Condensed",
+        fontWeight: "bold"
+      }
+    }
   }
 };
 

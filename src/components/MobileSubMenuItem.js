@@ -11,10 +11,10 @@ const MobileSubMenuItem = props => {
   let label = "";
   let link = "";
   if (typeof props.text === "string") {
-    label = <ListItemText>{props.text}</ListItemText>;
+    label = <ListItemText className="title-font">{props.text}</ListItemText>;
   } else {
     label = (
-      <ListItemText>
+      <ListItemText className="title-font">
         <FormattedMessage id={props.label} />
       </ListItemText>
     );

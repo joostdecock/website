@@ -1,40 +1,15 @@
 body { @include body-font; }
 
 button,
-*[class^=MuiButton],
-*[class^=MuiListItemText] > span,
-*[class^=MuiChip],
 nav.breadcrumbs {
   @include title-font;
   font-weight: 600;
 }
-
-p { margin-bottom: 1rem; }
-
-h1, h2, h3, h4, h5, h6 { font-weight: 600; color: $bw1;}
+.title-font {
+  @include title-font;
+}
+h1, h2, h3, h4, h5, h6 { color: $bw1;}
 body.dark {
   h1, h2, h3, h4, h5, h6 { color: $bw9;}
 }
-
-h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-h2,h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-h4,h5,h6 {
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.9rem; }
-h4 { font-size: 1.7rem; }
-h5 { font-size: 1.5rem; }
-h6 { font-size: 1.2rem; }
 
