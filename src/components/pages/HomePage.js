@@ -8,6 +8,9 @@ import Chip from "@material-ui/core/Chip";
 import { FormattedMessage } from "react-intl";
 import NextIcon from "@material-ui/icons/KeyboardArrowRight";
 import PrevIcon from "@material-ui/icons/KeyboardArrowLeft";
+import SignupIcon from "@material-ui/icons/PersonAdd";
+import Button from "@material-ui/core/Button";
+import ButtonSpinner from "../ButtonSpinner";
 
 /*
 
@@ -59,6 +62,20 @@ const HomePage = props => {
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
       <p>Heading 6 (this is just text)</p>
+
+      <Button href="/signup" color="primary" variant="contained">
+        link button
+      </Button>
+      <Button href="/signup" color="secondary" variant="contained">
+        link button
+      </Button>
+      <Button color="primary" variant="contained">
+        click button
+      </Button>
+      <Button color="secondary" variant="contained">
+        click button
+      </Button>
+
       <h2>
         <FormattedMessage id="app.showcase" />
       </h2>

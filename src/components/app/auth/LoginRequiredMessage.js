@@ -14,37 +14,35 @@ const LoginRequiredMessage = ({ location }) => {
       <h1>
         <FormattedMessage id="app.youAreNotLoggedIn" />
       </h1>
-      <h5>
+      <h5 className="my1">
         <FormattedMessage id="app.thisPageRequiresAuthentication" />
       </h5>
-      <p className="my1">
-        <Button
-          href={locLang.set("/login", language)}
-          color="primary"
-          size="large"
-          variant="contained"
-          className="mr1"
-        >
-          <ButtonSpinner
-            loading={false}
-            icon={<LoginIcon className="btn-icon" />}
-          />
-          <FormattedMessage id="app.logIn" />
-        </Button>
-        <Button
-          classes={{ root: "mt10" }}
-          href={locLang.set("/signup", language)}
-          color="secondary"
-          size="large"
-          variant="contained"
-        >
-          <ButtonSpinner
-            loading={false}
-            icon={<SignupIcon className="btn-icon" />}
-          />
-          <FormattedMessage id="app.signUp" />
-        </Button>
-      </p>
+      <Button
+        href={locLang.set("/login", language)}
+        color="primary"
+        size="large"
+        variant="contained"
+        className="mr1"
+      >
+        <ButtonSpinner
+          loading={false}
+          icon={<LoginIcon className="btn-icon" />}
+        />
+        <FormattedMessage id="app.logIn" />
+      </Button>
+      <Button
+        classes={{ root: "mt10" }}
+        href={locLang.set("/signup", language)}
+        color="secondary"
+        size="large"
+        variant="contained"
+      >
+        <ButtonSpinner
+          loading={false}
+          icon={<SignupIcon className="btn-icon" />}
+        />
+        <FormattedMessage id="app.signUp" />
+      </Button>
     </div>
   );
 };

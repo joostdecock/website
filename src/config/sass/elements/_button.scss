@@ -1,0 +1,41 @@
+a[class*=MuiButton-raisedPrimary],
+button[class*=MuiButton-raisedPrimary] {
+  color: $bw6;
+}
+a[class*=MuiButton-raisedPrimary]:hover,
+button[class*=MuiButton-raisedPrimary]:hover {
+  color: $bw9;
+}
+
+a[class*=MuiButton-raisedSecondary],
+button[class*=MuiButton-raisedSecondary] {
+  color: $bw3;
+}
+a[class*=MuiButton-raisedSecondary]:hover,
+button[class*=MuiButton-raisedSecondary]:hover {
+  color: $bw1;
+  background: $secondary;
+}
+
+body.dark {
+  a[class*=MuiButton-raisedPrimary],
+  button[class*=MuiButton-raisedPrimary] {
+    color: $bw3;
+  }
+  a[class*=MuiButton-raisedPrimary]:hover,
+  button[class*=MuiButton-raisedPrimary]:hover {
+    color: $bw1;
+    background: $secondary;
+  }
+
+  a[class*=MuiButton-raisedSecondary],
+  button[class*=MuiButton-raisedSecondary] {
+    color: $bw6;
+    border: 1px solid $bw2;
+  }
+  a[class*=MuiButton-raisedSecondary]:hover,
+  button[class*=MuiButton-raisedSecondary]:hover {
+    color: $bw9;
+    background: $primary;
+  }
+}

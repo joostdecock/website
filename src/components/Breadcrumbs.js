@@ -39,9 +39,7 @@ function Breadcrumbs(props) {
             spacer
           ];
         })}
-        <li>
-          <b>{props.children}</b>
-        </li>
+        <li>{props.children}</li>
       </ul>
     </nav>
   );
