@@ -18,6 +18,7 @@ import {
 } from "../config/menus";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const styles = {
   root: {
@@ -58,26 +59,35 @@ class MobileMenu extends React.Component {
       );
     } else {
       userMenu = [
-        <h5 key="login">
-          <Link
-            onClick={this.handleClose}
-            to={locLang.set("/login/", this.props.language)}
-            title={this.props.intl.formatMessage({ id: "app.logIn" })}
-          >
-            <LoginIcon className="mr1" />
-            <FormattedMessage id="app.logIn" />
-          </Link>
-        </h5>,
-        <h5 key="logout">
-          <Link
-            onClick={this.handleClose}
-            to={locLang.set("/signup/", this.props.language)}
-            title={this.props.intl.formatMessage({ id: "app.signUp" })}
-          >
-            <SignupIcon className="mr1" />
-            <FormattedMessage id="app.signUp" />
-          </Link>
-        </h5>
+        <hr />,
+        <MenuItem
+          key="login"
+          button={true}
+          component="a"
+          onClick={this.handleClose}
+          href={locLang.set("/login", this.props.language)}
+          title={this.props.intl.formatMessage({
+            id: "app.logIn"
+          })}
+          color="secondary"
+        >
+          <LoginIcon className="mr1" />
+          <FormattedMessage id="app.logIn" />
+        </MenuItem>,
+        <MenuItem
+          key="signup"
+          button={true}
+          component="a"
+          onClick={this.handleClose}
+          href={locLang.set("/signup/", this.props.language)}
+          title={this.props.intl.formatMessage({
+            id: "app.signUp"
+          })}
+          color="secondary"
+        >
+          <SignupIcon className="mr1" />
+          <FormattedMessage id="app.signUp" />
+        </MenuItem>
       ];
     }
     return (
@@ -110,28 +120,34 @@ class MobileMenu extends React.Component {
               </Toolbar>
             </AppBar>
             <div id="modal-menu-description" className="mobile-menu-inner">
-              <h5>
-                <Link
-                  onClick={this.handleClose}
-                  to={locLang.set("/", this.props.language)}
-                  title={this.props.intl.formatMessage({
-                    id: "app.freesewing"
-                  })}
-                >
-                  <HomeIcon className="mr1" />
-                  <FormattedMessage id="app.home" />
-                </Link>
-              </h5>
-              <h5>
-                <Link
-                  onClick={this.handleClose}
-                  to={locLang.set("/blog/", this.props.language)}
-                  title={this.props.intl.formatMessage({ id: "app.blog" })}
-                >
-                  <BlogIcon className="mr1" />
-                  <FormattedMessage id="app.blog" />
-                </Link>
-              </h5>
+              <MenuItem
+                key="home"
+                button={true}
+                component="a"
+                onClick={this.handleClose}
+                to={locLang.set("/", this.props.language)}
+                title={this.props.intl.formatMessage({
+                  id: "app.freesewing"
+                })}
+                color="secondary"
+              >
+                <HomeIcon className="mr1" />
+                <FormattedMessage id="app.home" />
+              </MenuItem>
+              <MenuItem
+                key="blog"
+                button={true}
+                component="a"
+                onClick={this.handleClose}
+                to={locLang.set("/blog/", this.props.language)}
+                title={this.props.intl.formatMessage({
+                  id: "app.blog"
+                })}
+                color="secondary"
+              >
+                <BlogIcon className="mr1" />
+                <FormattedMessage id="app.blog" />
+              </MenuItem>
               <MobileSubMenu
                 language={this.props.language}
                 intl={this.props.intl}

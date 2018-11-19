@@ -60,6 +60,7 @@ const HomePage = props => {
       <h4>Heading 4</h4>
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
+      <p>Heading 6 (this is just text)</p>
       <h2>
         <FormattedMessage id="app.showcase" />
       </h2>
