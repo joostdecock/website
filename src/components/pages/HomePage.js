@@ -67,16 +67,26 @@ const HomePage = props => {
       <h6>Heading 6</h6>
       <p>Heading 6 (this is just text)</p>
 
-      <Button href="/signup" color="primary" variant="contained">
+      <Button
+        className="mr1 btn1"
+        href="/signup"
+        color="primary"
+        variant="contained"
+      >
         link button
       </Button>
-      <Button href="/signup" color="secondary" variant="contained">
+      <Button
+        className="mr1 btn2"
+        href="/signup"
+        color="secondary"
+        variant="contained"
+      >
         link button
       </Button>
-      <Button color="primary" variant="contained">
+      <Button className="mr1 btn1" color="primary" variant="contained">
         click button
       </Button>
-      <Button color="secondary" variant="contained">
+      <Button className="btn2" color="secondary" variant="contained">
         click button
       </Button>
 

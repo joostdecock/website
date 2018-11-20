@@ -9,7 +9,7 @@ import { FormattedMessage, injectIntl } from "react-intl";
 function Breadcrumbs(props) {
   const spacer = (
     <li>
-      <IconButton disabled={true}>
+      <IconButton disabled={true} className="np">
         <RightIcon />
       </IconButton>
     </li>

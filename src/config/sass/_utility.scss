@@ -1,5 +1,5 @@
 // Padding
-.np   { padding: 0; }
+.np   { padding: 0!important; }
 
 .p05  { padding: 1rem; }
 .px05 { padding-left: 0.5rem; padding-right: 0.5rem; }
@@ -95,6 +95,7 @@ body.dark .shadow1 { @include shadow-dark; }
     display: block;
     font-weight: normal;
     font-size: 90%;
+    @include body-font;
   }
   .note {
     display: block;

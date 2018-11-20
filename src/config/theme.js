@@ -1,3 +1,8 @@
+const asTitle = {
+  fontFamily: "Open Sans Condensed",
+  fontWeight: "bold"
+};
+
 export default {
   typography: {
     fontFamily: ["Domine", "serif"].join(",")
@@ -8,18 +13,9 @@ export default {
     }
   },
   overrides: {
-    MuiButton: {
-      root: {
-        fontFamily: "Open Sans Condensed",
-        fontWeight: "bold"
-      }
-    },
-    MuiMenuItem: {
-      root: {
-        fontFamily: "Open Sans Condensed",
-        fontWeight: "bold"
-      }
-    }
+    MuiButton: { root: asTitle },
+    MuiMenuItem: { root: asTitle },
+    MuiListItemText: { primary: asTitle }
   }
 };
 

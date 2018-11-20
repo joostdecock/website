@@ -124,7 +124,7 @@ class MobileMenu extends React.Component {
                 button={true}
                 component="a"
                 onClick={this.handleClose}
-                to={locLang.set("/", this.props.language)}
+                href={locLang.set("/", this.props.language)}
                 title={this.props.intl.formatMessage({
                   id: "app.freesewing"
                 })}
@@ -138,7 +138,7 @@ class MobileMenu extends React.Component {
                 button={true}
                 component="a"
                 onClick={this.handleClose}
-                to={locLang.set("/blog/", this.props.language)}
+                href={locLang.set("/blog/", this.props.language)}
                 title={this.props.intl.formatMessage({
                   id: "app.blog"
                 })}

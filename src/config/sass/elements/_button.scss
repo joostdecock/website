@@ -1,0 +1,39 @@
+button.btn1,
+a.btn1 {
+  color: $bw6;
+}
+button.btn1:hover,
+a.btn1:hover {
+  color: $bw9;
+}
+button.btn2,
+a.btn2 {
+  color: $bw3;
+}
+button.btn2:hover,
+a.btn2:hover {
+  color: $bw1;
+  background: $secondary;
+}
+
+body.dark {
+  button.btn1,
+  a.btn1 {
+    color: $bw3;
+  }
+  button.btn1:hover,
+  a.btn1:hover {
+    color: $bw1;
+    background: $secondary;
+  }
+  button.btn2,
+  a.btn2 {
+    color: $bw6;
+    border: 1px solid $bw3;
+  }
+  button.btn2:hover,
+  a.btn2:hover {
+    color: $bw9;
+    background: $primary;
+  }
+}
