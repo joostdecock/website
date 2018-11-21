@@ -54,7 +54,7 @@ export default class LoginForm extends React.Component {
           variant="outlined"
         />
       </form>
-      <Button color="primary" size="large" variant="contained">
+      <Button className="btn1" color="primary" size="large" variant="contained">
         <FormattedMessage id="app.resetPassword" />
       </Button>
       <p className="pt20">

@@ -100,7 +100,7 @@ userHasBeenWithUsSince: '{user} hoort erbij sinds {since}'
 
 home: Startpagina
 patterns: Patronen
-konto: FIXME
+account: Account
 privacyNotice: Privacy melding
 whatIsThis: What betekent dit?
 yourRights: Jouw rechten
@@ -108,4 +108,10 @@ helpUsTranslate: Help ons met vertalen
 measurements: Maten
 
 browseAllShowcases: Bekijk alle showcases
+patternInstructions: Patroon instructies
+documentationOverview: Overzicht documentatie
+howToTakeMeasurements: Leer hoe je maten neemt
+patternOptions: Patroon opties
+other: Andere
+sewingHelp: Naai hulp
 

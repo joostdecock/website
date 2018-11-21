@@ -58,7 +58,8 @@ const locLang = {
     let chunks = location.split("/");
     if (i18nConfig.languages.indexOf(chunks[1]) !== -1) {
       let lang = chunks[1];
-      return "/" + language + location.substr(lang.length + 1);
+      if (language === false) return location.substr(lang.length + 1);
+      else return "/" + language + location.substr(lang.length + 1);
     } else return "/" + language + location;
   }
 };

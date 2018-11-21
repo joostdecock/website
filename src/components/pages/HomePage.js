@@ -8,15 +8,8 @@ import Chip from "@material-ui/core/Chip";
 import { FormattedMessage } from "react-intl";
 import NextIcon from "@material-ui/icons/KeyboardArrowRight";
 import PrevIcon from "@material-ui/icons/KeyboardArrowLeft";
-import SignupIcon from "@material-ui/icons/PersonAdd";
 import Button from "@material-ui/core/Button";
-import ButtonSpinner from "../ButtonSpinner";
 
-/*
-
-
-
-*/
 function NextArrow(props) {
   const { className, style, onClick } = props;
   return (

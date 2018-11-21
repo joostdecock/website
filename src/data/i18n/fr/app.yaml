@@ -99,10 +99,17 @@ proceedWithCaution: Procéder avec prudence
 userHasBeenWithUsSince: '{user} est parmi nous depuis {since}'
 home: Page d'accueil
 patterns: Patrons
-accounto: Compte
+account: Compte
 privacyNotice: Avis de confidentialité
 whatIsThis: Qu'est-ce que c'est
 yourRights: Vos droits
 helpUsTranslate: Aidez-nous à traduire
 measurements: Mensurations
 browseAllShowcases: Parcourir la galerie entière
+howToTakeMeasurements: Comment prendre les mesures
+patternInstructions: Documentation du patron
+documentationOverview: Vue d'ensemble de la documentation
+patternOptions: Options des patrons
+other: Autre
+sewingHelp: Aide de couture
+

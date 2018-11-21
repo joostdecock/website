@@ -15,6 +15,9 @@ exports.createPages = ({ actions, graphql }) => {
   const documentationTemplate = path.resolve(
     "src/components/pages/Documentation.js"
   );
+  const documentationIndexTemplate = path.resolve(
+    "src/components/pages/DocumentationIndex.js"
+  );
 
   // FIXME: Add naked markdown links (/about /contact and so on)
   const naked = ["/", "/blog", "/showcase", "/login"];
@@ -133,6 +136,18 @@ exports.createPages = ({ actions, graphql }) => {
         posts,
         language,
         location: `/${language}/showcase`
+      }
+    });
+  };
+
+  createDocumentationIndex = function(language, docs) {
+    createPage({
+      path: `/${language}/docs`,
+      component: documentationIndexTemplate,
+      context: {
+        docs,
+        language,
+        location: `/${language}/docs`
       }
     });
   };
@@ -387,7 +402,7 @@ exports.createPages = ({ actions, graphql }) => {
             createDocumentationPage(lang, contentLanguage, slug, pageNode);
           });
           // FIXME: Create documentation indexes
-          //createShowcaseIndex(lang, pages);
+          createDocumentationIndex(lang, pages);
         }
       });
       return resolve();

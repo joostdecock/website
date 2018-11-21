@@ -66,9 +66,31 @@ const documentationMenu = pageLanguage => {
         icon: "info"
       },
       {
+        link: locLang.set("/docs/patterns/", pageLanguage),
+        label: "app.patternInstructions",
+        icon: "content_cut"
+      },
+      {
+        link: locLang.set("/docs/measurements/", pageLanguage),
+        label: "app.howToTakeMeasurements",
+        icon: "accessibility"
+      },
+      "divider",
+      {
         link: "https://developer.freesewing.org/",
         label: "app.documentationForDevelopers",
         icon: "code"
+      },
+      {
+        link: "https://translator.freesewing.org/",
+        label: "app.documentationForTranslators",
+        icon: "translate"
+      },
+      "divider",
+      {
+        link: locLang.set("/docs/", pageLanguage),
+        label: "app.documentationOverview",
+        icon: "book"
       }
     ]
   };

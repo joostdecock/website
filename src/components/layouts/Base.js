@@ -21,7 +21,9 @@ import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
 import backend from "../../backend";
 import LocationProvider from "../LocationProvider";
+// eslint-disable-next-line
 import bodyFont from "typeface-domine";
+// eslint-disable-next-line
 import titleFont from "typeface-open-sans-condensed";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);

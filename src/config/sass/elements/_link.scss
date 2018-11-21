@@ -2,7 +2,7 @@ a {
   color: $link;
   text-decoration: none;
 }
-a:hover { color: $success; }
+a:hover { text-decoration: underline;  }
 
 body.dark a { color: $linkFaded; }
 body.dark a:hover { color: $successFaded; }
