@@ -1,9 +1,0 @@
-requestFailedWithStatusCode500: There was an unexpected problem. Please report this.
-requestFailedWithStatusCode400: Request failed
-requestFailedWithStatusCode401: Authentication failed
-requestFailedWithStatusCode403: Forbidden
-networkError: Backend or network seems down
-emailExists: We already have a user with that Email address. Perhaps you'd like to log in instead?
-confirmationNotFound: If you arrived at this page via the link in a confirmation Email, we encourage you to report this problem.
-notAValidImageFormat: Not a valid image format
-

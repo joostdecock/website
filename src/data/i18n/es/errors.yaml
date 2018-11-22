@@ -1,8 +1,0 @@
-requestFailedWithStatusCode500: Hubo un problema inesperado. Por favor informe de esto.
-requestFailedWithStatusCode400: Solicitud fallida
-requestFailedWithStatusCode401: Autenticación fallida
-requestFailedWithStatusCode403: Prohibido
-networkError: El backend o la red parecen estar apagados
-emailExists: Ya tenemos un usuario con esa dirección de correo electrónico. Tal vez le gustaría iniciar sesión en su lugar?
-confirmationNotFound: Si llegó a esta página a través del enlace en un correo electrónico de confirmación, le recomendamos que informe de este problema.
-notAValidImageFormat: No es un formato de imagen válido

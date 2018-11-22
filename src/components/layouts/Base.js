@@ -10,7 +10,7 @@ import de from "react-intl/locale-data/de";
 import es from "react-intl/locale-data/es";
 import fr from "react-intl/locale-data/fr";
 import nl from "react-intl/locale-data/nl";
-import strings from "../../data/i18n";
+import strings from "@freesewing/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
 import { locLang, loadTheme, clearToken, retrieveToken } from "../../utils";

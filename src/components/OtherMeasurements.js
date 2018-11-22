@@ -4,7 +4,7 @@ import LanguageIcon from "@material-ui/icons/Language";
 import Tray from "./Tray";
 import { Link } from "gatsby";
 import { locLang } from "../utils";
-import measurements from "../data/i18n/en/measurements.yaml";
+//import measurements from "../data/i18n/en/measurements.yaml";
 
 const OtherMeasurements = props => {
   return (
@@ -22,22 +22,28 @@ const OtherMeasurements = props => {
         />
       }
     >
-      <ul>
-        {Object.keys(measurements).map((m, index) => (
-          <li key={"om" + index}>
-            <Link
-              to={locLang.set(
-                "/docs/measurements/" + m.toLowerCase(),
-                props.language
-              )}
-            >
-              <FormattedMessage id={"measurements." + m} />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <p>
+        FIXME: List of measurements is not available since we have moved
+        translation strings to @freesewing/i18n package. This needs to be
+        handled when we have measurements available from glue package
+      </p>
     </Tray>
   );
 };
 
 export default injectIntl(OtherMeasurements);
+
+//<ul>
+//  {Object.keys(measurements).map((m, index) => (
+//    <li key={"om" + index}>
+//      <Link
+//        to={locLang.set(
+//          "/docs/measurements/" + m.toLowerCase(),
+//          props.language
+//        )}
+//      >
+//        <FormattedMessage id={"measurements." + m} />
+//      </Link>
+//    </li>
+//  ))}
+//</ul>

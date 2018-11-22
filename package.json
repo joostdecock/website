@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "dependencies": {
+    "@freesewing/i18n": "0.0.2",
     "@freesewing/material-style": "^0.4.0",
     "@material-ui/core": "latest",
     "@material-ui/icons": "^3.0.1",
