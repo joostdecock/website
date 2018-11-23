@@ -82,7 +82,7 @@ const documentationMenu = pageLanguage => {
         icon: "code"
       },
       {
-        link: "https://translator.freesewing.org/",
+        link: "https://developer.freesewing.org/i18n",
         label: "app.documentationForTranslators",
         icon: "translate"
       },
