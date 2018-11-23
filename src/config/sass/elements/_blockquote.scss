@@ -1,9 +1,43 @@
-blockquote {
-  font-size: 1.2rem;
-  padding: 1rem;
-  line-height: 1.5;
+blockquote { font-size: 1.2rem; }
+blockquote > :last-child { margin-bottom: 0; }
+
+@include xs-screen {
+  blockquote {
+    padding: 2rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    border-top: 5px solid $primary;
+    border-radius: 0;
+    @include shadow;
+  }
+  body.dark blockquote {
+    padding: 2rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    border-radius: 0;
+    @include shadow-dark;;
+    border-top: 5px solid $bw4;
+    a { color: $linkFaded; }
+  }
 }
 
-blockquote > :last-child {
-  margin-bottom: 0;
+@include sm-screen {
+  blockquote {
+    padding: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-top: 5px solid $primary;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    @include shadow;
+  }
+  body.dark blockquote {
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    @include shadow-dark;
+    border-top: 5px solid $bw4;
+    a { color: $linkFaded; }
+  }
 }

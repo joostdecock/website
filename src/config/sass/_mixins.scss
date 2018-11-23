@@ -23,6 +23,10 @@
   border: 1px solid $bw2;
 }
 
+@mixin shadow-inset {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px -20px 6px -18px inset, rgba(0, 0, 0, 0.4) 0px 20px 6px -18px inset;
+}
+
 @mixin tray-expanded {
   border-top: 5px solid $primary;
   padding: 2rem;
