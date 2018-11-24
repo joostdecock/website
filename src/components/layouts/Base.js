@@ -10,12 +10,13 @@ import de from "react-intl/locale-data/de";
 import es from "react-intl/locale-data/es";
 import fr from "react-intl/locale-data/fr";
 import nl from "react-intl/locale-data/nl";
-import strings from "@freesewing/i18n";
+import { strings } from "@freesewing/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
 import { locLang, loadTheme, clearToken, retrieveToken } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
+import { setModels } from "../../store/actions/models";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
@@ -37,6 +38,7 @@ class Base extends React.Component {
   handleLogout = () => {
     clearToken();
     this.props.setUserAccount(false);
+    this.props.setModels(false);
   };
 
   componentDidMount() {
@@ -48,6 +50,7 @@ class Base extends React.Component {
           .then(res => {
             if (res.status === 200) {
               this.props.setUserAccount(res.data.account);
+              this.props.setModels(res.data.models);
             }
           })
           .catch(err => {
@@ -104,12 +107,15 @@ class Base extends React.Component {
 const mapStateToProps = state => ({
   dark: state.darkMode,
   user: state.user,
-  notification: state.notification
+  models: state.models,
+  notification: state.notification,
+  fullState: state
 });
 
 const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark)),
   setUserAccount: account => dispatch(setUserAccount(account)),
+  setModels: models => dispatch(setModels(models)),
   closeNotification: () => dispatch(closeNotification())
 });
 

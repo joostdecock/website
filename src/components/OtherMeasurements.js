@@ -2,7 +2,9 @@ import React from "react";
 import { FormattedMessage, injectIntl } from "react-intl";
 import LanguageIcon from "@material-ui/icons/Language";
 import Tray from "./Tray";
+// eslint-disable-next-line
 import { Link } from "gatsby";
+// eslint-disable-next-line
 import { locLang } from "../utils";
 //import measurements from "../data/i18n/en/measurements.yaml";
 

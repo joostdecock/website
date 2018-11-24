@@ -163,7 +163,14 @@ const renderMarkdown = md => {
   });
 };
 
+const uniqueArray = array => {
+  return array.filter(function(value, index, self) {
+    return self.indexOf(value) === index;
+  });
+};
+
 export {
+  uniqueArray,
   renderMarkdown,
   socialLink,
   scrollToTop,

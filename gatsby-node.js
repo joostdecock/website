@@ -72,6 +72,11 @@ exports.createPages = ({ actions, graphql }) => {
       slug: "/users",
       match: "/users/*",
       template: path.resolve("src/components/pages/Profile.js")
+    },
+    {
+      slug: "/models",
+      match: "/models/*",
+      template: path.resolve("src/components/pages/Models.js")
     }
   ];
 
