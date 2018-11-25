@@ -1,72 +1,55 @@
 import axios from "axios";
 import config from "./config/backend";
 import { retrieveToken } from "./utils";
+const backend = {};
 
-// Configure Axios
+// Configure Axios /////////////////////////////////
 const api = axios.create({
   baseURL: config.url,
   timeout: 5000
 });
 
-// Helper method to construct Authorization header
+// Helper method for Authorization header //////////
 const auth = (token = retrieveToken()) => ({
   headers: { Authorization: "Bearer " + token }
 });
 
-const backend = {};
+// Non-authenticated calls /////////////////////////
 
-/**
- * Anonymous calls
- */
-
-// Signup
 backend.signup = (email, password, language) =>
-  api.post("/signup", { email, password, language });
+  api.post("/signup", { email, password, language }); // Signup
 
-// Confirm
-backend.confirm = confirmId => api.post("/confirm", { id: confirmId });
+backend.confirm = confirmId => api.post("/confirm", { id: confirmId }); // Confirm
 
-// Create account (after profile data consent)
-backend.createAccount = confirmId => api.post("/user", { id: confirmId });
+backend.createAccount = confirmId => api.post("/user", { id: confirmId }); // Create account
 
-// Login
 backend.login = (username, password) =>
-  api.post("/login", { username, password });
+  api.post("/login", { username, password }); // Login
 
-// Load user profile
-backend.profile = username => api.get("/users/" + username);
+backend.profile = username => api.get("/users/" + username); // Load user profile
 
-/**
- * Authenticated calls
- */
+// Users //////////////////////////
 
-// Read/Load (GET)
+backend.account = () => api.get("/account", auth()); // Try to authenticate based on stored token
 
-// Try to authenticate based on stored token
-backend.account = () => api.get("/account", auth());
+backend.export = () => api.get("/export", auth()); // Export data
 
-// Export data
-backend.export = () => api.get("/export", auth());
+backend.restrict = () => api.get("/restrict", auth()); // Restrict data processing (freeze account)
 
-// Restrict data processing (freeze account)
-backend.restrict = () => api.get("/restrict", auth());
+backend.remove = () => api.get("/remove", auth()); // Remove account
 
-// Remove account
-backend.remove = () => api.get("/remove", auth());
+backend.saveAccount = data => api.put("/user", data, auth()); // Update account
 
-// Update (PUT)
-backend.saveAccount = data => api.put("/user", data, auth());
-
-// Create and other POST calls
-// Check is a username is available
 backend.availableUsername = data =>
-  api.post("/available/username", data, auth());
+  api.post("/available/username", data, auth()); // Check is a username is available
 
-// Ask for a password reset
 backend.resetPassword = username =>
-  api.post("/reset/password", { username: username }, auth());
+  api.post("/reset/password", { username: username }, auth()); // Ask for a password reset
 
-// (re)set a new password
-backend.setPassword = data => api.post("/set/password", data, auth());
+backend.setPassword = data => api.post("/set/password", data, auth()); // (re)set a new password
+
+// Models //////////////////////////
+
+backend.removeModels = data => api.post("/remove/models", data, auth()); // Delete multiple models
 
 export default backend;

@@ -8,13 +8,23 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Datum from "../../Datum";
-import Tooltip from "@material-ui/core/Tooltip";
 import SortableTableCell from "../../SortableTableCell";
 import { Link } from "gatsby";
 import { locLang, uniqueArray } from "../../../utils";
+import TwoColumns from "../../TwoColumns";
+import Column from "../../Column";
+import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import AddIcon from "@material-ui/icons/Add";
+import Button from "@material-ui/core/Button";
+import backend from "../../../backend";
+import {
+  showNotification,
+  closeNotification
+} from "../../../store/actions/notification";
 
 class ModelsContainer extends React.Component {
   state = {
@@ -50,6 +60,34 @@ class ModelsContainer extends React.Component {
       ...this.state,
       selected: uniqueArray(selected)
     });
+  }
+
+  deleteSelected(self) {
+    let models = self.state.selected;
+    backend
+      .removeModels({ models })
+      .then(res => {
+        if (res.status === 200) {
+          let msg = this.props.intl.formatMessage(
+            { id: "app.fieldRemoved" },
+            {
+              field: this.props.intl.formatMessage({
+                id: models.length > 1 ? "app.models" : "app.model"
+              })
+            }
+          );
+          self.props.showNotification("success", msg);
+          self.props.setModels(res.data.models);
+          this.setState({
+            ...this.state,
+            selected: []
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        self.props.showNotification("error", err);
+      });
   }
 
   sort(self, by, direction = "asc") {
@@ -188,6 +226,39 @@ class ModelsContainer extends React.Component {
               : ""}
           </TableBody>
         </Table>
+        <TwoColumns>
+          <Column>
+            {this.state.selected.length > 0 ? (
+              <IconButton
+                aria-label="Delete"
+                classes={{ root: "danger" }}
+                onClick={() => this.deleteSelected(this)}
+              >
+                <Badge
+                  badgeContent={this.state.selected.length}
+                  color="primary"
+                  classes={{ badge: "mr-05" }}
+                >
+                  <DeleteIcon />
+                </Badge>
+              </IconButton>
+            ) : (
+              ""
+            )}
+          </Column>
+          <Column side="right" className="txt-right">
+            <div className="txt-right">
+              <Button
+                variant="fab"
+                color="primary"
+                aria-label="Add"
+                href={locLang.set("/model", this.props.language)}
+              >
+                <AddIcon />
+              </Button>
+            </div>
+          </Column>
+        </TwoColumns>
       </div>
     );
   }
@@ -198,7 +269,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setModels: models => dispatch(setModels(models))
+  setModels: models => dispatch(setModels(models)),
+  showNotification: (style, message) =>
+    dispatch(showNotification(style, message)),
+  closeNotification: () => dispatch(closeNotification())
 });
 
 export default connect(

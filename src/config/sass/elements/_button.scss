@@ -15,7 +15,14 @@ a.btn2:hover {
   color: $bw1;
   background: $secondary;
 }
-
+button.danger,
+button.danger:hover {
+  background: $danger;
+  color: $bw9;
+}
+button.danger:hover {
+  @include shadow;
+}
 body.dark {
   button.btn1,
   a.btn1 {
@@ -35,5 +42,9 @@ body.dark {
   a.btn2:hover {
     color: $bw9;
     background: $primary;
+  }
+  button.danger {
+    background: $dangerFaded;
+    color: $bw9;
   }
 }

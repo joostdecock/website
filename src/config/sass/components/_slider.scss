@@ -18,8 +18,6 @@ body.dark {
   .slide {
     @include shadow-dark;
   }
-  a { color: $bw6; }
-  a:hover { color: $secondary; }
   .slick-dots li button::before {
     color: $bw7;
   }
