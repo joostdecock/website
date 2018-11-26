@@ -18,7 +18,7 @@ import Column from "../../Column";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@material-ui/icons/PersonAdd";
 import Button from "@material-ui/core/Button";
 import backend from "../../../backend";
 import {

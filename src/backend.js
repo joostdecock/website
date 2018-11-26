@@ -52,4 +52,6 @@ backend.setPassword = data => api.post("/set/password", data, auth()); // (re)se
 
 backend.removeModels = data => api.post("/remove/models", data, auth()); // Delete multiple models
 
+backend.createModel = data => api.post("/model", data, auth()); // Create model
+
 export default backend;
