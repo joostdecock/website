@@ -77,7 +77,9 @@ class AccountRemoveContainer extends React.Component {
                 <ListItem button onClick={this.handleToggle}>
                   <ListItemIcon>
                     <RemoveIcon
-                      classes={{ root: this.state.remove ? "txt-danger" : "" }}
+                      classes={{
+                        root: this.state.remove ? "color-danger" : ""
+                      }}
                     />
                   </ListItemIcon>
                   <ListItemText>

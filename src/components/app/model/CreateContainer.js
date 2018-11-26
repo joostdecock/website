@@ -19,6 +19,9 @@ import SaveIcon from "@material-ui/icons/PersonAdd";
 import Tray from "../../Tray";
 import { navigate } from "gatsby";
 import { locLang } from "../../../utils";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import ValidIcon from "@material-ui/icons/CheckCircle";
+import InvalidIcon from "@material-ui/icons/Warning";
 
 class CreateModelContainer extends React.Component {
   state = {
@@ -116,6 +119,17 @@ class CreateModelContainer extends React.Component {
                 value={this.state.name}
                 type="text"
                 onChange={this.updateName}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      {this.state.name.length > 0 ? (
+                        <ValidIcon classes={{ root: "color-success" }} />
+                      ) : (
+                        <InvalidIcon color="error" />
+                      )}
+                    </InputAdornment>
+                  )
+                }}
               />
 
               <h5>
@@ -170,6 +184,7 @@ class CreateModelContainer extends React.Component {
                   fullWidth={true}
                   size="large"
                   color="primary"
+                  disabled={this.state.name.length > 0 ? false : true}
                 >
                   <SaveIcon className="mr1" />
                   <FormattedMessage id="app.createModel" />

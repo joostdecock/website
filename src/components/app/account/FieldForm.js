@@ -153,12 +153,12 @@ class FieldForm extends React.Component {
                     {field === "email" || field === "username" ? (
                       field === "email" ? (
                         emailValid ? (
-                          <ValidIcon classes={{ root: "txt-success" }} />
+                          <ValidIcon classes={{ root: "color-success" }} />
                         ) : (
                           <InvalidIcon color="error" />
                         )
                       ) : usernameValid ? (
-                        <ValidIcon classes={{ root: "txt-success" }} />
+                        <ValidIcon classes={{ root: "color-success" }} />
                       ) : (
                         <InvalidIcon color="error" />
                       )

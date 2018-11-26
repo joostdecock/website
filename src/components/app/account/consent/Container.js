@@ -181,8 +181,8 @@ class AccountConsentContainer extends React.Component {
               <ConsentIcon
                 classes={{
                   root: this.state.opendataConsent
-                    ? "txt-success"
-                    : "txt-danger"
+                    ? "color-success"
+                    : "color-danger"
                 }}
               />
             </ListItemIcon>
@@ -232,7 +232,9 @@ class AccountConsentContainer extends React.Component {
                   <ListItem button onClick={() => this.toggleConsent(type)}>
                     <ListItemIcon>
                       <ConsentIcon
-                        classes={{ root: value ? "txt-success" : "txt-danger" }}
+                        classes={{
+                          root: value ? "color-success" : "color-danger"
+                        }}
                       />
                     </ListItemIcon>
                     <ListItemText>

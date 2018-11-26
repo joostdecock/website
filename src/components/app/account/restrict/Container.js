@@ -91,7 +91,7 @@ class AccountRestrictContainer extends React.Component {
                   <ListItemIcon>
                     <PauseIcon
                       classes={{
-                        root: this.state.restrict ? "txt-warning" : ""
+                        root: this.state.restrict ? "color-warning" : ""
                       }}
                     />
                   </ListItemIcon>
