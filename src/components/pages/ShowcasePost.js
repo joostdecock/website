@@ -10,21 +10,18 @@ import GithubIcon from "../GithubIcon";
 import { locLang, fileOnGithub } from "../../utils";
 import { Link } from "gatsby";
 
-export default ({ pageContext }) => {
-  const frontmatter = pageContext.node.frontmatter;
-  const html = pageContext.node.html;
+export default data => {
+  const { language, post } = data.pageContext;
+  const { frontmatter, html, fileAbsolutePath } = post;
+
   let languageNotAvailable = "";
   let pleaseTranslate = "";
-  if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = <LanguageNotAvailable />;
+  if (language !== post.language) {
+    languageNotAvailable = <LanguageNotAvailable language={language} />;
     pleaseTranslate = (
-      <PleaseTranslate
-        filePath={pageContext.node.fileAbsolutePath}
-        language={pageContext.language}
-      />
+      <PleaseTranslate filePath={fileAbsolutePath} language={language} />
     );
   }
-  console.log(frontmatter);
   return (
     <BaseLayout>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -40,10 +37,7 @@ export default ({ pageContext }) => {
               return (
                 <li>
                   <Link
-                    to={locLang.set(
-                      "/showcase/category/" + pattern,
-                      pageContext.language
-                    )}
+                    to={locLang.set("/showcase/category/" + pattern, language)}
                   >
                     #{pattern}
                   </Link>
@@ -77,7 +71,7 @@ export default ({ pageContext }) => {
           <h1>
             {frontmatter.title}
             &nbsp;&nbsp;
-            <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
+            <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />
             </a>
           </h1>

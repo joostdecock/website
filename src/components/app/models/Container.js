@@ -246,7 +246,7 @@ class ModelsContainer extends React.Component {
               ""
             )}
           </Column>
-          <Column side="right" className="txt-right">
+          <Column right className="txt-right">
             <div className="txt-right">
               <Button
                 variant="fab"

@@ -120,7 +120,7 @@ class CreateModelContainer extends React.Component {
                 type="text"
                 onChange={this.updateName}
                 InputProps={{
-                  startAdornment: (
+                  endAdornment: (
                     <InputAdornment position="start">
                       {this.state.name.length > 0 ? (
                         <ValidIcon classes={{ root: "color-success" }} />
@@ -192,7 +192,7 @@ class CreateModelContainer extends React.Component {
               </div>
             </form>
           </Column>
-          <Column side="right">
+          <Column right>
             <Tray
               className="my1 always-expanded"
               title={<FormattedMessage id="app.whatIsThis" />}

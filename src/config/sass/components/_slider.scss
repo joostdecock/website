@@ -3,8 +3,8 @@
   border-radius: 3px;
 }
 .slide-card {
-  height: 300px;
-  width: 220px!important;
+  height: 220px;
+  width: 160px!important;
   background: $bw1;
   position: relative;
   padding: 0 0.5rem;
@@ -25,6 +25,13 @@ body.dark {
 .slick-slider {
   height: 345px;
   overflow: hidden;
+}
+.slick-slide div.teaser div.title p {
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
+body.dark .slick-slide div.teaser div.title p {
+  color: $bw7;
 }
 
 @include xs-screen {

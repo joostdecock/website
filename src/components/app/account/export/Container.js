@@ -60,7 +60,7 @@ class AccountExportContainer extends React.Component {
               <FormattedMessage id="app.download" />
             </Button>
           </Column>
-          <Column side="right">
+          <Column right>
             <Tray
               className="my1"
               icon={<WhyIcon />}

@@ -12,28 +12,23 @@ import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
 import MeasurementImages from "../MeasurementImages";
 
-export default ({ pageContext }) => {
-  const frontmatter = pageContext.node.frontmatter;
-  const html = pageContext.node.html;
-  const toc = pageContext.node.tableOfContents;
+export default data => {
+  const { language, page } = data.pageContext;
+  const { frontmatter, html, tableOfContents, fileAbsolutePath } = page;
   let languageNotAvailable = "";
   let pleaseTranslate = "";
+
   let measurementsBox = "";
   let isMeasurement = false;
   let wrapReverse = true;
   let tocBox = "";
-  if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = (
-      <LanguageNotAvailable className="mb1" language={pageContext.language} />
-    );
+  if (language !== page.language) {
+    languageNotAvailable = <LanguageNotAvailable language={language} />;
     pleaseTranslate = (
-      <PleaseTranslate
-        filePath={pageContext.node.fileAbsolutePath}
-        language={pageContext.language}
-        className="mb1"
-      />
+      <PleaseTranslate filePath={fileAbsolutePath} language={language} />
     );
   }
+
   if (
     typeof frontmatter.breadcrumbs !== "undefined" &&
     typeof frontmatter.breadcrumbs[0] !== "undefined" &&
@@ -43,7 +38,7 @@ export default ({ pageContext }) => {
   // Measurements
   if (typeof frontmatter.measurement === "string") {
     isMeasurement = true;
-    measurementsBox = <OtherMeasurements language={pageContext.language} />;
+    measurementsBox = <OtherMeasurements language={language} />;
     wrapReverse = false;
   } else {
     tocBox = (
@@ -52,7 +47,10 @@ export default ({ pageContext }) => {
         icon={<TocIcon />}
         title={<FormattedMessage id="app.contents" />}
       >
-        <div className="toc" dangerouslySetInnerHTML={{ __html: toc }} />
+        <div
+          className="toc"
+          dangerouslySetInnerHTML={{ __html: tableOfContents }}
+        />
       </Tray>
     );
   }
@@ -71,7 +69,7 @@ export default ({ pageContext }) => {
           <h1>
             {frontmatter.title}
             &nbsp;&nbsp;
-            <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
+            <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />
             </a>
           </h1>

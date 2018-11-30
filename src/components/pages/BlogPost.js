@@ -15,21 +15,14 @@ import GithubIcon from "../GithubIcon";
 import { fileOnGithub } from "../../utils";
 
 export default data => {
-  const pageContext = data.pageContext;
-  const frontmatter = pageContext.node.frontmatter;
-  const html = pageContext.node.html;
-  const toc = pageContext.node.tableOfContents;
+  const { language, post } = data.pageContext;
+  const { frontmatter, html, tableOfContents, fileAbsolutePath } = post;
   let languageNotAvailable = "";
   let pleaseTranslate = "";
-  if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = (
-      <LanguageNotAvailable language={pageContext.language} />
-    );
+  if (language !== post.language) {
+    languageNotAvailable = <LanguageNotAvailable language={language} />;
     pleaseTranslate = (
-      <PleaseTranslate
-        filePath={pageContext.node.fileAbsolutePath}
-        language={pageContext.language}
-      />
+      <PleaseTranslate filePath={fileAbsolutePath} language={language} />
     );
   }
   return (
@@ -47,7 +40,7 @@ export default data => {
               <Link
                 to={locLang.set(
                   "/blog/category/" + frontmatter.category,
-                  pageContext.language
+                  language
                 )}
               >
                 #{frontmatter.category}
@@ -80,7 +73,7 @@ export default data => {
           <h1>
             {frontmatter.title}
             &nbsp;&nbsp;
-            <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
+            <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />
             </a>
           </h1>
@@ -103,7 +96,10 @@ export default data => {
             icon={<TocIcon />}
             title={<FormattedMessage id="app.contents" />}
           >
-            <div className="toc" dangerouslySetInnerHTML={{ __html: toc }} />
+            <div
+              className="toc"
+              dangerouslySetInnerHTML={{ __html: tableOfContents }}
+            />
           </Tray>
         </Grid>
       </Grid>

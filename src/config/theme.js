@@ -5,7 +5,8 @@ const asTitle = {
 
 export default {
   typography: {
-    fontFamily: ["Domine", "serif"].join(",")
+    fontFamily: ["Domine", "serif"].join(","),
+    useNextVariants: true
   },
   props: {
     MuiButtonBase: {

@@ -169,7 +169,188 @@ const uniqueArray = array => {
   });
 };
 
+const roundImperial = value => {
+  // eslint-disable-next-line
+  if (value == 0) return 0;
+  let negative = false;
+  let inches = 0;
+  let rest = 0;
+  let fraction8 = 0;
+  if (value < 0) {
+    value = Math.abs(value);
+    negative = true;
+  }
+  if (value < 1) {
+    rest = value;
+  } else {
+    inches = Math.floor(value);
+    rest = value - inches;
+  }
+  fraction8 = Math.round(rest * 8) / 8;
+
+  if (negative) {
+    // eslint-disable-next-line
+    if (parseInt(inches) == 1) return -1 - fraction8;
+    else return -1 * parseInt(inches) - fraction8;
+  } else return parseInt(inches) + fraction8;
+};
+
+const round = value => {
+  return Math.round(value * 10) / 10;
+};
+
+const distance = {};
+
+distance.asText = (value, units = "metric") => {
+  if (units === "metric") return round(value / 10);
+  else {
+    // eslint-disable-next-line
+    if (value == 0) return 0;
+    let negative = "";
+    let inches = "";
+    let rest = "";
+    value = roundImperial(value / 25.4);
+    if (value < 0) {
+      value = value * -1;
+      negative = "-";
+    }
+    if (Math.abs(value) < 1) {
+      inches = "";
+      rest = value;
+    } else {
+      inches = Math.floor(value);
+      rest = value - inches;
+    }
+    inches += " ";
+    let fraction64 = Math.round(rest * 64);
+    // eslint-disable-next-line
+    if (fraction64 == 0) return negative + inches;
+    // eslint-disable-next-line
+    if (fraction64 % 32 == 0) return negative + inches + fraction64 / 32 + "/2";
+    // eslint-disable-next-line
+    if (fraction64 % 16 == 0) return negative + inches + fraction64 / 16 + "/4";
+    // eslint-disable-next-line
+    if (fraction64 % 8 == 0) return negative + inches + fraction64 / 8 + "/8";
+    // eslint-disable-next-line
+    if (fraction64 % 4 == 0) return negative + inches + fraction64 / 4 + "/16";
+    // eslint-disable-next-line
+    if (fraction64 % 2 == 0) return negative + inches + fraction64 / 2 + "/32";
+    else return negative + value;
+  }
+};
+
+distance.asHtml = (value, units = "metric") => {
+  if (units === "metric") return round(value / 10) + "cm";
+  else {
+    // eslint-disable-next-line
+    if (value == 0) return 0;
+    let negative = "";
+    let inches = "";
+    let rest = "";
+    value = roundImperial(value / 25.4);
+    if (value < 0) {
+      value = value * -1;
+      negative = "-";
+    }
+    if (Math.abs(value) < 1) {
+      inches = "";
+      rest = value;
+    } else {
+      inches = Math.floor(value);
+      rest = value - inches;
+    }
+    let fraction64 = Math.round(rest * 64);
+    // eslint-disable-next-line
+    if (fraction64 == 0) return negative + inches + '"';
+    // eslint-disable-next-line
+    if (fraction64 % 32 == 0)
+      return (
+        " " +
+        negative +
+        inches +
+        " <sup>" +
+        fraction64 / 32 +
+        '</sup>/<sub>2</sub>"'
+      );
+    // eslint-disable-next-line
+    if (fraction64 % 16 == 0)
+      return (
+        " " +
+        negative +
+        inches +
+        " <sup>" +
+        fraction64 / 16 +
+        '</sup>/<sub>4</sub>"'
+      );
+    // eslint-disable-next-line
+    if (fraction64 % 8 == 0)
+      return (
+        " " +
+        negative +
+        inches +
+        " <sup>" +
+        fraction64 / 8 +
+        '</sup>/<sub>8</sub>"'
+      );
+    // eslint-disable-next-line
+    if (fraction64 % 4 == 0)
+      return (
+        " " +
+        negative +
+        inches +
+        " <sup>" +
+        fraction64 / 4 +
+        '</sup>/<sub>16</sub>"'
+      );
+    // eslint-disable-next-line
+    if (fraction64 % 2 == 0)
+      return (
+        " " +
+        negative +
+        inches +
+        " <sup>" +
+        fraction64 / 2 +
+        '</sup>/<sub>32</sub>"'
+      );
+    else return negative + value + '"';
+  }
+};
+
+distance.asMm = (value, units = "metric") => {
+  if (typeof value === "number")
+    return value * (units === "imperial" ? 25.4 : 10);
+  if (units === "metric") {
+    value = Number(value);
+    if (isNaN(value)) return false;
+    return value * (units === "imperial" ? 25.4 : 10);
+  } else {
+    let chunks = value.split(" ");
+    if (chunks.length === 1) {
+      let val = chunks[0];
+      if (!isNaN(Number(val))) return Number(val) * 25.4;
+      else return imperialFractionToMm(val);
+    } else if (chunks.length === 2) {
+      let inches = Number(chunks[0]);
+      if (isNaN(inches)) return false;
+      let fraction = imperialFractionToMm(chunks[1]);
+      if (fraction === false) return false;
+      return inches * 25.4 + fraction;
+    }
+  }
+  return false;
+};
+
+const imperialFractionToMm = value => {
+  let chunks = value.trim().split("/");
+  if (chunks.length !== 2 || chunks[1] === "") return false;
+  let num = Number(chunks[0]);
+  let denom = Number(chunks[1]);
+  if (isNaN(num) || isNaN(denom)) return false;
+  else return (num * 25.4) / denom;
+};
+
 export {
+  distance,
   uniqueArray,
   renderMarkdown,
   socialLink,

@@ -54,4 +54,6 @@ backend.removeModels = data => api.post("/remove/models", data, auth()); // Dele
 
 backend.createModel = data => api.post("/model", data, auth()); // Create model
 
+backend.saveModel = (handle, data) => api.put("/model/" + handle, data, auth()); // Update model
+
 export default backend;

@@ -330,7 +330,7 @@ class AccountConsentContainer extends React.Component {
                 </div>
               )}
             </Column>
-            <Column side="right">
+            <Column right>
               <Tray
                 className="my1 maxw700 always-expanded"
                 icon={<ProfileDataIcon />}
@@ -433,7 +433,7 @@ class AccountConsentContainer extends React.Component {
                 </List>
               </div>
             </Column>
-            <Column side="right">
+            <Column right>
               <Tray
                 className="my1"
                 icon={<WhyIcon />}

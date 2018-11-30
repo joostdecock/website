@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
+import { setModels } from "../../../store/actions/models";
 import {
   showNotification,
   closeNotification
@@ -29,6 +30,7 @@ import PatronIcon from "@material-ui/icons/Favorite";
 import ConsentIcon from "@material-ui/icons/DoneAll";
 import BioIcon from "@material-ui/icons/ChatBubbleOutline";
 import SocialLink from "../../SocialLink";
+import FieldInfo from "./FieldInfo";
 import FieldForm from "./FieldForm";
 import Button from "@material-ui/core/Button";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
@@ -40,16 +42,10 @@ import { Link } from "gatsby";
 import Avatar from "@material-ui/core/Avatar";
 import Breadcrumbs from "../../Breadcrumbs";
 import Tray from "../../Tray";
-import TrayTitle from "../../TrayTitle";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
-import { FormattedHTMLMessage } from "react-intl";
-import WhyIcon from "@material-ui/icons/Help";
-import remark from "remark";
-import html from "remark-html";
-import CodeIcon from "@material-ui/icons/Code";
 
-class AccountContainer extends React.Component {
+class ModelEditContainer extends React.Component {
   state = {
     editing: false,
     username: false,
@@ -66,13 +62,8 @@ class AccountContainer extends React.Component {
     profile: false,
     model: false,
     openData: false,
-    loadedAvatar: false,
-    markdownPreview: ""
+    loadedAvatar: false
   };
-
-  componentDidMount() {
-    this.userToState();
-  }
 
   componentDidUpdate() {
     if (this.state.editing) scrollToTop();
@@ -80,7 +71,6 @@ class AccountContainer extends React.Component {
 
   userToState() {
     let user = this.props.user;
-    this.renderMarkdownPreview(user.bio);
     this.setState({
       ...this.state,
       username: user.username,
@@ -102,17 +92,6 @@ class AccountContainer extends React.Component {
       openData: user.consent.openData,
       editing: false
     });
-  }
-
-  renderMarkdownPreview(markdown) {
-    let self = this;
-    remark()
-      .use(html)
-      .process(markdown, (err, md) => {
-        self.setState({
-          markdownPreview: md.contents
-        });
-      });
   }
 
   handleStartEditing = key => {
@@ -215,7 +194,6 @@ class AccountContainer extends React.Component {
     let newState = { ...this.state };
     newState[this.state.editing] = value;
     this.setState(state => newState);
-    if (this.state.editing === "bio") this.renderMarkdownPreview(value);
   };
 
   formatValue = (field, value) => {
@@ -359,17 +337,16 @@ class AccountContainer extends React.Component {
   ];
 
   render() {
+    return "hi";
     let items = this.items;
     let related = this.related;
     let edit = this.state.editing;
+    let model = this.props.model || false;
+    if (!model) return <pre>{JSON.stringify(this.props, null, 2)}</pre>;
     return (
       <div>
-        <Breadcrumbs>
-          <FormattedMessage id="app.settings" />
-        </Breadcrumbs>
-        <h1>
-          <FormattedMessage id="app.settings" />
-        </h1>
+        <Breadcrumbs>{model.name}</Breadcrumbs>
+        <h1>{model.name}</h1>
         <TwoColumns>
           <Column>
             {edit !== false ? (
@@ -401,21 +378,6 @@ class AccountContainer extends React.Component {
                     </Button>
                   )}
                 </div>
-                {edit === "bio" ? (
-                  <Tray
-                    className="mt1 force-expanded"
-                    title={<FormattedMessage id="app.preview" />}
-                    icon={<CodeIcon />}
-                  >
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: this.state.markdownPreview
-                      }}
-                    />
-                  </Tray>
-                ) : (
-                  ""
-                )}
               </form>
             ) : (
               <div className="overpad1">
@@ -463,31 +425,7 @@ class AccountContainer extends React.Component {
           </Column>
           <Column right>
             {edit !== false ? (
-              <Tray
-                className="my1 always-expanded"
-                icon={<WhyIcon />}
-                title={<FormattedMessage id="app.whatIsThis" />}
-              >
-                <p>
-                  <FormattedHTMLMessage id={"account." + edit + "Info"} />
-                </p>
-                {edit === "bio"
-                  ? [
-                      <TrayTitle icon={<WhyIcon />}>
-                        {
-                          this.props.data.markdownHelp["/docs/markdown"]
-                            .frontmatter.title
-                        }
-                      </TrayTitle>,
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: this.props.data.markdownHelp["/docs/markdown"]
-                            .html
-                        }}
-                      />
-                    ]
-                  : ""}
-              </Tray>
+              <FieldInfo intl={this.props.intl} field={edit} />
             ) : (
               <Tray
                 className="my1 stick always-expanded"
@@ -529,11 +467,12 @@ class AccountContainer extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.user,
+  models: state.models,
   notification: state.notification
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUserAccount: account => dispatch(setUserAccount(account)),
+  setModels: models => dispatch(setModels(models)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message)),
   closeNotification: () => dispatch(closeNotification())
@@ -542,4 +481,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(injectIntl(AccountContainer));
+)(injectIntl(ModelEditContainer));

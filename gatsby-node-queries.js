@@ -8,7 +8,6 @@ const allBlogPosts = `{
         fileAbsolutePath
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
-        id
         frontmatter {
           date
           path
@@ -44,7 +43,6 @@ const allShowcasePosts = `{
       node {
         fileAbsolutePath
         html
-        id
         frontmatter {
           date
           path
@@ -82,7 +80,7 @@ const showcasePreviews = `{
           title
   			  img {
             childImageSharp {
-              fixed(height: 300) {
+              fixed(height: 220) {
                  base64
                  aspectRatio
                  src
@@ -101,6 +99,38 @@ const showcasePreviews = `{
   }
 }`;
 
+const blogpostPreviews = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/blog/"}}}
+      sort: {fields: [frontmatter___date], order: DESC}
+    ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          date
+          path
+          title
+  			  img {
+            childImageSharp {
+              fixed(height: 220) {
+                 base64
+                 aspectRatio
+                 src
+                 srcSet
+                 width
+                 height
+              }
+            }
+          }
+          caption
+          author
+        }
+      }
+    }
+  }
+}`;
+
 const allDocumentation = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/"}}}
@@ -111,7 +141,22 @@ const allDocumentation = `{
         fileAbsolutePath
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
-        id
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
+const documentationList = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      sort: {fields: [frontmatter___path], order: ASC}
+    ) {
+    edges {
+      node {
         frontmatter {
           path
           title
@@ -128,10 +173,25 @@ const markdownHelp = `{
     ) {
     edges {
       node {
-        fileAbsolutePath
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
-        id
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
+const measurementsHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/measurements/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        html
         frontmatter {
           path
           title
@@ -146,5 +206,8 @@ module.exports = {
   allShowcasePosts,
   allDocumentation,
   markdownHelp,
-  showcasePreviews
+  measurementsHelp,
+  showcasePreviews,
+  blogpostPreviews,
+  documentationList
 };

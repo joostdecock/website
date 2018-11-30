@@ -41,7 +41,7 @@ function AvatarUpload({ username, handleAvatarDrop, image, intl }) {
             dropzoneRef.current.open();
           }}
         >
-          <SelectImageIcon className="mr10" />
+          <SelectImageIcon className="mr1" />
           <FormattedMessage id="app.selectImage" />
         </Button>
       </Dropzone>

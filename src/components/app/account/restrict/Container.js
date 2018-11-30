@@ -148,7 +148,7 @@ class AccountRestrictContainer extends React.Component {
               ""
             )}
           </Column>
-          <Column side="right">
+          <Column right>
             <Tray
               className="my1"
               icon={<WhyIcon />}

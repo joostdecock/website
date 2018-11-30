@@ -5,9 +5,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { FormattedMessage } from "react-intl";
 import ValidIcon from "@material-ui/icons/CheckCircle";
 import InvalidIcon from "@material-ui/icons/Warning";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import { Location } from "@reach/router";
 import { locLang } from "../../../utils";
 import remark from "remark";
 import html from "remark-html";
@@ -39,21 +36,6 @@ class FieldForm extends React.Component {
       ...state,
       tab: this.state.tab === 1 ? 0 : 1
     }));
-  };
-
-  loadMarkdownHelp = data => {
-    let edges = data.allMarkdownRemark.edges;
-    let help = {};
-    for (let edge of edges) {
-      if (
-        locLang.get(edge.node.frontmatter.path) ===
-        locLang.get(this.props.location)
-      ) {
-        help.title = edge.node.frontmatter.title;
-        help.html = edge.node.html;
-        return help;
-      }
-    }
   };
 
   handleValueUpdateLocal = evt => {
@@ -100,30 +82,9 @@ class FieldForm extends React.Component {
     this.props.handleValueUpdate(evt);
   };
 
-  componentDidMount() {
-    if (this.props.field === "bio") {
-      let markdownHelp = this.loadMarkdownHelp(this.props.data);
-      remark()
-        .use(html)
-        .process(this.props.value, (err, md) => {
-          this.setState(state => ({
-            ...state,
-            markdownPreview: md.contents,
-            markdownHelp: markdownHelp
-          }));
-        });
-    }
-  }
-
   render() {
     const { field, intl, value } = this.props;
-    const {
-      emailValid,
-      usernameValid,
-      tab,
-      markdownHelp,
-      markdownPreview
-    } = this.state;
+    const { emailValid, usernameValid } = this.state;
     const heading = (
       <h5>
         <FormattedMessage id={"account." + field + "Title"} />
@@ -148,7 +109,7 @@ class FieldForm extends React.Component {
               type={field === "email" ? "email" : "text"}
               onChange={this.handleValueUpdateLocal}
               InputProps={{
-                startAdornment: (
+                endAdornment: (
                   <InputAdornment position="start">
                     {field === "email" || field === "username" ? (
                       field === "email" ? (
@@ -211,7 +172,7 @@ class FieldForm extends React.Component {
         return (
           <div>
             <h5>
-              <FormattedMessage id="app.welcomeBioTitle" />
+              <FormattedMessage id="account.bioTitle" />
               &nbsp;
               <small>
                 (<FormattedMessage id="app.thisFieldSupportsMarkdown" />)
@@ -229,40 +190,6 @@ class FieldForm extends React.Component {
               value={value}
               onChange={this.handleValueUpdateLocal}
             />
-            <div>
-              <Tabs
-                value={tab}
-                onChange={this.handleTabChange}
-                fullWidth={true}
-                indicatorColor="primary"
-              >
-                <Tab label={intl.formatMessage({ id: "app.preview" })} />
-                <Tab label={markdownHelp.title} />
-              </Tabs>
-              {tab === 0 ? (
-                <div className="pt10">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: markdownPreview
-                    }}
-                  />
-                </div>
-              ) : (
-                <Location>
-                  {({ location }) => {
-                    return (
-                      <div className="pt10">
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: markdownHelp.html
-                          }}
-                        />
-                      </div>
-                    );
-                  }}
-                </Location>
-              )}
-            </div>
           </div>
         );
       case "units":

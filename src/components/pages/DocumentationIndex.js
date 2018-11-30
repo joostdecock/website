@@ -8,22 +8,17 @@ import TwoColumns from "../TwoColumns";
 import Column from "../Column";
 
 const DocumentationIndex = props => {
-  const language = props.pageContext.language;
-  const docs = props.pageContext.docs[language];
-  const fallback = props.pageContext.docs.en;
-  const paths = Object.keys(fallback).sort();
+  console.log(props);
+  const { language, location, data } = props.pageContext;
+  const docs = data.documentationList;
+  const paths = Object.keys(docs).sort();
 
   const docsWithPrefix = (prefix, sameLevel = false) => {
     let entries = [];
     for (let key of paths) {
       let entry = false;
-      let frontmatter;
-      let notTranslated = false;
-      if (typeof docs[key] !== "undefined") frontmatter = docs[key].frontmatter;
-      else {
-        frontmatter = fallback[key].frontmatter;
-        notTranslated = true;
-      }
+      let frontmatter = docs[key].frontmatter;
+      let notTranslated = language === docs[key].language ? false : true;
       if (key.substring(0, prefix.length) === prefix) {
         if (sameLevel) {
           if (key.substring(prefix.length).indexOf("/") === -1) {
@@ -44,13 +39,8 @@ const DocumentationIndex = props => {
   const docsWithoutPrefix = prefixes => {
     let entries = [];
     for (let key of paths) {
-      let frontmatter;
-      let notTranslated = false;
-      if (typeof docs[key] !== "undefined") frontmatter = docs[key].frontmatter;
-      else {
-        frontmatter = fallback[key].frontmatter;
-        notTranslated = true;
-      }
+      let frontmatter = docs[key].frontmatter;
+      let notTranslated = language === docs[key].language ? false : true;
       let add = 0;
       for (let prefix of prefixes) {
         if (key.substring(0, prefix.length) !== prefix) {
@@ -142,7 +132,7 @@ const DocumentationIndex = props => {
             })}
           </ul>
         </Column>
-        <Column side="right">
+        <Column right>
           <h2>
             <FormattedMessage id="app.sewingHelp" />
           </h2>

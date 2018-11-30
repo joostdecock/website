@@ -14,7 +14,6 @@ import MobileStepper from "@material-ui/core/MobileStepper";
 import Units from "./Units";
 import AvatarUpload from "./AvatarUpload";
 import AvatarPreview from "./AvatarPreview";
-import Bio from "./Bio";
 import Social from "./Social";
 import remark from "remark";
 import html from "remark-html";
@@ -24,12 +23,16 @@ import FieldForm from "../account/FieldForm";
 import Tray from "../../Tray";
 import Breadcrumbs from "../../Breadcrumbs";
 import WhyIcon from "@material-ui/icons/Help";
+import TwoColumns from "../../TwoColumns";
+import Column from "../../Column";
+import TrayTitle from "../../TrayTitle";
+import CodeIcon from "@material-ui/icons/Code";
 
 class WelcomeContainer extends React.Component {
   state = {
     loading: true,
     error: false,
-    activeStep: 0,
+    activeStep: 2,
     units: false,
     username: false,
     avatarPreview: false,
@@ -39,8 +42,31 @@ class WelcomeContainer extends React.Component {
     github: false,
     twitter: false,
     instagram: false,
-    maxSteps: 5
+    maxSteps: 5,
+    markdownPreview: ""
   };
+
+  componentDidMount() {
+    this.usernameToState();
+  }
+
+  usernameToState() {
+    this.renderMarkdownPreview(this.props.user.bio);
+    this.setState({
+      username: this.props.user.username
+    });
+  }
+
+  renderMarkdownPreview(markdown) {
+    let self = this;
+    remark()
+      .use(html)
+      .process(markdown, (err, md) => {
+        self.setState({
+          markdownPreview: md.contents
+        });
+      });
+  }
 
   saveAccount = (data, field) => {
     backend
@@ -51,7 +77,9 @@ class WelcomeContainer extends React.Component {
             "success",
             this.props.intl.formatMessage(
               { id: "app.fieldSaved" },
-              { field: this.props.intl.formatMessage({ id: "app." + field }) }
+              {
+                field: this.props.intl.formatMessage({ id: "account." + field })
+              }
             )
           );
           this.props.setUserAccount(res.data.account);
@@ -82,7 +110,8 @@ class WelcomeContainer extends React.Component {
     }
   };
 
-  saveBio = () => this.saveAccount({ bio: this.getBio() }, "bio");
+  saveBio = () =>
+    this.saveAccount({ bio: this.state.bio || this.props.user.bio }, "bio");
 
   saveSocial = () => {
     this.saveAccount(
@@ -101,7 +130,6 @@ class WelcomeContainer extends React.Component {
   getUnits = () => this.state.units || this.props.user.settings.units;
   getUsername = () => this.state.username || this.props.user.username;
   getAvatar = () => this.state.avatar || this.props.user.picture;
-  getBio = () => this.state.bio || this.props.user.bio;
   getBioPreview = () => {
     if (this.state.bioPreview !== false) return this.state.bioPreview;
     let result = "";
@@ -182,14 +210,7 @@ class WelcomeContainer extends React.Component {
       ...state,
       bio: value
     }));
-    remark()
-      .use(html)
-      .process(value, (err, md) => {
-        this.setState(state => ({
-          ...state,
-          bioPreview: md.contents
-        }));
-      });
+    this.renderMarkdownPreview(value);
   };
 
   handleGithubChange = evt => {
@@ -233,7 +254,7 @@ class WelcomeContainer extends React.Component {
         <FieldForm
           intl={this.props.intl}
           field="username"
-          value={this.state.username || ""}
+          value={this.state.username || this.props.username}
           handleValueUpdate={this.handleUsernameChange}
         />
       )
@@ -262,12 +283,12 @@ class WelcomeContainer extends React.Component {
     let bio = {
       key: "bio",
       content: (
-        <Bio
+        <FieldForm
           intl={this.props.intl}
-          bio={this.getBio()}
-          preview={this.getBioPreview()}
-          handleBioChange={this.handleBioChange}
+          field="bio"
           data={this.props.data}
+          value={this.state.bio || this.props.user.bio}
+          handleValueUpdate={this.handleBioChange}
         />
       )
     };
@@ -308,43 +329,80 @@ class WelcomeContainer extends React.Component {
         <h1>
           <FormattedMessage id="app.completeSignupTitle" />
         </h1>
-        <p className="maxw700">
-          <FormattedMessage id="app.completeSignupText" />
-        </p>
-        <form className="maxw700">
-          <MobileStepper
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            classes={{ root: "nobg" }}
-            nextButton={
-              <Button size="small" onClick={this.handleNext}>
-                <FormattedMessage id="app.save" />
-                <KeyboardArrowRight />
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={this.handleBack}
-                disabled={activeStep === 0}
-              >
-                <KeyboardArrowLeft />
-                <FormattedMessage id="app.back" />
-              </Button>
-            }
-          />
-          {step.content}
-          <Tray
-            className="my1 always-expanded"
-            icon={<WhyIcon />}
-            title={<FormattedMessage id={"app.whatIsThis"} />}
-          >
-            <p>
-              <FormattedHTMLMessage id={"account." + step.key + "Info"} />
+        <TwoColumns>
+          <Column>
+            <p className="my1">
+              <FormattedMessage id="app.completeSignupText" />
             </p>
-          </Tray>
-        </form>
+            <form>
+              <MobileStepper
+                steps={maxSteps}
+                position="static"
+                activeStep={activeStep}
+                classes={{ root: "nobg" }}
+                nextButton={
+                  <Button size="small" onClick={this.handleNext}>
+                    <FormattedMessage id="app.save" />
+                    <KeyboardArrowRight />
+                  </Button>
+                }
+                backButton={
+                  <Button
+                    size="small"
+                    onClick={this.handleBack}
+                    disabled={activeStep === 0}
+                  >
+                    <KeyboardArrowLeft />
+                    <FormattedMessage id="app.back" />
+                  </Button>
+                }
+              />
+              {step.content}
+              {activeStep === 3 ? (
+                <Tray
+                  className="mt1 force-expanded"
+                  title={<FormattedMessage id="app.preview" />}
+                  icon={<CodeIcon />}
+                >
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: this.state.markdownPreview
+                    }}
+                  />
+                </Tray>
+              ) : (
+                ""
+              )}
+            </form>
+          </Column>
+          <Column right>
+            <Tray
+              className="my1 always-expanded"
+              icon={<WhyIcon />}
+              title={<FormattedMessage id={"app.whatIsThis"} />}
+            >
+              <p>
+                <FormattedHTMLMessage id={"account." + step.key + "Info"} />
+              </p>
+              {step.key === "bio"
+                ? [
+                    <TrayTitle icon={<WhyIcon />}>
+                      {
+                        this.props.data.markdownHelp["/docs/markdown"]
+                          .frontmatter.title
+                      }
+                    </TrayTitle>,
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: this.props.data.markdownHelp["/docs/markdown"]
+                          .html
+                      }}
+                    />
+                  ]
+                : ""}
+            </Tray>
+          </Column>
+        </TwoColumns>
       </div>
     );
   }
