@@ -5,9 +5,7 @@ const queries = require("./gatsby-node-queries");
 exports.createPages = ({ actions, graphql }) => {
   const markdown = {};
   let promises = [];
-  promises.push(utils.runQueries(queries, graphql, markdown));
-  Promise.all(promises).then(() => {
-    promises = [];
+  utils.runQueries(queries, graphql, markdown).then(() => {
     promises.push(
       utils.createPageRedirects(config.nakedPaths, actions.createRedirect)
     );
@@ -37,8 +35,7 @@ exports.createPages = ({ actions, graphql }) => {
     promises.push(
       utils.createJsPages(markdown, actions.createPage, actions.createRedirect)
     );
-    setTimeout(function() {
-      return Promise.all(promises);
-    }, 30000);
   });
+
+  return Promise.all(promises);
 };

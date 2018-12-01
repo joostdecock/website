@@ -136,7 +136,6 @@ class ModelEditContainer extends React.Component {
 
   handleValueUpdate = evt => {
     let value = evt.target.value;
-    console.log("should render", value);
     if (this.state.editing === "notes") this.renderMarkdownPreview(value);
     this.setState({
       value

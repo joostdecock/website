@@ -88,124 +88,122 @@ exports.runQueries = function(queries, graphql, markdown) {
 };
 
 exports.createPageRedirects = function(nakedPaths, createRedirect) {
-  return new Promise((resolve, reject) => {
-    for (nakedPath of nakedPaths) {
-      createRedirect({
-        fromPath: nakedPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "/" + config.defaultLanguage + nakedPath
-      });
-    }
-    resolve();
-  });
+  let promises = [];
+  for (nakedPath of nakedPaths) {
+    createRedirect({
+      fromPath: nakedPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: "/" + config.defaultLanguage + nakedPath
+    });
+  }
+  return Promise.all(promises);
 };
 
 exports.createPosts = function(type, posts, createPage, createRedirect) {
-  return new Promise((resolve, reject) => {
-    let categories = new Set();
-    let categoryPosts = {};
+  let promises = [];
+  let categories = new Set();
+  let categoryPosts = {};
 
-    // Create pages for posts in all languages
-    for (let lang of config.languages) {
-      categoryPosts[lang] = {};
-      for (nakedPath of Object.keys(posts[lang])) {
-        let post = posts[lang][nakedPath];
-        let cats = [];
-        if (type === "blog") cats.push(post.frontmatter.category);
-        else cats = post.frontmatter.patterns;
-        for (let cat of cats) {
-          categories.add(cat);
-          if (typeof categoryPosts[lang][cat] === "undefined")
-            categoryPosts[lang][cat] = {};
-          categoryPosts[lang][cat][nakedPath] = post;
-        }
-        createPage({
-          path: `/${lang}${nakedPath}`,
-          component: config.templates[type + "Post"],
-          context: {
-            post,
-            language: lang,
-            location: `/${lang}${nakedPath}`
-          }
-        });
-        if (lang === config.defaultLanguage) {
-          // Redirects for legacy links without language prefix
-          createRedirect({
-            fromPath: nakedPath,
-            isPermanent: true,
-            redirectInBrowser: true,
-            toPath: "/" + config.defaultLanguage + nakedPath
-          });
-        }
+  // Create pages for posts in all languages
+  for (let lang of config.languages) {
+    categoryPosts[lang] = {};
+    for (nakedPath of Object.keys(posts[lang])) {
+      let post = posts[lang][nakedPath];
+      let cats = [];
+      if (type === "blog") cats.push(post.frontmatter.category);
+      else cats = post.frontmatter.patterns;
+      for (let cat of cats) {
+        categories.add(cat);
+        if (typeof categoryPosts[lang][cat] === "undefined")
+          categoryPosts[lang][cat] = {};
+        categoryPosts[lang][cat][nakedPath] = post;
       }
-      // Category indexes
-      categories.forEach(category => {
-        createPage({
-          path: `/${lang}/${type}/category/${category}`,
-          component: config.templates[type + "Index"],
-          context: {
-            posts: categoryPosts[lang][category],
-            language: lang,
-            location: `/${lang}/${type}/category/${category}`,
-            category: category
-          }
-        });
-      });
-      // Main index
       createPage({
-        path: `/${lang}/${type}`,
+        path: `/${lang}${nakedPath}`,
+        component: config.templates[type + "Post"],
+        context: {
+          post,
+          language: lang,
+          location: `/${lang}${nakedPath}`
+        }
+      });
+      if (lang === config.defaultLanguage) {
+        // Redirects for legacy links without language prefix
+        createRedirect({
+          fromPath: nakedPath,
+          isPermanent: true,
+          redirectInBrowser: true,
+          toPath: "/" + config.defaultLanguage + nakedPath
+        });
+      }
+    }
+    // Category indexes
+    categories.forEach(category => {
+      createPage({
+        path: `/${lang}/${type}/category/${category}`,
         component: config.templates[type + "Index"],
         context: {
-          posts: posts[lang],
+          posts: categoryPosts[lang][category],
           language: lang,
-          location: `/${lang}/${type}`,
-          category: "all"
+          location: `/${lang}/${type}/category/${category}`,
+          category: category
         }
       });
-    }
-    resolve();
-  });
+    });
+    // Main index
+    createPage({
+      path: `/${lang}/${type}`,
+      component: config.templates[type + "Index"],
+      context: {
+        posts: posts[lang],
+        language: lang,
+        location: `/${lang}/${type}`,
+        category: "all"
+      }
+    });
+  }
+  return Promise.all(promises);
 };
 
 exports.createDocumentation = function(pages, createPage, createRedirect) {
+  let promises = [];
   let prefix = {
     measurements: "/docs/measurements/"
   };
-  return new Promise((resolve, reject) => {
-    // Create pages for documentation in all languages
-    for (let lang of config.languages) {
-      for (nakedPath of Object.keys(pages[lang])) {
-        let page = pages[lang][nakedPath];
-        // Add measurement name to frontmatter
-        if (
-          nakedPath.substring(0, prefix.measurements.length) ===
-          prefix.measurements
-        )
-          page.frontmatter.measurement = nakedPath.split("/").pop();
-        // Add breadcrumbs to frontmatter
-        page.frontmatter.breadcrumbs = documentationBreadcrumbs(
-          nakedPath,
-          lang,
-          pages
-        );
-        // Create page
-        createPage({
-          path: `/${lang}${nakedPath}`,
-          component: config.templates.documentation,
-          context: {
-            page,
-            language: lang,
-            location: `/${lang}/${nakedPath}`
-          }
-        });
-      }
+  // Create pages for documentation in all languages
+  for (let lang of config.languages) {
+    for (nakedPath of Object.keys(pages[lang])) {
+      let page = pages[lang][nakedPath];
+      // Add measurement name to frontmatter
+      if (
+        nakedPath.substring(0, prefix.measurements.length) ===
+        prefix.measurements
+      )
+        page.frontmatter.measurement = nakedPath.split("/").pop();
+      // Add breadcrumbs to frontmatter
+      page.frontmatter.breadcrumbs = documentationBreadcrumbs(
+        nakedPath,
+        lang,
+        pages
+      );
+      // Create page
+      createPage({
+        path: `/${lang}${nakedPath}`,
+        component: config.templates.documentation,
+        context: {
+          page,
+          language: lang,
+          location: `/${lang}/${nakedPath}`
+        }
+      });
     }
-  });
-  resolve();
+  }
+  return Promise.all(promises);
 };
 
 exports.createJsPages = function(markdown, createPage, createRedirect) {
+  let promises = [];
   for (let lang of config.languages) {
     for (let page of config.jsPages) {
       let {
@@ -246,4 +244,5 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
       createPage(pageData);
     }
   }
+  return Promise.all(promises);
 };

@@ -12,12 +12,10 @@ class Tray extends React.Component {
   };
 
   handleCollapse = event => {
-    console.log("collapse");
     this.setState({ extraClasses: "force-collapsed" });
   };
 
   handleExpand = event => {
-    console.log("expand");
     this.setState({ extraClasses: "force-expanded" });
   };
 
