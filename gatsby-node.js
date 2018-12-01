@@ -37,6 +37,8 @@ exports.createPages = ({ actions, graphql }) => {
     promises.push(
       utils.createJsPages(markdown, actions.createPage, actions.createRedirect)
     );
-    return Promise.all(promises);
+    setTimeout(function() {
+      return Promise.all(promises);
+    }, 30000);
   });
 };
