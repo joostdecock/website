@@ -32,7 +32,7 @@ class WelcomeContainer extends React.Component {
   state = {
     loading: true,
     error: false,
-    activeStep: 2,
+    activeStep: 0,
     units: false,
     username: false,
     avatarPreview: false,

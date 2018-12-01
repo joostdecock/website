@@ -220,7 +220,8 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
         component: template,
         context: {
           language: lang,
-          location: `/${lang}${nakedPath}`
+          location: `/${lang}${nakedPath}`,
+          ...page.extraProps
         }
       };
       if (match) pageData.matchPath = "/" + lang + match;

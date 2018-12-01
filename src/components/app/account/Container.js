@@ -6,38 +6,12 @@ import {
   showNotification,
   closeNotification
 } from "../../../store/actions/notification";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import IconButton from "@material-ui/core/IconButton";
-import UsernameIcon from "@material-ui/icons/PermIdentity";
-import EmailIcon from "@material-ui/icons/Email";
-import GotoIcon from "@material-ui/icons/KeyboardArrowRight";
-import ExportIcon from "@material-ui/icons/CloudDownload";
-import PauseIcon from "@material-ui/icons/PauseCircleFilled";
-import RemoveIcon from "@material-ui/icons/DeleteForever";
-import PasswordIcon from "@material-ui/icons/VpnKey";
-import EditIcon from "@material-ui/icons/Edit";
-import TwitterIcon from "../../TwitterIcon";
-import InstagramIcon from "../../InstagramIcon";
-import GithubIcon from "../../GithubIcon";
-import UnitsIcon from "@material-ui/icons/Public";
-import LanguageIcon from "@material-ui/icons/Translate";
-import PatronIcon from "@material-ui/icons/Favorite";
-import ConsentIcon from "@material-ui/icons/DoneAll";
-import BioIcon from "@material-ui/icons/ChatBubbleOutline";
-import SocialLink from "../../SocialLink";
 import FieldForm from "./FieldForm";
 import Button from "@material-ui/core/Button";
 import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import SaveIcon from "@material-ui/icons/Save";
-import LinkIcon from "@material-ui/icons/Link";
 import backend from "../../../backend";
-import { locLang, scrollToTop } from "../../../utils";
-import { Link } from "gatsby";
-import Avatar from "@material-ui/core/Avatar";
+import { scrollToTop } from "../../../utils";
 import Breadcrumbs from "../../Breadcrumbs";
 import Tray from "../../Tray";
 import TrayTitle from "../../TrayTitle";
@@ -48,6 +22,7 @@ import WhyIcon from "@material-ui/icons/Help";
 import remark from "remark";
 import html from "remark-html";
 import CodeIcon from "@material-ui/icons/Code";
+import AccountView from "./AccountView";
 
 class AccountContainer extends React.Component {
   state = {
@@ -218,150 +193,7 @@ class AccountContainer extends React.Component {
     if (this.state.editing === "bio") this.renderMarkdownPreview(value);
   };
 
-  formatValue = (field, value) => {
-    switch (field) {
-      case "language":
-        return <FormattedMessage id={"i18n." + value} />;
-      case "patron":
-        if (value === 2)
-          return [
-            <FormattedMessage id="app.patron-2" key="msg" />,
-            <span key="emoji" role="img" aria-label=":)">
-              {" "}
-              😀{" "}
-            </span>
-          ];
-        if (value === 4)
-          return [
-            <FormattedMessage id="app.patron-4" key="msg" />,
-            <span key="emoji" role="img" aria-label=":)">
-              {" "}
-              😘
-            </span>
-          ];
-        if (value === 8)
-          return [
-            <FormattedMessage id="app.patron-8" key="msg" />,
-            <span key="emoji" role="img" aria-label=":D">
-              {" "}
-              😍
-            </span>
-          ];
-        return [
-          <FormattedMessage id="app.no" key="msg" />,
-          <span key="emoji" role="img" aria-label=":(">
-            {" "}
-            😞{" "}
-          </span>
-        ];
-      case "units":
-        return value ? <FormattedMessage id={"app." + value + "Units"} /> : "";
-      case "github":
-      case "twitter":
-      case "instagram":
-        if (value === "") return value;
-        else return <SocialLink site={field} account={value} />;
-      case "email":
-        if (value !== this.props.user.email)
-          return (
-            <span>
-              {value}{" "}
-              <em>
-                (<FormattedMessage id="app.pendingConfirmation" />)
-              </em>
-            </span>
-          );
-        else return value;
-      default:
-        return value;
-    }
-  };
-
-  patronValue = rank => {
-    if (rank === 2) return [<FormattedMessage id="app.patron-2" />, " 😀"];
-    if (rank === 4) return [<FormattedMessage id="app.patron-4" />, " 😘"];
-    if (rank === 8) return [<FormattedMessage id="app.patron-8" />, " 😍"];
-    return [<FormattedMessage id="app.no" />, " 😞"];
-  };
-
-  items = [
-    {
-      key: "username",
-      icon: <UsernameIcon />
-    },
-    {
-      key: "email",
-      icon: <EmailIcon />
-    },
-    {
-      key: "password",
-      icon: <PasswordIcon />
-    },
-    {
-      key: "bio",
-      icon: <BioIcon />
-    },
-    {
-      key: "avatar"
-    },
-    {
-      key: "units",
-      icon: <UnitsIcon />
-    },
-    {
-      key: "language",
-      icon: <LanguageIcon />
-    },
-    {
-      key: "github",
-      icon: <GithubIcon />
-    },
-    {
-      key: "twitter",
-      icon: <TwitterIcon />
-    },
-    {
-      key: "instagram",
-      icon: <InstagramIcon />
-    },
-    {
-      key: "patron",
-      icon: <PatronIcon />,
-      noSave: true
-    }
-  ];
-
-  related = [
-    {
-      key: "export",
-      to: "/account/export",
-      icon: <ExportIcon />,
-      label: "exportYourData"
-    },
-    {
-      key: "consent",
-      to: "/account/consent",
-      icon: <ConsentIcon />,
-      label: "reviewYourConsent"
-    },
-    {
-      key: "restrict",
-      to: "/account/restrict",
-      icon: <PauseIcon />,
-      label: "restrictProcessingOfYourData"
-    },
-    {
-      key: "remove",
-      to: "/account/remove",
-      icon: <RemoveIcon />,
-      label: "removeYourAccount"
-    }
-  ];
-
   render() {
-    let items = this.items;
-    let related = this.related;
-    let edit = this.state.editing;
     return (
       <div>
         <Breadcrumbs>
@@ -370,14 +202,24 @@ class AccountContainer extends React.Component {
         <h1>
           <FormattedMessage id="app.settings" />
         </h1>
-        <TwoColumns>
-          <Column>
-            {edit !== false ? (
-              <form onSubmit={this.handleValueSave} data-field={edit}>
+        {!this.state.editing ? (
+          <AccountView
+            location={this.props.location}
+            language={this.props.language}
+            handleStartEditing={this.handleStartEditing}
+            {...this.state}
+          />
+        ) : (
+          <TwoColumns>
+            <Column>
+              <form
+                onSubmit={this.handleValueSave}
+                data-field={this.state.editing}
+              >
                 <FieldForm
                   intl={this.props.intl}
-                  field={edit}
-                  value={this.state[edit]}
+                  field={this.state.editing}
+                  value={this.state[this.state.editing]}
                   handleValueUpdate={this.handleValueUpdate}
                   handleAvatarLoad={this.handleAvatarLoad}
                   data={this.props.data}
@@ -392,7 +234,7 @@ class AccountContainer extends React.Component {
                     <BackIcon />
                     <FormattedMessage id="app.back" />
                   </Button>
-                  {edit === "patron" ? (
+                  {this.state.editing === "patron" ? (
                     ""
                   ) : (
                     <Button type="submit" variant="contained" color="primary">
@@ -401,7 +243,7 @@ class AccountContainer extends React.Component {
                     </Button>
                   )}
                 </div>
-                {edit === "bio" ? (
+                {this.state.editing === "bio" ? (
                   <Tray
                     className="mt1 force-expanded"
                     title={<FormattedMessage id="app.preview" />}
@@ -417,61 +259,20 @@ class AccountContainer extends React.Component {
                   ""
                 )}
               </form>
-            ) : (
-              <div className="overpad1">
-                <List component="nav">
-                  {items.map((item, index) => (
-                    <ListItem
-                      button
-                      key={"settingitem-" + index}
-                      onClick={() => this.handleStartEditing(item.key)}
-                    >
-                      <ListItemIcon>
-                        {item.key === "avatar" ? (
-                          <Avatar
-                            src={this.state.avatarUri}
-                            alt="avatar"
-                            className="m24"
-                          />
-                        ) : (
-                          item.icon
-                        )}
-                      </ListItemIcon>
-                      <ListItemText>
-                        <div className="keyval">
-                          <span className="key" key={"key-" + index}>
-                            <FormattedMessage id={"account." + item.key} />
-                          </span>
-                          <span className="val" key={"val-" + index}>
-                            {this.formatValue(item.key, this.state[item.key])}
-                          </span>
-                        </div>
-                      </ListItemText>
-                      <ListItemSecondaryAction>
-                        <IconButton
-                          aria-label="Comments"
-                          onClick={() => this.handleStartEditing(item.key)}
-                        >
-                          <EditIcon color="primary" />
-                        </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  ))}
-                </List>
-              </div>
-            )}
-          </Column>
-          <Column right>
-            {edit !== false ? (
+            </Column>
+
+            <Column right>
               <Tray
                 className="my1 always-expanded"
                 icon={<WhyIcon />}
                 title={<FormattedMessage id="app.whatIsThis" />}
               >
                 <p>
-                  <FormattedHTMLMessage id={"account." + edit + "Info"} />
+                  <FormattedHTMLMessage
+                    id={"account." + this.state.editing + "Info"}
+                  />
                 </p>
-                {edit === "bio"
+                {this.state.editing === "bio"
                   ? [
                       <TrayTitle icon={<WhyIcon />}>
                         {
@@ -488,40 +289,9 @@ class AccountContainer extends React.Component {
                     ]
                   : ""}
               </Tray>
-            ) : (
-              <Tray
-                className="my1 stick always-expanded"
-                icon={<LinkIcon />}
-                title={<FormattedMessage id="app.relatedLinks" />}
-              >
-                <List className="overpad1">
-                  {related.map((item, index) => (
-                    <Link
-                      to={locLang.set(
-                        item.to,
-                        locLang.get(this.props.location)
-                      )}
-                      className="nodec"
-                      key={"link" + index}
-                    >
-                      <ListItem button>
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText>
-                          <FormattedMessage id={"account." + item.label} />
-                        </ListItemText>
-                        <ListItemSecondaryAction>
-                          <IconButton>
-                            <GotoIcon color="primary" />
-                          </IconButton>
-                        </ListItemSecondaryAction>
-                      </ListItem>
-                    </Link>
-                  ))}
-                </List>
-              </Tray>
-            )}
-          </Column>
-        </TwoColumns>
+            </Column>
+          </TwoColumns>
+        )}
       </div>
     );
   }

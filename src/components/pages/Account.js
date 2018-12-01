@@ -6,7 +6,7 @@ import AccountContainer from "../app/account/Container";
 const Account = props => (
   <BaseLayout>
     <AuthContainer>
-      <AccountContainer data={props.pageContext.data} />
+      <AccountContainer {...props.pageContext} />
     </AuthContainer>
   </BaseLayout>
 );
