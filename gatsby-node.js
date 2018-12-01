@@ -3,39 +3,52 @@ const utils = require("./gatsby-node-utils");
 const queries = require("./gatsby-node-queries");
 
 exports.createPages = ({ actions, graphql }) => {
-  const markdown = {};
-  let promises = [];
-  utils.runQueries(queries, graphql, markdown).then(() => {
-    promises.push(
-      utils.createPageRedirects(config.nakedPaths, actions.createRedirect)
-    );
-    promises.push(
-      utils.createPosts(
-        "blog",
-        markdown.allBlogPosts,
-        actions.createPage,
-        actions.createRedirect
-      )
-    );
-    promises.push(
-      utils.createPosts(
-        "showcase",
-        markdown.allShowcasePosts,
-        actions.createPage,
-        actions.createRedirect
-      )
-    );
-    promises.push(
-      utils.createDocumentation(
-        markdown.allDocumentation,
-        actions.createPage,
-        actions.createRedirect
-      )
-    );
-    promises.push(
-      utils.createJsPages(markdown, actions.createPage, actions.createRedirect)
-    );
+  return new Promise((resolve, reject) => {
+    const markdown = {};
+    utils
+      .runQueries(queries, graphql, markdown)
+      .then(() => {
+        console.log();
+        console.log("[#-----]", "GraphQl queries complete");
+        utils.createPageRedirects(config.nakedPaths, actions.createRedirect);
+      })
+      .then(() => {
+        console.log("[##----]", "All redirects created");
+        utils.createPosts(
+          "blog",
+          markdown.allBlogPosts,
+          actions.createPage,
+          actions.createRedirect
+        );
+      })
+      .then(() => {
+        console.log("[###---]", "Blog posts and indexes created");
+        utils.createPosts(
+          "showcase",
+          markdown.allShowcasePosts,
+          actions.createPage,
+          actions.createRedirect
+        );
+      })
+      .then(() => {
+        console.log("[####--]", "Showcase posts and indexes created");
+        utils.createDocumentation(
+          markdown.allDocumentation,
+          actions.createPage,
+          actions.createRedirect
+        );
+      })
+      .then(() => {
+        console.log("[#####-]", "Documentation pages created");
+        utils.createJsPages(
+          markdown,
+          actions.createPage,
+          actions.createRedirect
+        );
+      })
+      .then(() => {
+        console.log("[######]", "Application endpoints created");
+        resolve(true);
+      });
   });
-
-  return Promise.all(promises);
 };
