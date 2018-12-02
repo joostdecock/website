@@ -157,6 +157,7 @@ class ModelsContainer extends React.Component {
                 orderBy={orderBy}
                 handleSort={this.sort}
                 self={this}
+                className="not-on-mobile"
               />
               <SortableTableCell
                 by="name"
@@ -171,6 +172,7 @@ class ModelsContainer extends React.Component {
                 orderBy={orderBy}
                 handleSort={this.sort}
                 self={this}
+                className="not-on-mobile"
               />
               <SortableTableCell
                 by="created"
@@ -178,6 +180,7 @@ class ModelsContainer extends React.Component {
                 orderBy={orderBy}
                 handleSort={this.sort}
                 self={this}
+                className="not-on-mobile"
               />
             </TableRow>
           </TableHead>
@@ -204,18 +207,18 @@ class ModelsContainer extends React.Component {
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} color="primary" />
                       </TableCell>
-                      <TableCell padding="dense">
+                      <TableCell padding="dense" className="not-on-mobile">
                         <Link to={to}>{handle}</Link>
                       </TableCell>
                       <TableCell padding="dense">
                         <Link to={to}>{model.name}</Link>
                       </TableCell>
-                      <TableCell padding="dense">
+                      <TableCell padding="dense" className="not-on-mobile">
                         {typeof model.measurements === "undefined"
                           ? 0
                           : Object.keys(model.measurements).length}
                       </TableCell>
-                      <TableCell padding="dense">
+                      <TableCell padding="dense" className="not-on-mobile">
                         <Link to={to}>
                           <Datum date={model.created} />
                         </Link>

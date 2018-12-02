@@ -8,7 +8,10 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 const SortableTableCell = props => {
   let { orderBy, order, by, handleSort, self } = props;
   return (
-    <TableCell sortDirection={orderBy === by ? order : false}>
+    <TableCell
+      sortDirection={orderBy === by ? order : false}
+      className={props.className}
+    >
       <Tooltip
         title={props.intl.formatMessage(
           { id: "app.sortByField" },
