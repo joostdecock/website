@@ -1,5 +1,6 @@
 @include md-screen {
   .not-on-mobile { display: inherit!important; }
+  td.not-on-mobile, th.not-on-mobile { display: table-cell!important; }
   .not-on-md,
   .only-on-mobile { display: none!important; }
   aside.left { padding-right: 1rem; }
