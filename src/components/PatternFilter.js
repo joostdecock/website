@@ -105,9 +105,11 @@ class PatternFilter extends React.Component {
       for (let pattern of Object.keys(patterns)) {
         let seen = false;
         for (let tag of state.tags) {
-          if (patterns[pattern].tags.indexOf(tag) !== -1) seen = true;
+          if (patterns[pattern].tags.indexOf(tag) === -1) {
+            delete patterns[pattern];
+            break;
+          }
         }
-        if (!seen) delete patterns[pattern];
       }
     }
     return Object.keys(patterns);
