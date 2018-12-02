@@ -80,7 +80,7 @@ body.dark .shadow1 { @include shadow-dark; }
 .nobg { background: transparent!important; }
 .hide { display: none; }
 .poh:hover {cursor: pointer; }
-
+.br4 { border-radius: 4px;}
 // FIXME: These should go somewhere where they make sense
 
 .wrap {

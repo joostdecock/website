@@ -25,6 +25,11 @@ exports.jsPages = [
     limit: 10
   },
   {
+    nakedPath: "/patterns",
+    template: path.resolve("src/components/pages/Patterns.js"),
+    includeQuery: "patternCoverImages"
+  },
+  {
     nakedPath: "/docs",
     template: path.resolve("src/components/pages/DocumentationIndex.js"),
     includeMarkdown: "documentationList"

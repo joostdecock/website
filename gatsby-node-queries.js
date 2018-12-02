@@ -201,6 +201,29 @@ const measurementsHelp = `{
   }
 }`;
 
+const patternCoverImages = `{
+	allFile(
+  	sort: { order: ASC, fields: [absolutePath] }
+    filter: { relativePath: { regex: "/patterns/.*/cover.jpg/" } }
+  ) {
+    edges {
+			node {
+				relativePath
+				name
+				childImageSharp {
+          fluid(maxWidth: 500) {
+             base64
+             aspectRatio
+             src
+             srcSet
+             sizes
+          }
+				}
+			}
+		}
+	}
+}`;
+
 module.exports = {
   allBlogPosts,
   allShowcasePosts,
@@ -209,5 +232,6 @@ module.exports = {
   measurementsHelp,
   showcasePreviews,
   blogpostPreviews,
-  documentationList
+  documentationList,
+  patternCoverImages
 };

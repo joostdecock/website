@@ -2,6 +2,7 @@ const config = require("./gatsby-node-config");
 const path = require("path");
 
 const markdownPerLanguage = function(data) {
+  if (typeof data.allMarkdownRemark === "undefined") return data; // Not markdown but other query
   let dflt = config.defaultLanguage;
   let edges = data.allMarkdownRemark.edges;
   const markdown = {};
@@ -211,7 +212,8 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
         template,
         match = false,
         includeMarkdown = false,
-        limit = false
+        limit = false,
+        includeQuery = false
       } = page;
       let pageData = {
         path: `/${lang}${nakedPath}`,
@@ -239,6 +241,13 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
             }
             pageData.context.data[includeMd] = includes;
           }
+        }
+      }
+      if (includeQuery !== false) {
+        if (typeof includeQuery === "string") includeQuery = [includeQuery];
+        pageData.context.data = {};
+        for (let includeQ of includeQuery) {
+          pageData.context.data[includeQ] = markdown[includeQ];
         }
       }
       createPage(pageData);
