@@ -1,21 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Image from "gatsby-image";
-import TimeAgo from "./TimeAgo";
-import { Link } from "gatsby";
-import { locLang, uniqueArray } from "../utils";
-import Grid from "@material-ui/core/Grid";
+import { uniqueArray } from "../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import Checkbox from "@material-ui/core/Checkbox";
-import { patternList, patternInfo } from "@freesewing/pattern-bundle";
+import { patternInfo } from "@freesewing/pattern-bundle";
 import Button from "@material-ui/core/Button";
 
 class PatternFilter extends React.Component {
@@ -103,7 +97,6 @@ class PatternFilter extends React.Component {
     }
     if (state.tags.length > 0) {
       for (let pattern of Object.keys(patterns)) {
-        let seen = false;
         for (let tag of state.tags) {
           if (patterns[pattern].tags.indexOf(tag) === -1) {
             delete patterns[pattern];
@@ -116,7 +109,7 @@ class PatternFilter extends React.Component {
   }
 
   render() {
-    let { language, intl } = this.props;
+    let { intl } = this.props;
 
     let filterTypes = {
       department: [],

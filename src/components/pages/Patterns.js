@@ -1,8 +1,5 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import { Link } from "gatsby";
-import { locLang, uniqueArray } from "../../utils";
-import Chip from "@material-ui/core/Chip";
 import { FormattedMessage } from "react-intl";
 import Breadcrumbs from "../Breadcrumbs";
 import { patternList } from "@freesewing/pattern-bundle";

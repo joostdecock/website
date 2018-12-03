@@ -2,7 +2,12 @@ const config = require("./gatsby-node-config");
 const path = require("path");
 
 const markdownPerLanguage = function(data) {
-  if (typeof data.allMarkdownRemark === "undefined") return data; // Not markdown but other query
+  if (
+    typeof data === "undefined" ||
+    typeof data.allMarkdownRemark === "undefined" ||
+    data.allMarkdownRemark === null
+  )
+    return data; // Not markdown but other query
   let dflt = config.defaultLanguage;
   let edges = data.allMarkdownRemark.edges;
   const markdown = {};
@@ -79,7 +84,9 @@ exports.runQueries = function(queries, graphql, markdown) {
     promises.push(
       new Promise((resolve, reject) => {
         graphql(queries[query]).then(res => {
-          markdown[query] = markdownPerLanguage(res.data);
+          if (typeof res.data === "undefined")
+            console.log("query failed", query, res);
+          else markdown[query] = markdownPerLanguage(res.data);
           resolve(true);
         });
       })

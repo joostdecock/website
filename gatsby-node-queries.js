@@ -1,3 +1,5 @@
+const patternList = require("@freesewing/pattern-bundle").patternList;
+
 const allBlogPosts = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/blog/"}}}
@@ -224,6 +226,69 @@ const patternCoverImages = `{
 	}
 }`;
 
+const individualPatternCoverImages = {};
+const individualPatternShowcasePreviews = {};
+
+for (let pattern of patternList) {
+  individualPatternCoverImages[pattern + "CoverImage"] = `{
+  	allFile(
+    	sort: { order: ASC, fields: [absolutePath] }
+      filter: { relativePath: { regex: "/patterns/${pattern}/cover.jpg/" } }
+    ) {
+      edges {
+  			node {
+  				relativePath
+  				name
+  				childImageSharp {
+            fluid(maxWidth: 500) {
+               base64
+               aspectRatio
+               src
+               srcSet
+               sizes
+            }
+  				}
+  			}
+  		}
+  	}
+  }`;
+  individualPatternShowcasePreviews[pattern + "ShowcasePreviews"] = `{
+    allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            path: {regex: "/en/showcase/"}
+            patterns: {eq: "${pattern}"}
+          }
+        }
+        sort: {fields: [frontmatter___date], order: DESC}
+      ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            path
+            title
+    			  img {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                   base64
+                   aspectRatio
+                   src
+                   srcSet
+                   sizes
+                }
+              }
+            }
+            caption
+            author
+            patterns
+          }
+        }
+      }
+    }
+  }`;
+}
+
 module.exports = {
   allBlogPosts,
   allShowcasePosts,
@@ -233,5 +298,7 @@ module.exports = {
   showcasePreviews,
   blogpostPreviews,
   documentationList,
-  patternCoverImages
+  patternCoverImages,
+  ...individualPatternCoverImages,
+  ...individualPatternShowcasePreviews
 };

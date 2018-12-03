@@ -5,6 +5,7 @@ import Storage from "./storage";
 import tlds from "tlds";
 import remark from "remark";
 import html from "remark-html";
+import { options } from "@freesewing/i18n";
 
 const storage = new Storage();
 
@@ -349,6 +350,14 @@ const imperialFractionToMm = value => {
   else return (num * 25.4) / denom;
 };
 
+const optionDescription = (option, pattern) => {
+  if (typeof options[option].description === "string")
+    return "options." + option + ".description";
+  else if (typeof options[option].description[pattern] === "string")
+    return "options." + option + ".description." + pattern;
+  else return "options." + option + ".description._default";
+};
+
 export {
   distance,
   uniqueArray,
@@ -367,5 +376,6 @@ export {
   retrieveToken,
   clearToken,
   validateEmail,
-  validateTld
+  validateTld,
+  optionDescription
 };

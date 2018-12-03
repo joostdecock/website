@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "gatsby-image";
-import TimeAgo from "./TimeAgo";
 import { Link } from "gatsby";
 import { locLang } from "../utils";
-import Grid from "@material-ui/core/Grid";
 
 const PatternPreview = props => {
   let { pattern, image, language } = props;

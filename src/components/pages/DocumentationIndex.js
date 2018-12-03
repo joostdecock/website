@@ -8,7 +8,7 @@ import TwoColumns from "../TwoColumns";
 import Column from "../Column";
 
 const DocumentationIndex = props => {
-  const { language, location, data } = props.pageContext;
+  const { language, data } = props.pageContext;
   const docs = data.documentationList;
   const paths = Object.keys(docs).sort();
 
