@@ -18,6 +18,8 @@ import {
 import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
 import MenuItem from "@material-ui/core/MenuItem";
+import Icon from "./Icon";
+import { tshirt } from "../data/icons";
 
 const styles = {
   root: {
@@ -132,6 +134,20 @@ class MobileMenu extends React.Component {
               >
                 <HomeIcon className="mr1" />
                 <FormattedMessage id="app.home" />
+              </MenuItem>
+              <MenuItem
+                key="patterns"
+                button={true}
+                component="a"
+                onClick={this.handleClose}
+                href={locLang.set("/patterns/", this.props.language)}
+                title={this.props.intl.formatMessage({
+                  id: "app.patterns"
+                })}
+                color="secondary"
+              >
+                <Icon className="mr1" pathString={tshirt} />
+                <FormattedMessage id="app.patterns" />
               </MenuItem>
               <MenuItem
                 key="blog"
