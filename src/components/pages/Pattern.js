@@ -60,7 +60,28 @@ const Pattern = props => {
     } else result.push(<b>{info.design}</b>);
     return result;
   };
-
+  const draftButton = (
+    <Button
+      color="primary"
+      variant="contained"
+      size="large"
+      fullWidth={true}
+      href={locLang.set("/draft/" + pattern, language)}
+    >
+      <FormattedMessage id="app.draftPattern" values={{ pattern }} />
+    </Button>
+  );
+  const docsButton = (
+    <Button
+      color="primary"
+      variant="outlined"
+      size="large"
+      fullWidth={true}
+      href={locLang.set("/docs/patterns/" + pattern, language)}
+    >
+      <FormattedMessage id="app.docs" />
+    </Button>
+  );
   return (
     <BaseLayout>
       <Breadcrumbs via={[{ label: "app.patterns", link: "/patterns" }]}>
@@ -73,15 +94,7 @@ const Pattern = props => {
         <Column wide>
           <TwoColumns>
             <Column>
-              <Button
-                color="primary"
-                variant="contained"
-                size="large"
-                fullWidth={true}
-                href={locLang.set("/draft/" + pattern, language)}
-              >
-                <FormattedMessage id="app.draftPattern" values={{ pattern }} />
-              </Button>
+              {draftButton}
               <figure className="mt1">
                 <Image
                   fluid={image.fluid}
@@ -93,15 +106,7 @@ const Pattern = props => {
               </figure>
             </Column>
             <Column right>
-              <Button
-                color="primary"
-                variant="outlined"
-                size="large"
-                fullWidth={true}
-                href={locLang.set("/docs/patterns/" + pattern, language)}
-              >
-                <FormattedMessage id="app.docs" />
-              </Button>
+              {docsButton}
               <h5 className="mt1">
                 <FormattedMessage id={"app.whatIsThis"} />
               </h5>
@@ -194,7 +199,7 @@ const Pattern = props => {
           <Tray
             icon={<OptionsIcon />}
             title={<FormattedMessage id="app.patternOptions" />}
-            className="mt1"
+            className="mt1 mb1"
           >
             <PatternOptionsList
               options={info.options}
@@ -202,6 +207,7 @@ const Pattern = props => {
               pattern={pattern}
             />
           </Tray>
+          {draftButton}
         </Column>
       </TwoColumns>
     </BaseLayout>
@@ -209,27 +215,3 @@ const Pattern = props => {
 };
 
 export default Pattern;
-
-/*
-          <Tray
-            icon={<MeasurementsIcon />}
-            title={<FormattedMessage id="app.requiredMeasurements" />}
-          >
-            <MeasurementsList
-              measurements={info.measurements}
-              language={language}
-            />
-          </Tray>
-          <Tray
-            icon={<OptionsIcon />}
-            title={<FormattedMessage id="app.patternOptions" />}
-            className="mt1"
-          >
-            <PatternOptionsList
-              options={info.options}
-              language={language}
-              pattern={pattern}
-            />
-          </Tray>
-
-          */

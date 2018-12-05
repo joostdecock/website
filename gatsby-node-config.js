@@ -29,7 +29,13 @@ exports.jsPages = [
   {
     nakedPath: "/patterns",
     template: path.resolve("src/components/pages/Patterns.js"),
-    includeQuery: "patternCoverImages"
+    includeQuery: "patternCoverImages",
+    extraProps: { draft: false }
+  },
+  {
+    nakedPath: "/draft",
+    template: path.resolve("src/components/pages/Draft.js"),
+    match: "/draft/*"
   },
   {
     nakedPath: "/docs",

@@ -50,6 +50,10 @@ const languageFromSlug = slug => {
  * So for /en/blog/category/roundup this will return en
  */
 const locLang = {
+  strip: location => {
+    let lang = location.split("/")[1];
+    return location.substring(lang.length + 1);
+  },
   get: location => {
     let lang = location.split("/")[1];
     if (i18nConfig.languages.indexOf(lang) !== -1) return lang;

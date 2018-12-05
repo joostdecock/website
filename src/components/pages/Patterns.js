@@ -30,6 +30,7 @@ class Patterns extends React.Component {
   render() {
     this.images = this.props.pageContext.data.patternCoverImages.allFile.edges;
     this.language = this.props.pageContext.language;
+    this.draft = this.props.pageContext.draft;
 
     for (let pattern of patternList) {
       this.patterns[pattern] = { image: false };
@@ -41,10 +42,14 @@ class Patterns extends React.Component {
     return (
       <BaseLayout>
         <Breadcrumbs>
-          <FormattedMessage id="app.patterns" />
+          <FormattedMessage id={this.draft ? "app.newDraft" : "app.patterns"} />
         </Breadcrumbs>
         <h1>
-          <FormattedMessage id="app.patterns" />
+          {this.draft ? (
+            <FormattedMessage id="app.cooseAPatternToDraft" />
+          ) : (
+            <FormattedMessage id="app.patterns" />
+          )}
         </h1>
         <TwoColumns wrapReverse={true}>
           <Column wide>
@@ -56,6 +61,7 @@ class Patterns extends React.Component {
                       pattern={pattern}
                       image={this.patterns[pattern].image}
                       language={this.language}
+                      draftLink={this.draft}
                     />
                   </Grid>
                 );

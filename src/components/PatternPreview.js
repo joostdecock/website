@@ -5,10 +5,16 @@ import { Link } from "gatsby";
 import { locLang } from "../utils";
 
 const PatternPreview = props => {
-  let { pattern, image, language } = props;
+  let { pattern, image, language, draftLink = false } = props;
   return (
     <div className="teaser">
-      <Link to={locLang.set("/patterns/" + pattern, language)} title={pattern}>
+      <Link
+        to={locLang.set(
+          (draftLink ? "/draft/" : "/patterns/") + pattern,
+          language
+        )}
+        title={pattern}
+      >
         {/* This makes the link cover the entire image */}
         <span className="fs-block-link" />
       </Link>

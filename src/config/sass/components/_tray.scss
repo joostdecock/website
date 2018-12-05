@@ -47,6 +47,12 @@ body.dark {
   .force-expaded.tray {
     @include tray-expanded;
   }
+  .unforced.load-collapsed.tray {
+    @include tray-collapsed;
+  }
+  .force-expaded.tray.load-collapsed {
+    @include tray-expanded;
+  }
 }
 
 h3.tray-title button.toggle span {
