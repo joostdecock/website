@@ -2,7 +2,7 @@ import React from "react";
 import BaseLayout from "../layouts/Base";
 import { FormattedMessage } from "react-intl";
 import Breadcrumbs from "../Breadcrumbs";
-import { patternList } from "@freesewing/pattern-bundle";
+import { patternList } from "@freesewing/patterns";
 import PatternPreview from "../PatternPreview";
 import Grid from "@material-ui/core/Grid";
 import TwoColumns from "../TwoColumns";

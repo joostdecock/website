@@ -16,18 +16,16 @@ import Button from "@material-ui/core/Button";
 import PatternPicker from "./PatternPicker";
 import ModelPicker from "./ModelPicker";
 import OptionPicker from "./OptionPicker";
-import { patternList } from "@freesewing/pattern-bundle";
+import { patternList } from "@freesewing/patterns";
 import { tshirt } from "../../../data/icons";
 import Icon from "../../Icon";
 import ModelIcon from "@material-ui/icons/PermIdentity";
-import ShortcutIcon from "@material-ui/icons/FastForward";
-import ContinueIcon from "@material-ui/icons/KeyboardArrowRight";
-import BackIcon from "@material-ui/icons/KeyboardArrowLeft";
 import TuneIcon from "@material-ui/icons/Tune";
 import Tray from "../../Tray";
-import { Link } from "gatsby";
 import { locLang, capitalize } from "../../../utils";
-import DraftConfigurator from "./DraftConfigurator";
+import DraftPreview from "./DraftPreview";
+import TrayFooter from "../../TrayFooter";
+import GithubIcon from "../../GithubIcon";
 
 function PatternIcon() {
   return <Icon pathString={tshirt} className="r1" />;
@@ -37,8 +35,17 @@ class DraftContainer extends React.Component {
   state = {
     activeStep: 0,
     pattern: null,
-    model: null
+    model: null,
+    error: false
   };
+
+  componentDidCatch(error, info) {
+    console.log("Caught error", error, info);
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
 
   componentDidMount() {
     let nakedPath = locLang.strip(this.props.location);
@@ -229,43 +236,87 @@ class DraftContainer extends React.Component {
         <h1>{title}</h1>
         <TwoColumns>
           <Column wide>
-            <Stepper
-              activeStep={this.state.activeStep}
-              orientation="vertical"
-              connector={<br />}
-            >
-              <Step className={steps[0].classes}>
-                <StepLabel icon={<PatternIcon />}>{steps[0].title}</StepLabel>
-                <StepContent>
-                  <div className="overpad1-always">
-                    <PatternPicker
-                      patterns={patternList}
-                      language={this.props.language}
-                    />
-                  </div>
-                </StepContent>
-              </Step>
-              <Step className={steps[1].classes}>
-                <StepLabel icon={<ModelIcon />}>{steps[1].title}</StepLabel>
-                <StepContent>
-                  <div className="overpad1-always">
-                    <ModelPicker
-                      models={steps[1].list}
-                      pattern={this.state.pattern}
-                      language={this.props.language}
-                    />
-                  </div>
-                </StepContent>
-              </Step>
-              <Step className={steps[2].classes}>
-                <StepLabel icon={<TuneIcon />}>{steps[2].title}</StepLabel>
-                <StepContent />
-              </Step>
-            </Stepper>
+            {this.state.error ? (
+              <Tray
+                className="danger"
+                title={<FormattedMessage id="app.weEncounteredAProblem" />}
+              >
+                <p>
+                  <FormattedMessage id="app.weEncourageYouToReportThis" />
+                  {". "}
+                  <FormattedMessage id="app.pleaseIncludeTheInformationBelow" />
+                  {":"}
+                </p>
+                <pre>
+                  Error: {this.state.error}
+                  {"\n\n"}
+                  Pattern: {this.props.pattern}
+                  {"\n\n"}
+                  Settings:{" "}
+                  {JSON.stringify(this.state.pattern.settings, null, 2)}
+                </pre>
+                <TrayFooter>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    href="https://github.com/freesewing/website/issues/new"
+                    rel="noopener noreferral"
+                  >
+                    <GithubIcon className="mr1" />
+                    <FormattedMessage id="app.reportThisOnGitHub" />
+                  </Button>
+                </TrayFooter>
+              </Tray>
+            ) : (
+              <Stepper
+                activeStep={this.state.activeStep}
+                orientation="vertical"
+                classes={{ root: "nobg" }}
+                connector={<br />}
+              >
+                <Step className={steps[0].classes}>
+                  <StepLabel icon={<PatternIcon />}>{steps[0].title}</StepLabel>
+                  <StepContent>
+                    <div className="overpad1-always">
+                      <PatternPicker
+                        patterns={patternList}
+                        language={this.props.language}
+                      />
+                    </div>
+                  </StepContent>
+                </Step>
+                <Step className={steps[1].classes}>
+                  <StepLabel icon={<ModelIcon />}>{steps[1].title}</StepLabel>
+                  <StepContent>
+                    <div className="overpad1-always">
+                      <ModelPicker
+                        models={steps[1].list}
+                        pattern={this.state.pattern}
+                        language={this.props.language}
+                      />
+                    </div>
+                  </StepContent>
+                </Step>
+                <Step className={steps[2].classes}>
+                  <StepLabel icon={<TuneIcon />}>{steps[2].title}</StepLabel>
+                  <StepContent />
+                </Step>
+              </Stepper>
+            )}
           </Column>
         </TwoColumns>
         <TwoColumns>
-          <Column wide />
+          <Column wide>
+            {this.state.activeStep === 2 ? (
+              <DraftPreview
+                pattern={this.state.pattern}
+                model={this.props.models[this.state.model]}
+                language={this.props.language}
+              />
+            ) : (
+              ""
+            )}
+          </Column>
           <Column right narrow>
             {this.state.activeStep === 2 ? (
               <Tray

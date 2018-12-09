@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { patternInfo } from "@freesewing/pattern-bundle";
+import { patternInfo } from "@freesewing/patterns";
 import Button from "@material-ui/core/Button";
 
 class PatternFilter extends React.Component {

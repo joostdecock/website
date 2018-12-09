@@ -1,7 +1,7 @@
 const config = require("./src/config/i18n");
 const path = require("path");
-const patternList = require("@freesewing/pattern-bundle").patternList;
-const patternInfo = require("@freesewing/pattern-bundle").patternInfo;
+const patternList = require("@freesewing/patterns").patternList;
+const patternInfo = require("@freesewing/patterns").patternInfo;
 
 exports.languages = config.languages;
 exports.defaultLanguage = config.defaultLanguage;
@@ -20,6 +20,10 @@ exports.nakedPaths = ["/", "/blog", "/showcase", "/login"];
 
 // Non-markdown content in all languages
 exports.jsPages = [
+  {
+    nakedPath: "/test",
+    template: path.resolve("src/components/pages/Test.js")
+  },
   {
     nakedPath: "/",
     template: path.resolve("src/components/pages/HomePage.js"),

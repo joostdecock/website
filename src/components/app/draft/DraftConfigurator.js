@@ -1,9 +1,9 @@
 import React from "react";
-import { capitalize, locLang } from "../../../utils";
+import { locLang } from "../../../utils";
 import { FormattedMessage } from "react-intl";
 import Tray from "../../Tray";
-import SeamAllowanceOption from "./options/SeamAllowance";
-import ThemeOption from "./options/Theme";
+//import SeamAllowanceOption from "./options/SeamAllowance";
+//import ThemeOption from "./options/Theme";
 
 const DraftConfigurator = props => {
   const { intl } = props;
@@ -46,33 +46,30 @@ const DraftConfigurator = props => {
         </div>
       </Tray>
       <h3 className="mt1">
-        <a name="pattern-options">
+        <a name="pattern-options" href="#pattern-options">
           <FormattedMessage id="app.patternOptions" />
         </a>
       </h3>
       <h3>
-        <a name="draft-options">
+        <a name="draft-options" href="#draft-options">
           <FormattedMessage id="app.draftOptions" />
         </a>
       </h3>
       <h4>
-        <a name="seam-allowance">
+        <a name="seam-allowance" href="#seam-allowance">
           <FormattedMessage id="app.seamAllowance" />
         </a>
       </h4>
-      <SeamAllowanceOption />
       <h4>
-        <a name="scope">
+        <a name="scope" href="#scope">
           <FormattedMessage id="app.scope" />
         </a>
       </h4>
-      <SeamAllowanceOption />
       <h4>
-        <a name="theme">
+        <a name="theme" href="#theme">
           <FormattedMessage id="app.theme" />
         </a>
       </h4>
-      <ThemeOption intl={intl} />
     </div>
   );
 };

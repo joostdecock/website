@@ -21,6 +21,7 @@ const ModelPicker = props => {
                 "/draft/" + props.pattern + "/for/" + handle,
                 props.language
               )}
+              key={handle}
             >
               <ListItemIcon>
                 <SelectIcon />

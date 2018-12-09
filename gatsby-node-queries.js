@@ -1,4 +1,4 @@
-const patternList = require("@freesewing/pattern-bundle").patternList;
+const patternList = require("@freesewing/patterns").patternList;
 
 const allBlogPosts = `{
   allMarkdownRemark(
