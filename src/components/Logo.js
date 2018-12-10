@@ -5,8 +5,8 @@ const Logo = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
+      width={props.embed ? "" : props.size}
+      height={props.embed ? "" : props.size}
       viewBox="0 0 48 48"
       className={props.className}
     >
@@ -20,11 +20,13 @@ const Logo = props => {
 };
 
 Logo.propTypes = {
-  size: PropTypes.number
+  size: PropTypes.number,
+  embed: PropTypes.bool
 };
 
 Logo.defaultProps = {
-  size: 24
+  size: 24,
+  embed: false
 };
 
 export default Logo;

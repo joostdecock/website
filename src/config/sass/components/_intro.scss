@@ -1,0 +1,157 @@
+.intro-wrapper {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  background: $bw9;
+  color: $bw1;
+
+  div.logo { margin-bottom: 1rem; }
+  div.logo svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  p {
+    margin: 1rem 0;
+    padding: 0 2rem;
+  }
+
+  div.tail, div.swap {
+    display: inline-block;
+    font-size: 64px;
+    font-family: $titlefont;
+    font-weight: bold;
+
+    height: 130px;
+    overflow: hidden;
+    padding: 0 10px;
+  }
+  div.swap span {
+    display: block;
+    text-align: right;
+  }
+  $color1: #f56800;
+  $color2: #025e7d;
+  $color3: #ab2bc5;
+  $color4: #e13ea6;
+  $color5: #ab7900;
+  $color6: #00958a;
+  $color7: #c52b2b;
+  $color8: #1c9099;
+  $color9: #00b44e;
+  @keyframes swap {
+    0% { margin-top: 0; color: inherit;}
+    11% { margin-top: calc(-110px *1); color: $color1;}
+    22% { margin-top: calc(-110px *2); color: $color2; opacity: 0;}
+    33% { margin-top: calc(-110px *3); color: $color3;}
+    44% { margin-top: calc(-110px *4); color: $color4;}
+    55% { margin-top: calc(-110px *5); color: $color5;}
+    66% { margin-top: calc(-110px *6); color: $color6;}
+    77% { margin-top: calc(-110px *7); color: $color7;}
+    88% { margin-top: calc(-110px *8); color: $color8;}
+    99% { margin-top: calc(-110px *9); color: $color9;}
+  }
+  @keyframes logo {
+    0%  { color: inherit;}
+    11% { color: $color1;}
+    22% { color: $color2;}
+    33% { color: $color3;}
+    44% { color: $color4;}
+    55% { color: $color5;}
+    66% { color: $color6;}
+    77% { color: $color7;}
+    88% { color: $color8;}
+    99% { color: $color9;}
+  }
+  div.list {
+    animation-name: swap;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+  }
+  div.logo {
+    animation-name: logo;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+
+  }
+}
+
+@include xs-screen {
+  .intro-wrapper {
+    div.logo { height: 200px; }
+    div.swap span { text-align: center; }
+    div.tail, div.swap {
+      font-size: 36px;
+      height: 65px;
+      line-height: 80px;
+      display: block;
+    }
+    @keyframes swap {
+      0% { margin-top: 0;}
+      11% { margin-top: calc(-80px *1);}
+      22% { margin-top: calc(-80px *2);}
+      33% { margin-top: calc(-80px *3);}
+      44% { margin-top: calc(-80px *4);}
+      55% { margin-top: calc(-80px *5);}
+      66% { margin-top: calc(-80px *6);}
+      77% { margin-top: calc(-80px *7);}
+      88% { margin-top: calc(-80px *8);}
+      99% { margin-top: calc(-80px *9);}
+    }
+  }
+}
+@include sm-screen {
+  .intro-wrapper {
+    div.logo { height: 250px; }
+    div.swap span { text-align: center; }
+    div.tail, div.swap {
+      font-size: 36px;
+      height: 65px;
+      line-height: 80px;
+      display: block;
+    }
+    @keyframes swap {
+      0% { margin-top: 0;}
+      11% { margin-top: calc(-80px *1);}
+      22% { margin-top: calc(-80px *2);}
+      33% { margin-top: calc(-80px *3);}
+      44% { margin-top: calc(-80px *4);}
+      55% { margin-top: calc(-80px *5);}
+      66% { margin-top: calc(-80px *6);}
+      77% { margin-top: calc(-80px *7);}
+      88% { margin-top: calc(-80px *8);}
+      99% { margin-top: calc(-80px *9);}
+    }
+  }
+}
+@include md-screen {
+  .intro-wrapper {
+    div.logo { height: 300px; }
+    p {font-size: 1.5rem;}
+    div.swap span { text-align: center; }
+    div.tail, div.swap {
+      font-size: 64px;
+      height: 95px;
+      line-height: 100px;
+      display: block;
+    }
+    @keyframes swap {
+      0% { margin-top: 0;}
+      11% { margin-top: calc(-100px *1);}
+      22% { margin-top: calc(-100px *2);}
+      33% { margin-top: calc(-100px *3);}
+      44% { margin-top: calc(-100px *4);}
+      55% { margin-top: calc(-100px *5);}
+      66% { margin-top: calc(-100px *6);}
+      77% { margin-top: calc(-100px *7);}
+      88% { margin-top: calc(-100px *8);}
+      99% { margin-top: calc(-100px *9);}
+    }
+  }
+}
+body.dark .intro-wrapper {
+  color: $bw9;
+  background: $bw1;
+}
+
