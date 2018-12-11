@@ -32,18 +32,6 @@ const camelCase = str =>
       return $1.toLowerCase();
     });
 
-/** Gets the language from a slug
- * A slug being the complete path of the URL
- * not just the last part
- * So for /en/blog/category/roundup this will return en
- * REMOVEME - DEPRECATED
- */
-const languageFromSlug = slug => {
-  let lang = slug.split("/")[1];
-  if (i18nConfig.languages.indexOf(lang) !== -1) return lang;
-  else return i18nConfig.defaultLanguage;
-};
-
 /** Gets the language from a location
  * A location being the complete path of the URL
  * not just the last part
@@ -354,15 +342,19 @@ const imperialFractionToMm = value => {
   else return (num * 25.4) / denom;
 };
 
-const optionDescription = (option, pattern) => {
-  if (typeof options[option].description === "string")
-    return "options." + option + ".description";
-  else if (typeof options[option].description[pattern] === "string")
-    return "options." + option + ".description." + pattern;
-  else return "options." + option + ".description._default";
+const optionDesc = (key, pattern, language) => {
+  let option = options[language][key];
+  if (typeof option === "undefined") {
+    return "";
+  }
+  if (typeof option.description === "string") return option.description;
+  else if (typeof option.description[pattern] === "string")
+    return option.description[pattern];
+  else return option.description._default;
 };
 
 export {
+  round,
   distance,
   uniqueArray,
   renderMarkdown,
@@ -372,7 +364,6 @@ export {
   toId,
   camelCase,
   capitalize,
-  languageFromSlug,
   slugForLanguage,
   fileOnGithub,
   loadTheme,
@@ -381,5 +372,5 @@ export {
   clearToken,
   validateEmail,
   validateTld,
-  optionDescription
+  optionDesc
 };

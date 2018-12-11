@@ -57,7 +57,6 @@ class AccountContainer extends React.Component {
     let user = this.props.user;
     this.renderMarkdownPreview(user.bio);
     this.setState({
-      ...this.state,
       username: user.username,
       email: user.email,
       bio: user.bio,
@@ -92,7 +91,6 @@ class AccountContainer extends React.Component {
 
   handleStartEditing = key => {
     this.setState({
-      ...this.state,
       editing: key
     });
   };
@@ -103,7 +101,6 @@ class AccountContainer extends React.Component {
 
   handleAvatarLoad = avatar => {
     this.setState({
-      ...this.state,
       loadedAvatar: avatar
     });
   };
@@ -125,7 +122,6 @@ class AccountContainer extends React.Component {
               });
           if (field === "avatar") {
             this.setState({
-              ...this.state,
               avatarUri:
                 res.data.account.pictureUris.xs + "?cachebust=" + Date.now()
             });
@@ -144,7 +140,6 @@ class AccountContainer extends React.Component {
     evt.preventDefault();
     let field = evt.target.attributes["data-field"].value;
     this.setState({
-      ...this.state,
       editing: false
     });
     let data = {};

@@ -1,6 +1,8 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
 import { patterns } from "@freesewing/patterns";
+import brian from "../../../../patterns/brian/dist/index.mjs";
+import freesewing from "../../../../freesewing/dist/index.mjs";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
 //import i18nPlugin from "@freesewing/plugin-i18n";
 //import validatePlugin from "@freesewing/plugin-validate";
@@ -13,7 +15,7 @@ class Test extends React.Component {
   };
 
   componentDidMount() {
-    let patternA = new patterns.aaron({
+    let patternA = new brian({
       foo: "aaron",
       sa: 10,
       embed: true,
@@ -31,7 +33,7 @@ class Test extends React.Component {
         hipsCircumference: 990
       }
     }).with(svgattrPlugin, { class: "fs-draft preview" });
-
+    console.log(patternA.mergeOptions, freesewing);
     //.with(i18nPlugin)
     //.with(validatePlugin)
     //.with(debugPlugin);

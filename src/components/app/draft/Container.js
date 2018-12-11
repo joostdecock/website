@@ -16,13 +16,13 @@ import Button from "@material-ui/core/Button";
 import PatternPicker from "./PatternPicker";
 import ModelPicker from "./ModelPicker";
 import OptionPicker from "./OptionPicker";
-import { patternList } from "@freesewing/patterns";
+import { patternList, patternInfo } from "@freesewing/patterns";
 import { tshirt } from "../../../data/icons";
 import Icon from "../../Icon";
 import ModelIcon from "@material-ui/icons/PermIdentity";
 import TuneIcon from "@material-ui/icons/Tune";
 import Tray from "../../Tray";
-import { locLang, capitalize } from "../../../utils";
+import { round, locLang, capitalize } from "../../../utils";
 import DraftPreview from "./DraftPreview";
 import TrayFooter from "../../TrayFooter";
 import GithubIcon from "../../GithubIcon";
@@ -36,7 +36,8 @@ class DraftContainer extends React.Component {
     activeStep: 0,
     pattern: null,
     model: null,
-    error: false
+    error: false,
+    settings: {}
   };
 
   componentDidCatch(error, info) {
@@ -53,20 +54,24 @@ class DraftContainer extends React.Component {
     let pattern = chunks[2];
     let model = chunks[4];
     if (nakedPath === "/draft/" || nakedPath === "/draft") {
-      this.setState(state => ({
-        activeStep: 0
-      }));
+      this.setState({ activeStep: 0 });
     } else if (chunks.length < 5) {
-      this.setState(state => ({
+      this.setState({
         activeStep: 1,
         pattern
-      }));
+      });
     } else if (chunks.length > 4) {
-      this.setState(state => ({
+      this.setState({
         activeStep: 2,
         pattern,
-        model
-      }));
+        model,
+        settings: {
+          embed: true,
+          sa: 10,
+          measurements: this.props.models[model].measurements,
+          options: {}
+        }
+      });
     }
   }
 
@@ -83,23 +88,23 @@ class DraftContainer extends React.Component {
   };
 
   handleReset = () => {
-    this.setState({
-      activeStep: 0
-    });
+    this.setState({ activeStep: 0 });
   };
 
   setPattern = evt => {
     let value = evt.target.value;
-    this.setState(state => ({
-      pattern: value
-    }));
+    this.setState({ pattern: value });
   };
 
   setModel = evt => {
     let value = evt.target.value;
-    this.setState(state => ({
-      model: value
-    }));
+    this.setState({ model: value });
+  };
+
+  updateSettings = (key, val) => {
+    let settings = this.state.settings;
+    settings[key] = val;
+    this.setState({ settings });
   };
 
   getModelList = pattern => {
@@ -305,13 +310,14 @@ class DraftContainer extends React.Component {
             )}
           </Column>
         </TwoColumns>
-        <TwoColumns>
+        <TwoColumns wrapReverse={true}>
           <Column wide>
             {this.state.activeStep === 2 ? (
               <DraftPreview
                 pattern={this.state.pattern}
                 model={this.props.models[this.state.model]}
                 language={this.props.language}
+                settings={this.state.settings}
               />
             ) : (
               ""
@@ -320,14 +326,16 @@ class DraftContainer extends React.Component {
           <Column right narrow>
             {this.state.activeStep === 2 ? (
               <Tray
-                className="force-expanded stick"
+                className="force-xpanded stick mb1"
                 icon={<TuneIcon />}
                 title={<FormattedMessage id="app.options" />}
               >
                 <div className="overpad2-always">
                   <OptionPicker
-                    patterns={patternList}
+                    pattern={patternInfo[this.state.pattern]}
                     language={this.props.language}
+                    settings={this.state.settings}
+                    updateSettings={this.updateSettings}
                   />
                 </div>
               </Tray>

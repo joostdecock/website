@@ -1,0 +1,30 @@
+.option-header.selected {
+  background: $bw6;
+}
+.option-wrapper {
+  padding: 1rem;
+  border-bottom: 1px solid $bw6;
+
+  .slider {
+    margin: 0.5rem 0;
+    padding: 2px;
+  }
+}
+
+.option-footer {
+  background: $bw6;
+  text-align: right;
+  padding: 2px 1rem;
+}
+body.dark {
+  .option-header.selected {
+    background: $bw2;
+  }
+  .option-wrapper {
+    border-bottom: 1px solid $bw2;
+  }
+  .option-footer {
+    background: $bw2;
+  }
+
+}

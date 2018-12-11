@@ -18,41 +18,39 @@ class DraftPreview extends React.Component {
     pattern: false
   };
 
-  componentDidMount() {
-    const pattern = new patterns[(capitalize(this.props.pattern))]({
-      foo: "barbie",
-      sa: 10,
-      embed: true,
-      rubo: 2,
-      measurements: {
-        bicepsCircumference: 335,
-        centerBackNeckToWaist: 520,
-        chestCircumference: 1080,
-        naturalWaistToHip: 145,
-        neckCircumference: 420,
-        shoulderSlope: 55,
-        shoulderToShoulder: 465,
-        shoulderToWrist: 680,
-        wristCircumference: 190,
-        hipsCircumference: 990
-      }
-    }).with(svgattrPlugin, { class: "fs-draft preview" });
+  //componentDidMount() {
+  //  const pattern = new patterns[(capitalize(this.props.pattern))](
+  //    this.props.settings
+  //  ).with(svgattrPlugin, { class: "fs-draft preview" })
+  //  //  .on('preDraft', function() { console.log('pre draft', arguments)});
 
-    pattern.draft();
-    this.setState({
-      pattern: pattern
-    });
-  }
+  //  this.setState({
+  //    pattern: pattern
+  //  });
+  //}
 
   render() {
-    let svg = false;
     let error = false;
+    let settings = this.props.settings;
+    const pattern = new patterns[(capitalize(this.props.pattern))]().with(
+      svgattrPlugin,
+      { class: "fs-draft preview" }
+    );
+    pattern.mergeSettings(settings);
     try {
-      svg = this.state.pattern.draft().render();
+      pattern.draft();
     } catch (err) {
       error = err;
     }
-    if (error)
+    console.log("Drafted pattern", pattern);
+    if (!error) {
+      return (
+        <div
+          className="freesewing draft svg w100"
+          dangerouslySetInnerHTML={{ __html: pattern.render() }}
+        />
+      );
+    } else
       return (
         <Tray
           className="danger"
@@ -65,11 +63,16 @@ class DraftPreview extends React.Component {
             {":"}
           </p>
           <pre>
-            Error: {JSON.stringify(error, null, 2)}
-            {"\n\n"}
-            Pattern: {this.props.pattern}
-            {"\n\n"}
-            Settings: {JSON.stringify(this.state.pattern.settings, null, 2)}
+            {JSON.stringify(
+              {
+                error: error,
+                pattern: pattern.config.name,
+                version: pattern.config.version,
+                settings: pattern.settings
+              },
+              null,
+              2
+            )}
           </pre>
           <TrayFooter>
             <Button
@@ -79,17 +82,10 @@ class DraftPreview extends React.Component {
               rel="noopener noreferral"
             >
               <GithubIcon className="mr1" />
-              <FormattedMessage id="app.reportThisOnGitHub" />
+              <FormattedMessage id="app.reportThisOnGithub" />
             </Button>
           </TrayFooter>
         </Tray>
-      );
-    else
-      return (
-        <div
-          className="freesewing draft svg w100"
-          dangerouslySetInnerHTML={{ __html: svg }}
-        />
       );
   }
 }
