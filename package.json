@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@freesewing/i18n": "0.4.0",
+    "@freesewing/i18n": "0.4.1",
     "@freesewing/patterns": "0.5.0",
     "@freesewing/plugin-debug": "0.4.3",
     "@freesewing/plugin-i18n": "0.0.3",

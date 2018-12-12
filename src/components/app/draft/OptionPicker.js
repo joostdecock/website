@@ -130,19 +130,9 @@ class OptionPicker extends React.Component {
               value={optVal}
               language={this.props.language}
               updateOption={this.props.updateOption}
+              showDocs={this.props.showDocs}
+              docs={this.props.docs}
             />
-            <div className="option-footer">
-              {dflt ? (
-                ""
-              ) : (
-                <Button small onClick={() => this.props.resetOption(subOption)}>
-                  <FormattedMessage id="app.reset" />
-                </Button>
-              )}
-              <Button small>
-                <FormattedMessage id="app.docs" />
-              </Button>
-            </div>
           </Collapse>
         );
       } else {
@@ -164,16 +154,17 @@ class OptionPicker extends React.Component {
     let expanded = { ...this.state.expanded };
     expanded[key] = !this.state.expanded[key];
     this.setState({ expanded });
+    this.props.showDocs(false);
   }
 
   editOption(key) {
     if (this.state.option === key) key = false;
     this.setState({ option: key });
+    this.props.showDocs(false);
   }
 
   optionGroups = this.props.pattern.optionGroups;
   render() {
-    console.log(this.props);
     return (
       <div>
         <List component="nav">

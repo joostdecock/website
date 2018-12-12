@@ -203,6 +203,23 @@ const measurementsHelp = `{
   }
 }`;
 
+const optionsHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/patterns/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        html
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
 const patternCoverImages = `{
 	allFile(
   	sort: { order: ASC, fields: [absolutePath] }
@@ -295,6 +312,7 @@ module.exports = {
   allDocumentation,
   markdownHelp,
   measurementsHelp,
+  optionsHelp,
   showcasePreviews,
   blogpostPreviews,
   documentationList,

@@ -11,6 +11,8 @@ const OptionContainer = props => {
         option={props.option}
         value={props.value * 100}
         updateOption={props.updateOption}
+        showDocs={props.showDocs}
+        docs={props.docs}
         desc={optionDesc(props.option, props.pattern, props.language)}
       />
     );

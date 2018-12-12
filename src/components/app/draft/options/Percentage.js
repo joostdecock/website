@@ -3,6 +3,7 @@ import { round } from "../../../../utils";
 import Slider from "@material-ui/lab/Slider";
 import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
+import CloseIcon from "@material-ui/icons/Close";
 
 class Percentage extends React.Component {
   state = {
@@ -58,7 +59,13 @@ class Percentage extends React.Component {
               <FormattedMessage id="app.reset" />
             </Button>
           )}
-          <Button variant="outlined">
+          <Button
+            variant="outlined"
+            onClick={() =>
+              this.props.showDocs(this.props.docs ? false : this.props.option)
+            }
+          >
+            {this.props.docs ? <CloseIcon className="mr1" /> : ""}
             <FormattedMessage id="app.docs" />
           </Button>
         </p>

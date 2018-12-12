@@ -39,7 +39,8 @@ exports.jsPages = [
   {
     nakedPath: "/draft",
     template: path.resolve("src/components/pages/Draft.js"),
-    match: "/draft/*"
+    match: "/draft/*",
+    includeMarkdown: "optionsHelp"
   },
   {
     nakedPath: "/docs",

@@ -26,6 +26,7 @@ import { round, locLang, capitalize } from "../../../utils";
 import DraftPreview from "./DraftPreview";
 import TrayFooter from "../../TrayFooter";
 import GithubIcon from "../../GithubIcon";
+import OptionDocs from "./options/Docs";
 
 function PatternIcon() {
   return <Icon pathString={tshirt} className="r1" />;
@@ -37,7 +38,8 @@ class DraftContainer extends React.Component {
     pattern: null,
     model: null,
     error: false,
-    settings: {}
+    settings: {},
+    docs: false
   };
 
   componentDidCatch(error, info) {
@@ -110,13 +112,24 @@ class DraftContainer extends React.Component {
   updateOption = (key, val) => {
     let settings = this.state.settings;
     settings.options[key] = val;
-    this.setState({ settings });
+    this.setState({ settings, docs: false });
   };
 
-  resetOption = key => {
-    let settings = this.state.settings;
-    delete settings.options[key];
-    this.setState({ settings });
+  showDocs = key => {
+    this.setState({ docs: key });
+  };
+
+  optionDocsNode = key => {
+    if (this.state.docs === false) return false;
+    let nodePath =
+      "/docs/patterns/" +
+      this.state.pattern +
+      "/options/" +
+      this.state.docs.toLowerCase();
+    console.log("showing", nodePath);
+    if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
+      return false;
+    else return this.props.data.optionsHelp[nodePath];
   };
 
   getModelList = pattern => {
@@ -128,6 +141,7 @@ class DraftContainer extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     const via = [];
     let title;
     const steps = [
@@ -325,12 +339,19 @@ class DraftContainer extends React.Component {
         <TwoColumns wrapReverse={true}>
           <Column wide>
             {this.state.activeStep === 2 ? (
-              <DraftPreview
-                pattern={this.state.pattern}
-                model={this.props.models[this.state.model]}
-                language={this.props.language}
-                settings={this.state.settings}
-              />
+              this.state.docs ? (
+                <OptionDocs
+                  node={this.optionDocsNode()}
+                  language={this.props.language}
+                />
+              ) : (
+                <DraftPreview
+                  pattern={this.state.pattern}
+                  model={this.props.models[this.state.model]}
+                  language={this.props.language}
+                  settings={this.state.settings}
+                />
+              )
             ) : (
               ""
             )}
@@ -348,7 +369,8 @@ class DraftContainer extends React.Component {
                     language={this.props.language}
                     settings={this.state.settings}
                     updateOption={this.updateOption}
-                    resetOption={this.resetOption}
+                    showDocs={this.showDocs}
+                    docs={this.state.docs}
                   />
                 </div>
               </Tray>
