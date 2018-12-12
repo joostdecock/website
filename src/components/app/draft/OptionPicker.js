@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { capitalize, locLang, optionDesc } from "../../../utils";
+import { patternOption, capitalize, locLang, optionDesc } from "../../../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -83,6 +83,12 @@ class OptionPicker extends React.Component {
     for (let label of Object.keys(sorted).sort()) {
       let subOption = sorted[label];
       if (typeof subOption === "string") {
+        let optConf = this.props.pattern.config.options[subOption];
+        let optVal = this.props.settings.options[subOption];
+        let dfltVal = patternOption.dflt(optConf);
+        let dflt = optVal === dfltVal ? true : false;
+        if (typeof optVal === "undefined") dflt = true;
+        if (dflt) optVal = dfltVal;
         colItems.push(
           <ListItem
             button
@@ -102,6 +108,13 @@ class OptionPicker extends React.Component {
               )}
             </ListItemIcon>
             <ListItemText>{label}</ListItemText>
+            <ListItemSecondaryAction>
+              <span
+                className={dflt ? "option-value dflt" : "option-value non-dflt"}
+              >
+                {patternOption.format(optVal, optConf)}
+              </span>
+            </ListItemSecondaryAction>
           </ListItem>
         );
         colItems.push(
@@ -112,14 +125,21 @@ class OptionPicker extends React.Component {
           >
             <Option
               option={subOption}
-              pattern={this.props.pattern}
-              config={this.props.pattern.config.options[subOption]}
-              settings={this.props.settings}
+              pattern={this.props.pattern.config.name}
+              config={optConf}
+              value={optVal}
               language={this.props.language}
-              updateSettings={this.props.updateSettings}
+              updateOption={this.props.updateOption}
             />
             <div className="option-footer">
-              <Button>
+              {dflt ? (
+                ""
+              ) : (
+                <Button small onClick={() => this.props.resetOption(subOption)}>
+                  <FormattedMessage id="app.reset" />
+                </Button>
+              )}
+              <Button small>
                 <FormattedMessage id="app.docs" />
               </Button>
             </div>
@@ -153,15 +173,13 @@ class OptionPicker extends React.Component {
 
   optionGroups = this.props.pattern.optionGroups;
   render() {
+    console.log(this.props);
     return (
       <div>
         <List component="nav">
           {this.props.pattern.optionGroups.map((option, index) => {
-            if (typeof option === "string") return this.option(option, "fixme");
-            else {
-              let key = Object.keys(option).pop();
-              return this.optionGroup(key, option[key]);
-            }
+            let key = Object.keys(option).pop();
+            return this.optionGroup(key, option[key]);
           })}
         </List>
       </div>

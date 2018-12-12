@@ -3,7 +3,6 @@
 }
 .option-wrapper {
   padding: 1rem;
-  border-bottom: 1px solid $bw6;
 
   .slider {
     margin: 0.5rem 0;
@@ -16,6 +15,27 @@
   text-align: right;
   padding: 2px 1rem;
 }
+
+p.option-desc {
+  padding: 1rem 0 0.5rem;
+  margin-bottom: 0;
+  font-size: 90%;
+  line-height: 1.2;
+}
+p.option-actions {
+  padding: 0.5rem 0 0;
+  margin-bottom: 0;
+  text-align: right;
+}
+span.option-value {
+  padding-right: 1rem;
+  font-family: $titlefont;
+  font-weight: bold;
+}
+span.option-value.non-dflt {
+  color: $success;
+}
+
 body.dark {
   .option-header.selected {
     background: $bw2;
@@ -28,3 +48,14 @@ body.dark {
   }
 
 }
+
+// This is for the input slider
+.slider-track {
+  height: 5px!important;
+  border-radius: 2.5px;
+}
+.slider-thumb {
+  width: 16px!important;
+  height: 16px!important;
+}
+

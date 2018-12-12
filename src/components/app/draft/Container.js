@@ -107,6 +107,18 @@ class DraftContainer extends React.Component {
     this.setState({ settings });
   };
 
+  updateOption = (key, val) => {
+    let settings = this.state.settings;
+    settings.options[key] = val;
+    this.setState({ settings });
+  };
+
+  resetOption = key => {
+    let settings = this.state.settings;
+    delete settings.options[key];
+    this.setState({ settings });
+  };
+
   getModelList = pattern => {
     let modelList = {};
     for (let handle of Object.keys(this.props.models))
@@ -335,7 +347,8 @@ class DraftContainer extends React.Component {
                     pattern={patternInfo[this.state.pattern]}
                     language={this.props.language}
                     settings={this.state.settings}
-                    updateSettings={this.updateSettings}
+                    updateOption={this.updateOption}
+                    resetOption={this.resetOption}
                   />
                 </div>
               </Tray>

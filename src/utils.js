@@ -353,7 +353,50 @@ const optionDesc = (key, pattern, language) => {
   else return option.description._default;
 };
 
+const optionType = conf => {
+  if (typeof conf !== "object") return "constant";
+  if (typeof conf.pct !== "undefined") return "pct";
+  if (typeof conf.mm !== "undefined") return "mm";
+  if (typeof conf.deg !== "undefined") return "deg";
+  if (typeof conf.count !== "undefined") return "count";
+  if (typeof conf.dflt !== "undefined") return "dflt";
+
+  throw "Unknown option type";
+};
+
+const optionDefault = conf => {
+  let type = optionType(conf);
+  if (type === "constant") return conf;
+  else if (type === "pct") return conf[type] / 100;
+  else return conf[type];
+};
+
+const optionValue = (val, conf) => {
+  let type = optionType(conf);
+  if (typeof val === "undefined") {
+    if (type === "pct") return optionDefault(conf) / 100;
+    else return optionDefault(conf);
+  }
+  if (type === "pct") return val / 100;
+  return val;
+};
+
+const formatOption = (val, conf) => {
+  if (typeof val === "undefined") val = optionDefault(conf);
+  let type = optionType(conf);
+  if (type === "pct") return round(val * 100) + "%";
+  else return val;
+};
+
+const patternOption = {
+  type: optionType,
+  value: optionValue,
+  dflt: optionDefault,
+  format: formatOption
+};
+
 export {
+  patternOption,
   round,
   distance,
   uniqueArray,

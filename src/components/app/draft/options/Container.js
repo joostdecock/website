@@ -1,41 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
-import { FormattedMessage, injectIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { optionDesc } from "../../../../utils";
 import PercentageOption from "./Percentage";
 
-class OptionContainer extends React.Component {
-  state = {};
-
-  componentDidCatch(error, info) {
-    console.log("Caught error", error, info);
-  }
-
-  static getDerivedStateFromError(error) {
-    return { error };
-  }
-
-  render() {
-    let optionConfig = <p>FIXME: Unknown option format</p>;
-    if (typeof this.props.config.pct !== "undefined")
-      optionConfig = <PercentageOption {...this.props} />;
+const OptionContainer = props => {
+  if (typeof props.config.pct !== "undefined")
     return (
-      <div className="option-wrapper">
-        {optionConfig}
-        <p className="mt1">
-          <small>
-            <FormattedMessage
-              id={optionDesc(
-                this.props.option,
-                this.props.pattern.config.name,
-                this.props.language
-              )}
-            />
-          </small>
-        </p>
-      </div>
+      <PercentageOption
+        config={props.config}
+        option={props.option}
+        value={props.value * 100}
+        updateOption={props.updateOption}
+        desc={optionDesc(props.option, props.pattern, props.language)}
+      />
     );
-  }
-}
+  else return <p>FIXME: Unknown option format</p>;
+};
 
-export default injectIntl(OptionContainer);
+export default OptionContainer;

@@ -42,7 +42,6 @@ class DraftPreview extends React.Component {
     } catch (err) {
       error = err;
     }
-    console.log("Drafted pattern", pattern);
     if (!error) {
       return (
         <div
