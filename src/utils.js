@@ -361,7 +361,7 @@ const optionType = conf => {
   if (typeof conf.count !== "undefined") return "count";
   if (typeof conf.dflt !== "undefined") return "dflt";
 
-  throw "Unknown option type";
+  throw new Error("Unknown option type");
 };
 
 const optionDefault = conf => {

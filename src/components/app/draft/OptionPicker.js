@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { patternOption, capitalize, locLang, optionDesc } from "../../../utils";
+import { patternOption } from "../../../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -9,13 +9,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import TuneIcon from "@material-ui/icons/Tune";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Option from "./options/Container";
-import Button from "@material-ui/core/Button";
 
 class OptionPicker extends React.Component {
   state = {
@@ -183,8 +180,6 @@ class OptionPicker extends React.Component {
   }
 }
 
-OptionPicker.propTypes = {
-  patterns: PropTypes.array.isRequired
-};
+OptionPicker.propTypes = {};
 
 export default injectIntl(OptionPicker);

@@ -15,6 +15,7 @@ const PatternPicker = props => {
         {props.patterns.map((pattern, index) => {
           return (
             <ListItem
+              key={pattern}
               button
               component="a"
               href={locLang.set("/draft/" + pattern, props.language)}

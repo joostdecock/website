@@ -22,7 +22,7 @@ import Icon from "../../Icon";
 import ModelIcon from "@material-ui/icons/PermIdentity";
 import TuneIcon from "@material-ui/icons/Tune";
 import Tray from "../../Tray";
-import { round, locLang, capitalize } from "../../../utils";
+import { locLang, capitalize } from "../../../utils";
 import DraftPreview from "./DraftPreview";
 import TrayFooter from "../../TrayFooter";
 import GithubIcon from "../../GithubIcon";
@@ -63,17 +63,19 @@ class DraftContainer extends React.Component {
         pattern
       });
     } else if (chunks.length > 4) {
-      this.setState({
+      let state = {
         activeStep: 2,
         pattern,
         model,
         settings: {
           embed: true,
           sa: 10,
-          measurements: this.props.models[model].measurements,
           options: {}
         }
-      });
+      };
+      if (this.props.models && typeof this.props.models[model] !== "undefined")
+        state.settings.measurements = this.props.models[model].measurements;
+      this.setState(state);
     }
   }
 
@@ -132,14 +134,44 @@ class DraftContainer extends React.Component {
   };
 
   getModelList = pattern => {
-    let modelList = {};
-    for (let handle of Object.keys(this.props.models))
-      modelList[handle] = this.props.models[handle].name || handle;
-
+    let modelList = {
+      valid: {},
+      invalid: {}
+    };
+    if (typeof this.state.pattern !== "string") return modelList; // State not ready
+    for (let handle of Object.keys(this.props.models)) {
+      let valid = true;
+      for (let requiredMeasurement of patternInfo[this.state.pattern]
+        .measurements) {
+        if (
+          typeof this.props.models[handle].measurements === "undefined" ||
+          typeof this.props.models[handle].measurements[requiredMeasurement] ===
+            "undefined"
+        )
+          valid = false;
+      }
+      if (valid)
+        modelList.valid[handle] = this.props.models[handle].name || handle;
+      else modelList.invalid[handle] = this.props.models[handle].name || handle;
+    }
     return modelList;
   };
 
   render() {
+    // If we reload this page in step 2 (draft config) models won't be
+    // available when component mounts, so we must inject them here if they
+    // are missing
+    if (this.props.models === false && this.state.activeStep === 2)
+      return <p>Waiting for models</p>;
+    else if (
+      this.state.activeStep === 2 &&
+      this.props.models &&
+      typeof this.state.settings.measurements === "undefined"
+    ) {
+      let settings = { ...this.state.settings };
+      settings.measurements = this.props.models[this.state.model].measurements;
+      this.setState({ settings });
+    }
     const via = [];
     let title;
     const steps = [
@@ -155,8 +187,7 @@ class DraftContainer extends React.Component {
           <h2>
             <FormattedMessage id="app.chooseAModel" />
           </h2>
-        ),
-        list: this.getModelList(this.state.pattern)
+        )
       },
       {
         title: (
@@ -301,7 +332,6 @@ class DraftContainer extends React.Component {
                 activeStep={this.state.activeStep}
                 orientation="vertical"
                 classes={{ root: "nobg" }}
-                connector={<br />}
               >
                 <Step className={steps[0].classes}>
                   <StepLabel icon={<PatternIcon />}>{steps[0].title}</StepLabel>
@@ -319,7 +349,7 @@ class DraftContainer extends React.Component {
                   <StepContent>
                     <div className="overpad1-always">
                       <ModelPicker
-                        models={steps[1].list}
+                        models={this.getModelList(this.state.pattern)}
                         pattern={this.state.pattern}
                         language={this.props.language}
                       />

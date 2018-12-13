@@ -26,6 +26,7 @@ class Tray extends React.Component {
           this.state.extraClasses + " tray shadow1 " + this.props.className
         }
       >
+        <div className={"tray-border " + this.props.className} />
         {this.props.title === false ? (
           ""
         ) : (

@@ -7,7 +7,6 @@ import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import { Link } from "gatsby";
 import { locLang } from "../../../../utils";
-import GithubIcon from "../../../GithubIcon";
 
 const Docs = props => {
   if (props.node === false) {
