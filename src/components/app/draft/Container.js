@@ -126,7 +126,6 @@ class DraftContainer extends React.Component {
       this.state.pattern +
       "/options/" +
       this.state.docs.toLowerCase();
-    console.log("showing", nodePath);
     if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
       return false;
     else return this.props.data.optionsHelp[nodePath];
@@ -141,7 +140,6 @@ class DraftContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const via = [];
     let title;
     const steps = [

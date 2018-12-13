@@ -31,9 +31,17 @@ function Breadcrumbs(props) {
             <li key={"crumb" + index}>
               <Link
                 to={locLang.set(step.link, props.intl.locale)}
-                title={props.intl.formatMessage({ id: step.label })}
+                title={
+                  typeof step.label === "string"
+                    ? props.intl.formatMessage({ id: step.label })
+                    : ""
+                }
               >
-                <FormattedMessage id={step.label} />
+                {typeof step.label === "string" ? (
+                  <FormattedMessage id={step.label} />
+                ) : (
+                  step.label
+                )}
               </Link>
             </li>,
             spacer

@@ -44,9 +44,7 @@ class Percentage extends React.Component {
             }}
           />
         </div>
-        <p className="option-desc">
-          <FormattedMessage id={this.props.desc} />
-        </p>
+        <p className="option-desc">{this.props.desc}</p>
         <p className="option-actions">
           {this.state.value === this.props.config.pct ? (
             ""

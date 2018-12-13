@@ -47,19 +47,21 @@ const Docs = props => {
         </p>
       </Tray>
     );
-  return [
-    <h3>
-      {props.node.frontmatter.title}
-      <Link
-        to={locLang.set(props.node.frontmatter.path, props.language)}
-        className="ml1"
-      >
-        <LinkIcon />
-      </Link>
-    </h3>,
-    <div dangerouslySetInnerHTML={{ __html: props.node.html }} />,
-    warning
-  ];
+  return (
+    <div>
+      <h3>
+        {props.node.frontmatter.title}
+        <Link
+          to={locLang.set(props.node.frontmatter.path, props.language)}
+          className="ml1"
+        >
+          <LinkIcon />
+        </Link>
+      </h3>
+      <div dangerouslySetInnerHTML={{ __html: props.node.html }} />
+      {warning}
+    </div>
+  );
 };
 
 export default Docs;

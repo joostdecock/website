@@ -41,9 +41,8 @@ class OptionPicker extends React.Component {
   }
 
   optionGroup(key, options, level = 0) {
-    let divider = ""; // <hr className="nm"/>
     let heading = (
-      <ListItem button onClick={() => this.toggleGroup(key)}>
+      <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
         <ListItemIcon>
           <TuneIcon className={"indent" + level} />
         </ListItemIcon>
@@ -63,7 +62,7 @@ class OptionPicker extends React.Component {
         </ListItemSecondaryAction>
       </ListItem>
     );
-    let items = [divider, heading];
+    let items = [heading];
     let colItems = [];
     // Sort items regardless of language
     let sorted = {};
@@ -122,6 +121,7 @@ class OptionPicker extends React.Component {
             in={this.state.option === subOption ? true : false}
             timeout="auto"
             unmountOnExit
+            key={"sub-" + subOption}
           >
             <Option
               option={subOption}
@@ -142,7 +142,12 @@ class OptionPicker extends React.Component {
       }
     }
     items.push(
-      <Collapse in={this.state.expanded[key]} timeout="auto" unmountOnExit>
+      <Collapse
+        in={this.state.expanded[key]}
+        key={"col-" + key}
+        timeout="auto"
+        unmountOnExit
+      >
         {colItems}
       </Collapse>
     );
