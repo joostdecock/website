@@ -6,10 +6,10 @@ import { locLang } from "../../../utils";
 const StartOver = props => {
   return (
     <div>
-      <h5 className="txt-right mt1 mb1">
+      <h5 className="mt1 mb1">
         <FormattedMessage id="app.startOver" />
       </h5>
-      <p className="txt-right">
+      <p>
         <Button
           variant="outlined"
           className="mr1"

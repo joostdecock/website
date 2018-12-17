@@ -8,7 +8,8 @@ import GithubIcon from "../../GithubIcon";
 import { capitalize } from "../../../utils";
 import { patterns } from "@freesewing/patterns";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
-//import i18nPlugin from "@freesewing/plugin-i18n";
+import i18nPlugin from "@freesewing/plugin-i18n";
+import { plugin as patternTranslations } from "@freesewing/i18n";
 //import validatePlugin from "@freesewing/plugin-validate";
 //import debugPlugin from "@freesewing/plugin-debug";
 
@@ -21,10 +22,9 @@ class DraftPreview extends React.Component {
   render() {
     let error = false;
     let settings = this.props.settings;
-    const pattern = new patterns[(capitalize(this.props.pattern))]().with(
-      svgattrPlugin,
-      { class: "fs-draft preview" }
-    );
+    const pattern = new patterns[(capitalize(this.props.pattern))]()
+      .with(svgattrPlugin, { class: "fs-draft preview" })
+      .with(i18nPlugin, { strings: patternTranslations });
     pattern.mergeSettings(settings);
     try {
       pattern.draft();

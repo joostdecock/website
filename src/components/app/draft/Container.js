@@ -142,13 +142,13 @@ class DraftContainer extends React.Component {
                   units: this.props.user.settings.units
                 }}
               />
-              <StartOver
-                pattern={this.props.pattern}
-                language={this.props.language}
-              />
             </div>
           </Column>
         </TwoColumns>
+        <StartOver
+          pattern={this.props.pattern}
+          language={this.props.language}
+        />
       </div>
     );
   }
