@@ -60,7 +60,7 @@
 .color-danger { color: $danger; }
 .color-link { color: $link; }
 .color-accent { color: $accent; }
-.color-muted { color: $bw4; }
+.color-muted { color: $bw5; }
 
 // Text size
 p.mini,
@@ -105,6 +105,10 @@ body.dark .shadow1 { @include shadow-dark; }
 .wrap {
   max-width: 1400px;
   margin: auto;
+}
+
+.wrap.narrow {
+  max-width: 700px;
 }
 
 

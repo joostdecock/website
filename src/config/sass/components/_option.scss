@@ -9,6 +9,11 @@
     padding: 2px;
   }
 }
+@include lg-screen {
+.option-wrapper {
+  padding: 1rem 2rem;
+  }
+}
 
 .option-footer {
   background: $bw6;

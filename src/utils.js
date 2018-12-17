@@ -202,7 +202,8 @@ distance.asText = (value, units = "metric") => {
     let negative = "";
     let inches = "";
     let rest = "";
-    value = roundImperial(value / 25.4);
+    // value = roundImperial(value / 25.4); FIXME: why round here?
+    value = value / 25.4;
     if (value < 0) {
       value = value * -1;
       negative = "-";
@@ -240,7 +241,8 @@ distance.asHtml = (value, units = "metric") => {
     let negative = "";
     let inches = "";
     let rest = "";
-    value = roundImperial(value / 25.4);
+    //value = roundImperial(value / 25.4); // FIXME: Why round here?
+    value = value / 25.4;
     if (value < 0) {
       value = value * -1;
       negative = "-";

@@ -27,27 +27,47 @@ function Breadcrumbs(props) {
         </li>
         {spacer}
         {props.via.map((step, index) => {
-          return [
-            <li key={"crumb" + index}>
-              <Link
-                to={locLang.set(step.link, props.intl.locale)}
-                title={
-                  typeof step.label === "string"
-                    ? props.intl.formatMessage({ id: step.label })
-                    : ""
-                }
-              >
+          if (step.link)
+            return [
+              <li key={"crumb" + index}>
+                <Link
+                  to={locLang.set(step.link, props.intl.locale)}
+                  title={
+                    typeof step.label === "string"
+                      ? props.intl.formatMessage({ id: step.label })
+                      : ""
+                  }
+                >
+                  {typeof step.label === "string" ? (
+                    <FormattedMessage id={step.label} />
+                  ) : (
+                    step.label
+                  )}
+                </Link>
+              </li>,
+              spacer
+            ];
+          else
+            return [
+              <li key={"crumb" + index} className="color-muted">
                 {typeof step.label === "string" ? (
                   <FormattedMessage id={step.label} />
                 ) : (
                   step.label
                 )}
-              </Link>
-            </li>,
-            spacer
-          ];
+              </li>,
+              spacer
+            ];
         })}
         <li>{props.children}</li>
+        {props.towards.map((step, index) => {
+          return [
+            spacer,
+            <li key={"towards" + index} className="color-muted">
+              {typeof step === "string" ? <FormattedMessage id={step} /> : step}
+            </li>
+          ];
+        })}
       </ul>
     </nav>
   );
@@ -58,7 +78,8 @@ Breadcrumbs.propTypes = {
 };
 
 Breadcrumbs.defaultProps = {
-  via: []
+  via: [],
+  towards: []
 };
 
 export default injectIntl(Breadcrumbs);

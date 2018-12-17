@@ -1,5 +1,5 @@
 import React from "react";
-import { patternOption } from "../../../utils";
+import { distance, patternOption } from "../../../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -13,7 +13,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Option from "./options/Container";
 
-class OptionPicker extends React.Component {
+class SettingsPicker extends React.Component {
   state = {
     expanded: {},
     option: false
@@ -21,7 +21,7 @@ class OptionPicker extends React.Component {
 
   componentDidMount() {
     let expanded = {};
-    for (let option of this.props.pattern.optionGroups) {
+    for (let option of this.props.options) {
       if (typeof option !== "string") {
         let key = Object.keys(option).pop();
         expanded[key] = false;
@@ -48,7 +48,7 @@ class OptionPicker extends React.Component {
           </h6>
         </ListItemText>
         <ListItemSecondaryAction>
-          <IconButton aria-label="Comments">
+          <IconButton aria-label="toggle">
             {this.state.expanded[key] ? (
               <CollapseIcon color="primary" />
             ) : (
@@ -77,13 +77,86 @@ class OptionPicker extends React.Component {
     }
     for (let label of Object.keys(sorted).sort()) {
       let subOption = sorted[label];
-      if (typeof subOption === "string") {
-        let optConf = this.props.pattern.config.options[subOption];
-        let optVal = this.props.settings.options[subOption];
-        let dfltVal = patternOption.dflt(optConf);
-        let dflt = optVal === dfltVal ? true : false;
-        if (typeof optVal === "undefined") dflt = true;
-        if (dflt) optVal = dfltVal;
+      if (typeof subOption !== "string") {
+        let subKey = Object.keys(subOption).pop();
+        let subItems = this.optionGroup(subKey, subOption[subKey], level + 2);
+        for (let s of subItems) colItems.push(s);
+      } else {
+        let optConf, optVal, dfltVal, dflt, displayVal;
+        if (typeof this.props.units === "string") {
+          // Draft options
+          optConf = subOption; // No config, just pass name
+          optVal = this.props.settings[subOption]; // Draft options are always set in state
+          // Default value requires some work
+          switch (subOption) {
+            case "paperless":
+              dfltVal = false;
+              displayVal = (
+                <FormattedMessage id={optVal ? "app.yes" : "app.no"} />
+              );
+              break;
+            case "complete":
+              dfltVal = true;
+              displayVal = (
+                <FormattedMessage id={optVal ? "app.yes" : "app.no"} />
+              );
+              break;
+            case "units":
+              dfltVal = this.props.units;
+              displayVal = <FormattedMessage id={"app." + optVal + "Units"} />;
+              break;
+            case "locale":
+              dfltVal = this.props.language;
+              displayVal = <FormattedMessage id={"i18n." + optVal} />;
+              break;
+            case "only":
+              dfltVal = false;
+              if (optVal === undefined) optVal = false;
+              let displayId = "default";
+              if (Array.isArray(optVal)) displayId = "custom";
+              displayVal = <FormattedMessage id={"app." + displayId} />;
+              break;
+            case "margin":
+              dfltVal = this.props.units === "imperial" ? 2.38125 : 2;
+              displayVal = (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: distance.asHtml(optVal, this.props.units)
+                  }}
+                />
+              );
+              break;
+            case "sa":
+              dfltVal = 0;
+              if (optVal === 0) displayVal = <FormattedMessage id="app.no" />;
+              else
+                displayVal = (
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: distance.asHtml(optVal, this.props.units)
+                    }}
+                  />
+                );
+              break;
+            default:
+              break;
+          }
+          if (dfltVal === optVal) dflt = true;
+          else dflt = false;
+        } else {
+          // Pattern options
+          optConf = this.props.optionConfig[subOption];
+          if (
+            typeof this.props.settings.options !== "undefined" &&
+            typeof this.props.settings.options[subOption] !== "undefined"
+          )
+            optVal = this.props.settings.options[subOption];
+          dfltVal = patternOption.dflt(optConf);
+          dflt = optVal === dfltVal ? true : false;
+          if (typeof optVal === "undefined") dflt = true;
+          if (dflt) optVal = dfltVal;
+          displayVal = patternOption.format(optVal, optConf);
+        }
         colItems.push(
           <ListItem
             button
@@ -107,7 +180,7 @@ class OptionPicker extends React.Component {
               <span
                 className={dflt ? "option-value dflt" : "option-value non-dflt"}
               >
-                {patternOption.format(optVal, optConf)}
+                {displayVal}
               </span>
             </ListItemSecondaryAction>
           </ListItem>
@@ -122,19 +195,23 @@ class OptionPicker extends React.Component {
             <Option
               option={subOption}
               pattern={this.props.pattern.config.name}
+              patternInfo={
+                subOption === "sa" || subOption === "only"
+                  ? this.props.pattern
+                  : false
+              }
               config={optConf}
               value={optVal}
               language={this.props.language}
               updateOption={this.props.updateOption}
               showDocs={this.props.showDocs}
               docs={this.props.docs}
+              settings={this.props.settings || false}
+              units={this.props.units}
+              dflt={dfltVal}
             />
           </Collapse>
         );
-      } else {
-        let subKey = Object.keys(subOption).pop();
-        let subItems = this.optionGroup(subKey, subOption[subKey], level + 2);
-        for (let s of subItems) colItems.push(s);
       }
     }
     items.push(
@@ -167,18 +244,14 @@ class OptionPicker extends React.Component {
   optionGroups = this.props.pattern.optionGroups;
   render() {
     return (
-      <div>
-        <List component="nav">
-          {this.props.pattern.optionGroups.map((option, index) => {
-            let key = Object.keys(option).pop();
-            return this.optionGroup(key, option[key]);
-          })}
-        </List>
-      </div>
+      <List component="nav">
+        {this.props.options.map((option, index) => {
+          let key = Object.keys(option).pop();
+          return this.optionGroup(key, option[key]);
+        })}
+      </List>
     );
   }
 }
 
-OptionPicker.propTypes = {};
-
-export default injectIntl(OptionPicker);
+export default injectIntl(SettingsPicker);

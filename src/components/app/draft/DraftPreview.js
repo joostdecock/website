@@ -18,17 +18,6 @@ class DraftPreview extends React.Component {
     pattern: false
   };
 
-  //componentDidMount() {
-  //  const pattern = new patterns[(capitalize(this.props.pattern))](
-  //    this.props.settings
-  //  ).with(svgattrPlugin, { class: "fs-draft preview" })
-  //  //  .on('preDraft', function() { console.log('pre draft', arguments)});
-
-  //  this.setState({
-  //    pattern: pattern
-  //  });
-  //}
-
   render() {
     let error = false;
     let settings = this.props.settings;
@@ -40,6 +29,7 @@ class DraftPreview extends React.Component {
     try {
       pattern.draft();
     } catch (err) {
+      console.log(err);
       error = err;
     }
     if (!error) {
@@ -67,7 +57,8 @@ class DraftPreview extends React.Component {
                 error: error,
                 pattern: pattern.config.name,
                 version: pattern.config.version,
-                settings: pattern.settings
+                settings: pattern.settings,
+                ourSettings: settings
               },
               null,
               2
@@ -91,7 +82,7 @@ class DraftPreview extends React.Component {
 
 DraftPreview.propTypes = {
   pattern: PropTypes.string.isRequired,
-  model: PropTypes.object.isRequired
+  settings: PropTypes.object.isRequired
 };
 
 export default DraftPreview;

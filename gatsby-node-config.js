@@ -38,8 +38,15 @@ exports.jsPages = [
   },
   {
     nakedPath: "/draft",
+    template: path.resolve("src/components/pages/ChoosePattern.js")
+  },
+  {
+    nakedPath: "/draft/:pattern",
+    template: path.resolve("src/components/pages/ChooseModel.js")
+  },
+  {
+    nakedPath: "/draft/:pattern/for/:model",
     template: path.resolve("src/components/pages/Draft.js"),
-    match: "/draft/*",
     includeMarkdown: "optionsHelp"
   },
   {
@@ -100,8 +107,7 @@ exports.jsPages = [
     template: path.resolve("src/components/pages/CreateModel.js")
   },
   {
-    nakedPath: "/models/model-container",
-    match: "/models/*",
+    nakedPath: "/models/:model",
     template: path.resolve("src/components/pages/Model.js"),
     includeMarkdown: ["measurementsHelp", "markdownHelp"]
   }
