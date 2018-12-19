@@ -21,7 +21,8 @@ class SettingsPicker extends React.Component {
 
   componentDidMount() {
     let expanded = {};
-    for (let option of this.props.options) {
+    for (let key of Object.keys(this.props.options)) {
+      let option = this.props.options[key];
       if (typeof option !== "string") {
         let key = Object.keys(option).pop();
         expanded[key] = false;
@@ -245,9 +246,8 @@ class SettingsPicker extends React.Component {
   render() {
     return (
       <List component="nav">
-        {this.props.options.map((option, index) => {
-          let key = Object.keys(option).pop();
-          return this.optionGroup(key, option[key]);
+        {Object.keys(this.props.options).map(key => {
+          return this.optionGroup(key, this.props.options[key]);
         })}
       </List>
     );

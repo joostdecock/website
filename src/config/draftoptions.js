@@ -1,13 +1,9 @@
 const draftOptions = {};
 
-draftOptions.groups = [
-  {
-    preferences: ["sa", "paperless"]
-  },
-  {
-    advanced: ["only", "complete", "margin", "units", "locale"]
-  }
-];
+draftOptions.groups = {
+  preferences: ["sa", "paperless"],
+  advanced: ["only", "complete", "margin", "units", "locale"]
+};
 
 draftOptions.config = {
   sa: null,

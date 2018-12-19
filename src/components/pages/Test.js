@@ -11,9 +11,9 @@ class Test extends React.Component {
     svg: false,
     pattern: false
   };
-
+  /*
   componentDidMount() {
-    let patternA = new patterns.brian({
+    let patternA = new patterns.Brian({
       foo: "aaron",
       sa: 10,
       embed: true,
@@ -42,8 +42,10 @@ class Test extends React.Component {
       svg: patternA.render()
     });
   }
-
+*/
   render() {
+    return "";
+    /*
     return (
       <BaseLayout>
         <h1>test</h1>
@@ -53,6 +55,7 @@ class Test extends React.Component {
         />
       </BaseLayout>
     );
+    */
   }
 }
 
