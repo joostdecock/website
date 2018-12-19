@@ -39,7 +39,7 @@ svg.fs-draft.preview {
   .fill-interfacing{ fill:#64b5f6; }
   .fill-canvas{ fill:#ff9000; }
   .fill-various{ fill:#4caf50; }
-  .fill-mark{ fill:blue; }
+  .fill-mark{ fill: $link; }
   .fill-contrast{ fill:red; }
 
   /* Text */
@@ -79,7 +79,7 @@ body.light svg.fs-draft.preview {
   .canvas{ stroke:#ff9000; }
   .various{ stroke:#4caf50; }
   .note{ stroke: $bw1; }
-  .mark{ stroke:blue; }
+  .mark{ stroke: $link; }
   .contrast{ stroke:red; }
   .fill-fabric{ fill: $bw1; }
   .fill-note{ fill: $bw1; }
@@ -94,9 +94,10 @@ body.dark svg.fs-draft.preview {
   .canvas{ stroke:#ff9000; }
   .various{ stroke:#4caf50; }
   .note{ stroke: $bw9; }
-  .mark{ stroke:blue; }
+  .mark{ stroke: $linkFaded; }
   .contrast{ stroke:red; }
   .fill-fabric{ fill: $bw9; }
   .fill-note{ fill: $bw9; }
+  .fill-mark{ fill: $linkFaded; }
 }
 
