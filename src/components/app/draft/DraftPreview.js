@@ -16,10 +16,22 @@ import { plugin as patternTranslations } from "@freesewing/i18n";
 class DraftPreview extends React.Component {
   state = {
     svg: false,
-    pattern: false
+    pattern: false,
+    hasError: false
   };
 
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    // You can also log the error to an error reporting service
+    console.log("oh shit", error, info);
+  }
+
   render() {
+    if (this.state.hasError) return "oops";
     let error = false;
     let settings = this.props.settings;
     const pattern = new patterns[(capitalize(this.props.pattern))]()

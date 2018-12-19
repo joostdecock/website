@@ -19,7 +19,7 @@ class Bool extends React.Component {
   };
 
   render() {
-    let { intl, desc, docs, showDocs, option, labels, dflt } = this.props;
+    let { desc, docs, showDocs, labels, dflt } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>

@@ -162,32 +162,6 @@ const uniqueArray = array => {
   });
 };
 
-const roundImperial = value => {
-  // eslint-disable-next-line
-  if (value == 0) return 0;
-  let negative = false;
-  let inches = 0;
-  let rest = 0;
-  let fraction8 = 0;
-  if (value < 0) {
-    value = Math.abs(value);
-    negative = true;
-  }
-  if (value < 1) {
-    rest = value;
-  } else {
-    inches = Math.floor(value);
-    rest = value - inches;
-  }
-  fraction8 = Math.round(rest * 8) / 8;
-
-  if (negative) {
-    // eslint-disable-next-line
-    if (parseInt(inches) == 1) return -1 - fraction8;
-    else return -1 * parseInt(inches) - fraction8;
-  } else return parseInt(inches) + fraction8;
-};
-
 const round = value => {
   return Math.round(value * 10) / 10;
 };
@@ -202,7 +176,6 @@ distance.asText = (value, units = "metric") => {
     let negative = "";
     let inches = "";
     let rest = "";
-    // value = roundImperial(value / 25.4); FIXME: why round here?
     value = value / 25.4;
     if (value < 0) {
       value = value * -1;
@@ -241,7 +214,6 @@ distance.asHtml = (value, units = "metric") => {
     let negative = "";
     let inches = "";
     let rest = "";
-    //value = roundImperial(value / 25.4); // FIXME: Why round here?
     value = value / 25.4;
     if (value < 0) {
       value = value * -1;
@@ -387,6 +359,7 @@ const formatOption = (val, conf) => {
   if (typeof val === "undefined") val = optionDefault(conf);
   let type = optionType(conf);
   if (type === "pct") return round(val * 100) + "%";
+  else if (type === "deg") return round(val) + "°";
   else return val;
 };
 

@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
 
-class Percentage extends React.Component {
+class SliderOption extends React.Component {
   state = {
     value: this.props.value,
     dragging: false
@@ -13,9 +13,8 @@ class Percentage extends React.Component {
 
   updateOption = (evt, value) => {
     this.setState({ value: round(value) });
-    let factor = this.props.mm ? 1 : 100;
     if (!this.state.dragging)
-      this.props.updateOption(this.props.option, value / factor);
+      this.props.updateOption(this.props.option, value / this.props.factor);
   };
 
   startDrag = () => {
@@ -29,7 +28,7 @@ class Percentage extends React.Component {
 
   render() {
     let step = 0.1;
-    if (this.props.mm) {
+    if (this.props.type === "mm") {
       step = this.props.units === "imperial" ? 0.79375 : 1;
     }
     return (
@@ -77,4 +76,4 @@ class Percentage extends React.Component {
   }
 }
 
-export default Percentage;
+export default SliderOption;

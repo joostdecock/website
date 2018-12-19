@@ -106,6 +106,8 @@ class DraftContainer extends React.Component {
             <div className="stick">
               {this.state.docs ? (
                 <OptionDocs node={this.optionDocsNode()} language={language} />
+              ) : typeof this.props.model === "string" ? (
+                <p>FIXME: Waiting for model - show loader here</p>
               ) : (
                 <DraftPreview
                   pattern={pattern}

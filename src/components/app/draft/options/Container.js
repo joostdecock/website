@@ -1,11 +1,8 @@
 import React from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { optionDesc } from "../../../../utils";
-import PercentageOption from "./Percentage";
-//import MillimeterOption from "./Millimeter";
-import PaperlessOption from "./Paperless";
+import SliderOption from "./Slider";
 import SeamAllowanceOption from "./SeamAllowance";
-import UnitsOption from "./Units";
 import OnlyOption from "./Only";
 import BoolOption from "./Bool";
 import ListOption from "./List";
@@ -95,7 +92,7 @@ const OptionContainer = props => {
       );
     case "margin":
       return (
-        <PercentageOption
+        <SliderOption
           option={props.option}
           intl={intl}
           value={props.value}
@@ -117,18 +114,19 @@ const OptionContainer = props => {
     default:
       if (
         typeof props.config.pct !== "undefined" ||
+        typeof props.config.deg !== "undefined" ||
         typeof props.config.mm !== "undefined"
       ) {
-        let factor = 100;
-        let mm = false;
-        let dflt;
-        if (typeof props.config.mm !== "undefined") {
-          factor = 1;
-          mm = true;
-          dflt = props.config.mm;
-        } else dflt = props.config.pct;
+        let factor, type, dflt;
+        if (typeof props.config.pct !== "undefined") {
+          type = "pct";
+          factor = 100;
+        } else factor = 1;
+        if (typeof props.config.mm !== "undefined") type = "mm";
+        if (typeof props.config.deg !== "undefined") type = "deg";
+        dflt = props.config[type];
         return (
-          <PercentageOption
+          <SliderOption
             config={props.config}
             option={props.option}
             value={props.value * factor}
@@ -136,8 +134,9 @@ const OptionContainer = props => {
             showDocs={props.showDocs}
             docs={props.docs}
             desc={optionDesc(props.option, props.pattern, props.language)}
-            mm={mm}
+            type={type}
             dflt={dflt}
+            factor={factor}
           />
         );
       } else return <p>FIXME: Unknown option format</p>;

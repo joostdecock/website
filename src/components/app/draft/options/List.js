@@ -5,7 +5,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
-import Slider from "@material-ui/lab/Slider";
 
 class List extends React.Component {
   state = {
@@ -18,7 +17,7 @@ class List extends React.Component {
   };
 
   render() {
-    let { intl, desc, docs, showDocs } = this.props;
+    let { desc, docs, showDocs } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>
