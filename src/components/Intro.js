@@ -49,11 +49,6 @@ const Intro = props => {
           </div>
         )}
       </div>
-      <p>
-        <Link to={locLang.set("/docs/about", props.language)}>
-          <FormattedMessage id="app.aboutFreesewing" />
-        </Link>
-      </p>
     </div>
   );
 };

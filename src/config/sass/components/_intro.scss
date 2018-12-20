@@ -5,7 +5,7 @@
   background: $bw9;
   color: $bw1;
 
-  div.logo { margin-bottom: 1rem; }
+  div.logo { margin-bottom: 1rem; float: right;}
   div.logo svg {
     max-width: 100%;
     max-height: 100%;
@@ -19,7 +19,7 @@
     display: inline-block;
     font-size: 64px;
     font-family: $titlefont;
-    font-weight: bold;
+    font-weight: light;
 
     height: 130px;
     overflow: hidden;
@@ -79,7 +79,7 @@
 
 @include xs-screen {
   .intro-wrapper {
-    div.logo { height: 200px; }
+    div.logo { height: 150px; float: none;}
     div.swap span { text-align: center; }
     div.tail, div.swap {
       font-size: 36px;

@@ -12,4 +12,13 @@ h1, h2, h3, h4, h5, h6 { color: $bw1;}
 body.dark {
   h1, h2, h3, h4, h5, h6 { color: $bw9;}
 }
+h1.light,
+h2.light,
+h3.light,
+h4.light,
+h5.light,
+h6.light {
+  font-weight: 200;
+}
+
 

@@ -24,9 +24,7 @@ class SettingsPicker extends React.Component {
     for (let key of Object.keys(this.props.options)) {
       let option = this.props.options[key];
       if (typeof option !== "string") {
-        let key = Object.keys(option).pop();
-        expanded[key] = false;
-        for (let subOption of option[key]) {
+        for (let subOption of option) {
           if (typeof subOption !== "string") {
             let subKey = Object.keys(subOption).pop();
             expanded[subKey] = false;

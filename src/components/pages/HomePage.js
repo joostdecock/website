@@ -62,9 +62,8 @@ const HomePage = props => {
   return (
     <BaseLayout>
       <Intro />
-      <h2>
-        <FormattedMessage id="intro.txt-different" />
-      </h2>
+      <div className="vspacer">&nbsp;</div>
+      <div className="vspacer">&nbsp;</div>
       <Grid
         container
         spacing={24}
@@ -73,103 +72,50 @@ const HomePage = props => {
         wrap="wrap"
       >
         <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-          <Tray
-            title={<FormattedMessage id="app.100PercentOpenSource" />}
-            icon={<CodeIcon />}
-            footer={
-              <Button href="https://github.com/freesewing">
-                <GithubIcon className="mr1" />
-                <FormattedMessage id="app.freesewingOnGithub" />
-              </Button>
-            }
-          >
-            <p>
-              <FormattedMessage id="intro.txt-opensource" />
-            </p>
-          </Tray>
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentOpenSource" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-opensource" />
+          </p>
+          <Button variant="outlined" href="https://github.com/freesewing">
+            <GithubIcon className="mr1" />
+            <FormattedMessage id="app.freesewingOnGithub" />
+          </Button>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-          <Tray
-            title={<FormattedMessage id="app.100PercentCommunity" />}
-            icon={<CommunityIcon />}
-            footer={
-              <Button href={locLang.set("/docs/about", language)}>
-                <HelpIcon className="mr1" />
-                <FormattedMessage id="app.aboutFreesewing" />
-              </Button>
-            }
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentCommunity" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-community" />
+          </p>
+          <Button
+            variant="outlined"
+            href={locLang.set("/docs/about", language)}
           >
-            <p>
-              <FormattedMessage id="intro.txt-community" />
-            </p>
-          </Tray>
+            <HelpIcon className="mr1" />
+            <FormattedMessage id="app.aboutFreesewing" />
+          </Button>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-          <Tray
-            title={<FormattedMessage id="app.100PercentFree" />}
-            icon={<AtmIcon />}
-            footer={
-              <Button href={locLang.set("/patrons/join", language)}>
-                <HeartIcon className="mr1" />
-                <FormattedMessage id="app.becomeAPatron" />
-              </Button>
-            }
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentFree" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-patrons" />
+          </p>
+          <Button
+            variant="outlined"
+            href={locLang.set("/patrons/join", language)}
           >
-            <p>
-              <FormattedMessage id="intro.txt-patrons" />
-            </p>
-          </Tray>
+            <HeartIcon className="mr1" />
+            <FormattedMessage id="app.becomeAPatron" />
+          </Button>
         </Grid>
       </Grid>
-      <h2>
-        <FormattedMessage id="app.blog" />
-      </h2>
-      <Slider {...settings}>
-        {Object.keys(blogposts).map((nakedPath, index) => {
-          let blogpost = blogposts[nakedPath];
-          let frontmatter = blogpost.frontmatter;
-          let img = frontmatter.img.childImageSharp.fixed;
-          return (
-            <div
-              style={{ width: 20 + img.width }}
-              className="txt-center teaser"
-              key={"showcase-" + index}
-            >
-              <Link
-                to={locLang.set(frontmatter.path, props.pageContext.language)}
-              >
-                <Image
-                  key={"showcase-" + index}
-                  fixed={frontmatter.img.childImageSharp.fixed}
-                  title={frontmatter.caption}
-                  alt={frontmatter.caption}
-                  backgroundColor={"#212121"}
-                  className="slide"
-                />
-                <div className="title">
-                  <p className="thetitle">
-                    {frontmatter.title}
-                    <span className="meta">
-                      {frontmatter.author} @ {frontmatter.category}
-                      ,&nbsp;&nbsp;
-                      <TimeAgo date={frontmatter.date} />
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
-        <div style={{ width: "240" }} className="txt-center slide slide-card">
-          <Link to={locLang.set("/showcase", props.pageContext.language)}>
-            <FormattedMessage id="app.browseAllBlogposts" />
-            <span className="fs-block-link" />
-          </Link>
-        </div>
-      </Slider>
-      <h2>
-        <FormattedMessage id="app.showcase" />
-      </h2>
+      <div className="vspacer">&nbsp;</div>
+      <div className="vspacer">&nbsp;</div>
       <Slider {...settings}>
         {Object.keys(showcases).map((nakedPath, index) => {
           let showcase = showcases[nakedPath];
