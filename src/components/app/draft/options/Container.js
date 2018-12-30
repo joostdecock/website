@@ -7,24 +7,10 @@ import OnlyOption from "./Only";
 import BoolOption from "./Bool";
 import ListOption from "./List";
 import i18nConfig from "../../../../config/i18n";
+import { optionLabel } from "../../../../utils";
 
 const OptionContainer = props => {
   let { intl } = props;
-  const noYes = [
-    <FormattedMessage id="app.no" />,
-    <FormattedMessage id="app.yes" />
-  ];
-  //const baseProps = {
-  //  option={props.option}
-  //  intl={intl}
-  //  value={props.value}
-  //  updateOption={props.updateOption}
-  //  showDocs={props.showDocs}
-  //  docs={props.docs}
-  //  desc={optionDesc(props.option, props.pattern, props.language)}
-  //  patternInfo={props.patternInfo}
-  //  dflt={props.dflt}
-  //}
   switch (props.option) {
     case "paperless":
     case "complete":
@@ -36,8 +22,9 @@ const OptionContainer = props => {
           updateOption={props.updateOption}
           showDocs={props.showDocs}
           docs={props.docs}
-          desc={optionDesc(props.option, props.pattern, props.language)}
-          labels={noYes}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
           dflt={props.dflt}
         />
       );
@@ -49,7 +36,9 @@ const OptionContainer = props => {
           updateOption={props.updateOption}
           showDocs={props.showDocs}
           docs={props.docs}
-          desc={optionDesc("sa", props.pattern, props.language)}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
           patternInfo={props.patternInfo}
           units={props.units}
         />
@@ -72,7 +61,9 @@ const OptionContainer = props => {
           updateOption={props.updateOption}
           showDocs={props.showDocs}
           docs={props.docs}
-          desc={optionDesc(props.option, props.pattern, props.language)}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
           patternInfo={props.patternInfo}
           dflt={props.dflt}
           list={list}
@@ -86,7 +77,9 @@ const OptionContainer = props => {
           updateOption={props.updateOption}
           showDocs={props.showDocs}
           docs={props.docs}
-          desc={optionDesc(props.option, props.pattern, props.language)}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
           patternInfo={props.patternInfo}
         />
       );
@@ -99,7 +92,9 @@ const OptionContainer = props => {
           updateOption={props.updateOption}
           showDocs={props.showDocs}
           docs={props.docs}
-          desc={optionDesc(props.option, props.pattern, props.language)}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
           patternInfo={props.patternInfo}
           dflt={props.dflt}
           mm={true}
@@ -115,7 +110,8 @@ const OptionContainer = props => {
       if (
         typeof props.config.pct !== "undefined" ||
         typeof props.config.deg !== "undefined" ||
-        typeof props.config.mm !== "undefined"
+        typeof props.config.mm !== "undefined" ||
+        typeof props.config.count !== "undefined"
       ) {
         let factor, type, dflt;
         if (typeof props.config.pct !== "undefined") {
@@ -124,6 +120,7 @@ const OptionContainer = props => {
         } else factor = 1;
         if (typeof props.config.mm !== "undefined") type = "mm";
         if (typeof props.config.deg !== "undefined") type = "deg";
+        if (typeof props.config.count !== "undefined") type = "count";
         dflt = props.config[type];
         return (
           <SliderOption
@@ -137,6 +134,41 @@ const OptionContainer = props => {
             type={type}
             dflt={dflt}
             factor={factor}
+          />
+        );
+      } else if (typeof props.config.list !== "undefined") {
+        let list = {};
+        for (let entry of props.config.list)
+          list[entry] = (
+            <FormattedMessage
+              id={`options.${props.pattern}.${props.option}.options.${entry}`}
+            />
+          );
+        return (
+          <ListOption
+            option={props.option}
+            intl={intl}
+            value={props.value}
+            updateOption={props.updateOption}
+            showDocs={props.showDocs}
+            docs={props.docs}
+            desc={optionDesc(props.option, props.pattern, props.language)}
+            patternInfo={props.patternInfo}
+            dflt={props.dflt}
+            list={list}
+          />
+        );
+      } else if (typeof props.config.bool !== "undefined") {
+        return (
+          <BoolOption
+            option={props.option}
+            intl={intl}
+            value={props.value === true ? "true" : "false"}
+            updateOption={props.updateOption}
+            showDocs={props.showDocs}
+            docs={props.docs}
+            desc={optionDesc(props.option, props.pattern, props.language)}
+            dflt={props.dflt}
           />
         );
       } else return <p>FIXME: Unknown option format</p>;

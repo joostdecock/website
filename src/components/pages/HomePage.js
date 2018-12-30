@@ -8,16 +8,11 @@ import Chip from "@material-ui/core/Chip";
 import { FormattedMessage } from "react-intl";
 import NextIcon from "@material-ui/icons/KeyboardArrowRight";
 import PrevIcon from "@material-ui/icons/KeyboardArrowLeft";
-import TimeAgo from "../TimeAgo";
 import Intro from "../Intro";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Tray from "../Tray";
-import CodeIcon from "@material-ui/icons/Code";
 import HelpIcon from "@material-ui/icons/Help";
 import HeartIcon from "@material-ui/icons/Favorite";
-import AtmIcon from "@material-ui/icons/LocalAtm";
-import CommunityIcon from "@material-ui/icons/Public";
 import GithubIcon from "../GithubIcon";
 
 function NextArrow(props) {
@@ -45,7 +40,6 @@ function PrevArrow(props) {
 const HomePage = props => {
   const { data, language } = props.pageContext;
   const showcases = data.showcasePreviews;
-  const blogposts = data.blogpostPreviews;
   const settings = {
     className: "slider variable-width",
     dots: true,

@@ -19,7 +19,7 @@ class Bool extends React.Component {
   };
 
   render() {
-    let { desc, docs, showDocs, labels, dflt } = this.props;
+    let { desc, docs, showDocs, dflt, intl } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>
@@ -32,13 +32,13 @@ class Bool extends React.Component {
             control={<Radio color="primary" />}
             value="false"
             checked={this.state.value === "false" ? true : false}
-            label={labels[0]}
+            label={intl.formatMessage({ id: "app.no" })}
           />
           <FormControlLabel
             control={<Radio color="primary" />}
             checked={this.state.value === "true" ? true : false}
             value="true"
-            label={labels[1]}
+            label={intl.formatMessage({ id: "app.yes" })}
           />
         </RadioGroup>
         <p className="option-actions">

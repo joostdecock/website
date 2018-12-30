@@ -12,6 +12,7 @@ import TuneIcon from "@material-ui/icons/Tune";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Option from "./options/Container";
+import { settings as settingsStrings } from "@freesewing/i18n";
 
 class SettingsPicker extends React.Component {
   state = {
@@ -64,9 +65,15 @@ class SettingsPicker extends React.Component {
     for (let subOption of options) {
       let label = "";
       if (typeof subOption === "string") {
-        label = this.props.intl.formatMessage({
-          id: "options." + subOption + ".title"
-        });
+        let ikey;
+        if (
+          Object.keys(settingsStrings[this.props.language]).indexOf(
+            subOption
+          ) !== -1
+        )
+          ikey = `settings.${subOption}.title`;
+        else ikey = `options.${this.props.pattern.name}.${subOption}.title`;
+        label = this.props.intl.formatMessage({ id: ikey });
       } else {
         label = Object.keys(subOption).pop();
         label =
@@ -154,7 +161,21 @@ class SettingsPicker extends React.Component {
           dflt = optVal === dfltVal ? true : false;
           if (typeof optVal === "undefined") dflt = true;
           if (dflt) optVal = dfltVal;
-          displayVal = patternOption.format(optVal, optConf);
+          if (Array.isArray(optConf.list))
+            displayVal = (
+              <FormattedMessage
+                id={`options.${
+                  this.props.pattern.name
+                }.${subOption}.options.${optVal}`}
+              />
+            );
+          else if (typeof optConf.bool !== "undefined")
+            displayVal = (
+              <FormattedMessage
+                id={"app." + (optVal === true ? "yes" : "no")}
+              />
+            );
+          else displayVal = patternOption.format(optVal, optConf);
         }
         colItems.push(
           <ListItem

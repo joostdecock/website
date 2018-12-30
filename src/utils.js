@@ -317,14 +317,25 @@ const imperialFractionToMm = value => {
 };
 
 const optionDesc = (key, pattern, language) => {
-  let option = options[language][key];
-  if (typeof option === "undefined") {
-    return "";
-  }
-  if (typeof option.description === "string") return option.description;
-  else if (typeof option.description[pattern] === "string")
-    return option.description[pattern];
-  else return option.description._default;
+  if (
+    typeof options[language][pattern][key] === "undefined" ||
+    typeof options[language][pattern][key].description !== "string"
+  )
+    throw new Error(
+      `No ${language} description for option ${key} of pattern ${pattern}`
+    );
+
+  return options[language][pattern][key].description;
+};
+
+const optionLabel = (key, optionKey, pattern, language) => {
+  let option = options[language][optionKey];
+  if (typeof option.options[pattern] === "object")
+    return option.options[pattern][key];
+  if (typeof option.options === "object") return option.options[key];
+  throw new Error(
+    `Option ${optionKey} -> ${key} in pattern ${pattern} could not be translated for language ${language}`
+  );
 };
 
 const optionType = conf => {
@@ -333,9 +344,10 @@ const optionType = conf => {
   if (typeof conf.mm !== "undefined") return "mm";
   if (typeof conf.deg !== "undefined") return "deg";
   if (typeof conf.count !== "undefined") return "count";
+  if (typeof conf.bool !== "undefined") return "bool";
   if (typeof conf.dflt !== "undefined") return "dflt";
 
-  throw new Error("Unknown option type");
+  throw new Error("Unknown option type: " + JSON.stringify(conf));
 };
 
 const optionDefault = conf => {
@@ -390,5 +402,6 @@ export {
   clearToken,
   validateEmail,
   validateTld,
-  optionDesc
+  optionDesc,
+  optionLabel
 };

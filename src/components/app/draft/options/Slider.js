@@ -30,9 +30,10 @@ class SliderOption extends React.Component {
     let step = 0.1;
     if (this.props.type === "mm") {
       step = this.props.units === "imperial" ? 0.79375 : 1;
-    }
+    } else if (this.props.type === "count") step = 1;
     return (
       <div className="option-wrapper">
+        <p className="option-desc">{this.props.desc}</p>
         <div className="slider">
           <Slider
             value={this.state.value}
@@ -48,7 +49,6 @@ class SliderOption extends React.Component {
             }}
           />
         </div>
-        <p className="option-desc">{this.props.desc}</p>
         <p className="option-actions">
           {this.state.value === this.props.config.pct ? (
             ""

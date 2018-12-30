@@ -18,6 +18,7 @@ class List extends React.Component {
 
   render() {
     let { desc, docs, showDocs } = this.props;
+    console.log("list is", this.props.list);
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>

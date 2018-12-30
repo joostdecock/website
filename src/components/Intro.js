@@ -1,8 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
 import { FormattedMessage } from "react-intl";
-import { Link } from "gatsby";
-import { locLang } from "../utils";
 
 const Intro = props => {
   let terms = [

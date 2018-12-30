@@ -35,6 +35,8 @@ class DraftContainer extends React.Component {
 
   updateOption = (key, val) => {
     let settings = this.state.settings;
+    if (val === "true") val = true;
+    else if (val === "false") val = false;
     settings.options[key] = val;
     this.setState({ settings, docs: false });
   };
@@ -60,6 +62,7 @@ class DraftContainer extends React.Component {
     else return this.props.data.optionsHelp[nodePath];
   };
   render() {
+    console.log("i18n", this.props);
     let { language, pattern, model } = this.props;
     let { settings, docs } = this.state;
     let pickerProps = {
