@@ -43,7 +43,7 @@ class SettingsPicker extends React.Component {
           <TuneIcon className={"indent" + level} />
         </ListItemIcon>
         <ListItemText inset>
-          <h6>
+          <h6 className="picker-title">
             <FormattedMessage id={"optiongroups." + key} />
           </h6>
         </ListItemText>

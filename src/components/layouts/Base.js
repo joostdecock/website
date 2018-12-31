@@ -23,7 +23,7 @@ import withRoot from "../../withRoot";
 import backend from "../../backend";
 import LocationProvider from "../LocationProvider";
 // eslint-disable-next-line
-import titleFont from "typeface-open-sans-condensed";
+import titleFont from "typeface-roboto-condensed";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 

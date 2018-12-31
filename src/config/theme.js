@@ -1,11 +1,22 @@
 const asTitle = {
-  fontFamily: "Open Sans Condensed",
+  fontFamily: "Roboto Condensed",
   fontWeight: "bold"
 };
 
 export default {
   typography: {
-    fontFamily: ["Domine", "serif"].join(","),
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Helvetica",
+      "Arial",
+      "sans-serif",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol"
+    ].join(","),
     useNextVariants: true
   },
   props: {

@@ -34,7 +34,6 @@ p.option-actions {
 }
 span.option-value {
   font-family: $titlefont;
-  font-weight: bold;
 }
 span.option-value.non-dflt {
   color: $success;
@@ -43,7 +42,7 @@ span.option-value.non-dflt {
 div.picker-option-title {
   padding-left: 0;
   max-width: 62%;
-	span { line-height: 1; }
+	span { line-height: 1; font-weight: bold;}
 }
 
 div.picker-option-value {
@@ -51,7 +50,14 @@ div.picker-option-value {
   line-height: 0.85;
   text-align: right;
   padding-right: 1rem;
+  font-weight: bold;
 }
+
+h6.picker-title {
+  margin: 0;
+  font-weight: bold;
+}
+
 body.dark {
   .option-header.selected {
     background: $bw2;

@@ -1,43 +1,35 @@
 blockquote { font-size: 1.2rem; }
+blockquote > :first-child { margin-top: 0; }
 blockquote > :last-child { margin-bottom: 0; }
 
 @include xs-screen {
   blockquote {
-    padding: 2rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-    border-top: 5px solid $primary;
-    border-radius: 0;
-    @include shadow;
+    padding: 1.5rem 1rem;
+    margin: 1rem -1rem;
+    background: $bw7;
+    border: 0;
+    color: $bw0;
   }
   body.dark blockquote {
-    padding: 2rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-    border-radius: 0;
-    @include shadow-dark;;
-    border-top: 5px solid $bw4;
+    background: $bw2;
+    border: 0;
+    color: hsla(0, 0%, 100%, 0.8);
     a { color: $linkFaded; }
   }
 }
 
 @include sm-screen {
   blockquote {
-    padding: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-top: 5px solid $primary;
-    border-radius: 3px;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    @include shadow;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: $bw7;
+    border-left: .5rem solid $bw2;
+    color: $bw0;
   }
   body.dark blockquote {
-    border-radius: 3px;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    @include shadow-dark;
-    border-top: 5px solid $bw4;
+    background: $bw2;
+    border-left: .5rem solid $bw3;
+    color: hsla(0, 0%, 100%, 0.8);
     a { color: $linkFaded; }
   }
 }

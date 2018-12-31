@@ -3,13 +3,14 @@ $secondary: #ffffff;
 $black: #000;
 $white: #fff;
 
+$bw0: #000000;
 $bw1: #111111;
-$bw2: #343434;
+$bw2: #1D1F21;
 $bw3: #5A5A5A;
 $bw4: #828282;
 $bw5: #B4B4B4;
 $bw6: #DCDCDC;
-$bw7: #ECECEC;
+$bw7: #F3F5F7;
 $bw8: #F8F8F8;
 $bw9: #FFFFFF;
 $link: #2979FF;
@@ -34,7 +35,7 @@ $accentWhite: #EAE2F6;
 $accentBlack: #291548;
 
 $textfont: "Domine", "serif";
-$titlefont: "Open Sans Condensed", "sans-serif";
+$titlefont: "Roboto Condensed", "sans-serif";
 
 body, body.light { background-color: $secondary; }
 div.fs-base { margin-top: 64px; }
