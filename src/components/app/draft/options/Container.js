@@ -7,7 +7,6 @@ import OnlyOption from "./Only";
 import BoolOption from "./Bool";
 import ListOption from "./List";
 import i18nConfig from "../../../../config/i18n";
-import { optionLabel } from "../../../../utils";
 
 const OptionContainer = props => {
   let { intl } = props;

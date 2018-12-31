@@ -188,15 +188,15 @@ class SettingsPicker extends React.Component {
                 : "option-header"
             }
           >
-            <ListItemIcon>
+            <ListItemIcon className="picker-option-icon">
               {this.state.option === subOption ? (
                 <CollapseIcon className={"indent" + (level + 1)} />
               ) : (
                 <SelectIcon className={"indent" + (level + 1)} />
               )}
             </ListItemIcon>
-            <ListItemText>{label}</ListItemText>
-            <ListItemSecondaryAction>
+            <ListItemText className="picker-option-title">{label}</ListItemText>
+            <ListItemSecondaryAction className="picker-option-value">
               <span
                 className={dflt ? "option-value dflt" : "option-value non-dflt"}
               >

@@ -9,7 +9,18 @@ const typography = new Typography({
   headerWeight: "bold",
   bodyWeight: "normal",
   headerFontFamily: ["Open Sans Condensed", "sans-serif"],
-  bodyFontFamily: ["Domine", "serif"],
+  bodyFontFamily: [
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "Roboto",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol"
+  ],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     h1: { fontSize: "2.5rem", margin: "0 0 1rem" },
     h2: { fontSize: "2.2rem", margin: "0.5rem 0 1rem" },
