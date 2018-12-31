@@ -25,7 +25,10 @@ const ChoosePatternPage = props => (
         </h1>
         <div className="wrap narrow">
           <div className="overpad1-always">
-            <PatternPicker patterns={patternList} {...props.pageContext} />
+            <PatternPicker
+              patterns={patternList}
+              language={props.pageContext.language}
+            />
           </div>
         </div>
       </div>
