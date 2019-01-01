@@ -107,6 +107,7 @@ body.dark .shadow1 { @include shadow-dark; }
 .wrap {
   max-width: 1400px;
   margin: auto;
+  min-height: 60vh;
 }
 
 .wrap.narrow {

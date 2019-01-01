@@ -40,7 +40,7 @@ class Base extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.user) {
+    if (this.props.user === null) {
       let token = retrieveToken();
       if (token) {
         backend
@@ -49,12 +49,12 @@ class Base extends React.Component {
             if (res.status === 200) {
               this.props.setUserAccount(res.data.account);
               this.props.setModels(res.data.models);
-            }
+            } else this.props.setUserAccount(false);
           })
           .catch(err => {
             console.log(err);
           });
-      }
+      } else this.props.setUserAccount(false);
     }
   }
 

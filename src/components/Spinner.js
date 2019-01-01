@@ -15,9 +15,9 @@ const Spinner = props => {
         cx="24"
         cy="24"
         r="47"
-        stroke-width="0.5"
-        stroke-dasharray="9 8"
-        stroke-linecap="round"
+        strokeWidth="0.5"
+        strokeDasharray="9 8"
+        strokeLinecap="round"
         className="darker"
       >
         <animateTransform
@@ -34,8 +34,8 @@ const Spinner = props => {
         cx="24"
         cy="24"
         r="48"
-        stroke-width="10"
-        stroke-dasharray="30 72 30 72"
+        strokeWidth="10"
+        strokeDasharray="30 72 30 72"
         className="lighter"
       >
         <animate
@@ -64,7 +64,7 @@ const Spinner = props => {
           repeatCount="indefinite"
         />
       </circle>
-      <circle cx="24" cy="24" r="40" stroke-width="2.5" className="darker">
+      <circle cx="24" cy="24" r="40" strokeWidth="2.5" className="darker">
         <animate
           attributeType="CSS"
           attributeName="stroke-dasharray"
@@ -95,8 +95,8 @@ const Spinner = props => {
         cx="24"
         cy="24"
         r="36"
-        stroke-width="0.5"
-        stroke-dasharray="8 8 500"
+        strokeWidth="0.5"
+        strokeDasharray="8 8 500"
       >
         <animateTransform
           attributeName="transform"
@@ -112,9 +112,9 @@ const Spinner = props => {
         cx="24"
         cy="24"
         r="50"
-        stroke-width="2"
-        stroke-dasharray="30 400"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeDasharray="30 400"
+        strokeLinecap="round"
       >
         <animate
           attributeType="CSS"

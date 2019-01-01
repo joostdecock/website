@@ -1,6 +1,6 @@
 import { SET_USER_ACCOUNT } from "../actions/user";
 
-const INITIAL_STATE = false;
+const INITIAL_STATE = null;
 
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {

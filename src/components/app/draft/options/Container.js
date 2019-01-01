@@ -10,17 +10,20 @@ import i18nConfig from "../../../../config/i18n";
 
 const OptionContainer = props => {
   let { intl } = props;
+  let optionBaseProps = {
+    option: props.option,
+    intl,
+    updateOption: props.updateOption,
+    showDocs: props.showDocs,
+    docs: props.docs
+  };
   switch (props.option) {
     case "paperless":
     case "complete":
       return (
         <BoolOption
-          option={props.option}
-          intl={intl}
+          {...optionBaseProps}
           value={props.value === true ? "true" : "false"}
-          updateOption={props.updateOption}
-          showDocs={props.showDocs}
-          docs={props.docs}
           desc={intl.formatMessage({
             id: "settings." + props.option + ".description"
           })}
@@ -30,16 +33,33 @@ const OptionContainer = props => {
     case "sa":
       return (
         <SeamAllowanceOption
-          intl={intl}
+          {...optionBaseProps}
           value="false"
-          updateOption={props.updateOption}
-          showDocs={props.showDocs}
-          docs={props.docs}
           desc={intl.formatMessage({
             id: "settings." + props.option + ".description"
           })}
           patternInfo={props.patternInfo}
           units={props.units}
+        />
+      );
+    case "margin":
+      return (
+        <SliderOption
+          {...optionBaseProps}
+          value={props.value}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
+          patternInfo={props.patternInfo}
+          dflt={props.dflt}
+          mm={true}
+          config={{
+            mm: props.dflt,
+            min: props.dflt,
+            max: props.units === "imperial" ? 25.4 : 25
+          }}
+          units={props.units}
+          factor={1}
         />
       );
     case "locale":
@@ -54,12 +74,8 @@ const OptionContainer = props => {
       }
       return (
         <ListOption
-          option={props.option}
-          intl={intl}
+          {...optionBaseProps}
           value={props.value}
-          updateOption={props.updateOption}
-          showDocs={props.showDocs}
-          docs={props.docs}
           desc={intl.formatMessage({
             id: "settings." + props.option + ".description"
           })}
@@ -71,38 +87,12 @@ const OptionContainer = props => {
     case "only":
       return (
         <OnlyOption
-          intl={intl}
+          {...optionBaseProps}
           value="false"
-          updateOption={props.updateOption}
-          showDocs={props.showDocs}
-          docs={props.docs}
           desc={intl.formatMessage({
             id: "settings." + props.option + ".description"
           })}
           patternInfo={props.patternInfo}
-        />
-      );
-    case "margin":
-      return (
-        <SliderOption
-          option={props.option}
-          intl={intl}
-          value={props.value}
-          updateOption={props.updateOption}
-          showDocs={props.showDocs}
-          docs={props.docs}
-          desc={intl.formatMessage({
-            id: "settings." + props.option + ".description"
-          })}
-          patternInfo={props.patternInfo}
-          dflt={props.dflt}
-          mm={true}
-          config={{
-            mm: props.dflt,
-            min: props.dflt,
-            max: props.units === "imperial" ? 25.4 : 25
-          }}
-          units={props.units}
         />
       );
     default:
@@ -123,16 +113,14 @@ const OptionContainer = props => {
         dflt = props.config[type];
         return (
           <SliderOption
+            {...optionBaseProps}
             config={props.config}
-            option={props.option}
             value={props.value * factor}
-            updateOption={props.updateOption}
-            showDocs={props.showDocs}
-            docs={props.docs}
             desc={optionDesc(props.option, props.pattern, props.language)}
             type={type}
             dflt={dflt}
             factor={factor}
+            mm={typeof props.config.mm !== "undefined" ? true : false}
           />
         );
       } else if (typeof props.config.list !== "undefined") {
@@ -145,12 +133,8 @@ const OptionContainer = props => {
           );
         return (
           <ListOption
-            option={props.option}
-            intl={intl}
+            {...optionBaseProps}
             value={props.value}
-            updateOption={props.updateOption}
-            showDocs={props.showDocs}
-            docs={props.docs}
             desc={optionDesc(props.option, props.pattern, props.language)}
             patternInfo={props.patternInfo}
             dflt={props.dflt}
@@ -160,12 +144,8 @@ const OptionContainer = props => {
       } else if (typeof props.config.bool !== "undefined") {
         return (
           <BoolOption
-            option={props.option}
-            intl={intl}
+            {...optionBaseProps}
             value={props.value === true ? "true" : "false"}
-            updateOption={props.updateOption}
-            showDocs={props.showDocs}
-            docs={props.docs}
             desc={optionDesc(props.option, props.pattern, props.language)}
             dflt={props.dflt}
           />

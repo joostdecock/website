@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import LoginRequiredMessage from "./LoginRequiredMessage";
+import Center from "../../Center";
+import Spinner from "../../Spinner";
 
 class AuthContainer extends React.Component {
   render() {
@@ -9,9 +11,15 @@ class AuthContainer extends React.Component {
     const children = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, { location, language });
     });
-    if (this.props.user.status === "active") return children;
-    else
+    if (this.props.user === null)
+      return (
+        <Center>
+          <Spinner size={200} />
+        </Center>
+      );
+    else if (this.props.user === false)
       return <LoginRequiredMessage location={location} language={language} />;
+    else if (this.props.user.status === "active") return children;
   }
 }
 

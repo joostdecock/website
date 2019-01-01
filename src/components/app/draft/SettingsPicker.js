@@ -175,6 +175,14 @@ class SettingsPicker extends React.Component {
                 id={"app." + (optVal === true ? "yes" : "no")}
               />
             );
+          else if (typeof optConf.mm !== "undefined")
+            displayVal = (
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: distance.asHtml(optVal, this.props.units)
+                }}
+              />
+            );
           else displayVal = patternOption.format(optVal, optConf);
         }
         colItems.push(

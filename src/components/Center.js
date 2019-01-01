@@ -7,11 +7,13 @@ const Center = ({ children }) => {
       flexDirection: "column",
       alignItems: "center"
     },
-    content: {}
+    content: {
+      flex: 1
+    }
   };
   return (
     <div style={style.wrapper}>
-      <div className="center-flex-content">{children}</div>
+      <div style={style.content}>{children}</div>
     </div>
   );
 };
