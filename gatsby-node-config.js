@@ -40,7 +40,7 @@ exports.jsPages = [
     nakedPath: "/try",
     match: "/try/*",
     template: path.resolve("src/components/pages/Playground.js"),
-    includeMarkdown: "optionsHelp"
+    includeMarkdown: ["optionsHelp", "playgroundHelp"]
   },
   {
     nakedPath: "/draft",

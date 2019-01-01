@@ -47,7 +47,6 @@ class PlaygroundContainer extends React.Component {
   };
 
   updateSetting = (key, val) => {
-    console.log("settings update", key, val);
     if (val === "true") val = true;
     if (val === "false") val = false;
     let settings = this.state.settings;
@@ -106,7 +105,12 @@ class PlaygroundContainer extends React.Component {
                   }}
                 />
               ) : (
-                "pick a pattern"
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.data.playgroundHelp["/docs/playground"]
+                      .html
+                  }}
+                />
               )}
             </div>
           </Column>

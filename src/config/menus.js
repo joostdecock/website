@@ -66,6 +66,11 @@ const documentationMenu = pageLanguage => {
         icon: "info"
       },
       {
+        link: locLang.set("/docs/faq", pageLanguage),
+        label: "app.faq",
+        icon: "help_outline"
+      },
+      {
         link: locLang.set("/docs/patterns/", pageLanguage),
         label: "app.patternInstructions",
         icon: "content_cut"

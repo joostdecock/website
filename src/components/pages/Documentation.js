@@ -28,13 +28,14 @@ export default data => {
       <PleaseTranslate filePath={fileAbsolutePath} language={language} />
     );
   }
-
+  let docsCrumb = { link: "/docs", label: "app.docs" };
   if (
     typeof frontmatter.breadcrumbs !== "undefined" &&
     typeof frontmatter.breadcrumbs[0] !== "undefined" &&
     frontmatter.breadcrumbs[0].link !== "/docs"
   )
-    frontmatter.breadcrumbs.unshift({ link: "/docs", label: "app.docs" });
+    frontmatter.breadcrumbs.unshift(docsCrumb);
+  else frontmatter.breadcrumbs = [docsCrumb];
   // Measurements
   if (typeof frontmatter.measurement === "string") {
     isMeasurement = true;
@@ -54,6 +55,7 @@ export default data => {
       </Tray>
     );
   }
+  console.log(frontmatter);
   return (
     <BaseLayout>
       <Breadcrumbs via={frontmatter.breadcrumbs}>

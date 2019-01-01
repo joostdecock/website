@@ -186,6 +186,24 @@ const markdownHelp = `{
   }
 }`;
 
+const playgroundHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/playground/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        html
+        tableOfContents(pathToSlugField: "frontmatter.path")
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
 const measurementsHelp = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/measurements/"}}}
@@ -311,6 +329,7 @@ module.exports = {
   allShowcasePosts,
   allDocumentation,
   markdownHelp,
+  playgroundHelp,
   measurementsHelp,
   optionsHelp,
   showcasePreviews,
