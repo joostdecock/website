@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import Spinner from "../Spinner";
 import Center from "../Center";
+import Intro from "../Intro";
 
 class Test extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Test extends React.Component {
       <BaseLayout>
         <h1>test</h1>
         <Center>
-          <Spinner size="240" />
+          <Intro />
         </Center>
       </BaseLayout>
     );

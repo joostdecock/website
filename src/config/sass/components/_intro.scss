@@ -1,3 +1,22 @@
+svg.intro {
+  text.intro {
+    font-size: 8px;
+    fill: $bw1;
+    text-align: center;
+  }
+  .bg { stroke: none; fill: white; }
+  .strokebg { stroke: white; fill: none; }
+}
+
+body.dark {
+  svg.intro {
+    text.intro { fill: white; }
+    .bg { fill: $bw1; }
+    .strokebg { stroke: $bw1; }
+  }
+}
+
+
 .intro-wrapper {
   text-align: center;
   margin: 1rem 0;
