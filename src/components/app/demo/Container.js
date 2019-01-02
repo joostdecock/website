@@ -12,7 +12,7 @@ import PatternPicker from "./PatternPicker";
 import { capitalize } from "../../../utils";
 import models from "@freesewing/models";
 
-class PlaygroundContainer extends React.Component {
+class DemoContainer extends React.Component {
   state = {
     pattern: this.props.pattern,
     units: "metric",
@@ -83,10 +83,10 @@ class PlaygroundContainer extends React.Component {
     return (
       <div>
         <Breadcrumbs>
-          <FormattedMessage id="app.playground" />
+          <FormattedMessage id="app.demo" />
         </Breadcrumbs>
         <h1>
-          <FormattedMessage id="app.playground" />
+          <FormattedMessage id="app.demo" />
           {this.state.pattern ? ": " + capitalize(this.state.pattern) : ""}
         </h1>
         <TwoColumns wrapReverse={true}>
@@ -107,8 +107,7 @@ class PlaygroundContainer extends React.Component {
               ) : (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: this.props.data.playgroundHelp["/docs/playground"]
-                      .html
+                    __html: this.props.data.demoHelp["/docs/demo"].html
                   }}
                 />
               )}
@@ -155,4 +154,4 @@ class PlaygroundContainer extends React.Component {
   }
 }
 
-export default injectIntl(PlaygroundContainer);
+export default injectIntl(DemoContainer);

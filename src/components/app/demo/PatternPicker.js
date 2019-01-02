@@ -11,8 +11,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import SelectedIcon from "@material-ui/icons/Star";
 import StarIcon from "@material-ui/icons/StarBorder";
-import { patternList, patternInfo } from "@freesewing/patterns";
-import { capitalize, locLang } from "../../../utils";
+import { patternList } from "@freesewing/patterns";
+import { capitalize } from "../../../utils";
 import { FormattedMessage } from "react-intl";
 
 class PatternPicker extends React.Component {

@@ -186,9 +186,9 @@ const markdownHelp = `{
   }
 }`;
 
-const playgroundHelp = `{
+const demoHelp = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/playground/"}}}
+      filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
@@ -329,7 +329,7 @@ module.exports = {
   allShowcasePosts,
   allDocumentation,
   markdownHelp,
-  playgroundHelp,
+  demoHelp,
   measurementsHelp,
   optionsHelp,
   showcasePreviews,

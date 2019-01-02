@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
 import Center from "../Center";
-import Intro from "../Intro";
+import Intro from "../homepage/Intro";
 
 class Test extends React.Component {
   render() {

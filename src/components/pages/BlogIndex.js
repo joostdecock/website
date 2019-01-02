@@ -28,13 +28,7 @@ export default data => {
   }
   return (
     <BaseLayout>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="start"
-        className="page"
-      >
+      <Grid container direction="column" justify="center" className="page">
         {category === "all" ? (
           <Breadcrumbs>
             <FormattedMessage id="app.blog" />

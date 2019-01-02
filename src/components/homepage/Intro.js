@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
-import fabric0 from "../assets/images/intro/fabric0.jpg";
-import fabric1 from "../assets/images/intro/fabric1.jpg";
-import fabric2 from "../assets/images/intro/fabric2.jpg";
-import fabric3 from "../assets/images/intro/fabric3.jpg";
-import fabric4 from "../assets/images/intro/fabric4.jpg";
-import fabric5 from "../assets/images/intro/fabric5.jpg";
-import fabric6 from "../assets/images/intro/fabric6.jpg";
-import fabric7 from "../assets/images/intro/fabric7.jpg";
-import fabric8 from "../assets/images/intro/fabric8.jpg";
-import fabric9 from "../assets/images/intro/fabric9.jpg";
+import fabric0 from "../../assets/images/intro/fabric0.jpg";
+import fabric1 from "../../assets/images/intro/fabric1.jpg";
+import fabric2 from "../../assets/images/intro/fabric2.jpg";
+import fabric3 from "../../assets/images/intro/fabric3.jpg";
+import fabric4 from "../../assets/images/intro/fabric4.jpg";
+import fabric5 from "../../assets/images/intro/fabric5.jpg";
+import fabric6 from "../../assets/images/intro/fabric6.jpg";
+import fabric7 from "../../assets/images/intro/fabric7.jpg";
+import fabric8 from "../../assets/images/intro/fabric8.jpg";
+import fabric9 from "../../assets/images/intro/fabric9.jpg";
 
 const Nitro = props => {
   let terms = [

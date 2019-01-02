@@ -37,10 +37,10 @@ exports.jsPages = [
     extraProps: { draft: false }
   },
   {
-    nakedPath: "/try",
-    match: "/try/*",
-    template: path.resolve("src/components/pages/Playground.js"),
-    includeMarkdown: ["optionsHelp", "playgroundHelp"]
+    nakedPath: "/demo",
+    match: "/demo/*",
+    template: path.resolve("src/components/pages/Demo.js"),
+    includeMarkdown: ["optionsHelp", "demoHelp"]
   },
   {
     nakedPath: "/draft",

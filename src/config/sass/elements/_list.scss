@@ -45,3 +45,17 @@ ul.meta {
       font-size: 98%;
     }
 }
+
+ul.inline {
+  margin-left: 0;
+    list-style-type: none;
+  li {
+    display: inline-block;
+    padding-right: 0.5rem;
+  }
+  li::after {
+    content: ", ";
+  }
+}
+ul.inline > li:last-child::after { content: ""; }
+

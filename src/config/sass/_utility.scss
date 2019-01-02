@@ -102,6 +102,8 @@ body.dark .shadow1 { @include shadow-dark; }
 .display-block { display: block!important; }
 .hidden {display: none!important;}
 .semi-transparent {opacity: 0.6;}
+
+body.dark .nobg.card { @include shadow-dark; }
 // FIXME: These should go somewhere where they make sense
 
 .wrap {
@@ -135,3 +137,6 @@ body.dark .shadow1 { @include shadow-dark; }
   }
 }
 
+.row-reverse {
+  flex-direction: row-reverse;
+}

@@ -1,9 +1,9 @@
 ---
-title: About the playground
-path: /en/docs/playground
+title: About the demo
+path: /en/docs/demo
 ---
 
-Welcome to our playground, where you can try out freesewing without the need for an account.
+Welcome to our demo, where you can try out freesewing without the need for an account.
 
 Choose a pattern to get started. Once you do, a preview will appear here, along with all the
 patterns configuration options for you to play with.

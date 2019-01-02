@@ -1,0 +1,66 @@
+div.tier {
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  @include shadow;
+  span.name {
+    display: block;
+    @include title-font;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $bw4;
+  }
+  h3 {
+    font-size: 2rem;
+    margin-top: 0;
+    color: $bw9;
+    span {
+      display: block;
+    }
+    span.amount {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    span.permonth {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+  img {
+    max-height: 120px;
+    margin: 0;
+  }
+  form {
+    margin: 0;
+  }
+  p {
+    line-height: 1.4;
+    font-size: 110%;
+    min-height: 6rem;
+  }
+}
+div.tier.tier-0 {
+  h3 {
+    color: $bw1;
+  }
+}
+div.tier.tier-2 {
+  background: $success;
+}
+div.tier.tier-4 {
+  background: $link;
+}
+div.tier.tier-8 {
+  background: $accent;
+}
+
+body.dark {
+  div.tier.tier-0 {
+    background: $bw2;
+    h3 {
+      color: $bw9;
+    }
+  }
+  div.tier.tier-2 {
+  }
+}
