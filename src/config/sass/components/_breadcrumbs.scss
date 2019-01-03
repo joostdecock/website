@@ -5,7 +5,7 @@ nav.breadcrumbs {
     li {
       list-style-type: none;
       display: inline-block;
-
+      margin-bottom: 0;
       button:disabled {
         color: $bw3;
       }
