@@ -36,13 +36,16 @@ div.tier {
   p {
     line-height: 1.4;
     font-size: 110%;
-    min-height: 6rem;
   }
 }
 div.tier.tier-0 {
-  h3 {
-    color: $bw1;
-  }
+  h3 { color: $bw1; }
+}
+div.tier.tier-2 p,
+div.tier.tier-4 p,
+div.tier.tier-8 p {
+  color: $bw9;
+  min-height: 6rem;
 }
 div.tier.tier-2 {
   background: $success;
@@ -57,10 +60,8 @@ div.tier.tier-8 {
 body.dark {
   div.tier.tier-0 {
     background: $bw2;
-    h3 {
+    p, h3 {
       color: $bw9;
     }
-  }
-  div.tier.tier-2 {
   }
 }

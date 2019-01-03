@@ -52,6 +52,7 @@ ul.inline {
   li {
     display: inline-block;
     padding-right: 0.5rem;
+    margin-bottom: 0;
   }
   li::after {
     content: ", ";

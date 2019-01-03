@@ -15,7 +15,7 @@ const DemoLink = props => (
       variant="contained"
       size="large"
       color="primary"
-      href={locLang.set("/try", props.language)}
+      href={locLang.set("/demo", props.language)}
     >
       <FormattedMessage id="intro.tryTheFreesewingDemo" />
     </Button>

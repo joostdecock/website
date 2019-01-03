@@ -12,16 +12,22 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { patternList } from "@freesewing/patterns";
+import { injectIntl } from "react-intl";
 
 const Cards = props => (
   <Grid container spacing={40} direction="row" justify="flex-start" wrap="wrap">
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
       <Card classes={{ root: "nobg card" }}>
-        <CardMedia
-          style={{ height: "240px" }}
-          image={patternsImage}
-          title="patterns"
-        />
+        <Link
+          to={locLang.set("/patterns", props.language)}
+          title={props.intl.formatMessage({ id: "app.patterns" })}
+        >
+          <CardMedia
+            style={{ height: "240px" }}
+            image={patternsImage}
+            title={props.intl.formatMessage({ id: "app.patterns" })}
+          />
+        </Link>
         <CardContent>
           <h2 className="light">
             <FormattedMessage id="app.patterns" />
@@ -49,11 +55,16 @@ const Cards = props => (
     </Grid>
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
       <Card classes={{ root: "nobg card" }}>
-        <CardMedia
-          style={{ height: "240px" }}
-          image={showcasesImage}
-          title="showcases"
-        />
+        <Link
+          to={locLang.set("/showcase", props.language)}
+          title={props.intl.formatMessage({ id: "app.showcase" })}
+        >
+          <CardMedia
+            style={{ height: "240px" }}
+            image={showcasesImage}
+            title={props.intl.formatMessage({ id: "app.showcase" })}
+          />
+        </Link>
         <CardContent>
           <h2 className="light">
             <FormattedMessage id="app.showcase" />
@@ -75,11 +86,16 @@ const Cards = props => (
     </Grid>
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
       <Card classes={{ root: "nobg card" }}>
-        <CardMedia
-          style={{ height: "240px" }}
-          image={blogpostsImage}
-          title="patterns"
-        />
+        <Link
+          to={locLang.set("/blog", props.language)}
+          title={props.intl.formatMessage({ id: "app.blog" })}
+        >
+          <CardMedia
+            style={{ height: "240px" }}
+            image={blogpostsImage}
+            title={props.intl.formatMessage({ id: "app.blog" })}
+          />
+        </Link>
         <CardContent>
           <h2 className="light">
             <FormattedMessage id="app.blog" />
@@ -102,4 +118,4 @@ const Cards = props => (
   </Grid>
 );
 
-export default Cards;
+export default injectIntl(Cards);
