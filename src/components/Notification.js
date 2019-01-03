@@ -25,7 +25,7 @@ function Notification(props) {
     <Snackbar
       className={"ntfy-" + style}
       anchorOrigin={{
-        vertical: "top",
+        vertical: "bottom",
         horizontal: "right"
       }}
       open={open}

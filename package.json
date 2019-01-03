@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@freesewing/i18n": "0.7.3",
+    "@freesewing/i18n": "0.7.4",
     "@freesewing/models": "0.7.1",
-    "@freesewing/patterns": "0.10.7",
+    "@freesewing/patterns": "0.11.0",
     "@freesewing/plugin-debug": "0.4.3",
     "@freesewing/plugin-i18n": "0.1.1",
     "@freesewing/plugin-svgattr": "0.1.0",
