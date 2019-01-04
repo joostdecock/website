@@ -58,6 +58,12 @@ h6.picker-title {
   font-weight: bold;
 }
 
+a.list-info > div.info > span {
+  font-weight: normal;
+  line-height: 1.1;
+  font-size: 95%;
+}
+
 body.dark {
   .option-header.selected {
     background: $bw2;

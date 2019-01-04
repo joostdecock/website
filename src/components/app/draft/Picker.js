@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
-import TuneIcon from "@material-ui/icons/Tune";
+import OptionsIcon from "@material-ui/icons/Tune";
+import SettingsIcon from "@material-ui/icons/Settings";
 import SettingsPicker from "./SettingsPicker";
 import Tray from "../../Tray";
 
 const Picker = ({ titleId, childProps }) => (
   <Tray
     className="mb1"
-    icon={<TuneIcon />}
+    icon={titleId === "app.patternOptions" ? <OptionsIcon /> : <SettingsIcon />}
     title={<FormattedMessage id={titleId} />}
   >
     <div className="overpad2-always">

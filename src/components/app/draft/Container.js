@@ -2,14 +2,15 @@ import React from "react";
 import { FormattedMessage, injectIntl } from "react-intl";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
+import Center from "../../Center";
 import Column from "../../Column";
 import { patternInfo } from "@freesewing/patterns";
 import { locLang, capitalize } from "../../../utils";
 import DraftPreview from "./DraftPreview";
 import OptionDocs from "./options/Docs";
 import draftOptions from "../../../config/draftoptions";
-import StartOver from "./StartOver";
 import Picker from "./Picker";
+import Actions from "./actions/Container";
 
 class DraftContainer extends React.Component {
   state = {
@@ -47,6 +48,23 @@ class DraftContainer extends React.Component {
     let settings = this.state.settings;
     settings[key] = val;
     this.setState({ settings, docs: false });
+  };
+
+  restoreDefaults = () => {
+    this.setState({
+      settings: {
+        embed: true,
+        sa: 0,
+        complete: true,
+        options: {},
+        paperless: false,
+        locale: this.props.language,
+        units: this.props.user.settings.units,
+        margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2
+      },
+      options: {},
+      docs: false
+    });
   };
 
   optionDocsNode = key => {
@@ -135,7 +153,7 @@ class DraftContainer extends React.Component {
                 }}
               />
               <Picker
-                titleId="app.draftOptions"
+                titleId="app.draftSettings"
                 childProps={{
                   ...pickerProps,
                   options: draftOptions.groups,
@@ -145,13 +163,18 @@ class DraftContainer extends React.Component {
                   units: this.props.user.settings.units
                 }}
               />
+              <Actions
+                settings={this.state.settings}
+                units={this.props.user.settings.units}
+                pattern={pattern}
+                patternInfo={patternInfo}
+                language={this.props.language}
+                model={this.props.model}
+                restoreDefaults={this.restoreDefaults}
+              />
             </div>
           </Column>
         </TwoColumns>
-        <StartOver
-          pattern={this.props.pattern}
-          language={this.props.language}
-        />
       </div>
     );
   }

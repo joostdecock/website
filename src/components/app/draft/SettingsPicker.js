@@ -8,7 +8,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import TuneIcon from "@material-ui/icons/Tune";
+import OptionsIcon from "@material-ui/icons/Tune";
+import SettingsIcon from "@material-ui/icons/EditAttributes";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Option from "./options/Container";
@@ -40,7 +41,7 @@ class SettingsPicker extends React.Component {
     let heading = (
       <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
         <ListItemIcon>
-          <TuneIcon className={"indent" + level} />
+          <OptionsIcon className={"indent" + level} />
         </ListItemIcon>
         <ListItemText inset>
           <h6 className="picker-title">
