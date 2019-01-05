@@ -26,7 +26,8 @@ import HeartIcon from "@material-ui/icons/Favorite";
 class Export extends React.Component {
   state = {
     loading: true,
-    svg: false
+    svg: false,
+    link: false
   };
 
   svgToClipboard = svg => {
@@ -62,8 +63,8 @@ class Export extends React.Component {
       .tiler(svg, format, size)
       .then(res => {
         if (res.status === 200) {
-          let blob = new Blob([res.data], { type: "application/pdf" });
-          fileSaver.saveAs(blob, "draft-" + size + ".pdf");
+          this.setState({ link: res.data.link });
+          this.props.showNotification("success", "PDF Generated");
         }
       })
       .catch(err => {
@@ -121,41 +122,49 @@ class Export extends React.Component {
         </div>
       );
     } else {
-      this.svgToPdf(this.renderDraft(), this.props.format);
-      if (
-        typeof this.props.user.patron !== "undefined" &&
-        this.props.user.patron > 1
-      )
+      if (this.state.link === false) {
+        this.svgToPdf(this.renderDraft(), this.props.format);
         return (
+          <Center>
+            <Spinner size={200} />
+          </Center>
+        );
+      } else {
+        let html = [
           <div className="txt-center">
-            <HeartIcon
-              size={300}
-              className="color-danger"
-              style={{ fontSize: "13rem" }}
-            />
-            <h3>
-              <FormattedMessage id="app.thanksForYourSupport" />
-              {" " + this.props.user.username}
-            </h3>
+            <h2>Your PDF is ready</h2>
+            <Button
+              color="primary"
+              variant="contained"
+              size="large"
+              href={this.state.link}
+            >
+              Download PDF
+            </Button>
           </div>
-        );
-      else
-        return (
-          <React-Fragment>
-            <blockquote>
-              <h5>
-                <FormattedMessage id="app.becomeAPatron" />
-              </h5>
-              <p>
-                <FormattedMessage id="app.patronsKeepUsAfloat" />
-              </p>
-              <p>
-                <FormattedMessage id="app.patronPitch" />
-              </p>
-            </blockquote>
-            <BecomeAPatron language={this.props.language} />
-          </React-Fragment>
-        );
+        ];
+        if (
+          typeof this.props.user.patron === "undefined" ||
+          this.props.user.patron < 20
+        )
+          html.push(
+            <div>
+              <blockquote>
+                <h5>
+                  <FormattedMessage id="app.becomeAPatron" />
+                </h5>
+                <p>
+                  <FormattedMessage id="app.patronsKeepUsAfloat" />
+                </p>
+                <p>
+                  <FormattedMessage id="app.patronPitch" />
+                </p>
+              </blockquote>
+              <BecomeAPatron language={this.props.language} />
+            </div>
+          );
+        return <div>{html}</div>;
+      }
     }
   }
 }
