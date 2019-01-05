@@ -16,14 +16,12 @@ import TileIcon from "@material-ui/icons/ViewModule";
 
 class ExportPicker extends React.Component {
   state = {
-    expanded: {},
+    expanded: "",
     error: false
   };
 
   toggleGroup(key) {
-    let expanded = { ...this.state.expanded };
-    expanded[key] = !this.state.expanded[key];
-    this.setState({ expanded });
+    this.setState({ expanded: key });
   }
 
   render() {
@@ -80,14 +78,18 @@ class ExportPicker extends React.Component {
             <React.Fragment>
               <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
                 <ListItemIcon>
-                  {this.state.expanded[key] ? <CollapseIcon /> : <SelectIcon />}
+                  {this.state.expanded === key ? (
+                    <CollapseIcon />
+                  ) : (
+                    <SelectIcon />
+                  )}
                 </ListItemIcon>
                 <ListItemText>
                   <FormattedMessage id={"app." + key} />
                 </ListItemText>
               </ListItem>
               <Collapse
-                in={this.state.expanded[key] ? true : false}
+                in={this.state.expanded === key ? true : false}
                 timeout="auto"
                 unmountOnExit
                 key={"col-" + key}

@@ -35,7 +35,7 @@ class DraftPreview extends React.Component {
     let error = false;
     let settings = this.props.settings;
     const pattern = new patterns[(capitalize(this.props.pattern))](settings)
-      .use(svgattrPlugin, { class: "fs-draft preview" })
+      .use(svgattrPlugin, { class: "freesewing draft" })
       .use(i18nPlugin, { strings: patternTranslations });
     try {
       pattern.draft();

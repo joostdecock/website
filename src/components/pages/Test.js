@@ -1,15 +1,16 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
 import Center from "../Center";
-import Intro from "../homepage/Intro";
+import Spinner from "../Spinner";
 
 class Test extends React.Component {
   render() {
     return (
       <BaseLayout>
-        <h1>test</h1>
+        <h1>test page</h1>
+        <div className="vspacer" />
         <Center>
-          <Intro />
+          <Spinner size={250} />
         </Center>
       </BaseLayout>
     );

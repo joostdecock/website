@@ -28,7 +28,7 @@ import ExportPicker from "./ExportPicker";
 
 class ActionContainer extends React.Component {
   state = {
-    expanded: {}
+    expanded: ""
   };
 
   listHeading(key, group) {
@@ -43,7 +43,7 @@ class ActionContainer extends React.Component {
           </ListItemText>
           <ListItemSecondaryAction>
             <IconButton aria-label="toggle">
-              {this.state.expanded[key] ? (
+              {this.state.expanded === key ? (
                 <CollapseIcon color="primary" />
               ) : (
                 <SelectIcon color="primary" />
@@ -59,7 +59,7 @@ class ActionContainer extends React.Component {
   listItem(key, content) {
     return (
       <Collapse
-        in={this.state.expanded[key] === true ? true : false}
+        in={this.state.expanded === key ? true : false}
         timeout="auto"
         unmountOnExit
         key={"sub-" + key}
@@ -158,9 +158,8 @@ class ActionContainer extends React.Component {
   }
 
   toggleGroup(key) {
-    let expanded = { ...this.state.expanded };
-    expanded[key] = !this.state.expanded[key];
-    this.setState({ expanded });
+    if (this.state.expanded === key) key = "";
+    this.setState({ expanded: key });
   }
 
   getModelList(pattern) {

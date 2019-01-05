@@ -12,6 +12,7 @@ import {
 } from "../../../store/actions/notification";
 import i18nPlugin from "@freesewing/plugin-i18n";
 import themePlugin from "@freesewing/plugin-theme";
+import svgattrPlugin from "@freesewing/plugin-svgattr";
 import { plugin as patternTranslations } from "@freesewing/i18n";
 import { patterns } from "@freesewing/patterns";
 import { capitalize } from "../../../utils";
@@ -72,12 +73,13 @@ class Export extends React.Component {
       });
   }
 
-  renderDraft = () => {
+  renderDraft = (withTheme = false) => {
     const pattern = new patterns[(capitalize(this.props.gist.pattern))](
       this.props.gist.settings
     )
       .use(i18nPlugin, { strings: patternTranslations })
-      .use(themePlugin);
+      .use(svgattrPlugin, { class: "freesewing draft" });
+    if (withTheme) pattern.use(themePlugin);
     try {
       pattern.draft();
     } catch (err) {
@@ -96,7 +98,10 @@ class Export extends React.Component {
             <Button color="secondary" onClick={() => this.svgToClipboard(svg)}>
               <FormattedMessage id="app.copy" />
             </Button>
-            <Button color="secondary" onClick={() => this.svgToFile(svg)}>
+            <Button
+              color="secondary"
+              onClick={() => this.svgToFile(this.renderDraft(true))}
+            >
               <FormattedMessage id="app.save" />
             </Button>
             <div className="filename">
@@ -107,11 +112,7 @@ class Export extends React.Component {
           <div
             className="code"
             dangerouslySetInnerHTML={{
-              __html: prism.highlight(
-                this.renderDraft(),
-                prism.languages.svg,
-                "svg"
-              )
+              __html: prism.highlight(svg, prism.languages.svg, "svg")
             }}
           />
           <div className="hidden" id="svg">
