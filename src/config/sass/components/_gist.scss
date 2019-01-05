@@ -1,0 +1,36 @@
+div.gist {
+  background: $bw2;
+  @include shadow;
+  border-radius: 4px;
+  padding: 0;
+  div.code {
+    padding: 2rem 2rem 0.5rem;
+    overflow-x: auto;
+    white-space: pre;
+    @include fixed-font;
+    color: $bw5;
+  }
+  div.gist-header {
+    background: $bw2;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: right;
+    div.filename {
+      text-align: center;
+      margin-top: -1rem;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+body.dark {
+  div.gist {
+    @include shadow-dark;
+  }
+  div.gist-header button {
+    color: white;
+  }
+}
+
+

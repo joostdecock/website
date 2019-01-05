@@ -24,6 +24,7 @@ import Button from "@material-ui/core/Button";
 import Tray from "../../../Tray";
 import ModelPicker from "./ModelPicker";
 import PatternPicker from "./PatternPicker";
+import ExportPicker from "./ExportPicker";
 
 class ActionContainer extends React.Component {
   state = {
@@ -101,6 +102,28 @@ class ActionContainer extends React.Component {
           </ListItem>
         );
         break;
+      case "save":
+        content = (
+          <ListItem button component="a" onClick={this.props.saveDraft}>
+            <ListItemIcon>
+              <SaveIcon className="indent2 color-link" />
+            </ListItemIcon>
+            <ListItemText className="info">
+              <FormattedMessage id="app.saveDraftToYourAccount" />
+            </ListItemText>
+          </ListItem>
+        );
+        break;
+      case "export":
+        content = (
+          <ExportPicker
+            language={this.props.language}
+            exportGist={this.props.exportGist}
+            exportDraft={this.props.exportDraft}
+            setSpinner={this.props.setSpinner}
+          />
+        );
+        break;
       case "startOver":
         content = (
           <div>
@@ -164,7 +187,6 @@ class ActionContainer extends React.Component {
   }
 
   render() {
-    console.log("ac props", this.props);
     const groups = {
       layout: {
         icon: <LayoutIcon />
@@ -188,7 +210,7 @@ class ActionContainer extends React.Component {
 
     return (
       <Tray
-        className="mt1"
+        className="mt1 mb1"
         icon={<ActionIcon />}
         title={<FormattedMessage id="app.actions" />}
         footer={

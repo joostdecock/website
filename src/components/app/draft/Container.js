@@ -11,6 +11,9 @@ import OptionDocs from "./options/Docs";
 import draftOptions from "../../../config/draftoptions";
 import Picker from "./Picker";
 import Actions from "./actions/Container";
+import Gist from "./Gist";
+import Export from "./Export";
+import Spinner from "../../Spinner";
 
 class DraftContainer extends React.Component {
   state = {
@@ -27,11 +30,15 @@ class DraftContainer extends React.Component {
       margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2
     },
     options: {},
-    docs: false
+    show: "draft",
+    docs: false,
+    gist: false,
+    format: ""
   };
 
   showDocs = key => {
-    this.setState({ docs: key });
+    if (key === false) this.setState({ show: "draft", docs: false });
+    else this.setState({ show: "docs", docs: key });
   };
 
   updateOption = (key, val) => {
@@ -39,7 +46,7 @@ class DraftContainer extends React.Component {
     if (val === "true") val = true;
     else if (val === "false") val = false;
     settings.options[key] = val;
-    this.setState({ settings, docs: false });
+    this.setState({ settings, show: "draft" });
   };
 
   updateSetting = (key, val) => {
@@ -47,7 +54,7 @@ class DraftContainer extends React.Component {
     if (val === "false") val = false;
     let settings = this.state.settings;
     settings[key] = val;
-    this.setState({ settings, docs: false });
+    this.setState({ settings, show: "draft" });
   };
 
   restoreDefaults = () => {
@@ -63,8 +70,29 @@ class DraftContainer extends React.Component {
         margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2
       },
       options: {},
-      docs: false
+      show: "draft"
     });
+  };
+
+  getDraftGist = () => {
+    let gist = {};
+    gist.pattern = this.state.pattern;
+    gist.settings = this.state.settings;
+    delete gist.settings.embed;
+    gist.settings.options = this.state.options;
+    gist.settings.measurements = this.props.model.measurements;
+
+    return gist;
+  };
+
+  exportGist = format => {
+    this.setState({ gist: this.getDraftGist(), show: "gist", format });
+  };
+
+  saveDraft = () => {};
+
+  exportDraft = format => {
+    this.setState({ gist: this.getDraftGist(), show: "export", format });
   };
 
   optionDocsNode = key => {
@@ -88,57 +116,70 @@ class DraftContainer extends React.Component {
       pattern: patternInfo[pattern],
       showDocs: this.showDocs
     };
+    let breadcrumbs = (
+      <Breadcrumbs
+        via={[
+          {
+            label: (
+              <FormattedMessage
+                id="app.draftPattern"
+                values={{ pattern: capitalize(this.props.pattern) }}
+              />
+            ),
+            link: locLang.set("/draft/", language)
+          },
+          {
+            label: (
+              <FormattedMessage
+                id="app.draftPatternForModel"
+                values={{
+                  pattern: capitalize(this.props.pattern),
+                  model: this.props.model.name
+                }}
+              />
+            ),
+            link: locLang.set("/draft/" + this.props.pattern, language)
+          }
+        ]}
+      >
+        <FormattedMessage id="app.configureYourDraft" />
+      </Breadcrumbs>
+    );
+    const title = (
+      <h1>
+        <FormattedMessage id="app.configureYourDraft" />
+      </h1>
+    );
+
+    let main = "";
+    if (this.state.show === "docs")
+      main = <OptionDocs node={this.optionDocsNode()} language={language} />;
+    else if (this.state.show === "gist")
+      main = <Gist gist={this.state.gist} format={this.state.format} />;
+    else if (this.state.show === "export")
+      main = <Export gist={this.state.gist} format={this.state.format} />;
+    else if (this.state.show === "draft") {
+      if (typeof this.props.model === "srting")
+        main = <p>FIXME: Waiting for model - show loader here</p>;
+      else
+        main = (
+          <DraftPreview
+            pattern={pattern}
+            model={model}
+            language={language}
+            settings={{
+              ...settings,
+              measurements: this.props.model.measurements
+            }}
+          />
+        );
+    }
     return (
       <div>
-        <Breadcrumbs
-          via={[
-            {
-              label: (
-                <FormattedMessage
-                  id="app.draftPattern"
-                  values={{ pattern: capitalize(this.props.pattern) }}
-                />
-              ),
-              link: locLang.set("/draft/", language)
-            },
-            {
-              label: (
-                <FormattedMessage
-                  id="app.draftPatternForModel"
-                  values={{
-                    pattern: capitalize(this.props.pattern),
-                    model: this.props.model.name
-                  }}
-                />
-              ),
-              link: locLang.set("/draft/" + this.props.pattern, language)
-            }
-          ]}
-        >
-          <FormattedMessage id="app.configureYourDraft" />
-        </Breadcrumbs>
-        <h1>
-          <FormattedMessage id="app.configureYourDraft" />
-        </h1>
+        {breadcrumbs}
         <TwoColumns wrapReverse={true}>
           <Column wide>
-            <div className="stick">
-              {this.state.docs ? (
-                <OptionDocs node={this.optionDocsNode()} language={language} />
-              ) : typeof this.props.model === "string" ? (
-                <p>FIXME: Waiting for model - show loader here</p>
-              ) : (
-                <DraftPreview
-                  pattern={pattern}
-                  model={model}
-                  language={language}
-                  settings={{
-                    ...settings,
-                    measurements: this.props.model.measurements
-                  }}
-                />
-              )}
-            </div>
+            <div className="stick">{main}</div>
           </Column>
           <Column right narrow>
             <div className="stick">
@@ -171,6 +212,9 @@ class DraftContainer extends React.Component {
                 language={this.props.language}
                 model={this.props.model}
                 restoreDefaults={this.restoreDefaults}
+                saveDraft={this.saveDraft}
+                exportGist={this.exportGist}
+                exportDraft={this.exportDraft}
               />
             </div>
           </Column>

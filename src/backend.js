@@ -56,4 +56,17 @@ backend.createModel = data => api.post("/model", data, auth()); // Create model
 
 backend.saveModel = (handle, data) => api.put("/model/" + handle, data, auth()); // Update model
 
+// Tiler //////////////////////////
+const tiler = axios.create({
+  baseURL: config.tiler,
+  timeout: 5000
+});
+
+backend.tiler = (svg, format) => {
+  const sizes = {
+    PDF: "full"
+  };
+  return tiler.post("/api", { svg, format: "pdf", size: sizes[format] }); // Tile SVG
+};
+
 export default backend;
