@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: "Freesewing v2 demo"
+    title: "Freesewing beta"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
