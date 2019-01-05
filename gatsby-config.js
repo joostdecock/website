@@ -80,13 +80,13 @@ module.exports = {
         useLangKeyLayout: false
       }
     },
-    "gatsby-plugin-netlify",
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: "#1FAA00",
         showSpinner: false
       }
-    }
+    },
+    "gatsby-plugin-netlify"
   ]
 };
