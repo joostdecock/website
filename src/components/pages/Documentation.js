@@ -55,7 +55,6 @@ export default data => {
       </Tray>
     );
   }
-  console.log(frontmatter);
   return (
     <BaseLayout>
       <Breadcrumbs via={frontmatter.breadcrumbs}>
