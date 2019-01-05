@@ -62,11 +62,7 @@ const tiler = axios.create({
   timeout: 5000
 });
 
-backend.tiler = (svg, format) => {
-  const sizes = {
-    PDF: "full"
-  };
-  return tiler.post("/api", { svg, format: "pdf", size: sizes[format] }); // Tile SVG
-};
+backend.tiler = (svg, format, size) =>
+  tiler.post("/api", { svg, format: "pdf", size }); // Tile SVG
 
 export default backend;

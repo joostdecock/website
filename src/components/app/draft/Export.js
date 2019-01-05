@@ -20,6 +20,7 @@ import Center from "../../Center";
 import Spinner from "../../Spinner";
 import backend from "../../../backend";
 import BecomeAPatron from "../../patrons/BecomeAPatron";
+import HeartIcon from "@material-ui/icons/Favorite";
 
 class Export extends React.Component {
   state = {
@@ -27,13 +28,7 @@ class Export extends React.Component {
     svg: false
   };
 
-  componentDidMount() {
-    const svg = this.renderDraft();
-    if (this.props.format === "PDF") this.svgToPdf(svg, this.props.format);
-    this.setState({ loading: false, svg });
-  }
-
-  svgToClipboard = () => {
+  svgToClipboard = svg => {
     const selection = window.getSelection();
     const range = document.createRange();
     range.selectNodeContents(document.getElementById("svg"));
@@ -52,20 +47,22 @@ class Export extends React.Component {
     }
   };
 
-  svgToFile = () => {
-    const blob = new Blob([this.state.svg], {
+  svgToFile = svg => {
+    const blob = new Blob([svg], {
       type: "image/svg+xml;charset=utf-8"
     });
     fileSaver.saveAs(blob, "draft.svg");
   };
 
   svgToPdf(svg, format) {
+    let size = "full";
+    if (format !== "PDF") size = format.toLowerCase();
     backend
-      .tiler(svg, format)
+      .tiler(svg, format, size)
       .then(res => {
         if (res.status === 200) {
           let blob = new Blob([res.data], { type: "application/pdf" });
-          fileSaver.saveAs(blob, "draft.pdf");
+          fileSaver.saveAs(blob, "draft-" + size + ".pdf");
         }
       })
       .catch(err => {
@@ -78,7 +75,9 @@ class Export extends React.Component {
   renderDraft = () => {
     const pattern = new patterns[(capitalize(this.props.gist.pattern))](
       this.props.gist.settings
-    ).use(i18nPlugin, { strings: patternTranslations });
+    )
+      .use(i18nPlugin, { strings: patternTranslations })
+      .use(themePlugin);
     try {
       pattern.draft();
     } catch (err) {
@@ -89,49 +88,15 @@ class Export extends React.Component {
   };
 
   render() {
-    if (this.props.format === "PDF") {
-      if (this.state.loading)
-        return (
-          <Center>
-            <Spinner size={200} />
-          </Center>
-        );
-      else {
-        if (
-          typeof this.props.user.patron !== "undefined" &&
-          this.props.user.patron > 10
-        )
-          return (
-            <Center>
-              <h2 className="txt-center">All done patron!</h2>
-            </Center>
-          );
-        else
-          return (
-            <React-Fragment>
-              <blockquote>
-                <h5>
-                  <FormattedMessage id="app.becomeAPatron" />
-                </h5>
-                <p>
-                  <FormattedMessage id="app.patronsKeepUsAfloat" />
-                </p>
-                <p>
-                  <FormattedMessage id="app.patronPitch" />
-                </p>
-              </blockquote>
-              <BecomeAPatron language={this.props.language} />
-            </React-Fragment>
-          );
-      }
-    } else {
+    if (this.props.format === "SVG") {
+      let svg = this.renderDraft();
       return (
         <div className="gist">
           <div className="gist-header">
-            <Button color="secondary" onClick={this.svgToClipboard}>
+            <Button color="secondary" onClick={() => this.svgToClipboard(svg)}>
               <FormattedMessage id="app.copy" />
             </Button>
-            <Button color="secondary" onClick={this.svgToFile}>
+            <Button color="secondary" onClick={() => this.svgToFile(svg)}>
               <FormattedMessage id="app.save" />
             </Button>
             <div className="filename">
@@ -143,17 +108,53 @@ class Export extends React.Component {
             className="code"
             dangerouslySetInnerHTML={{
               __html: prism.highlight(
-                this.state.svg,
+                this.renderDraft(),
                 prism.languages.svg,
                 "svg"
               )
             }}
           />
           <div className="hidden" id="svg">
-            {this.state.svg}
+            {svg}
           </div>
         </div>
       );
+    } else {
+      this.svgToPdf(this.renderDraft(), this.props.format);
+      if (
+        typeof this.props.user.patron !== "undefined" &&
+        this.props.user.patron > 1
+      )
+        return (
+          <div className="txt-center">
+            <HeartIcon
+              size={300}
+              className="color-danger"
+              style={{ fontSize: "13rem" }}
+            />
+            <h3>
+              <FormattedMessage id="app.thanksForYourSupport" />
+              {" " + this.props.user.username}
+            </h3>
+          </div>
+        );
+      else
+        return (
+          <React-Fragment>
+            <blockquote>
+              <h5>
+                <FormattedMessage id="app.becomeAPatron" />
+              </h5>
+              <p>
+                <FormattedMessage id="app.patronsKeepUsAfloat" />
+              </p>
+              <p>
+                <FormattedMessage id="app.patronPitch" />
+              </p>
+            </blockquote>
+            <BecomeAPatron language={this.props.language} />
+          </React-Fragment>
+        );
     }
   }
 }

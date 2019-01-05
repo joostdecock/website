@@ -188,15 +188,15 @@ class ActionContainer extends React.Component {
 
   render() {
     const groups = {
-      layout: {
-        icon: <LayoutIcon />
-      },
+      //layout: {
+      //  icon: <LayoutIcon />
+      //},
       export: {
         icon: <ExportIcon />
       },
-      save: {
-        icon: <SaveIcon />
-      },
+      //save: {
+      //  icon: <SaveIcon />
+      //},
       restoreDefaults: {
         icon: <RestoreIcon />
       },
