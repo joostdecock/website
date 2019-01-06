@@ -136,6 +136,8 @@ class Export extends React.Component {
               variant="contained"
               size="large"
               href={this.state.link}
+              target="_BLANK"
+              component="a"
             >
               Download PDF
             </Button>
