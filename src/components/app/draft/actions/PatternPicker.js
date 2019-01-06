@@ -31,7 +31,7 @@ const PatternPicker = props => {
               className="list-info"
             >
               <ListItemIcon>
-                <PatternIcon className="indent2" />
+                <PatternIcon className="indent2" color="primary" />
               </ListItemIcon>
               <ListItemText className="info">{capitalize(handle)}</ListItemText>
             </ListItem>

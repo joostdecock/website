@@ -4,10 +4,7 @@ import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import fileSaver from "file-saver";
-import {
-  showNotification,
-  closeNotification
-} from "../../../store/actions/notification";
+import { showNotification } from "../../../store/actions/notification";
 import i18nPlugin from "@freesewing/plugin-i18n";
 import themePlugin from "@freesewing/plugin-theme";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
@@ -22,9 +19,9 @@ import BecomeAPatron from "../../patrons/BecomeAPatron";
 
 class Export extends React.Component {
   state = {
-    loading: true,
     svg: false,
-    link: false
+    link: false,
+    ready: false
   };
 
   svgToClipboard = svg => {
@@ -38,7 +35,7 @@ class Export extends React.Component {
       selection.removeAllRanges();
       this.props.showNotification(
         "success",
-        <FormattedMessage id="app.copiedToClipboard" />
+        <FormattedMessage id="app.copiedToClipboard" key="message" />
       );
     } catch (err) {
       console.log("error", err);
@@ -60,8 +57,12 @@ class Export extends React.Component {
       .tiler(svg, format, size)
       .then(res => {
         if (res.status === 200) {
-          this.setState({ link: res.data.link });
-          this.props.showNotification("success", "PDF Generated");
+          this.setState({ link: res.data.link, ready: format });
+          let msg = [<FormattedMessage id="app.created" key="ready" />];
+          if (format === "PDF")
+            msg.unshift(<span key="format">{format} </span>);
+          else msg.unshift(<span key="format">{format} PDF </span>);
+          this.props.showNotification("success", msg);
         }
       })
       .catch(err => {
@@ -119,7 +120,7 @@ class Export extends React.Component {
         </div>
       );
     } else {
-      if (this.state.link === false) {
+      if (this.state.ready !== this.props.format) {
         this.svgToPdf(this.renderDraft(), this.props.format);
         return (
           <Center>
@@ -128,7 +129,7 @@ class Export extends React.Component {
         );
       } else {
         let html = [
-          <div className="txt-center">
+          <div className="txt-center" key="download">
             <h2>Your PDF is ready</h2>
             <Button
               color="primary"
@@ -140,12 +141,9 @@ class Export extends React.Component {
             </Button>
           </div>
         ];
-        if (
-          typeof this.props.user.patron === "undefined" ||
-          this.props.user.patron < 20
-        )
+        if (this.props.patron < 2)
           html.push(
-            <div>
+            <div key="support">
               <blockquote>
                 <h5>
                   <FormattedMessage id="app.becomeAPatron" />
@@ -170,16 +168,12 @@ Export.propTypes = {
   gist: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  user: state.user
-});
 const mapDispatchToProps = dispatch => ({
   showNotification: (style, message) =>
-    dispatch(showNotification(style, message)),
-  closeNotification: () => dispatch(closeNotification())
+    dispatch(showNotification(style, message))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Export);

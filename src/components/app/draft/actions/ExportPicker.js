@@ -38,8 +38,8 @@ class ExportPicker extends React.Component {
                   button
                   onClick={() => this.props.exportGist(subkey)}
                 >
-                  <ListItemIcon>
-                    <CodeIcon className="color-link" />
+                  <ListItemIcon className="ml1">
+                    <CodeIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText className="info">
                     {subkey.toUpperCase()}
@@ -53,17 +53,11 @@ class ExportPicker extends React.Component {
                   button
                   onClick={() => this.props.exportDraft(subkey)}
                 >
-                  <ListItemIcon>
+                  <ListItemIcon className="ml1">
                     {key === "exportDraft" ? (
-                      <FileIcon className="color-link" />
+                      <FileIcon color="primary" />
                     ) : (
-                      <TileIcon
-                        className={
-                          subkey.substring(0, 1) === "A"
-                            ? "color-link"
-                            : "color-warning"
-                        }
-                      />
+                      <TileIcon color="primary" />
                     )}
                   </ListItemIcon>
                   <ListItemText>{subkey}</ListItemText>
@@ -71,7 +65,7 @@ class ExportPicker extends React.Component {
               );
           });
           return (
-            <React.Fragment>
+            <React-Fragment key={"frag-" + key}>
               <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
                 <ListItemIcon>
                   {this.state.expanded === key ? (
@@ -92,7 +86,7 @@ class ExportPicker extends React.Component {
               >
                 {sub}
               </Collapse>
-            </React.Fragment>
+            </React-Fragment>
           );
         })}
       </React.Fragment>

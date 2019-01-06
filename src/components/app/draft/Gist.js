@@ -23,7 +23,7 @@ const Gist = props => {
       selection.removeAllRanges();
       props.showNotification(
         "success",
-        <FormattedMessage id="app.copiedToClipboard" />
+        <FormattedMessage id="app.copiedToClipboard" key="message" />
       );
     } catch (e) {
       props.showNotification("error", e);

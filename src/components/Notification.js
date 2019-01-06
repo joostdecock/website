@@ -29,7 +29,7 @@ function Notification(props) {
         horizontal: "right"
       }}
       open={open}
-      autoHideDuration={5000}
+      autoHideDuration={3000}
       onClose={onClose}
       message={[<Icon key="icon" className="notification-icon" />, msg]}
     />

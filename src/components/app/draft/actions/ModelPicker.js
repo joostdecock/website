@@ -37,7 +37,7 @@ const ModelPicker = props => {
               className="list-info"
             >
               <ListItemIcon>
-                <ModelIcon className="indent2" />
+                <ModelIcon className="indent2" color="primary" />
               </ListItemIcon>
               <ListItemText className="info">
                 {capitalize(props.models.valid[handle])}

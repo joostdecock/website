@@ -1,5 +1,5 @@
 import React from "react";
-import Tray from "../../Tray";
+import Drawer from "../../Drawer";
 import { FormattedMessage } from "react-intl";
 import SettingsPicker from "./SettingsPicker";
 import OptionsIcon from "@material-ui/icons/Tune";
@@ -11,10 +11,7 @@ import Actions from "./actions/Container";
 
 class Sidebar extends React.Component {
   state = {
-    expandedTray: "options",
-    expandedTitle: "",
-    expandedSubtitle: "",
-    expandedOption: ""
+    expandedDrawer: "options"
   };
 
   static getDerivedStateFromError(error) {
@@ -27,8 +24,12 @@ class Sidebar extends React.Component {
     console.log("oh shit", error, info);
   }
 
+  toggleDrawer = drawer => {
+    if (this.state.expandedDrawer === drawer) drawer = "";
+    this.setState({ expandedDrawer: drawer });
+  };
+
   render() {
-    console.log("sidebar props", this.props);
     const sharedProps = {
       language: this.props.language,
       settings: this.props.settings,
@@ -38,10 +39,11 @@ class Sidebar extends React.Component {
     };
     return (
       <React-Fragment>
-        <Tray
-          className="mb1"
+        <Drawer
           icon={<OptionsIcon />}
           title={<FormattedMessage id="app.patternOptions" />}
+          toggleOpen={() => this.toggleDrawer("options")}
+          open={this.state.expandedDrawer === "options" ? true : false}
         >
           <div className="overpad2-always">
             <SettingsPicker
@@ -52,11 +54,12 @@ class Sidebar extends React.Component {
               updateOption={this.props.methods.updateOption}
             />
           </div>
-        </Tray>
-        <Tray
-          className="mb1"
+        </Drawer>
+        <Drawer
           icon={<SettingsIcon />}
           title={<FormattedMessage id="app.draftSettings" />}
+          toggleOpen={() => this.toggleDrawer("settings")}
+          open={this.state.expandedDrawer === "settings" ? true : false}
         >
           <div className="overpad2-always">
             <SettingsPicker
@@ -68,16 +71,18 @@ class Sidebar extends React.Component {
               units={this.props.units}
             />
           </div>
-        </Tray>
-        <Tray
-          className="mb1"
+        </Drawer>
+        <Drawer
           icon={<ActionIcon />}
           title={<FormattedMessage id="app.actions" />}
+          toggleOpen={() => this.toggleDrawer("actions")}
+          open={this.state.expandedDrawer === "actions" ? true : false}
         >
           <div className="overpad2-always">
             <Actions
               settings={this.props.settings}
               units={this.props.units}
+              patron={this.props.patron}
               pattern={this.props.pattern}
               patternInfo={patternInfo}
               language={this.props.language}
@@ -88,7 +93,7 @@ class Sidebar extends React.Component {
               exportDraft={this.props.methods.exportDraft}
             />
           </div>
-        </Tray>
+        </Drawer>
       </React-Fragment>
     );
   }

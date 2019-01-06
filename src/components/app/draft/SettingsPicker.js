@@ -40,7 +40,7 @@ class SettingsPicker extends React.Component {
     let heading = (
       <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
         <ListItemIcon>
-          <OptionsIcon className={"indent" + level} />
+          <OptionsIcon className={"indent" + level} color="primary" />
         </ListItemIcon>
         <ListItemText inset>
           <h6 className="picker-title">

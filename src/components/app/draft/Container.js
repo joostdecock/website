@@ -145,7 +145,13 @@ class DraftContainer extends React.Component {
     else if (this.state.display === "gist")
       main = <Gist gist={this.state.gist} format={this.state.format} />;
     else if (this.state.display === "export")
-      main = <Export gist={this.state.gist} format={this.state.format} />;
+      main = (
+        <Export
+          gist={this.state.gist}
+          format={this.state.format}
+          patron={this.props.user.patron || 0}
+        />
+      );
     else if (this.state.display === "draft") {
       if (typeof this.props.model === "string")
         main = <p>FIXME: Waiting for model - show loader here</p>;

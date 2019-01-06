@@ -28,7 +28,7 @@ class ActionContainer extends React.Component {
 
   listHeading(key, group) {
     return (
-      <div>
+      <React-Fragment key={"frag-" + key}>
         <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
           <ListItemIcon>{group.icon}</ListItemIcon>
           <ListItemText inset>
@@ -47,7 +47,7 @@ class ActionContainer extends React.Component {
           </ListItemSecondaryAction>
         </ListItem>
         {this.content(key)}
-      </div>
+      </React-Fragment>
     );
   }
 
@@ -89,7 +89,7 @@ class ActionContainer extends React.Component {
         content = (
           <ListItem button component="a" onClick={this.props.restoreDefaults}>
             <ListItemIcon>
-              <RestoreIcon className="indent2 color-link" />
+              <RestoreIcon color="primary" className="indent2" />
             </ListItemIcon>
             <ListItemText className="info">
               <FormattedMessage id="app.restoreDefaults" />
@@ -101,7 +101,7 @@ class ActionContainer extends React.Component {
         content = (
           <ListItem button component="a" onClick={this.props.saveDraft}>
             <ListItemIcon>
-              <SaveIcon className="indent2 color-link" />
+              <SaveIcon className="indent2" color="primary" />
             </ListItemIcon>
             <ListItemText className="info">
               <FormattedMessage id="app.saveDraftToYourAccount" />
@@ -116,6 +116,7 @@ class ActionContainer extends React.Component {
             exportGist={this.props.exportGist}
             exportDraft={this.props.exportDraft}
             setSpinner={this.props.setSpinner}
+            patron={this.props.patron}
           />
         );
         break;
@@ -183,22 +184,22 @@ class ActionContainer extends React.Component {
   render() {
     const groups = {
       //layout: {
-      //  icon: <LayoutIcon />
+      //  icon: <LayoutIcon color="primary" />
       //},
       export: {
-        icon: <ExportIcon />
+        icon: <ExportIcon color="primary" />
       },
       //save: {
-      //  icon: <SaveIcon />
+      //  icon: <SaveIcon color="primary" />
       //},
       restoreDefaults: {
-        icon: <RestoreIcon />
+        icon: <RestoreIcon color="primary" />
       },
       changeModel: {
-        icon: <ChangeModelIcon />
+        icon: <ChangeModelIcon color="primary" />
       },
       changePattern: {
-        icon: <ActionIcon />
+        icon: <ActionIcon color="primary" />
       }
     };
 
@@ -213,7 +214,6 @@ class ActionContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
   models: state.models
 });
 
