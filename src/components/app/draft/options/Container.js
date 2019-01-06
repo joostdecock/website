@@ -14,8 +14,8 @@ const OptionContainer = props => {
     option: props.option,
     intl,
     updateOption: props.updateOption,
-    showDocs: props.showDocs,
-    docs: props.docs
+    updateDisplay: props.updateDisplay,
+    display: props.display
   };
   switch (props.option) {
     case "paperless":

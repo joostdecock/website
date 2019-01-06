@@ -48,7 +48,7 @@ class Only extends React.Component {
   };
 
   render() {
-    let { intl, desc, docs, showDocs } = this.props;
+    let { intl, desc, display, updateDisplay } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>
@@ -105,9 +105,13 @@ class Only extends React.Component {
           )}
           <Button
             variant="outlined"
-            onClick={() => showDocs(docs ? false : "paperless")}
+            onClick={
+              display === "docs"
+                ? () => updateDisplay("docs", "paperless")
+                : () => updateDisplay("draft")
+            }
           >
-            {docs ? <CloseIcon className="mr1" /> : ""}
+            {display === "docs" ? <CloseIcon className="mr1" /> : ""}
             <FormattedMessage id="app.docs" />
           </Button>
         </p>

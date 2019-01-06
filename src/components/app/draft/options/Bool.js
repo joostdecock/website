@@ -19,7 +19,7 @@ class Bool extends React.Component {
   };
 
   render() {
-    let { desc, docs, showDocs, dflt, intl } = this.props;
+    let { desc, display, updateDisplay, dflt, intl } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>
@@ -55,9 +55,13 @@ class Bool extends React.Component {
           )}
           <Button
             variant="outlined"
-            onClick={() => showDocs(docs ? false : this.props.option)}
+            onClick={
+              display === "docs"
+                ? () => updateDisplay("draft")
+                : () => updateDisplay("docs", this.props.option)
+            }
           >
-            {docs ? <CloseIcon className="mr1" /> : ""}
+            {display === "docs" ? <CloseIcon className="mr1" /> : ""}
             <FormattedMessage id="app.docs" />
           </Button>
         </p>

@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import TrayFooter from "../../TrayFooter";
 import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import fileSaver from "file-saver";

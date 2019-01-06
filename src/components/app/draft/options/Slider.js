@@ -63,11 +63,13 @@ class SliderOption extends React.Component {
           )}
           <Button
             variant="outlined"
-            onClick={() =>
-              this.props.showDocs(this.props.docs ? false : this.props.option)
+            onClick={
+              this.props.display === "docs"
+                ? () => this.props.updateDisplay("draft")
+                : () => this.props.updateDisplay("docs", this.props.option)
             }
           >
-            {this.props.docs ? <CloseIcon className="mr1" /> : ""}
+            {this.props.display === "docs" ? <CloseIcon className="mr1" /> : ""}
             <FormattedMessage id="app.docs" />
           </Button>
         </p>

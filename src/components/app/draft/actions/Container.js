@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { distance, patternOption, locLang } from "../../../../utils";
-import { FormattedMessage, injectIntl } from "react-intl";
+import { locLang } from "../../../../utils";
+import { FormattedMessage } from "react-intl";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -9,19 +9,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import ActionIcon from "@material-ui/icons/Directions";
-import LayoutIcon from "@material-ui/icons/ViewQuilt";
 import SaveIcon from "@material-ui/icons/Save";
 import ExportIcon from "@material-ui/icons/ScreenShare";
-import HeartIcon from "@material-ui/icons/Favorite";
 import ChangeModelIcon from "@material-ui/icons/PermContactCalendar";
 import RestoreIcon from "@material-ui/icons/RestorePage";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import TuneIcon from "@material-ui/icons/Tune";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import { settings as settingsStrings } from "@freesewing/i18n";
 import Button from "@material-ui/core/Button";
-import Tray from "../../../Tray";
 import ModelPicker from "./ModelPicker";
 import PatternPicker from "./PatternPicker";
 import ExportPicker from "./ExportPicker";
@@ -208,42 +203,11 @@ class ActionContainer extends React.Component {
     };
 
     return (
-      <Tray
-        className="mt1 mb1"
-        icon={<ActionIcon />}
-        title={<FormattedMessage id="app.actions" />}
-        footer={
-          typeof this.props.user.patron !== "undefined" &&
-          this.props.user.patron > 1 ? (
-            <Button
-              size="small"
-              component="a"
-              href={locLang.set("/patrons", this.props.language)}
-            >
-              <FormattedMessage id="app.thanksForYourSupport" />
-              <HeartIcon className="ml1 color-danger" />
-            </Button>
-          ) : (
-            <Button
-              size="small"
-              component="a"
-              href={locLang.set("/patrons/join", this.props.language)}
-            >
-              <FormattedMessage id="app.supportFreesewing" />
-              :&nbsp;&nbsp;
-              <FormattedMessage id="app.becomeAPatron" />
-            </Button>
-          )
-        }
-      >
-        <div className="overpad2-always">
-          <List component="nav">
-            {Object.keys(groups).map(key => {
-              return this.listHeading(key, groups[key]);
-            })}
-          </List>
-        </div>
-      </Tray>
+      <List component="nav">
+        {Object.keys(groups).map(key => {
+          return this.listHeading(key, groups[key]);
+        })}
+      </List>
     );
   }
 }

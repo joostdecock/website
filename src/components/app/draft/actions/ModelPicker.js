@@ -2,16 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { capitalize, locLang } from "../../../../utils";
 import { FormattedMessage } from "react-intl";
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ModelIcon from "@material-ui/icons/Person";
 import StarIcon from "@material-ui/icons/Star";
 import InfoIcon from "@material-ui/icons/Info";
-import WarningIcon from "@material-ui/icons/Notifications";
-import Tray from "../../../Tray";
-import { Link } from "gatsby";
 
 const ModelPicker = props => {
   return (

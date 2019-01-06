@@ -9,7 +9,6 @@ import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import OptionsIcon from "@material-ui/icons/Tune";
-import SettingsIcon from "@material-ui/icons/EditAttributes";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Option from "./options/Container";
@@ -233,8 +232,8 @@ class SettingsPicker extends React.Component {
               value={optVal}
               language={this.props.language}
               updateOption={this.props.updateOption}
-              showDocs={this.props.showDocs}
-              docs={this.props.docs}
+              updateDisplay={this.props.updateDisplay}
+              display={this.props.display}
               settings={this.props.settings || false}
               units={this.props.units}
               dflt={dfltVal}
@@ -261,13 +260,13 @@ class SettingsPicker extends React.Component {
     let expanded = { ...this.state.expanded };
     expanded[key] = !this.state.expanded[key];
     this.setState({ expanded });
-    this.props.showDocs(false);
+    this.props.updateDisplay("draft");
   }
 
   editOption(key) {
     if (this.state.option === key) key = false;
     this.setState({ option: key });
-    this.props.showDocs(false);
+    this.props.updateDisplay("draft");
   }
 
   optionGroups = this.props.pattern.optionGroups;

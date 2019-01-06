@@ -1,11 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import TrayFooter from "../../TrayFooter";
 import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
 import fileSaver from "file-saver";
-import YAML from "yaml";
 import {
   showNotification,
   closeNotification
@@ -21,7 +19,6 @@ import Center from "../../Center";
 import Spinner from "../../Spinner";
 import backend from "../../../backend";
 import BecomeAPatron from "../../patrons/BecomeAPatron";
-import HeartIcon from "@material-ui/icons/Favorite";
 
 class Export extends React.Component {
   state = {
@@ -85,7 +82,7 @@ class Export extends React.Component {
       pattern.draft();
     } catch (err) {
       console.log(err, pattern);
-      this.state.error = err;
+      this.setState({ error: err });
     }
     return pattern.render();
   };

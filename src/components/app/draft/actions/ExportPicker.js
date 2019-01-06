@@ -1,15 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { capitalize, locLang } from "../../../../utils";
 import { FormattedMessage } from "react-intl";
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import Collapse from "@material-ui/core/Collapse";
-import ExportIcon from "@material-ui/icons/ScreenShare";
 import CodeIcon from "@material-ui/icons/Code";
 import FileIcon from "@material-ui/icons/Note";
 import TileIcon from "@material-ui/icons/ViewModule";
