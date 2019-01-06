@@ -1,6 +1,8 @@
 blockquote > :first-child { margin-top: 0; }
 blockquote > :last-child { margin-bottom: 0; }
-blockquote {
+
+body.light blockquote,
+body.dark blockquote {
   padding: 1.5rem 1rem;
 }
 

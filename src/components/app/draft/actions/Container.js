@@ -189,9 +189,9 @@ class ActionContainer extends React.Component {
       export: {
         icon: <ExportIcon color="primary" />
       },
-      //save: {
-      //  icon: <SaveIcon color="primary" />
-      //},
+      save: {
+        icon: <SaveIcon color="primary" />
+      },
       restoreDefaults: {
         icon: <RestoreIcon color="primary" />
       },
