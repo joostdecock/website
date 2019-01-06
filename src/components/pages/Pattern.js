@@ -15,10 +15,11 @@ import PatternOptionsList from "../PatternOptionsList";
 import Button from "@material-ui/core/Button";
 import ShowcasePostPreview from "../ShowcasePostPreview";
 import Grid from "@material-ui/core/Grid";
+import { patternInfo } from "@freesewing/patterns";
 
 const Pattern = props => {
   const { pattern, language } = props.pageContext;
-  const info = props.pageContext.patternInfo;
+  const info = patternInfo[pattern];
   const image =
     props.pageContext.data[pattern + "CoverImage"].allFile.edges[0].node
       .childImageSharp;

@@ -29,7 +29,9 @@ const PatternOptionsList = props => {
                   props.language
                 )}
               >
-                <FormattedMessage id={"options." + option + ".title"} />
+                <FormattedMessage
+                  id={"options." + props.pattern + "." + option + ".title"}
+                />
               </Link>
             </li>
           );

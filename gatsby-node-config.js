@@ -1,7 +1,6 @@
 const config = require("./src/config/i18n");
 const path = require("path");
 const patternList = require("@freesewing/patterns").patternList;
-const patternInfo = require("@freesewing/patterns").patternInfo;
 
 exports.languages = config.languages;
 exports.defaultLanguage = config.defaultLanguage;
@@ -123,7 +122,7 @@ for (let pattern of patternList) {
   exports.jsPages.push({
     nakedPath: "/patterns/" + pattern,
     template: path.resolve("src/components/pages/Pattern.js"),
-    extraProps: { pattern, patternInfo: patternInfo[pattern] },
+    extraProps: { pattern },
     includeQuery: [pattern + "CoverImage", pattern + "ShowcasePreviews"]
   });
 }
