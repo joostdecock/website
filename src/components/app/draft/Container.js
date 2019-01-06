@@ -9,6 +9,7 @@ import OptionDocs from "./options/Docs";
 import Gist from "./Gist";
 import Export from "./Export";
 import Sidebar from "./Sidebar";
+import backend from "../../../backend";
 
 class DraftContainer extends React.Component {
   state = {
@@ -89,7 +90,22 @@ class DraftContainer extends React.Component {
     this.setState({ gist: this.getDraftGist(), display: "gist", format });
   };
 
-  saveDraft = () => {};
+  saveDraft = () => {
+    console.log("save draft");
+    backend
+      .createDraft({ gist: this.getDraftGist() })
+      .then(res => {
+        if (res.status === 200) {
+          console.log("ok", res);
+          //this.props.showNotification("success", msg);
+        }
+      })
+      .catch(err => {
+        console.log("nope", err);
+        this.props.showNotification("error", err);
+        return false;
+      });
+  };
 
   exportDraft = format => {
     this.setState({ gist: this.getDraftGist(), display: "export", format });

@@ -56,6 +56,10 @@ backend.createModel = data => api.post("/model", data, auth()); // Create model
 
 backend.saveModel = (handle, data) => api.put("/model/" + handle, data, auth()); // Update model
 
+// Drafts /////////////////////////
+
+backend.createDraft = data => api.post("/draft", data, auth()); // Create draft
+
 // Tiler //////////////////////////
 const tiler = axios.create({
   baseURL: config.tiler,
