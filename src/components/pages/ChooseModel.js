@@ -7,10 +7,16 @@ import Breadcrumbs from "../Breadcrumbs";
 import ModelPicker from "../app/draft/ModelPicker";
 import { FormattedMessage } from "react-intl";
 import { locLang, capitalize } from "../../utils";
+import NotFound from "../NotFound";
 
 const ChooseModelPage = props => {
   let pattern = props["*"].split("/").pop();
-  if (patternList.indexOf(pattern) === -1) return <p>FIXME: No such pattern</p>;
+  if (patternList.indexOf(pattern) === -1)
+    return (
+      <BaseLayout>
+        <NotFound language={props.pageContext.language} />
+      </BaseLayout>
+    );
   else {
     const getModelList = pattern => {
       let modelList = {

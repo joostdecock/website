@@ -65,7 +65,9 @@
 .color-link { color: $link; }
 .color-accent { color: $accent; }
 .color-muted { color: $bw5; }
-
+body.dark {
+  .color-danger { color: $dangerFaded; }
+}
 // Text size
 p.mini,
 .mini {
@@ -104,7 +106,15 @@ body.dark .shadow1 { @include shadow-dark; }
 .display-block { display: block!important; }
 .hidden {display: none!important;}
 .semi-transparent {opacity: 0.6;}
-
+.copy-this {
+  white-space: pre;
+  font-size: 125%;
+  text-align: center;
+  margin-top: -2rem;
+  padding: 1.5rem;
+  color: $bw9;
+  display: block;
+}
 body.dark .nobg.card { @include shadow-dark; }
 // FIXME: These should go somewhere where they make sense
 

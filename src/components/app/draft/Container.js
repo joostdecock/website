@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { showNotification } from "../../../store/actions/notification";
+import { setDrafts } from "../../../store/actions/drafts";
 import { FormattedMessage, injectIntl } from "react-intl";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
+import Center from "../../Center";
+import Spinner from "../../Spinner";
 import { locLang, capitalize } from "../../../utils";
 import DraftPreview from "./DraftPreview";
 import OptionDocs from "./options/Docs";
@@ -37,6 +40,9 @@ class DraftContainer extends React.Component {
 
   updateDisplay = (key, data = null) => {
     switch (key) {
+      case "spinner":
+        this.setState({ display: "spinner" });
+        break;
       case "docs":
         this.setState({ display: "docs", docs: key });
         break;
@@ -98,6 +104,7 @@ class DraftContainer extends React.Component {
       .createDraft({ gist: this.getDraftGist() })
       .then(res => {
         if (res.status === 200) {
+          this.props.setDrafts(res.data.drafts);
           this.props.showNotification(
             "success",
             this.props.intl.formatMessage(
@@ -106,7 +113,7 @@ class DraftContainer extends React.Component {
             )
           );
           navigate(
-            locLang.set("/drafts/" + res.data.draft.handle, this.props.language)
+            locLang.set("/drafts/" + res.data.handle, this.props.language)
           );
         }
       })
@@ -168,6 +175,12 @@ class DraftContainer extends React.Component {
     let main = "";
     if (this.state.display === "docs")
       main = <OptionDocs node={this.optionDocsNode()} language={language} />;
+    else if (this.state.display === "spinner")
+      main = (
+        <Center>
+          <Spinner />
+        </Center>
+      );
     else if (this.state.display === "gist")
       main = <Gist gist={this.state.gist} format={this.state.format} />;
     else if (this.state.display === "export")
@@ -232,6 +245,7 @@ class DraftContainer extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
+  setDrafts: drafts => dispatch(setDrafts(drafts)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message))
 });

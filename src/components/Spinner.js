@@ -183,7 +183,7 @@ Spinner.propTypes = {
 };
 
 Spinner.defaultProps = {
-  size: 24,
+  size: 200,
   embed: false
 };
 

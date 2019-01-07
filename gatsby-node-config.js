@@ -117,6 +117,10 @@ exports.jsPages = [
     includeMarkdown: ["measurementsHelp", "markdownHelp"]
   },
   {
+    nakedPath: "/drafts",
+    template: path.resolve("src/components/pages/Drafts.js")
+  },
+  {
     nakedPath: "/drafts/:draft",
     template: path.resolve("src/components/pages/Draft.js"),
     includeMarkdown: ["markdownHelp"]

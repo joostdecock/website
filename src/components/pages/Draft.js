@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import BaseLayout from "../layouts/Base";
 import AuthContainer from "../app/auth/Container";
 import EditContainer from "../app/showdraft/EditContainer";
+import NotFound from "../NotFound";
 
 const Draft = props => {
   let handle = props.location.pathname.split("/").pop();
@@ -18,7 +19,7 @@ const Draft = props => {
         {ownDraft ? (
           <EditContainer draft={props.drafts[handle]} />
         ) : (
-          <pre>{JSON.stringify(props, null, 2)}</pre>
+          <NotFound language={props.pageContext.language} />
         )}
       </AuthContainer>
     </BaseLayout>

@@ -3,6 +3,7 @@ import darkMode from "./darkModeReducer";
 import user from "./userReducer";
 import models from "./modelsReducer";
 import drafts from "./draftsReducer";
+import gist from "./gistReducer";
 import notification from "./notificationReducer";
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   user,
   models,
   drafts,
+  gist,
   notification
 });
 

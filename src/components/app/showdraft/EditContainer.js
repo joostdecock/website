@@ -3,16 +3,23 @@ import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { showNotification } from "../../../store/actions/notification";
 import { setDrafts } from "../../../store/actions/drafts";
+import { setGist } from "../../../store/actions/gist";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import backend from "../../../backend";
-import { scrollToTop } from "../../../utils";
+import { scrollToTop, locLang } from "../../../utils";
 import remark from "remark";
 import html from "remark-html";
 import Gist from "../draft/Gist";
 import Sidebar from "./Sidebar";
 import Update from "./Update";
+import { navigate } from "gatsby";
+import Center from "../../Center";
+import Spinner from "../../Spinner";
+import Button from "@material-ui/core/Button";
+import TwitterIcon from "../../TwitterIcon";
+import config from "../../../config/frontend";
 
 class ModelEditContainer extends React.Component {
   state = {
@@ -38,10 +45,31 @@ class ModelEditContainer extends React.Component {
     if (this.state.editing) scrollToTop();
   }
 
+  linkToClipboard = () => {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("share"));
+    selection.removeAllRanges();
+    selection.addRange(range);
+    try {
+      document.execCommand("copy");
+      selection.removeAllRanges();
+      this.props.showNotification(
+        "success",
+        <FormattedMessage id="app.copiedToClipboard" key="message" />
+      );
+    } catch (e) {
+      this.props.showNotification("error", e);
+    }
+  };
+
   updateDisplay = (key, data = null) => {
     switch (key) {
       case "docs":
         this.setState({ display: "docs", docs: data, editing: true });
+        break;
+      case "share":
+        this.setState({ display: "share" });
         break;
       case "update":
         this.setState({ display: "update", update: data, editing: true });
@@ -49,6 +77,12 @@ class ModelEditContainer extends React.Component {
       default:
         this.setState({ display: "draft" });
     }
+  };
+
+  draftThis = () => {
+    this.setState({ show: "spinner" });
+    this.props.setGist(this.props.draft.gist);
+    navigate(locLang.set("/draft/from/gist", this.props.language));
   };
 
   updateMetadata = (key, value) => {
@@ -74,6 +108,30 @@ class ModelEditContainer extends React.Component {
           });
           this.renderMarkdown(res.data.draft.notes);
         }
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.showNotification("error", err);
+      });
+  };
+
+  removeDraft = () => {
+    this.setState({ display: "spinner" });
+    let handle = this.props.draft.handle;
+    backend
+      .removeDraft(handle)
+      .then(res => {
+        if (res.status === 204) {
+          let drafts = this.props.drafts;
+          delete drafts[handle];
+          this.props.setDrafts(drafts);
+          let msg = this.props.intl.formatMessage(
+            { id: "app.fieldRemoved" },
+            { field: this.props.intl.formatMessage({ id: "app.draft" }) }
+          );
+          this.props.showNotification("success", msg);
+          navigate(locLang.set("/drafts", this.props.language));
+        } else this.setState({ display: "draft" });
       })
       .catch(err => {
         console.log(err);
@@ -129,6 +187,27 @@ class ModelEditContainer extends React.Component {
               ""
             )}
             {this.state.display === "docs" ? <p>Show docs here</p> : ""}
+            {this.state.display === "share" ? (
+              <React-Fragment>
+                <h2>
+                  <FormattedMessage id="app.share" />
+                </h2>
+                <p>Use this link to share your draft 👇</p>
+                <div className="gist">
+                  <div className="gist-header txt-right">
+                    <Button color="secondary" onClick={this.linkToClipboard}>
+                      <FormattedMessage id="app.copy" />
+                    </Button>
+                  </div>
+                  <span className="copy-this" id="share">
+                    {config.url.substring(0, config.url.length - 1)}
+                    {locLang.set("/gist/" + draft.handle, this.props.language)}
+                  </span>
+                </div>
+              </React-Fragment>
+            ) : (
+              ""
+            )}
             {this.state.display === "update" ? (
               <Update
                 field={this.state.update}
@@ -142,12 +221,21 @@ class ModelEditContainer extends React.Component {
             ) : (
               ""
             )}
+            {this.state.display === "spinner" ? (
+              <Center>
+                <Spinner size={200} />
+              </Center>
+            ) : (
+              ""
+            )}
           </Column>
           <Column narrow right>
             <Sidebar
               draft={draft}
               updateDisplay={this.updateDisplay}
               display={this.state.display}
+              removeDraft={this.removeDraft}
+              draftThis={this.draftThis}
             />
           </Column>
         </TwoColumns>
@@ -163,6 +251,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  setGist: gist => dispatch(setGist(gist)),
   setDrafts: drafts => dispatch(setDrafts(drafts)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message))

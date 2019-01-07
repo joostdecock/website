@@ -62,6 +62,10 @@ backend.createDraft = data => api.post("/draft", data, auth()); // Create draft
 
 backend.saveDraft = (handle, data) => api.put("/draft/" + handle, data, auth()); // Update draft
 
+backend.removeDraft = handle => api.delete("/draft/" + handle, auth()); // Remove draft
+
+backend.removeDrafts = data => api.post("/remove/drafts", data, auth()); // Delete multiple drafts
+
 // Tiler //////////////////////////
 const tiler = axios.create({
   baseURL: config.tiler,
