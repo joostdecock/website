@@ -1,0 +1,11 @@
+/* This is used to reset the reset
+ * The CSS reset sets some default that we don't agree with
+ * so we override them here by wrapping them in a specific
+ * body tag
+ */
+body.light,
+body.dark {
+  blockquote { padding: 1.5rem 1rem; }
+  ul { line-height: 1.2; }
+  li { margin-bottom: 0; }
+}
