@@ -51,7 +51,7 @@ exports.jsPages = [
   },
   {
     nakedPath: "/draft/:pattern/for/:model",
-    template: path.resolve("src/components/pages/Draft.js"),
+    template: path.resolve("src/components/pages/CreateDraft.js"),
     includeMarkdown: "optionsHelp"
   },
   {
@@ -115,6 +115,11 @@ exports.jsPages = [
     nakedPath: "/models/:model",
     template: path.resolve("src/components/pages/Model.js"),
     includeMarkdown: ["measurementsHelp", "markdownHelp"]
+  },
+  {
+    nakedPath: "/drafts/:draft",
+    template: path.resolve("src/components/pages/Draft.js"),
+    includeMarkdown: ["markdownHelp"]
   }
 ];
 

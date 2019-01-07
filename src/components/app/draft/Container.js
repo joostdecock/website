@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { showNotification } from "../../../store/actions/notification";
 import { FormattedMessage, injectIntl } from "react-intl";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
@@ -10,6 +12,7 @@ import Gist from "./Gist";
 import Export from "./Export";
 import Sidebar from "./Sidebar";
 import backend from "../../../backend";
+import { navigate } from "gatsby";
 
 class DraftContainer extends React.Component {
   state = {
@@ -91,13 +94,20 @@ class DraftContainer extends React.Component {
   };
 
   saveDraft = () => {
-    console.log("save draft");
     backend
       .createDraft({ gist: this.getDraftGist() })
       .then(res => {
         if (res.status === 200) {
-          console.log("ok", res);
-          //this.props.showNotification("success", msg);
+          this.props.showNotification(
+            "success",
+            this.props.intl.formatMessage(
+              { id: "app.fieldSaved" },
+              { field: this.props.intl.formatMessage({ id: "app.draft" }) }
+            )
+          );
+          navigate(
+            locLang.set("/drafts/" + res.data.draft.handle, this.props.language)
+          );
         }
       })
       .catch(err => {
@@ -221,4 +231,12 @@ class DraftContainer extends React.Component {
   }
 }
 
-export default injectIntl(DraftContainer);
+const mapDispatchToProps = dispatch => ({
+  showNotification: (style, message) =>
+    dispatch(showNotification(style, message))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(injectIntl(DraftContainer));

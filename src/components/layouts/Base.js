@@ -17,6 +17,7 @@ import { locLang, loadTheme, clearToken, retrieveToken } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
 import { setModels } from "../../store/actions/models";
+import { setDrafts } from "../../store/actions/drafts";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
@@ -37,6 +38,7 @@ class Base extends React.Component {
     clearToken();
     this.props.setUserAccount(false);
     this.props.setModels(false);
+    this.props.setDrafts(false);
   };
 
   componentDidMount() {
@@ -49,6 +51,7 @@ class Base extends React.Component {
             if (res.status === 200) {
               this.props.setUserAccount(res.data.account);
               this.props.setModels(res.data.models);
+              this.props.setDrafts(res.data.drafts);
             } else this.props.setUserAccount(false);
           })
           .catch(err => {
@@ -114,6 +117,7 @@ const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark)),
   setUserAccount: account => dispatch(setUserAccount(account)),
   setModels: models => dispatch(setModels(models)),
+  setDrafts: drafts => dispatch(setDrafts(drafts)),
   closeNotification: () => dispatch(closeNotification())
 });
 

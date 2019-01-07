@@ -1,0 +1,16 @@
+div.notes > :first-child { margin-top: 0; }
+div.notes > :last-child { margin-bottom: 0; }
+div.notes {
+  margin: 1rem 0;
+  border: 1px solid $bw6;
+  padding: 1rem;
+  border-radius: 4px;
+  div.filename {
+    text-align: center;
+    font-weight: bold;
+    margin: -1rem -1rem 1rem -1rem;
+    background: $bw7;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+}

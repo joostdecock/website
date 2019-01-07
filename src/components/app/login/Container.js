@@ -7,6 +7,7 @@ import backend from "../../../backend";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
 import { setModels } from "../../../store/actions/models";
+import { setDrafts } from "../../../store/actions/drafts";
 import {
   showNotification,
   closeNotification
@@ -49,6 +50,7 @@ class LoginContainer extends React.Component {
           );
           this.props.setUserAccount(res.data.account);
           this.props.setModels(res.data.models);
+          this.props.setDrafts(res.data.drafts);
           saveToken(res.data.token);
           this.stopLoading();
           navigate("/" + this.props.language);
@@ -147,6 +149,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setUserAccount: account => dispatch(setUserAccount(account)),
   setModels: models => dispatch(setModels(models)),
+  setDrafts: drafts => dispatch(setDrafts(drafts)),
   showNotification: (style, message) =>
     dispatch(showNotification(style, message)),
   closeNotification: () => dispatch(closeNotification())

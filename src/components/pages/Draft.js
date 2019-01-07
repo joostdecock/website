@@ -2,29 +2,29 @@ import React from "react";
 import { connect } from "react-redux";
 import BaseLayout from "../layouts/Base";
 import AuthContainer from "../app/auth/Container";
-import DraftContainer from "../app/draft/Container";
+import EditContainer from "../app/showdraft/EditContainer";
 
 const Draft = props => {
-  let model = props["*"].split("/").pop();
-  let pattern = props["*"].split("/")[2];
-  if (props.models) model = props.models[model];
+  let handle = props.location.pathname.split("/").pop();
+  let ownDraft =
+    typeof props.drafts === "undefined"
+      ? false
+      : typeof props.drafts[handle] === "undefined"
+        ? false
+        : true;
   return (
     <BaseLayout>
       <AuthContainer>
-        <DraftContainer
-          {...props.pageContext}
-          pattern={pattern}
-          model={model}
-          user={props.user}
-        />
+        {ownDraft ? (
+          <EditContainer draft={props.drafts[handle]} />
+        ) : (
+          <pre>{JSON.stringify(props, null, 2)}</pre>
+        )}
       </AuthContainer>
     </BaseLayout>
   );
 };
 
-const mapStateToProps = state => ({
-  models: state.models,
-  user: state.user
-});
+const mapStateToProps = state => ({ drafts: state.drafts });
 
 export default connect(mapStateToProps)(Draft);
