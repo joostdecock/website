@@ -2,9 +2,6 @@ import React from "react";
 import Drawer from "../../Drawer";
 import { FormattedMessage } from "react-intl";
 import MetadataIcon from "@material-ui/icons/Class";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { patternInfo } from "@freesewing/patterns";
-import draftOptions from "../../../config/draftoptions";
 import ActionIcon from "@material-ui/icons/Directions";
 import Metadata from "./Metadata";
 

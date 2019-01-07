@@ -1,24 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import { FormattedMessage, injectIntl } from "react-intl";
-import ValidIcon from "@material-ui/icons/CheckCircle";
-import InvalidIcon from "@material-ui/icons/Warning";
-import { locLang } from "../../../utils";
-import remark from "remark";
-import html from "remark-html";
-import backend from "../../../backend";
-import { validateEmail, validateTld } from "../../../utils";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import i18nConfig from "../../../config/i18n";
-import { Link } from "gatsby";
-import Dropzone from "react-dropzone";
 import Button from "@material-ui/core/Button";
-import SelectImageIcon from "@material-ui/icons/AddAPhoto";
-import Tray from "../../Tray";
 import SaveIcon from "@material-ui/icons/Save";
 import CancelIcon from "@material-ui/icons/Cancel";
 import PreviewIcon from "@material-ui/icons/Notes";
@@ -48,13 +32,7 @@ class Update extends React.Component {
   };
 
   render() {
-    const { field, intl, value } = this.props;
-    const { emailValid, usernameValid } = this.state;
-    const heading = (
-      <h5>
-        <FormattedMessage id={"app." + field} />
-      </h5>
-    );
+    const { field, intl } = this.props;
     const buttons = (
       <div className="txt-right">
         {field === "notes" ? (
@@ -99,7 +77,9 @@ class Update extends React.Component {
       case "name":
         return (
           <div>
-            {heading}
+            <h5>
+              <FormattedMessage id="app.name" />
+            </h5>
             <TextField
               autoFocus={true}
               id={field}

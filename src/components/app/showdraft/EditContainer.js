@@ -1,16 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { FormattedMessage, FormattedRelative, injectIntl } from "react-intl";
-import {
-  showNotification,
-  closeNotification
-} from "../../../store/actions/notification";
+import { FormattedMessage, injectIntl } from "react-intl";
+import { showNotification } from "../../../store/actions/notification";
 import { setDrafts } from "../../../store/actions/drafts";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import backend from "../../../backend";
-import { scrollToTop, distance } from "../../../utils";
+import { scrollToTop } from "../../../utils";
 import remark from "remark";
 import html from "remark-html";
 import Gist from "../draft/Gist";
