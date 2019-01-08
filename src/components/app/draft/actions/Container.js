@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { locLang } from "../../../../utils";
 import { FormattedMessage } from "react-intl";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -9,15 +8,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SelectIcon from "@material-ui/icons/KeyboardArrowRight";
 import CollapseIcon from "@material-ui/icons/KeyboardArrowDown";
 import ActionIcon from "@material-ui/icons/Directions";
+import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
 import ExportIcon from "@material-ui/icons/ScreenShare";
 import ChangeModelIcon from "@material-ui/icons/PermContactCalendar";
-import RestoreIcon from "@material-ui/icons/RestorePage";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import ModelPicker from "./ModelPicker";
 import PatternPicker from "./PatternPicker";
 import ExportPicker from "./ExportPicker";
 
@@ -68,33 +65,32 @@ class ActionContainer extends React.Component {
     let content = "";
     switch (key) {
       case "changeModel":
-        content = (
-          <ModelPicker
-            models={this.getModelList(this.props.pattern)}
-            pattern={this.props.pattern}
-            language={this.props.language}
-            model={this.props.model.handle}
-          />
-        );
+        let models = this.getModelList(this.props.gist.pattern);
+        content = Object.keys(models.valid).map(handle => {
+          return (
+            <ListItem
+              button
+              key={handle}
+              onClick={() =>
+                this.props.updateMeasurements(
+                  this.props.models[handle].measurements
+                )
+              }
+            >
+              <ListItemIcon>
+                <ChangeModelIcon />
+              </ListItemIcon>
+              <ListItemText>{models.valid[handle]}</ListItemText>
+            </ListItem>
+          );
+        });
         break;
       case "changePattern":
         content = (
           <PatternPicker
-            pattern={this.props.pattern}
+            pattern={this.props.gist.pattern}
             language={this.props.language}
           />
-        );
-        break;
-      case "restoreDefaults":
-        content = (
-          <ListItem button component="a" onClick={this.props.restoreDefaults}>
-            <ListItemIcon>
-              <RestoreIcon color="primary" className="indent2" />
-            </ListItemIcon>
-            <ListItemText className="info">
-              <FormattedMessage id="app.restoreDefaults" />
-            </ListItemText>
-          </ListItem>
         );
         break;
       case "save":
@@ -120,28 +116,16 @@ class ActionContainer extends React.Component {
           />
         );
         break;
-      case "startOver":
+      case "reset":
         content = (
-          <div>
-            <p>
-              <Button
-                variant="outlined"
-                className="mr1"
-                href={locLang.set("/draft", this.props.language)}
-              >
-                <FormattedMessage id="app.changePattern" />
-              </Button>
-              <Button
-                variant="outlined"
-                href={locLang.set(
-                  "/draft/" + this.props.pattern,
-                  this.props.language
-                )}
-              >
-                <FormattedMessage id="app.changeModel" />
-              </Button>
-            </p>
-          </div>
+          <ListItem button onClick={this.props.clearGist}>
+            <ListItemIcon>
+              <DeleteIcon className="indent2" color="primary" />
+            </ListItemIcon>
+            <ListItemText className="info">
+              <FormattedMessage id="app.clearGist" />
+            </ListItemText>
+          </ListItem>
         );
         break;
       default:
@@ -165,8 +149,9 @@ class ActionContainer extends React.Component {
     };
     for (let handle of Object.keys(this.props.models)) {
       let valid = true;
-      for (let requiredMeasurement of this.props.patternInfo[pattern]
-        .measurements) {
+      for (let requiredMeasurement of this.props.patternInfo[
+        this.props.gist.pattern
+      ].measurements) {
         if (
           typeof this.props.models[handle].measurements === "undefined" ||
           typeof this.props.models[handle].measurements[requiredMeasurement] ===
@@ -192,9 +177,6 @@ class ActionContainer extends React.Component {
       save: {
         icon: <SaveIcon color="primary" />
       },
-      restoreDefaults: {
-        icon: <RestoreIcon color="primary" />
-      },
       changeModel: {
         icon: <ChangeModelIcon color="primary" />
       },
@@ -202,6 +184,8 @@ class ActionContainer extends React.Component {
         icon: <ActionIcon color="primary" />
       }
     };
+    if (this.props.fromGist)
+      groups.reset = { icon: <DeleteIcon color="primary" /> };
 
     return (
       <List component="nav">

@@ -10,7 +10,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import RemoveIcon from "@material-ui/icons/Delete";
 import ShareIcon from "@material-ui/icons/Share";
 import DraftIcon from "@material-ui/icons/Gesture";
-import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 
 class Sidebar extends React.Component {
@@ -32,10 +31,14 @@ class Sidebar extends React.Component {
           toggleOpen={() => this.toggleDrawer("actions")}
           open={this.state.expandedDrawer === "actions" ? true : false}
           footer={
-            <Button variant="text" onClick={this.props.removeDraft}>
-              <RemoveIcon className="color-danger mr05" />
-              <FormattedMessage id="app.remove" />
-            </Button>
+            this.props.readOnly === true ? (
+              ""
+            ) : (
+              <Button variant="text" onClick={this.props.removeDraft}>
+                <RemoveIcon className="color-danger mr05" />
+                <FormattedMessage id="app.remove" />
+              </Button>
+            )
           }
         >
           <div className="overpad2-always">
@@ -61,20 +64,24 @@ class Sidebar extends React.Component {
             </ListItem>
           </div>
         </Drawer>
-        <Drawer
-          icon={<MetadataIcon />}
-          title={<FormattedMessage id="app.metadata" />}
-          toggleOpen={() => this.toggleDrawer("options")}
-          open={this.state.expandedDrawer === "options" ? true : false}
-        >
-          <div className="overpad2-always">
-            <Metadata
-              draft={this.props.draft}
-              display={this.props.display}
-              updateDisplay={this.props.updateDisplay}
-            />
-          </div>
-        </Drawer>
+        {this.props.readOnly === true ? (
+          ""
+        ) : (
+          <Drawer
+            icon={<MetadataIcon />}
+            title={<FormattedMessage id="app.metadata" />}
+            toggleOpen={() => this.toggleDrawer("options")}
+            open={this.state.expandedDrawer === "options" ? true : false}
+          >
+            <div className="overpad2-always">
+              <Metadata
+                draft={this.props.draft}
+                display={this.props.display}
+                updateDisplay={this.props.updateDisplay}
+              />
+            </div>
+          </Drawer>
+        )}
       </React-Fragment>
     );
   }

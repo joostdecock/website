@@ -115,6 +115,11 @@ body.dark .shadow1 { @include shadow-dark; }
   color: $bw9;
   display: block;
 }
+textarea.fixed-width {
+  white-space: pre;
+  padding: 1rem;
+  @include fixed-font;
+}
 body.dark .nobg.card { @include shadow-dark; }
 // FIXME: These should go somewhere where they make sense
 

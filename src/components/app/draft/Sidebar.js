@@ -30,11 +30,15 @@ class Sidebar extends React.Component {
   };
 
   render() {
+    const language = this.props.language;
+    const settings = this.props.gist.settings;
+    const display = this.props.display;
+    const pattern = patternInfo[this.props.gist.pattern];
     const sharedProps = {
-      language: this.props.language,
-      settings: this.props.settings,
-      display: this.props.display,
-      pattern: patternInfo[this.props.pattern],
+      language,
+      settings,
+      display,
+      pattern,
       updateDisplay: this.props.methods.updateDisplay
     };
     return (
@@ -48,9 +52,9 @@ class Sidebar extends React.Component {
           <div className="overpad2-always">
             <SettingsPicker
               {...sharedProps}
-              options={patternInfo[this.props.pattern].optionGroups}
-              optionConfig={patternInfo[this.props.pattern].config.options}
-              optionValues={this.props.settings.options}
+              options={pattern.optionGroups}
+              optionConfig={pattern.config.options}
+              optionValues={settings.options}
               updateOption={this.props.methods.updateOption}
             />
           </div>
@@ -67,7 +71,7 @@ class Sidebar extends React.Component {
               options={draftOptions.groups}
               optionConfig={draftOptions.config}
               updateOption={this.props.methods.updateSetting}
-              settings={this.props.settings}
+              settings={settings}
               units={this.props.units}
             />
           </div>
@@ -80,17 +84,18 @@ class Sidebar extends React.Component {
         >
           <div className="overpad2-always">
             <Actions
-              settings={this.props.settings}
+              gist={this.props.gist}
+              language={language}
+              pattern={pattern}
               units={this.props.units}
               patron={this.props.patron}
-              pattern={this.props.pattern}
               patternInfo={patternInfo}
-              language={this.props.language}
-              model={this.props.model}
-              restoreDefaults={this.props.methods.restoreDefaults}
               saveDraft={this.props.methods.saveDraft}
               exportGist={this.props.methods.exportGist}
               exportDraft={this.props.methods.exportDraft}
+              updateMeasurements={this.props.methods.updateMeasurements}
+              clearGist={this.props.methods.clearGist}
+              fromGist={this.props.fromGist}
             />
           </div>
         </Drawer>

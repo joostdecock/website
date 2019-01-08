@@ -19,13 +19,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/NoteAdd";
-import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
 import backend from "../../../backend";
-import {
-  showNotification,
-  closeNotification
-} from "../../../store/actions/notification";
+import { showNotification } from "../../../store/actions/notification";
 
 class DraftsContainer extends React.Component {
   state = {

@@ -1,0 +1,31 @@
+div.toggle-container > div {
+  box-shadow: none;
+  display: inline-block;
+  button.toggle {
+    background: $bw9;
+    color: $bw1;
+    border: 1px solid $bw6;
+  }
+  button.toggle.selected {
+    border: 1px solid $success;
+    background: $success!important;
+    color: $bw9!important;
+  }
+  button.toggle.selected::after {
+    background: $success!important;
+    opacity: 0;
+  }
+}
+
+body.dark {
+  div.toggle-container > div {
+    button.toggle {
+      border: 1px solid $bw4;
+      background: $bw1;
+      color: $bw4;
+    }
+    button.toggle.selected {
+      border: 1px solid $success;
+    }
+  }
+}

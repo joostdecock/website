@@ -106,12 +106,17 @@ const getUserMenuItems = (language, username, handleLogout) => {
     {
       link: locLang.set("/draft/", language),
       label: "app.newDraft",
+      icon: "note_add"
+    },
+    {
+      link: locLang.set("/draft/from/gist", language),
+      label: "app.newDraftFromGist",
       icon: "insert_drive_file"
     },
     {
       link: locLang.set("/model/", language),
       label: "app.newModel",
-      icon: "perm_identity"
+      icon: "person_add"
     },
     "divider",
     {

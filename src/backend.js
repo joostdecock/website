@@ -28,6 +28,11 @@ backend.login = (username, password) =>
 
 backend.profile = username => api.get("/users/" + username); // Load user profile
 
+backend.loadGist = handle => {
+  console.log("loading gist", handle);
+  return api.get("/gist/" + handle); // Load draft/gist anonymously
+};
+
 // Users //////////////////////////
 
 backend.account = () => api.get("/account", auth()); // Try to authenticate based on stored token

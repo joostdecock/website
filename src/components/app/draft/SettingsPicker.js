@@ -16,25 +16,9 @@ import { settings as settingsStrings } from "@freesewing/i18n";
 
 class SettingsPicker extends React.Component {
   state = {
-    expanded: {},
+    expanded: "",
     option: false
   };
-
-  componentDidMount() {
-    let expanded = {};
-    for (let key of Object.keys(this.props.options)) {
-      let option = this.props.options[key];
-      if (typeof option !== "string") {
-        for (let subOption of option) {
-          if (typeof subOption !== "string") {
-            let subKey = Object.keys(subOption).pop();
-            expanded[subKey] = false;
-          }
-        }
-      }
-    }
-    this.setState({ expanded });
-  }
 
   optionGroup(key, options, level = 0) {
     let heading = (
@@ -49,7 +33,7 @@ class SettingsPicker extends React.Component {
         </ListItemText>
         <ListItemSecondaryAction>
           <IconButton aria-label="toggle">
-            {this.state.expanded[key] ? (
+            {this.state.expanded === key ? (
               <CollapseIcon color="primary" />
             ) : (
               <SelectIcon color="primary" />
@@ -244,7 +228,7 @@ class SettingsPicker extends React.Component {
     }
     items.push(
       <Collapse
-        in={this.state.expanded[key]}
+        in={this.state.expanded === key ? true : false}
         key={"col-" + key}
         timeout="auto"
         unmountOnExit
@@ -257,9 +241,9 @@ class SettingsPicker extends React.Component {
   }
 
   toggleGroup(key) {
-    let expanded = { ...this.state.expanded };
-    expanded[key] = !this.state.expanded[key];
-    this.setState({ expanded });
+    //let expanded = { ...this.state.expanded };
+    //expanded[key] = !this.state.expanded[key];
+    this.setState({ expanded: key });
     this.props.updateDisplay("draft");
   }
 

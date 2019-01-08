@@ -18,15 +18,16 @@ import { navigate } from "gatsby";
 import Center from "../../Center";
 import Spinner from "../../Spinner";
 import Button from "@material-ui/core/Button";
-import TwitterIcon from "../../TwitterIcon";
 import config from "../../../config/frontend";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 
 class ModelEditContainer extends React.Component {
   state = {
     display: "draft",
     update: false,
     docs: false,
-    gistFormat: "yaml",
+    format: "yaml",
     editing: false,
     markdown: "",
     markdownPreview: "",
@@ -44,6 +45,12 @@ class ModelEditContainer extends React.Component {
   componentDidUpdate() {
     if (this.state.editing) scrollToTop();
   }
+
+  toggleFormat = () => {
+    let format = "yaml";
+    if (this.state.format === "yaml") format = "json";
+    this.setState({ format });
+  };
 
   linkToClipboard = () => {
     const selection = window.getSelection();
@@ -181,7 +188,32 @@ class ModelEditContainer extends React.Component {
                     dangerouslySetInnerHTML={{ __html: this.state.markdown }}
                   />
                 </div>
-                <Gist gist={draft.gist} format={this.state.gistFormat} />
+                <div className="toggle-container txt-center">
+                  <ToggleButtonGroup exlusive onChange={this.toggleFormat}>
+                    <ToggleButton
+                      className={
+                        this.state.format === "json"
+                          ? "toggle selected"
+                          : "toggle"
+                      }
+                      value="json"
+                      selected={this.state.format === "json" ? true : false}
+                    >
+                      JSON
+                    </ToggleButton>
+                    <ToggleButton
+                      className={
+                        this.state.format === "yaml"
+                          ? "toggle selected"
+                          : "toggle"
+                      }
+                      selected={this.state.format === "yaml" ? true : false}
+                    >
+                      YAML
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+                <Gist gist={draft.gist} format={this.state.format} />
               </React-Fragment>
             ) : (
               ""
@@ -192,7 +224,6 @@ class ModelEditContainer extends React.Component {
                 <h2>
                   <FormattedMessage id="app.share" />
                 </h2>
-                <p>Use this link to share your draft 👇</p>
                 <div className="gist">
                   <div className="gist-header txt-right">
                     <Button color="secondary" onClick={this.linkToClipboard}>

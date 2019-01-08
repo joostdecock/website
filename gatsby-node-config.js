@@ -55,6 +55,15 @@ exports.jsPages = [
     includeMarkdown: "optionsHelp"
   },
   {
+    nakedPath: "/draft/from/gist",
+    template: path.resolve("src/components/pages/CreateDraftFromGist.js"),
+    includeMarkdown: "optionsHelp"
+  },
+  {
+    nakedPath: "/gist/:draft",
+    template: path.resolve("src/components/pages/Gist.js")
+  },
+  {
     nakedPath: "/docs",
     template: path.resolve("src/components/pages/DocumentationIndex.js"),
     includeMarkdown: "documentationList"

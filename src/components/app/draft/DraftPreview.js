@@ -20,21 +20,12 @@ class DraftPreview extends React.Component {
     hasError: false
   };
 
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    // You can also log the error to an error reporting service
-    console.log("oh shit", error, info);
-  }
-
   render() {
-    if (this.state.hasError) return "oops";
     let error = false;
-    let settings = this.props.settings;
-    const pattern = new patterns[(capitalize(this.props.pattern))](settings)
+    if (typeof this.props.gist === "undefined") return <p>No gist</p>;
+    const pattern = new patterns[(capitalize(this.props.gist.pattern))](
+      this.props.gist.settings
+    )
       .use(svgattrPlugin, { class: "freesewing draft" })
       .use(i18nPlugin, { strings: patternTranslations });
     try {
@@ -62,19 +53,7 @@ class DraftPreview extends React.Component {
             <FormattedMessage id="app.pleaseIncludeTheInformationBelow" />
             {":"}
           </p>
-          <pre>
-            {JSON.stringify(
-              {
-                error: error,
-                pattern: pattern.config.name,
-                version: pattern.config.version,
-                settings: pattern.settings,
-                ourSettings: settings
-              },
-              null,
-              2
-            )}
-          </pre>
+          <pre>{JSON.stringify(this.props.gist, null, 2)}</pre>
           <TrayFooter>
             <Button
               variant="outlined"
@@ -92,8 +71,7 @@ class DraftPreview extends React.Component {
 }
 
 DraftPreview.propTypes = {
-  pattern: PropTypes.string.isRequired,
-  settings: PropTypes.object.isRequired
+  gist: PropTypes.object.isRequired
 };
 
 export default DraftPreview;
