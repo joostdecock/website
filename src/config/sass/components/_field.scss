@@ -1,0 +1,31 @@
+.field-item-title {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+.field-item-title.read-only {
+  color: $bw4;
+}
+.field-item-icon svg {
+  color: $bw0;
+}
+.field-item-icon.read-only svg {
+  color: $bw4;
+}
+span.field-value {
+  font-family: $titlefont;
+  margin-right: 0.5rem;
+}
+
+body.dark {
+  .field-item-icon svg {
+    color: $bw9;
+  }
+  .field-item-icon.read-only svg {
+    color: $bw5;
+  }
+  .field-item-title.read-only {
+    color: $bw5;
+  }
+}
+

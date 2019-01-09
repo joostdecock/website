@@ -1,17 +1,21 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import Center from "../Center";
-import Spinner from "../Spinner";
+import Column from "../Column";
+import TwoColumns from "../TwoColumns";
+import FieldDrawers from "../fields/FieldDrawers";
+import { modelFields } from "../../config/fields";
 
 class Test extends React.Component {
   render() {
     return (
       <BaseLayout>
         <h1>test page</h1>
-        <div className="vspacer" />
-        <Center>
-          <Spinner size={250} />
-        </Center>
+        <TwoColumns wrapReverse={true}>
+          <Column wide />
+          <Column narrow right>
+            <FieldDrawers config={modelFields} methods={{}} />
+          </Column>
+        </TwoColumns>
       </BaseLayout>
     );
   }
