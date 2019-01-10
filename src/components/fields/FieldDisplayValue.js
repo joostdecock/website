@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { distance } from "../../utils";
 import { FormattedMessage, FormattedRelative } from "react-intl";
+import Avatar from "@material-ui/core/Avatar";
 
 const FieldDisplayValue = props => {
   let { value, type, units } = props;
@@ -40,6 +41,23 @@ const FieldDisplayValue = props => {
       return (
         <span className="field-value">
           <FormattedRelative value={value} />
+        </span>
+      );
+    case "image":
+      return <Avatar alt=":)" src={value} />;
+    case "password":
+      return (
+        <span role="img" aria-label="hidden" className="field-value" alt="|-)">
+          🙈
+        </span>
+      );
+    case "patron":
+      let str = "";
+      if (value > 1) str = "app.patron-" + value;
+      else str = "app.no";
+      return (
+        <span className="field-value">
+          <FormattedMessage id={str} />
         </span>
       );
     default:

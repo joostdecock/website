@@ -31,7 +31,6 @@ class RadioField extends React.PureComponent {
 
     return (
       <React-Fragment>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
         <RadioGroup
           name={item}
           onChange={this.handleValueUpdate}

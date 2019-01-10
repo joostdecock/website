@@ -8,6 +8,8 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Collapse from "@material-ui/core/Collapse";
 import ItemButtons from "./ItemButtons";
 import FieldDisplayValue from "./FieldDisplayValue";
+import { Link } from "gatsby";
+import { locLang } from "../../utils";
 
 class FieldList extends React.Component {
   state = {
@@ -52,18 +54,14 @@ class FieldList extends React.Component {
         item: key,
         intl: this.props.intl
       };
-      items.push(
-        <ListItem
-          key={key}
-          button={conf.readOnly ? false : true}
-          onClick={
-            conf.readOnly
-              ? () => {}
-              : conf.type === "button"
-                ? this.props.buttons[key]
-                : () => this.toggleItem(key)
-          }
-        >
+      let itemProps = { key, button: true };
+      if (conf.type === "readOnly") itemProps.button = false;
+      else itemProps.button = true;
+      if (conf.type === "button") itemProps.onClick = this.props.buttons[key];
+      else if (conf.type === "link") itemProps.button = false;
+      else itemProps.onClick = () => this.toggleItem(key);
+      let item = (
+        <ListItem {...itemProps}>
           <ListItemIcon
             className={"field-item-icon" + (conf.readOnly ? " read-only" : "")}
           >
@@ -88,21 +86,32 @@ class FieldList extends React.Component {
           </ListItemSecondaryAction>
         </ListItem>
       );
-      items.push(
-        <Collapse
-          in={this.state.expanded === key ? true : false}
-          timeout="auto"
-          unmountOnExit
-          key={"sub-" + key}
-        >
-          <ItemButtons
-            display={this.props.display}
-            key={key}
-            passBack={passBack}
-            updateDisplay={this.props.updateDisplay}
-          />
-        </Collapse>
-      );
+      if (conf.type === "link")
+        items.push(
+          <Link
+            className="button"
+            to={locLang.set(conf.to, this.props.intl.locale)}
+          >
+            {item}
+          </Link>
+        );
+      else items.push(item);
+      if (conf.type !== "button" && conf.type !== "link")
+        items.push(
+          <Collapse
+            in={this.state.expanded === key ? true : false}
+            timeout="auto"
+            unmountOnExit
+            key={"sub-" + key}
+          >
+            <ItemButtons
+              display={this.props.display}
+              key={key}
+              passBack={passBack}
+              updateDisplay={this.props.updateDisplay}
+            />
+          </Collapse>
+        );
     }
 
     return <List component="nav">{items}</List>;
