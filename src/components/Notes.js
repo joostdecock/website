@@ -1,16 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
 import { FormattedMessage } from "react-intl";
-import fileSaver from "file-saver";
-import YAML from "yaml";
-import {
-  showNotification,
-  closeNotification
-} from "../store/actions/notification";
-import prism from "prismjs";
-import ToggleButton from "@material-ui/lab/ToggleButton";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import remark from "remark";
 import html from "remark-html";
 import Tray from "./Tray";
@@ -26,7 +15,6 @@ class Gist extends React.Component {
   }
 
   renderMarkdown = () => {
-    let self = this;
     remark()
       .use(html)
       .process(this.props.markdown, (err, md) => {

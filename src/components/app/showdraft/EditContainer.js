@@ -8,22 +8,16 @@ import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import backend from "../../../backend";
-import { scrollToTop, locLang } from "../../../utils";
-import remark from "remark";
-import html from "remark-html";
-import Actions from "./Actions";
-import Update from "./Update";
+import { locLang } from "../../../utils";
 import { navigate } from "gatsby";
 import Center from "../../Center";
 import Spinner from "../../Spinner";
 import Button from "@material-ui/core/Button";
-import config from "../../../config/frontend";
-import ToggleButton from "@material-ui/lab/ToggleButton";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import Field from "../../fields/Field";
 import FieldDrawers from "../../fields/FieldDrawers";
 import Gist from "../../Gist";
 import Notes from "../../Notes";
+import ShareLink from "../../ShareLink";
 import { editDraftFields } from "../../../config/fields";
 
 class ModelEditContainer extends React.Component {
@@ -168,19 +162,18 @@ class ModelEditContainer extends React.Component {
             {this.state.display === "docs" ? <p>Show docs here</p> : ""}
             {this.state.display === "share" ? (
               <React-Fragment>
-                <h2>
-                  <FormattedMessage id="app.share" />
-                </h2>
-                <div className="gist">
-                  <div className="gist-header txt-right">
-                    <Button color="secondary" onClick={this.linkToClipboard}>
-                      <FormattedMessage id="app.copy" />
-                    </Button>
-                  </div>
-                  <span className="copy-this" id="share">
-                    {config.url.substring(0, config.url.length - 1)}
-                    {locLang.set("/gist/" + draft.handle, this.props.language)}
-                  </span>
+                <ShareLink
+                  link={"/gist/" + draft.handle}
+                  language={this.props.language}
+                />
+                <div className="txt-right mt1">
+                  <Button
+                    onClick={() => this.updateDisplay("draft")}
+                    color="primary"
+                    variant="outlined"
+                  >
+                    <FormattedMessage id="app.back" />
+                  </Button>
                 </div>
               </React-Fragment>
             ) : (

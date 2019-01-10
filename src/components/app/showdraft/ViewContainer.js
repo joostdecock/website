@@ -5,44 +5,28 @@ import { setGist } from "../../../store/actions/gist";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import { locLang } from "../../../utils";
-import Gist from "../draft/Gist";
-import Sidebar from "./Sidebar";
 import { navigate } from "gatsby";
 import Center from "../../Center";
 import Spinner from "../../Spinner";
 import Button from "@material-ui/core/Button";
-import config from "../../../config/frontend";
-import ToggleButton from "@material-ui/lab/ToggleButton";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import ShareLink from "../../ShareLink";
+import { viewDraftFields } from "../../../config/fields";
+import FieldDrawers from "../../fields/FieldDrawers";
+import Notes from "../../Notes";
+import Gist from "../../Gist";
 
 class GistViewContainer extends React.Component {
   state = {
-    display: "draft",
-    format: this.props.format || "yaml"
+    display: "draft"
   };
 
-  linkToClipboard = () => {
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.selectNodeContents(document.getElementById("share"));
-    selection.removeAllRanges();
-    selection.addRange(range);
-    try {
-      document.execCommand("copy");
-      selection.removeAllRanges();
-      this.props.showNotification(
-        "success",
-        <FormattedMessage id="app.copiedToClipboard" key="message" />
-      );
-    } catch (e) {
-      this.props.showNotification("error", e);
+  injectFieldValues = () => {
+    let fields = viewDraftFields;
+    for (let field of Object.keys(fields.info.items)) {
+      fields.info.items[field].value = this.props[field];
     }
-  };
 
-  toggleFormat = () => {
-    let format = "yaml";
-    if (this.state.format === "yaml") format = "json";
-    this.setState({ format });
+    return fields;
   };
 
   draftThis = () => {
@@ -54,6 +38,18 @@ class GistViewContainer extends React.Component {
   updateDisplay = key => this.setState({ display: key });
 
   render() {
+    let fields = this.injectFieldValues();
+    let back = (
+      <div className="txt-right mt1">
+        <Button
+          onClick={() => this.updateDisplay("draft")}
+          color="primary"
+          variant="outlined"
+        >
+          <FormattedMessage id="app.back" />
+        </Button>
+      </div>
+    );
     return (
       <TwoColumns>
         <Column wide>
@@ -64,90 +60,43 @@ class GistViewContainer extends React.Component {
           ) : (
             ""
           )}
-
           {this.state.display === "draft" ? (
+            <Notes markdown={this.props.notes} noTray />
+          ) : (
+            ""
+          )}
+          {this.state.display === "gist" ? (
             <React-Fragment>
-              {this.props.notes ? (
-                <div className="notes">
-                  <div className="filename">
-                    <FormattedMessage id="app.notes" />
-                  </div>
-                  <div dangerouslySetInnerHTML={{ __html: this.props.notes }} />
-                </div>
-              ) : (
-                ""
-              )}
-              <div className="toggle-container txt-center">
-                <ToggleButtonGroup exlusive onChange={this.toggleFormat}>
-                  <ToggleButton
-                    className={
-                      this.state.format === "json"
-                        ? "toggle selected"
-                        : "toggle"
-                    }
-                    value="json"
-                    selected={this.state.format === "json" ? true : false}
-                  >
-                    JSON
-                  </ToggleButton>
-                  <ToggleButton
-                    className={
-                      this.state.format === "yaml"
-                        ? "toggle selected"
-                        : "toggle"
-                    }
-                    selected={this.state.format === "yaml" ? true : false}
-                  >
-                    YAML
-                  </ToggleButton>
-                </ToggleButtonGroup>
-              </div>
-              <Gist gist={this.props.gist} format={this.state.format} />
+              <Gist gist={this.props.gist} />
+              {back}
             </React-Fragment>
           ) : (
             ""
           )}
           {this.state.display === "share" ? (
             <React-Fragment>
-              <h2>
-                <FormattedMessage id="app.share" />
-              </h2>
-              <div className="gist">
-                <div className="gist-header txt-right">
-                  <Button color="secondary" onClick={this.linkToClipboard}>
-                    <FormattedMessage id="app.copy" />
-                  </Button>
-                </div>
-                <span className="copy-this" id="share">
-                  {config.url.substring(0, config.url.length - 1)}
-                  {locLang.set(
-                    "/gist/" + this.props.handle,
-                    this.props.language
-                  )}
-                </span>
-              </div>
-              <div className="txt-right mt1">
-                <Button
-                  onClick={() => this.updateDisplay("draft")}
-                  color="primary"
-                  variant="outlined"
-                >
-                  <FormattedMessage id="app.back" />
-                </Button>
-              </div>
+              <ShareLink
+                link={"/gist/" + this.props.handle}
+                language={this.props.language}
+              />
             </React-Fragment>
           ) : (
             ""
           )}
         </Column>
         <Column narrow right>
-          <Sidebar
-            gist={this.props.gist}
-            updateDisplay={this.updateDisplay}
-            display={this.state.display}
-            draftThis={this.draftThis}
-            readOnly={true}
-          />
+          <div className="stick">
+            <FieldDrawers
+              config={fields}
+              display={this.state.display}
+              updateDisplay={this.updateDisplay}
+              buttons={{
+                draft: this.draftThis,
+                share: () => this.updateDisplay("share"),
+                gist: () => this.updateDisplay("gist")
+              }}
+            />
+          </div>
         </Column>
       </TwoColumns>
     );

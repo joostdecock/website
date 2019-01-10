@@ -12,8 +12,6 @@ import {
 import prism from "prismjs";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
-import Tray from "./Tray";
-import GistIcon from "@material-ui/icons/Note";
 import Buttonbar from "./Buttonbar";
 
 class Gist extends React.Component {

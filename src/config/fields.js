@@ -143,21 +143,33 @@ export const editDraftFields = {
   }
 };
 
-export const showDraftFields = {
+export const viewDraftFields = {
+  actions: {
+    title: "app.actions",
+    icon: <ActionsIcon />,
+    expanded: true,
+    items: {
+      draft: {
+        type: "button",
+        label: "app.draft",
+        icon: <DraftIcon />
+      },
+      share: {
+        type: "button",
+        label: "app.share",
+        icon: <ShareIcon />
+      }
+    }
+  },
   info: {
     title: "app.info",
     icon: <InfoIcon />,
     items: {
       name: {
         type: "text",
-        required: true,
+        readOnly: true,
         label: "app.name",
         icon: <NameIcon />
-      },
-      notes: {
-        type: "markdown",
-        label: "app.notes",
-        icon: <MeasurementsIcon />
       },
       handle: {
         readOnly: true,
@@ -170,6 +182,11 @@ export const showDraftFields = {
         type: "timestamp",
         label: "app.created",
         icon: <TimeIcon />
+      },
+      gist: {
+        type: "button",
+        label: "app.gist",
+        icon: <GistIcon />
       }
     }
   }

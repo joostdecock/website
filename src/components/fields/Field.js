@@ -6,7 +6,6 @@ import DistanceField from "./DistanceField";
 import RadioField from "./RadioField";
 import MarkdownField from "./MarkdownField";
 import ImageField from "./ImageField";
-import GistField from "./GistField";
 
 const Field = props => {
   let field;
@@ -25,9 +24,6 @@ const Field = props => {
       break;
     case "radio":
       field = <RadioField {...props} key={props.item} />;
-      break;
-    case "gist":
-      field = <GistField {...props} key={props.item} />;
       break;
     default:
       throw new Error("Unsuported field type in field component");
