@@ -56,7 +56,13 @@ class FieldList extends React.Component {
         <ListItem
           key={key}
           button={conf.readOnly ? false : true}
-          onClick={conf.readOnly ? () => {} : () => this.toggleItem(key)}
+          onClick={
+            conf.readOnly
+              ? () => {}
+              : conf.type === "button"
+                ? this.props.buttons[key]
+                : () => this.toggleItem(key)
+          }
         >
           <ListItemIcon
             className={"field-item-icon" + (conf.readOnly ? " read-only" : "")}

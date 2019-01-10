@@ -1,0 +1,13 @@
+div.buttonbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .toggle-container,
+  > button {
+    margin-right: 0.5rem;
+  }
+}
+div.buttonbar.reverse {
+  flex-direction: row-reverse;
+}
+

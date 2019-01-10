@@ -7,6 +7,9 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { FormattedMessage } from "react-intl";
 import remark from "remark";
 import html from "remark-html";
+import Buttonbar from "../Buttonbar";
+import EditIcon from "@material-ui/icons/Edit";
+import ShowIcon from "@material-ui/icons/Note";
 
 class MarkdownField extends React.PureComponent {
   state = {
@@ -69,30 +72,32 @@ class MarkdownField extends React.PureComponent {
             onChange={this.handleValueUpdate}
           />
         )}
-        <FieldButtons
-          config={config}
-          item={item}
-          value={value}
-          updateDisplay={this.props.updateDisplay}
-          updateField={this.props.updateField}
-        />
-        <div className="toggle-container txt-center">
-          <ToggleButtonGroup exlusive onChange={this.togglePreview}>
-            <ToggleButton
-              className={this.state.preview ? "toggle" : "toggle selected"}
-              value="true"
-              selected={this.state.preview ? false : true}
-            >
-              <FormattedMessage id="app.edit" />
-            </ToggleButton>
-            <ToggleButton
-              className={this.state.preview ? "toggle selected" : "toggle"}
-              selected={this.state.preview ? true : false}
-            >
-              <FormattedMessage id="app.preview" />
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </div>
+        <Buttonbar reverse>
+          <FieldButtons
+            config={config}
+            item={item}
+            value={value}
+            updateDisplay={this.props.updateDisplay}
+            updateField={this.props.updateField}
+          />
+          <div className="toggle-container txt-center">
+            <ToggleButtonGroup exlusive onChange={this.togglePreview}>
+              <ToggleButton
+                className={this.state.preview ? "toggle" : "toggle selected"}
+                value="true"
+                selected={this.state.preview ? false : true}
+              >
+                <EditIcon />
+              </ToggleButton>
+              <ToggleButton
+                className={this.state.preview ? "toggle selected" : "toggle"}
+                selected={this.state.preview ? true : false}
+              >
+                <ShowIcon />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
+        </Buttonbar>
       </React-Fragment>
     );
   }

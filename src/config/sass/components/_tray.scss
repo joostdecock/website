@@ -1,15 +1,17 @@
 .unforced.tray,
+.load-expanded.force-collapsed.tray,
 .force-collapsed.tray {
   @include tray-collapsed;
 }
 
+.load-expanded.tray,
 .always-expanded.tray,
 .force-expanded.tray {
   @include tray-expanded;
 }
 
 .always-expanded.tray {
-  button.toggle { display: none!important; }
+  button.traytoggle { display: none!important; }
 }
 
 .tray.success { @include tray-color-expanded($success) }
@@ -22,7 +24,7 @@ body.dark {
   .tray {
     border-top-color: $bw6;
     h3.tray-title span.tray-title-icon svg { background: $bw1; }
-    button.toggle:hover { color: $secondary; }
+    button.traytoggle:hover { color: $secondary; }
     .tray-footer {
       background: $bw2;
       a { color: $bw8; }
@@ -58,7 +60,7 @@ body.dark {
 h3.tray-title {
   font-weight: bold;
 }
-h3.tray-title button.toggle span {
+h3.tray-title button.traytoggle span {
   justify-content: flex-end;
   margin-top: -13px;
 }

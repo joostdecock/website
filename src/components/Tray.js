@@ -31,14 +31,17 @@ class Tray extends React.Component {
         ) : (
           <TrayTitle icon={this.props.icon}>
             {this.props.title}
-            <IconButton className="toggle expand" onClick={this.handleExpand}>
-              <ExpandIcon className="toggle" />
+            <IconButton
+              className="traytoggle expand"
+              onClick={this.handleExpand}
+            >
+              <ExpandIcon className="traytoggle" />
             </IconButton>
             <IconButton
-              className="toggle collapse"
+              className="traytoggle collapse"
               onClick={this.handleCollapse}
             >
-              <CollapseIcon className="toggle" />
+              <CollapseIcon className="traytoggle" />
             </IconButton>
           </TrayTitle>
         )}

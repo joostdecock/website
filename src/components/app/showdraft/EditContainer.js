@@ -11,8 +11,7 @@ import backend from "../../../backend";
 import { scrollToTop, locLang } from "../../../utils";
 import remark from "remark";
 import html from "remark-html";
-import Gist from "../draft/Gist";
-import Sidebar from "./Sidebar";
+import Actions from "./Actions";
 import Update from "./Update";
 import { navigate } from "gatsby";
 import Center from "../../Center";
@@ -21,35 +20,26 @@ import Button from "@material-ui/core/Button";
 import config from "../../../config/frontend";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import Field from "../../fields/Field";
+import FieldDrawers from "../../fields/FieldDrawers";
+import Gist from "../../Gist";
+import Notes from "../../Notes";
+import { editDraftFields } from "../../../config/fields";
 
 class ModelEditContainer extends React.Component {
   state = {
     display: "draft",
-    update: false,
-    docs: false,
-    format: "yaml",
-    editing: false,
-    markdown: "",
-    markdownPreview: "",
-    preview: false
+    data: false
   };
 
-  componentDidMount() {
-    this.setState({
-      name: this.props.draft.name,
-      notes: this.props.draft.notes
-    });
-    this.renderMarkdown(this.props.draft.notes);
-  }
+  injectFieldValues = () => {
+    let fields = editDraftFields;
+    let draft = this.props.draft;
+    for (let field of Object.keys(fields.info.items)) {
+      fields.info.items[field].value = draft[field];
+    }
 
-  componentDidUpdate() {
-    if (this.state.editing) scrollToTop();
-  }
-
-  toggleFormat = () => {
-    let format = "yaml";
-    if (this.state.format === "yaml") format = "json";
-    this.setState({ format });
+    return fields;
   };
 
   linkToClipboard = () => {
@@ -71,31 +61,20 @@ class ModelEditContainer extends React.Component {
   };
 
   updateDisplay = (key, data = null) => {
-    switch (key) {
-      case "docs":
-        this.setState({ display: "docs", docs: data, editing: true });
-        break;
-      case "share":
-        this.setState({ display: "share" });
-        break;
-      case "update":
-        this.setState({ display: "update", update: data, editing: true });
-        break;
-      default:
-        this.setState({ display: "draft" });
-    }
+    if (key === null) key = "draft";
+    this.setState({ display: key, data });
   };
 
-  draftThis = () => {
-    this.setState({ show: "spinner" });
-    this.props.setGist(this.props.draft.gist);
-    navigate(locLang.set("/draft/from/gist", this.props.language));
-  };
-
-  updateMetadata = (key, value) => {
+  updateField = (key, value, config = null) => {
+    if (value === config.value)
+      return this.props.showNotification(
+        "info",
+        <FormattedMessage id="app.noChanges" />
+      );
+    if (key === "notes") this.renderMarkdown(value);
     let data = {};
-    data[key] = value;
     let handle = this.props.draft.handle;
+    data[key] = value;
     backend
       .saveDraft(handle, data)
       .then(res => {
@@ -108,18 +87,19 @@ class ModelEditContainer extends React.Component {
             { field: this.props.intl.formatMessage({ id: "app." + key }) }
           );
           this.props.showNotification("success", msg);
-          this.setState({
-            display: "draft",
-            name: res.data.draft.name,
-            notes: res.data.draft.notes
-          });
-          this.renderMarkdown(res.data.draft.notes);
+          this.setState({ display: "draft" });
         }
       })
       .catch(err => {
         console.log(err);
         this.props.showNotification("error", err);
       });
+  };
+
+  draftThis = () => {
+    this.setState({ show: "spinner" });
+    this.props.setGist(this.props.draft.gist);
+    navigate(locLang.set("/draft/from/gist", this.props.language));
   };
 
   removeDraft = () => {
@@ -146,31 +126,16 @@ class ModelEditContainer extends React.Component {
       });
   };
 
-  renderMarkdown = (markdown, preview = false) => {
-    let self = this;
-    let state = { preview };
-    remark()
-      .use(html)
-      .process(markdown, (err, md) => {
-        state[preview ? "markdownPreview" : "markdown"] = md.contents;
-        self.setState(state);
-      });
-  };
-
-  markdownPreview = (md, toggle) => {
-    if (toggle === false) this.setState({ preview: false });
-    else this.renderMarkdown(md, true);
-  };
-
   render() {
     const draft = this.props.draft;
+    let fields = this.injectFieldValues();
     return (
       <div>
         <Breadcrumbs via={[{ link: "/drafts", label: "app.drafts" }]}>
           {this.state.name}
         </Breadcrumbs>
         <h1>
-          {this.state.name}
+          {draft.name}
           <span className="handle">
             [#
             {draft.handle}]
@@ -180,40 +145,22 @@ class ModelEditContainer extends React.Component {
           <Column wide>
             {this.state.display === "draft" ? (
               <React-Fragment>
-                <div className="notes">
-                  <div className="filename">
-                    <FormattedMessage id="app.notes" />
-                  </div>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: this.state.markdown }}
-                  />
-                </div>
-                <div className="toggle-container txt-center">
-                  <ToggleButtonGroup exlusive onChange={this.toggleFormat}>
-                    <ToggleButton
-                      className={
-                        this.state.format === "json"
-                          ? "toggle selected"
-                          : "toggle"
-                      }
-                      value="json"
-                      selected={this.state.format === "json" ? true : false}
-                    >
-                      JSON
-                    </ToggleButton>
-                    <ToggleButton
-                      className={
-                        this.state.format === "yaml"
-                          ? "toggle selected"
-                          : "toggle"
-                      }
-                      selected={this.state.format === "yaml" ? true : false}
-                    >
-                      YAML
-                    </ToggleButton>
-                  </ToggleButtonGroup>
-                </div>
-                <Gist gist={draft.gist} format={this.state.format} />
+                <Notes
+                  markdown={this.props.draft.notes}
+                  key={this.props.draft.notes}
+                  noTray
+                />
+              </React-Fragment>
+            ) : (
+              ""
+            )}
+            {this.state.display === "gist" ? (
+              <React-Fragment>
+                <Gist
+                  gist={draft.gist}
+                  format={this.state.format}
+                  className="mt1"
+                />
               </React-Fragment>
             ) : (
               ""
@@ -240,14 +187,10 @@ class ModelEditContainer extends React.Component {
               ""
             )}
             {this.state.display === "update" ? (
-              <Update
-                field={this.state.update}
-                draft={draft}
+              <Field
+                {...this.state.data}
+                updateField={this.updateField}
                 updateDisplay={this.updateDisplay}
-                updateMetadata={this.updateMetadata}
-                preview={this.state.preview}
-                markdownPreview={this.markdownPreview}
-                markdown={this.state.markdownPreview}
               />
             ) : (
               ""
@@ -261,13 +204,19 @@ class ModelEditContainer extends React.Component {
             )}
           </Column>
           <Column narrow right>
-            <Sidebar
-              draft={draft}
-              updateDisplay={this.updateDisplay}
-              display={this.state.display}
-              removeDraft={this.removeDraft}
-              draftThis={this.draftThis}
-            />
+            <div className="stick">
+              <FieldDrawers
+                config={fields}
+                display={this.state.display}
+                updateDisplay={this.updateDisplay}
+                buttons={{
+                  draft: this.draftThis,
+                  share: () => this.updateDisplay("share"),
+                  gist: () => this.updateDisplay("gist"),
+                  remove: this.removeDraft
+                }}
+              />
+            </div>
           </Column>
         </TwoColumns>
       </div>

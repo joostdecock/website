@@ -14,11 +14,11 @@ const Drawer = props => (
   >
     <TrayTitle icon={props.icon}>
       {props.title}
-      <IconButton className="toggle expand" onClick={props.toggleOpen}>
-        <ExpandIcon className="toggle" />
+      <IconButton className="traytoggle expand" onClick={props.toggleOpen}>
+        <ExpandIcon className="traytoggle" />
       </IconButton>
-      <IconButton className="toggle collapse" onClick={props.toggleOpen}>
-        <CollapseIcon className="toggle" />
+      <IconButton className="traytoggle collapse" onClick={props.toggleOpen}>
+        <CollapseIcon className="traytoggle" />
       </IconButton>
     </TrayTitle>
     {props.open ? (

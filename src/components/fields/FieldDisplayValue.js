@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { distance } from "../../utils";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, FormattedRelative } from "react-intl";
 
 const FieldDisplayValue = props => {
   let { value, type, units } = props;
   if (typeof value === "undefined") return null;
   switch (type) {
+    case "button":
+      return null;
     case "distance":
       return (
         <span
@@ -34,6 +36,12 @@ const FieldDisplayValue = props => {
           <FormattedMessage id={id} />
         </span>
       );
+    case "timestamp":
+      return (
+        <span className="field-value">
+          <FormattedRelative value={value} />
+        </span>
+      );
     default:
       return <span className="field-value">{value}</span>;
   }
@@ -41,8 +49,7 @@ const FieldDisplayValue = props => {
 
 FieldDisplayValue.propTypes = {
   value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  units: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired
 };
 
 export default FieldDisplayValue;

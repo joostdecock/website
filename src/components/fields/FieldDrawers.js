@@ -40,6 +40,7 @@ class FieldDrawers extends React.Component {
                   units={this.props.units}
                   display={this.props.display}
                   updateDisplay={this.props.updateDisplay}
+                  buttons={this.props.buttons}
                 />
               </div>
             </Drawer>

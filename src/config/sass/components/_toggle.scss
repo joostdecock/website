@@ -1,13 +1,17 @@
 div.toggle-container > div {
   box-shadow: none;
   display: inline-block;
+  margin-bottom: -10px;
   button.toggle {
-    background: $bw9;
-    color: $bw1;
-    border: 1px solid $bw6;
+    background: $bw4;
+    color: $bw9;
+    @include title-font;
+    font-weight: bold;
+    padding: 7px 3px;
+    font-size: 0.8125rem;
+    min-height: 37px;
   }
   button.toggle.selected {
-    border: 1px solid $success;
     background: $success!important;
     color: $bw9!important;
   }
@@ -20,12 +24,8 @@ div.toggle-container > div {
 body.dark {
   div.toggle-container > div {
     button.toggle {
-      border: 1px solid $bw4;
-      background: $bw1;
-      color: $bw4;
-    }
-    button.toggle.selected {
-      border: 1px solid $success;
+      background: $bw5;
+      color: $bw1;
     }
   }
 }

@@ -54,20 +54,14 @@ class ModelContainer extends React.Component {
             { id: "app.fieldSaved" },
             { field: this.props.intl.formatMessage({ id: config.label }) }
           );
-          //if (field === "avatar") {
-          //  this.setState({
-          //    avatarUri:
-          //      res.data.account.pictureUris.xs + "?cachebust=" + Date.now()
-          //  });
-          //}
           this.props.showNotification("success", msg);
+          this.setState({ display: "model" });
         }
       })
       .catch(err => {
         console.log(err);
         this.props.showNotification("error", err);
       });
-    console.log("update field", key, value, config);
   };
 
   injectFieldValues = () => {
@@ -134,7 +128,6 @@ class ModelContainer extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.user,
-  models: state.models,
   notification: state.notification
 });
 
