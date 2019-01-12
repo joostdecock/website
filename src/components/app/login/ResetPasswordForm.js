@@ -7,7 +7,6 @@ import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { locLang } from "../../../utils";
 
 const ResetPasswordForm = ({
-  language,
   handleToggleTrouble,
   handlePasswordReset,
   intl,
@@ -29,20 +28,20 @@ const ResetPasswordForm = ({
           <FormattedMessage id="app.logIn" />
         </a>
         &nbsp;|&nbsp;
-        <Link to={locLang.set("/signup", language)}>
+        <Link to={locLang.set("/signup", intl.locale)}>
           <FormattedMessage id="app.signUpForAFreeAccount" />
         </Link>
         &nbsp;|&nbsp;
-        <Link to={locLang.set("/contact", language)}>
+        <Link to={locLang.set("/contact", intl.locale)}>
           <FormattedMessage id="app.contactUs" />
         </Link>
       </div>
     );
   return (
     <div>
-      <h2 className="txt-left">
+      <h5 className="txt-left">
         <FormattedMessage id="app.troubleLoggingIn" />
-      </h2>
+      </h5>
       <ul className="txt-left">
         <li>
           <FormattedHTMLMessage id="app.emailWorksToo" />
@@ -62,34 +61,33 @@ const ResetPasswordForm = ({
           margin="normal"
           variant="outlined"
         />
-        <Button
-          type="submit"
-          color="primary"
-          size="large"
-          variant="contained"
-          classes={{ root: "mt10" }}
-        >
-          <FormattedMessage id="app.resetPassword" />
-        </Button>
+        <div className="txt-center mt05">
+          <Button
+            type="submit"
+            color="primary"
+            size="large"
+            variant="contained"
+            classes={{ root: "mt10" }}
+          >
+            <FormattedMessage id="app.resetPassword" />
+          </Button>
+        </div>
       </form>
-      <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
-        <FormattedMessage id="app.logIn" />
-      </a>
-      &nbsp;|&nbsp;
-      <Link to={locLang.set("/signup", language)}>
-        <FormattedMessage id="app.signUpForAFreeAccount" />
-      </Link>
-      &nbsp;|&nbsp;
-      <Link to={locLang.set("/contact", language)}>
-        <FormattedMessage id="app.contactUs" />
-      </Link>
+      <div className="txt-center">
+        <a href="#trouble" className="mimic" onClick={handleToggleTrouble}>
+          <FormattedMessage id="app.logIn" />
+        </a>
+        &nbsp;|&nbsp;
+        <Link to={locLang.set("/contact", intl.locale)}>
+          <FormattedMessage id="app.contactUs" />
+        </Link>
+      </div>
     </div>
   );
 };
 
 ResetPasswordForm.propTypes = {
-  handleToggleTrouble: PropTypes.func.isRequired,
-  language: PropTypes.string.isRequired
+  handleToggleTrouble: PropTypes.func.isRequired
 };
 
 export default ResetPasswordForm;

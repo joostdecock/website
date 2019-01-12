@@ -29,7 +29,7 @@ class DistanceField extends React.PureComponent {
     let { item, config, intl, units } = this.props;
     let { value, realValue } = this.state;
     return (
-      <React-Fragment>
+      <React.Fragment>
         <TextField
           autoFocus={true}
           id={item}
@@ -61,7 +61,7 @@ class DistanceField extends React.PureComponent {
           updateDisplay={this.props.updateDisplay}
           updateField={this.props.updateField}
         />
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

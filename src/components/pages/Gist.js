@@ -6,7 +6,7 @@ import Spinner from "../Spinner";
 import Breadcrumbs from "../Breadcrumbs";
 import { FormattedMessage } from "react-intl";
 import GistContainer from "../app/showdraft/ViewContainer";
-import backend from "../../backend";
+import backend from "../../apis/backend";
 import remark from "remark";
 import html from "remark-html";
 

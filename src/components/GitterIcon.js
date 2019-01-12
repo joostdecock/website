@@ -4,14 +4,7 @@ import Icon from "./Icon";
 import { gitter } from "../data/icons";
 
 const GitterIcon = props => {
-  return (
-    <Icon
-      width={props.size}
-      height={props.size}
-      viewBox={props.viewBox}
-      pathString={gitter}
-    />
-  );
+  return <Icon size={props.size} viewBox={props.viewBox} pathString={gitter} />;
 };
 
 GitterIcon.propTypes = {

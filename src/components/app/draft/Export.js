@@ -14,7 +14,7 @@ import { capitalize } from "../../../utils";
 import prism from "prismjs";
 import Center from "../../Center";
 import Spinner from "../../Spinner";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import BecomeAPatron from "../../patrons/BecomeAPatron";
 
 class Export extends React.Component {

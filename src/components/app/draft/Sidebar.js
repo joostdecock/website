@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
       updateDisplay: this.props.methods.updateDisplay
     };
     return (
-      <React-Fragment>
+      <React.Fragment>
         <Drawer
           icon={<OptionsIcon />}
           title={<FormattedMessage id="app.patternOptions" />}
@@ -99,7 +99,7 @@ class Sidebar extends React.Component {
             />
           </div>
         </Drawer>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

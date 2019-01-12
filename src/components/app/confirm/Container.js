@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import LoadingMessage from "./LoadingMessage";
 import FailureMessage from "./FailureMessage";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import ProfileConsent from "../../ProfileConsent";
 import { injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";

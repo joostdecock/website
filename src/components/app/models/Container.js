@@ -20,7 +20,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/PersonAdd";
 import Button from "@material-ui/core/Button";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import {
   showNotification,
   closeNotification

@@ -78,7 +78,7 @@ class ImageField extends React.PureComponent {
       );
       const imgRef = React.createRef();
       return (
-        <React-Fragment>
+        <React.Fragment>
           <input type="hidden" id="avatar" name="avatar" value={imgRef} />
           <div ref={imgRef} style={previewStyle} />
           <FieldButtons
@@ -88,12 +88,12 @@ class ImageField extends React.PureComponent {
             updateDisplay={this.props.updateDisplay}
             updateField={this.handleAvatarSave}
           />
-        </React-Fragment>
+        </React.Fragment>
       );
     }
 
     return (
-      <React-Fragment>
+      <React.Fragment>
         <Dropzone
           ref={dropzoneRef}
           onDrop={handleAvatarDrop}
@@ -120,7 +120,7 @@ class ImageField extends React.PureComponent {
             </Button>
           </p>
         </Dropzone>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

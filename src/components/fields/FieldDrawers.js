@@ -21,7 +21,7 @@ class FieldDrawers extends React.Component {
 
   render() {
     return (
-      <React-Fragment>
+      <React.Fragment>
         {Object.keys(this.props.config).map(key => {
           let conf = this.props.config[key];
           return (
@@ -46,7 +46,7 @@ class FieldDrawers extends React.Component {
             </Drawer>
           );
         })}
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

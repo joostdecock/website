@@ -21,7 +21,7 @@ class EmailField extends React.PureComponent {
     let { item, config, intl } = this.props;
     let { value } = this.state;
     return (
-      <React-Fragment>
+      <React.Fragment>
         <TextField
           autoFocus={true}
           id={item}
@@ -43,7 +43,7 @@ class EmailField extends React.PureComponent {
         <blockquote className="mt1">
           <FormattedMessage id="account.emailInfo" />
         </blockquote>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

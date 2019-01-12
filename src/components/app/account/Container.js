@@ -6,7 +6,7 @@ import {
   showNotification,
   closeNotification
 } from "../../../store/actions/notification";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
@@ -26,10 +26,19 @@ class AccountContainer extends React.Component {
     for (let m of Object.keys(fields.account.items)) {
       if (typeof fields.account.items[m].sub === "string") {
         let sub = fields.account.items[m].sub;
-        fields.account.items[m].value = user[sub][m];
-      } else fields.account.items[m].value = user[m];
+        if (
+          typeof user[sub] === "undefined" ||
+          typeof user[sub][m] === "undefined"
+        )
+          fields.account.items[m].value = null;
+        else fields.account.items[m].value = user[sub][m];
+      } else {
+        if (typeof user[m] === "undefined")
+          fields.account.items[m].value = null;
+        else fields.account.items[m].value = user[m];
+      }
     }
-    fields.account.items.avatar.value = user.pictureUris.xs;
+    fields.account.items.picture.value = user.pictureUris.xs;
 
     return fields;
   };
@@ -72,7 +81,7 @@ class AccountContainer extends React.Component {
   render() {
     let fields = this.injectFieldValues();
     return (
-      <React-Fragment>
+      <React.Fragment>
         <Breadcrumbs>
           <FormattedMessage id="app.settings" />
         </Breadcrumbs>
@@ -108,7 +117,7 @@ class AccountContainer extends React.Component {
             </div>
           </Column>
         </TwoColumns>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

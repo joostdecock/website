@@ -1,21 +1,20 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import Column from "../Column";
-import TwoColumns from "../TwoColumns";
-import FieldDrawers from "../fields/FieldDrawers";
-import { modelFields } from "../../config/fields";
+import Center from "../Center";
+import PasswordSignup from "../app/auth/providers/PasswordSignup";
+import SignupProviders from "../app/auth/providers/Container";
 
 class Test extends React.Component {
   render() {
     return (
       <BaseLayout>
-        <h1>test page</h1>
-        <TwoColumns wrapReverse={true}>
-          <Column wide />
-          <Column narrow right>
-            <FieldDrawers config={modelFields} methods={{}} />
-          </Column>
-        </TwoColumns>
+        <Center>
+          <h1>Signup test page</h1>
+          <PasswordSignup />
+          <div className="mt2">
+            <SignupProviders />
+          </div>
+        </Center>
       </BaseLayout>
     );
   }

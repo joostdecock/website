@@ -21,7 +21,7 @@ import { setDrafts } from "../../store/actions/drafts";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
-import backend from "../../backend";
+import backend from "../../apis/backend";
 import LocationProvider from "../LocationProvider";
 // eslint-disable-next-line
 import titleFont from "typeface-roboto-condensed";

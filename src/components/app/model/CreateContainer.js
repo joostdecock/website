@@ -6,7 +6,7 @@ import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import Button from "@material-ui/core/Button";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import {
   showNotification,
   closeNotification

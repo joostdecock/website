@@ -66,20 +66,20 @@ class GistViewContainer extends React.Component {
             ""
           )}
           {this.state.display === "gist" ? (
-            <React-Fragment>
+            <React.Fragment>
               <Gist gist={this.props.gist} />
               {back}
-            </React-Fragment>
+            </React.Fragment>
           ) : (
             ""
           )}
           {this.state.display === "share" ? (
-            <React-Fragment>
+            <React.Fragment>
               <ShareLink
                 link={"/gist/" + this.props.handle}
                 language={this.props.language}
               />
-            </React-Fragment>
+            </React.Fragment>
           ) : (
             ""
           )}

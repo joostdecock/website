@@ -1,6 +1,6 @@
 import axios from "axios";
-import config from "./config/backend";
-import { retrieveToken } from "./utils";
+import config from "../config/backend";
+import { retrieveToken } from "../utils";
 const backend = {};
 
 // Configure Axios /////////////////////////////////
@@ -15,6 +15,10 @@ const auth = (token = retrieveToken()) => ({
 });
 
 // Non-authenticated calls /////////////////////////
+
+backend.initOauth = data => api.post("/oauth/init", data); // Init Oauth (to get state)
+
+backend.providerLogin = data => api.post("/oauth/login", data); // Finalize Oauth login
 
 backend.signup = (email, password, language) =>
   api.post("/signup", { email, password, language }); // Signup

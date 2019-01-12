@@ -20,7 +20,7 @@ class TextField extends React.PureComponent {
     let { item, config, intl } = this.props;
     let { value } = this.state;
     return (
-      <React-Fragment>
+      <React.Fragment>
         <TextFieldMui
           autoFocus={true}
           id={item}
@@ -39,7 +39,7 @@ class TextField extends React.PureComponent {
           updateDisplay={this.props.updateDisplay}
           updateField={this.props.updateField}
         />
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Center = ({ children }) => {
+const Center = ({ children, maxWidth }) => {
   const style = {
     wrapper: {
       display: "flex",
@@ -11,6 +11,7 @@ const Center = ({ children }) => {
       flex: 1
     }
   };
+  if (typeof maxWidth === "number") style.content.maxWidth = maxWidth;
   return (
     <div style={style.wrapper}>
       <div style={style.content}>{children}</div>

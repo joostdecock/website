@@ -63,7 +63,7 @@ class Gist extends React.Component {
     else code = YAML.stringify(this.props.gist);
 
     return (
-      <React-Fragment>
+      <React.Fragment>
         <Buttonbar reverse className="mb05">
           <Button color="primary" onClick={this.gistToClipboard}>
             <FormattedMessage id="app.copy" />
@@ -104,7 +104,7 @@ class Gist extends React.Component {
             {code}
           </div>
         </div>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

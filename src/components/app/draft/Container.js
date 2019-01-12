@@ -14,7 +14,7 @@ import OptionDocs from "./options/Docs";
 import Gist from "./Gist";
 import Export from "./Export";
 import Sidebar from "./Sidebar";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { navigate } from "gatsby";
 
 class DraftContainer extends React.Component {

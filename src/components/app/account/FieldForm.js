@@ -8,7 +8,7 @@ import InvalidIcon from "@material-ui/icons/Warning";
 import { locLang } from "../../../utils";
 import remark from "remark";
 import html from "remark-html";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { validateEmail, validateTld } from "../../../utils";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";

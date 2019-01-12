@@ -46,7 +46,7 @@ class MarkdownField extends React.PureComponent {
     let { item, config, intl } = this.props;
     let { value } = this.state;
     return (
-      <React-Fragment>
+      <React.Fragment>
         {this.state.preview ? (
           <div className="notes">
             <div className="filename">
@@ -98,7 +98,7 @@ class MarkdownField extends React.PureComponent {
             </ToggleButtonGroup>
           </div>
         </Buttonbar>
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

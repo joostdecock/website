@@ -20,7 +20,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/NoteAdd";
 import Fab from "@material-ui/core/Fab";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { showNotification } from "../../../store/actions/notification";
 
 class DraftsContainer extends React.Component {

@@ -8,7 +8,7 @@ import {
 import { setModels } from "../../../store/actions/models";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { scrollToTop } from "../../../utils";
 //import MeasurementImages from "../../MeasurementImages";
 //import LanguageNotAvailable from "../../LanguageNotAvailable";

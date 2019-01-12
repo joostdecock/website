@@ -7,7 +7,7 @@ import { setGist } from "../../../store/actions/gist";
 import Breadcrumbs from "../../Breadcrumbs";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { locLang } from "../../../utils";
 import { navigate } from "gatsby";
 import Center from "../../Center";
@@ -138,30 +138,30 @@ class ModelEditContainer extends React.Component {
         <TwoColumns>
           <Column wide>
             {this.state.display === "draft" ? (
-              <React-Fragment>
+              <React.Fragment>
                 <Notes
                   markdown={this.props.draft.notes}
                   key={this.props.draft.notes}
                   noTray
                 />
-              </React-Fragment>
+              </React.Fragment>
             ) : (
               ""
             )}
             {this.state.display === "gist" ? (
-              <React-Fragment>
+              <React.Fragment>
                 <Gist
                   gist={draft.gist}
                   format={this.state.format}
                   className="mt1"
                 />
-              </React-Fragment>
+              </React.Fragment>
             ) : (
               ""
             )}
             {this.state.display === "docs" ? <p>Show docs here</p> : ""}
             {this.state.display === "share" ? (
-              <React-Fragment>
+              <React.Fragment>
                 <ShareLink
                   link={"/gist/" + draft.handle}
                   language={this.props.language}
@@ -175,7 +175,7 @@ class ModelEditContainer extends React.Component {
                     <FormattedMessage id="app.back" />
                   </Button>
                 </div>
-              </React-Fragment>
+              </React.Fragment>
             ) : (
               ""
             )}

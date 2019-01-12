@@ -25,7 +25,7 @@ class ActionContainer extends React.Component {
 
   listHeading(key, group) {
     return (
-      <React-Fragment key={"frag-" + key}>
+      <React.Fragment key={"frag-" + key}>
         <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
           <ListItemIcon>{group.icon}</ListItemIcon>
           <ListItemText inset>
@@ -44,7 +44,7 @@ class ActionContainer extends React.Component {
           </ListItemSecondaryAction>
         </ListItem>
         {this.content(key)}
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 

@@ -1,27 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "./Icon";
-import { github } from "../data/icons";
+import { google } from "../data/icons";
 
-const GithubIcon = props => {
+const GoogleIcon = props => {
   return (
     <Icon
       size={props.size}
       viewBox={props.viewBox}
-      pathString={github}
+      pathString={google}
       className={props.className}
     />
   );
 };
 
-GithubIcon.propTypes = {
+GoogleIcon.propTypes = {
   size: PropTypes.number,
   viewBox: PropTypes.string
 };
 
-GithubIcon.defaultProps = {
+GoogleIcon.defaultProps = {
   size: 24,
-  viewBox: "0 0 24 24"
+  viewBox: "0 0 24 24",
+  className: ""
 };
 
-export default GithubIcon;
+export default GoogleIcon;

@@ -30,7 +30,7 @@ class RadioField extends React.PureComponent {
     let { value } = this.state;
 
     return (
-      <React-Fragment>
+      <React.Fragment>
         <RadioGroup
           name={item}
           onChange={this.handleValueUpdate}
@@ -52,7 +52,7 @@ class RadioField extends React.PureComponent {
           updateDisplay={this.props.updateDisplay}
           updateField={this.props.updateField}
         />
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

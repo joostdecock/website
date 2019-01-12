@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Button from "@material-ui/core/Button";
-import backend from "../../../../backend";
+import backend from "../../../../apis/backend";
 import { locLang, clearToken, capitalize } from "../../../../utils";
 import { setUserAccount } from "../../../../store/actions/user";
 import { Link } from "gatsby";

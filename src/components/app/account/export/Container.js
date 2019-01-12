@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Button from "@material-ui/core/Button";
-import backend from "../../../../backend";
+import backend from "../../../../apis/backend";
 import ExportIcon from "@material-ui/icons/CloudDownload";
 import ButtonSpinner from "../../../ButtonSpinner";
 import Breadcrumbs from "../../../Breadcrumbs";

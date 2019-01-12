@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import backend from "../../backend";
+import backend from "../../apis/backend";
 import UserProfile from "../UserProfile";
 import Breadcrumbs from "../Breadcrumbs";
 import { FormattedMessage } from "react-intl";

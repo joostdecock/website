@@ -65,7 +65,7 @@ class ExportPicker extends React.Component {
               );
           });
           return (
-            <React-Fragment key={"frag-" + key}>
+            <React.Fragment key={"frag-" + key}>
               <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
                 <ListItemIcon>
                   {this.state.expanded === key ? (
@@ -86,7 +86,7 @@ class ExportPicker extends React.Component {
               >
                 {sub}
               </Collapse>
-            </React-Fragment>
+            </React.Fragment>
           );
         })}
       </React.Fragment>

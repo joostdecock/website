@@ -5,7 +5,7 @@ import FieldButtons from "./FieldButtons";
 import ValidIcon from "@material-ui/icons/CheckCircle";
 import InvalidIcon from "@material-ui/icons/Warning";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import backend from "../../backend";
+import backend from "../../apis/backend";
 
 class UsernameField extends React.PureComponent {
   state = {
@@ -31,7 +31,7 @@ class UsernameField extends React.PureComponent {
     let { item, config, intl } = this.props;
     let { value } = this.state;
     return (
-      <React-Fragment>
+      <React.Fragment>
         <TextField
           autoFocus={true}
           id={item}
@@ -61,7 +61,7 @@ class UsernameField extends React.PureComponent {
           updateDisplay={this.props.updateDisplay}
           updateField={this.props.updateField}
         />
-      </React-Fragment>
+      </React.Fragment>
     );
   }
 }

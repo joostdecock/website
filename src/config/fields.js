@@ -231,7 +231,7 @@ export const accountFields = {
         label: "account.bio",
         icon: <NotesIcon />
       },
-      avatar: {
+      picture: {
         type: "image",
         label: "account.avatar",
         icon: <ImageIcon />

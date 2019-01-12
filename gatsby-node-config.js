@@ -133,6 +133,10 @@ exports.jsPages = [
     nakedPath: "/drafts/:draft",
     template: path.resolve("src/components/pages/Draft.js"),
     includeMarkdown: ["markdownHelp"]
+  },
+  {
+    nakedPath: "/login/callback/:confirmation/:validation",
+    template: path.resolve("src/components/pages/LoginCallback.js")
   }
 ];
 

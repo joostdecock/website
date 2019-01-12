@@ -6,7 +6,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const ItemButtons = props => {
   return (
-    <React-Fragment>
+    <React.Fragment>
       <div className="p1 txt-right">
         <Button
           className="mr05"
@@ -32,7 +32,7 @@ const ItemButtons = props => {
           <FormattedMessage id="app.update" />
         </Button>
       </div>
-    </React-Fragment>
+    </React.Fragment>
   );
 };
 

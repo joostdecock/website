@@ -51,13 +51,13 @@ const Field = props => {
     </small>
   );
   return (
-    <React-Fragment>
+    <React.Fragment>
       <h5>
         <FormattedMessage id={props.config.label} />
         {props.config.type === "markdown" ? mdNote : ""}
       </h5>
       {field}
-    </React-Fragment>
+    </React.Fragment>
   );
 };
 

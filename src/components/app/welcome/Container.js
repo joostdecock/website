@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
-import backend from "../../../backend";
+import backend from "../../../apis/backend";
 import { injectIntl, FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
 import {
