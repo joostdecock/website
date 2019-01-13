@@ -1,5 +1,4 @@
 import React from "react";
-import Center from "../../Center";
 import PasswordSignup from "../auth/providers/PasswordSignup";
 import SignupProviders from "../auth/providers/Container";
 

@@ -11,11 +11,10 @@ import {
   closeNotification
 } from "../../../../store/actions/notification";
 import { navigate } from "gatsby";
-import { saveToken, locLang } from "../../../../utils";
+import { saveToken } from "../../../../utils";
 import TextField from "@material-ui/core/TextField";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import Button from "@material-ui/core/Button";
-import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
 import ButtonSpinner from "../../../ButtonSpinner";
 

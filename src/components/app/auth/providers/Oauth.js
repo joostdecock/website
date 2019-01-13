@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import backend from "../../../../apis/backend";
 import authConfig from "../../../../config/auth";
 import Button from "@material-ui/core/Button";
@@ -17,7 +17,6 @@ class Oauth extends React.Component {
 
   login = () => {
     this.setState({ loading: true });
-    console.log("login triggered");
     if (typeof this.props.language === "undefined") {
       console.log("langauge is undefined", this.props);
       return false;
