@@ -2,7 +2,7 @@ const draftOptions = {};
 
 draftOptions.groups = {
   preferences: ["sa", "paperless"],
-  advanced: ["only", "complete", "margin", "units", "locale"]
+  advanced: ["only", "complete", "margin", "units", "locale", "layout"]
 };
 
 draftOptions.config = {
@@ -12,7 +12,8 @@ draftOptions.config = {
   margin: { mm: 2, min: 0, max: 25 },
   units: null,
   locale: null,
-  complete: null
+  complete: null,
+  layout: null
 };
 
 export default draftOptions;

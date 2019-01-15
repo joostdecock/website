@@ -56,7 +56,7 @@ class LoginContainer extends React.Component {
           this.props.setDrafts(res.data.drafts);
           saveToken(res.data.token);
           this.stopLoading();
-          navigate("/" + this.props.language);
+          navigate("/" + this.props.intl.locale);
         }
       })
       .catch(err => {

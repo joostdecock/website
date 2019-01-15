@@ -108,6 +108,7 @@ body.dark .shadow1 { @include shadow-dark; }
 .display-block { display: block!important; }
 .hidden {display: none!important;}
 .semi-transparent {opacity: 0.6;}
+.rotate90 { transform: rotate(90deg);}
 .copy-this {
   white-space: pre;
   font-size: 125%;

@@ -5,6 +5,7 @@ import SliderOption from "./Slider";
 import SeamAllowanceOption from "./SeamAllowance";
 import OnlyOption from "./Only";
 import BoolOption from "./Bool";
+import LayoutOption from "./Layout";
 import ListOption from "./List";
 import i18nConfig from "../../../../config/i18n";
 
@@ -22,6 +23,17 @@ const OptionContainer = props => {
     case "complete":
       return (
         <BoolOption
+          {...optionBaseProps}
+          value={props.value === true ? "true" : "false"}
+          desc={intl.formatMessage({
+            id: "settings." + props.option + ".description"
+          })}
+          dflt={props.dflt}
+        />
+      );
+    case "layout":
+      return (
+        <LayoutOption
           {...optionBaseProps}
           value={props.value === true ? "true" : "false"}
           desc={intl.formatMessage({

@@ -9,8 +9,10 @@ import { FormattedMessage } from "react-intl";
 import { locLang, capitalize } from "../../utils";
 import Center from "../Center";
 import Spinner from "../Spinner";
+import { patternInfo } from "@freesewing/patterns";
 
 const Draft = props => {
+  console.log("patternInfo", patternInfo);
   let model = props["*"].split("/").pop();
   let pattern = props["*"].split("/")[2];
   if (!props.models)
@@ -24,6 +26,14 @@ const Draft = props => {
       </BaseLayout>
     );
 
+  const requiredMeasurements = model => {
+    let measurements = {};
+    for (let m of patternInfo[pattern].measurements)
+      measurements[m] = model.measurements[m];
+
+    return measurements;
+  };
+
   model = props.models[model];
   if (props.user) {
     props.setGist({
@@ -36,7 +46,7 @@ const Draft = props => {
         locale: props.pageContext.language,
         units: props.user.settings.units,
         margin: props.user.settings.units === "imperial" ? 2.38125 : 2,
-        measurements: model.measurements,
+        measurements: requiredMeasurements(model),
         options: {}
       }
     });

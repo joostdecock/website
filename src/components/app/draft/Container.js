@@ -16,6 +16,7 @@ import Export from "./Export";
 import Sidebar from "./Sidebar";
 import backend from "../../../apis/backend";
 import { navigate } from "gatsby";
+import LayoutBuilder from "./LayoutBuilder";
 
 class DraftContainer extends React.Component {
   state = {
@@ -27,7 +28,8 @@ class DraftContainer extends React.Component {
       paperless: false,
       locale: this.props.language,
       units: this.props.user.settings.units,
-      margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2
+      margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2,
+      auto: true
     },
     display: "draft",
     docs: false,
@@ -145,6 +147,15 @@ class DraftContainer extends React.Component {
       );
     else if (this.state.display === "draft") {
       main = <DraftPreview gist={this.state.gist} />;
+    } else if (this.state.display === "layout") {
+      main = (
+        <LayoutBuilder
+          gist={this.state.gist}
+          intl={this.props.intl}
+          units={this.props.user.settings.units}
+          updateSetting={this.updateSetting}
+        />
+      );
     }
     return (
       <TwoColumns wrapReverse={true}>

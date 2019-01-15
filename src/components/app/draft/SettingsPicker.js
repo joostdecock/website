@@ -128,6 +128,17 @@ class SettingsPicker extends React.Component {
                   />
                 );
               break;
+            case "layout":
+              dfltVal = true;
+              displayVal = (
+                <FormattedMessage
+                  id={
+                    "app." +
+                    (typeof optVal === "object" ? "manual" : "automatic")
+                  }
+                />
+              );
+              break;
             default:
               break;
           }
