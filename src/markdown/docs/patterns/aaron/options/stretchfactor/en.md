@@ -4,8 +4,11 @@ path: /en/docs/patterns/aaron/options/stretchfactor
 pattern: aaron
 option: stretchFactor
 ---
+![The stretch factor option on Aaron](./stretchfactor.svg)
+
 How much does your fabric stretch?  Choose 0% if your fabric does not stretch.
 
-> #### This option does only impact stretch one-way (horizontal).
+> ##### This option does only impact stretch one-way (horizontal).
 >
-> Four-way stretch is not really a concern for this top, but if you want you can play with the <b>lenght bonus</b> option.
+> Four-way stretch is not really a concern for this top, but if you want you can play 
+> with the [length bonus](../lengthbonus) option.

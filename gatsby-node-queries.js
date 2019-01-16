@@ -146,6 +146,10 @@ const allDocumentation = `{
         frontmatter {
           path
           title
+          measurement
+          patternOptions
+          pattern
+          option
         }
       }
     }

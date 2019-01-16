@@ -183,7 +183,6 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
   for (let lang of config.languages) {
     for (nakedPath of Object.keys(pages[lang])) {
       let page = pages[lang][nakedPath];
-      // Add measurement name to frontmatter
       if (
         nakedPath.substring(0, prefix.measurements.length) ===
         prefix.measurements
