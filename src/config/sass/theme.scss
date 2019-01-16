@@ -1,23 +1,47 @@
 $primary: #111;
 $secondary: #ffffff;
-$link: #2979ff;
 $black: #000;
 $white: #fff;
-$grey: #ccc;
-$pink: #ff5b77;
-$success: #1faa00;
-$warning: #ff8100;
-$danger: #d50000;
 
-body,
-body.light {
-  background-color: $secondary;
-}
-div.fs-base {
-  margin-top: 64px;
-}
+$bw0: #000000;
+$bw1: #111111;
+$bw2: #1D1F21;
+$bw3: #5A5A5A;
+$bw4: #828282;
+$bw5: #B4B4B4;
+$bw6: #DCDCDC;
+$bw7: #F3F5F7;
+$bw8: #F8F8F8;
+$bw9: #FFFFFF;
+$link: #2979FF;
+$linkFaded: #69a1FF;
+$linkWhite: #D9E7FF;
+$linkBlack: #00183F;
+$success: #1FAA00;
+$successFaded: #71E157;
+$successWhite: #E0FFD9;
+$successBlack: #093300;
+$warning: #FF8100;
+$warningFaded: #FFB569;
+$warningWhite: #FFECD9;
+$warningBlack: #412100;
+$danger: #D50000;
+$dangerFaded: #FF5B5B;
+$dangerWhite: #FFD9D9;
+$dangerBlack: #540000;
+$accent: #7E4CCB;
+$accentFaded: #AD8DDE;
+$accentWhite: #EAE2F6;
+$accentBlack: #291548;
+
+$textfont: "Domine", "serif";
+$titlefont: "Roboto Condensed", "sans-serif";
+
+body, body.light { background-color: $secondary; }
+div.fs-base { margin-top: 64px; }
 
 @import 'mixins';
+@import 'resetreset';
 
 @import 'typography';
 @import 'elements';
@@ -28,3 +52,4 @@ div.fs-base {
 @import 'dark';
 @import 'utility';
 
+@import 'prism';

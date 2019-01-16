@@ -1,7 +1,6 @@
 ---
 title: Natural waist to underbust
 path: /en/docs/measurements/naturalwaisttounderbust
-measurement: naturalWaistToUnderbust
 ---
 
 The **natural waist to underbust** is the measurement from your natural waist up towards your underbust link (where your bra band sits).

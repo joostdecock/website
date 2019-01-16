@@ -1,0 +1,66 @@
+.unforced.tray,
+.load-expanded.force-collapsed.tray,
+.force-collapsed.tray {
+  @include tray-collapsed;
+}
+
+.load-expanded.tray,
+.always-expanded.tray,
+.force-expanded.tray {
+  @include tray-expanded;
+}
+
+.always-expanded.tray {
+  button.traytoggle { display: none!important; }
+}
+
+.tray.success { @include tray-color-expanded($success) }
+.tray.warning { @include tray-color-expanded($warning) }
+.tray.danger  { @include tray-color-expanded($danger) }
+.tray.accent  { @include tray-color-expanded($accent) }
+.tray.link  { @include tray-color-expanded($link) }
+
+body.dark {
+  .tray {
+    border-top-color: $bw6;
+    h3.tray-title span.tray-title-icon svg { background: $bw1; }
+    button.traytoggle:hover { color: $secondary; }
+    .tray-footer {
+      background: $bw2;
+      a { color: $bw8; }
+    }
+  }
+  .always-expanded.tray,
+  .force-expanded.tray {
+    .tray-title {
+      .tray-title-icon svg { background-color: $bw2; }
+    }
+  }
+  .tray.success { @include tray-color-expanded($success) }
+  .tray.warning { @include tray-color-expanded($warning) }
+  .tray.danger  { @include tray-color-expanded($danger) }
+  .tray.accent  { @include tray-color-expanded($accent) }
+  .tray.link  { @include tray-color-expanded($link) }
+}
+
+@include md-screen {
+  .unforced.tray,
+  .always-expaded.tray,
+  .force-expaded.tray {
+    @include tray-expanded;
+  }
+  .unforced.load-collapsed.tray {
+    @include tray-collapsed;
+  }
+  .force-expaded.tray.load-collapsed {
+    @include tray-expanded;
+  }
+}
+
+h3.tray-title {
+  font-weight: bold;
+}
+h3.tray-title button.traytoggle span {
+  justify-content: flex-end;
+  margin-top: -13px;
+}

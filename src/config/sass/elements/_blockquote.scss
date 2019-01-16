@@ -1,9 +1,34 @@
-blockquote {
-  font-size: 1.2rem;
-  padding: 1rem;
-  line-height: 1.5;
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+
+@include xs-screen {
+  body.light blockquote,
+  body.dark blockquote {
+    margin: 1rem -1rem;
+    background: $bw7;
+    border: 0;
+    color: $bw0;
+  }
+  body.dark blockquote {
+    background: $bw2;
+    border: 0;
+    color: hsla(0, 0%, 100%, 0.8);
+    a { color: $linkFaded; }
+  }
 }
 
-blockquote > :last-child {
-  margin-bottom: 0;
+@include sm-screen {
+  body.light blockquote,
+  body.dark blockquote {
+    margin: 1rem 0;
+    background: $bw7;
+    border-left: .5rem solid $bw2;
+    color: $bw0;
+  }
+  body.dark blockquote {
+    background: $bw2;
+    border-left: .5rem solid $bw3;
+    color: hsla(0, 0%, 100%, 0.8);
+    a { color: $linkFaded; }
+  }
 }

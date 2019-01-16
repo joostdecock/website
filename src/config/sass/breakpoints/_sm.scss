@@ -1,8 +1,16 @@
 @include sm-screen {
+  .not-on-md,
   .not-on-mobile {
     display: none!important;
   }
   .only-on-mobile {
     display: inherit!important;
   }
+  .wrap {
+    padding: 0 2rem;
+  }
+  .pl1nxs {
+    padding-left: 1rem;
+  }
 }
+

@@ -1,7 +1,6 @@
 ---
 title: Shoulder slope
 path: /en/docs/measurements/shoulderslope
-measurement: shoulderSlope
 ---
 
 The **shoulder slope** measurement is an indicator for the amount with which your shoulder slopes downward. 

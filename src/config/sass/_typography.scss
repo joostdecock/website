@@ -1,12 +1,23 @@
-@import 'typography/header';
-@import 'typography/paragraph';
+body { @include body-font; }
 
-.txt-center {
-  text-align: center;
+button,
+nav.breadcrumbs {
+  @include title-font;
+  font-weight: 600;
 }
-.txt-left {
-  text-align: left;
+.title-font {
+  @include title-font;
 }
-.txt-right {
-  text-align: right;
+h1, h2, h3, h4, h5, h6 { color: $bw1;}
+body.dark {
+  h1, h2, h3, h4, h5, h6 { color: $bw9;}
 }
+h1.light,
+h2.light,
+h3.light,
+h4.light,
+h5.light,
+h6.light {
+  font-weight: 200;
+}
+

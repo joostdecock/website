@@ -1,0 +1,53 @@
+.slide {
+  @include shadow;
+  border-radius: 3px;
+}
+.slide-card {
+  height: 220px;
+  width: 160px!important;
+  background: $bw1;
+  position: relative;
+  padding: 0 0.5rem;
+  padding-top: 40%;
+  margin: 0 8px;
+  a { color: $bw6; }
+  a:hover { color: $secondary; }
+}
+.slick-chip { margin: 0 3px 0.5rem 0; }
+body.dark {
+  .slide {
+    @include shadow-dark;
+  }
+  .slick-dots li button::before {
+    color: $bw7;
+  }
+}
+.slick-slider {
+  height: 345px;
+  overflow: hidden;
+}
+.slick-slide div.teaser div.title p {
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
+body.dark .slick-slide div.teaser div.title p {
+  color: $bw7;
+}
+
+@include xs-screen {
+.slick-dots,
+.slick-arrow {
+  display: none!important;
+}
+}
+@include md-screen {
+  .slick-dots,
+  .slick-arrow {
+    display: block!important;
+  }
+  .slick-slider {
+    height: auto;
+    overflow: inherit;
+  }
+}
+

@@ -1,7 +1,6 @@
 ---
 title: Chest circumference
 path: /en/docs/measurements/chestcircumference 
-measurement: chestCircumference
 ---
 
 The **chest circumference** measurement wraps around the fullest part of your chest.

@@ -1,16 +1,11 @@
 a {
   color: $link;
-}
-
-/** Mark anchor links by preventing text decoration */
-a[href*=\#]:not([href$=\#]) {
   text-decoration: none;
 }
+a:hover { text-decoration: underline;  }
 
-/** Yet allow to disable this with the mimic class */
-a.mimic[href*=\#]:not([href$=\#]) {
-  text-decoration: underline;
-}
+body.dark a { color: $linkFaded; }
+body.dark a:hover { color: $successFaded; }
 
 /** Prevent anchor position from going under static header */
 :target:before {
@@ -39,5 +34,20 @@ a.menu {
   .menu-icon,
   svg.language-icon {
     padding-right: 15px;
+  }
+}
+
+a.button {
+
+}
+a.button:hover {
+  text-decoration: none;
+}
+a.button > li:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+body.dark {
+  a.button > li:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 }

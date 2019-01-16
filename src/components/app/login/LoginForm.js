@@ -5,7 +5,7 @@ import LoginIcon from "@material-ui/icons/VpnKey";
 import Button from "@material-ui/core/Button";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
-import { slugForLanguage } from "../../../utils";
+import { locLang } from "../../../utils";
 import ButtonSpinner from "../../ButtonSpinner";
 
 const LoginForm = ({
@@ -30,7 +30,7 @@ const LoginForm = ({
           autoFocus={true}
           fullWidth={true}
           autoComplete="username"
-          label={intl.formatMessage({ id: "app.username" })}
+          label={intl.formatMessage({ id: "account.username" })}
           margin="normal"
           variant="outlined"
           value={username}
@@ -41,7 +41,7 @@ const LoginForm = ({
           fullWidth={true}
           type="password"
           autoComplete="password"
-          label={intl.formatMessage({ id: "app.password" })}
+          label={intl.formatMessage({ id: "account.password" })}
           margin="normal"
           variant="outlined"
           value={password}
@@ -66,7 +66,7 @@ const LoginForm = ({
         <FormattedMessage id="app.troubleLoggingIn" />
       </a>
       &nbsp;|&nbsp;
-      <Link to={slugForLanguage("/signup", language)}>
+      <Link to={locLang.set("/signup", language)}>
         <FormattedMessage id="app.signUpForAFreeAccount" />
       </Link>
     </div>

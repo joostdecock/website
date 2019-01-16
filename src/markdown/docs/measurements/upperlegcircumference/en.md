@@ -1,7 +1,6 @@
 ---
 title: Upper leg circumference
 path: /en/docs/measurements/upperlegcircumference
-measurement: upperLegCircumference
 ---
 
 The **upper leg circumference** is the measurement around your leg, all the way at the top of your leg, at your crotch.

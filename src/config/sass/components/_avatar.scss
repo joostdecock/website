@@ -1,0 +1,8 @@
+img.avatar {
+  margin: 0;
+  border: 2px solid $primary;
+}
+body.dark img.avatar {
+  border: 2px solid $secondary;
+}
+

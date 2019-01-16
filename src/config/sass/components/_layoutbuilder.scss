@@ -1,0 +1,65 @@
+div.freesewing.draft.layout {
+
+  svg {
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+
+    rect.part-boundary {
+      stroke: rgba(0,0,0,0.3);
+      stroke-width: 0;
+      stroke-dasharray: 3 3;
+      fill: white;
+      fill-opacity: 0;
+    }
+    rect.part-boundary:hover {
+      stroke-width: 1;
+    }
+    .layout.part:hover {
+      cursor: pointer;
+      path.fabric {
+        fill: black;
+        fill-opacity: 0.03;
+      }
+    }
+    .layout.part.active {
+      path.fabric {
+        fill: black;
+        fill-opacity: 0.1;
+      }
+      rect.part-boundary {
+        stroke-width: 1;
+        stroke: $warning;
+      }
+    }
+    .layout.part.active:hover {
+      cursor: move;
+    }
+  }
+}
+
+header.layout-toolbar {
+  background: $bw7;
+  border-radius: 4px;
+  border: 1px solid $bw6;
+  .layout-width-input {
+    max-width: 150px;
+    background: $bw9;
+    border: 1px solid $bw6;
+    padding: 2px;
+    border-radius: 3px;
+  }
+  span.divider {
+    border-right: 1px solid $bw2;
+  }
+  span.part-name {
+    @include title-font;
+    font-weight: bold;
+    font-size: 140%;
+  }
+}
+
+body.dark div.freesewing.draft.layout {
+  svg {
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.2);
+    background: $bw2;
+  }
+}

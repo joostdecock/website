@@ -1,4 +1,0 @@
-networkError: Backend or network seems down
-requestFailedWithStatusCode401: Authentication failed
-emailExists: We already have a user with that Email address. Perhaps you'd like to log in instead?
-confirmationNotFound: If you arrived at this page via the link in a confirmation Email, we encourage you to report this problem.

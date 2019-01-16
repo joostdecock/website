@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: "Freesewing v2 demo"
+    title: "Freesewing beta"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -15,16 +15,16 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, "src", "pages"),
-        name: "pages",
+        path: path.join(__dirname, "src", "markdown"),
+        name: "markdown",
         ignore: [`**/\.*`]
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, "src", "markdown"),
-        name: "markdown",
+        path: path.join(__dirname, "src", "assets", "images"),
+        name: "images",
         ignore: [`**/\.*`]
       }
     },
@@ -33,6 +33,7 @@ module.exports = {
       options: {
         plugins: [
           "gatsby-remark-autolink-headers",
+          "gatsby-remark-external-links",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
           {
@@ -52,6 +53,14 @@ module.exports = {
                 "markdown/**/*.md" // an include glob to match against
               ]
             }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: false,
+              noInlineHighlight: false,
+              languages: ["javascript", "json", "yaml"]
+            }
           }
         ]
       }
@@ -69,6 +78,13 @@ module.exports = {
         langKeyForNull: "any",
         langKeyDefault: i18nConfig.defaultLanguage,
         useLangKeyLayout: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: "#1FAA00",
+        showSpinner: false
       }
     },
     "gatsby-plugin-netlify"

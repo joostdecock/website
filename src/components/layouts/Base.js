@@ -10,21 +10,21 @@ import de from "react-intl/locale-data/de";
 import es from "react-intl/locale-data/es";
 import fr from "react-intl/locale-data/fr";
 import nl from "react-intl/locale-data/nl";
-import strings from "../../data/i18n";
+import { strings } from "@freesewing/i18n";
 import "../../config/sass/theme.scss";
 import Footer from "../Footer";
-import {
-  languageFromSlug,
-  loadTheme,
-  clearToken,
-  retrieveToken
-} from "../../utils";
+import { locLang, loadTheme, clearToken, retrieveToken } from "../../utils";
 import { setDarkMode } from "../../store/actions/darkMode";
 import { setUserAccount } from "../../store/actions/user";
+import { setModels } from "../../store/actions/models";
+import { setDrafts } from "../../store/actions/drafts";
 import Notification from "../Notification";
 import { closeNotification } from "../../store/actions/notification";
 import withRoot from "../../withRoot";
-import backend from "../../backend";
+import backend from "../../apis/backend";
+import LocationProvider from "../LocationProvider";
+// eslint-disable-next-line
+import titleFont from "typeface-roboto-condensed";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
@@ -35,13 +35,14 @@ class Base extends React.Component {
   };
 
   handleLogout = () => {
-    console.log("login handler");
     clearToken();
     this.props.setUserAccount(false);
+    this.props.setModels(false);
+    this.props.setDrafts(false);
   };
 
   componentDidMount() {
-    if (!this.props.user) {
+    if (this.props.user === null) {
       let token = retrieveToken();
       if (token) {
         backend
@@ -49,21 +50,27 @@ class Base extends React.Component {
           .then(res => {
             if (res.status === 200) {
               this.props.setUserAccount(res.data.account);
-            }
+              this.props.setModels(res.data.models);
+              this.props.setDrafts(res.data.drafts);
+            } else this.props.setUserAccount(false);
           })
           .catch(err => {
             console.log(err);
           });
-      }
+      } else this.props.setUserAccount(false);
     }
   }
 
   render() {
-    let language = languageFromSlug(this.props.slug);
-    const { dark, splash } = this.props;
+    const { dark, splash, location } = this.props;
+    let language = locLang.get(location);
     let footer = splash ? "" : <Footer language={language} />;
     let classes = dark ? "dark" : "light";
     if (splash) classes += " splash";
+    // Passing location and language props down to children
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, { location, language });
+    });
     return (
       <IntlProvider locale={language} messages={strings[language]}>
         <MuiThemeProvider theme={loadTheme(this.props.dark)}>
@@ -79,11 +86,11 @@ class Base extends React.Component {
               user={this.props.user}
               handleLogout={this.handleLogout}
               language={language}
-              slug={this.props.slug}
+              location={location}
               dark={dark}
               toggleDarkMode={this.handleToggleDarkMode}
             />
-            {this.props.children}
+            <div className="wrap">{children}</div>
             {footer}
           </div>
           <Notification
@@ -101,12 +108,16 @@ class Base extends React.Component {
 const mapStateToProps = state => ({
   dark: state.darkMode,
   user: state.user,
-  notification: state.notification
+  models: state.models,
+  notification: state.notification,
+  fullState: state
 });
 
 const mapDispatchToProps = dispatch => ({
   setDarkMode: dark => dispatch(setDarkMode(dark)),
   setUserAccount: account => dispatch(setUserAccount(account)),
+  setModels: models => dispatch(setModels(models)),
+  setDrafts: drafts => dispatch(setDrafts(drafts)),
   closeNotification: () => dispatch(closeNotification())
 });
 
@@ -123,4 +134,4 @@ Base.defaultProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRoot(Base));
+)(withRoot(LocationProvider(Base)));

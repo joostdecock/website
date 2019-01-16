@@ -29,9 +29,7 @@ You can also reach us on social media, not to mention follow or like us.
 
 ## E-mail
 
-> This option does not scale very well, so you might want to consider the options above first.
-> That being said, click below to send an E-mail to [@joost](/users/joost)
+[Send an email to joost](mailto:joost@decock.org?subject=Freesewing)
 
- - [Send an email](mailto:joost@decock.org?subject=Freesewing)
-
+> This option does not scale very well, so you might want to consider the other options first.
 

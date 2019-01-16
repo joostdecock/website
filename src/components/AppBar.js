@@ -6,14 +6,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import DropDownButton from "./DropDownButton";
 import MobileMenu from "./MobileMenu";
-import Logo from "./Logo";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import { FormattedMessage, injectIntl } from "react-intl";
 import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
-import BlogIcon from "@material-ui/icons/ImportContacts";
+import HomeIcon from "@material-ui/icons/Home";
 import SignupIcon from "@material-ui/icons/PersonAdd";
+import IconButton from "@material-ui/core/IconButton";
+import { Link } from "gatsby";
 import {
   languageMenu,
   communityMenu,
@@ -39,100 +40,101 @@ function FsAppBar(props) {
       <DropDownButton
         key="userMenu"
         language={language}
-        text={"@" + user.username}
+        text={intl.formatMessage({ id: "app.account" })}
         items={getUserMenuItems(language, user.username, handleLogout)}
       />
     ];
   } else {
     userMenu = [
       <Button
-        href={slugForLanguage("/login", language)}
+        href={locLang.set("/login", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.logIn" })}
         key="login"
       >
-        <LoginIcon className="mr10" />
+        <LoginIcon className="mr1" />
         <FormattedMessage id="app.logIn" />
       </Button>,
       <Button
-        href={slugForLanguage("/signup", language)}
+        href={locLang.set("/signup", language)}
         color="inherit"
         title={intl.formatMessage({ id: "app.signUp" })}
         key="signup"
       >
-        <SignupIcon className="mr10" />
+        <SignupIcon className="mr1" />
         <FormattedMessage id="app.signUp" />
       </Button>
     ];
   }
   return (
-    <AppBar color="secondary" elevation={0}>
-      <Toolbar>
-        <Button
-          color="inherit"
-          href={slugForLanguage("/", language)}
-          size="small"
-          title={intl.formatMessage({ id: "app.freesewing" })}
-        >
-          <Logo size={38} className="mr10" />
-          <span className="not-on-xs">
-            <FormattedMessage id="app.freesewing" />
-          </span>
-        </Button>
-        <div className="not-on-mobile">
-          <Button
+    <nav className="appbar">
+      <AppBar color="secondary" elevation={0} position="relative">
+        <Toolbar>
+          <Link to={locLang.set("/", language)}>
+            <IconButton
+              color="primary"
+              title={intl.formatMessage({ id: "app.freesewing" })}
+            >
+              <HomeIcon />
+            </IconButton>
+          </Link>
+          <div className="not-on-mobile">
+            <Link to={locLang.set("/patterns/", language)}>
+              <Button title={intl.formatMessage({ id: "app.patterns" })}>
+                <FormattedMessage id="app.patterns" />
+              </Button>
+            </Link>
+            <Link to={locLang.set("/blog/", language)}>
+              <Button title={intl.formatMessage({ id: "app.blog" })}>
+                <FormattedMessage id="app.blog" />
+              </Button>
+            </Link>
+            <DropDownButton
+              language={language}
+              title={intl.formatMessage({ id: "app.docs" })}
+              {...documentationMenu(language)}
+            />
+            <DropDownButton
+              language={language}
+              title={intl.formatMessage({ id: "account.language" })}
+              {...communityMenu(language)}
+            />
+          </div>
+          <span style={styles.grow} />
+          <div className="not-on-mobile">{userMenu}</div>
+          <DropDownButton
+            title={intl.formatMessage({ id: "account.language" })}
+            language={language}
+            {...languageMenu(props.location, language)}
+          />
+          <IconButton
             color="inherit"
-            href={slugForLanguage("/blog/", language)}
-            title={intl.formatMessage({ id: "app.blog" })}
+            onClick={props.toggleDarkMode}
+            title={intl.formatMessage({ id: "app.darkMode" })}
+            size="small"
           >
-            <BlogIcon className="mr10" />
-            <FormattedMessage id="app.blog" />
-          </Button>
-          <DropDownButton
-            language={language}
-            title={intl.formatMessage({ id: "app.docs" })}
-            {...documentationMenu(language)}
-          />
-          <DropDownButton
-            language={language}
-            title={intl.formatMessage({ id: "app.language" })}
-            {...communityMenu(language)}
-          />
-        </div>
-        <div className="not-on-mobile">{userMenu}</div>
-        <span style={styles.grow} />
-        <DropDownButton
-          title={intl.formatMessage({ id: "app.language" })}
-          language={language}
-          {...languageMenu(props.slug, language)}
-        />
-        <Button
-          color="inherit"
-          onClick={props.toggleDarkMode}
-          title={intl.formatMessage({ id: "app.darkMode" })}
-          size="small"
-        >
-          {darkModeIcon}
-        </Button>
-        <div className="only-on-mobile">
-          <MobileMenu
-            user={props.user}
-            handleLogout={props.handleLogout}
-            language={language}
-            dark={dark}
-            intl={intl}
-            toggleDarkMode={props.toggleDarkMode}
-          />
-        </div>
-      </Toolbar>
-    </AppBar>
+            {darkModeIcon}
+          </IconButton>
+          <div className="only-on-mobile">
+            <MobileMenu
+              user={props.user}
+              handleLogout={props.handleLogout}
+              language={language}
+              dark={dark}
+              intl={intl}
+              toggleDarkMode={props.toggleDarkMode}
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
+    </nav>
   );
 }
 
 FsAppBar.propTypes = {
   dark: PropTypes.bool.isRequired,
   language: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   handleLogout: PropTypes.func.isRequired
 };
 

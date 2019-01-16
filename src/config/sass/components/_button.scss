@@ -1,0 +1,25 @@
+.button-success {
+  background-color: $success!important;
+}
+.button-warning {
+  background-color: $warning!important;
+}
+.button-danger {
+  background-color: $danger!important;
+}
+.button-accent {
+  background-color: $accent!important;
+}
+
+.button-success:disabled,
+.button-warning:disabled,
+.button-danger:disabled,
+.button-accent:disabled {
+  background-color: rgba(0, 0, 0, 0.12)!important;
+}
+body.dark .button-success:disabled,
+body.dark .button-warning:disabled,
+body.dark .button-danger:disabled,
+body.dark .button-accent:disabled {
+  background-color: rgba(255, 255, 255, 0.12)!important;
+}

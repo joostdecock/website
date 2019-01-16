@@ -6,10 +6,10 @@ import { instagram } from "../data/icons";
 const InstagramIcon = props => {
   return (
     <Icon
-      width={props.size}
-      height={props.size}
+      size={props.size}
       viewBox={props.viewBox}
       pathString={instagram}
+      className={props.className}
     />
   );
 };

@@ -1,113 +1,137 @@
 import React from "react";
 import { connect } from "react-redux";
-//import Notification from "../../Notification";
-//import backend from "../../../backend";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { setUserAccount } from "../../../store/actions/user";
-import Grid from "@material-ui/core/Grid";
+import {
+  showNotification,
+  closeNotification
+} from "../../../store/actions/notification";
+import backend from "../../../apis/backend";
+import Breadcrumbs from "../../Breadcrumbs";
+import TwoColumns from "../../TwoColumns";
+import Column from "../../Column";
+import FieldDrawers from "../../fields/FieldDrawers";
+import { accountFields } from "../../../config/fields";
+import Field from "../../fields/Field";
+import UserProfile from "../../UserProfile";
 
 class AccountContainer extends React.Component {
   state = {
-    dialog: false,
-    loading: false,
-    notification: {
-      show: false,
-      message: "",
-      type: "info"
-    }
+    display: "account"
   };
 
-  notify = (type, message) => {
-    this.setState({
-      //...this.state,
-      notification: {
-        show: true,
-        type: type,
-        message: message
+  injectFieldValues = () => {
+    let fields = accountFields;
+    let user = this.props.user;
+    for (let m of Object.keys(fields.account.items)) {
+      if (typeof fields.account.items[m].sub === "string") {
+        let sub = fields.account.items[m].sub;
+        if (
+          typeof user[sub] === "undefined" ||
+          typeof user[sub][m] === "undefined"
+        )
+          fields.account.items[m].value = null;
+        else fields.account.items[m].value = user[sub][m];
+      } else {
+        if (typeof user[m] === "undefined")
+          fields.account.items[m].value = null;
+        else fields.account.items[m].value = user[m];
       }
-    });
-  };
-
-  handleNotificationOnClose = () => {
-    // Triggered on auto-close
-    if (this.state.notification.show === true) {
-      this.handleNotificationClose();
     }
+    fields.account.items.picture.value = user.pictureUris.xs;
+
+    return fields;
   };
 
-  handleNotificationClose = () => {
-    this.setState({
-      ...this.state,
-      notification: {
-        ...this.state.notification,
-        show: false
-      }
-    });
+  updateDisplay = (key, data = null) => {
+    if (key === null) key = "account";
+    this.setState({ display: key, data });
   };
 
-  startLoading = () => {
-    this.setState({
-      ...this.state,
-      loading: true
-    });
-  };
-
-  stopLoading = () => {
-    this.setState({
-      ...this.state,
-      loading: false
-    });
+  updateField = (key, value, config = null) => {
+    if (value === config.value)
+      return this.props.showNotification(
+        "info",
+        <FormattedMessage id="app.noChanges" />
+      );
+    let data = {};
+    if (config.sub) {
+      data[config.sub] = {};
+      data[config.sub][key] = value;
+    } else data[key] = value;
+    backend
+      .saveAccount(data)
+      .then(res => {
+        if (res.status === 200) {
+          this.props.setUserAccount(res.data.account);
+          let msg = this.props.intl.formatMessage(
+            { id: "app.fieldSaved" },
+            { field: this.props.intl.formatMessage({ id: config.label }) }
+          );
+          this.props.showNotification("success", msg);
+          this.setState({ display: "account" });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.showNotification("error", err);
+      });
   };
 
   render() {
+    let fields = this.injectFieldValues();
     return (
-      <section>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-          <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-            <div className="docs">
-              <h1>FIXME: account</h1>
+      <React.Fragment>
+        <Breadcrumbs>
+          <FormattedMessage id="app.settings" />
+        </Breadcrumbs>
+        <h1>
+          <FormattedMessage id="app.settings" />
+        </h1>
+        <TwoColumns>
+          <Column wide>
+            {this.state.display === "account" ? (
+              <UserProfile user={this.props.user} />
+            ) : (
+              ""
+            )}
+            {this.state.display === "update" ? (
+              <Field
+                {...this.state.data}
+                updateField={this.updateField}
+                updateDisplay={this.updateDisplay}
+                units={this.props.user.units}
+              />
+            ) : (
+              ""
+            )}
+          </Column>
+          <Column right narrow>
+            <div className="stick">
+              <FieldDrawers
+                config={fields}
+                units={this.props.user.settings.units}
+                display={this.state.display}
+                updateDisplay={this.updateDisplay}
+              />
             </div>
-          </Grid>
-          <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
-        </Grid>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid
-            item
-            xs={12}
-            sm={10}
-            md={4}
-            lg={3}
-            xl={3}
-            className="align-self-stretch"
-          >
-            <div className="docs toc">
-              <h3>
-                <FormattedMessage id="app.contents" />
-              </h3>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-            <div className="docs">
-              <pre>{JSON.stringify(this.props.user, null, 2)}</pre>
-              fixme
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={10} md={6} lg={3} xl={3}>
-            <div className="docs cot">fixme too</div>
-          </Grid>
-        </Grid>
-      </section>
+          </Column>
+        </TwoColumns>
+      </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  notification: state.notification
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUserAccount: account => dispatch(setUserAccount(account))
+  setUserAccount: account => dispatch(setUserAccount(account)),
+  showNotification: (style, message) =>
+    dispatch(showNotification(style, message)),
+  closeNotification: () => dispatch(closeNotification())
 });
 
 export default connect(

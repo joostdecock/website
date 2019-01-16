@@ -5,12 +5,12 @@ import successGif from "./success.gif";
 
 const SuccessMessage = ({ language }) => {
   return (
-    <div>
-      <h1 className="txt-center">
+    <div className="txt-center">
+      <h4>
         <FormattedMessage id="app.yay" />
         &nbsp;
         <FormattedMessage id="app.goodJob" />
-      </h1>
+      </h4>
       <h5 className="mb20">
         <FormattedMessage id="app.checkInboxClickLinkInConfirmationEmail" />
       </h5>

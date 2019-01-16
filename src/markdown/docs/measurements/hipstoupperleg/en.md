@@ -1,7 +1,6 @@
 ---
 title: Hips to upper leg
 path: /en/docs/measurements/hipstoupperleg
-measurement: hipsToUpperLeg
 ---
 
 The **hips to upper leg** is measured at the side of your body from your hipline down to the upper part of your leg.

@@ -1,0 +1,63 @@
+import React from "react";
+import TrayTitle from "./TrayTitle";
+import TrayFooter from "./TrayFooter";
+import InfoIcon from "@material-ui/icons/Info";
+import ExpandIcon from "@material-ui/icons/ArrowDropDown";
+import CollapseIcon from "@material-ui/icons/ArrowDropUp";
+import IconButton from "@material-ui/core/IconButton";
+
+class Tray extends React.Component {
+  state = {
+    extraClasses: "unforced"
+  };
+
+  handleCollapse = event => {
+    this.setState({ extraClasses: "force-collapsed" });
+  };
+
+  handleExpand = event => {
+    this.setState({ extraClasses: "force-expanded" });
+  };
+
+  render() {
+    return (
+      <div
+        className={
+          this.state.extraClasses + " tray shadow1 " + this.props.className
+        }
+      >
+        {this.props.title === false ? (
+          ""
+        ) : (
+          <TrayTitle icon={this.props.icon}>
+            {this.props.title}
+            <IconButton
+              className="traytoggle expand"
+              onClick={this.handleExpand}
+            >
+              <ExpandIcon className="traytoggle" />
+            </IconButton>
+            <IconButton
+              className="traytoggle collapse"
+              onClick={this.handleCollapse}
+            >
+              <CollapseIcon className="traytoggle" />
+            </IconButton>
+          </TrayTitle>
+        )}
+        <div className="content">
+          {this.props.children}
+          <TrayFooter>{this.props.footer}</TrayFooter>
+        </div>
+      </div>
+    );
+  }
+}
+
+Tray.defaultProps = {
+  icon: <InfoIcon />,
+  footer: "",
+  title: ""
+};
+
+export default Tray;

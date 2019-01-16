@@ -5,7 +5,7 @@ import SignupIcon from "@material-ui/icons/PersonAdd";
 import Button from "@material-ui/core/Button";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
-import { slugForLanguage } from "../../../utils";
+import { locLang } from "../../../utils";
 import ButtonSpinner from "../../ButtonSpinner";
 
 const SignupForm = ({
@@ -33,7 +33,7 @@ const SignupForm = ({
           autoFocus={true}
           fullWidth={true}
           autoComplete="email"
-          label={intl.formatMessage({ id: "app.emailAddress" })}
+          label={intl.formatMessage({ id: "account.email" })}
           helperText={intl.formatMessage({ id: "app.weNeverShareYourEmail" })}
           margin="normal"
           variant="outlined"
@@ -45,7 +45,7 @@ const SignupForm = ({
           fullWidth={true}
           type="password"
           autoComplete="password"
-          label={intl.formatMessage({ id: "app.password" })}
+          label={intl.formatMessage({ id: "account.password" })}
           helperText={intl.formatMessage({ id: "app.noPasswordPolicy" })}
           margin="normal"
           variant="outlined"
@@ -67,7 +67,7 @@ const SignupForm = ({
           <FormattedMessage id="app.signUp" />
         </Button>
       </form>
-      <Link to={slugForLanguage("/login", language)}>
+      <Link to={locLang.set("/login", language)}>
         <FormattedMessage id="app.logIn" />
       </Link>
       &nbsp;|&nbsp;

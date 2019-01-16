@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import MobileSubMenuItem from "./MobileSubMenuItem";
 import { FormattedMessage } from "react-intl";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const MobileSubMenu = props => {
   let label = "";
@@ -13,9 +14,13 @@ const MobileSubMenu = props => {
 
   return (
     <div>
-      <h5>{label}</h5>
+      <hr />
+      <MenuItem key="subheading" button={false} title={label} color="secondary">
+        <b>{label}</b>
+      </MenuItem>
       {props.items.map((item, index) => {
-        if (item === "divider") return <hr key={"divider" + index} />;
+        if (item === "divider")
+          return <hr key={"divider" + index} className="divider" />;
         return (
           <MobileSubMenuItem
             key={item.label + "__" + index}

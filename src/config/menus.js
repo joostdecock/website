@@ -1,20 +1,20 @@
 import React from "react";
 import i18nConfig from "./i18n";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import TwitterIcon from "../components/TwitterIcon";
 import GitterIcon from "../components/GitterIcon";
 import InstagramIcon from "../components/InstagramIcon";
 import GithubIcon from "../components/GithubIcon";
 
-const languageMenu = (slug, pageLanguage) => {
+const languageMenu = (location, pageLanguage) => {
   let menu = {
-    text: i18nConfig.translations[pageLanguage],
+    text: "",
     icon: { type: "inline", svg: i18nConfig.icons[pageLanguage] },
     items: []
   };
   for (let language of i18nConfig.languages) {
     menu.items.push({
-      link: slugForLanguage(slug, language),
+      link: locLang.set(location, language),
       text: i18nConfig.translations[language],
       icon: { type: "inline", svg: i18nConfig.icons[language] }
     });
@@ -28,7 +28,7 @@ const communityMenu = pageLanguage => {
     label: "app.community",
     items: [
       {
-        link: slugForLanguage("/showcase/", pageLanguage),
+        link: locLang.set("/showcase/", pageLanguage),
         label: "app.showcase",
         icon: "camera_alt"
       },
@@ -61,14 +61,41 @@ const documentationMenu = pageLanguage => {
     label: "app.docs",
     items: [
       {
-        link: slugForLanguage("/docs/about", pageLanguage),
+        link: locLang.set("/docs/about", pageLanguage),
         label: "app.aboutFreesewing",
         icon: "info"
       },
       {
+        link: locLang.set("/docs/faq", pageLanguage),
+        label: "app.faq",
+        icon: "help_outline"
+      },
+      {
+        link: locLang.set("/docs/patterns/", pageLanguage),
+        label: "app.patternInstructions",
+        icon: "content_cut"
+      },
+      {
+        link: locLang.set("/docs/measurements/", pageLanguage),
+        label: "app.howToTakeMeasurements",
+        icon: "accessibility"
+      },
+      "divider",
+      {
         link: "https://developer.freesewing.org/",
         label: "app.documentationForDevelopers",
         icon: "code"
+      },
+      {
+        link: "https://developer.freesewing.org/i18n",
+        label: "app.documentationForTranslators",
+        icon: "translate"
+      },
+      "divider",
+      {
+        link: locLang.set("/docs/", pageLanguage),
+        label: "app.documentationOverview",
+        icon: "book"
       }
     ]
   };
@@ -77,33 +104,38 @@ const documentationMenu = pageLanguage => {
 const getUserMenuItems = (language, username, handleLogout) => {
   return [
     {
-      link: slugForLanguage("/draft/", language),
+      link: locLang.set("/draft/", language),
       label: "app.newDraft",
+      icon: "note_add"
+    },
+    {
+      link: locLang.set("/draft/from/gist", language),
+      label: "app.newDraftFromGist",
       icon: "insert_drive_file"
     },
     {
-      link: slugForLanguage("/model/", language),
+      link: locLang.set("/model/", language),
       label: "app.newModel",
-      icon: "perm_identity"
+      icon: "person_add"
     },
     "divider",
     {
-      link: slugForLanguage("/drafts/", language),
+      link: locLang.set("/drafts/", language),
       label: "app.drafts",
       icon: "folder_open"
     },
     {
-      link: slugForLanguage("/models/", language),
+      link: locLang.set("/models/", language),
       label: "app.models",
       icon: "perm_contact_calendar"
     },
     {
-      link: slugForLanguage("/account/", language),
+      link: locLang.set("/account/", language),
       label: "app.settings",
       icon: "tune"
     },
     {
-      link: slugForLanguage("/user/" + username, language),
+      link: locLang.set("/users/" + username, language),
       label: "app.profile",
       icon: "fingerprint"
     },

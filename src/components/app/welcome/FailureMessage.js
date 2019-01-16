@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import failureGif from "./fail.gif";
 import { Link } from "gatsby";
-import { slugForLanguage } from "../../../utils";
+import { locLang } from "../../../utils";
 
 const LoadingMessage = ({ language, id }) => {
   return (
@@ -31,7 +31,7 @@ const LoadingMessage = ({ language, id }) => {
           <FormattedMessage id="app.reportThisOnGitHub" />
         </a>
         &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/contact", language)}>
+        <Link to={locLang("/contact", language)}>
           <FormattedMessage id="app.contactUs" />
         </Link>
       </p>

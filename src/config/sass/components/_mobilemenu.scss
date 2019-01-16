@@ -9,40 +9,32 @@ div.mobile-menu {
     margin: 64px auto;
     max-width: 400px;
 
-    h5 {
-      color: #999;
-      padding: 0;
-      margin: 0.5rem 0;
-      font-weight: normal;
-    }
-
-    h5 a {
-      display: block;
-      color: $primary;
-      text-decoration: none;
-      padding: 8px;
-      margin-left: -8px;
-    }
-
-    h5 a:hover {
-      background: rgba(0, 0, 0, 0.08);
-    }
-
     hr {
       margin: 0.25rem 0;
-      border-top: 1px solid currentcolor;
+      border-top: 1px dashed $bw7;
+      color: transparent;
+      height: 0;
     }
+    a:hover { color: $primary; }
+  }
+  div.title-font span span {
+    @include title-font;
+    font-weight: bold;
   }
 }
 
 body.dark div.mobile-menu {
   background: $primary;
   div.mobile-menu-inner {
+    a,
     h5 a {
       color: $secondary;
     }
     h5 a:hover {
       background: rgba(255, 255, 255, 0.1);
+    }
+    hr {
+      border-color: $bw3;
     }
   }
 }

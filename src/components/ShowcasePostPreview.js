@@ -8,7 +8,7 @@ const ShowcasePostPreview = data => {
   let frontmatter = data.post.frontmatter;
   if (data.correctLanguage !== true) langClass = "grayscale";
   return (
-    <div>
+    <div className={data.className}>
       <div className="teaser">
         <Link to={frontmatter.path} title={frontmatter.title}>
           {/* This makes the link cover the entire image */}
@@ -20,17 +20,22 @@ const ShowcasePostPreview = data => {
             title={frontmatter.caption}
             alt={frontmatter.caption}
             backgroundColor={"#212121"}
+            className="shadow1 br4"
           />
         </figure>
-        <div className="title">
-          <p className="thetitle">
-            {frontmatter.title}
-            <span className="meta">
-              {frontmatter.date} by @{frontmatter.author} in #
-              {frontmatter.category}
-            </span>
-          </p>
-        </div>
+        {data.noTitle ? (
+          ""
+        ) : (
+          <div className="title">
+            <p className="thetitle">
+              {frontmatter.title}
+              <span className="meta">
+                {frontmatter.date} by @{frontmatter.author} in #
+                {frontmatter.category}
+              </span>
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

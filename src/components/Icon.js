@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Icon = props => {
-  let classes = "icon";
+  let classes = "icon " + props.className;
   return (
     <svg
       className={classes}
@@ -24,7 +24,8 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: 24,
-  viewBox: "0 0 24 24"
+  viewBox: "0 0 24 24",
+  className: ""
 };
 
 export default Icon;

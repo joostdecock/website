@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import TranslateIcon from "@material-ui/icons/Translate";
-import Message from "./Message";
-import { fileOnGithub, slugForLanguage } from "../utils";
+import { fileOnGithub, locLang } from "../utils";
 import { Link } from "gatsby";
+import Tray from "./Tray";
 
 const PleaseTranslate = props => {
   let documentationForTranslators = (
-    <Link to={slugForLanguage("/docs/i18n/", props.language)}>
+    <Link to={locLang.set("/docs/i18n/", props.language)}>
       <FormattedMessage id="app.documentationForTranslators" />
     </Link>
   );
@@ -18,11 +18,11 @@ const PleaseTranslate = props => {
     </a>
   );
   return (
-    <Message>
-      <TranslateIcon />
-      <h3>
-        <FormattedMessage id="app.couldYouTranslateThis" />
-      </h3>
+    <Tray
+      className={props.className}
+      icon={<TranslateIcon />}
+      title={<FormattedMessage id="app.couldYouTranslateThis" />}
+    >
       <p>
         <FormattedMessage id="app.becauseThatWouldBeReallyHelpful" />
         <br />
@@ -34,13 +34,18 @@ const PleaseTranslate = props => {
           }}
         />
       </p>
-    </Message>
+    </Tray>
   );
 };
 
 PleaseTranslate.propTypes = {
   language: PropTypes.string.isRequired,
-  filePath: PropTypes.string.isRequired
+  filePath: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+
+PleaseTranslate.defaultProps = {
+  className: ""
 };
 
 export default PleaseTranslate;

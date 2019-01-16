@@ -1,6 +1,6 @@
 footer {
   background: $primary;
-  color: $grey;
+  color: $bw6;
   text-align: center;
   margin-top: 3rem;
   padding: 3rem 1rem;
@@ -9,7 +9,7 @@ footer {
     color: $secondary;
   }
   a:hover {
-    color: $grey;
+    color: $linkWhite;
   }
   p.credits {
     margin-top: 1rem;
@@ -26,3 +26,11 @@ footer {
     }
   }
 }
+
+body.dark footer a {
+  color: $bw9;
+}
+body.dark footer a:hover {
+  color: $linkWhite;
+}
+

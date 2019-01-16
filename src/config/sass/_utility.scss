@@ -1,56 +1,166 @@
-.wmax {
-  width: 100%;
+// Padding
+.np   { padding: 0!important; }
+
+.p05  { padding: 1rem; }
+.px05 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.py05 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.pt05 { padding-top:    0.5rem; }
+.pr05 { padding-right:  0.5rem; }
+.pb05 { padding-bottom: 0.5rem; }
+.pl05 { padding-left:   0.5rem; }
+
+.p1  { padding: 1rem; }
+.px1 { padding-left: 1rem; padding-right: 1rem; }
+.px2 { padding-left: 2rem; padding-right: 2rem; }
+.py1 { padding-top: 1rem; padding-bottom: 1rem; }
+.pt1 { padding-top:    1rem; }
+.pr1 { padding-right:  1rem; }
+.pb1 { padding-bottom: 1rem; }
+.pl1 { padding-left:   1rem; }
+
+.overpad1-always {
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
-.float-right {
-  float: right;
+.overpad2-always {
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
-.grayscale {
-  filter: grayscale(100%);
+
+// Margin
+.nm   { margin: 0; }
+
+.m05  { margin: 1rem; }
+.mx05 { margin-left: 0.5rem; margin-right: 0.5rem; }
+.my05 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.mt05 { margin-top:    0.5rem; }
+.mr05 { margin-right:  0.5rem; }
+.mb05 { margin-bottom: 0.5rem; }
+.ml05 { margin-left:   0.5rem; }
+
+.m1  { margin: 1rem; }
+.mx1 { margin-left: 1rem; margin-right: 1rem; }
+.my1 { margin-top: 1rem; margin-bottom: 1rem; }
+.mt1 { margin-top: 1rem; }
+.mt2 { margin-top: 2rem; }
+.mr1, button.mr1 { margin-right:  1rem!important; }
+.mr2, button.mr2 { margin-right:  2rem!important; }
+.mb1 { margin-bottom: 1rem; }
+.ml1 { margin-left:   1rem!important; }
+
+.mr05, button.mr05 { margin-right: 0.5rem!important; }
+.mr-05 { margin-right: -0.5rem; }
+
+.indent0 { margin-left: 0; }
+.indent1 { margin-left: 0;}
+.indent2 { margin-left: 10px;}
+.indent3 { margin-left: 20px;}
+.indent4 { margin-left: 30px;}
+.indent5 { margin-left: 40px;}
+
+.vspacer { margin: 50px 0; }
+
+// Colors
+.color-success { color: $success; }
+.color-warning { color: $warning; }
+.color-danger { color: $danger; }
+.color-link { color: $link; }
+.color-accent { color: $accent; }
+.color-muted { color: $bw5; }
+body.dark {
+  .color-danger { color: $dangerFaded; }
 }
-.pt10 {
-  padding-top: 10px;
+// Text size
+p.mini,
+.mini {
+  font-size: 80%;
+  line-height: 1.1;
 }
-.pt20 {
-  padding-top: 20px;
+
+// Text align
+.txt-center { text-align: center; }
+.txt-left { text-align: left; }
+.txt-right { text-align: right; }
+
+// Floats
+.pull-right { float: right; }
+.pull-leftt { float: left; }
+
+// Sizing
+.w100 { width: 100%; }
+.maxw700 { max-width: 700px; }
+.minh70vh { min-height: 70vh; }
+
+// Filters
+.grayscale { filter: grayscale(100%); }
+
+// Shadows
+.shadow1 { @include shadow; }
+body.dark .shadow1 { @include shadow-dark; }
+
+// Various
+.inherit-color { color: inherit!important; }
+.align-self-stretch { align-self: stretch }
+.nobg { background: transparent!important; }
+.hide { display: none; }
+.poh:hover {cursor: pointer; }
+.br4 { border-radius: 4px;}
+.display-block { display: block!important; }
+.hidden {display: none!important;}
+.semi-transparent {opacity: 0.6;}
+.rotate90 { transform: rotate(90deg);}
+.smaller {
+  font-size: 90%;
+  line-height: 1.25;
 }
-.pr10 {
-  padding-right: 10px;
+.copy-this {
+  white-space: pre;
+  font-size: 125%;
+  text-align: center;
+  margin-top: -2rem;
+  padding: 1.5rem;
+  color: $bw9;
+  display: block;
 }
-.mt10,
-a.mt10,
-button.mt10 {
-  margin-top: 10px;
+textarea.fixed-width {
+  white-space: pre;
+  padding: 1rem;
+  @include fixed-font;
 }
-.mr10 {
-  margin-right: 10px;
-}
-.mb10 {
-  margin-bottom: 10px;
-}
-.mb20 {
-  margin-bottom: 20px;
-}
-.mr20 {
-  margin-right: 20px;
-}
-.mh60vh {
+body.dark .nobg.card { @include shadow-dark; }
+// FIXME: These should go somewhere where they make sense
+
+.wrap {
+  max-width: 1400px;
+  margin: auto;
   min-height: 60vh;
 }
 
-.content {
-  max-width: 650px;
-  margin: auto;
+.wrap.narrow {
+  max-width: 700px;
 }
 
-.inherit-color {
-  color: inherit!important;
+
+.keyval {
+  .key {
+    display: block;
+    font-weight: bold;
+  }
+  .val {
+    display: block;
+    font-weight: normal;
+    font-size: 90%;
+    @include body-font;
+  }
+  .note {
+    display: block;
+    font-weight: normal;
+    font-size: 75%;
+    line-height: 1.1;
+    padding: 0 0.5rem 0 0;
+  }
 }
-.align-self-stretch {
-  align-self: stretch
-}
-.box {
-  margin: 3rem auto;
-  border: 1px dashed #808080;
-  padding: 1rem 2rem;
-  font-size: 95%;
+
+.row-reverse {
+  flex-direction: row-reverse;
 }

@@ -1,7 +1,6 @@
 ---
 title: High point shoulder to bust
 path: /en/docs/measurements/highpointshouldertobust
-measurement: highPointShoulderToBust
 ---
 
 The **high point shoulder (HPS) to bust** measurement runs from your HPS down to the line that forms you bust span.

@@ -6,10 +6,10 @@ import { github } from "../data/icons";
 const GithubIcon = props => {
   return (
     <Icon
-      width={props.size}
-      height={props.size}
+      size={props.size}
       viewBox={props.viewBox}
       pathString={github}
+      className={props.className}
     />
   );
 };

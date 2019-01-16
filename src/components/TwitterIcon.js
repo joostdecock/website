@@ -6,10 +6,10 @@ import { twitter } from "../data/icons";
 const TwitterIcon = props => {
   return (
     <Icon
-      width={props.size}
-      height={props.size}
+      size={props.size}
       viewBox={props.viewBox}
       pathString={twitter}
+      className={props.className}
     />
   );
 };
@@ -21,7 +21,8 @@ TwitterIcon.propTypes = {
 
 TwitterIcon.defaultProps = {
   size: 24,
-  viewBox: "0 0 24 24"
+  viewBox: "0 0 24 24",
+  className: ""
 };
 
 export default TwitterIcon;

@@ -1,5 +1,6 @@
 @include xs-screen {
   .not-on-xs,
+  .not-on-md,
   .not-on-mobile {
     display: none!important;
   }
@@ -7,29 +8,40 @@
     display: inherit!important;
   }
 
-  div.page,
-  div.docs,
-  div.blog-post,
-  {
-    padding: 0 10%;
-  }
-
-  div.blog-header {
-    div.meta {
-      padding: 0 5%;
-    }
-  }
-
-  div.toc,
-  div.cot {
+  aside.toc,
+  aside.cot {
     position: inherit;
-    margin: 0 10%;
-    padding: 0;
   }
   body.splash{
     div.splash-box {
       padding: 2rem 2rem 1rem 2rem;
     }
+  }
+  ul, ol {
+    margin: 1rem;
+  }
+  .overpad1 {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  .overpad2 {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+  img.avatar.avatar-untray,
+  body.dark img.avatar.avatar-untray {
+    margin-left: -2rem!important;
+    margin-right: -2rem!important;
+    margin-top: -2rem!important;
+    width: calc(100% + 4rem);
+    max-width: none;
+    border: none;
+  }
+  .wrap {
+    padding: 0 1rem;
+  }
+  .pl1nxs {
+    padding-left: 0;
   }
 }
 

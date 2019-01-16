@@ -1,0 +1,31 @@
+div.toggle-container > div {
+  box-shadow: none;
+  display: inline-block;
+  margin-bottom: -10px;
+  button.toggle {
+    background: $bw4;
+    color: $bw9;
+    @include title-font;
+    font-weight: bold;
+    padding: 7px 3px;
+    font-size: 0.8125rem;
+    min-height: 37px;
+  }
+  button.toggle.selected {
+    background: $success!important;
+    color: $bw9!important;
+  }
+  button.toggle.selected::after {
+    background: $success!important;
+    opacity: 0;
+  }
+}
+
+body.dark {
+  div.toggle-container > div {
+    button.toggle {
+      background: $bw5;
+      color: $bw1;
+    }
+  }
+}

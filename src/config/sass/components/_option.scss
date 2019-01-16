@@ -1,0 +1,93 @@
+.option-header.selected {
+  background: $bw6;
+}
+.option-wrapper {
+  padding: 1rem;
+
+  .slider {
+    margin: 0.5rem 0;
+    padding: 2px;
+  }
+}
+@include lg-screen {
+.option-wrapper {
+  padding: 1rem 2rem;
+  }
+}
+
+.option-footer {
+  background: $bw6;
+  text-align: right;
+  padding: 2px 1rem;
+}
+
+p.option-desc {
+  padding: 0.5rem 0 1rem;
+  margin-bottom: 0;
+  font-size: 90%;
+  line-height: 1.2;
+}
+p.option-actions {
+  padding: 0.5rem 0 0;
+  margin-bottom: 0;
+  text-align: right;
+}
+span.option-value {
+  font-family: $titlefont;
+}
+span.option-value.non-dflt {
+  color: $success;
+}
+
+div.picker-option-title {
+  padding-left: 0;
+  max-width: 62%;
+	span { line-height: 1; font-weight: bold;}
+}
+
+div.picker-option-value {
+  max-width: 30%;
+  line-height: 1;
+  text-align: right;
+  padding-right: 1rem;
+  font-weight: bold;
+}
+
+h6.picker-title {
+  margin: 0;
+  font-weight: bold;
+}
+
+h6.picker-title.muted {
+  font-weight: normanormal;
+}
+
+a.list-info > div.info > span {
+  font-weight: normal;
+  line-height: 1.1;
+  font-size: 95%;
+}
+
+body.dark {
+  .option-header.selected {
+    background: $bw2;
+  }
+  .option-wrapper {
+    border-bottom: 1px solid $bw2;
+  }
+  .option-footer {
+    background: $bw2;
+  }
+
+}
+
+// This is for the input slider
+.slider-track {
+  height: 5px!important;
+  border-radius: 2.5px;
+}
+.slider-thumb {
+  width: 16px!important;
+  height: 16px!important;
+}
+

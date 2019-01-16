@@ -1,36 +1,19 @@
 @include md-screen {
-  .not-on-mobile {
-    display: none!important;
-  }
-  .only-on-mobile {
-    display: inherit!important;
-  }
-  div.cot {
-    max-width: 600px;
-  }
+  .not-on-mobile { display: inherit!important; }
+  td.not-on-mobile, th.not-on-mobile { display: table-cell!important; }
+  .not-on-md,
+  .only-on-mobile { display: none!important; }
+  aside.left { padding-right: 1rem; }
+  aside.right { padding-left: 1rem; }
+  .pl1nsm { padding-left: 1rem; }
 
-  div.toc,
-  div.cot {
-    position: sticky;
+  .stick {
+    position: sticky!important;
     top: 84px;
-    h3 {
-      margin-bottom: 1rem;
-      margin-top: 0;
-    }
   }
 
-  div.toc {
-    padding-right: 1rem;
-    aside > ul {
-      padding-bottom: 2rem;
-    }
-    aside {
-      height: calc(100vh - 130px);
-      overflow-y: auto;
-    }
-  }
-
-  div.cot {
-    padding-left: 1rem;
+  .scrollable {
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
   }
 }

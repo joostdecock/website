@@ -1,71 +1,81 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import Grid from "@material-ui/core/Grid";
 import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
-import { FormattedMessage } from "react-intl";
-import GithubIcon from "../GithubIcon";
-import { fileOnGithub } from "../../utils";
+import OtherMeasurements from "../OtherMeasurements";
+import DefaultDocumentation from "../docs/Default";
+import PatternOptions from "../docs/PatternOptions";
+import PatternOption from "../docs/PatternOption";
+import DraftSetting from "../docs/DraftSetting";
 
-export default ({ pageContext }) => {
-  const frontmatter = pageContext.node.frontmatter;
-  const html = pageContext.node.html;
-  const toc = pageContext.node.tableOfContents;
-  let languageNotAvailable = "";
-  let pleaseTranslate = "";
-  if (pageContext.language !== pageContext.contentLanguage) {
-    languageNotAvailable = <LanguageNotAvailable />;
-    pleaseTranslate = (
-      <PleaseTranslate
-        filePath={pageContext.node.fileAbsolutePath}
-        language={pageContext.language}
-      />
+export default data => {
+  const { language, page } = data.pageContext;
+  const { frontmatter, html, tableOfContents, fileAbsolutePath } = page;
+  let main = "";
+  let childProps = {
+    languageNotAvailable: "",
+    pleaseTranslate: "",
+    measurementsBox: "",
+    isMeasurement: false,
+    wrapReverse: true,
+    tocBox: "",
+    language,
+    page,
+    frontmatter,
+    html,
+    tableOfContents,
+    fileAbsolutePath
+  };
+
+  // Language available?
+  if (language !== page.language) {
+    childProps.languageNotAvailable = (
+      <LanguageNotAvailable language={language} />
+    );
+    childProps.pleaseTranslate = (
+      <PleaseTranslate filePath={fileAbsolutePath} language={language} />
     );
   }
-  return (
-    <BaseLayout slug={pageContext.slug}>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item xs={12} sm={10} md={4} lg={3} xl={3} />
-        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-          <div className="docs">
-            {languageNotAvailable}
-            <h1>
-              {frontmatter.title}
-              &nbsp;&nbsp;
-              <a href={fileOnGithub(pageContext.node.fileAbsolutePath)}>
-                <GithubIcon color={"#2979ff"} />
-              </a>
-            </h1>
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={3} xl={3} />
-      </Grid>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid
-          item
-          xs={12}
-          sm={10}
-          md={4}
-          lg={3}
-          xl={3}
-          className="align-self-stretch"
-        >
-          <div className="docs toc">
-            <h3>
-              <FormattedMessage id="app.contents" />
-            </h3>
-            <aside dangerouslySetInnerHTML={{ __html: toc }} />
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={5} xl={4}>
-          <div className="docs">
-            <article dangerouslySetInnerHTML={{ __html: html }} />
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={10} md={6} lg={3} xl={3}>
-          <div className="docs cot">{pleaseTranslate}</div>
-        </Grid>
-      </Grid>
-    </BaseLayout>
-  );
+
+  // Breadcrumbs
+  let docsCrumb = { link: "/docs", label: "app.docs" };
+  if (
+    typeof frontmatter.breadcrumbs !== "undefined" &&
+    typeof frontmatter.breadcrumbs[0] !== "undefined" &&
+    frontmatter.breadcrumbs[0].link !== "/docs"
+  )
+    childProps.frontmatter.breadcrumbs.unshift(docsCrumb);
+  else childProps.frontmatter.breadcrumbs = [docsCrumb];
+
+  if (typeof frontmatter.measurement === "string") {
+    // Measurements
+    childProps.isMeasurement = true;
+    childProps.measurementsBox = <OtherMeasurements language={language} />;
+  } else if (typeof frontmatter.patternOptions === "string")
+    main = (
+      <PatternOptions {...childProps} pattern={frontmatter.patternOptions} />
+    );
+  else if (
+    typeof frontmatter.pattern === "string" &&
+    typeof frontmatter.option === "string"
+  )
+    main = (
+      <PatternOption
+        {...childProps}
+        pattern={frontmatter.pattern}
+        option={frontmatter.option}
+      />
+    );
+  else if (typeof frontmatter.setting === "string")
+    main = (
+      <DraftSetting
+        {...childProps}
+        setting={frontmatter.setting}
+        language={language}
+      />
+    );
+  else main = <DefaultDocumentation {...childProps} />;
+
+  console.log(main);
+  return <BaseLayout>{main}</BaseLayout>;
 };

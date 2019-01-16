@@ -3,7 +3,7 @@ import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link } from "gatsby";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import SplashBox from "./SplashBox";
 
 export default class LoginForm extends React.Component {
@@ -54,7 +54,7 @@ export default class LoginForm extends React.Component {
           variant="outlined"
         />
       </form>
-      <Button color="primary" size="large" variant="contained">
+      <Button className="btn1" color="primary" size="large" variant="contained">
         <FormattedMessage id="app.resetPassword" />
       </Button>
       <p className="pt20">
@@ -62,11 +62,11 @@ export default class LoginForm extends React.Component {
           <FormattedMessage id="app.logIn" />
         </a>
         &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/signup", this.language)}>
+        <Link to={locLang.set("/signup", this.language)}>
           <FormattedMessage id="app.signUpForAFreeAccount" />
         </Link>
         &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/contact", this.language)}>
+        <Link to={locLang.set("/contact", this.language)}>
           <FormattedMessage id="app.contactUs" />
         </Link>
       </p>
@@ -105,7 +105,7 @@ export default class LoginForm extends React.Component {
           <FormattedMessage id="app.troubleLoggingIn" />
         </a>
         &nbsp;|&nbsp;
-        <Link to={slugForLanguage("/signup", this.language)}>
+        <Link to={locLang.set("/signup", this.language)}>
           <FormattedMessage id="app.signUpForAFreeAccount" />
         </Link>
       </p>

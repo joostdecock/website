@@ -7,7 +7,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ConfirmIcon from "@material-ui/icons/CheckCircle";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link } from "gatsby";
-import { slugForLanguage } from "../utils";
+import { locLang } from "../utils";
 import Button from "@material-ui/core/Button";
 import ButtonSpinner from "./ButtonSpinner";
 import Radio from "@material-ui/core/Radio";
@@ -26,29 +26,23 @@ const ProfileConsent = ({
   let outroContent = (
     <div>
       <p>
-        <FormattedMessage id="gdpr.intro1" />
+        <FormattedMessage id="gdpr.compliant" />
       </p>
       <p>
-        <FormattedMessage id="gdpr.intro2" />
-        <br />
-        <FormattedMessage id="gdpr.intro3" />
-      </p>
-      <p>
-        <FormattedMessage id="gdpr.intro4" />
+        <FormattedMessage id="gdpr.consentWhyAnswer" />
       </p>
       <blockquote>
-        <Link to={slugForLanguage("/docs/privacy", language)}>
-          <FormattedMessage id="gdpr.intro5" />
+        <Link to={locLang.set("/docs/privacy", language)}>
+          <FormattedMessage id="gdpr.readMore" />
         </Link>
       </blockquote>
     </div>
   );
   return (
     <div className="content">
-      <h1>
+      <h3>
         <FormattedMessage id="gdpr.profileQuestion" />
-      </h1>
-      <span>Loading: {loading ? "yes" : "no"}</span>
+      </h3>
       <form onSubmit={handleConsentSubmit}>
         <blockquote>
           <RadioGroup
@@ -86,13 +80,13 @@ const ProfileConsent = ({
         </blockquote>
       </form>
       <div className="box">
-        <h5>
+        <h4>
           <FormattedMessage id="gdpr.whatYouNeedToKnow" />
-        </h5>
-        <h3>
-          <ProfileDataIcon className="mr10" fontSize="inherit" />
+        </h4>
+        <h6>
+          <ProfileDataIcon className="mr10 not-on-xs" fontSize="inherit" />
           <FormattedMessage id="gdpr.profileWhatQuestion" />
-        </h3>
+        </h6>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileWhatAnswer" />
@@ -101,28 +95,28 @@ const ProfileConsent = ({
             <FormattedHTMLMessage id="gdpr.profileWhatAnswerOptional" />
           </li>
         </ul>
-        <h3>
-          <WhyIcon className="mr10" fontSize="inherit" />
+        <h6>
+          <WhyIcon className="mr10 not-on-xs" fontSize="inherit" />
           <FormattedMessage id="gdpr.whyQuestion" />
-        </h3>
+        </h6>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileWhyAnswer" />
           </li>
         </ul>
-        <h3>
-          <TimingIcon className="mr10" fontSize="inherit" />
+        <h6>
+          <TimingIcon className="mr10 not-on-xs" fontSize="inherit" />
           <FormattedMessage id="gdpr.timingQuestion" />
-        </h3>
+        </h6>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileTimingAnswer" />
           </li>
         </ul>
-        <h3>
-          <ShareIcon className="mr10" fontSize="inherit" />
+        <h6>
+          <ShareIcon className="mr10 not-on-xs" fontSize="inherit" />
           <FormattedMessage id="gdpr.shareQuestion" />
-        </h3>
+        </h6>
         <ul>
           <li>
             <FormattedHTMLMessage id="gdpr.profileShareAnswer" />
@@ -131,9 +125,9 @@ const ProfileConsent = ({
       </div>
       {outro ? (
         <div className="box">
-          <h5>
+          <h4>
             <FormattedMessage id="gdpr.furtherReading" />
-          </h5>
+          </h4>
           {outroContent}
         </div>
       ) : (
@@ -143,13 +137,13 @@ const ProfileConsent = ({
   );
 };
 
-Notification.propTypes = {
+ProfileConsent.propTypes = {
   given: PropTypes.bool,
   outro: PropTypes.bool
   //onClose: PropTypes.func
 };
 
-Notification.defaultProps = {
+ProfileConsent.defaultProps = {
   consent: "no",
   outro: true
 };

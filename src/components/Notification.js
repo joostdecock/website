@@ -19,20 +19,19 @@ function Notification(props) {
   const Icon = styleIcon[style];
   let msg = message;
   if (message instanceof Error) msg = <NiceError err={message} />;
+  else if (message instanceof String)
+    msg = <span key="message" dangerouslySetInnerHTML={{ __html: msg }} />;
   return (
     <Snackbar
       className={"ntfy-" + style}
       anchorOrigin={{
-        vertical: "top",
+        vertical: "bottom",
         horizontal: "right"
       }}
       open={open}
-      autoHideDuration={5000}
+      autoHideDuration={3000}
       onClose={onClose}
-      message={[
-        <Icon key="icon" className="notification-icon" />,
-        <span key="message">{msg}</span>
-      ]}
+      message={[<Icon key="icon" className="notification-icon" />, msg]}
     />
   );
 }

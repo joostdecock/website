@@ -1,0 +1,33 @@
+.switch-success {
+  span[class*="checked"] > span > span {
+    color: $success;
+  }
+  span[class*="bar"] {
+    background-color: $success!important;
+  }
+}
+.switch-warning {
+  span[class*="checked"] > span > span {
+    color: $warning;
+  }
+  span[class*="bar"] {
+    background-color: $warning!important;
+  }
+}
+.switch-danger {
+  span[class*="checked"] > span > span {
+    color: $danger;
+  }
+  span[class*="bar"] {
+    background-color: $danger!important;
+  }
+}
+.switch-accent {
+  span[class*="checked"] > span > span {
+    color: $accent;
+  }
+  span[class*="bar"] {
+    background-color: $accent!important;
+  }
+}
+

@@ -1,16 +1,45 @@
 ul, ol {
-  margin: 1rem 1rem 1rem 2rem;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 li {
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  ul {
+    margin-top: 0;
+  }
 }
 
-div.toc {
-  aside {
+ul.meta {
+  @include title-font;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  color: $bw2;
+
+  li:first-child:before {
+    content: '';
+    padding: 0;
+  }
+  li:before {
+    content: '/';
+    padding: 0 0.5rem;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    line-height: 1rem;
+  }
+}
+
+.toc {
     ul {
       margin: 0 0 0 20px;
+    }
+    ul li {
+      margin-bottom: 0
     }
     ul li p {
       margin: 0;
@@ -18,7 +47,19 @@ div.toc {
     ul {
       font-size: 98%;
     }
-  }
 }
 
+ul.inline {
+  margin-left: 0;
+    list-style-type: none;
+  li {
+    display: inline-block;
+    padding-right: 0.5rem;
+    margin-bottom: 0;
+  }
+  li::after {
+    content: ", ";
+  }
+}
+ul.inline > li:last-child::after { content: ""; }
 

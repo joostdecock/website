@@ -1,17 +1,14 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
+import AuthContainer from "../app/auth/Container";
 import AccountContainer from "../app/account/Container";
 
-const Account = props => {
-  return (
-    <BaseLayout slug={props.pageContext.slug}>
-      <AccountContainer
-        slug={props.pageContext.slug}
-        language={props.pageContext.language}
-        intl={props.intl}
-      />
-    </BaseLayout>
-  );
-};
+const Account = props => (
+  <BaseLayout>
+    <AuthContainer>
+      <AccountContainer {...props.pageContext} />
+    </AuthContainer>
+  </BaseLayout>
+);
 
 export default Account;
