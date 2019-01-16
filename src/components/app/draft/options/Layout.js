@@ -20,33 +20,25 @@ class Layout extends React.Component {
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>
-        {this.state.value === "false" ? (
-          <p className="mb1 mt1">
-            <Button
-              variant="contained"
-              fullWidth={true}
-              color="primary"
-              onClick={() => updateDisplay("layout")}
-              className="mr05"
-            >
-              <FormattedMessage id="app.configureLayout" />
-            </Button>
-          </p>
-        ) : (
-          ""
-        )}
+        <p className="mb1 mt1">
+          <Button
+            variant="contained"
+            fullWidth={true}
+            color="primary"
+            onClick={() => updateDisplay("layout")}
+            className="mr05"
+          >
+            <FormattedMessage id="app.configureLayout" />
+          </Button>
+        </p>
         <p className="option-actions">
-          {this.state.value === "" + dflt ? (
-            ""
-          ) : (
-            <Button
-              variant="outlined"
-              onClick={() => this.props.updateOption("layout", true)}
-              className="mr05"
-            >
-              <FormattedMessage id="app.reset" />
-            </Button>
-          )}
+          <Button
+            variant="outlined"
+            onClick={() => this.props.updateOption("layout", true)}
+            className="mr05"
+          >
+            <FormattedMessage id="app.reset" />
+          </Button>
           <Button
             variant="outlined"
             onClick={

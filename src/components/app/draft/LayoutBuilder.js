@@ -68,6 +68,7 @@ class LayoutBuilder extends React.Component {
         <Draggable
           onStop={this.handleDragStop}
           onStart={this.handleDragStart}
+          onMouseDown={this.handleMouseDown}
           //bounds={this.partBounds(part, partId)}
           position={{ x: 0, y: 0 }}
           scale={scale}
@@ -225,7 +226,10 @@ class LayoutBuilder extends React.Component {
         move: {
           x: 0,
           y: 0
-        }
+        },
+        rotation: 0,
+        flipX: false,
+        flipY: false
       };
       for (let move of pattern.svg.layout[part].transform) {
         let coords = this.unpackTranslate(move);
@@ -290,6 +294,10 @@ class LayoutBuilder extends React.Component {
     this.setState({ layout, height });
   };
 
+  handleMouseDown = (evt, data) => {
+    console.log("mouse down");
+  };
+
   distillLayout = () => {
     let distilled = {
       width: this.state.width,
@@ -339,6 +347,9 @@ class LayoutBuilder extends React.Component {
   };
 
   render() {
+    let rotation = 0;
+    if (typeof this.state.layout[this.state.part] !== "undefined")
+      rotation = this.state.layout[this.state.part].rotation;
     return (
       <React.Fragment>
         <AppBar
@@ -369,7 +380,7 @@ class LayoutBuilder extends React.Component {
                 id="rotation"
                 margin="normal"
                 variant="outlined"
-                value={this.state.layout[this.state.part].rotate || 0}
+                value={this.state.layout[this.state.part].rotation}
                 onChange={this.handleRotationUpdate}
               />
             ) : (
@@ -465,17 +476,6 @@ class LayoutBuilder extends React.Component {
             <FormattedMessage id="app.applyThisLayout" />
           </Button>
         </p>
-        <pre>
-          {JSON.stringify(
-            {
-              r: this.state.rotation,
-              l: this.state.layout,
-              b: this.state.baseLayout
-            },
-            null,
-            2
-          )}
-        </pre>
       </React.Fragment>
     );
   }
