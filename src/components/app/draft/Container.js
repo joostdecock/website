@@ -17,6 +17,7 @@ import Sidebar from "./Sidebar";
 import backend from "../../../apis/backend";
 import { navigate } from "gatsby";
 import LayoutBuilder from "./LayoutBuilder";
+import draftSettings from "../../../config/draftsettings";
 
 class DraftContainer extends React.Component {
   state = {
@@ -38,9 +39,10 @@ class DraftContainer extends React.Component {
   };
 
   updateDisplay = (key, data = null) => {
+    console.log("display update", key, data);
     switch (key) {
       case "docs":
-        this.setState({ display: "docs", docs: key });
+        this.setState({ display: "docs", docs: data });
         break;
       default:
         this.setState({ display: key });
@@ -109,17 +111,27 @@ class DraftContainer extends React.Component {
     this.setState({ gist: this.state.gist, display: "export", format });
   };
 
-  optionDocsNode = key => {
+  optionDocsNode = () => {
     if (this.state.display !== "docs") return false;
-    let nodePath =
-      "/docs/patterns/" +
-      this.state.gist.pattern +
-      "/options/" +
-      this.state.docs.toLowerCase();
-    if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
-      return false;
-    else return this.props.data.optionsHelp[nodePath];
+    if (Object.keys(draftSettings.config).indexOf(this.state.docs) !== -1) {
+      // Draft setting
+      let nodePath = "/docs/draft/settings/" + this.state.docs.toLowerCase();
+      if (typeof this.props.data.settingsHelp[nodePath] === "undefined")
+        return false;
+      else return this.props.data.settingsHelp[nodePath];
+    } else {
+      // Pattern option
+      let nodePath =
+        "/docs/patterns/" +
+        this.state.gist.pattern +
+        "/options/" +
+        this.state.docs.toLowerCase();
+      if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
+        return false;
+      else return this.props.data.optionsHelp[nodePath];
+    }
   };
+
   render() {
     let main = "";
     if (this.state.display === "docs")

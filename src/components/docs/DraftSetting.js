@@ -3,11 +3,11 @@ import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
 import { fileOnGithub, capitalize } from "../../utils";
 import Breadcrumbs from "../Breadcrumbs";
-import OptionsList from "../OptionsList";
+import SettingsList from "../SettingsList";
 import Column from "../Column";
 import TwoColumns from "../TwoColumns";
 import Tray from "../Tray";
-import OptionsIcon from "@material-ui/icons/Tune";
+import SettingsIcon from "@material-ui/icons/Settings";
 
 export default props => {
   return (
@@ -19,27 +19,19 @@ export default props => {
             label: "app.docs"
           },
           {
-            link: "/docs/patterns",
-            label: "app.patterns"
+            link: "/docs/draft",
+            label: "app.draft"
           },
           {
-            link: "/docs/patterns/" + props.pattern,
-            label: capitalize(props.pattern)
-          },
-          {
-            link: "/docs/patterns/" + props.pattern + "/options",
-            label: "app.patternOptions"
+            link: "/docs/draft/settings",
+            label: "app.draftSettings"
           }
         ]}
       >
-        <FormattedMessage
-          id={"options." + props.pattern + "." + props.option + ".title"}
-        />
+        <FormattedMessage id={"settings." + props.setting + ".title"} />
       </Breadcrumbs>
       <h1>
-        <FormattedMessage
-          id={"options." + props.pattern + "." + props.option + ".title"}
-        />
+        <FormattedMessage id={"settings." + props.setting + ".title"} />
         &nbsp;&nbsp;
         <a href={fileOnGithub(props.fileAbsolutePath)}>
           <GithubIcon color={"#2979ff"} />
@@ -52,15 +44,10 @@ export default props => {
         <Column narrow right>
           <Tray
             className="mb1 stick"
-            icon={<OptionsIcon />}
-            title={
-              <React.Fragment>
-                <FormattedMessage id="app.patternOptions" />:{" "}
-                {capitalize(props.pattern)}
-              </React.Fragment>
-            }
+            icon={<SettingsIcon />}
+            title=<FormattedMessage id="app.draftSettings" />
           >
-            <OptionsList pattern={props.pattern} language={props.language} />
+            <SettingsList language={props.language} />
           </Tray>
         </Column>
       </TwoColumns>

@@ -139,7 +139,7 @@ class SeamAllowance extends React.Component {
             onClick={
               display === "docs"
                 ? () => updateDisplay("drafts")
-                : () => updateDisplay("docs", "paperless")
+                : () => updateDisplay("docs", "sa")
             }
           >
             {display === "docs" ? <CloseIcon className="mr1" /> : ""}

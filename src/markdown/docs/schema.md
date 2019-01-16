@@ -5,6 +5,7 @@ measurement: chestCircumference
 patternOptions: aaron
 pattern: aaron
 option: armholeDrop
+setting: paperless
 ---
 
 This page is here because we need at least one entry that contains all frontmatter fields.

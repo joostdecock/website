@@ -150,6 +150,7 @@ const allDocumentation = `{
           patternOptions
           pattern
           option
+          setting
         }
       }
     }
@@ -228,6 +229,23 @@ const measurementsHelp = `{
 const optionsHelp = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/patterns/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        html
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
+const settingsHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/draft/settings/"}}}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
@@ -336,6 +354,7 @@ module.exports = {
   demoHelp,
   measurementsHelp,
   optionsHelp,
+  settingsHelp,
   showcasePreviews,
   blogpostPreviews,
   documentationList,

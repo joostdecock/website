@@ -39,7 +39,7 @@ exports.jsPages = [
     nakedPath: "/demo",
     match: "/demo/*",
     template: path.resolve("src/components/pages/Demo.js"),
-    includeMarkdown: ["optionsHelp", "demoHelp"]
+    includeMarkdown: ["optionsHelp", "settingsHelp", "demoHelp"]
   },
   {
     nakedPath: "/draft",
@@ -52,12 +52,12 @@ exports.jsPages = [
   {
     nakedPath: "/draft/:pattern/for/:model",
     template: path.resolve("src/components/pages/CreateDraft.js"),
-    includeMarkdown: "optionsHelp"
+    includeMarkdown: ["optionsHelp", "settingsHelp"]
   },
   {
     nakedPath: "/draft/from/gist",
     template: path.resolve("src/components/pages/CreateDraftFromGist.js"),
-    includeMarkdown: "optionsHelp"
+    includeMarkdown: ["optionsHelp", "settingsHelp"]
   },
   {
     nakedPath: "/gist/:draft",

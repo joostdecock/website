@@ -5,7 +5,7 @@ import SettingsPicker from "./SettingsPicker";
 import OptionsIcon from "@material-ui/icons/Tune";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { patternInfo } from "@freesewing/patterns";
-import draftOptions from "../../../config/draftoptions";
+import draftSettings from "../../../config/draftsettings";
 import ActionIcon from "@material-ui/icons/Directions";
 import Actions from "./actions/Container";
 
@@ -68,8 +68,8 @@ class Sidebar extends React.Component {
           <div className="overpad2-always">
             <SettingsPicker
               {...sharedProps}
-              options={draftOptions.groups}
-              optionConfig={draftOptions.config}
+              options={draftSettings.groups}
+              optionConfig={draftSettings.config}
               updateOption={this.props.methods.updateSetting}
               settings={settings}
               units={this.props.units}

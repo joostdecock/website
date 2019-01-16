@@ -6,6 +6,7 @@ import OtherMeasurements from "../OtherMeasurements";
 import DefaultDocumentation from "../docs/Default";
 import PatternOptions from "../docs/PatternOptions";
 import PatternOption from "../docs/PatternOption";
+import DraftSetting from "../docs/DraftSetting";
 
 export default data => {
   const { language, page } = data.pageContext;
@@ -63,6 +64,14 @@ export default data => {
         {...childProps}
         pattern={frontmatter.pattern}
         option={frontmatter.option}
+      />
+    );
+  else if (typeof frontmatter.setting === "string")
+    main = (
+      <DraftSetting
+        {...childProps}
+        setting={frontmatter.setting}
+        language={language}
       />
     );
   else main = <DefaultDocumentation {...childProps} />;

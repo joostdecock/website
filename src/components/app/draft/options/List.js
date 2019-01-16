@@ -42,7 +42,7 @@ class List extends React.Component {
           ) : (
             <Button
               variant="outlined"
-              onClick={() => this.setValue(null, this.props.dflt)}
+              onClick={() => this.setValue(null, this.props.option)}
               className="mr1"
             >
               <FormattedMessage id="app.reset" />
@@ -53,7 +53,7 @@ class List extends React.Component {
             onClick={
               display === "docs"
                 ? () => updateDisplay("draft")
-                : () => updateDisplay("docs", "paperless")
+                : () => updateDisplay("docs", this.props.option)
             }
           >
             {display === "docs" ? <CloseIcon className="mr1" /> : ""}

@@ -6,7 +6,7 @@ import Column from "../../Column";
 import { patternInfo } from "@freesewing/patterns";
 import DraftPreview from "../draft/DraftPreview";
 import OptionDocs from "../draft/options/Docs";
-import draftOptions from "../../../config/draftoptions";
+import draftSettings from "../../../config/draftsettings";
 import Picker from "../draft/Picker";
 import PatternPicker from "./PatternPicker";
 import { capitalize } from "../../../utils";
@@ -132,11 +132,11 @@ class DemoContainer extends React.Component {
                   }}
                 />
                 <Picker
-                  titleId="app.draftOptions"
+                  titleId="app.draftSetting"
                   childProps={{
                     ...pickerProps,
-                    options: draftOptions.groups,
-                    optionConfig: draftOptions.config,
+                    options: draftSettings.groups,
+                    optionConfig: draftSettings.config,
                     updateOption: this.updateSetting,
                     settings,
                     units,

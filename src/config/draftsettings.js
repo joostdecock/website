@@ -1,11 +1,11 @@
-const draftOptions = {};
+const draftSettings = {};
 
-draftOptions.groups = {
+draftSettings.groups = {
   preferences: ["sa", "paperless"],
   advanced: ["only", "complete", "margin", "units", "locale", "layout"]
 };
 
-draftOptions.config = {
+draftSettings.config = {
   sa: null,
   paperless: null,
   only: null,
@@ -16,4 +16,4 @@ draftOptions.config = {
   layout: null
 };
 
-export default draftOptions;
+export default draftSettings;

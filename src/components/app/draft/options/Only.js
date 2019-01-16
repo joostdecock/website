@@ -107,8 +107,8 @@ class Only extends React.Component {
             variant="outlined"
             onClick={
               display === "docs"
-                ? () => updateDisplay("docs", "paperless")
-                : () => updateDisplay("draft")
+                ? () => updateDisplay("draft")
+                : () => updateDisplay("docs", "only")
             }
           >
             {display === "docs" ? <CloseIcon className="mr1" /> : ""}
