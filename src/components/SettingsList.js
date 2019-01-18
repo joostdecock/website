@@ -4,7 +4,6 @@ import { FormattedMessage } from "react-intl";
 import { locLang } from "../utils";
 import { Link } from "gatsby";
 import { injectIntl } from "react-intl";
-import { patternInfo } from "@freesewing/patterns";
 import draftSettings from "../config/draftsettings";
 
 const SettingsList = props => {

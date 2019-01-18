@@ -90,8 +90,12 @@ class Base extends React.Component {
               dark={dark}
               toggleDarkMode={this.handleToggleDarkMode}
             />
-            <div className="wrap">{children}</div>
-            {footer}
+            {this.props.noWrap ? (
+              children
+            ) : (
+              <div className="wrap">{children}</div>
+            )}
+            {this.props.noFooter ? "" : footer}
           </div>
           <Notification
             style={this.props.notification.style}

@@ -76,6 +76,5 @@ export default data => {
     );
   else main = <DefaultDocumentation {...childProps} />;
 
-  console.log(main);
   return <BaseLayout>{main}</BaseLayout>;
 };
