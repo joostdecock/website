@@ -4,6 +4,7 @@ path: /en/docs/patterns/bruce/options/backrise
 pattern: bruce
 option: backRise
 ---
+![The back rise option on Bruce](./backrise.svg)
 
 How much extra rise do you want at the back?
 

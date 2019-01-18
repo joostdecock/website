@@ -4,6 +4,8 @@ path: /en/docs/patterns/bruce/options/horizontalstretchfactor
 pattern: bruce
 option: horizontalStretchFactor
 ---
+![The horizontal stretch factor option on Bruce](./horizontalstretchfactor.svg)
+
 This option allows you to adapt to the stretch of the fabric you are using.
 
 If you choose 90& (for example) for every 10cm of fabric, we'll only draft 9cm.

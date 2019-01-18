@@ -4,6 +4,7 @@ path: /en/docs/patterns/brian/options/lengthbonus
 pattern: brian
 option: lengthBonus
 ---
+![The length bonus option on Brian](./lengthbonus.svg)
 
 This option controls how far the block extend below your hips.
 
