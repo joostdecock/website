@@ -9,6 +9,7 @@ However, this isn't your average sewing pattern site or company.
 There's a few important differces, specifically:
 
 ## Freesewing is an open source project run by a community, not a company
+
 Freesewing is an open source project. 
 All of our patterns, but also our platform and even this website are freely 
 [available on GitHub](https://github.com/freesewing).
@@ -40,4 +41,4 @@ collaboration between a developer and a pattern designer.
 Stop by [our chatroom on Gitter](https://gitter.im/freesewing/freesewing) to find like-minded 
 people you can team up with to add some great new patterns to our growing library.
 
-It's also the best place to turn to should you have any further questions.
+It's also the best place to turn to should you have further questions.
