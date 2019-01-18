@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
-import { fileOnGithub, capitalize } from "../../utils";
+import { fileOnGithub } from "../../utils";
 import Breadcrumbs from "../Breadcrumbs";
 import SettingsList from "../SettingsList";
 import Column from "../Column";

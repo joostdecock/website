@@ -4,6 +4,7 @@ path: /en/docs/patterns/cathrin/options/backrise
 pattern: cathrin
 option: backRise
 ---
+![The back rise option on Cathrin](./backrise.svg)
 
 How high do you want the corset to rise at the back, relative to the underbust height?
 

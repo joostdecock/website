@@ -16,7 +16,7 @@ class Layout extends React.Component {
   };
 
   render() {
-    let { desc, display, updateDisplay, dflt } = this.props;
+    let { desc, display, updateDisplay } = this.props;
     return (
       <div className="option-wrapper">
         <p className="option-desc">{desc}</p>

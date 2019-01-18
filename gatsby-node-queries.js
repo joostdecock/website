@@ -157,6 +157,77 @@ const allDocumentation = `{
   }
 }`;
 
+const cmsDocumentation = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        frontmatter {
+          path
+          title
+          measurement
+          patternOptions
+          pattern
+          option
+          setting
+        }
+      }
+    }
+  }
+}`;
+
+const cmsBlogPosts = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/blog/"}}}
+      sort: {fields: [frontmatter___date], order: ASC}
+    ) {
+    edges {
+      node {
+        frontmatter {
+          date
+          path
+          title
+          linktitle
+  			  img {
+            relativePath
+            relativeDirectory
+          }
+          caption
+          author
+          category
+          blurb
+        }
+      }
+    }
+  }
+}`;
+
+const cmsShowcasePosts = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/showcase/"}}}
+      sort: {fields: [frontmatter___date], order: ASC}
+    ) {
+    edges {
+      node {
+        frontmatter {
+          date
+          path
+          title
+  			  img {
+            relativePath
+            relativeDirectory
+          }
+          caption
+          author
+          patterns
+        }
+      }
+    }
+  }
+}`;
+
 const documentationList = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/"}}}
@@ -350,6 +421,9 @@ module.exports = {
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
+  cmsBlogPosts,
+  cmsShowcasePosts,
+  cmsDocumentation,
   markdownHelp,
   demoHelp,
   measurementsHelp,

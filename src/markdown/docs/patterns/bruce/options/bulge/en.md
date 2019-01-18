@@ -4,6 +4,7 @@ path: /en/docs/patterns/bruce/options/bulge
 pattern: bruce
 option: bulge
 ---
+![The bulge option on Bruce](./bulge.svg)
 
 How much room do you want in the front pouch?
 

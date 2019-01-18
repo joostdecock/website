@@ -347,6 +347,7 @@ class LayoutBuilder extends React.Component {
   };
 
   render() {
+    // eslint-disable-next-line
     let rotation = 0;
     if (typeof this.state.layout[this.state.part] !== "undefined")
       rotation = this.state.layout[this.state.part].rotation;
