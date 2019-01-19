@@ -67,7 +67,8 @@ class ModelContainer extends React.Component {
   injectFieldValues = () => {
     let fields = modelFields;
     let model = this.props.models[this.props.handle];
-    let values = model.measurements;
+    let values = {};
+    if (typeof model.measurements !== "undefined") values = model.measurements;
     let breasts = model.breasts;
     for (let m of Object.keys(fields.measurements.items)) {
       if (typeof values[m] !== "undefined" && values[m] !== null)
