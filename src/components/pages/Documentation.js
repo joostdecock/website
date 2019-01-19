@@ -6,12 +6,13 @@ import OtherMeasurements from "../OtherMeasurements";
 import DefaultDocumentation from "../docs/Default";
 import PatternOptions from "../docs/PatternOptions";
 import PatternOption from "../docs/PatternOption";
+import Measurement from "../docs/Measurement";
 import DraftSetting from "../docs/DraftSetting";
 
-export default data => {
+const DocumentationPage = data => {
   const { language, page } = data.pageContext;
   const { frontmatter, html, tableOfContents, fileAbsolutePath } = page;
-  let main = "";
+  let main = null;
   let childProps = {
     languageNotAvailable: "",
     pleaseTranslate: "",
@@ -51,6 +52,9 @@ export default data => {
     // Measurements
     childProps.isMeasurement = true;
     childProps.measurementsBox = <OtherMeasurements language={language} />;
+    main = (
+      <Measurement {...childProps} measurement={frontmatter.measurement} />
+    );
   } else if (typeof frontmatter.patternOptions === "string")
     main = (
       <PatternOptions {...childProps} pattern={frontmatter.patternOptions} />
@@ -78,3 +82,5 @@ export default data => {
 
   return <BaseLayout>{main}</BaseLayout>;
 };
+
+export default DocumentationPage;

@@ -7,7 +7,7 @@ import Tray from "../Tray";
 import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
 
-export default props => {
+const DefaultDocumentation = props => {
   return (
     <React.Fragment>
       <Breadcrumbs via={props.frontmatter.breadcrumbs}>
@@ -52,3 +52,5 @@ export default props => {
     </React.Fragment>
   );
 };
+
+export default DefaultDocumentation;

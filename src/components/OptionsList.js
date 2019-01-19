@@ -9,6 +9,7 @@ import { patternInfo } from "@freesewing/patterns";
 const OptionsList = props => {
   // Sort options regardless of language
   const options = {};
+  if (typeof patternInfo[props.pattern] === "undefined") return null;
   for (let o of patternInfo[props.pattern].options) {
     let label = props.intl.formatMessage({
       id: "options." + props.pattern + "." + o + ".title"
