@@ -42,4 +42,4 @@ collaboration between a developer and a pattern designer.
 Stop by [our chatroom on Gitter](https://gitter.im/freesewing/freesewing) to find like-minded 
 people you can team up with to add some great new patterns to our growing library.
 
-It's also the best place to turn to should you have further questions.
+It's also the best place to turn to should you have further questions...
