@@ -1,6 +1,7 @@
 ---
-title: About freesewing
 path: /en/docs/about
+title: About freesewing
+
 ---
 Freesewing is an open source platform for made-to-measure sewing patterns.
 
