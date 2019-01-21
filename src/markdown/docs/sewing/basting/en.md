@@ -3,9 +3,11 @@ path: /en/docs/sewing/basting
 title: Basting
 
 ---
+
 ![The shape of this denim back pocket is basted before the pocket is topstitched to the garment](basting.jpg)
 
 Basting is temporary sewing to hold things in place.
+
 It is typically done by hand, but you can also machine baste.
 
 Examples of where basting is commonly used are:
