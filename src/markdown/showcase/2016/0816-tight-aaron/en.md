@@ -1,13 +1,11 @@
 ---
-path: /en/docs/tight-aaron
+path: /en/showcase/tight-aaron
 author: null
-caption: I misjudged the stretch on this fabric, and it's super clingy - test
+caption: I misjudged the stretch on this fabric, and it's super clingy
 date: null
 img: null
-patterns:
-  aaron: true
-  brian: true
-title: Aaron in signature purple, but arguably too tight -showcase test
+patterns: "[ aaron, cathrin]"
+title: Aaron in signature purple, but arguably too tight
 
 ---
-The body
+ asd
