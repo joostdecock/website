@@ -7,11 +7,12 @@ import LanguageNotAvailable from "../LanguageNotAvailable";
 import Datum from "../Datum";
 import Breadcrumbs from "../Breadcrumbs";
 import GithubIcon from "../GithubIcon";
-import { locLang, fileOnGithub } from "../../utils";
+import { locLang, fileOnGithub, editLink } from "../../utils";
 import { Link } from "gatsby";
+import EditIcon from "@material-ui/icons/Edit";
 
 export default data => {
-  const { language, post } = data.pageContext;
+  const { language, post, location } = data.pageContext;
   const { frontmatter, html, fileAbsolutePath } = post;
 
   let languageNotAvailable = "";
@@ -70,6 +71,10 @@ export default data => {
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <h1>
             {frontmatter.title}
+            &nbsp;&nbsp;
+            <Link to={editLink(location)}>
+              <EditIcon />
+            </Link>
             &nbsp;&nbsp;
             <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />

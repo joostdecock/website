@@ -1,0 +1,13 @@
+body.light :not(pre) > code[class*="language-"] {
+  padding: 0.25rem 0.5rem;
+  background: $bw7;
+  border: 1px $bw6 solid;
+  color: $bw0;
+}
+body.dark :not(pre) > code[class*="language-"] {
+  padding: 0.25rem 0.5rem;
+  background: $bw2;
+  border: 1px $bw3 solid;
+  color: $bw9;
+}
+

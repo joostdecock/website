@@ -39,7 +39,6 @@ class DraftContainer extends React.Component {
   };
 
   updateDisplay = (key, data = null) => {
-    console.log("display update", key, data);
     switch (key) {
       case "docs":
         this.setState({ display: "docs", docs: data });
@@ -74,7 +73,6 @@ class DraftContainer extends React.Component {
   };
 
   clearGist = () => {
-    console.log("clearing gist");
     this.props.setGist(false);
   };
 

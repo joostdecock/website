@@ -6,7 +6,7 @@ const backend = {};
 // Configure Axios /////////////////////////////////
 const api = axios.create({
   baseURL: config.url,
-  timeout: 5000
+  timeout: 10000
 });
 
 // Helper method for Authorization header //////////
@@ -83,5 +83,10 @@ const tiler = axios.create({
 
 backend.tiler = (svg, format, size) =>
   tiler.post("/api", { svg, format: "pdf", size }); // Tile SVG
+
+// Editor //////////////////////////////////////////
+
+backend.editor = {};
+backend.editor.save = data => api.put("/github/file", data, auth()); // Save file
 
 export default backend;

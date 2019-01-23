@@ -12,10 +12,11 @@ import { Link } from "gatsby";
 import Tray from "../Tray";
 import TocIcon from "@material-ui/icons/Bookmark";
 import GithubIcon from "../GithubIcon";
-import { fileOnGithub } from "../../utils";
+import { fileOnGithub, editLink } from "../../utils";
+import EditIcon from "@material-ui/icons/Edit";
 
-export default data => {
-  const { language, post } = data.pageContext;
+export default props => {
+  const { language, post, location } = props.pageContext;
   const { frontmatter, html, tableOfContents, fileAbsolutePath } = post;
   let languageNotAvailable = "";
   let pleaseTranslate = "";
@@ -72,6 +73,10 @@ export default data => {
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <h1>
             {frontmatter.title}
+            &nbsp;&nbsp;
+            <Link to={editLink(location)}>
+              <EditIcon />
+            </Link>
             &nbsp;&nbsp;
             <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />

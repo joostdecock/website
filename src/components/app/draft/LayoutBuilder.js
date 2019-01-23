@@ -68,7 +68,6 @@ class LayoutBuilder extends React.Component {
         <Draggable
           onStop={this.handleDragStop}
           onStart={this.handleDragStart}
-          onMouseDown={this.handleMouseDown}
           //bounds={this.partBounds(part, partId)}
           position={{ x: 0, y: 0 }}
           scale={scale}
@@ -292,10 +291,6 @@ class LayoutBuilder extends React.Component {
     layout[partId].move.x = x;
     layout[partId].move.y = y;
     this.setState({ layout, height });
-  };
-
-  handleMouseDown = (evt, data) => {
-    console.log("mouse down");
   };
 
   distillLayout = () => {

@@ -70,7 +70,6 @@ class PatternFilter extends React.Component {
 
   filteredPatternList(state) {
     let patterns = Object.assign({}, patternInfo);
-    //console.log(patternInfo);
     if (state.search !== "") {
       for (let pattern of Object.keys(patterns)) {
         if (pattern.indexOf(state.search.toLowerCase()) === -1)

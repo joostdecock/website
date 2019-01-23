@@ -43,7 +43,6 @@ class LoginCallback extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <BaseLayout>
         <div className="vspacer">&nbsp;</div>

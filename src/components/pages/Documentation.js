@@ -9,8 +9,8 @@ import PatternOption from "../docs/PatternOption";
 import Measurement from "../docs/Measurement";
 import DraftSetting from "../docs/DraftSetting";
 
-const DocumentationPage = data => {
-  const { language, page } = data.pageContext;
+const DocumentationPage = props => {
+  const { language, page } = props.pageContext;
   const { frontmatter, html, tableOfContents, fileAbsolutePath } = page;
   let main = null;
   let childProps = {
