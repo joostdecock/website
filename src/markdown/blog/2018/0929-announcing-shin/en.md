@@ -1,13 +1,14 @@
 ---
-date: 2018-09-29
-path: "/en/blog/announcing-shin"
-title: "Announcing Shin, a swim trunks pattern"
-linktitle: "Announcing the Shin swim trunks"
-img: shin.jpg
-caption: "I guess this is what augmented reality looks like?"
+path: /en/blog/announcing-shin
 author: joost
-category: core
-blurb: "Announcing the Shin swim trunks, for swimming or just hanging out at the pool."
+blurb: Announcing the Shin swim trunks, for swimming or just hanging out at the pool.
+caption: I guess this is what augmented reality looks like?
+category: patterns
+date: 2018-09-29T00:00:00.000Z
+img: shin.jpg
+linktitle: Announcing the Shin swim trunks
+title: Announcing Shin, a swim trunks pattern - test
+
 ---
 A while ago I found myself in need of some new swim trunks. So I drafted a pattern and made some:
 
