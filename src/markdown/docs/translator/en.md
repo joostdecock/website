@@ -36,7 +36,7 @@ please [come and talk to us on Gitter](https://gitter.im/freesewing/freesewing).
 ## Making changes online
 
 By far the simplest way to work on translations is to head over 
-to [this page](/en/edit/i18n) which is a starting point to search, browse, and edit
+to [this page](/en/i18n) which is a starting point to search, browse, and edit
 our translations.
 
 You can search for things, and there's also a list of the different topics by which our
