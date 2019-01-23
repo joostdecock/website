@@ -1,9 +1,10 @@
 ---
-title: Documentation for translators
 path: /en/docs/translator
+title: Documentation for translators
+
 ---
 
-Freesewing is proudly multilingual, and for this we depend on translators to help us.
+Freesewing is proudly multilingual, and for this we depend on you to help us.
 Anytime you see something that's poorly translated, you can jump right in and fix it.
 
 That page tells you everything you need to know to do that.
