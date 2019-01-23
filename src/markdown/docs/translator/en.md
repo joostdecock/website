@@ -1,9 +1,10 @@
 ---
-title: Documentation for translators
 path: /en/docs/translator
+title: Documentation for translators
+
 ---
 
-Freesewing is proudly multilingual, and for this we depend on translators to help us.
+Freesewing is proudly multilingual, and for this we depend on you to help us.
 Anytime you see something that's poorly translated, you can jump right in and fix it.
 
 That page tells you everything you need to know to do that.
@@ -35,7 +36,7 @@ please [come and talk to us on Gitter](https://gitter.im/freesewing/freesewing).
 ## Making changes online
 
 By far the simplest way to work on translations is to head over 
-to [this page](/en/edit/i18n) which is a starting point to search, browse, and edit
+to [this page](/en/i18n) which is a starting point to search, browse, and edit
 our translations.
 
 You can search for things, and there's also a list of the different topics by which our
