@@ -12,7 +12,6 @@ import Spinner from "../Spinner";
 import { patternInfo } from "@freesewing/patterns";
 
 const Draft = props => {
-  console.log("patternInfo", patternInfo);
   let model = props["*"].split("/").pop();
   let pattern = props["*"].split("/")[2];
   if (!props.models)

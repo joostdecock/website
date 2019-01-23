@@ -6,14 +6,14 @@ exports.createPages = ({ actions, graphql }) => {
   return new Promise((resolve, reject) => {
     const markdown = {};
     utils
-      .runQueries(queries, graphql, markdown)
+      .runQueries(queries, graphql, markdown, config.editor)
       .then(() => {
         console.log();
-        console.log("[#------]", "GraphQl queries complete");
+        console.log("[#-----]", "GraphQl queries complete");
         utils.createPageRedirects(config.nakedPaths, actions.createRedirect);
       })
       .then(() => {
-        console.log("[##-----]", "All redirects created");
+        console.log("[##----]", "All redirects created");
         utils.createPosts(
           "blog",
           markdown.allBlogPosts,
@@ -22,7 +22,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[###----]", "Blog posts and indexes created");
+        console.log("[###---]", "Blog posts and indexes created");
         utils.createPosts(
           "showcase",
           markdown.allShowcasePosts,
@@ -31,7 +31,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[####---]", "Showcase posts and indexes created");
+        console.log("[####--]", "Showcase posts and indexes created");
         utils.createDocumentation(
           markdown.allDocumentation,
           actions.createPage,
@@ -39,7 +39,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[#####--]", "Documentation pages created");
+        console.log("[#####-]", "Documentation pages created");
         utils.createJsPages(
           markdown,
           actions.createPage,
@@ -47,11 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[######-]", "Application endpoints created");
-        utils.createEditorConfig(markdown);
-      })
-      .then(() => {
-        console.log("[#######]", "Editor config created. All done :)");
+        console.log("[######]", "Application endpoints created");
         resolve(true);
       });
   });

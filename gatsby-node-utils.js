@@ -80,7 +80,7 @@ const parentPath = function(nakedPath) {
     .join("/");
 };
 
-exports.runQueries = function(queries, graphql, markdown) {
+exports.runQueries = function(queries, graphql, markdown, editor) {
   let promises = [];
   for (let query of Object.keys(queries)) {
     promises.push(
@@ -89,10 +89,13 @@ exports.runQueries = function(queries, graphql, markdown) {
           if (typeof res.data === "undefined")
             console.log("query failed", query, res);
           else {
-            // No language stuffing for CMS data
-            if (query.substring(0, 3) === "cms")
-              markdown[query] = markdownPerLanguage(res.data, false);
-            else markdown[query] = markdownPerLanguage(res.data);
+            markdown[query] = markdownPerLanguage(res.data);
+            // Copy without language stuffing for editor
+            if (editor.indexOf(query) !== -1)
+              markdown["editor_" + query] = markdownPerLanguage(
+                res.data,
+                false
+              );
           }
           resolve(true);
         });
@@ -299,127 +302,4 @@ const splitDocs = markdown => {
   }
 
   return split;
-};
-
-const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
-
-exports.createEditorConfig = function(allMarkdown) {
-  let promises = [];
-  let markdown = {
-    blog: allMarkdown.cmsBlogPosts,
-    showcase: allMarkdown.cmsShowcasePosts,
-    docs: splitDocs(allMarkdown.cmsDocumentation)
-  };
-
-  let config = {
-    backend: {
-      name: "github",
-      repo: "freesewing/website",
-      branch: "editor"
-    },
-    media_folder: "static/assets",
-    public_folder: "/static/assets",
-    display_url: process.env.GATSBY_FRONTEND,
-    collections: []
-  };
-
-  const blogFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Link title", name: "linktitle", widget: "string" },
-    { label: "Author", name: "author", widget: "string" },
-    { label: "Blurb", name: "blurb", widget: "string" },
-    { label: "Caption", name: "caption", widget: "string" },
-    { label: "Image", name: "img", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Date", name: "date", widget: "date" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-  const showcaseFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Author", name: "author", widget: "string" },
-    { label: "Caption", name: "caption", widget: "string" },
-    { label: "Image", name: "img", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Date", name: "date", widget: "date" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-
-  const docsFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-
-  for (let lang of i18nConfig.languages) {
-    // Blog posts
-    let collection = {
-      name: "blog_" + lang,
-      label: "Blog posts - " + i18nConfig.translations[lang],
-      files: []
-    };
-    for (let key of Object.keys(markdown.blog[lang])) {
-      let post = markdown.blog[lang][key];
-      collection.files.push({
-        name: key.replace(/\//g, "_"),
-        label: post.frontmatter.title + " [" + key + "]",
-        file:
-          "src/markdown/" +
-          post.frontmatter.img.relativeDirectory +
-          "/" +
-          lang +
-          ".md",
-        fields: blogFields
-      });
-    }
-    config.collections.push(collection);
-    // Showcase posts
-    collection = {
-      name: "showcase_" + lang,
-      label: "Showcase posts - " + i18nConfig.translations[lang],
-      files: []
-    };
-    for (let key of Object.keys(markdown.showcase[lang])) {
-      let post = markdown.showcase[lang][key];
-      collection.files.push({
-        name: key.replace(/\//g, "_"),
-        label: post.frontmatter.title + " [" + key + "]",
-        file:
-          "src/markdown/" +
-          post.frontmatter.img.relativeDirectory +
-          "/" +
-          lang +
-          ".md",
-        fields: showcaseFields
-      });
-    }
-    config.collections.push(collection);
-    // Docs
-    for (let topic of Object.keys(markdown.docs[lang])) {
-      collection = {
-        name: "docs_" + topic + "_" + lang,
-        label:
-          capitalize(topic) +
-          " documentation - " +
-          i18nConfig.translations[lang],
-        files: []
-      };
-      for (let key of Object.keys(markdown.docs[lang][topic])) {
-        let page = markdown.docs[lang][topic][key];
-        collection.files.push({
-          name: key.replace(/\//g, "_"),
-          label: page.frontmatter.title + " [" + key + "]",
-          file: "src/markdown" + key + "/" + lang + ".md",
-          fields: docsFields
-        });
-      }
-      config.collections.push(collection);
-    }
-  }
-
-  fs.writeFileSync(
-    path.join(".", "static", "editor.json"),
-    JSON.stringify({ config }, null, 2)
-  );
-
-  return Promise.all(promises);
 };

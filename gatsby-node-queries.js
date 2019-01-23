@@ -9,6 +9,7 @@ const allBlogPosts = `{
       node {
         fileAbsolutePath
         html
+        rawMarkdownBody
         tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
           date
@@ -16,6 +17,9 @@ const allBlogPosts = `{
           title
           linktitle
   			  img {
+            name
+            ext
+            publicURL
             childImageSharp {
               fluid(maxWidth: 2000) {
                  base64
@@ -45,11 +49,15 @@ const allShowcasePosts = `{
       node {
         fileAbsolutePath
         html
+        rawMarkdownBody
         frontmatter {
           date
           path
           title
   			  img {
+            name
+            ext
+            publicURL
             childImageSharp {
               fluid(maxWidth: 2000) {
                  base64
@@ -141,6 +149,7 @@ const allDocumentation = `{
     edges {
       node {
         fileAbsolutePath
+        rawMarkdownBody
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
@@ -151,77 +160,6 @@ const allDocumentation = `{
           pattern
           option
           setting
-        }
-      }
-    }
-  }
-}`;
-
-const cmsDocumentation = `{
-  allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
-      sort: {fields: [frontmatter___title], order: ASC}
-    ) {
-    edges {
-      node {
-        frontmatter {
-          path
-          title
-          measurement
-          patternOptions
-          pattern
-          option
-          setting
-        }
-      }
-    }
-  }
-}`;
-
-const cmsBlogPosts = `{
-  allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/blog/"}}}
-      sort: {fields: [frontmatter___date], order: ASC}
-    ) {
-    edges {
-      node {
-        frontmatter {
-          date
-          path
-          title
-          linktitle
-  			  img {
-            relativePath
-            relativeDirectory
-          }
-          caption
-          author
-          category
-          blurb
-        }
-      }
-    }
-  }
-}`;
-
-const cmsShowcasePosts = `{
-  allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/showcase/"}}}
-      sort: {fields: [frontmatter___date], order: ASC}
-    ) {
-    edges {
-      node {
-        frontmatter {
-          date
-          path
-          title
-  			  img {
-            relativePath
-            relativeDirectory
-          }
-          caption
-          author
-          patterns
         }
       }
     }
@@ -421,9 +359,6 @@ module.exports = {
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
-  cmsBlogPosts,
-  cmsShowcasePosts,
-  cmsDocumentation,
   markdownHelp,
   demoHelp,
   measurementsHelp,

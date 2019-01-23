@@ -2,10 +2,12 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
-import { fileOnGithub } from "../../utils";
+import { fileOnGithub, editLink } from "../../utils";
 import Tray from "../Tray";
 import Breadcrumbs from "../Breadcrumbs";
 import TocIcon from "@material-ui/icons/Bookmark";
+import EditIcon from "@material-ui/icons/Edit";
+import { Link } from "gatsby";
 
 const DefaultDocumentation = props => {
   return (
@@ -17,6 +19,10 @@ const DefaultDocumentation = props => {
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <h1>
             {props.frontmatter.title}
+            &nbsp;&nbsp;
+            <Link to={editLink(props.location)}>
+              <EditIcon />
+            </Link>
             &nbsp;&nbsp;
             <a href={fileOnGithub(props.fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />

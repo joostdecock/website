@@ -6,6 +6,7 @@ import tlds from "tlds";
 import remark from "remark";
 import html from "remark-html";
 import { options } from "@freesewing/i18n";
+import YAML from "yaml";
 
 const storage = new Storage();
 
@@ -382,7 +383,18 @@ const patternOption = {
   format: formatOption
 };
 
+const editLink = (path, language = false) => {
+  if (language) return "/" + language + "/edit" + path;
+  else return "/" + locLang.get(path) + "/edit" + locLang.strip(path);
+};
+
+const asFrontmatterFile = (frontmatter, body) => {
+  return "---\n" + YAML.stringify(frontmatter) + "\n---\n" + body;
+};
+
 export {
+  asFrontmatterFile,
+  editLink,
   patternOption,
   round,
   distance,

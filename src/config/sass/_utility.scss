@@ -45,7 +45,7 @@
 .mt2 { margin-top: 2rem; }
 .mr1, button.mr1 { margin-right:  1rem!important; }
 .mr2, button.mr2 { margin-right:  2rem!important; }
-.mb1 { margin-bottom: 1rem; }
+.mb1 { margin-bottom: 1rem!important; }
 .ml1 { margin-left:   1rem!important; }
 
 .mr05, button.mr05 { margin-right: 0.5rem!important; }
@@ -67,8 +67,14 @@
 .color-link { color: $link; }
 .color-accent { color: $accent; }
 .color-muted { color: $bw5; }
+.hover-box {
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.hover-box:hover { background: $bw6; }
 body.dark {
   .color-danger { color: $dangerFaded; }
+  .hover-box:hover { background: $bw2; }
 }
 // Text size
 p.mini,
@@ -127,6 +133,7 @@ textarea.fixed-width {
   padding: 1rem;
   @include fixed-font;
 }
+.posrel { position: relative; }
 body.dark .nobg.card { @include shadow-dark; }
 // FIXME: These should go somewhere where they make sense
 

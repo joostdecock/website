@@ -14,6 +14,8 @@ exports.templates = {
   documentationIndex: path.resolve("src/components/pages/DocumentationIndex.js")
 };
 
+exports.editor = ["allBlogPosts", "allShowcasePosts", "allDocumentation"];
+
 // FIXME: Add naked markdown links (/about /contact and so on)
 exports.nakedPaths = ["/", "/blog", "/showcase", "/login"];
 
@@ -137,6 +139,22 @@ exports.jsPages = [
   {
     nakedPath: "/login/callback/:confirmation/:validation",
     template: path.resolve("src/components/pages/LoginCallback.js")
+  },
+  {
+    nakedPath: "/i18n",
+    match: "/i18n/*",
+    template: path.resolve("src/components/pages/Translation.js")
+  },
+  {
+    nakedPath: "/edit",
+    match: "/edit/*",
+    template: path.resolve("src/components/pages/Editor.js"),
+    includeMarkdown: [
+      "editor_allDocumentation",
+      "editor_allBlogPosts",
+      "editor_allShowcasePosts"
+    ],
+    includeAllLanguages: true
   }
 ];
 
