@@ -1,5 +1,4 @@
 const config = require("./gatsby-node-config");
-const path = require("path");
 const fs = require("fs");
 const i18nConfig = require("./src/config/i18n");
 
@@ -105,17 +104,15 @@ exports.runQueries = function(queries, graphql, markdown, editor) {
   return Promise.all(promises);
 };
 
-exports.createPageRedirects = function(nakedPaths, createRedirect) {
-  let promises = [];
-  for (nakedPath of nakedPaths) {
-    createRedirect({
-      fromPath: nakedPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: "/" + config.defaultLanguage + nakedPath
-    });
-  }
-  return Promise.all(promises);
+exports.createHomepageRedirect = function(createRedirect) {
+  // Our redirects are handled by Netlify, but not having the
+  // homepage work would be a pain when developing locally.
+  return createRedirect({
+    fromPath: "/",
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: "/" + config.defaultLanguage
+  });
 };
 
 exports.createPosts = function(type, posts, createPage, createRedirect) {
@@ -275,31 +272,47 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-const splitDocs = markdown => {
-  // The docs collection is too large, so let's divide it
-  let split = {};
-  let pattern;
-  for (let lang of Object.keys(markdown)) {
-    if (typeof split[lang] === "undefined") split[lang] = {};
-    for (let key of Object.keys(markdown[lang])) {
-      if (key.substring(0, 15) === "/docs/patterns/") {
-        pattern = key
-          .substring(15)
-          .split("/")
-          .shift();
-        if (typeof split[lang][pattern] === "undefined")
-          split[lang][pattern] = {};
-        split[lang][pattern][key] = markdown[lang][key];
-      } else if (key.substring(0, 19) === "/docs/measurements/") {
-        if (typeof split[lang].measurements === "undefined")
-          split[lang].measurements = {};
-        split[lang].measurements[key] = markdown[lang][key];
-      } else {
-        if (typeof split[lang].other === "undefined") split[lang].other = {};
-        split[lang].other[key] = markdown[lang][key];
+exports.createNetlifyRedirects = function(queries) {
+  return new Promise((resolve, reject) => {
+    let redirects = [];
+
+    redirects.push("# Editor image rewrites");
+    for (let lang of config.languages) {
+      redirects.push("\n# For " + lang);
+      for (let img of queries.markdownImages.allFile.edges)
+        redirects.push(
+          "/" +
+            lang +
+            "/edit/" +
+            img.node.relativePath +
+            " " +
+            img.node.publicURL +
+            " 200"
+        );
+    }
+
+    for (let lang of config.languages) {
+      if (lang !== config.defaultLanguage) {
+        redirects.push("\n# Language-specific redirects for " + lang);
+        for (let path of config.nakedPaths)
+          redirects.push(path + " /" + lang + path + " 302 Language=" + lang);
       }
     }
-  }
 
-  return split;
+    redirects.push("\n# Language-specific redirects for en");
+    for (let path of config.nakedPaths)
+      redirects.push(path + " /" + config.defaultLanguage + path + " 302");
+
+    redirects.push("\n\n# Catch-all SPA rewrite");
+    redirects.push("/* /en/index.html 200");
+
+    // Write to _redirects file
+    fs.writeFile("./static/_redirects", redirects.join("\n"), function(
+      err,
+      data
+    ) {
+      if (err) console.log("Could not write Netlify redirects file", err);
+      resolve(true);
+    });
+  });
 };

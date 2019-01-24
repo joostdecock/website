@@ -16,8 +16,16 @@ exports.templates = {
 
 exports.editor = ["allBlogPosts", "allShowcasePosts", "allDocumentation"];
 
-// FIXME: Add naked markdown links (/about /contact and so on)
-exports.nakedPaths = ["/", "/blog", "/showcase", "/login"];
+exports.nakedPaths = [
+  "/",
+  "/blog",
+  "/showcase",
+  "/patterns",
+  "/docs",
+  "/login",
+  "/signup",
+  "/patrons"
+];
 
 // Non-markdown content in all languages
 exports.jsPages = [

@@ -292,6 +292,25 @@ const patternCoverImages = `{
 	}
 }`;
 
+const markdownImages = `{
+	allFile(
+    filter: {
+      absolutePath: {
+      	regex: "/markdown/"
+      }
+      ext: {
+      	regex: "/jpg|jpeg|png|gif|svg/"
+      }
+    }) {
+    edges {
+      node {
+        relativePath
+        publicURL
+      }
+    }
+  }
+}`;
+
 const individualPatternCoverImages = {};
 const individualPatternShowcasePreviews = {};
 
@@ -356,6 +375,7 @@ for (let pattern of patternList) {
 }
 
 module.exports = {
+  markdownImages,
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
