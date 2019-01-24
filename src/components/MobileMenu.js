@@ -19,7 +19,7 @@ import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
 import MenuItem from "@material-ui/core/MenuItem";
 import Icon from "./Icon";
-import { tshirt } from "../data/icons";
+import { tshirt } from "../config/icons";
 
 const styles = {
   root: {
