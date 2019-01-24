@@ -48,7 +48,7 @@ exports.createPages = ({ actions, graphql }) => {
       })
       .then(() => {
         console.log("[######-]", "Application endpoints created");
-        utils.createNetlifyRedirects(markdown);
+        utils.createNetlifyRedirects(markdown, actions.createRedirect);
       })
       .then(() => {
         console.log("[#######]", "Netlify redirects written to file");

@@ -1,5 +1,5 @@
 const config = require("./gatsby-node-config");
-const fs = require("fs");
+//const fs = require("fs");
 const i18nConfig = require("./src/config/i18n");
 
 const markdownPerLanguage = function(data, addMissing = true) {
@@ -107,6 +107,7 @@ exports.runQueries = function(queries, graphql, markdown, editor) {
 exports.createHomepageRedirect = function(createRedirect) {
   // Our redirects are handled by Netlify, but not having the
   // homepage work would be a pain when developing locally.
+  // REMOVEME
   return createRedirect({
     fromPath: "/",
     isPermanent: true,
@@ -115,7 +116,7 @@ exports.createHomepageRedirect = function(createRedirect) {
   });
 };
 
-exports.createPosts = function(type, posts, createPage, createRedirect) {
+exports.createPosts = function(type, posts, createPage) {
   let promises = [];
   let categories = new Set();
   let categoryPosts = {};
@@ -143,15 +144,6 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
           location: `/${lang}${nakedPath}`
         }
       });
-      if (lang === config.defaultLanguage) {
-        // Redirects for legacy links without language prefix
-        createRedirect({
-          fromPath: nakedPath,
-          isPermanent: true,
-          redirectInBrowser: true,
-          toPath: "/" + config.defaultLanguage + nakedPath
-        });
-      }
     }
     // Category indexes
     categories.forEach(category => {
@@ -181,7 +173,7 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createDocumentation = function(pages, createPage, createRedirect) {
+exports.createDocumentation = function(pages, createPage) {
   let promises = [];
   let prefix = {
     measurements: "/docs/measurements/"
@@ -216,7 +208,7 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createJsPages = function(markdown, createPage, createRedirect) {
+exports.createJsPages = function(markdown, createPage) {
   let promises = [];
   for (let lang of config.languages) {
     for (let page of config.jsPages) {
@@ -272,47 +264,46 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createNetlifyRedirects = function(queries) {
+exports.createNetlifyRedirects = function(queries, createRedirect) {
   return new Promise((resolve, reject) => {
-    let redirects = [];
-
-    redirects.push("# Editor image rewrites");
+    // Redirect for images in editor preview
     for (let lang of config.languages) {
-      redirects.push("\n# For " + lang);
       for (let img of queries.markdownImages.allFile.edges)
-        redirects.push(
-          "/" +
-            lang +
-            "/edit/" +
-            img.node.relativePath +
-            " " +
-            img.node.publicURL +
-            " 200"
-        );
+        createRedirect({
+          fromPath: "/" + lang + "/edit/" + img.node.relativePath,
+          isPermanent: true,
+          toPath: img.node.publicURL
+        });
     }
 
+    // Per-language redirects for basic pages
     for (let lang of config.languages) {
       if (lang !== config.defaultLanguage) {
-        redirects.push("\n# Language-specific redirects for " + lang);
         for (let path of config.nakedPaths)
-          redirects.push(path + " /" + lang + path + " 302 Language=" + lang);
+          createRedirect({
+            fromPath: path,
+            isPermanent: true,
+            toPath: "/" + lang + path,
+            Language: lang
+          });
       }
     }
 
-    redirects.push("\n# Language-specific redirects for en");
+    // Default language redirects for basic pages
     for (let path of config.nakedPaths)
-      redirects.push(path + " /" + config.defaultLanguage + path + " 302");
+      createRedirect({
+        fromPath: path,
+        isPermanent: true,
+        toPath: "/" + config.defaultLanguage + path
+      });
 
-    redirects.push("\n\n# Catch-all SPA rewrite");
-    redirects.push("/* /en/index.html 200");
-
-    // Write to _redirects file
-    fs.writeFile("./static/_redirects", redirects.join("\n"), function(
-      err,
-      data
-    ) {
-      if (err) console.log("Could not write Netlify redirects file", err);
-      resolve(true);
+    // Catch-all SPA redirect
+    createRedirect({
+      fromPath: "/*",
+      isPermanent: true,
+      toPath: "/en/index.html"
     });
+
+    resolve(true);
   });
 };
