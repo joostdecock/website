@@ -7,7 +7,6 @@ const ShowcasePostPreview = data => {
   let langClass = "";
   let frontmatter = data.post.frontmatter;
   let postLink = frontmatter.path;
-  if (postLink.slice(-1) !== "/") postLink += "/";
   if (data.correctLanguage !== true) langClass = "grayscale";
   return (
     <div className={data.className}>

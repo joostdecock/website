@@ -136,7 +136,7 @@ exports.createPosts = function(type, posts, createPage) {
         categoryPosts[lang][cat][nakedPath] = post;
       }
       createPage({
-        path: `/${lang}${nakedPath}/`,
+        path: `/${lang}${nakedPath}`,
         component: config.templates[type + "Post"],
         context: {
           post,
@@ -195,7 +195,7 @@ exports.createDocumentation = function(pages, createPage) {
       );
       // Create page
       createPage({
-        path: `/${lang}${nakedPath}/`,
+        path: `/${lang}${nakedPath}`,
         component: config.templates.documentation,
         context: {
           page,

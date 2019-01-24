@@ -384,6 +384,8 @@ const patternOption = {
 };
 
 const editLink = (path, language = false) => {
+  // Edit paths MUST have a trailing slash for images to load in editor
+  if (path.slice(-1) !== "/") path += "/";
   if (language) return "/" + language + "/edit" + path;
   else return "/" + locLang.get(path) + "/edit" + locLang.strip(path);
 };
