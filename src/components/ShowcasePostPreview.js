@@ -6,11 +6,13 @@ import { Link } from "gatsby";
 const ShowcasePostPreview = data => {
   let langClass = "";
   let frontmatter = data.post.frontmatter;
+  let postLink = frontmatter.path;
+  if (postLink.slice(-1) !== "/") postLink += "/";
   if (data.correctLanguage !== true) langClass = "grayscale";
   return (
     <div className={data.className}>
       <div className="teaser">
-        <Link to={frontmatter.path} title={frontmatter.title}>
+        <Link to={postLink} title={frontmatter.title}>
           {/* This makes the link cover the entire image */}
           <span className="fs-block-link" />
         </Link>

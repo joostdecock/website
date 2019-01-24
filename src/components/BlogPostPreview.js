@@ -9,6 +9,7 @@ const BlogPostPreview = props => {
   let langClass = "";
   let frontmatter = props.post.frontmatter;
   let postLink = frontmatter.path;
+  if (postLink.slice(-1) !== "/") postLink += "/";
   if (props.correctLanguage !== true) {
     langClass = "grayscale";
     postLink = locLang.set(frontmatter.path, props.language);
