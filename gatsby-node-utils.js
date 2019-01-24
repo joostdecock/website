@@ -104,18 +104,6 @@ exports.runQueries = function(queries, graphql, markdown, editor) {
   return Promise.all(promises);
 };
 
-exports.createHomepageRedirect = function(createRedirect) {
-  // Our redirects are handled by Netlify, but not having the
-  // homepage work would be a pain when developing locally.
-  // REMOVEME
-  return createRedirect({
-    fromPath: "/",
-    isPermanent: true,
-    redirectInBrowser: true,
-    toPath: "/" + config.defaultLanguage
-  });
-};
-
 exports.createPosts = function(type, posts, createPage) {
   let promises = [];
   let categories = new Set();
@@ -264,13 +252,18 @@ exports.createJsPages = function(markdown, createPage) {
   return Promise.all(promises);
 };
 
+const imgPathToWebPath = (path, language) => {
+  if (path.slice(0, 5) === "blog/") path = "blog/" + path.slice(15);
+  if (path.slice(0, 9) === "showcase/") path = "showcase/" + path.slice(19);
+};
+
 exports.createNetlifyRedirects = function(queries, createRedirect) {
   return new Promise((resolve, reject) => {
     // Redirect for images in editor preview
     for (let lang of config.languages) {
       for (let img of queries.markdownImages.allFile.edges)
         createRedirect({
-          fromPath: "/" + lang + "/edit/" + img.node.relativePath,
+          fromPath: imgPathToWebPath(img.node.relativePath, lang),
           isPermanent: true,
           toPath: img.node.publicURL
         });

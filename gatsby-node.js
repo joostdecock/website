@@ -9,11 +9,7 @@ exports.createPages = ({ actions, graphql }) => {
       .runQueries(queries, graphql, markdown, config.editor)
       .then(() => {
         console.log();
-        console.log("[#------]", "GraphQl queries complete");
-        utils.createHomepageRedirect(actions.createRedirect);
-      })
-      .then(() => {
-        console.log("[##-----]", "Homepage redirect created");
+        console.log("[#-----]", "GraphQl queries complete");
         utils.createPosts(
           "blog",
           markdown.allBlogPosts,
@@ -22,7 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[###----]", "Blog posts and indexes created");
+        console.log("[##----]", "Blog posts and indexes created");
         utils.createPosts(
           "showcase",
           markdown.allShowcasePosts,
@@ -31,7 +27,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[####---]", "Showcase posts and indexes created");
+        console.log("[###---]", "Showcase posts and indexes created");
         utils.createDocumentation(
           markdown.allDocumentation,
           actions.createPage,
@@ -39,7 +35,7 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[#####--]", "Documentation pages created");
+        console.log("[####--]", "Documentation pages created");
         utils.createJsPages(
           markdown,
           actions.createPage,
@@ -47,11 +43,11 @@ exports.createPages = ({ actions, graphql }) => {
         );
       })
       .then(() => {
-        console.log("[######-]", "Application endpoints created");
+        console.log("[#####-]", "Application endpoints created");
         utils.createNetlifyRedirects(markdown, actions.createRedirect);
       })
       .then(() => {
-        console.log("[#######]", "Netlify redirects written to file");
+        console.log("[######]", "Netlify redirects written to file");
         resolve(true);
       });
   });
