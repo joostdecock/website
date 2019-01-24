@@ -82,7 +82,7 @@ const documentationMenu = pageLanguage => {
       },
       "divider",
       {
-        link: "/docs/editor",
+        link: locLang.set("/docs/editor", pageLanguage),
         label: "app.documentationForEditors",
         icon: "edit"
       },
@@ -92,7 +92,7 @@ const documentationMenu = pageLanguage => {
         icon: "translate"
       },
       {
-        link: locLang.set("/docs/editor", pageLanguage),
+        link: "https://developer.freesewing.org/",
         label: "app.documentationForDevelopers",
         icon: "code"
       },
