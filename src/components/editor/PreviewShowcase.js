@@ -3,6 +3,7 @@ import Image from "gatsby-image";
 import { Link } from "gatsby";
 import Datum from "../Datum";
 import { locLang } from "../../utils";
+import Markdown from "react-markdown";
 
 const PreviewShowcase = props => {
   return (
@@ -34,10 +35,10 @@ const PreviewShowcase = props => {
           backgroundColor={"#212121"}
           className="overpad1"
         />
-        <figcaption dangerouslySetInnerHTML={{ __html: props.caption }} />
+        <Markdown source={props.caption} />
       </figure>
       <h1>{props.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: props.html }} />
+      <Markdown source={props.markdown} />
     </React.Fragment>
   );
 };

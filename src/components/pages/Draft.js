@@ -11,8 +11,8 @@ const Draft = props => {
     typeof props.drafts === "undefined"
       ? false
       : typeof props.drafts[handle] === "undefined"
-        ? false
-        : true;
+      ? false
+      : true;
   return (
     <BaseLayout>
       <AuthContainer>
