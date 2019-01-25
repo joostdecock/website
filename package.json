@@ -20,7 +20,7 @@
     "freesewing": "0.29.0",
     "gatsby": "latest",
     "gatsby-image": "2.0.13",
-    "gatsby-plugin-catch-links": "2.0.9",
+    "gatsby-plugin-catch-links": "2.0.3",
     "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-netlify": "2.0.1",
     "gatsby-plugin-nprogress": "2.0.7",
@@ -88,7 +88,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.3.0",
     "node-sass": "^4.9.3",
-    "prettier": "^1.14.3",
+    "prettier": "^1.15.2",
     "redux-devtools-extension": "^2.13.5"
   },
   "repository": {
