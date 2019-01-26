@@ -23,7 +23,9 @@ import Breadcrumbs from "../../Breadcrumbs";
 import WhyIcon from "@material-ui/icons/Help";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
+import Center from "../../Center";
 import TrayTitle from "../../TrayTitle";
+import Spinner from "../../Spinner";
 import Markdown from "react-markdown";
 
 class WelcomeContainer extends React.Component {
@@ -294,7 +296,6 @@ class WelcomeContainer extends React.Component {
         />
       )
     };
-
     let steps = [
       units,
       username,
@@ -308,75 +309,76 @@ class WelcomeContainer extends React.Component {
 
   render() {
     const { activeStep, maxSteps } = this.state;
+    if (activeStep === 5) return null;
     let step = this.getStepContent(activeStep);
     return (
-      <div>
+      <React.Fragment>
         <Breadcrumbs>
           <FormattedMessage id="app.welcome" />
         </Breadcrumbs>
-        <h1>
-          <FormattedMessage id="app.completeSignupTitle" />
-        </h1>
-        <TwoColumns>
-          <Column>
-            <p className="my1">
-              <FormattedMessage id="app.completeSignupText" />
+        <div className="wrap narrow">
+          <h1 className="txt-center">
+            <FormattedMessage id="app.welcome" />
+          </h1>
+          <h4 className="txt-center">
+            <FormattedMessage id="app.letUsSetupYourAccount" />
+          </h4>
+          <form>
+            <MobileStepper
+              steps={maxSteps}
+              position="static"
+              activeStep={activeStep}
+              classes={{ root: "nobg" }}
+              nextButton={
+                <Button size="small" color="primary" onClick={this.handleNext}>
+                  <FormattedMessage id="app.continue" />
+                  <KeyboardArrowRight />
+                </Button>
+              }
+              backButton={
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={this.handleBack}
+                  disabled={activeStep === 0}
+                >
+                  <KeyboardArrowLeft />
+                  <FormattedMessage id="app.back" />
+                </Button>
+              }
+            />
+            {step.content}
+            <p className="txt-center mt1">
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.handleNext}
+              >
+                <FormattedMessage id="app.continue" />
+                <KeyboardArrowRight className="ml1" />
+              </Button>
             </p>
-            <form>
-              <MobileStepper
-                steps={maxSteps}
-                position="static"
-                activeStep={activeStep}
-                classes={{ root: "nobg" }}
-                nextButton={
-                  <Button size="small" onClick={this.handleNext}>
-                    <FormattedMessage id="app.save" />
-                    <KeyboardArrowRight />
-                  </Button>
-                }
-                backButton={
-                  <Button
-                    size="small"
-                    onClick={this.handleBack}
-                    disabled={activeStep === 0}
-                  >
-                    <KeyboardArrowLeft />
-                    <FormattedMessage id="app.back" />
-                  </Button>
-                }
-              />
-              {step.content}
-            </form>
-          </Column>
-          <Column right>
-            <Tray
-              className="my1 always-expanded"
-              icon={<WhyIcon />}
-              title={<FormattedMessage id={"app.whatIsThis"} />}
-            >
-              <p>
-                <FormattedHTMLMessage id={"account." + step.key + "Info"} />
-              </p>
-              {step.key === "bio"
-                ? [
-                    <TrayTitle icon={<WhyIcon />}>
-                      {
-                        this.props.data.markdownHelp["/docs/markdown"]
-                          .frontmatter.title
-                      }
-                    </TrayTitle>,
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: this.props.data.markdownHelp["/docs/markdown"]
-                          .html
-                      }}
-                    />
-                  ]
-                : ""}
-            </Tray>
-          </Column>
-        </TwoColumns>
-      </div>
+          </form>
+          <blockquote>
+            <FormattedHTMLMessage id={"account." + step.key + "Info"} />
+          </blockquote>
+          {step.key === "bio"
+            ? [
+                <TrayTitle icon={<WhyIcon />}>
+                  {
+                    this.props.data.markdownHelp["/docs/markdown"].frontmatter
+                      .title
+                  }
+                </TrayTitle>,
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.data.markdownHelp["/docs/markdown"].html
+                  }}
+                />
+              ]
+            : ""}
+        </div>
+      </React.Fragment>
     );
   }
 }
