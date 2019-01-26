@@ -84,7 +84,11 @@ const Draft = props => {
         <h1>
           <FormattedMessage id="app.configureYourDraft" />
         </h1>
-        <DraftContainer {...props.pageContext} user={props.user} />
+        <DraftContainer
+          {...props.pageContext}
+          user={props.user}
+          patternInfo={patternInfo[pattern]}
+        />
       </AuthContainer>
     </BaseLayout>
   );

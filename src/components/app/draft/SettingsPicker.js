@@ -11,8 +11,9 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import OptionsIcon from "@material-ui/icons/Tune";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import Option from "./options/Container";
+import Option from "../draft/options/Container";
 import { settings as settingsStrings } from "@freesewing/i18n";
+import draftSettings from "../../../config/draftsettings";
 
 class SettingsPicker extends React.Component {
   state = {
@@ -20,7 +21,7 @@ class SettingsPicker extends React.Component {
     option: false
   };
 
-  optionGroup(key, options, level = 0) {
+  optionGroup(patternInfo, key, options, level = 0) {
     let heading = (
       <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
         <ListItemIcon>
@@ -56,7 +57,7 @@ class SettingsPicker extends React.Component {
           ) !== -1
         )
           ikey = `settings.${subOption}.title`;
-        else ikey = `options.${this.props.pattern.name}.${subOption}.title`;
+        else ikey = `options.${patternInfo.name}.${subOption}.title`;
         label = this.props.intl.formatMessage({ id: ikey });
       } else {
         label = Object.keys(subOption).pop();
@@ -69,14 +70,19 @@ class SettingsPicker extends React.Component {
       let subOption = sorted[label];
       if (typeof subOption !== "string") {
         let subKey = Object.keys(subOption).pop();
-        let subItems = this.optionGroup(subKey, subOption[subKey], level + 2);
+        let subItems = this.optionGroup(
+          patternInfo,
+          subKey,
+          subOption[subKey],
+          level + 2
+        );
         for (let s of subItems) colItems.push(s);
       } else {
         let optConf, optVal, dfltVal, dflt, displayVal;
-        if (typeof this.props.units === "string") {
+        if (this.props.mode === "draft") {
           // Draft options
           optConf = subOption; // No config, just pass name
-          optVal = this.props.settings[subOption]; // Draft options are always set in state
+          optVal = this.props.gist.settings[subOption]; // Draft options are always set in state
           // Default value requires some work
           switch (subOption) {
             case "paperless":
@@ -146,12 +152,12 @@ class SettingsPicker extends React.Component {
           else dflt = false;
         } else {
           // Pattern options
-          optConf = this.props.optionConfig[subOption];
+          optConf = patternInfo.config.options[subOption];
           if (
-            typeof this.props.settings.options !== "undefined" &&
-            typeof this.props.settings.options[subOption] !== "undefined"
+            typeof this.props.gist.settings.options !== "undefined" &&
+            typeof this.props.gist.settings.options[subOption] !== "undefined"
           )
-            optVal = this.props.settings.options[subOption];
+            optVal = this.props.gist.settings.options[subOption];
           dfltVal = patternOption.dflt(optConf);
           dflt = optVal === dfltVal ? true : false;
           if (typeof optVal === "undefined") dflt = true;
@@ -160,7 +166,7 @@ class SettingsPicker extends React.Component {
             displayVal = (
               <FormattedMessage
                 id={`options.${
-                  this.props.pattern.name
+                  patternInfo.name
                 }.${subOption}.options.${optVal}`}
               />
             );
@@ -217,19 +223,17 @@ class SettingsPicker extends React.Component {
           >
             <Option
               option={subOption}
-              pattern={this.props.pattern.config.name}
+              pattern={patternInfo.config.name}
               patternInfo={
-                subOption === "sa" || subOption === "only"
-                  ? this.props.pattern
-                  : false
+                subOption === "sa" || subOption === "only" ? patternInfo : false
               }
               config={optConf}
               value={optVal}
               language={this.props.language}
-              updateOption={this.props.updateOption}
-              updateDisplay={this.props.updateDisplay}
+              updateOption={this.props.methods.updateOption}
+              updateDisplay={this.props.methods.updateDisplay}
               display={this.props.display}
-              settings={this.props.settings || false}
+              settings={this.props.gist.settings || false}
               units={this.props.units}
               dflt={dfltVal}
             />
@@ -252,25 +256,26 @@ class SettingsPicker extends React.Component {
   }
 
   toggleGroup(key) {
-    //let expanded = { ...this.state.expanded };
-    //expanded[key] = !this.state.expanded[key];
     this.setState({ expanded: key });
-    this.props.updateDisplay("draft");
+    this.props.methods.updateDisplay("draft");
   }
 
   editOption(key) {
     if (this.state.option === key) key = false;
     this.setState({ option: key });
-    this.props.updateDisplay("draft");
+    this.props.methods.updateDisplay("draft");
   }
 
-  optionGroups = this.props.pattern.optionGroups;
   render() {
+    let groups;
+    if (this.props.mode === "draft") groups = draftSettings.groups;
+    else groups = this.props.patternInfo.optionGroups;
+
     return (
       <List component="nav">
-        {Object.keys(this.props.options).map(key => {
-          return this.optionGroup(key, this.props.options[key]);
-        })}
+        {Object.keys(groups).map(key =>
+          this.optionGroup(this.props.patternInfo, key, groups[key])
+        )}
       </List>
     );
   }

@@ -203,15 +203,12 @@ const markdownHelp = `{
 const demoHelp = `{
   allMarkdownRemark(
       filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
-      sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
       node {
-        html
-        tableOfContents(pathToSlugField: "frontmatter.path")
+        rawMarkdownBody
         frontmatter {
           path
-          title
         }
       }
     }
