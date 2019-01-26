@@ -15,8 +15,6 @@ import Units from "./Units";
 import AvatarUpload from "./AvatarUpload";
 import AvatarPreview from "./AvatarPreview";
 import Social from "./Social";
-import remark from "remark";
-import html from "remark-html";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import FieldForm from "../account/FieldForm";
@@ -26,7 +24,7 @@ import WhyIcon from "@material-ui/icons/Help";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
 import TrayTitle from "../../TrayTitle";
-import CodeIcon from "@material-ui/icons/Code";
+import Markdown from "react-markdown";
 
 class WelcomeContainer extends React.Component {
   state = {
@@ -51,21 +49,9 @@ class WelcomeContainer extends React.Component {
   }
 
   usernameToState() {
-    this.renderMarkdownPreview(this.props.user.bio);
     this.setState({
       username: this.props.user.username
     });
-  }
-
-  renderMarkdownPreview(markdown) {
-    let self = this;
-    remark()
-      .use(html)
-      .process(markdown, (err, md) => {
-        self.setState({
-          markdownPreview: md.contents
-        });
-      });
   }
 
   saveAccount = (data, field) => {
@@ -130,14 +116,6 @@ class WelcomeContainer extends React.Component {
   getUnits = () => this.state.units || this.props.user.settings.units;
   getUsername = () => this.state.username || this.props.user.username;
   getAvatar = () => this.state.avatar || this.props.user.picture;
-  getBioPreview = () => {
-    if (this.state.bioPreview !== false) return this.state.bioPreview;
-    let result = "";
-    remark()
-      .use(html)
-      .process(this.props.user.bio, (err, md) => (result = md));
-    return result;
-  };
   getGithub = () =>
     this.state.github ||
     (this.props.user.social ? this.props.user.social.github : "");
@@ -210,7 +188,6 @@ class WelcomeContainer extends React.Component {
       ...state,
       bio: value
     }));
-    this.renderMarkdownPreview(value);
   };
 
   handleGithubChange = evt => {
@@ -283,13 +260,24 @@ class WelcomeContainer extends React.Component {
     let bio = {
       key: "bio",
       content: (
-        <FieldForm
-          intl={this.props.intl}
-          field="bio"
-          data={this.props.data}
-          value={this.state.bio || this.props.user.bio}
-          handleValueUpdate={this.handleBioChange}
-        />
+        <React.Fragment>
+          <FieldForm
+            intl={this.props.intl}
+            field="bio"
+            data={this.props.data}
+            value={this.state.bio || this.props.user.bio}
+            handleValueUpdate={this.handleBioChange}
+          />
+          <h5>
+            <FormattedMessage id="app.preview" />
+          </h5>
+          <div className="notes">
+            <div className="filename">
+              <FormattedMessage id="account.bio" />
+            </div>
+            <Markdown source={this.state.bio || this.props.user.bio} />
+          </div>
+        </React.Fragment>
       )
     };
     let social = {
@@ -358,21 +346,6 @@ class WelcomeContainer extends React.Component {
                 }
               />
               {step.content}
-              {activeStep === 3 ? (
-                <Tray
-                  className="mt1 force-expanded"
-                  title={<FormattedMessage id="app.preview" />}
-                  icon={<CodeIcon />}
-                >
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: this.state.markdownPreview
-                    }}
-                  />
-                </Tray>
-              ) : (
-                ""
-              )}
             </form>
           </Column>
           <Column right>

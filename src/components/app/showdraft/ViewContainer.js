@@ -12,8 +12,8 @@ import Button from "@material-ui/core/Button";
 import ShareLink from "../../ShareLink";
 import { viewDraftFields } from "../../../config/fields";
 import FieldDrawers from "../../fields/FieldDrawers";
-import Notes from "../../Notes";
 import Gist from "../../Gist";
+import Markdown from "react-markdown";
 
 class GistViewContainer extends React.Component {
   state = {
@@ -61,10 +61,8 @@ class GistViewContainer extends React.Component {
             ""
           )}
           {this.state.display === "draft" ? (
-            <Notes markdown={this.props.notes} noTray />
-          ) : (
-            ""
-          )}
+            <Markdown source={this.props.notes} />
+          ) : null}
           {this.state.display === "gist" ? (
             <React.Fragment>
               <Gist gist={this.props.gist} />

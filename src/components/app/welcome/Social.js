@@ -14,7 +14,7 @@ function Social({
   intl
 }) {
   let at = {
-    endAdornment: <InputAdornment position="start">@</InputAdornment>
+    startAdornment: <InputAdornment position="start">@</InputAdornment>
   };
   return (
     <div>

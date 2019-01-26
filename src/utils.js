@@ -3,8 +3,6 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
 import Storage from "./storage";
 import tlds from "tlds";
-import remark from "remark";
-import html from "remark-html";
 import { options } from "@freesewing/i18n";
 import YAML from "yaml";
 
@@ -145,16 +143,6 @@ const socialLink = (user, site) => {
   )
     return false;
   return "https://" + site + ".com/" + user.social[site];
-};
-
-const renderMarkdown = md => {
-  return new Promise((resolve, reject) => {
-    remark()
-      .use(html)
-      .process(md, (err, file) => {
-        resolve(file);
-      });
-  });
 };
 
 const uniqueArray = array => {
@@ -401,7 +389,6 @@ export {
   round,
   distance,
   uniqueArray,
-  renderMarkdown,
   socialLink,
   scrollToTop,
   locLang,

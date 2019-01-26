@@ -8,21 +8,14 @@ import TrayTitle from "./TrayTitle";
 import GithubIcon from "./GithubIcon";
 import TwitterIcon from "./TwitterIcon";
 import InstagramIcon from "./InstagramIcon";
-import { socialLink, renderMarkdown } from "../utils";
+import { socialLink } from "../utils";
 import { FormattedRelative, FormattedMessage } from "react-intl";
 import i18nConfig from "../config/i18n";
 import UserIcon from "@material-ui/icons/PermIdentity";
+import Markdown from "react-markdown";
 
 class UserProfile extends React.Component {
-  state = {
-    bio: false
-  };
-
-  componentDidMount() {
-    renderMarkdown(this.props.user.bio).then(bio => {
-      this.setState({ bio });
-    });
-  }
+  state = {};
 
   render() {
     const user = this.props.user;
@@ -94,10 +87,7 @@ class UserProfile extends React.Component {
           </Grid>
           <Grid item xs={12} sm={8} className="pl1nxs">
             <TrayTitle icon={<UserIcon />}>@{user.username}</TrayTitle>
-            <div
-              className="bio"
-              dangerouslySetInnerHTML={{ __html: this.state.bio }}
-            />
+            <Markdown source={user.bio} />
           </Grid>
         </Grid>
       </Tray>
