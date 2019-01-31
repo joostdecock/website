@@ -18,14 +18,9 @@ import Social from "./Social";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import FieldForm from "../account/FieldForm";
-import Tray from "../../Tray";
 import Breadcrumbs from "../../Breadcrumbs";
 import WhyIcon from "@material-ui/icons/Help";
-import TwoColumns from "../../TwoColumns";
-import Column from "../../Column";
-import Center from "../../Center";
 import TrayTitle from "../../TrayTitle";
-import Spinner from "../../Spinner";
 import Markdown from "react-markdown";
 
 class WelcomeContainer extends React.Component {

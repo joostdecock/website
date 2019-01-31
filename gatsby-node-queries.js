@@ -160,7 +160,36 @@ const allDocumentation = `{
           pattern
           option
           setting
+          components
         }
+      }
+    }
+  }
+}`;
+
+const allDocumentationWithComponents = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        components: {eq: true}
+      }}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        fileAbsolutePath
+        htmlAst
+        frontmatter {
+          path
+        	i18n {
+            boxTitle
+            boxInfo
+            boxWhy
+            i18nTitle
+            i18nInfo
+            i18nData
+          }
+				}
       }
     }
   }
@@ -191,6 +220,22 @@ const markdownHelp = `{
       node {
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
+        frontmatter {
+          path
+          title
+        }
+      }
+    }
+  }
+}`;
+
+const developerDocumentation = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/developer/"}}}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
         frontmatter {
           path
           title
@@ -372,10 +417,12 @@ for (let pattern of patternList) {
 }
 
 module.exports = {
+  developerDocumentation,
   markdownImages,
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
+  allDocumentationWithComponents,
   markdownHelp,
   demoHelp,
   measurementsHelp,

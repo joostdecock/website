@@ -92,7 +92,7 @@ const documentationMenu = pageLanguage => {
         icon: "translate"
       },
       {
-        link: "https://developer.freesewing.org/",
+        link: locLang.set("/docs/developer", pageLanguage),
         label: "app.documentationForDevelopers",
         icon: "code"
       },

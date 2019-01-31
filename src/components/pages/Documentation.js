@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../layouts/Base";
-import PleaseTranslate from "../PleaseTranslate";
+//import PleaseTranslate from "../PleaseTranslate";
 import LanguageNotAvailable from "../LanguageNotAvailable";
 import OtherMeasurements from "../OtherMeasurements";
 import DefaultDocumentation from "../docs/Default";
@@ -8,6 +8,12 @@ import PatternOptions from "../docs/PatternOptions";
 import PatternOption from "../docs/PatternOption";
 import Measurement from "../docs/Measurement";
 import DraftSetting from "../docs/DraftSetting";
+import DocumentationWithComponents from "../docs/WithComponents";
+import Breadcrumbs from "../Breadcrumbs";
+import GithubIcon from "../GithubIcon";
+import EditIcon from "@material-ui/icons/Edit";
+import { Link } from "gatsby";
+import { fileOnGithub, editLink } from "../../utils";
 
 const DocumentationPage = props => {
   const { language, page } = props.pageContext;
@@ -33,9 +39,10 @@ const DocumentationPage = props => {
     childProps.languageNotAvailable = (
       <LanguageNotAvailable language={language} />
     );
-    childProps.pleaseTranslate = (
-      <PleaseTranslate filePath={fileAbsolutePath} language={language} />
-    );
+    // Seems a bit much to also include this
+    //childProps.pleaseTranslate = (
+    //  <PleaseTranslate filePath={fileAbsolutePath} language={language} className="mt1"/>
+    //);
   }
 
   // Breadcrumbs
@@ -45,7 +52,7 @@ const DocumentationPage = props => {
     typeof frontmatter.breadcrumbs[0] !== "undefined" &&
     frontmatter.breadcrumbs[0].link !== "/docs"
   )
-    childProps.frontmatter.breadcrumbs.unshift(docsCrumb);
+    frontmatter.breadcrumbs.unshift(docsCrumb);
   else childProps.frontmatter.breadcrumbs = [docsCrumb];
 
   if (typeof frontmatter.measurement === "string") {
@@ -78,9 +85,40 @@ const DocumentationPage = props => {
         language={language}
       />
     );
-  else main = <DefaultDocumentation {...childProps} />;
-
-  return <BaseLayout>{main}</BaseLayout>;
+  else if (frontmatter.components) {
+    let path = props.pageContext.location;
+    if (path.slice(-1) !== "/") path += "/";
+    main = (
+      <DocumentationWithComponents
+        {...childProps}
+        htmlAst={page.htmlAst}
+        path={path}
+        pages={props.pageContext.pages}
+      />
+    );
+  } else
+    main = (
+      <DefaultDocumentation {...childProps} pages={props.pageContext.pages} />
+    );
+  return (
+    <BaseLayout>
+      <Breadcrumbs via={frontmatter.breadcrumbs}>
+        {frontmatter.title}
+      </Breadcrumbs>
+      <h1>
+        {frontmatter.title}
+        &nbsp;&nbsp;
+        <Link to={editLink(props.pageContext.location)}>
+          <EditIcon />
+        </Link>
+        &nbsp;&nbsp;
+        <a href={fileOnGithub(fileAbsolutePath)}>
+          <GithubIcon color={"#2979ff"} />
+        </a>
+      </h1>
+      {main}
+    </BaseLayout>
+  );
 };
 
 export default DocumentationPage;

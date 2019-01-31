@@ -161,11 +161,14 @@ exports.createPosts = function(type, posts, createPage) {
   return Promise.all(promises);
 };
 
-exports.createDocumentation = function(pages, createPage) {
+exports.createDocumentation = function(markdown, createPage) {
   let promises = [];
   let prefix = {
-    measurements: "/docs/measurements/"
+    measurements: "/docs/measurements/",
+    developer: "/docs/developer/"
   };
+  let pages = markdown.allDocumentation;
+  let components = markdown.allDocumentationWithComponents;
   // Create pages for documentation in all languages
   for (let lang of config.languages) {
     for (nakedPath of Object.keys(pages[lang])) {
@@ -175,17 +178,28 @@ exports.createDocumentation = function(pages, createPage) {
         prefix.measurements
       )
         page.frontmatter.measurement = nakedPath.split("/").pop();
+      let md = {};
+      let devfix = prefix.developer.slice(0, -1);
+      if (nakedPath.substring(0, devfix.length) === devfix)
+        md.pages = markdown.developerDocumentation;
+
       // Add breadcrumbs to frontmatter
       page.frontmatter.breadcrumbs = documentationBreadcrumbs(
         nakedPath,
         lang,
         pages
       );
+      // Add htmlAst if this page supports components in markdown
+      if (page.frontmatter.components) {
+        page.htmlAst = components[lang][nakedPath].htmlAst;
+        page.frontmatter.i18n = components[lang][nakedPath].frontmatter.i18n;
+      }
       // Create page
       createPage({
         path: `/${lang}${nakedPath}`,
         component: config.templates.documentation,
         context: {
+          ...md,
           page,
           language: lang,
           location: `/${lang}/${nakedPath}`

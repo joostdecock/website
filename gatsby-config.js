@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
-    "gatsby-transformer-remark",
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -37,6 +36,10 @@ module.exports = {
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
           {
+            resolve: "gatsby-remark-component",
+            options: { components: ["api-example", "pattern-example"] }
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 650,
@@ -51,7 +54,8 @@ module.exports = {
               header: "Table of Contents", // the custom header text
               include: [
                 "markdown/**/*.md" // an include glob to match against
-              ]
+              ],
+              mdastUtilTocOptions: { maxDepth: 3 }
             }
           },
           {

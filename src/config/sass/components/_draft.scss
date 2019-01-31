@@ -42,6 +42,9 @@ svg.freesewing.draft {
   .fill-mark{ fill: $link; }
   .fill-contrast{ fill:red; }
 
+  /* Sampling */
+  path.sample-focus  {stroke-width: 1.5; fill: rgba(0,0,0,0.1)}
+
   /* Text */
   text{
     font-size:6px;
