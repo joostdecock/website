@@ -89,6 +89,12 @@ It's in early beta (as in, it still breaks from time to time) but you can now ch
 of your pattern, move your pattern parts around, rotate them, or even mirror them vertically
 or horizontally to suit whatever your plans are. All of that can be done in your browser, on the site.
 
+## Developer documentation
+
+We've also integrated our developer documentation on the new site.
+Until yesterday, documentation about the new platform was hosted on a separate site,
+but now, we've ported the documentation and everything is integrated in our (future) website.
+
 ## We won't migrate your drafts
 
 Time to talk about the things we won't be doing: We will not migrate your existing drafts.
@@ -122,3 +128,18 @@ Building a community on the website takes time, it takes effort, it takes work.
 And we simply don't have the bandwidth for that. So I'd rather we focus 
 on [our core mission](/en/docs/faq/#whats-your-end-game), and let people talk 
 about freesewing wherever it is they talk about things.
+
+## Paris anyone?
+
+I've mentioned I'd like to do some sort of meetup this year, and while I haven't really 
+had any time to work out what that would mean, we might end up meeting anyway.
+
+Specifically, [Charlotte](https://englishgirlathome.com/) (aka English girl at home) 
+and [Carmen](https://www.carmencitab.com/) (aka CarmencitaB) are organising the
+[Paris Sewcial](https://englishgirlathome.com/2019/01/23/paris-sewcial-paris-coud-2019-registration-open/)
+meetup in May. I'll be heading to Paris to be part of that, so if you
+are too, we'll meet up there.
+
+Registration is 
+[right this way](https://www.eventbrite.co.uk/e/paris-sewcial-paris-coud-registration-54520802187). 
+
