@@ -121,7 +121,7 @@ class Patrons extends React.Component {
         <Breadcrumbs>
           <FormattedMessage id="app.ourPatrons" />
         </Breadcrumbs>
-        <div className="overpad2-always">
+        <div className="overpad1">
           <Ship />
         </div>
         {[8, 4, 2].map(tier => this.patronList(tier))}
