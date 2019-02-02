@@ -74,7 +74,7 @@ class Patrons extends React.Component {
         <Link
           className="avatar"
           to={locLang.set(
-            "/users/" + patron.handle,
+            "/users/" + patron.username,
             this.props.pageContext.language
           )}
         >
