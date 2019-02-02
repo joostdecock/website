@@ -163,6 +163,10 @@ exports.jsPages = [
       "editor_allShowcasePosts"
     ],
     includeAllLanguages: true
+  },
+  {
+    nakedPath: "/patrons",
+    template: path.resolve("src/components/pages/Patrons.js")
   }
 ];
 

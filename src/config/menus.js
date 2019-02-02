@@ -33,6 +33,12 @@ const communityMenu = pageLanguage => {
         icon: "camera_alt"
       },
       {
+        link: locLang.set("/patrons/", pageLanguage),
+        label: "app.ourPatrons",
+        icon: "favorite"
+      },
+      "divider",
+      {
         link: "https://gitter.im/freesewing/freesewing",
         label: "app.chatOnGitter",
         icon: { type: "component", svg: <GitterIcon color="" /> }

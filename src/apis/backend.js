@@ -32,10 +32,9 @@ backend.login = (username, password) =>
 
 backend.profile = username => api.get("/users/" + username); // Load user profile
 
-backend.loadGist = handle => {
-  console.log("loading gist", handle);
-  return api.get("/gist/" + handle); // Load draft/gist anonymously
-};
+backend.loadGist = handle => api.get("/gist/" + handle); // Load draft/gist anonymously
+
+backend.loadPatrons = handle => api.get("/patrons"); // Load patron list
 
 // Users //////////////////////////
 
