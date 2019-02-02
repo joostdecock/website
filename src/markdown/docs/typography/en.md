@@ -75,29 +75,27 @@ Text is just text. You can just start writing.
 
 > This is a blockquote
 
-> ##### This is also a blockquote
+> ###### This is also a blockquote
 > 
 > But this one has a bit more content to it, as wel as 
 > [a link](/).
 
 ## Code
 
-
 ```js
 state = {
   pattern: this.props.pattern,
   model: this.props.model,
-  settings: {
-    embed: true,
-    sa: 0,
-    complete: true,
-    options: {},
-    paperless: false,
-    locale: this.props.language,
-    units: this.props.user.settings.units,
-    margin: this.props.user.settings.units === "imperial" ? 2.38125 : 2
-  },
   options: {},
   docs: false
 };
 ```
+
+```bash
+npm run install
+```
+
+```svg
+<path d="M 0,0 L 100,100" />
+```
+

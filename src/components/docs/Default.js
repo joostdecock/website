@@ -5,6 +5,8 @@ import Tray from "../Tray";
 import TocIcon from "@material-ui/icons/Bookmark";
 import CustomToc from "../CustomToc";
 import DocsFooter from "../DocsFooter";
+import { Link } from "gatsby";
+import { locLang } from "../../utils";
 
 const DefaultDocumentation = props => {
   let customToc = false;
@@ -36,11 +38,43 @@ const DefaultDocumentation = props => {
       />
     );
   }
+
+  let index = null;
+  if (props.frontmatter.index) {
+    index = <p>This is an index</p>;
+  }
+
+  const directoryIndex = () => {
+    if (!props.frontmatter.index) return null;
+    let here = props.frontmatter.path;
+    let depth = here.split("/").length;
+    let entries = [];
+    for (let path of Object.keys(props.pages)) {
+      if (path.slice(0, here.length) === here) {
+        if (path.split("/").length === depth + 1) {
+          entries.push(
+            <li key={path}>
+              <Link to={locLang.set(path, props.language)}>
+                {props.pages[path].frontmatter.title}
+              </Link>
+            </li>
+          );
+        }
+      }
+    }
+
+    return <ul>{entries}</ul>;
+  };
+
+  let toc = true;
+  if (!props.tableOfContents || props.tableOfContents.length === 0) toc = false;
+
   return (
     <React.Fragment>
       <Grid container direction="row" justify="flex-start" wrap="wrap-reverse">
         <Grid item xs={12} sm={10} md={7} lg={6} xl={6}>
           <article dangerouslySetInnerHTML={{ __html: props.html }} />
+          {directoryIndex()}
           <DocsFooter />
           {props.pleaseTranslate}
         </Grid>
@@ -56,26 +90,31 @@ const DefaultDocumentation = props => {
         >
           {props.languageNotAvailable}
           {props.measurementsBox}
-          <Tray
-            className="mb1 stick scrollable"
-            icon={<TocIcon />}
-            title={
-              customToc ? (
-                props.pages[props.language]["/docs/developer"].frontmatter.title
+          {toc ? (
+            <Tray
+              className="mb1 stick scrollable"
+              icon={<TocIcon />}
+              title={
+                customToc ? (
+                  props.pages[props.language]["/docs/developer"].frontmatter
+                    .title
+                ) : (
+                  <FormattedMessage id="app.contents" />
+                )
+              }
+            >
+              {customToc ? (
+                <div className="toc overpad2-always">{customToc}</div>
               ) : (
-                <FormattedMessage id="app.contents" />
-              )
-            }
-          >
-            {customToc ? (
-              <div className="toc overpad2-always">{customToc}</div>
-            ) : (
-              <div
-                className="toc overpad2-always"
-                dangerouslySetInnerHTML={{ __html: props.tableOfContents }}
-              />
-            )}
-          </Tray>
+                <div
+                  className="toc overpad2-always"
+                  dangerouslySetInnerHTML={{ __html: props.tableOfContents }}
+                />
+              )}
+            </Tray>
+          ) : (
+            ""
+          )}
         </Grid>
       </Grid>
     </React.Fragment>

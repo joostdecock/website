@@ -61,7 +61,7 @@ const DocumentationIndex = props => {
     let list = [];
     for (let page of docsWithPrefix("/docs/" + prefix + "/", true)) {
       list.push(
-        <li key={prefix + page}>
+        <li key={prefix + page.path}>
           <Link to={page.path}>{page.title}</Link>
         </li>
       );
@@ -118,7 +118,7 @@ const DocumentationIndex = props => {
           <ol>
             {docsWithoutPrefix([1, 2, 3, 4]).map((page, index) => {
               return (
-                <li>
+                <li key={"other=" + index}>
                   <Link to={page.path}>{page.path}</Link>
                   &nbsp;&raquo;&nbsp;
                   {page.title}

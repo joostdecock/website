@@ -143,7 +143,10 @@ const blogpostPreviews = `{
 
 const allDocumentation = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
@@ -161,6 +164,8 @@ const allDocumentation = `{
           option
           setting
           components
+          hidden
+          index
         }
       }
     }
@@ -172,6 +177,7 @@ const allDocumentationWithComponents = `{
       filter: {frontmatter: {
         path: {regex: "/docs/"}
         components: {eq: true}
+        hidden: {ne: true}
       }}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
@@ -197,7 +203,10 @@ const allDocumentationWithComponents = `{
 
 const documentationList = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___path], order: ASC}
     ) {
     edges {

@@ -182,7 +182,7 @@ exports.createDocumentation = function(markdown, createPage) {
       let devfix = prefix.developer.slice(0, -1);
       if (nakedPath.substring(0, devfix.length) === devfix)
         md.pages = markdown.developerDocumentation;
-
+      if (page.frontmatter.index) md.pages = markdown.documentationList[lang];
       // Add breadcrumbs to frontmatter
       page.frontmatter.breadcrumbs = documentationBreadcrumbs(
         nakedPath,
