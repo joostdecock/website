@@ -23,8 +23,8 @@ h2.ship-text {
 
 @media (max-width: 599px) {
   h2.ship-text {
-    top: 2%;
-    font-size: 1.5rem;
+    top: 0;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 600px) {

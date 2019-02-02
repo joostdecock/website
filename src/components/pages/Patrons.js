@@ -112,7 +112,6 @@ class Patrons extends React.Component {
         <BaseLayout>
           <Center>
             <Spinner />
-            <pre>{JSON.stringify(this.state, null, 2)}</pre>
           </Center>
         </BaseLayout>
       );
@@ -122,7 +121,9 @@ class Patrons extends React.Component {
         <Breadcrumbs>
           <FormattedMessage id="app.ourPatrons" />
         </Breadcrumbs>
-        <Ship />
+        <div className="overpad2-always">
+          <Ship />
+        </div>
         {[8, 4, 2].map(tier => this.patronList(tier))}
       </BaseLayout>
     );
