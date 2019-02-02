@@ -46,7 +46,7 @@ const DefaultDocumentation = props => {
 
   const directoryIndex = () => {
     if (!props.frontmatter.index) return null;
-    let here = props.frontmatter.path;
+    let here = locLang.strip(props.frontmatter.path);
     let depth = here.split("/").length;
     let entries = [];
     for (let path of Object.keys(props.pages)) {

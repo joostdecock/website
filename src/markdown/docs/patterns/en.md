@@ -1,5 +1,5 @@
 ---
-path: /docs/patterns
+path: /en/docs/patterns
 title: Pattern documentation
 index: true
 ---
