@@ -70,11 +70,7 @@ class UserProfile extends React.Component {
           className=""
         >
           <Grid item xs={12} sm={4} className={"w100 mb1"}>
-            <UserAvatar
-              username={user.username}
-              uris={user.pictureUris}
-              shape="untray"
-            />
+            <UserAvatar username={user.username} uris={user.pictureUris} />
             <p className="mini txt-center">
               <FormattedMessage
                 id="app.userHasBeenWithUsSince"

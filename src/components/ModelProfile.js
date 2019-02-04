@@ -22,11 +22,7 @@ class ModelProfile extends React.Component {
           className=""
         >
           <Grid item xs={12} sm={4} className={"w100 mb1"}>
-            <UserAvatar
-              username={model.name}
-              uris={model.pictureUris}
-              shape="untray"
-            />
+            <UserAvatar username={model.name} uris={model.pictureUris} />
           </Grid>
           <Grid item xs={12} sm={8} className="pl1nxs">
             <TrayTitle icon={<UserIcon />}>{model.name}</TrayTitle>

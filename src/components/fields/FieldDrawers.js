@@ -41,7 +41,7 @@ class FieldDrawers extends React.Component {
                   display={this.props.display}
                   updateDisplay={this.props.updateDisplay}
                   buttons={this.props.buttons}
-                  avatars={this.props.avatars}
+                  pictureUris={this.props.pictureUris}
                 />
               </div>
             </Drawer>

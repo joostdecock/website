@@ -132,7 +132,7 @@ class ModelContainer extends React.Component {
               units={this.props.models[this.props.handle].units}
               display={this.state.display}
               updateDisplay={this.updateDisplay}
-              avatars={this.props.models[this.props.handle].pictureUris}
+              pictureUris={this.props.models[this.props.handle].pictureUris}
             />
           </div>
         </Column>

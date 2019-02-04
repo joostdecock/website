@@ -89,7 +89,7 @@ class FieldList extends React.Component {
           </ListItemText>
           <ListItemSecondaryAction>
             {key === "picture" ? (
-              <Avatar src={this.props.avatars.xs} className="mr05" />
+              <Avatar src={this.props.pictureUris.xs} className="mr05" />
             ) : (
               <FieldDisplayValue
                 value={conf.value}
