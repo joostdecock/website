@@ -15,8 +15,8 @@ import { scrollToTop } from "../../../utils";
 import Field from "../../fields/Field";
 import FieldDrawers from "../../fields/FieldDrawers";
 import { modelFields } from "../../../config/fields";
-import { measurementsForBreasts } from "@freesewing/patterns";
 import ModelProfile from "../../ModelProfile";
+import Measurements from "./Measurements";
 
 class ModelContainer extends React.Component {
   state = {
@@ -30,6 +30,20 @@ class ModelContainer extends React.Component {
 
   updateDisplay = (key, data = null) => {
     if (key === null) key = "model";
+    if (key === "updateMeasurement") {
+      key = "update";
+      let measurement = data;
+      data = {
+        config: {
+          type: "distance",
+          label: "measurements." + measurement,
+          value: this.props.models[this.props.handle].measurements[measurement],
+          sub: "measurements"
+        },
+        item: measurement
+      };
+    }
+
     this.setState({ display: key, data });
   };
 
@@ -68,16 +82,6 @@ class ModelContainer extends React.Component {
   injectFieldValues = () => {
     let fields = modelFields;
     let model = this.props.models[this.props.handle];
-    let values = {};
-    if (typeof model.measurements !== "undefined") values = model.measurements;
-    let breasts = model.breasts;
-    for (let m of Object.keys(fields.measurements.items)) {
-      if (typeof values[m] !== "undefined" && values[m] !== null)
-        fields.measurements.items[m].value = values[m];
-      // Don't confuse flat-chested people with boob measurements
-      if (!breasts && measurementsForBreasts.indexOf(m) !== -1)
-        delete fields.measurements.items[m];
-    }
     for (let field of [
       "breasts",
       "created",
@@ -93,17 +97,29 @@ class ModelContainer extends React.Component {
 
   render() {
     let fields = this.injectFieldValues();
+    console.log(fields);
     let model = this.props.models[this.props.handle];
     return (
       <TwoColumns wrapReverse={true}>
         <Column wide>
-          {this.state.display === "model" ? <ModelProfile model={model} /> : ""}
+          {this.state.display === "model" ? (
+            <React.Fragment>
+              <ModelProfile model={model} />
+              <h2 className="txt-center">
+                <FormattedMessage id="app.measurements" />
+              </h2>
+              <Measurements model={model} updateDisplay={this.updateDisplay} />
+            </React.Fragment>
+          ) : (
+            ""
+          )}
           {this.state.display === "update" ? (
             <Field
               {...this.state.data}
               updateField={this.updateField}
               updateDisplay={this.updateDisplay}
               units={model.units}
+              intl={this.props.intl}
             />
           ) : (
             ""
@@ -116,6 +132,7 @@ class ModelContainer extends React.Component {
               units={this.props.models[this.props.handle].units}
               display={this.state.display}
               updateDisplay={this.updateDisplay}
+              avatars={this.props.models[this.props.handle].pictureUris}
             />
           </div>
         </Column>

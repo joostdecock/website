@@ -39,11 +39,6 @@ const DefaultDocumentation = props => {
     );
   }
 
-  let index = null;
-  if (props.frontmatter.index) {
-    index = <p>This is an index</p>;
-  }
-
   const directoryIndex = () => {
     if (!props.frontmatter.index) return null;
     let here = locLang.strip(props.frontmatter.path);

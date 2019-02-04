@@ -2,15 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import UserAvatar from "./UserAvatar";
 import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
 import Tray from "./Tray";
 import TrayTitle from "./TrayTitle";
-import GithubIcon from "./GithubIcon";
-import TwitterIcon from "./TwitterIcon";
-import InstagramIcon from "./InstagramIcon";
-import { socialLink, distance } from "../utils";
-import { FormattedRelative, FormattedMessage } from "react-intl";
-import i18nConfig from "../config/i18n";
 import UserIcon from "@material-ui/icons/PermIdentity";
 import Markdown from "react-markdown";
 
@@ -40,26 +33,6 @@ class ModelProfile extends React.Component {
             <Markdown source={model.notes} />
           </Grid>
         </Grid>
-        <table>
-          {Object.keys(model.measurements).map(index => {
-            return (
-              <tr>
-                <td className="key">
-                  <FormattedMessage id={"measurements." + index} />
-                </td>
-                <td
-                  className="val"
-                  dangerouslySetInnerHTML={{
-                    __html: distance.asHtml(
-                      model.measurements[index],
-                      model.units
-                    )
-                  }}
-                />
-              </tr>
-            );
-          })}
-        </table>
       </Tray>
     );
   }

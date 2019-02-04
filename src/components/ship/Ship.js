@@ -1,6 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import ship from "./ship.svg";
+/* eslint-disable */
 import style from "./style.css";
 
 const Ship = props => (

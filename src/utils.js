@@ -196,6 +196,7 @@ distance.asText = (value, units = "metric") => {
 };
 
 distance.asHtml = (value, units = "metric") => {
+  if (typeof value === "undefined") return "";
   if (units === "metric") return round(value / 10) + "cm";
   else {
     // eslint-disable-next-line

@@ -2,7 +2,6 @@ import React from "react";
 import BaseLayout from "../layouts/Base";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
-import { icons } from "../../config/i18n";
 import { locLang } from "../../utils";
 import Breadcrumbs from "../Breadcrumbs";
 import Tray from "../Tray";
