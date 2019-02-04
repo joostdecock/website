@@ -16,6 +16,7 @@ import Field from "../../fields/Field";
 import FieldDrawers from "../../fields/FieldDrawers";
 import { modelFields } from "../../../config/fields";
 import { measurementsForBreasts } from "@freesewing/patterns";
+import ModelProfile from "../../ModelProfile";
 
 class ModelContainer extends React.Component {
   state = {
@@ -96,11 +97,7 @@ class ModelContainer extends React.Component {
     return (
       <TwoColumns wrapReverse={true}>
         <Column wide>
-          {this.state.display === "model" ? (
-            <p>FIXME: Display model info here</p>
-          ) : (
-            ""
-          )}
+          {this.state.display === "model" ? <ModelProfile model={model} /> : ""}
           {this.state.display === "update" ? (
             <Field
               {...this.state.data}
