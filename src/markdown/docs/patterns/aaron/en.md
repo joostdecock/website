@@ -24,7 +24,6 @@ An A-shirt is essentially underwear. And in that capacity, you want something th
 Cotton with a hint of something stretchy, maybe rayon, or a fine knit. I suggest you go to the fabric store and feel around a bit.
 
 > While stretch is not required, it does make sense for underwear. That being said, you can make this in a non-stretch, just make sure pick loose or casual fit.
-{:.tip}
 
 
 ## Cutting
@@ -43,23 +42,23 @@ Aaron is a very simply pattern, and consists of two main parts plus some strips 
 
 Below is a typical draft layout:
 
-![A typical Aaron draft](/img/patterns/aaron/layout.svg){.elevation-1}
+![A typical Aaron draft](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 
 ## Construction
 
 ### Step 1: Close seams
 
-![Close the side and shoulder seams](/img/patterns/aaron/instructions/step01.png)
+![Close the side and shoulder seams](step01.png)
 
 Put front and back on top of each other with good sides together. 
 Serge the side seams, and the short seams at the shoulder straps.
 
 ### Step 2: Finish hem
 
-![Finish the hem](/img/patterns/aaron/instructions/step02.png)
+![Finish the hem](step02.png)
 
 Fold the hem upwards, and sew it down. If you have a coverlock, use it. If not, use a twin needle or zig-zag stitch to keep the seam stretchable.
 
@@ -89,7 +88,7 @@ We are going to finish the arm and neck hole with [knit binding](/docs/sewing/kn
 
 #### Pick your spot
     
-![Applying knit binding](/img/patterns/aaron/instructions/step03a.png)
+![Applying knit binding](step03a.png)
 
 The first thing we need to do is decide where we are going to start/stop our binding. Here's what I suggest:
 
@@ -98,7 +97,7 @@ The first thing we need to do is decide where we are going to start/stop our bin
 
 #### Place (the start of) your binding
 
-![Place (the start of) your binding](/img/patterns/aaron/instructions/step03b.png)
+![Place (the start of) your binding](step03b.png)
 
 Put your A-shirt down with the good side up, and place your binding strip on top of it with the good side down (as in, good sides together).
 
@@ -112,7 +111,7 @@ Now shift your binding strip 1cm beyond your starting point. This little extra w
 
 #### Make sure you know where to sew
 
-![Make sure you know where to sew](/img/patterns/aaron/instructions/step03c.png)
+![Make sure you know where to sew](step03c.png)
 
 We are going to sew 1.5cm from the edge. So be careful because this is not the standard seam allowance.
 
@@ -120,7 +119,7 @@ Also, we are not starting at our start point, but we skip the first 3cm. We'll n
 
 #### Sew binding in place
 
-![Sew binding in place](/img/patterns/aaron/instructions/step03d.png)
+![Sew binding in place](step03d.png)
 
 Sew your binding in place while gently stretching the binding, but not the fabric. Make sure not to sew the last 3cm but leave them, just as you did at the start.
 
@@ -131,11 +130,11 @@ You might need to practice a bit to get the hang of it.
 
 #### Mark binding ends
 
-![Joining the binding ends](/img/patterns/aaron/instructions/step03e.png)
+![Joining the binding ends](step03e.png)
 
 With about 6cm left to go before we complete our circle, it's time to sew the ends of the binding together.
     
-![Mark binding ends](/img/patterns/aaron/instructions/step03f.png)
+![Mark binding ends](step03f.png)
 
 Take one of the edges, and stretch it along the 3cm seperating it from the start point as you would while sewing.
 
@@ -143,7 +142,7 @@ Mark the where the binding reached the start point. Do the same for the other en
 
 #### Sew binding ends together
 
-![Join the ends of the binding](/img/patterns/aaron/instructions/step03g.png)
+![Join the ends of the binding](step03g.png)
 
 Fold you A-shirt in whatever way makes it more easy for your to place both binding ends with good sides together, aligning the marks. Sew them together on the mark.
 
@@ -151,7 +150,7 @@ Fold you A-shirt in whatever way makes it more easy for your to place both bindi
 
 #### Finish last 6cm of binding
 
-![Sew binding ends together](/img/patterns/aaron/instructions/step03h.png)
+![Sew binding ends together](step03h.png)
 
 Now that your binding ends are joined together, it's time to finish the last 6cm of binding. Sew it down, staying 1.5cm from the edge as you did before.
 
@@ -159,7 +158,7 @@ Now that your binding ends are joined together, it's time to finish the last 6cm
 
 #### Fold your binding over the fabric edge to the back
     
-![Fold knit binding to the back](/img/patterns/aaron/instructions/step04a.png)
+![Fold knit binding to the back](step04a.png)
 
 
 Fold your binding fabric around the fabric of your A-shirt to the back. This is how we'll sew it down.
@@ -168,7 +167,7 @@ Fold your binding fabric around the fabric of your A-shirt to the back. This is 
 
 #### Sew your binding down
 
-![Sew the knit binding down](/img/patterns/aaron/instructions/step04b.png)
+![Sew the knit binding down](step04b.png)
 
 From the right side of your fabric, sew along the inner edge of your binding (furthest from the edge), making sure to catch the binding at the back in the process.
 
@@ -187,10 +186,10 @@ You'll have to, once again, stretch your binding a bit while doing this. But thi
 
 ### Step 5: Trim back knit binding on the inside
 
-![Trim back knit binding on the inside](/img/patterns/aaron/instructions/step05.png)
+![Trim back knit binding on the inside](step05.png)
 
 On the inside of you A-shirt, trim back the knit binding against your seam to finish up.
 
 > Be careful not to cut a hole in your A-shirt. Seriously, this happened to me on more than one occasion.
 
-![That's it, you're done 👍](/img/patterns/aaron/instructions/finished.gif)
+![That's it, you're done 👍](finished.gif)
