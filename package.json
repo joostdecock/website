@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@freesewing/examples": "0.6.8",
-    "@freesewing/i18n": "0.8.4",
+    "@freesewing/i18n": "0.8.5",
     "@freesewing/models": "0.7.1",
-    "@freesewing/patterns": "0.11.4",
+    "@freesewing/patterns": "0.11.5",
     "@freesewing/plugin-debug": "0.4.3",
     "@freesewing/plugin-designer": "0.10.0",
     "@freesewing/plugin-i18n": "0.1.1",
