@@ -69,7 +69,7 @@ Fold the hem upwards, and sew it down. If you have a coverlock, use it. If not, 
 
 > #### About knit binding
 >
-> If you are new to [knit binding](/docs/sewing/knit-binding), you might read [this page on the subject](/docs/sewing/knit-binding).
+> If you are new to [knit binding](/en/docs/sewing/knit-binding), you might read [this page on the subject](/en/docs/sewing/knit-binding).
 >
 > ##### Repeat steps 3 and 4 for both armholes and the neck opening
 > 
@@ -81,8 +81,8 @@ Fold the hem upwards, and sew it down. If you have a coverlock, use it. If not, 
 >
 > Either way, the less sharp bends you have, the easier it will be. So start with that to warm up before you do the trickier bends.
 
-We are going to finish the arm and neck hole with [knit binding](/docs/sewing/knit-binding) 
-(note: not a knit band. There's a difference, and it's explained [here](/docs/sewing/knit-binding)).
+We are going to finish the arm and neck hole with [knit binding](/en/docs/sewing/knit-binding) 
+(note: not a knit band. There's a difference, and it's explained [here](/en/docs/sewing/knit-binding)).
 
 > This is the only part of making this A-shirt that requires a bit of practice. Don't worry, all you need to do is make a couple of these and you'll be a pro in no time.
 
@@ -126,7 +126,7 @@ Sew your binding in place while gently stretching the binding, but not the fabri
 You might need to practice a bit to get the hang of it.
 
 > Make sure to stretch your binding more when you're taking a sharper bend. 
-> Read my notes on [knit binding](/docs/sewing/knit-binding) for more info.
+> Read my notes on [knit binding](/en/docs/sewing/knit-binding) for more info.
 
 #### Mark binding ends
 

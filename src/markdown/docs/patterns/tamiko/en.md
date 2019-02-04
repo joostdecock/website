@@ -29,22 +29,22 @@ It needs to be cut on the fold along the bottom.
 
 Below is a typical Tamiko draft:
 
-![A typical Tamiko draft](/img/patterns/tamiko/layout.svg)
+![A typical Tamiko draft](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 
 ## Construction
 
 ### Step 1: Finish the armhole seam
 
-![Finsh the armhole seam](/img/patterns/tamiko/instructions/step03.png)
+![Finsh the armhole seam](step03.png)
 
 Finish the armhole seam with a narrow hem.
 
 ### Step 2: Finish the top
 
-![Sew the three seamlines that are marked on your draft](/img/patterns/tamiko/instructions/step04.png)
+![Sew the three seamlines that are marked on your draft](step04.png)
 
 > As your top is folded, it's a good idea to pin both halves together.
 > This way, your top can't shift around while we finish it.

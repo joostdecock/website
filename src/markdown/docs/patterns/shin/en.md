@@ -43,9 +43,9 @@ Shin is a very simply pattern, and consists of two main parts plus the waistband
 
 Below is a typical draft layout:
 
-![A typical Shin draft](/img/patterns/shin/layout.svg){.elevation-1}
+![A typical Shin draft](layout.svg){.elevation-1}
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 
 ## Construction
@@ -150,4 +150,4 @@ If not, use a twin needle or zig-zag stitch to keep the seam stretchable.
 
 Thread a drawstring through one eyelet, around the waist, and out of the other eyelet.
 
-![That's it, you're done 👍](/img/patterns/aaron/instructions/finished.gif)
+![That's it, you're done 👍finished.gif)

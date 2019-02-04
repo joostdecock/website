@@ -87,7 +87,7 @@ However, making Jaeger is going to take some time. Do yourself a favour and get 
 
 > ##### Good sides together, or precise pattern matching?
 >
-> When cutting out two, you can cut them [good sides together](/docs/sewing/good-sides-together).
+> When cutting out two, you can cut them [good sides together](/en/docs/sewing/good-sides-together).
 > However, when working with fabric with a pattern, I prefer to cut them individually to finely control the pattern matching.
 >
 > When you cut them individually, remember that they need to be mirror images of each other. So flip either your pattern or your fabric over when cutting the second one.
@@ -99,14 +99,14 @@ However, making Jaeger is going to take some time. Do yourself a favour and get 
  - Don't include seam allowance when cutting out canvas, and cut it on bias.
  - The front facing and lining is marked on the front piece. They split the front part in two along the boundary line. You can cut the front part along that line after cutting out the front from the main fabric. The inner pocket extension for the facing is printed separately, and you can tape it back in its place after cutting the patern piece. **Do not forget to add seam allowance to both the facing and the lining for this boundary seam**.
 
-![Trace the front facing and lining from the front part](/img/patterns/jaeger/instructions/cuttingCaveat.svg)
+![Trace the front facing and lining from the front part](cuttingCaveat.svg)
 
 
 ## Construction
 
 ### Close the front darts
 
-![Close the front darts](/img/patterns/jaeger/instructions/closeFrontDarts.svg)
+![Close the front darts](closeFrontDarts.svg)
 
 #### Fold double
 
@@ -128,7 +128,7 @@ Take care to only press from the back. Pressing from the front will likely mark 
 
 ### Construct the chest pocket
 
-![Apply fusible interfacing to the back of the chest pocket](/img/patterns/jaeger/instructions/basteChestPocket.svg)
+![Apply fusible interfacing to the back of the chest pocket](basteChestPocket.svg)
 
 #### Apply fusible interfacing
 
@@ -152,7 +152,7 @@ On the top line of your basted welt pocket, mark 0.5cm inwards from the corners 
 
 > These points are notches on the front part of your pattern.
 
-![Close the chest pocket welt](/img/patterns/jaeger/instructions/foldChestPocketWelt.svg)
+![Close the chest pocket welt](foldChestPocketWelt.svg)
 
 #### Fold, press and sew the side seams of the welt
 
@@ -172,14 +172,14 @@ This will be the line to sew on later.
 
 #### Sew the welt to the front
 
-![Attach the chest pocket welt to the front](/img/patterns/jaeger/instructions/attachChestPocketWelt.svg)
+![Attach the chest pocket welt to the front](attachChestPocketWelt.svg)
 
 Place welt down on good side of front with the folded side downwards, and sew to bottom line. 
 Make sure to stop and start exactly at the edge of the line you basted.
 
 #### Sew the chest pocket bag to the front
 
-![Attach the chest pocket bag to the front](/img/patterns/jaeger/instructions/attachChestPocketBag.svg)
+![Attach the chest pocket bag to the front](attachChestPocketBag.svg)
 
 Place the pocket bag down on the front. 
 The front with good side up, but the pocket bag with bad side up. 
@@ -194,7 +194,7 @@ to attach the welt, since you marked 0.5cm inwards from the corners.
 
 #### Cut open chest pocket opening, turn, and press
 
-![Press the chest pocket](/img/patterns/jaeger/instructions/pressChestPocket.svg)
+![Press the chest pocket](pressChestPocket.svg)
 Now cut open your welt in the middle of both seamlines. 
 Don't cut to the edge, but create a trianngular shape there.
 
@@ -209,7 +209,7 @@ Press again from the back.
 
 #### Finish the chest pocket
 
-![Finish the chest pocket](/img/patterns/jaeger/instructions/finishChestPocket.svg)
+![Finish the chest pocket](finishChestPocket.svg)
 
 On the backside, fold the pocket bag double and sew it to the pocket 
 welt below the existing seamline of the welt.
@@ -224,7 +224,7 @@ Baste the chest pocket closed while we contruct the jacket.
 
 ### Prepare the fronts
 
-![Prepare the canvas for the fronts](/img/patterns/jaeger/instructions/prepareCanvas.svg)
+![Prepare the canvas for the fronts](prepareCanvas.svg)
 
 Cut out the front canvas piece in a light and supple canvas placed on the bias. Cut out the entire front. 
 
@@ -236,7 +236,7 @@ Cut out the chest canvas piece. Align it along the roll line, and baste it in pl
 
 #### Baste canvas to the fronts
 
-![Pad-stitching, you love that stuff, right?](/img/patterns/jaeger/instructions/padAndTape.svg)
+![Pad-stitching, you love that stuff, right?](padAndTape.svg)
 
 Now baste the front canvas and chest piece to your front. Keep in mind that the canvas has no seam allowance.
 
@@ -280,7 +280,7 @@ Keep in mind that:
 
 #### Close the side seams
 
-![Close the sides](/img/patterns/jaeger/instructions/closeSides.svg)
+![Close the sides](closeSides.svg)
 
 Place your front with the good side up, and your side on it with the good side down.  
 Align the front/side seams, pin them in place if you feel like it, and sew them togther.
@@ -300,7 +300,7 @@ Align the back/side seams, pin them in place if you feel like it, and sew them t
 
 #### Close the back seam
 
-![Close the back seam](/img/patterns/jaeger/instructions/closeBack.svg)
+![Close the back seam](closeBack.svg)
 
 Aling your two half-jackets with the good sides together, and close the back seam.
 
@@ -314,7 +314,7 @@ Aling your two half-jackets with the good sides together, and close the back sea
 
 #### Close the shoulder seams
 
-![Close the shoulder seams](/img/patterns/jaeger/instructions/closeShoulders.svg)
+![Close the shoulder seams](closeShoulders.svg)
 
 Align the shoulder seams with good sides together, and sew them together.
 

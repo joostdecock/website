@@ -63,9 +63,9 @@ the sleeve is the dominant feature of your draft.
 
 Below is a typical draft layout:
 
-![A typical Hugo draft](/img/patterns/hugo/layout.svg)
+![A typical Hugo draft](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 ## Construction
 
