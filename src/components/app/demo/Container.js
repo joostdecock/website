@@ -53,16 +53,25 @@ class DemoContainer extends React.Component {
     this.setState({ settings, docs: false });
   };
 
-  optionDocsNode = key => {
-    if (this.state.docs === false) return false;
-    let nodePath =
-      "/docs/patterns/" +
-      this.props.pattern +
-      "/options/" +
-      this.state.docs.toLowerCase();
-    if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
-      return false;
-    else return this.props.data.optionsHelp[nodePath];
+  optionDocsNode = () => {
+    if (this.state.display !== "docs") return false;
+    if (Object.keys(draftSettings.config).indexOf(this.state.docs) !== -1) {
+      // Draft setting
+      let nodePath = "/docs/draft/settings/" + this.state.docs.toLowerCase();
+      if (typeof this.props.data.settingsHelp[nodePath] === "undefined")
+        return false;
+      else return this.props.data.settingsHelp[nodePath];
+    } else {
+      // Pattern option
+      let nodePath =
+        "/docs/patterns/" +
+        this.state.gist.pattern +
+        "/options/" +
+        this.state.docs.toLowerCase();
+      if (typeof this.props.data.optionsHelp[nodePath] === "undefined")
+        return false;
+      else return this.props.data.optionsHelp[nodePath];
+    }
   };
 
   loadMeasurements = pattern => {
@@ -78,8 +87,14 @@ class DemoContainer extends React.Component {
     return models.manSize42;
   };
 
-  updateDisplay = display => {
-    this.setState({ display });
+  updateDisplay = (key, data = null) => {
+    switch (key) {
+      case "docs":
+        this.setState({ display: "docs", docs: data });
+        break;
+      default:
+        this.setState({ display: key });
+    }
   };
 
   render() {
