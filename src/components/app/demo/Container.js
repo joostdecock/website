@@ -105,6 +105,7 @@ class DemoContainer extends React.Component {
         gist,
         display: this.state.display,
         units: "metric",
+        patternInfo: this.props.patternInfo,
         methods: {
           updateDisplay: this.updateDisplay,
           updateOption: this.updateOption
