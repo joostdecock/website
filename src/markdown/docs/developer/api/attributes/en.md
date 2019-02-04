@@ -10,21 +10,12 @@ Attributes is an object that holds... you guessed it... attributes.
 Attributes are attached to [Point](./point), [Path](./path), and [Snippet](./snippet) objects. 
 All of these have an instantiated Attributes object in their `attributes` property.
 
-An Attributes object exposes the following methods:
-
- - [Attributes.add()](#attributesadd) : Adds an attribute, appending to any previous value
- - [Attributes.set()](#attributesset) : Sets an attribute value, overwriting any previous info
- - [Attributes.get()](#attributesget) : Returns attributes as a string
- - [Attributes.getAsArray()](#attributesgetasarray) : Returns attributes as an array
- - [Attributes.remove()](#attributesremove) : Removes an attribute
- - [Attributes.clone()](#attributeclone) : Returns a deep copy of the attribute
-
-
 > ###### attr() is chainable
 >
 > The `attr()` method that you'll find on [Point](./point#attr), [Path](./path#attr), 
 > and [Snippet](./snippet#attr) objects makes setting attributes chainable for these objects.
 
+An Attributes object exposes the following methods:
 
 ## Attributes.add()
 

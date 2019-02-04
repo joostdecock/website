@@ -63,7 +63,7 @@ bool utils.pointOnCurve(
 
 Returns `true` if the point `check` lies on a curve described by points `start`, `cp1`, `cp2`, and `end`.
 
-Note that calculations with curves are never fully precise.
+> Note that calculations with Bezier curves are never fully precise.
 
 <api-example o="utils" m="pointoncurve"></api-example>
 

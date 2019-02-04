@@ -16,6 +16,7 @@ i18n:
 A path represents an SVG path; The lines and curves on our pattern. 
 
 The Path constructor takes no arguments:
+
 ```js
 Path new Path();
 ```
@@ -27,47 +28,6 @@ A Path objects comes with the following properties:
 
 In addition, a Part object exposes the following methods:
 
- - [Path.move()](#path-move) : An SVG path move operation
- - [Path.line()](#path-line) : An SVG path lineTo operation
- - [Path.curve()](#path-curve) : An SVG path curveTo operation
- - [Path.\_curve()](#path-curve-2) : An SVG path curveTo operation with no start control point
- - [Path.curve\_()](#path-curve-3) : An SVG path curveTo operation with no end control point
- - [Path.close()](#path-close) : An SVG path close operation
- - [Path.attr()](#path-attr) : A chainable way to set path attributes
- - [Path.clone()](#path-clone) : Clones a path
- - [Path.divide()](#path-divide) : Breaks a path up in atomic paths
- - [Path.edge()](#path-edge) : Returns an edge of the path
- - [Path.end()](#path-end) : Returns the end point of the path
- - [Path.intersects()](#path-intersects) : Returns the points where a path intersects whith another path
- - [Path.intersectsX()](#path-intersectsx) : Returns the points where a path intersects a given X-value
- - [Path.intersectsY()](#path-intersectsx) : Returns the points where a path intersects a given Y-value
- - [Path.join()](#path-join) : Joins the path with another path
- - [Path.length()](#path-length) : Returns the length of the path
- - [Path.offset()](#path-offset) : Returns a new path that's this path offsetted
- - [Path.reverse()](#path-reverse) : Returns a reversed version of this path
- - [Path.shiftAlong()](#path-shiftalong) : Returns a point distance along a path
- - [Path.shiftFractionAlong()](#path-shiftfractionalong) : Returns a point a fraction along a path's length
- - [Path.split()](#path-split) : Splits a path on a given point
- - [Path.start()](#path-start) : Returns the start point of the path
- - [Path.translate()](#path-translate) : Returns a with a translate transform applied
- - [Path.trim()](#path-trim) : Removes overlapping parts from a path
-
-The first 6 (move, line, the curve methods and close) are all *drawing methods* 
-that construct the SVG pathstring.
-
-When drawing a path, you must always start with a `move()` call, 
-followed by your `line()` and/or `curve()` calls
-and an optional `close()` call.
-
-These calls are chainable, making your code easier to read:
- 
-```js
-paths.example = new Path()
-  .move(points.a)
-  .curve(points.b, points.c, points.d)
-  .line(points.e)
-  .close();
-```
 
 ## Path.move()
 
@@ -76,6 +36,22 @@ Path path.move(Point to)
 ```
 
 Moves to a given point without drawing a line. 
+
+> ###### Always start your path with a move
+>
+> When drawing a path, you must always start with a `move()` call, 
+> followed by your `line()` and/or `curve()` calls
+> and an optional `close()` call.
+> 
+> These calls are chainable, making your code easier to read:
+>  
+> ```js
+> paths.example = new Path()
+>   .move(points.a)
+>   .curve(points.b, points.c, points.d)
+>   .line(points.e)
+>   .close();
+> ```
 
 <api-example o="path" m="move" i="ops" margin="15" strings='{ "msg_move": "Move to point A", "msg_line": "", "msg_curve": "", "msg__curve": "", "msg_curve_": "", "msg_close": ""}'></api-example>
 
@@ -300,7 +276,7 @@ Path path.reverse()
 
 Returns a path that is the reversed version of this path. As in, start becomes end, and end becomes start.
 
-<api-example o="path" m="reverse"></api-example>
+<api-example o="path" m="reverse" strings='{ "msg": "This path starts here", "gsm": "But now it starts here"}'></api-example>
 
 ## Path.shiftAlong()
 
@@ -310,7 +286,7 @@ Point path.shiftAlong(float distance)
 
 Returns a point that lies at distance travelled along the path.
 
-<api-example o="path" m="shiftalong"></api-example>
+<api-example o="path" m="shiftalong" strings='{ "msg_2cm": "Shifted 2cm\nalong path", "msg_9cm": "Shifted 9cm\nalong path"}'></api-example>
 
 ## Path.shiftFractionAlong()
 
@@ -320,7 +296,7 @@ Point path.shiftFractionAlong(float fraction)
 
 Returns a point that lies at fraction of the length of the path travelled along the path.
 
-<api-example o="path" m="shiftfractionalong"></api-example>
+<api-example o="path" m="shiftfractionalong" strings='{ "msg_20": "Shifted 20%\nalong path", "msg_90": "Shifted 90%\nalong path"}'></api-example>
 
 ## Path.split()
  
@@ -352,7 +328,7 @@ Returns a path with
 [a translate transform](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Translate)
 applied.
 
-<api-example o="path" m="translate"></api-example>
+<api-example o="path" m="translate" strings='{"msg_path": "I am a path", "msg_transform": "Now I am transformed"}'></api-example>
 
 ## Path.trim()
 

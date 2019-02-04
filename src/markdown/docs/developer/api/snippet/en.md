@@ -26,10 +26,6 @@ A Snippet object comes with the following properties:
 
 In addition, a Snippet object exposes the following methods:
 
- - [Snippet.attr()](#snippetattr) : A chainable way to assign attributes to the snippet
- - [Snippet.clone()](#snippetclone) : Returns a deep copy of the snippet
-
-
 ## Snippet.attr()
 
 ```js
@@ -46,6 +42,8 @@ but returns the Snippet object.  This allows you to chain different calls togeth
 If the third parameter is set to `true` it will call [attributes.set](./attributes#set) instead, 
 thereby overwriting the value of the attribute.
 
+<api-example o="snippet" m="attr"></api-example>
+
 ## Snippet.clone()
 
 ```js
@@ -53,3 +51,6 @@ Snippet snippet.clone()
 ```
 
 Returns a new Snippets object that is a deep copy of this one.
+
+<api-example o="snippet" m="clone"></api-example>
+
