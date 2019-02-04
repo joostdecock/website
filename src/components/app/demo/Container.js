@@ -65,7 +65,16 @@ class DemoContainer extends React.Component {
     else return this.props.data.optionsHelp[nodePath];
   };
 
-  loadMeasurements = () => {
+  loadMeasurements = pattern => {
+    if (pattern === "cathrin")
+      return {
+        underbust: 720,
+        naturalWaist: 640,
+        hipsCircumference: 800,
+        naturalWaistToUnderbust: 100,
+        naturalWaistToHip: 160
+      };
+
     return models.manSize42;
   };
 
@@ -97,7 +106,7 @@ class DemoContainer extends React.Component {
         pattern: this.props.pattern,
         settings: {
           ...this.state.settings,
-          measurements: this.loadMeasurements()
+          measurements: this.loadMeasurements(this.props.pattern)
         }
       };
       let pickerProps = {
@@ -160,7 +169,7 @@ class DemoContainer extends React.Component {
           pattern: this.props.pattern,
           settings: {
             ...this.state.settings,
-            measurements: this.loadMeasurements()
+            measurements: this.loadMeasurements(this.props.pattern)
           }
         };
         main = <DraftPreview gist={gist} />;
