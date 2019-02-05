@@ -34,6 +34,10 @@ exports.jsPages = [
     template: path.resolve("src/components/pages/Test.js")
   },
   {
+    nakedPath: "/search",
+    template: path.resolve("src/components/pages/Search.js")
+  },
+  {
     nakedPath: "/",
     template: path.resolve("src/components/pages/HomePage.js"),
     includeMarkdown: ["showcasePreviews", "blogpostPreviews"],

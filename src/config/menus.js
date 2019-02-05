@@ -28,12 +28,17 @@ const communityMenu = pageLanguage => {
     label: "app.community",
     items: [
       {
-        link: locLang.set("/showcase/", pageLanguage),
+        link: locLang.set("/blog", pageLanguage),
+        label: "app.blog",
+        icon: "rss_feed"
+      },
+      {
+        link: locLang.set("/showcase", pageLanguage),
         label: "app.showcase",
         icon: "camera_alt"
       },
       {
-        link: locLang.set("/patrons/", pageLanguage),
+        link: locLang.set("/patrons", pageLanguage),
         label: "app.ourPatrons",
         icon: "favorite"
       },

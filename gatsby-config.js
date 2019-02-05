@@ -1,4 +1,5 @@
 const i18nConfig = require("./src/config/i18n.js");
+const algolia = require("./search-queries.js");
 const path = require("path");
 
 module.exports = {
@@ -89,6 +90,15 @@ module.exports = {
       options: {
         color: "#1FAA00",
         showSpinner: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_API_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_UPDATE_KEY,
+        queries: algolia,
+        chunkSize: 10000
       }
     },
     "gatsby-plugin-netlify"
