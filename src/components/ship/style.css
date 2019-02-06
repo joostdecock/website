@@ -1,0 +1,48 @@
+div.ship-wrapper { position: relative }
+div.ship-bg {
+  background-image: url("shipbg.jpg");
+  background-size: cover;
+  background-position-y: -20px;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+img.ship {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+h2.ship-text {
+  position: absolute;
+  left: 7%;
+  max-width: 60%;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  top: 19%;
+  font-size: 3rem;
+}
+
+@media (max-width: 599px) {
+  h2.ship-text {
+    top: 0;
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 600px) {
+  h2.ship-text {
+    top: 4%;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 960px) {
+  h2.ship-text {
+    top: 6%;
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  h2.ship-text {
+    top: 19%;
+    font-size: 3rem;
+  }
+}
+

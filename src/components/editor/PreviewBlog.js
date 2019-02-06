@@ -3,6 +3,7 @@ import Image from "gatsby-image";
 import { Link } from "gatsby";
 import Datum from "../Datum";
 import { locLang } from "../../utils";
+import Markdown from "react-markdown";
 
 const PreviewBlog = props => {
   return (
@@ -30,7 +31,7 @@ const PreviewBlog = props => {
         <figcaption dangerouslySetInnerHTML={{ __html: props.caption }} />
       </figure>
       <h1>{props.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: props.html }} />
+      <Markdown source={props.markdown} />
     </React.Fragment>
   );
 };

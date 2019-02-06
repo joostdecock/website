@@ -7,4 +7,4 @@ path: /en/docs/patterns/theo
 
 Theo is the slimline version of Theodore and their construction is identical.
 
-As such, please consult [the Theodore constructions](/docs/patterns/theodore).
+As such, please consult [the Theodore constructions](/en/docs/patterns/theodore).

@@ -1,6 +1,5 @@
 const config = require("./gatsby-node-config");
-const path = require("path");
-const fs = require("fs");
+//const fs = require("fs");
 const i18nConfig = require("./src/config/i18n");
 
 const markdownPerLanguage = function(data, addMissing = true) {
@@ -105,20 +104,7 @@ exports.runQueries = function(queries, graphql, markdown, editor) {
   return Promise.all(promises);
 };
 
-exports.createPageRedirects = function(nakedPaths, createRedirect) {
-  let promises = [];
-  for (nakedPath of nakedPaths) {
-    createRedirect({
-      fromPath: nakedPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: "/" + config.defaultLanguage + nakedPath
-    });
-  }
-  return Promise.all(promises);
-};
-
-exports.createPosts = function(type, posts, createPage, createRedirect) {
+exports.createPosts = function(type, posts, createPage) {
   let promises = [];
   let categories = new Set();
   let categoryPosts = {};
@@ -146,15 +132,6 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
           location: `/${lang}${nakedPath}`
         }
       });
-      if (lang === config.defaultLanguage) {
-        // Redirects for legacy links without language prefix
-        createRedirect({
-          fromPath: nakedPath,
-          isPermanent: true,
-          redirectInBrowser: true,
-          toPath: "/" + config.defaultLanguage + nakedPath
-        });
-      }
     }
     // Category indexes
     categories.forEach(category => {
@@ -184,11 +161,14 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createDocumentation = function(pages, createPage, createRedirect) {
+exports.createDocumentation = function(markdown, createPage) {
   let promises = [];
   let prefix = {
-    measurements: "/docs/measurements/"
+    measurements: "/docs/measurements/",
+    developer: "/docs/developer/"
   };
+  let pages = markdown.allDocumentation;
+  let components = markdown.allDocumentationWithComponents;
   // Create pages for documentation in all languages
   for (let lang of config.languages) {
     for (nakedPath of Object.keys(pages[lang])) {
@@ -198,17 +178,28 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
         prefix.measurements
       )
         page.frontmatter.measurement = nakedPath.split("/").pop();
+      let md = {};
+      let devfix = prefix.developer.slice(0, -1);
+      if (nakedPath.substring(0, devfix.length) === devfix)
+        md.pages = markdown.developerDocumentation;
+      if (page.frontmatter.index) md.pages = markdown.documentationList[lang];
       // Add breadcrumbs to frontmatter
       page.frontmatter.breadcrumbs = documentationBreadcrumbs(
         nakedPath,
         lang,
         pages
       );
+      // Add htmlAst if this page supports components in markdown
+      if (page.frontmatter.components) {
+        page.htmlAst = components[lang][nakedPath].htmlAst;
+        page.frontmatter.i18n = components[lang][nakedPath].frontmatter.i18n;
+      }
       // Create page
       createPage({
         path: `/${lang}${nakedPath}`,
         component: config.templates.documentation,
         context: {
+          ...md,
           page,
           language: lang,
           location: `/${lang}/${nakedPath}`
@@ -219,7 +210,7 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createJsPages = function(markdown, createPage, createRedirect) {
+exports.createJsPages = function(markdown, createPage) {
   let promises = [];
   for (let lang of config.languages) {
     for (let page of config.jsPages) {
@@ -275,31 +266,51 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-const splitDocs = markdown => {
-  // The docs collection is too large, so let's divide it
-  let split = {};
-  let pattern;
-  for (let lang of Object.keys(markdown)) {
-    if (typeof split[lang] === "undefined") split[lang] = {};
-    for (let key of Object.keys(markdown[lang])) {
-      if (key.substring(0, 15) === "/docs/patterns/") {
-        pattern = key
-          .substring(15)
-          .split("/")
-          .shift();
-        if (typeof split[lang][pattern] === "undefined")
-          split[lang][pattern] = {};
-        split[lang][pattern][key] = markdown[lang][key];
-      } else if (key.substring(0, 19) === "/docs/measurements/") {
-        if (typeof split[lang].measurements === "undefined")
-          split[lang].measurements = {};
-        split[lang].measurements[key] = markdown[lang][key];
-      } else {
-        if (typeof split[lang].other === "undefined") split[lang].other = {};
-        split[lang].other[key] = markdown[lang][key];
+const imgPathToWebPath = (path, language) => {
+  if (path.slice(0, 5) === "blog/") path = "blog/" + path.slice(15);
+  if (path.slice(0, 9) === "showcase/") path = "showcase/" + path.slice(19);
+};
+
+exports.createNetlifyRedirects = function(queries, createRedirect) {
+  return new Promise((resolve, reject) => {
+    // Redirect for images in editor preview
+    for (let lang of config.languages) {
+      for (let img of queries.markdownImages.allFile.edges)
+        createRedirect({
+          fromPath: imgPathToWebPath(img.node.relativePath, lang),
+          isPermanent: true,
+          toPath: img.node.publicURL
+        });
+    }
+
+    // Per-language redirects for basic pages
+    for (let lang of config.languages) {
+      if (lang !== config.defaultLanguage) {
+        for (let path of config.nakedPaths)
+          createRedirect({
+            fromPath: path,
+            isPermanent: true,
+            toPath: "/" + lang + path,
+            Language: lang
+          });
       }
     }
-  }
 
-  return split;
+    // Default language redirects for basic pages
+    for (let path of config.nakedPaths)
+      createRedirect({
+        fromPath: path,
+        isPermanent: true,
+        toPath: "/" + config.defaultLanguage + path
+      });
+
+    // Catch-all SPA redirect
+    createRedirect({
+      fromPath: "/*",
+      isPermanent: true,
+      toPath: "/en/index.html"
+    });
+
+    resolve(true);
+  });
 };

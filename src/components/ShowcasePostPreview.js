@@ -2,15 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import Image from "gatsby-image";
 import { Link } from "gatsby";
+import { FormattedRelative } from "react-intl";
 
-const ShowcasePostPreview = data => {
+const ShowcasePostPreview = props => {
   let langClass = "";
-  let frontmatter = data.post.frontmatter;
-  if (data.correctLanguage !== true) langClass = "grayscale";
+  let frontmatter = props.post.frontmatter;
+  let postLink = frontmatter.path;
+  if (props.correctLanguage !== true) langClass = "grayscale";
   return (
-    <div className={data.className}>
+    <div className={props.className}>
       <div className="teaser">
-        <Link to={frontmatter.path} title={frontmatter.title}>
+        <Link to={postLink} title={frontmatter.title}>
           {/* This makes the link cover the entire image */}
           <span className="fs-block-link" />
         </Link>
@@ -23,15 +25,19 @@ const ShowcasePostPreview = data => {
             className="shadow1 br4"
           />
         </figure>
-        {data.noTitle ? (
+        {props.noTitle ? (
           ""
         ) : (
           <div className="title">
             <p className="thetitle">
               {frontmatter.title}
               <span className="meta">
-                {frontmatter.date} by @{frontmatter.author} in #
-                {frontmatter.category}
+                <FormattedRelative value={frontmatter.date} /> by @
+                {frontmatter.author}
+                <br />
+                {frontmatter.patterns.map(cat => (
+                  <span className="ml05">{"#" + cat}</span>
+                ))}
               </span>
             </p>
           </div>

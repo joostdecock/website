@@ -143,7 +143,10 @@ const blogpostPreviews = `{
 
 const allDocumentation = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
@@ -160,7 +163,39 @@ const allDocumentation = `{
           pattern
           option
           setting
+          components
+          hidden
+          index
         }
+      }
+    }
+  }
+}`;
+
+const allDocumentationWithComponents = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        components: {eq: true}
+        hidden: {ne: true}
+      }}
+      sort: {fields: [frontmatter___title], order: ASC}
+    ) {
+    edges {
+      node {
+        fileAbsolutePath
+        htmlAst
+        frontmatter {
+          path
+        	i18n {
+            boxTitle
+            boxInfo
+            boxWhy
+            i18nTitle
+            i18nInfo
+            i18nData
+          }
+				}
       }
     }
   }
@@ -168,7 +203,10 @@ const allDocumentation = `{
 
 const documentationList = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___path], order: ASC}
     ) {
     edges {
@@ -200,18 +238,31 @@ const markdownHelp = `{
   }
 }`;
 
-const demoHelp = `{
+const developerDocumentation = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
+      filter: {frontmatter: {path: {regex: "/docs/developer/"}}}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
       node {
-        html
-        tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
           path
           title
+        }
+      }
+    }
+  }
+}`;
+
+const demoHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
+    ) {
+    edges {
+      node {
+        rawMarkdownBody
+        frontmatter {
+          path
         }
       }
     }
@@ -292,6 +343,25 @@ const patternCoverImages = `{
 	}
 }`;
 
+const markdownImages = `{
+	allFile(
+    filter: {
+      absolutePath: {
+      	regex: "/markdown/"
+      }
+      ext: {
+      	regex: "/jpg|jpeg|png|gif|svg/"
+      }
+    }) {
+    edges {
+      node {
+        relativePath
+        publicURL
+      }
+    }
+  }
+}`;
+
 const individualPatternCoverImages = {};
 const individualPatternShowcasePreviews = {};
 
@@ -356,9 +426,12 @@ for (let pattern of patternList) {
 }
 
 module.exports = {
+  developerDocumentation,
+  markdownImages,
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
+  allDocumentationWithComponents,
   markdownHelp,
   demoHelp,
   measurementsHelp,

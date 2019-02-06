@@ -113,6 +113,7 @@ class AccountContainer extends React.Component {
                 units={this.props.user.settings.units}
                 display={this.state.display}
                 updateDisplay={this.updateDisplay}
+                pictureUris={this.props.user.pictureUris}
               />
             </div>
           </Column>

@@ -6,8 +6,6 @@ import { FormattedMessage } from "react-intl";
 import ValidIcon from "@material-ui/icons/CheckCircle";
 import InvalidIcon from "@material-ui/icons/Warning";
 import { locLang } from "../../../utils";
-import remark from "remark";
-import html from "remark-html";
 import backend from "../../../apis/backend";
 import { validateEmail, validateTld } from "../../../utils";
 import Radio from "@material-ui/core/Radio";
@@ -42,16 +40,6 @@ class FieldForm extends React.Component {
     let field = evt.target.id;
     let value = evt.target.value;
     switch (field) {
-      case "bio":
-        remark()
-          .use(html)
-          .process(evt.target.value, (err, md) => {
-            this.setState(state => ({
-              ...state,
-              markdownPreview: md.contents
-            }));
-          });
-        break;
       case "username":
         backend
           .availableUsername({ username: value })

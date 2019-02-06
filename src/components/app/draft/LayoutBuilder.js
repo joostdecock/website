@@ -466,7 +466,7 @@ class LayoutBuilder extends React.Component {
             color="primary"
             className="mt1"
             onClick={() =>
-              this.props.updateSetting("layout", this.distillLayout())
+              this.props.updateOption("layout", this.distillLayout())
             }
           >
             <FormattedMessage id="app.applyThisLayout" />

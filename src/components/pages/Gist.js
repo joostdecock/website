@@ -7,8 +7,6 @@ import Breadcrumbs from "../Breadcrumbs";
 import { FormattedMessage } from "react-intl";
 import GistContainer from "../app/showdraft/ViewContainer";
 import backend from "../../apis/backend";
-import remark from "remark";
-import html from "remark-html";
 
 class Gist extends React.Component {
   state = {
@@ -25,24 +23,10 @@ class Gist extends React.Component {
       .loadGist(handle)
       .then(res => {
         if (res.status === 200) {
-          console.log(res.data);
-          if (res.data.notes.length > 1) {
-            remark()
-              .use(html)
-              .process(res.data.notes, (err, md) => {
-                this.setState({
-                  ...res.data,
-                  loading: false,
-                  notes: md.contents
-                });
-              });
-          } else {
-            this.setState({
-              ...res.data,
-              loading: false,
-              notes: false
-            });
-          }
+          this.setState({
+            ...res.data,
+            loading: false
+          });
         } else this.setState({ loading: false, error: true });
       })
       .catch(error => {

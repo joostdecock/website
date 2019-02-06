@@ -29,7 +29,22 @@ class DraftPreview extends React.Component {
       .use(svgattrPlugin, { class: "freesewing draft" })
       .use(i18nPlugin, { strings: patternTranslations });
     try {
-      pattern.draft();
+      switch (this.props.action) {
+        case "sampleOption":
+          pattern.sampleOption(this.props.option);
+          break;
+        case "sampleMeasurement":
+          pattern.sampleMeasurement(this.props.measurement);
+          break;
+        case "sampleModels":
+          console.log(this.props);
+          if (this.props.focus)
+            pattern.sampleModels(this.props.models, this.props.focus);
+          else pattern.sampleModels(this.props.models);
+          break;
+        default:
+          pattern.draft();
+      }
     } catch (err) {
       console.log(err, pattern);
       error = err;
@@ -72,6 +87,10 @@ class DraftPreview extends React.Component {
 
 DraftPreview.propTypes = {
   gist: PropTypes.object.isRequired
+};
+
+DraftPreview.defaultProps = {
+  action: "draft"
 };
 
 export default DraftPreview;

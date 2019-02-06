@@ -5,7 +5,9 @@ function Column(props) {
   let size = 6;
   if (props.wide) size += 2;
   if (props.narrow) size -= 2;
-  let classes = "";
+  if (props.less) size -= 1;
+  if (props.size) size = props.size;
+  let classes = props.className;
   if (props.right) classes = "align-self-stretch pl1nsm";
   return (
     <Grid item xs={12} sm={10} md={size} className={classes}>

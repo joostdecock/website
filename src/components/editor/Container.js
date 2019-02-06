@@ -7,8 +7,6 @@ import Column from "../Column";
 import SaveIcon from "@material-ui/icons/Save";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Button from "@material-ui/core/Button";
-import remark from "remark";
-import html from "remark-html";
 import CommitResult from "./CommitResult";
 import PreviewBlog from "./PreviewBlog";
 import PreviewDocs from "./PreviewDocs";
@@ -40,52 +38,45 @@ class Editor extends React.Component {
   };
 
   componentDidMount() {
-    remark()
-      .use(html)
-      .process(this.props.node.rawMarkdownBody, (err, md) => {
-        switch (this.props.type) {
-          case "blog":
-            this.setState({
-              title: this.props.node.frontmatter.title,
-              linktitle: this.props.node.frontmatter.linktitle,
-              caption: this.props.node.frontmatter.caption,
-              category: this.props.node.frontmatter.category,
-              author: this.props.node.frontmatter.author,
-              blurb: this.props.node.frontmatter.blurb,
-              body: this.props.node.rawMarkdownBody,
-              date: this.props.node.frontmatter.date,
-              img:
-                this.props.node.frontmatter.img.name +
-                this.props.node.frontmatter.img.ext,
-              html: md.contents
-            });
-            break;
-          case "showcase":
-            let patterns = {};
-            for (let pattern of this.props.node.frontmatter.patterns)
-              patterns[pattern] = true;
-            this.setState({
-              img:
-                this.props.node.frontmatter.img.name +
-                this.props.node.frontmatter.img.ext,
-              date: this.props.node.frontmatter.date,
-              author: this.props.node.frontmatter.author,
-              title: this.props.node.frontmatter.title,
-              caption: this.props.node.frontmatter.caption,
-              patterns,
-              body: this.props.node.rawMarkdownBody,
-              html: md.contents
-            });
-            break;
-          default:
-            this.setState({
-              title: this.props.node.frontmatter.title,
-              body: this.props.node.rawMarkdownBody,
-              html: md.contents
-            });
-            break;
-        }
-      });
+    switch (this.props.type) {
+      case "blog":
+        this.setState({
+          title: this.props.node.frontmatter.title,
+          linktitle: this.props.node.frontmatter.linktitle,
+          caption: this.props.node.frontmatter.caption,
+          category: this.props.node.frontmatter.category,
+          author: this.props.node.frontmatter.author,
+          blurb: this.props.node.frontmatter.blurb,
+          body: this.props.node.rawMarkdownBody,
+          date: this.props.node.frontmatter.date,
+          img:
+            this.props.node.frontmatter.img.name +
+            this.props.node.frontmatter.img.ext
+        });
+        break;
+      case "showcase":
+        let patterns = {};
+        for (let pattern of this.props.node.frontmatter.patterns)
+          patterns[pattern] = true;
+        this.setState({
+          img:
+            this.props.node.frontmatter.img.name +
+            this.props.node.frontmatter.img.ext,
+          date: this.props.node.frontmatter.date,
+          author: this.props.node.frontmatter.author,
+          title: this.props.node.frontmatter.title,
+          caption: this.props.node.frontmatter.caption,
+          patterns,
+          body: this.props.node.rawMarkdownBody
+        });
+        break;
+      default:
+        this.setState({
+          title: this.props.node.frontmatter.title,
+          body: this.props.node.rawMarkdownBody
+        });
+        break;
+    }
   }
 
   toggleAttribution = () => {
@@ -108,14 +99,7 @@ class Editor extends React.Component {
     } else {
       let state = {};
       state[key] = value;
-      if (key === "body") {
-        remark()
-          .use(html)
-          .process(value, (err, md) => {
-            state.html = md.contents;
-            this.setState(state);
-          });
-      } else this.setState(state);
+      this.setState(state);
     }
   };
 
@@ -307,7 +291,7 @@ class Editor extends React.Component {
                 author={this.state.author}
                 category={this.state.category}
                 blurb={this.state.blurb}
-                html={this.state.html}
+                markdown={this.state.body}
                 date={this.props.node.frontmatter.date}
                 language={this.props.language}
               />
@@ -334,7 +318,7 @@ class Editor extends React.Component {
                 caption={this.state.caption}
                 title={this.state.title}
                 patterns={this.state.patterns}
-                html={this.state.html}
+                markdown={this.state.body}
                 date={this.props.node.frontmatter.date}
                 language={this.props.language}
               />
@@ -354,7 +338,10 @@ class Editor extends React.Component {
               {this.buttons("preSave")}
             </Column>
             <Column right>
-              <PreviewDocs title={this.state.title} html={this.state.html} />
+              <PreviewDocs
+                title={this.state.title}
+                markdown={this.state.body}
+              />
             </Column>
           </TwoColumns>
         );

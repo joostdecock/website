@@ -14,6 +14,19 @@ function Breadcrumbs(props) {
       </IconButton>
     </li>
   );
+
+  const i18nMessage = id => {
+    if (typeof id === "string" && id !== "")
+      return <FormattedMessage id={id} />;
+    else return id;
+  };
+
+  const i18nLabel = id => {
+    if (typeof id === "string" && id !== "")
+      return props.intl.formatMessage({ id });
+    else return id;
+  };
+
   return (
     <nav className="breadcrumbs">
       <ul>
@@ -32,17 +45,9 @@ function Breadcrumbs(props) {
               <li key={"crumb" + index}>
                 <Link
                   to={locLang.set(step.link, props.intl.locale)}
-                  title={
-                    typeof step.label === "string"
-                      ? props.intl.formatMessage({ id: step.label })
-                      : ""
-                  }
+                  title={i18nLabel(step.label)}
                 >
-                  {typeof step.label === "string" ? (
-                    <FormattedMessage id={step.label} />
-                  ) : (
-                    step.label
-                  )}
+                  {i18nMessage(step.label)}
                 </Link>
               </li>,
               spacer
@@ -50,11 +55,7 @@ function Breadcrumbs(props) {
           else
             return [
               <li key={"crumb" + index} className="color-muted">
-                {typeof step.label === "string" ? (
-                  <FormattedMessage id={step.label} />
-                ) : (
-                  step.label
-                )}
+                {i18nMessage(step.label)}
               </li>,
               spacer
             ];
@@ -64,7 +65,7 @@ function Breadcrumbs(props) {
           return [
             spacer,
             <li key={"towards" + index} className="color-muted">
-              {typeof step === "string" ? <FormattedMessage id={step} /> : step}
+              {i18nMessage(step)}
             </li>
           ];
         })}

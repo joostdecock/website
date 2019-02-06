@@ -16,9 +16,9 @@ import Button from "@material-ui/core/Button";
 import Field from "../../fields/Field";
 import FieldDrawers from "../../fields/FieldDrawers";
 import Gist from "../../Gist";
-import Notes from "../../Notes";
 import ShareLink from "../../ShareLink";
 import { editDraftFields } from "../../../config/fields";
+import Markdown from "react-markdown";
 
 class ModelEditContainer extends React.Component {
   state = {
@@ -65,7 +65,6 @@ class ModelEditContainer extends React.Component {
         "info",
         <FormattedMessage id="app.noChanges" />
       );
-    if (key === "notes") this.renderMarkdown(value);
     let data = {};
     let handle = this.props.draft.handle;
     data[key] = value;
@@ -138,16 +137,8 @@ class ModelEditContainer extends React.Component {
         <TwoColumns>
           <Column wide>
             {this.state.display === "draft" ? (
-              <React.Fragment>
-                <Notes
-                  markdown={this.props.draft.notes}
-                  key={this.props.draft.notes}
-                  noTray
-                />
-              </React.Fragment>
-            ) : (
-              ""
-            )}
+              <Markdown source={this.props.draft.notes} />
+            ) : null}
             {this.state.display === "gist" ? (
               <React.Fragment>
                 <Gist

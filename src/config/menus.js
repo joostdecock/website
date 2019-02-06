@@ -28,10 +28,21 @@ const communityMenu = pageLanguage => {
     label: "app.community",
     items: [
       {
-        link: locLang.set("/showcase/", pageLanguage),
+        link: locLang.set("/blog", pageLanguage),
+        label: "app.blog",
+        icon: "rss_feed"
+      },
+      {
+        link: locLang.set("/showcase", pageLanguage),
         label: "app.showcase",
         icon: "camera_alt"
       },
+      {
+        link: locLang.set("/patrons", pageLanguage),
+        label: "app.ourPatrons",
+        icon: "favorite"
+      },
+      "divider",
       {
         link: "https://gitter.im/freesewing/freesewing",
         label: "app.chatOnGitter",
@@ -82,7 +93,7 @@ const documentationMenu = pageLanguage => {
       },
       "divider",
       {
-        link: "/docs/editor",
+        link: locLang.set("/docs/editor", pageLanguage),
         label: "app.documentationForEditors",
         icon: "edit"
       },
@@ -92,7 +103,7 @@ const documentationMenu = pageLanguage => {
         icon: "translate"
       },
       {
-        link: locLang.set("/docs/editor", pageLanguage),
+        link: locLang.set("/docs/developer", pageLanguage),
         label: "app.documentationForDevelopers",
         icon: "code"
       },

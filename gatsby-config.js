@@ -1,4 +1,5 @@
 const i18nConfig = require("./src/config/i18n.js");
+const algolia = require("./search-queries.js");
 const path = require("path");
 
 module.exports = {
@@ -8,7 +9,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
-    "gatsby-transformer-remark",
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -37,6 +37,10 @@ module.exports = {
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-smartypants",
           {
+            resolve: "gatsby-remark-component",
+            options: { components: ["api-example", "pattern-example"] }
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 650,
@@ -51,7 +55,8 @@ module.exports = {
               header: "Table of Contents", // the custom header text
               include: [
                 "markdown/**/*.md" // an include glob to match against
-              ]
+              ],
+              mdastUtilTocOptions: { maxDepth: 3 }
             }
           },
           {
@@ -85,6 +90,15 @@ module.exports = {
       options: {
         color: "#1FAA00",
         showSpinner: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_API_ID,
+        apiKey: process.env.GATSBY_ALGOLIA_UPDATE_KEY,
+        queries: algolia,
+        chunkSize: 10000
       }
     },
     "gatsby-plugin-netlify"

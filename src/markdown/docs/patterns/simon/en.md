@@ -94,7 +94,6 @@ The weave is how the fabric was woven, and this determines not only how the fabr
 > If the yarn is made up of a single thread, it's call Single ply.
 >
 > You can expect two ply to last longer, and be more expensive.
-{:.tip}
 
 ## Cutting
 
@@ -118,7 +117,7 @@ The weave is how the fabric was woven, and this determines not only how the fabr
    - Cut **2 collar stand(s)**
    - Cut **2 cuff(s)**
 
-> When cutting out two, you can cut them [good sides together](/docs/sewing/good-sides-together).
+> When cutting out two, you can cut them [good sides together](/en/docs/sewing/good-sides-together).
 > However, when working with fabric with a pattern, I prefer to cut them individually to finely control the pattern matching.
 >
 > When you cut them individually, remember that they need to be mirror images of each other. So flip either your pattern or your fabric over when cutting the second one.
@@ -130,16 +129,16 @@ The weave is how the fabric was woven, and this determines not only how the fabr
 
 Simon is a very versatile pattern, so your draft may differ from the example layout below:
 
-![A typical Simon draft](/img/patterns/simon/layout.svg)
+![A typical Simon draft](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 ## Construction
 
 ### Step 1: Fuse interfacing
 
-![Fuse cuff interfacing](/img/patterns/simon/instructions/1a.png){.fs-row2}
-![Fuse coller interfacing](/img/patterns/simon/instructions/1b.png){.fs-row2}
+![Fuse cuff interfacing](1a.png)
+![Fuse coller interfacing](1b.png)
 
 #### Press interfacing to cuffs
 To make two cuffs, you have cut out your cuff piece four times in fabric, and twice in interfacing.
@@ -165,7 +164,7 @@ For each piece, press the interfacing piece to the bad side.
 
 #### Sew cuff together
 
-![Sew the cuffs together](/img/patterns/simon/instructions/2a.png)
+![Sew the cuffs together](2a.png)
 
 Place both parts of your cuff (one with interfacing, one without) together with the good sides, and sew them together at the standard seam allowance.
 
@@ -176,13 +175,13 @@ Place both parts of your cuff (one with interfacing, one without) together with 
 
 #### Trim seam allowance
 
-![Trim the seam allowance](/img/patterns/simon/instructions/2b.png)
+![Trim the seam allowance](2b.png)
 
 Before we are going to flip your cuff over, we need to trim back the seam allowance to remove bulk.
 
 #### Press back seam allowance
 
-![Press back seam allowance](/img/patterns/simon/instructions/2c.png)
+![Press back seam allowance](2c.png)
 
 Fold back the seam allowance on the sleeve side, and press it down.
 
@@ -190,7 +189,7 @@ Fold back the seam allowance on the sleeve side, and press it down.
 
 #### Turn cuff around and press
 
-![Turn the cuff around and press](/img/patterns/simon/instructions/2d.png)
+![Turn the cuff around and press](2d.png)
 
 Flip your cuff with the good sides out, and give it a good press.
 
@@ -202,19 +201,19 @@ You can now put your cuffs aside, we'll attach them later.
 
 #### Sew collar and undercollar together
 
-![Sew collarand undercollar together](/img/patterns/simon/instructions/3a.png)
+![Sew collarand undercollar together](3a.png)
 
 Place both collar parts together with the good sides, and sew them together at the standard seam allowance.
 
 #### Trim seam allowance
 
-![Trim the seam allowance](/img/patterns/simon/instructions/3b.png)
+![Trim the seam allowance](3b.png)
 
 Before we are going to flip your collar over, we need to trim back the seam allowance to remove bulk.
 
 #### Turn collar and press
 
-![Turn the collar and press](/img/patterns/simon/instructions/3c.png)
+![Turn the collar and press](3c.png)
 
 Flip your collar with the good sides out, get those tips as pointy as possible, and give it a good press.
 
@@ -224,7 +223,7 @@ Flip your collar with the good sides out, get those tips as pointy as possible, 
 
 #### Top-stitch collar
 
-![Top-stitch the collar](/img/patterns/simon/instructions/3d.png)
+![Top-stitch the collar](3d.png)
 
 Top-stitch along the edge of the collar. This locks down the seam allowance and makes for a crisp look.
 
@@ -234,7 +233,7 @@ Top-stitch along the edge of the collar. This locks down the seam allowance and 
 
 #### Place collar between collar stands and baste in place
 
-![Place collar between collar stands and baste in place](/img/patterns/simon/instructions/4a.png)
+![Place collar between collar stands and baste in place](4a.png)
 
 Mark the middle point of your collar and your collar stands with a pin. The middle point of each collar stand is actually slightly off-center since one end is longer than the other. Instead, find the middle point between the two notches.
 
@@ -256,7 +255,7 @@ When you've done one side, start from your pin in the middle again and do this o
 
 #### Sew your collar to the collar stands
 
-![Sew your collar to the collar stands](/img/patterns/simon/instructions/4b.png)
+![Sew your collar to the collar stands](4b.png)
 
 Sew along the edge of your collar stand, respecting the standard seam allowance.
 
@@ -272,7 +271,7 @@ Fold back the seam allowance of your collar stand on the non-sewn side and press
 
 #### Turn collar stand and press
 
-![Turn collar and press](/img/patterns/simon/instructions/4c.png)
+![Turn collar and press](4c.png)
 
 Flip your collar stand with the good sides out, and give it a good press. Make sure to keep the seam allowance on the collar stand folded inwards.
 
@@ -280,7 +279,7 @@ You can now put your collar aside, we'll attach it later.
 
 ### Step 5: Optional: Sew in your label
 
-![Sew in your label](/img/patterns/simon/instructions/5.png)
+![Sew in your label](5.png)
 
 Our next step is to attach the yoke. But the yoke is a great place to put your label. So if you'd like to do that, we might as well start with that.
 
@@ -288,8 +287,8 @@ Pick one yoke, and you can sew your label on it in the center (on the good side)
 
 ### Step 6: Join the yokes to the back
 
-![Join the yokes to the back](/img/patterns/simon/instructions/6a.png){.fs-row2}
-![Press the yoke](/img/patterns/simon/instructions/6a.png){.fs-row2}
+![Join the yokes to the back](6a.png)
+![Press the yoke](6a.png)
 
 Place one yoke with the good side up. On top of that, place your back with the good side up, aligning the seam where it needs to be attached to the yoke.
 
@@ -305,7 +304,7 @@ When you're done, don't forget to give it a good press to make the seam lie flat
 
 ### Step 7: Edge-stitch the yoke
   
-![Edge-stitch the yoke](/img/patterns/simon/instructions/7.png)
+![Edge-stitch the yoke](7.png)
 
 With your yokes attached to the back, we are going to edge-stitch along the seam we just made, on the yoke side.
 
@@ -317,9 +316,9 @@ Just sew right next to the seam joining the outer yoke to the back.
 
 ### Step 8: Close the back darts
 
-![Fold the back with good sides together to close the darts](/img/patterns/simon/instructions/8a.png){.fs-row3}
-![Sew the darts](/img/patterns/simon/instructions/8b.png){.fs-row3}
-![Press darts towards the side seams](/img/patterns/simon/instructions/8c.png){.fs-row3}
+![Fold the back with good sides together to close the darts](8a.png)
+![Sew the darts](8b.png)
+![Press darts towards the side seams](8c.png)
 
 > Depending on your measurements, your pattern might not have back darts at all. In that case, proceed to the next step.
 
@@ -341,7 +340,7 @@ When you're done, don't forget to give it a good press. Press the extra fabric o
 
 #### Sew on the button placket
 
-![Sew on the button placket](/img/patterns/simon/instructions/9a.png)
+![Sew on the button placket](9a.png)
 
 If you have chosen a separate button placket, sew it to the Front Right piece.
 
@@ -354,7 +353,7 @@ Place your front with the good side down, and press the seam allowance to the bu
 
 #### Fold the button placket
 
-![Fold the button placket](/img/patterns/simon/instructions/9b.png)
+![Fold the button placket](9b.png)
 
 Now, fold over the button placket on the first fold line, and press this fold in place.
 
@@ -364,7 +363,7 @@ When you're happy, press the folded placket.
 
 #### Sew down the folded placket
 
-![Sew down the folded placket](/img/patterns/simon/instructions/9c.png)
+![Sew down the folded placket](9c.png)
 
 > This is the classic approach. If you have chosen the seamless Button placket style, you don't have to do this.
 >
@@ -381,7 +380,7 @@ To do so, sew exactly on top of your earlier seam. Since you folded the fabric o
 
 #### Sew on the buttonhole placket
 
-![Sew on the butonhole placket](/img/patterns/simon/instructions/10a.png)
+![Sew on the butonhole placket](10a.png)
 
 If you have chosen a separate buttonhole placket, sew it to the Front Left piece.
 
@@ -400,7 +399,7 @@ Place your front with the good side down, and press the seam allowance to the bu
 >
 > The steps below are for a classic buttonhole placket.
 
-![Understanding a classic buttonhole placket](/img/patterns/simon/instructions/10b.png)
+![Understanding a classic buttonhole placket](10b.png)
 
 Your placket has a bunch of lines on it, so let's first clarify what they are:
 
@@ -412,7 +411,7 @@ Your placket has a bunch of lines on it, so let's first clarify what they are:
 
 > If you have chosen a grown-on placket, this does not apply.
 
-![Trim back seam allowance](/img/patterns/simon/instructions/10c.png)
+![Trim back seam allowance](10c.png)
 
 The seam allowance of where you sewed your buttonhole placket to your front should fit inside your folded placket.
 
@@ -420,8 +419,8 @@ For that, trim back the seam allowance so that it doesn't extend beyond the firs
 
 #### Fold the buttonhole placket
 
-![Fold the buttonhole placket](/img/patterns/simon/instructions/10d.png){.fs-row2}
-![Fold the buttonhole placket again](/img/patterns/simon/instructions/10e.png){.fs-row2}
+![Fold the buttonhole placket](10d.png)
+![Fold the buttonhole placket again](10e.png)
 
 Fold the placket on the first fold line. Press the fold in place.
 
@@ -431,8 +430,8 @@ Then, fold the part you just folded again, this time on the second fold line. Pr
 
 #### Sew the buttonhole placket
 
-![Sew on the first line](/img/patterns/simon/instructions/10f.png){.fs-row2}
-![Sew on the second line](/img/patterns/simon/instructions/10g.png){.fs-row2}
+![Sew on the first line](10f.png)
+![Sew on the second line](10g.png)
 
 Sew on the first sew line, closest to the edge.
 
@@ -442,7 +441,7 @@ Then, flip your shirt over so that the good side is up, and your placket is up t
 
 #### Press the buttonhole placket
 
-![Press the buttonhole placket](/img/patterns/simon/instructions/10h.png)
+![Press the buttonhole placket](10h.png)
 
 Congratulations, you made a classic buttonhole placket.
 
@@ -458,8 +457,8 @@ Now press that baby. You know you want to.
 
 #### Pin the fronts to the outside yoke
 
-![Pin the fronts to the outside yoke](/img/patterns/simon/instructions/11a.png){.fs-row2}
-![Pin the fronts to the outside yoke](/img/patterns/simon/instructions/11b.png){.fs-row2}
+![Pin the fronts to the outside yoke](11a.png)
+![Pin the fronts to the outside yoke](11b.png)
 
 Place your back down with the good side up, but be careful to fold the inner yoke downward (as illustrated by the dotted line.
 
@@ -467,7 +466,7 @@ Place your fronts on your back, with the good sides down. Pin fronts to the yoke
 
 #### Roll, roll, roll your shirt, pin down and sew your seam
 
-![Roll your shift up between the yokes](/img/patterns/simon/instructions/11c.png)
+![Roll your shift up between the yokes](11c.png)
 
 Roll up your back and fronts starting at the hem. Roll them into a neat sausage upwards until you can see the entire turned down yoke.
 
@@ -475,7 +474,7 @@ Now, you can flip the inner yoke over your rolled sausage to align the shoulder 
 
 Pin them in place, and then sew the shoulder seams, making sure to keep your sausage (or burrito stuffing) out of the way so it doesn't get caught in the seam.
 
-![Match the notches](/img/patterns/simon/instructions/11e.png)
+![Match the notches](11e.png)
 
 > Made sure to align the actual seam line.
 > Due to the uneven angles at the neck opening, the fabric edge is often longer on one side than on the other.
@@ -487,13 +486,13 @@ When you've sewn both shoulder seams, reach in through the neck opening, and pul
 
 #### Press the shoulder seams
 
-![Press the shoulder seams](/img/patterns/simon/instructions/11d.png)
+![Press the shoulder seams](11d.png)
 
 You did all this work, so now make sure you make it look super sharp by giving it a good press. Make sure that the seam allowance between your yokes lies nice and flat for that.
 
 ### Step 12: Edge-stitch the shoulder seams of the yoke
 
-![Edge-stitch the shoulder seams of the yoke](/img/patterns/simon/instructions/12.png)
+![Edge-stitch the shoulder seams of the yoke](12.png)
 
 Just as we've edge-stitched the bottom seam of the yoke in Step 3, we're going to edge-stitch the yoke at the shoulder seams too.
 
@@ -505,9 +504,9 @@ Since you've just pressed these shoulder seams, everything should lie nice and f
 
 #### Sew in the cuff guard
 
-![Sew in the cuff guard](/img/patterns/simon/instructions/13a.png){.fs-row3}
-![Press the cuff guard](/img/patterns/simon/instructions/13b.png){.fs-row3}
-![Edge-stitch the cuff guard in place](/img/patterns/simon/instructions/13c.png){.fs-row3}
+![Sew in the cuff guard](13a.png)
+![Press the cuff guard](13b.png)
+![Edge-stitch the cuff guard in place](13c.png)
 
  - Place your sleeve with the good side down, and your cuff guard on top, also with the good side down.
  - Align the edge of your cuff guard (aka sleeve placket underlap) with the cut in your sleeve, on the side shortest to the side seam.
@@ -523,7 +522,7 @@ Since you've just pressed these shoulder seams, everything should lie nice and f
 
 #### Fold and press the placket
 
-![Fold and press the placket](/img/patterns/simon/instructions/13d.png)
+![Fold and press the placket](13d.png)
 
 Origami time! We're going to fold the sleeve placket overlap using the marked fold lines as our guide. This will be a lot easier if you press between each fold.
 
@@ -538,8 +537,8 @@ Origami time! We're going to fold the sleeve placket overlap using the marked fo
 
 #### Pin placket in place
 
-![Slide placket in position](/img/patterns/simon/instructions/13e.png){.fs-row2}
-![Pin placket in place](/img/patterns/simon/instructions/13f.png){.fs-row2}
+![Slide placket in position](13e.png)
+![Pin placket in place](13f.png)
 
 Place your sleeve down with the good side up. The guard we have sewn in earlier sits against the other unfinished fabric edge of where you cut into your sleeve.
 
@@ -553,7 +552,7 @@ When you've got it where you want it, pin the placket down.
 
 #### Sew the sleeve placket
 
-![Sew the sleeve placket](/img/patterns/simon/instructions/13g.png)
+![Sew the sleeve placket](13g.png)
 
 Start at the edge of the sleeve (the bottom of the sleeve placket) and edge-stitch along the edge upwards.
 
@@ -567,7 +566,7 @@ Then, sew horizontal to the other side of the placket to finish.
 
 #### Remember, this is a flat-felled seam
 
-![Aligning the fabric for a flat-felled seam](/img/patterns/simon/instructions/14c.png)
+![Aligning the fabric for a flat-felled seam](14c.png)
 
 
 > **Careful with the extra seam allowance for the flat-felled seam**
@@ -577,7 +576,7 @@ Then, sew horizontal to the other side of the placket to finish.
 
 #### Pin shirt in place
 
-![Pin shirt in place](/img/patterns/simon/instructions/14a.png)
+![Pin shirt in place](14a.png)
 
 Spread your shirt open so that both fronts and back lie flat with their good sides up.
 
@@ -595,11 +594,11 @@ You now need to pin the sleeve to the armhole. To do so, make sure to:
 
 #### Distribute sleavecap ease
 
-![Distribute the sleevecap ease](/img/patterns/simon/instructions/14b.png)
+![Distribute the sleevecap ease](14b.png)
 
 The default sleevecap ease for this pattern is 0.5cm. If you have sleevecap ease, you need to distribute that extra length evenly between the notches as shown.
 
-> If you are unsure what sleevecap ease is, have a look at the [documentation for the sleevecap ease pattern option](/docs/patterns/simon/options#sleevecapEase).
+> If you are unsure what sleevecap ease is, have a look at the [documentation for the sleevecap ease pattern option](/en/docs/patterns/simon/options#sleevecapEase).
 >
 
 #### Sew sleeve in armhole
@@ -611,7 +610,7 @@ When you've got your sleeve neatly pinned in your armhole, sew it in place. Be c
 
 #### Press seam allowance to one side
 
-![Press seam allowance to once side](/img/patterns/simon/instructions/15a.png)
+![Press seam allowance to once side](15a.png)
 
 Lay down your freshly sewn sleeve seam with the good side down
 
@@ -623,7 +622,7 @@ Once you have verified that, press down the seam allowance.
 
 #### Fold under extra seam allowance
 
-![Fold under extra seam allowance](/img/patterns/simon/instructions/15b.png)
+![Fold under extra seam allowance](15b.png)
 
 Now, fold the extra seam allowance for the flat-felled seam under the standard seam allowance.
 
@@ -643,8 +642,8 @@ When it's all done, press the flat-felled seam from the good side so it lies nic
 
 ### Step 16: Close the side/sleeve seams
 
-![Close the side/sleeve seams](/img/patterns/simon/instructions/16a.png){.fs-row2}
-![Remember, this is a flat-felles seam](/img/patterns/simon/instructions/16b.png){.fs-row2}
+![Close the side/sleeve seams](16a.png)
+![Remember, this is a flat-felles seam](16b.png)
 
 Place your shirt with the good sides together, and sew the side and sleeve seams to close the shirt.
 
@@ -655,7 +654,7 @@ Place your shirt with the good sides together, and sew the side and sleeve seams
 
 #### Press seam allowance to one side
 
-![Press the seam allowance to one side](/img/patterns/simon/instructions/15a.png)
+![Press the seam allowance to one side](15a.png)
 
 We are going to press the seam allowance to one side. To do so, identify the seam allowance that is wider (for the flat-felled seam).
 
@@ -665,7 +664,7 @@ Once you have verified that, press down the seam allowance.
 
 #### Fold under extra seam allowance
 
-![Fold under extra seam allowance](/img/patterns/simon/instructions/15b.png)
+![Fold under extra seam allowance](15b.png)
 
 Now, fold the extra seam allowance for the flat-felled seam under the standard seam allowance.
 
@@ -688,7 +687,7 @@ When it's all done, press the flat-felled seam from the good side so it lies nic
 
 #### Pin cuff in place
 
-![Pin cuff in place](/img/patterns/simon/instructions/18a.png)
+![Pin cuff in place](18a.png)
 
 You need to insert the sleeve between the two layers of your cuff, making sure that that good side of the fabric sits against the side of your cuff that has the interfacing applied to it.
 
@@ -702,7 +701,7 @@ Also note that your sleeve edge will be longer than your cuff (how much longer d
 
 #### Edge-stitch cuffs to sleeves
 
-![Edge-stitch cuffs to sleeves](/img/patterns/simon/instructions/18b.png)
+![Edge-stitch cuffs to sleeves](18b.png)
 
 Once everything is pinned in place, edge stitch along the edge of your cuff to attach it to your sleeve.
 
@@ -714,7 +713,7 @@ When you're done, give your cuffs a good press.
 
 #### Top-stitch the cuffs
 
-![Top-stitch the cuffs](/img/patterns/simon/instructions/18c.png)
+![Top-stitch the cuffs](18c.png)
 
 > Make sure to press your cuffs before you do this.
 
@@ -724,7 +723,7 @@ Top-stitch around your cuff at a distance from the edge that is a bit less than 
 
 #### Baste collar in place
 
-![Baste collar in place](/img/patterns/simon/instructions/19a.png)
+![Baste collar in place](19a.png)
 
 This is an important seam, so we are going to baste this in place to make sure it sits exactly right before we sew it.
 
@@ -738,8 +737,8 @@ Make sure to respect the standard seam allowance and - important - avoid any wri
 
 #### Edge-stitch collar in place
 
-![Edge-stitch collar in place](/img/patterns/simon/instructions/19b.png){.fs-row2}
-![Edge-stitch collar in place](/img/patterns/simon/instructions/19c.png){.fs-row2}
+![Edge-stitch collar in place](19b.png)
+![Edge-stitch collar in place](19c.png)
 
 When you're happy with how you've basted your collar in place, it's time to sew that thing down.
 
@@ -747,7 +746,7 @@ We're going to start at center-back and sew all the way around the collar stand.
 
 #### Sew along the collar edge
 
-![Sew along the collar edge](/img/patterns/simon/instructions/19d.png)
+![Sew along the collar edge](19d.png)
 
 To give more body to your collar, and firmly secure it in place we're going to sew along the top edge of the collar stand.
 
@@ -757,15 +756,15 @@ Sew about half the seam allowance from your earlier edge-stitching. Make sure to
 
 #### Press the collar
 
-![Press the collar](/img/patterns/simon/instructions/19.png)
+![Press the collar](19.png)
 
 Now that your collar is attached, give it a good press.
 
 ### Step 20: Hem your shirt
 
-![Fold over and press](/img/patterns/simon/instructions/20a.png){.fs-row3}
-![FOld over again, and press again](/img/patterns/simon/instructions/20b.png){.fs-row3}
-![Sew the hem](/img/patterns/simon/instructions/20c.png){.fs-row3}
+![Fold over and press](20a.png)
+![FOld over again, and press again](20b.png)
+![Sew the hem](20c.png)
 
 Time to finish the hem (that's the part you tuck in your trousers).
 
@@ -791,5 +790,5 @@ When you've marked where buttons should go, sew them on.
 >
 > This way, if a buttonhole sits a little bit out of place, the button will simply follow it.
 
-![That's it, you're done 👍](/img/patterns/aaron/instructions/finished.gif)
+![That's it, you're done](finished.gif)
 

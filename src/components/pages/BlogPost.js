@@ -102,7 +102,7 @@ export default props => {
             title={<FormattedMessage id="app.contents" />}
           >
             <div
-              className="toc"
+              className="toc overpad2-always"
               dangerouslySetInnerHTML={{ __html: tableOfContents }}
             />
           </Tray>
