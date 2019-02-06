@@ -1,13 +1,12 @@
 ---
 path: /fr/showcase/florent-by-wouter
 author: wouter.vdub
-caption: Ca le fait trés bien, pour une toile!
+caption: "Ca le fait trÃ©s bien, pour une toile!"
 date: 2017-12-11T00:00:00.000Z
 img: showcase.jpg
 patterns:
   - florent
-title: Un essais du patron Florent pour voir si ça fonctionne pour d'autres, par
-  Wouter.vdub
+title: "Un essais du patron Florent pour voir si Ã§a fonctionne pour d'autres, par Wouter.vdub"
 
 ---
 ![View of the back ](/img/showcase/florent-by-wouter-vdub/high_back.jpg) 
