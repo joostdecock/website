@@ -45,6 +45,7 @@
     "gatsby-transformer-sharp": "2.1.3",
     "gatsby-transformer-yaml": "^2.1.1",
     "install": "0.12.2",
+    "js-base64": "2.5.1",
     "jss": "latest",
     "npm": "6.4.1",
     "prismjs": "1.15.0",
