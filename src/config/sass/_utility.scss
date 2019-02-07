@@ -60,7 +60,7 @@
 .indent4 { margin-left: 30px;}
 .indent5 { margin-left: 40px;}
 
-.vspacer { margin: 50px 0; }
+.vspacer { margin: 30px 0; }
 
 // Colors
 .color-success { color: $success; }
@@ -99,6 +99,7 @@ p.mini,
 .w100 { width: 100%; }
 .maxw700 { max-width: 700px; }
 .minh70vh { min-height: 70vh; }
+.center { max-width: 700px;  margin: auto; }
 
 // Filters
 .grayscale { filter: grayscale(100%); }
