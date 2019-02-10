@@ -2,21 +2,87 @@
 title: API Reference
 path: /en/docs/developer/api
 components: true
-i18n:
-  boxTitle: Nevermind that box() method
-  boxInfo: You can ignore the box() method used in this example. In your patterns, you simply return the part object. 
-  boxWhy: The bounding box of a pattern part is calculated based on the paths used in that part. Some of these examples don't have any paths, and thus our example pattern has an extra box() method that draws an (invisible) diagonal line to force the bounding box to a certain size. 
-  i18nTitle: This pattern uses the i18n plugin
-  i18nInfo: You'll notice that the text used in this pattern is different from the text inserted in the code. That's because this pattern uses the i18n plugin to allow translation.
-  i18nData: In this case, we provided the following data to the i18n plugin
 ---
 
- - [Attributes](./api/attributes)
- - [Part](./api/part)
- - [Path](./api/path)
- - [Pattern](./api/pattern)
- - [Point](./api/point)
- - [Snippet](./api/snippet)
- - [Store](./api/store)
- - [Utils](./api/utils)
- 
+Freesewing exports a single object with the following properties:
+
+## freesewing.version
+
+```js
+string freesewing.version
+```
+
+A string containing the freesewing version number.
+
+## freesewing.create()
+
+```js
+function freesewing.create(object config, object|array plugins)
+```
+
+Use this method to create your own pattern designs. It takes the 
+following arguments:
+
+ - `config` : The pattern configuration
+ - `plugins` : Either a plugin object, or an array of plugin objects
+ to load in your pattern
+
+This method will return a constructor method that should be called to 
+instantiate your pattern. 
+See [creating a new pattern](/en/docs/developer/examples/#creating-a-new-pattern).
+
+## utils
+
+A collection of utilities. See [Utils](./api/utils).
+
+## freesewing.patterns
+
+When running the browser build of freesewing, 
+loaded patterns will attach themselves here.
+
+> This is only relevant if you're loading freesewing directly in the 
+> browser, rather than using the node version and a bundler.
+
+## freesewing.plugins
+
+When running the browser build of freesewing, 
+loaded plugins will attach themselves here.
+
+> This is only relevant if you're loading freesewing directly in the 
+> browser, rather than using the node version and a bundler.
+
+## freesewing.Pattern()
+
+The [Pattern](./api/pattern) constructor. 
+
+> ###### Deprecated
+>
+> Use of this constructor is deprecated, and this will be removed from 
+> the default export in a future version.
+
+## freesewing.Point()
+
+The [Point](./api/point) constructor.
+
+> ###### Deprecated
+>
+> Use of this constructor is deprecated, and this will be removed from 
+> the default export in a future version.
+
+## freesewing.Path()
+
+The [Path](./api/path) constructor.
+
+> ###### Deprecated
+>
+> Use of this constructor is deprecated, and this will be removed from 
+> the default export in a future version.
+
+## freesewing.Snippet()
+
+The [Snippet](./api/snippet) constructor.
+
+> ###### Deprecated
+>
+> Use of this constructor is deprecated, and this will be removed from 
+> the default export in a future version.

@@ -19,77 +19,47 @@ components: true
 
 ## Creating a new pattern
 
-Let's assume we're creating a new pattern called `Sorcha`.
+To create a new pattern, call the `freesewing.create()` method with your
+pattern configuration, and any plugins you want to load as parameters.
 
-Strictly speaking, we could simply create a `freesewing.Pattern` object:
-
-```js{2}
-import freesewing from "freesewing";
-var Sorcha = new freesewing.Pattern();
-```
-
-However, we don't just want one `Sorcha` for us. 
-We want the user to be able to create `Sorcha` patterns. 
-Something like this:
-
-```js{2}
-import Sorcha from "@freesewing/sorcha";
-var pattern = new Sorcha();
-```
-
-For this to work, we must make `Sorcha` a *constructor function* that will inherit from
-the `freesewing.Pattern` object. 
-
-While we're at it, let's add some plugins, and our configuration:
+For example, if we were creating a new pattern called `Sorcha`:
 
 ```js
 import freesewing from "freesewing";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
 
-// Constructor
-const Sorcha = function(settings) {
-  freesewing.Pattern.call(this, config);
-  this
-    .use(plugins)
-    .apply(settings); 
+// Create pattern
+const Sorcha = freesewing.create(config, plugins);
 
-  return this;
-};
-
-// Set up inheritance
-Sorcha.prototype = Object.create(freesewing.Pattern.prototype);
-Sorcha.prototype.constructor = Sorcha;
 ```
 
-There's a few things we're doing here:
+## Adding pattern parts
 
- - We import our dependencies, including the main freesewing library, and our plugin bundle. 
- We also load the pattern configuration file.
- - We're using `call` to make the value of `this` (which will become our pattern) a new `freesewing.Pattern` object
- - We are adding the plugin bundle to our pattern
- - We allow users to pass settings to our constructor method
+Since the patterns parts are listed 
+in [the configuration file](/en/docs/developer/config), freesewing knows about
+all the parts that belong to your pattern.
 
-Finally, there's two additional lines that are required to properly handle *inheritance*.
+It expects that each pattern has it's own draft method, that is called `draft`
+followed by the capitalized name of the pattern part.
 
-> ###### Don't worry about the inheritance boilerplate
-> 
-> An alternative way to handle inheritance would be to write our pattern 
-> as a `class` that extends `freesewing.Pattern`.
-> But We rather avoid using classes to keep things as simple as possible.
-> 
-> Bottom line: You don't need to understand what's going on here. 
-> You will be doing almost all of your works in parts, not in the pattern itself.
-
-## Creating a new part
-
-Now we're getting somewhere: Parts are where all the action is in freesewing. 
-
-While creating a pattern requires some boilerplate, creating a part is as simple as:
+For example, if our pattern `Sorcha` has a part called `back`, you should
+have a `draftBack` method:
 
 ```js
-Sorcha.parts.example = new Sorcha.Part();
+import freesewing from "freesewing";
+import plugins from "@freesewing/plugin-bundle";
+import config from "../config";
+// Parts
+import draftBack from "./back";
+
+// Create pattern
+const Sorcha = freesewing.create(config, plugins);
+
+// Per-part draft methods
+Sorcha.prototype.draftBack = part => draftBack(part);
 ```
+
 As you can see, we're storing our parts in the `Sorcha.parts` object, since
 the render method will only render parts stored there.
 
@@ -97,6 +67,38 @@ the render method will only render parts stored there.
 >
 > Good news: There's no need to add parts yourself, they will be created
 > auto-magically based on your configuration. 
+
+## Extending other patterns
+
+If your pattern is based on, or extending, another pattern (some of) your
+pattern parts will need to be drafted by the parent pattern.
+
+In such a case, rather than return our own draft method for the part, you 
+should instantiate the parent pattern, and return its part draft method:
+
+```js
+import freesewing from "freesewing";
+import brian from "@freesewing/brian";
+import plugins from "@freesewing/plugin-bundle";
+import config from "../config";
+// Parts
+import draftBack from "./back";
+
+// Create pattern
+const Sorcha = freesewing.create(config, plugins);
+
+// Per-part draft methods
+Sorcha.prototype.draftBack = part => draftBack(part);
+Sorcha.prototype.draftBase = function(part) {
+  // Getting the base part from Brian
+  return new Brian(this.settings).draftBase(part);
+};
+```
+
+> ###### Do not use an arrow function when using this
+>
+> Because we're using to the `this` keyword here, you cannot use the 
+> arrow notation for these methods.
 
 ## Using shorthand
 
