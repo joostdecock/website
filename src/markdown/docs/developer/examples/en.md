@@ -4,19 +4,6 @@ title:  Learn by example
 components: true
 ---
 
-> ###### You can skip the boilerplate
-> 
-> The topics of [how to create a pattern](#creating-a-new-pattern)
-> , [how to add parts](#creating-a-new-part), 
-> and [using shorthand](#using-shorthand) are all part of the pattern boilerplate.
-> In other words, this code is similar for all patterns, you can safely copy 
-> it, or use [our pattern template](https://github.com/freesewing/pattern-template).
-> 
-> If you'd like to understand how things work, read on. But if you just want to 
-> know how to design patterns, feel free to skip ahead 
-> to [accessing measurements](#accessing-measurements).
-
-
 ## Creating a new pattern
 
 To create a new pattern, call the `freesewing.create()` method with your
@@ -31,7 +18,6 @@ import config from "../config";
 
 // Create pattern
 const Sorcha = freesewing.create(config, plugins);
-
 ```
 
 ## Adding pattern parts
@@ -44,7 +30,18 @@ It expects that each pattern has it's own draft method, that is called `draft`
 followed by the capitalized name of the pattern part.
 
 For example, if our pattern `Sorcha` has a part called `back`, you should
-have a `draftBack` method:
+have a `draftBack` method. It's good practice to keep each part in its own
+file, so create a file called `back.js`. Inside, you export your method
+to draft this part:
+
+```js
+export default part => {
+  // Your part code here
+}
+```
+
+Then, in your `index.js` file, you import this file, and attach the
+method to your pattern's prototype:
 
 ```js
 import freesewing from "freesewing";
@@ -60,14 +57,6 @@ const Sorcha = freesewing.create(config, plugins);
 Sorcha.prototype.draftBack = part => draftBack(part);
 ```
 
-As you can see, we're storing our parts in the `Sorcha.parts` object, since
-the render method will only render parts stored there.
-
-> ###### You don't have to add parts yourself
->
-> Good news: There's no need to add parts yourself, they will be created
-> auto-magically based on your configuration. 
-
 ## Extending other patterns
 
 If your pattern is based on, or extending, another pattern (some of) your
@@ -78,7 +67,7 @@ should instantiate the parent pattern, and return its part draft method:
 
 ```js
 import freesewing from "freesewing";
-import brian from "@freesewing/brian";
+import Brian from "@freesewing/brian";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
 // Parts
@@ -109,7 +98,6 @@ of handy variables to make your code more concise and readable.
 
 [Part.shorthand()](/api/#part-shorthand) provides a lot of things, and you typically 
 don't need all of them, but here's everything it has to offer:
-
 
 ```js
   let {
