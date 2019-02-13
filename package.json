@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@freesewing/examples": "0.6.12",
-    "@freesewing/i18n": "0.8.6",
+    "@freesewing/i18n": "0.9.1",
     "@freesewing/models": "0.7.1",
-    "@freesewing/patterns": "0.11.12",
-    "@freesewing/plugin-bundle": "0.7.1",
+    "@freesewing/patterns": "0.12.1",
+    "@freesewing/plugin-bundle": "0.7.3",
     "@freesewing/plugin-debug": "latest",
     "@freesewing/plugin-designer": "0.10.0",
     "@freesewing/plugin-i18n": "latest",
