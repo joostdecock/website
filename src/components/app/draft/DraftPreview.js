@@ -6,12 +6,11 @@ import { FormattedMessage } from "react-intl";
 import Button from "@material-ui/core/Button";
 import GithubIcon from "../../GithubIcon";
 import { capitalize } from "../../../utils";
+import freesewing from "freesewing";
 import { patterns } from "@freesewing/patterns";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
 import i18nPlugin from "@freesewing/plugin-i18n";
 import { plugin as patternTranslations } from "@freesewing/i18n";
-//import validatePlugin from "@freesewing/plugin-validate";
-//import debugPlugin from "@freesewing/plugin-debug";
 
 class DraftPreview extends React.Component {
   state = {
@@ -22,7 +21,11 @@ class DraftPreview extends React.Component {
 
   render() {
     let error = false;
-    if (typeof this.props.gist === "undefined") return <p>No gist</p>;
+    if (
+      typeof this.props.gist === "undefined" ||
+      typeof this.props.gist.pattern === "undefined"
+    )
+      return <p>No gist</p>;
     const pattern = new patterns[(capitalize(this.props.gist.pattern))](
       this.props.gist.settings
     )
