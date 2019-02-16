@@ -4,10 +4,11 @@ title:  Learn by example
 components: true
 ---
 
-## Creating a new pattern
+## Creating a new pattern design
 
-To create a new pattern, call the `freesewing.create()` method with your
-pattern configuration, and any plugins you want to load as parameters.
+To create a new pattern, call `new freesewing.Design()`.
+It takes your pattern configuration, 
+and any plugins you want to load as parameters.
 
 For example, if we were creating a new pattern called `Sorcha`:
 
@@ -16,9 +17,45 @@ import freesewing from "freesewing";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
 
-// Create pattern
-const Sorcha = freesewing.create(config, plugins);
+// Create new design
+const Sorcha = new freesewing.Design(config, plugins);
 ```
+
+> ###### freesewing.Design() is a super-constructor
+>
+> The only time you'll use the `freesewing.Design()` method when you're
+> creating a new pattern design. 
+>
+> Constructors are functions you can call with `new` to create an object. 
+> But this constructor does not return a `Design` object. Instead it returns 
+> a constructor method for your pattern.
+>
+> Here's an example:
+>
+> ```js
+> import freesewing from "freesewing";
+> import plugins from "@freesewing/plugin-bundle";
+> import config from "../config";
+> 
+> // Create new design
+> const Sorcha = new freesewing.Design(config, plugins);
+>
+> // Rest of your pattern code
+>
+> export default Sorcha;
+> ```
+>
+> When importing your pattern, it is itself a constructor:
+>
+> ```js
+> import Sorcha from "@freesewing/sorcha";
+> 
+> // Sorcha is a constructor for your pattern. 
+> let pattern = new Sorcha();
+> ```
+> 
+> As `freesewing.Design()` returns a constructor, you can think of it
+> as a super-constructor.
 
 ## Adding pattern parts
 
@@ -50,8 +87,8 @@ import config from "../config";
 // Parts
 import draftBack from "./back";
 
-// Create pattern
-const Sorcha = freesewing.create(config, plugins);
+// Create new design
+const Sorcha = new freesewing.Design(config, plugins);
 
 // Per-part draft methods
 Sorcha.prototype.draftBack = part => draftBack(part);
@@ -73,8 +110,8 @@ import config from "../config";
 // Parts
 import draftBack from "./back";
 
-// Create pattern
-const Sorcha = freesewing.create(config, plugins);
+// Create new design
+const Sorcha = new freesewing.Design(config, plugins);
 
 // Per-part draft methods
 Sorcha.prototype.draftBack = part => draftBack(part);
