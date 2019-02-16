@@ -25,12 +25,13 @@ class DraftPreview extends React.Component {
       typeof this.props.gist.pattern === "undefined"
     )
       return <p>No gist</p>;
-    const pattern = new patterns[(capitalize(this.props.gist.pattern))](
-      this.props.gist.settings
-    )
-      .use(svgattrPlugin, { class: "freesewing draft" })
-      .use(i18nPlugin, { strings: patternTranslations });
+    let pattern = capitalize(this.props.gist.pattern);
+    if (typeof patterns[pattern] !== "function")
+      return <p>FIXME: Proprerty {pattern} is not a constructor</p>;
     try {
+      pattern = new patterns[pattern](this.props.gist.settings)
+        .use(svgattrPlugin, { class: "freesewing draft" })
+        .use(i18nPlugin, { strings: patternTranslations });
       switch (this.props.action) {
         case "sampleOption":
           pattern.sampleOption(this.props.option);
@@ -39,7 +40,6 @@ class DraftPreview extends React.Component {
           pattern.sampleMeasurement(this.props.measurement);
           break;
         case "sampleModels":
-          console.log(this.props);
           if (this.props.focus)
             pattern.sampleModels(this.props.models, this.props.focus);
           else pattern.sampleModels(this.props.models);
@@ -48,7 +48,7 @@ class DraftPreview extends React.Component {
           pattern.draft();
       }
     } catch (err) {
-      console.log(err, pattern);
+      console.log({ err, pattern, props: this.props });
       error = err;
     }
     if (!error) {

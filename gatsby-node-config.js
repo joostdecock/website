@@ -2,6 +2,7 @@ const config = require("./src/config/i18n");
 const path = require("path");
 const patternList = require("@freesewing/patterns").patternList;
 
+console.log(patternList);
 exports.languages = config.languages;
 exports.defaultLanguage = config.defaultLanguage;
 
