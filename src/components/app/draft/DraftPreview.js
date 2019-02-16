@@ -6,7 +6,6 @@ import { FormattedMessage } from "react-intl";
 import Button from "@material-ui/core/Button";
 import GithubIcon from "../../GithubIcon";
 import { capitalize } from "../../../utils";
-import freesewing from "freesewing";
 import { patterns } from "@freesewing/patterns";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
 import i18nPlugin from "@freesewing/plugin-i18n";
