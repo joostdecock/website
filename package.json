@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@freesewing/examples": "0.7.3",
+    "@freesewing/examples": "0.7.6",
     "@freesewing/i18n": "0.9.3",
     "@freesewing/models": "0.7.1",
     "@freesewing/patterns": "0.14.10",
