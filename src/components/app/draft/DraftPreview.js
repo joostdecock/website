@@ -70,6 +70,11 @@ class DraftPreview extends React.Component {
             <FormattedMessage id="app.pleaseIncludeTheInformationBelow" />
             {":"}
           </p>
+          <h6 className="label">Error</h6>
+          <pre>{error.message}</pre>
+          <h6 className="label">
+            <FormattedMessage id="app.gist" />
+          </h6>
           <pre>{JSON.stringify(this.props.gist, null, 2)}</pre>
           <TrayFooter>
             <Button
