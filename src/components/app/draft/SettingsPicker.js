@@ -18,12 +18,13 @@ import draftSettings from "../../../config/draftsettings";
 class SettingsPicker extends React.Component {
   state = {
     expanded: "",
+    expandedSub: "",
     option: false
   };
 
   optionGroup(patternInfo, key, options, level = 0) {
     let heading = (
-      <ListItem key={key} button onClick={() => this.toggleGroup(key)}>
+      <ListItem key={key} button onClick={() => this.toggleGroup(key, level)}>
         <ListItemIcon>
           <OptionsIcon className={"indent" + level} color="primary" />
         </ListItemIcon>
@@ -241,13 +242,11 @@ class SettingsPicker extends React.Component {
         );
       }
     }
+    let expanded = false;
+    if (this.state.expanded === key || this.state.expandedSub === key)
+      expanded = true;
     items.push(
-      <Collapse
-        in={this.state.expanded === key ? true : false}
-        key={"col-" + key}
-        timeout="auto"
-        unmountOnExit
-      >
+      <Collapse in={expanded} key={"col-" + key} timeout="auto" unmountOnExit>
         {colItems}
       </Collapse>
     );
@@ -255,8 +254,10 @@ class SettingsPicker extends React.Component {
     return items;
   }
 
-  toggleGroup(key) {
-    this.setState({ expanded: key });
+  toggleGroup(key, level) {
+    console.log("toggling sub", key, level);
+    if (level > 0) this.setState({ expandedSub: key });
+    else this.setState({ expanded: key });
     this.props.methods.updateDisplay("draft");
   }
 
