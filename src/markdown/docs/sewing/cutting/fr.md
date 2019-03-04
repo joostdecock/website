@@ -1,5 +1,4 @@
 ---
-layout: onecol
 title: Découpe
 path: /fr/docs/sewing/cutting
 ---
