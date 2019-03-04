@@ -38,13 +38,13 @@ La façon dont vos données personnelles sont traitées est documentée dans [no
 
 ## Qui paye pour tout cela ?
 
-Le projet freesewing est supporté financièrement par [nos mécènes](/fr/mecenes).
+Le projet freesewing est supporté financièrement par [nos mécènes](/fr/patrons).
 
 Les mécènes sont des utilisateurs réguliers comme vous qui ont accepté de faire une petite contribution mensuelle pour maintenir le développement de freesewing.
 
 > ##### Rejoindre les Mécènes Freesewing
 > Vous pouvez devenir un mécène à partir de seulement 2 euros par mois. Alors pourquoi ne pas 
-> [devenir mécène](/fr/patrons/rejoindre) ?
+> [devenir mécène](/fr/patrons/join) ?
 
 ## Quel est votre but ultime ?
 
