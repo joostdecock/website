@@ -62,3 +62,12 @@ Interested in submitting a pull request for our code? Awesome. All our code is [
 
 Our [chat room on Gitter](https://gitter.im/freesewing/freesewing) is the best place to discuss ideas or ask questions. 
 
+**Become a patron**
+
+All our patterns, and all our code, is accessible to everyone, regardless of where they live or what they can afford.
+
+This is made possible by our Patrons; Loyal supporters who ensure a sustainable future for freesewing.org, our code, our patterns, and our community.
+
+You can [become a Patron for as little as 2€ per month](/en/patrons/join).
+
+
