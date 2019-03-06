@@ -62,3 +62,11 @@ Interested in submitting a pull request for our code? Awesome. All our code is [
 
 Our [chat room on Gitter](https://gitter.im/freesewing/freesewing) is the best place to discuss ideas or ask questions. 
 
+**Become a patron**
+
+To ensure a sustainable future for freesewing.org, our code, our patterns, and our community, we need to build a bedrock of loyal supporters.
+Patrons who support us in our core work: Developing an open source platform for made-to-measure sewing patterns.
+
+We have three tiers of Patronage, each with their own perks. You can support us for as little as 2€, and it only takes a minute.
+
+We are not changing the nature of the site. All patterns, and all our code, will remain free. What we are changing is the way we raise funds. From a system of impulsive donations to a community of caring Patrons. If you are someone who cares, then check out [what we have to offer](/en/patrons/join).
