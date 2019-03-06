@@ -1,7 +1,7 @@
 ---
 title: Unités
 path: /fr/docs/draft/settings/units
-setting: unités
+setting: units
 ---
 
 Ceci contrôle les unités utilisées (dans le texte) sur le patron. 
