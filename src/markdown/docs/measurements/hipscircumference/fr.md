@@ -1,6 +1,6 @@
 ---
 title: Tour de bassin
-path: /en/docs/measurements/hipscircumference
+path: /fr/docs/measurements/hipscircumference
 ---
 
 Le **tour de bassin** est mesuré en haut du bassin.
