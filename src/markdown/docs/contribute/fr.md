@@ -18,7 +18,7 @@ rencontrer d'autres freesewers, ou juste passer un bon moment et rigoler un peu.
 - Chatter n'est pas votre truc ? Le compte Twitter [@freesewing_org](https://twitter.com/freesewing_org) est la deuxième meilleure alternative.
 - Vous avez remarqué une erreur ? Ou bien vous avez une suggestion d'amélioration ? 
 Nous vous remercions de [faire remonter un problème sur GitHub](https://github.com/freesewing/site/issues/new). 
-Vous aurez besoin pour cela d'un compte GitHub que vous pouvez créer gratuitement but they are free.
+Vous aurez besoin pour cela d'un compte GitHub que vous pouvez créer gratuitement.
 
 ## Différentes façons de contribuer
 
