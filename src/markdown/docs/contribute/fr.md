@@ -63,9 +63,8 @@ Notre [salle de chat sur Gitter](https://gitter.im/freesewing/freesewing) est le
 
 **Devenir mécène**
 
-Pour assurer un avenir pérenne à freesewing.org, notre code, nos patrons et notre communité, nous devons construire un socle de partisans loyaux.
-Les mécènes nous soutiennent dans notre travail central, à savoir le développement d'une plateforme ouverte pour patrons de couture sur mesure.
+Tous nos patrons ainsi que notre code sont accessibles à tous, sans condition de revenus et peu importe l'endroit où vous vivez.
 
-Nous proposons trois niveaux de mécénat, chacun avec leur degré d'avantage. Vous pouvez nous soutenir à partir de 2€ et cela ne prend qu'une minute.
+Ceci est rendu possible grâce à nos Mécènes qui nous soutiennent dans notre travail central, à savoir le développement d'une plateforme ouverte pour patrons de couture sur mesure.
 
-Nous ne modifions pas la nature de ce site. Tous les patrons et tout notre code demeurent gratuit. Ce qui change, c'est la façon dont nous levons des fonds. D'un système de donations impulsives à une communauté de mécènes généreux. Si cela vous intéresse, alors jetez un coup d'oeil à [ce que nous avons à vous proposer](/fr/patrons/join).
+Vous pouvez [devenir Mécène à partir de seulement 2€ par mois](/fr/patrons/join).
