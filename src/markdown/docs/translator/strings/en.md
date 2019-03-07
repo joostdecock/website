@@ -85,11 +85,11 @@ As before, do not translate the keys, only the values. In the case the Spanish l
 
 ```yaml
 adjustmentRibbon:
-  description: Add a ribbon to make the tie adjustable.
+  description: Agregar une cinta para que corbata sea ajustable.
   options:
-    - Do not include ribbon
-    - Include ribbon
-  title: Adjustment Ribbon
+    - No incluir una cinta
+    - Incluir una cinta
+  title: Cinta de ajuste 
 ```
 
 #### Syntax
