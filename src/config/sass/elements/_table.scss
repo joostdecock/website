@@ -1,0 +1,15 @@
+td.key, td.val {
+  font-size: 90%;
+  padding: .5rem 1rem;
+}
+td.key {
+  font-weight: bold;
+  text-align: right;
+}
+@include md-screen {
+  td.val {
+    min-width: 50%;
+  }
+}
+
+

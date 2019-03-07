@@ -64,9 +64,9 @@ Nothing beats **linen** on a hot summer day. It's fun to work with too, but it d
 
 Below is a typical draft layout of Theodore:
 
-![A typical Theodore draft](/img/patterns/theodore/layout.svg)
+![A typical Theodore draft](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 ## Construction
 
@@ -76,7 +76,7 @@ Below is a typical draft layout of Theodore:
 
 ### Step 1: Baste the pleat lines
 
-![Baste the pleat lines](/img/patterns/theodore/instructions/step00.png)
+![Baste the pleat lines](step00.png)
 
 First thing to do is to  baste over the pleat line of your trouser legs. Do it on both front and back pieces for both legs.
 
@@ -84,7 +84,7 @@ First thing to do is to  baste over the pleat line of your trouser legs. Do it o
 
 ### Close the back darts
 
-![Close the back darts](/img/patterns/theodore/instructions/step01.png)
+![Close the back darts](step01.png)
 
 Fold piece 1 (back) double so that the notches of the dart on the waistband are aligned, and a sharp crease runs to the notch at the dart end. Feel free to briefly iron the crease, this will make it easier to sew the dart accurately.
 
@@ -94,7 +94,7 @@ Use a small stitch length, and let your stitch run completely to the end (and of
 
 #### Press back darts to the side
 
-![Press the back darts to the side](/img/patterns/theodore/instructions/step02.png)
+![Press the back darts to the side](step02.png)
 
 Press your back darts flat, folding the seam allowance to the side of your trousers.
 
@@ -109,11 +109,11 @@ Construct the double welt pockets at the back of your trousers, including the po
 >
 > There's both written documentation and a video series that shows you how to do it, so even if you've never made welt pockets before, you'll be fine.
 >
-> [To the welt pockets documentation](/docs/sewing/double-welt-pockets)
+> [To the welt pockets documentation](/en/docs/sewing/double-welt-pockets)
 
 ### Step 4: Optional: Trim your lining with pinking shears
 
-![Trim your lining with pinking shears](/img/patterns/theodore/instructions/step04.png)
+![Trim your lining with pinking shears](step04.png)
 
 If you are going to line your trousers (it's optional), you'll need to finish the edge of your lining. To do so, trim the edge of the lining with pinking shears.
 
@@ -123,7 +123,7 @@ Note that you only need to do this for those edges of your lining that are not c
 
 ### Step 5: Trim pieces for front pocket slant
 
-![Trim pieces for front pocket slant](/img/patterns/theodore/instructions/step05.png)
+![Trim pieces for front pocket slant](step05.png)
 
 Align your front, lining and pocket bag on top of each other. Front and pocket back with their good side down, lining with the good side up.
 
@@ -139,7 +139,7 @@ Finally, trim back your lining so that it stops 0.5 cm short of reaching the edg
 
 ### Step 6: Fold back and sew front pocket slant
 
-![Fold back and sew front pocket slant](/img/patterns/theodore/instructions/step06.png)
+![Fold back and sew front pocket slant](step06.png)
 
 Fold back your lining and front piece along the pocket slant line (and thus along the trimmed edge of the pocket bag. Pin this down and press.
 
@@ -153,7 +153,7 @@ Topstitch a 0.5 cm from the fold, making sure to keep it parallel and not stretc
 
 ### Step 7: Finish edge inside front pocket
 
-![Finish the edge inside the front pocket](/img/patterns/theodore/instructions/step07.png)
+![Finish the edge inside the front pocket](step07.png)
 
 Fold away the main part of the front piece, so you can place the lining, pocket bag and folded edge of the front piece flat.
 
@@ -161,7 +161,7 @@ Zig-zag the edge of the folded-back front piece to finish it and secure it to th
 
 ### Step 8: Press side pocket
 
-![Press side pocket](/img/patterns/theodore/instructions/step08.png)
+![Press side pocket](step08.png)
 
 When you're done, place front piece, lining and pocket bag flat, and give it a good press.
 
@@ -171,7 +171,7 @@ When you're done, place front piece, lining and pocket bag flat, and give it a g
 
 ### Step 9: Attach side piece to pocket bag
 
-![Attach side piece to pocket bag](/img/patterns/theodore/instructions/step09.png)
+![Attach side piece to pocket bag](step09.png)
 
 Place the other half of the pocket bag with the good side down, and align the side piece on it with the good side up.
 
@@ -179,7 +179,7 @@ Sew a zig-zag stitch along the edge of the side piece to finish it and attach it
 
 ### Step 10: Close the pocket bag
 
-![Close the pocket bag](/img/patterns/theodore/instructions/step10.png)
+![Close the pocket bag](step10.png)
 
 Place the front piece, lining and pocket bag with the pocket bag up.
 
@@ -199,20 +199,20 @@ When everything is pinned together, fold away the front piece and lining, and cl
 
 ### Step 11: Press the front pocket
 
-![Press the front pocket](/img/patterns/theodore/instructions/step11.png)
+![Press the front pocket](step11.png)
 
 Put everything flat with the front piece at the bottom, and give it a good press.
 
 ### Step 12: Pin front pocket in place
 
-![Pin the front pocket in place](/img/patterns/theodore/instructions/step12.png)
+![Pin the front pocket in place](step12.png)
 
 Pin the pocket down to the front piece along the slant and the edges of the pocket bag. 
 This will prevent it from shifting around while we continue to work on our trousers.
 
 ### Step 13: Finish the side edges
 
-![Finish the side edges](/img/patterns/theodore/instructions/step13.png)
+![Finish the side edges](step13.png)
 
 Before we are going to sew the side seams, finish the side edges by serging or running a zig-zag stitch along the sides of your front and back pieces, making sure to stay within the foreseen seam allowance.
 
@@ -220,7 +220,7 @@ Before we are going to sew the side seams, finish the side edges by serging or r
 
 ### Step 14: Sew the side seams
 
-![Sew the side seams](/img/patterns/theodore/instructions/step14.png)
+![Sew the side seams](step14.png)
 
 Place the front and back of each leg on top of each other, with the good sides together.
 
@@ -232,7 +232,7 @@ Sew the seam, starting from the waistband along the entire side of your trousers
 
 ### Step 15: Press open seam allowance
 
-![Press open seam allowance](/img/patterns/theodore/instructions/step14.png)
+![Press open seam allowance](step14.png)
 
 Press open the seam allowance along the side seams. Do so from the back, and repeat from the good side of the fabric.
 
@@ -242,7 +242,7 @@ Take your time, making sure to use enough heat, but not too much. Use steam or s
 
 ### Step 16: Sew fly shield to fly piece
 
-![Sew fly shield to fly piece](/img/patterns/theodore/instructions/step16.png)
+![Sew fly shield to fly piece](step16.png)
 
 Place your fly piece on the fly shield with the good sides together, and align the edge with the biggest curve.
 
@@ -252,7 +252,7 @@ Sew along the curved edge, taking account the standard 1cm seam allowance, to jo
 
 ### Step 17: Press the fly shield
 
-![Press the fly shield](/img/patterns/theodore/instructions/step17.png)
+![Press the fly shield](step17.png)
 
 > Before pressing down your fly piece, make sure to roll the seam a little bit so that your trouser lining fabric sits a bit further, and the lining starts only about 2mm from the edge. This will prevent the lining from peeking out at the edge.
 
@@ -260,7 +260,7 @@ After you have sewed fly piece and fly shield together, turn them inside out and
 
 ### Step 18: Pin zip to right front piece
 
-![Pin zip to right front piece](/img/patterns/theodore/instructions/step18.png)
+![Pin zip to right front piece](step18.png)
 
 > Steps 18 to 21 all lead up to a single row of stitching that will sew your zip to the front, while attaching the fly piece and fly shield in one go.
 >
@@ -281,7 +281,7 @@ Pin the zip in place with a few pins perpendicular to your zip (as shown). In ot
 
 ### Step 19: Pin fly shield to zip
 
-![Pin zip to right front piece](/img/patterns/theodore/instructions/step19.png)
+![Pin zip to right front piece](step19.png)
 
 Take the fly shield/fly piece that you assembled in step 16 & 17, and place it with the fabric facing downward, and the lining upward.
 
@@ -295,7 +295,7 @@ Pin this layer in place with a few pins perpendicular to your zip (as shown in r
 
 ### Step 20: Pin fly shield in place along zip
 
-![Pin fly shield in place along zip](/img/patterns/theodore/instructions/step20.png)
+![Pin fly shield in place along zip](step20.png)
 
 Let the lining fall back in place, and now pin all layers together along the zip.
 
@@ -303,8 +303,8 @@ When you are done, remove your earlier perpendicular pins.
 
 ### Step 21: Fold over fly shield and pin down
 
-![FOld over fly shield and pin down](/img/patterns/theodore/instructions/step21a.png){.fs-row2}
-![FOld over fly shield and pin down](/img/patterns/theodore/instructions/step21b.png){.fs-row2}
+![FOld over fly shield and pin down](step21a.png){.fs-row2}
+![FOld over fly shield and pin down](step21b.png){.fs-row2}
 
 Flip everything over so that your fly shield lies at the bottom.
 
@@ -314,7 +314,7 @@ Pin this down, and remove your previous pins.
 
 ### Step 22: Sew fly in place along zip
 
-![Sew fly in place along zip](/img/patterns/theodore/instructions/step22.png)
+![Sew fly in place along zip](step22.png)
 
 Now you can sew along the double folded fly piece. This will fix the front, zip, fly shield and fly piece all in place.
 
@@ -322,13 +322,13 @@ Now you can sew along the double folded fly piece. This will fix the front, zip,
 
 ### Step 23: Fold back fly and press
 
-![Fold back fly and press](/img/patterns/theodore/instructions/step23.png)
+![Fold back fly and press](step23.png)
 
 When you're done, fold back the fly so that it extends from the front piece, and give it a thorough press from the back. And a gentle press from the front.
 
 ### Step 24: Apply bias tape to second fly piece and press
 
-![Apply bias tape to the edge with the large curve of your second fly piece](/img/patterns/theodore/instructions/step24.png)
+![Apply bias tape to the edge with the large curve of your second fly piece](step24.png)
 
 Apply bias tape to the edge with the large curve of your second fly piece.
 
@@ -338,7 +338,7 @@ Press the finished edge flat when you're done.
 
 ### Step 25: Pin and sew fly piece to crotch seam
 
-![Pin and sew fly piece to crotch seam](/img/patterns/theodore/instructions/step25.png)
+![Pin and sew fly piece to crotch seam](step25.png)
 
 Place the left leg with the good side up. Place the second fly piece on top with the good side down, aligning the unfinished seam with the crotch seam.
 
@@ -350,7 +350,7 @@ Press the finished edge flat when you're done.
 
 ### Step 26: Roll the fly piece to the back, and press the seam
 
-![Roll the fly piece to the back, and press the seam](/img/patterns/theodore/instructions/step26.png)
+![Roll the fly piece to the back, and press the seam](step26.png)
 
 Fold the fly piece to the back. Before you press, make sure to roll the seam a bit backwards so that the front of the trousers sits a little further than the fly piece.
 
@@ -360,9 +360,9 @@ Give it a good press from the back.
 
 ### Step 27: Pin and sew zip to fly piece
 
-![Place both legs on top of eachother](/img/patterns/theodore/instructions/step27a.png){.fs-row3}
-![Pin the zip along the edge](/img/patterns/theodore/instructions/step27b.png){.fs-row3}
-![Sew in place](/img/patterns/theodore/instructions/step27c.png){.fs-row3}
+![Place both legs on top of eachother](step27a.png){.fs-row3}
+![Pin the zip along the edge](step27b.png){.fs-row3}
+![Sew in place](step27c.png){.fs-row3}
 
 Place the right leg down with the good side up. Place the leg on top of it with the good side down.
 
@@ -382,13 +382,13 @@ Last but not least, sew along the zip with your zipper foot to attach it to the 
 
 ### Step 28: Zig-zag the zip edge to the fly piece
 
-![Zig-zag the zip edge to the fly piece](/img/patterns/theodore/instructions/step28.png)
+![Zig-zag the zip edge to the fly piece](step28.png)
 
 With the fly in place, run a zig-zag stitch along the edge of the zip to secure it to the fly piece.
 
 ### Step 29: Bar-tack both fly pieces together
 
-![Bar-tack both fly pieces together](/img/patterns/theodore/instructions/step29.png)
+![Bar-tack both fly pieces together](step29.png)
 
 Place both fly pieces together, and move the front pieces out of the way.
 
@@ -398,8 +398,8 @@ Use a bar-tack to join them together at the bottom of the zip. Sew on both edges
 
 ### Step 30: Join crotch seam
 
-![Join crotch seam](/img/patterns/theodore/instructions/step30a.png){.fs-row2}
-![Join crotch seam](/img/patterns/theodore/instructions/step30b.png){.fs-row2}
+![Join crotch seam](step30a.png){.fs-row2}
+![Join crotch seam](step30b.png){.fs-row2}
 
 Place both fronts with the good sides up. They are now joined by the fly.
 
@@ -415,7 +415,7 @@ Sew the crotch seam, starting at the cross-seam point, and going up to your hori
 
 ### Step 31: Pin fly closed and baste fly curve
 
-![Pin fly closed and baste fly curve](/img/patterns/theodore/instructions/step31.png)
+![Pin fly closed and baste fly curve](step31.png)
 
 Close the fly, and pin the fronts together making sure the fly is neatly tucked away.
 
@@ -427,7 +427,7 @@ Curve upwards toward the edge of the fly shield, and then proceed in parallel wi
 
 ### Step 32: Topstitch the fly curve
 
-![Topstitch your fly curve](/img/patterns/theodore/instructions/step32.png)
+![Topstitch your fly curve](step32.png)
 
 Now topstitch your fly curve, using your basting as a guide.
 
@@ -435,7 +435,7 @@ When doing so, you will be locking your front, fly piece, pocket bag and lining 
 
 ### Step 33: Pin together the inner leg seam
 
-![Pin together the inner leg seam](/img/patterns/theodore/instructions/step33.png)
+![Pin together the inner leg seam](step33.png)
 
 Close the legs with the good sides together, and pin together the inner leg seam. Start at the cross seam point and work your way to the bottom of the legs.
 
@@ -443,19 +443,19 @@ Make sure to do this for both legs.
 
 ### Step 34: Sew the inner leg seams
 
-![Sew the inner leg seams](/img/patterns/theodore/instructions/step34.png)
+![Sew the inner leg seams](step34.png)
 
 On both legs, sew the inner leg seams that you just pinned. Make sure to respect the seam allowance.
 
 ### Step 35: Press open seam allowance of the inner leg seam
 
-![Press open seam allowance of the inner leg seam](/img/patterns/theodore/instructions/step35.png)
+![Press open seam allowance of the inner leg seam](step35.png)
 
 Place your leg inside-out on your ironing board, and press open the seam allowance of the inner leg seam.
 
 ### Step 36: Close the cross-seam
 
-![Close the cross-seam](/img/patterns/theodore/instructions/step36.png)
+![Close the cross-seam](step36.png)
 
 We are now going to close the cross-seam, from the bottom of your fly between your legs, up your bum to the center back of where you'll add the waistband later.
 
@@ -475,7 +475,7 @@ When done, press the seam allowance open.
 
 ### Step 37: Press the leg crease in place
 
-![Press the leg crease in place](/img/patterns/theodore/instructions/step37.png)
+![Press the leg crease in place](step37.png)
 
 Turn your trousers good side out, and carefully place one leg on your ironing board so that it lies flat and folds exactly on the crease line your basted earlier.
 
@@ -491,7 +491,7 @@ Depending on your fabric, your crease might last longer, but ultimately, you can
 
 ### Step 38: Fuse interfacing to waistband
 
-![Fuse interfacing to waistband](/img/patterns/theodore/instructions/step38.png)
+![Fuse interfacing to waistband](step38.png)
 
 Fuse the waistband interfacing (Piece 3) to the waistband (Piece 4).
 
@@ -499,7 +499,7 @@ Align the interfacing in the middle of the waistband, and make sure to keep it n
 
 ### Step 39: Close waistband and waistband lining
 
-![Close waistband and waistband lining](/img/patterns/theodore/instructions/step39.png)
+![Close waistband and waistband lining](step39.png)
 
 Join the waistband (Pieces 4a and 4b) by sewing both pieces good sides together.
 
@@ -507,7 +507,7 @@ Join the waistband lining (Pieces 5a and 5b) by sewing both pieces good sides to
 
 ### Step 40: Sew waistband to waistband lining
 
-![Sew waistband to waistband lining](/img/patterns/theodore/instructions/step40.png)
+![Sew waistband to waistband lining](step40.png)
 
 Place your waistband on the waistband lining, good sides together, so that the waistband interfacing is facing upwards.
 
@@ -519,7 +519,7 @@ On one side of the waistband, end with a curve and then go down vertically along
 
 ### Step 41: Roll fabric around interfacing edge and press waistband
 
-![Roll fabric around interfacing edge and press waistband](/img/patterns/theodore/instructions/step41.png)
+![Roll fabric around interfacing edge and press waistband](step41.png)
 
 Before pressing the waistband, make sure to roll over the fabric around the edge of the interfacing.
 
@@ -529,7 +529,7 @@ This will make sure that our lining fabric is never on display from the front of
 
 ### Step 42: Pin waistband to trousers
 
-![Pin waistband to trousers](/img/patterns/theodore/instructions/step42.png)
+![Pin waistband to trousers](step42.png)
 
 Pin the edge of your waistband (the side you did not sew the lining to) to the top of your trousers, good sides together.
 
@@ -539,7 +539,7 @@ Tuck the edge of your fly into the end of the waistband with the curved corner. 
 
 ### Step 43: Sew waistband to trousers
 
-![Sew waistband to trousers](/img/patterns/theodore/instructions/step43.png)
+![Sew waistband to trousers](step43.png)
 
 Now that the waistband is pinned to top of your trousers, sew it in place.
 
@@ -547,13 +547,13 @@ On the side with the curved corner, get as close to the edge as possible. On the
 
 ### Step 44: Press waistband
 
-![Press waistband](/img/patterns/theodore/instructions/step44.png)
+![Press waistband](step44.png)
 
 Give your newly sewn seam a good press. Do not press the seam open, instead press it towards the top (put both trousers and waistband seam allowance in the waistband).
 
 ### Step 45: Prepare the belt loops
 
-![Prepare the belt loops](/img/patterns/theodore/instructions/step45.png)
+![Prepare the belt loops](step45.png)
 
 The belt loops are a part of your trousers where you can let your creativity run free. There's load of different ways to make and shape belt loops, not to mention that where you place them is also up to you.
 
@@ -575,7 +575,7 @@ Find the belt loop pattern part, a small rectangular piece of fabric. There shou
 
 ### Step 46: Attach the belt loops: Bottom
 
-![Attach the bottom of the belt loops](/img/patterns/theodore/instructions/step46.png)
+![Attach the bottom of the belt loops](step46.png)
 
 Attach the bottom of the belt loops to your trousers. Place them about 1.5 cm below your waistband, depending on your waistband width.
 
@@ -591,7 +591,7 @@ Then, zig zag the edge of the belt loop to the trousers.
 
 ### Step 47: Waistband facing
 
-![Waistband facing](/img/patterns/theodore/instructions/step47.png)
+![Waistband facing](step47.png)
 
 The waistband facing needs to be cut out and attached to your waistband.
 
@@ -601,7 +601,7 @@ This will be a lot simpler to understand if you have a look at the relevant vide
 
 ### Step 48: Trim waistband seam allowance
 
-![Trim waistband seam allowance](/img/patterns/theodore/instructions/step48.png)
+![Trim waistband seam allowance](step48.png)
 
 Before we finalize the waistband, we're going to trim back some of its seam allowance.
 
@@ -614,7 +614,7 @@ Before we finalize the waistband, we're going to trim back some of its seam allo
 
 ### Step 49: Press and baste the waistband lining
 
-![Press and baste the waistband lining](/img/patterns/theodore/instructions/step49.png)
+![Press and baste the waistband lining](step49.png)
 
 The waistband lining will be sewn from the front of the trousers on top of the seam that joins the waistband to the trousers (so called _stitch in the ditch_).
 
@@ -632,13 +632,13 @@ When you're happy with how it looks, baste the lining in place just next to the 
 
 ### Step 50: Sew the waistband lining in place
 
-![Sew the waistband lining in place](/img/patterns/theodore/instructions/step50.png)
+![Sew the waistband lining in place](step50.png)
 
 After you basted the waistband lining, sew it in place from the good side, exactly in the seam between the waistband and trousers.
 
 ### Step 51: Attach the belt loops: Top
 
-![Attach the top of the belt loops](/img/patterns/theodore/instructions/step51.png)
+![Attach the top of the belt loops](step51.png)
 
 With your waistband and lining properly secured, it's time to attach the top of the belt loops.
 
@@ -650,7 +650,7 @@ Sew them in place just as you did at the bottom. That is, use a bar tack or clos
 
 ### Step 52: Finish the edge of the legs
 
-![Finish the edge of the legs](/img/patterns/theodore/instructions/step52.png)
+![Finish the edge of the legs](step52.png)
 
 Before we hem the trousers, finish the raw edge of the legs with a zig-zag stitch or serger.
 
@@ -658,7 +658,7 @@ Before we hem the trousers, finish the raw edge of the legs with a zig-zag stitc
 
 ### Step 53: (Optional) Sew in a hem ribbon
 
-![Optionally sew in a hem ribbon](/img/patterns/theodore/instructions/step53.png)
+![Optionally sew in a hem ribbon](step53.png)
 
 > The hem ribbon is a ribbon that sits on the inside of your trouser hem. At the place your hem folds back, the fabric has to take a lot of abuse from bumping into shoes and other things.
 >
@@ -670,7 +670,7 @@ Place the ribbon as shown in the illustration making sure that it extends a few 
 
 ### Step 54: Press the hem
 
-![Press the hem](/img/patterns/theodore/instructions/step54.png)
+![Press the hem](step54.png)
 
 Fold back the trouser legs at the hemline, and press the hem.
 
@@ -678,7 +678,7 @@ Fold back the trouser legs at the hemline, and press the hem.
 
 ### Step 55: Hem the legs
 
-![Hem the legs](/img/patterns/theodore/instructions/step55.png)
+![Hem the legs](step55.png)
 
 With the hem neatly pressed, simply hand-sew the folded back part to the inside of your trousers.
 

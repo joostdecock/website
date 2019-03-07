@@ -11,29 +11,35 @@ const HundredPercent = props => {
       justify="flex-start"
       wrap="wrap"
     >
-      <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-        <h2 className="light txt-center">
-          <FormattedMessage id="app.100PercentOpenSource" />
-        </h2>
-        <p className="txt-center">
-          <FormattedMessage id="intro.txt-opensource" />
-        </p>
+      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+        <div className="center">
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentOpenSource" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-opensource" />
+          </p>
+        </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-        <h2 className="light txt-center">
-          <FormattedMessage id="app.100PercentCommunity" />
-        </h2>
-        <p className="txt-center">
-          <FormattedMessage id="intro.txt-community" />
-        </p>
+      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+        <div className="center">
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentCommunity" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-community" />
+          </p>
+        </div>
       </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-        <h2 className="light txt-center">
-          <FormattedMessage id="app.100PercentFree" />
-        </h2>
-        <p className="txt-center">
-          <FormattedMessage id="intro.txt-patrons" />
-        </p>
+      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+        <div className="center">
+          <h2 className="light">
+            <FormattedMessage id="app.100PercentFree" />
+          </h2>
+          <p>
+            <FormattedMessage id="intro.txt-patrons" />
+          </p>
+        </div>
       </Grid>
     </Grid>
   );

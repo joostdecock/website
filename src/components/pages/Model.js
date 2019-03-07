@@ -14,8 +14,8 @@ const Model = props => {
     typeof props.models === "undefined"
       ? false
       : typeof props.models[handle] === "undefined"
-        ? false
-        : true;
+      ? false
+      : true;
   if (!props.models)
     return (
       <BaseLayout>

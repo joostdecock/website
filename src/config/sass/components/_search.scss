@@ -1,0 +1,31 @@
+div.search {
+  input {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  button { display: none; }
+  div.results {
+    ul {
+      margin: 1rem 0;
+      padding: 0;
+      li {
+        margin: 1.5rem 0;
+        list-style-type: none;
+      }
+    }
+    h6 {
+      margin-bottom: 0.125rem;
+    }
+    .ais-Highlight-highlighted,
+    .ais-Snippet-highlighted {
+      background: #ffe10066;
+    }
+    div.hit-path {
+      font-size: 90%;
+      margin-bottom: 0.25rem;
+    }
+    div.hit-path a {
+      color: #258D0E;
+    }
+  }
+}

@@ -6,52 +6,34 @@ exports.createPages = ({ actions, graphql }) => {
   return new Promise((resolve, reject) => {
     const markdown = {};
     utils
-      .runQueries(queries, graphql, markdown)
+      .runQueries(queries, graphql, markdown, config.editor)
       .then(() => {
         console.log();
-        console.log("[#------]", "GraphQl queries complete");
-        utils.createPageRedirects(config.nakedPaths, actions.createRedirect);
+        console.log("[#-----]", "GraphQl queries complete");
+        utils.createPosts("blog", markdown.allBlogPosts, actions.createPage);
       })
       .then(() => {
-        console.log("[##-----]", "All redirects created");
-        utils.createPosts(
-          "blog",
-          markdown.allBlogPosts,
-          actions.createPage,
-          actions.createRedirect
-        );
-      })
-      .then(() => {
-        console.log("[###----]", "Blog posts and indexes created");
+        console.log("[##----]", "Blog posts and indexes created");
         utils.createPosts(
           "showcase",
           markdown.allShowcasePosts,
-          actions.createPage,
-          actions.createRedirect
+          actions.createPage
         );
       })
       .then(() => {
-        console.log("[####---]", "Showcase posts and indexes created");
-        utils.createDocumentation(
-          markdown.allDocumentation,
-          actions.createPage,
-          actions.createRedirect
-        );
+        console.log("[###---]", "Showcase posts and indexes created");
+        utils.createDocumentation(markdown, actions.createPage);
       })
       .then(() => {
-        console.log("[#####--]", "Documentation pages created");
-        utils.createJsPages(
-          markdown,
-          actions.createPage,
-          actions.createRedirect
-        );
+        console.log("[####--]", "Documentation pages created");
+        utils.createJsPages(markdown, actions.createPage);
       })
       .then(() => {
-        console.log("[######-]", "Application endpoints created");
-        utils.createEditorConfig(markdown);
+        console.log("[#####-]", "Application endpoints created");
+        utils.createNetlifyRedirects(markdown, actions.createRedirect);
       })
       .then(() => {
-        console.log("[#######]", "Editor config created. All done :)");
+        console.log("[######]", "Netlify redirects written to file");
         resolve(true);
       });
   });

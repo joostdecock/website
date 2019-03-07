@@ -10,8 +10,6 @@ import { patterns } from "@freesewing/patterns";
 import svgattrPlugin from "@freesewing/plugin-svgattr";
 import i18nPlugin from "@freesewing/plugin-i18n";
 import { plugin as patternTranslations } from "@freesewing/i18n";
-//import validatePlugin from "@freesewing/plugin-validate";
-//import debugPlugin from "@freesewing/plugin-debug";
 
 class DraftPreview extends React.Component {
   state = {
@@ -22,16 +20,35 @@ class DraftPreview extends React.Component {
 
   render() {
     let error = false;
-    if (typeof this.props.gist === "undefined") return <p>No gist</p>;
-    const pattern = new patterns[(capitalize(this.props.gist.pattern))](
-      this.props.gist.settings
+    if (
+      typeof this.props.gist === "undefined" ||
+      typeof this.props.gist.pattern === "undefined"
     )
-      .use(svgattrPlugin, { class: "freesewing draft" })
-      .use(i18nPlugin, { strings: patternTranslations });
+      return <p>No gist</p>;
+    let pattern = capitalize(this.props.gist.pattern);
+    if (typeof patterns[pattern] !== "function")
+      return <p>FIXME: Proprerty {pattern} is not a constructor</p>;
     try {
-      pattern.draft();
+      pattern = new patterns[pattern](this.props.gist.settings)
+        .use(svgattrPlugin, { class: "freesewing draft" })
+        .use(i18nPlugin, { strings: patternTranslations });
+      switch (this.props.action) {
+        case "sampleOption":
+          pattern.sampleOption(this.props.option);
+          break;
+        case "sampleMeasurement":
+          pattern.sampleMeasurement(this.props.measurement);
+          break;
+        case "sampleModels":
+          if (this.props.focus)
+            pattern.sampleModels(this.props.models, this.props.focus);
+          else pattern.sampleModels(this.props.models);
+          break;
+        default:
+          pattern.draft();
+      }
     } catch (err) {
-      console.log(err, pattern);
+      console.log({ err, pattern, props: this.props });
       error = err;
     }
     if (!error) {
@@ -53,6 +70,11 @@ class DraftPreview extends React.Component {
             <FormattedMessage id="app.pleaseIncludeTheInformationBelow" />
             {":"}
           </p>
+          <h6 className="label">Error</h6>
+          <pre>{error.message}</pre>
+          <h6 className="label">
+            <FormattedMessage id="app.gist" />
+          </h6>
           <pre>{JSON.stringify(this.props.gist, null, 2)}</pre>
           <TrayFooter>
             <Button
@@ -72,6 +94,10 @@ class DraftPreview extends React.Component {
 
 DraftPreview.propTypes = {
   gist: PropTypes.object.isRequired
+};
+
+DraftPreview.defaultProps = {
+  action: "draft"
 };
 
 export default DraftPreview;

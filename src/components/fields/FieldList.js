@@ -10,6 +10,7 @@ import ItemButtons from "./ItemButtons";
 import FieldDisplayValue from "./FieldDisplayValue";
 import { Link } from "gatsby";
 import { locLang } from "../../utils";
+import Avatar from "@material-ui/core/Avatar";
 
 class FieldList extends React.Component {
   state = {
@@ -30,16 +31,22 @@ class FieldList extends React.Component {
 
   translatedKeys = () => {
     const items = {};
+    const readOnlyItems = {};
     for (let item of Object.keys(this.props.items)) {
       let label = this.props.intl.formatMessage({
         id: this.props.items[item].label
       });
-      items[label] = item;
+      if (this.props.items[item].readOnly) readOnlyItems[label] = item;
+      else items[label] = item;
     }
     const order = Object.keys(items);
+    const readOnlyOrder = Object.keys(readOnlyItems);
     order.sort();
+    readOnlyOrder.sort();
     let sortedItems = [];
     for (let key of order) sortedItems.push(items[key]);
+    sortedItems.push("divider");
+    for (let key of readOnlyOrder) sortedItems.push(readOnlyItems[key]);
 
     return sortedItems;
   };
@@ -47,6 +54,10 @@ class FieldList extends React.Component {
   render() {
     let items = [];
     for (let key of this.translatedKeys()) {
+      if (key === "divider") {
+        items.push(<hr key="divider" className="mb0" />);
+        continue;
+      }
       let conf = this.props.items[key];
       let passBack = {
         drawer: this.props.drawer,
@@ -77,12 +88,16 @@ class FieldList extends React.Component {
             </p>
           </ListItemText>
           <ListItemSecondaryAction>
-            <FieldDisplayValue
-              value={conf.value}
-              type={conf.type}
-              units={this.props.units}
-              config={conf}
-            />
+            {key === "picture" ? (
+              <Avatar src={this.props.pictureUris.xs} className="mr05" />
+            ) : (
+              <FieldDisplayValue
+                value={conf.value}
+                type={conf.type}
+                units={this.props.units}
+                config={conf}
+              />
+            )}
           </ListItemSecondaryAction>
         </ListItem>
       );
@@ -96,7 +111,7 @@ class FieldList extends React.Component {
           </Link>
         );
       else items.push(item);
-      if (conf.type !== "button" && conf.type !== "link")
+      if (conf.type !== "button" && conf.type !== "link" && !conf.readOnly)
         items.push(
           <Collapse
             in={this.state.expanded === key ? true : false}

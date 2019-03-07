@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "./Icon";
-import { gitter } from "../data/icons";
+import { gitter } from "../config/icons";
 
 const GitterIcon = props => {
   return <Icon size={props.size} viewBox={props.viewBox} pathString={gitter} />;

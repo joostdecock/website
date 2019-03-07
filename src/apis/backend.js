@@ -6,7 +6,7 @@ const backend = {};
 // Configure Axios /////////////////////////////////
 const api = axios.create({
   baseURL: config.url,
-  timeout: 5000
+  timeout: 10000
 });
 
 // Helper method for Authorization header //////////
@@ -32,10 +32,9 @@ backend.login = (username, password) =>
 
 backend.profile = username => api.get("/users/" + username); // Load user profile
 
-backend.loadGist = handle => {
-  console.log("loading gist", handle);
-  return api.get("/gist/" + handle); // Load draft/gist anonymously
-};
+backend.loadGist = handle => api.get("/gist/" + handle); // Load draft/gist anonymously
+
+backend.loadPatrons = handle => api.get("/patrons"); // Load patron list
 
 // Users //////////////////////////
 
@@ -83,5 +82,10 @@ const tiler = axios.create({
 
 backend.tiler = (svg, format, size) =>
   tiler.post("/api", { svg, format: "pdf", size }); // Tile SVG
+
+// Editor //////////////////////////////////////////
+
+backend.editor = {};
+backend.editor.save = data => api.put("/github/file", data, auth()); // Save file
 
 export default backend;

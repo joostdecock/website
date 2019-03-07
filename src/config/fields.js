@@ -18,7 +18,6 @@ import PasswordIcon from "@material-ui/icons/VpnKey";
 import NotesIcon from "@material-ui/icons/ChatBubbleOutline";
 import PatronIcon from "@material-ui/icons/Favorite";
 import LanguageIcon from "@material-ui/icons/Translate";
-import { measurementList } from "@freesewing/patterns";
 import i18nConfig from "./i18n";
 import GithubIcon from "../components/GithubIcon";
 import InstagramIcon from "../components/InstagramIcon";
@@ -27,19 +26,6 @@ import ExportIcon from "@material-ui/icons/CloudDownload";
 import ConsentIcon from "@material-ui/icons/DoneAll";
 import PauseIcon from "@material-ui/icons/PauseCircleFilled";
 
-let measurements = {
-  title: "app.measurements",
-  icon: <MeasurementsIcon />,
-  items: {}
-};
-for (let m of measurementList) {
-  measurements.items[m] = {
-    type: "distance",
-    label: "measurements." + m,
-    icon: <MeasurementsIcon />,
-    sub: "measurements"
-  };
-}
 export const modelFields = {
   info: {
     expanded: true,
@@ -93,8 +79,7 @@ export const modelFields = {
         icon: <TimeIcon />
       }
     }
-  },
-  measurements
+  }
 };
 
 export const editDraftFields = {

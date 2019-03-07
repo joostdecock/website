@@ -12,10 +12,11 @@ import { Link } from "gatsby";
 import Tray from "../Tray";
 import TocIcon from "@material-ui/icons/Bookmark";
 import GithubIcon from "../GithubIcon";
-import { fileOnGithub } from "../../utils";
+import { fileOnGithub, editLink } from "../../utils";
+import EditIcon from "@material-ui/icons/Edit";
 
-export default data => {
-  const { language, post } = data.pageContext;
+export default props => {
+  const { language, post, location } = props.pageContext;
   const { frontmatter, html, tableOfContents, fileAbsolutePath } = post;
   let languageNotAvailable = "";
   let pleaseTranslate = "";
@@ -73,6 +74,10 @@ export default data => {
           <h1>
             {frontmatter.title}
             &nbsp;&nbsp;
+            <Link to={editLink(location)}>
+              <EditIcon />
+            </Link>
+            &nbsp;&nbsp;
             <a href={fileOnGithub(fileAbsolutePath)}>
               <GithubIcon color={"#2979ff"} />
             </a>
@@ -97,7 +102,7 @@ export default data => {
             title={<FormattedMessage id="app.contents" />}
           >
             <div
-              className="toc"
+              className="toc overpad2-always"
               dangerouslySetInnerHTML={{ __html: tableOfContents }}
             />
           </Tray>

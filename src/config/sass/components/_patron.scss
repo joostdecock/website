@@ -1,0 +1,108 @@
+div.patron-wrapper {
+  text-align: center;
+  display: inline-block;
+  width: 240px;
+  margin-top: 2rem;
+  div.patron-avatar {
+    border: 5px solid $bw1;
+    width: 200px;
+    height: 200px;
+    @include shadow;
+    margin: 1rem auto;
+    img {
+      margin: 0;
+      padding: 0;
+      color: $bw9;
+      line-height: 180px;
+    }
+    transition: border-width 0.15s;
+  }
+  div.patron-avatar:hover {
+    border: 2px solid $bw1;
+  }
+  div.patron-avatar.tier-2 {
+    border-color: $success;
+    background: $successBlack;
+  }
+  div.patron-avatar.tier-4 {
+    border-color: $link;
+    background: $linkBlack;
+  }
+  div.patron-avatar.tier-8 {
+    border-color: $accent;
+    background: $accentBlack;
+  }
+
+  h3.username {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+  }
+  ul.social {
+    list-style-type: none;
+    margin: 0;
+    li {
+      padding: 0 0.5rem;
+      display: inline-block;
+    }
+  }
+}
+
+@include xs-screen {
+  div.patron-wrapper {
+    width: 120px;
+    margin-top: 1rem;
+    div.patron-avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0.25rem auto;
+      img { line-height: 90px; font-size: 0.85rem; }
+    }
+    h3.username {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+    }
+    ul.social li {
+      padding: 0 0.25rem;
+      font-size: 0.5rem;
+    }
+  }
+}
+@include sm-screen {
+  div.patron-wrapper {
+    width: 180px;
+    margin-top: 1.5rem;
+    div.patron-avatar {
+      width: 150px;
+      height: 150px;
+      img { line-height: 145px; font-size: 1rem; }
+    }
+    h3.username {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
+    ul.social li {
+      padding: 0 0.5rem;
+    }
+  }
+}
+@include md-screen {
+  div.patron-wrapper {
+    width: 240px;
+    margin-top: 1.5rem;
+    div.patron-avatar {
+      width: 200px;
+      height: 200px;
+      img { line-height: 185px; font-size: 1.2rem; }
+    }
+    h3.username {
+      margin: 0 0 1rem;
+      font-size: 1.8rem;
+    }
+    ul.social li {
+      padding: 0 0.5rem;
+    }
+  }
+}
+@include lg-screen {
+}
+

@@ -19,7 +19,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import AddIcon from "@material-ui/icons/PersonAdd";
-import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
+import Avatar from "@material-ui/core/Avatar";
 import backend from "../../../apis/backend";
 import {
   showNotification,
@@ -151,6 +152,9 @@ class ModelsContainer extends React.Component {
                   color="primary"
                 />
               </TableCell>
+              <TableCell padding="dense">
+                <FormattedMessage id="account.avatar" />
+              </TableCell>
               <SortableTableCell
                 by="handle"
                 order={order}
@@ -207,6 +211,14 @@ class ModelsContainer extends React.Component {
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} color="primary" />
                       </TableCell>
+                      <TableCell padding="dense">
+                        <Link to={to}>
+                          <Avatar
+                            src={model.pictureUris.xs}
+                            classes={{ img: "mb0 avatar" }}
+                          />
+                        </Link>
+                      </TableCell>
                       <TableCell padding="dense" className="not-on-mobile">
                         <Link to={to}>{handle}</Link>
                       </TableCell>
@@ -251,14 +263,13 @@ class ModelsContainer extends React.Component {
           </Column>
           <Column right className="txt-right">
             <div className="txt-right">
-              <Button
-                variant="fab"
+              <Fab
                 color="primary"
                 aria-label="Add"
                 href={locLang.set("/model", this.props.language)}
               >
                 <AddIcon />
-              </Button>
+              </Fab>
             </div>
           </Column>
         </TwoColumns>

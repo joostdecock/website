@@ -56,7 +56,7 @@ While you can get by with an alternative, like some wool fabric, or flannel, I t
 
 ### Choosing your tie grain
 
-![One fabric, different grains, different ties. Don't worry about rules, make what you like](/img/patterns/trayvon/instructions/tie-grain.png)
+![One fabric, different grains, different ties. Don't worry about rules, make what you like](tie-grain.png)
 
 This pattern does not include a grain line. The grain line is typically printed on the pattern to show you how to place your pattern on your fabric, relative to the fabric's grain.
 
@@ -64,7 +64,7 @@ For a tie, how you do this is not so much a rule as it is a personal choice. As 
 
 That being said, a lot of ties are cut on bias, as this results in the best drape. If you are unsure what to do, consider cutting your tie on bias.
 
-> If this all sounds very confusing, might I suggest reading the help page on [Fabric grain](/docs/sewing/fabric-grain).
+> If this all sounds very confusing, might I suggest reading the help page on [Fabric grain](/en/docs/sewing/fabric-grain).
 
 ## Cutting
 
@@ -87,15 +87,15 @@ That being said, a lot of ties are cut on bias, as this results in the best drap
 
 Trayvon a very simply pattern, below is a typical layout:
 
-![A typical Trayvon layout](/img/patterns/trayvon/layout.svg)
+![A typical Trayvon layout](layout.svg)
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 ## Construction
 
 ### Step 1: Sew the first side of your tie tail
 
-![Sew the first side of the tie tail](/img/patterns/trayvon/instructions/step01.png)
+![Sew the first side of the tie tail](step01.png)
 
 Align the lining tail (piece 6) on top of the fabric tail (piece 4), good sides together
 
@@ -107,7 +107,7 @@ Two notches are now fixed the same spot.
 
 ### Step 2: Sew the second side of your tie tail
 
-![Sew the second side of your tie tail](/img/patterns/trayvon/instructions/step02.png)
+![Sew the second side of your tie tail](step02.png)
 
 Shift the fabric tail so that the second notch lines up with the notch on the lining tail (the place where your first seam started).
 
@@ -119,7 +119,7 @@ Now, all three notches are fixed the same spot.
 
 ### Step 3: Finish the tie tail
 
-![Finish the tie tail](/img/patterns/trayvon/instructions/step03.png)
+![Finish the tie tail](step03.png)
 
 Fold your tie open so that the two seams you made in step 1 and 2 lie on top of each other. Take care to fold it precisely; the folded edges should make a straight angle.
 
@@ -127,7 +127,7 @@ Sew the point where the three notches and your two seams converge to the folded 
 
 ### Step 4: Turn the tail inside-out and inspect your work
 
-![Turn the tail inside-out and inspect your work](/img/patterns/trayvon/instructions/step04.png)
+![Turn the tail inside-out and inspect your work](step04.png)
 
 After you've trimmed all threads, carefully flip your tail inside-out (technically you are flipping it outside-out as it is inside out now).
 
@@ -141,7 +141,7 @@ If you managed to do all of this, you can do it again for the tip of your tie.
 
 ### Step 5: Sew the first side of your tie tip
 
-![Sew the first side of your tie tip](/img/patterns/trayvon/instructions/step01.png)
+![Sew the first side of your tie tip](step01.png)
 
 Align the lining tip (piece 5) on top of the fabric tip (piece 3), good sides together
 
@@ -153,7 +153,7 @@ Two notches are now fixed the same spot.
 
 ### Step 6: Sew the second side of your tie tip
 
-![Sew the second side of your tie tip](/img/patterns/trayvon/instructions/step02.png)
+![Sew the second side of your tie tip](step02.png)
 
 Shift the fabric tip so that the second notch lines up with the notch on the lining tip (the place where your first seam started).
 
@@ -165,7 +165,7 @@ Now, all three notches are fixed the same spot.
 
 ### Step 7: Finish the tie tip
 
-![Finish the tie tip](/img/patterns/trayvon/instructions/step03.png)
+![Finish the tie tip](step03.png)
 
 Fold your tie open so that the two seams you made in step 5 and 6 lie on top of each other. Take care to fold it precisely; the folded edges should make a straight angle.
 
@@ -173,7 +173,7 @@ Sew the point where the three notches and your two seams converge to the folded 
 
 ### Step 8: Turn the tip inside-out and inspect your work
 
-![Turn the tip inside-out and inspect your work](/img/patterns/trayvon/instructions/step04.png)
+![Turn the tip inside-out and inspect your work](step04.png)
 
 After you've trimmed all threads, carefully flip your tip inside-out (technically you are flipping it outside-out as it is inside out now).
 
@@ -185,7 +185,7 @@ The seam where the tie fabric meets the tie lining does not sit at the edge of t
 
 ### Step 9: Join the tie interfacing
 
-![Join the tie interfacing](/img/patterns/trayvon/instructions/step09.png)
+![Join the tie interfacing](step09.png)
 
 Join Interfacing tip (piece 1) and Interfacing tail (piece 2) together on the non-pointy side, matching the notch.
 
@@ -199,7 +199,7 @@ Join Interfacing tip (piece 1) and Interfacing tail (piece 2) together on the no
 
 ### Step 10: Join the tie fabric
 
-![Join the tie fabric](/img/patterns/trayvon/instructions/step10.png)
+![Join the tie fabric](step10.png)
 
 > With the interfacing sewn together, the length of our tie is now determined. Measure the tie tip to tip, and make sure that you join the fabric pieces at the correct length.
 
@@ -207,7 +207,7 @@ Join the tip and tail fabric together on the non-pointy side.
 
 ### Step 11: Make your tie loop
 
-![Make your tie loop](/img/patterns/trayvon/instructions/step11.png)
+![Make your tie loop](step11.png)
 
 We are going to construct the Loop (piece 7) of our tie now.
 
@@ -223,7 +223,7 @@ When you're happy with how you folded and pressed your loop, hand-sew along the 
 
 ### Step 12: Assemble your tie
 
-![Assemble your tie](/img/patterns/trayvon/instructions/step12.png)
+![Assemble your tie](step12.png)
 
 Time to start putting things together. Place your tie on a flat surface, good side down, lining up.
 
@@ -231,7 +231,7 @@ Now take your tie interfacing, and place it in your tie with the seam allowance 
 
 ### Step 13: Fold and press your tie
 
-![Fold and press your tie](/img/patterns/trayvon/instructions/step13.png)
+![Fold and press your tie](step13.png)
 
 With your tie interfacing inserted in your tie fabric, fold over one side of the fabric over the interfacing.
 
@@ -253,7 +253,7 @@ Finally, fold back the top layer along the middle of your tie, and press in plac
 
 ### Step 14: Prepare the loop
 
-![Prepare the loop](/img/patterns/trayvon/instructions/step14.png)
+![Prepare the loop](step14.png)
 
 Fold your loop so the tail of your tie can pass through it with some room.
 
@@ -263,7 +263,7 @@ Finally, press your loop open so the seam sits in the middle, and the ends point
 
 ### Step 15: Slip stitch tie, and insert loop
 
-![Slip-stitch tie, and insert loop](/img/patterns/trayvon/instructions/step15.png)
+![Slip-stitch tie, and insert loop](step15.png)
 
 Use a slip stitch to hand sew your tie all along the length of the back.
 
@@ -277,7 +277,7 @@ Use your slip stitch to secure the loop in place on the center seam; we'll fix t
 
 ### Step 16: Secure the loop edges
 
-![Secure the loop edges](/img/patterns/trayvon/instructions/step16.png)
+![Secure the loop edges](step16.png)
 
 Hand sew the edges of the loop to your tie, so it stays in place nicely.
 
@@ -287,6 +287,6 @@ And, once again, be careful not to run your stitches through your tie. Be shallo
 
 ### Step 17: Trim and clean up
 
-![Trim and clean up](/img/patterns/trayvon/instructions/step17.png)
+![Trim and clean up](step17.png)
 
 Trim any loose threads you might have.

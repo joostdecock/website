@@ -3,9 +3,8 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import themeConfig from "./config/theme";
 import Storage from "./storage";
 import tlds from "tlds";
-import remark from "remark";
-import html from "remark-html";
 import { options } from "@freesewing/i18n";
+import YAML from "yaml";
 
 const storage = new Storage();
 
@@ -146,16 +145,6 @@ const socialLink = (user, site) => {
   return "https://" + site + ".com/" + user.social[site];
 };
 
-const renderMarkdown = md => {
-  return new Promise((resolve, reject) => {
-    remark()
-      .use(html)
-      .process(md, (err, file) => {
-        resolve(file);
-      });
-  });
-};
-
 const uniqueArray = array => {
   return array.filter(function(value, index, self) {
     return self.indexOf(value) === index;
@@ -207,6 +196,7 @@ distance.asText = (value, units = "metric") => {
 };
 
 distance.asHtml = (value, units = "metric") => {
+  if (typeof value === "undefined") return "";
   if (units === "metric") return round(value / 10) + "cm";
   else {
     // eslint-disable-next-line
@@ -382,12 +372,24 @@ const patternOption = {
   format: formatOption
 };
 
+const editLink = (path, language = false) => {
+  // Edit paths MUST have a trailing slash for images to load in editor
+  if (path.slice(-1) !== "/") path += "/";
+  if (language) return "/" + language + "/edit" + path;
+  else return "/" + locLang.get(path) + "/edit" + locLang.strip(path);
+};
+
+const asFrontmatterFile = (frontmatter, body) => {
+  return "---\n" + YAML.stringify(frontmatter) + "\n---\n" + body;
+};
+
 export {
+  asFrontmatterFile,
+  editLink,
   patternOption,
   round,
   distance,
   uniqueArray,
-  renderMarkdown,
   socialLink,
   scrollToTop,
   locLang,

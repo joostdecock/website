@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "./Icon";
-import { twitter } from "../data/icons";
+import { twitter } from "../config/icons";
 
 const TwitterIcon = props => {
   return (

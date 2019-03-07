@@ -37,7 +37,6 @@ const ItemButtons = props => {
 };
 
 ItemButtons.propTypes = {
-  config: PropTypes.object.isRequired,
   updateDisplay: PropTypes.func.isRequired
 };
 

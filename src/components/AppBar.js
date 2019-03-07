@@ -12,6 +12,7 @@ import DarkIcon from "@material-ui/icons/Brightness3";
 import LightIcon from "@material-ui/icons/WbSunny";
 import LoginIcon from "@material-ui/icons/VpnKey";
 import HomeIcon from "@material-ui/icons/Home";
+import SearchIcon from "@material-ui/icons/Search";
 import SignupIcon from "@material-ui/icons/PersonAdd";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "gatsby";
@@ -84,11 +85,6 @@ function FsAppBar(props) {
                 <FormattedMessage id="app.patterns" />
               </Button>
             </Link>
-            <Link to={locLang.set("/blog/", language)}>
-              <Button title={intl.formatMessage({ id: "app.blog" })}>
-                <FormattedMessage id="app.blog" />
-              </Button>
-            </Link>
             <DropDownButton
               language={language}
               title={intl.formatMessage({ id: "app.docs" })}
@@ -100,6 +96,16 @@ function FsAppBar(props) {
               {...communityMenu(language)}
             />
           </div>
+          <Link to={locLang.set("/search", language)}>
+            <Button title={intl.formatMessage({ id: "app.search" })}>
+              <span className="only-on-mobile">
+                <SearchIcon />
+              </span>
+              <span className="not-on-mobile">
+                <FormattedMessage id="app.search" />
+              </span>
+            </Button>
+          </Link>
           <span style={styles.grow} />
           <div className="not-on-mobile">{userMenu}</div>
           <DropDownButton

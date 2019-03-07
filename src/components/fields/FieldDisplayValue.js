@@ -66,7 +66,6 @@ const FieldDisplayValue = props => {
 };
 
 FieldDisplayValue.propTypes = {
-  value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 };
 

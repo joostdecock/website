@@ -1,6 +1,5 @@
 const config = require("./gatsby-node-config");
-const path = require("path");
-const fs = require("fs");
+//const fs = require("fs");
 const i18nConfig = require("./src/config/i18n");
 
 const markdownPerLanguage = function(data, addMissing = true) {
@@ -80,7 +79,7 @@ const parentPath = function(nakedPath) {
     .join("/");
 };
 
-exports.runQueries = function(queries, graphql, markdown) {
+exports.runQueries = function(queries, graphql, markdown, editor) {
   let promises = [];
   for (let query of Object.keys(queries)) {
     promises.push(
@@ -89,10 +88,13 @@ exports.runQueries = function(queries, graphql, markdown) {
           if (typeof res.data === "undefined")
             console.log("query failed", query, res);
           else {
-            // No language stuffing for CMS data
-            if (query.substring(0, 3) === "cms")
-              markdown[query] = markdownPerLanguage(res.data, false);
-            else markdown[query] = markdownPerLanguage(res.data);
+            markdown[query] = markdownPerLanguage(res.data);
+            // Copy without language stuffing for editor
+            if (editor.indexOf(query) !== -1)
+              markdown["editor_" + query] = markdownPerLanguage(
+                res.data,
+                false
+              );
           }
           resolve(true);
         });
@@ -102,20 +104,7 @@ exports.runQueries = function(queries, graphql, markdown) {
   return Promise.all(promises);
 };
 
-exports.createPageRedirects = function(nakedPaths, createRedirect) {
-  let promises = [];
-  for (nakedPath of nakedPaths) {
-    createRedirect({
-      fromPath: nakedPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: "/" + config.defaultLanguage + nakedPath
-    });
-  }
-  return Promise.all(promises);
-};
-
-exports.createPosts = function(type, posts, createPage, createRedirect) {
+exports.createPosts = function(type, posts, createPage) {
   let promises = [];
   let categories = new Set();
   let categoryPosts = {};
@@ -143,15 +132,6 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
           location: `/${lang}${nakedPath}`
         }
       });
-      if (lang === config.defaultLanguage) {
-        // Redirects for legacy links without language prefix
-        createRedirect({
-          fromPath: nakedPath,
-          isPermanent: true,
-          redirectInBrowser: true,
-          toPath: "/" + config.defaultLanguage + nakedPath
-        });
-      }
     }
     // Category indexes
     categories.forEach(category => {
@@ -181,11 +161,14 @@ exports.createPosts = function(type, posts, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createDocumentation = function(pages, createPage, createRedirect) {
+exports.createDocumentation = function(markdown, createPage) {
   let promises = [];
   let prefix = {
-    measurements: "/docs/measurements/"
+    measurements: "/docs/measurements/",
+    developer: "/docs/developer/"
   };
+  let pages = markdown.allDocumentation;
+  let components = markdown.allDocumentationWithComponents;
   // Create pages for documentation in all languages
   for (let lang of config.languages) {
     for (nakedPath of Object.keys(pages[lang])) {
@@ -195,17 +178,28 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
         prefix.measurements
       )
         page.frontmatter.measurement = nakedPath.split("/").pop();
+      let md = {};
+      let devfix = prefix.developer.slice(0, -1);
+      if (nakedPath.substring(0, devfix.length) === devfix)
+        md.pages = markdown.developerDocumentation;
+      if (page.frontmatter.index) md.pages = markdown.documentationList[lang];
       // Add breadcrumbs to frontmatter
       page.frontmatter.breadcrumbs = documentationBreadcrumbs(
         nakedPath,
         lang,
         pages
       );
+      // Add htmlAst if this page supports components in markdown
+      if (page.frontmatter.components) {
+        page.htmlAst = components[lang][nakedPath].htmlAst;
+        page.frontmatter.i18n = components[lang][nakedPath].frontmatter.i18n;
+      }
       // Create page
       createPage({
         path: `/${lang}${nakedPath}`,
         component: config.templates.documentation,
         context: {
+          ...md,
           page,
           language: lang,
           location: `/${lang}/${nakedPath}`
@@ -216,7 +210,7 @@ exports.createDocumentation = function(pages, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-exports.createJsPages = function(markdown, createPage, createRedirect) {
+exports.createJsPages = function(markdown, createPage) {
   let promises = [];
   for (let lang of config.languages) {
     for (let page of config.jsPages) {
@@ -272,154 +266,51 @@ exports.createJsPages = function(markdown, createPage, createRedirect) {
   return Promise.all(promises);
 };
 
-const splitDocs = markdown => {
-  // The docs collection is too large, so let's divide it
-  let split = {};
-  let pattern;
-  for (let lang of Object.keys(markdown)) {
-    if (typeof split[lang] === "undefined") split[lang] = {};
-    for (let key of Object.keys(markdown[lang])) {
-      if (key.substring(0, 15) === "/docs/patterns/") {
-        pattern = key
-          .substring(15)
-          .split("/")
-          .shift();
-        if (typeof split[lang][pattern] === "undefined")
-          split[lang][pattern] = {};
-        split[lang][pattern][key] = markdown[lang][key];
-      } else if (key.substring(0, 19) === "/docs/measurements/") {
-        if (typeof split[lang].measurements === "undefined")
-          split[lang].measurements = {};
-        split[lang].measurements[key] = markdown[lang][key];
-      } else {
-        if (typeof split[lang].other === "undefined") split[lang].other = {};
-        split[lang].other[key] = markdown[lang][key];
-      }
-    }
-  }
-
-  return split;
+const imgPathToWebPath = (path, language) => {
+  if (path.slice(0, 5) === "blog/") path = "blog/" + path.slice(15);
+  if (path.slice(0, 9) === "showcase/") path = "showcase/" + path.slice(19);
 };
 
-const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
-
-exports.createEditorConfig = function(allMarkdown) {
-  let promises = [];
-  let markdown = {
-    blog: allMarkdown.cmsBlogPosts,
-    showcase: allMarkdown.cmsShowcasePosts,
-    docs: splitDocs(allMarkdown.cmsDocumentation)
-  };
-
-  let config = {
-    backend: {
-      name: "github",
-      repo: "freesewing/website",
-      branch: "editor"
-    },
-    media_folder: "static/assets",
-    public_folder: "/static/assets",
-    display_url: process.env.GATSBY_FRONTEND,
-    collections: []
-  };
-
-  const blogFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Link title", name: "linktitle", widget: "string" },
-    { label: "Author", name: "author", widget: "string" },
-    { label: "Blurb", name: "blurb", widget: "string" },
-    { label: "Caption", name: "caption", widget: "string" },
-    { label: "Image", name: "img", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Date", name: "date", widget: "date" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-  const showcaseFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Author", name: "author", widget: "string" },
-    { label: "Caption", name: "caption", widget: "string" },
-    { label: "Image", name: "img", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Date", name: "date", widget: "date" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-
-  const docsFields = [
-    { label: "Title", name: "title", widget: "string" },
-    { label: "Path", name: "path", widget: "string" },
-    { label: "Body", name: "body", widget: "markdown" }
-  ];
-
-  for (let lang of i18nConfig.languages) {
-    // Blog posts
-    let collection = {
-      name: "blog_" + lang,
-      label: "Blog posts - " + i18nConfig.translations[lang],
-      files: []
-    };
-    for (let key of Object.keys(markdown.blog[lang])) {
-      let post = markdown.blog[lang][key];
-      collection.files.push({
-        name: key.replace(/\//g, "_"),
-        label: post.frontmatter.title + " [" + key + "]",
-        file:
-          "src/markdown/" +
-          post.frontmatter.img.relativeDirectory +
-          "/" +
-          lang +
-          ".md",
-        fields: blogFields
-      });
-    }
-    config.collections.push(collection);
-    // Showcase posts
-    collection = {
-      name: "showcase_" + lang,
-      label: "Showcase posts - " + i18nConfig.translations[lang],
-      files: []
-    };
-    for (let key of Object.keys(markdown.showcase[lang])) {
-      let post = markdown.showcase[lang][key];
-      collection.files.push({
-        name: key.replace(/\//g, "_"),
-        label: post.frontmatter.title + " [" + key + "]",
-        file:
-          "src/markdown/" +
-          post.frontmatter.img.relativeDirectory +
-          "/" +
-          lang +
-          ".md",
-        fields: showcaseFields
-      });
-    }
-    config.collections.push(collection);
-    // Docs
-    for (let topic of Object.keys(markdown.docs[lang])) {
-      collection = {
-        name: "docs_" + topic + "_" + lang,
-        label:
-          capitalize(topic) +
-          " documentation - " +
-          i18nConfig.translations[lang],
-        files: []
-      };
-      for (let key of Object.keys(markdown.docs[lang][topic])) {
-        let page = markdown.docs[lang][topic][key];
-        collection.files.push({
-          name: key.replace(/\//g, "_"),
-          label: page.frontmatter.title + " [" + key + "]",
-          file: "src/markdown" + key + "/" + lang + ".md",
-          fields: docsFields
+exports.createNetlifyRedirects = function(queries, createRedirect) {
+  return new Promise((resolve, reject) => {
+    // Redirect for images in editor preview
+    for (let lang of config.languages) {
+      for (let img of queries.markdownImages.allFile.edges)
+        createRedirect({
+          fromPath: imgPathToWebPath(img.node.relativePath, lang),
+          isPermanent: true,
+          toPath: img.node.publicURL
         });
-      }
-      config.collections.push(collection);
     }
-  }
 
-  fs.writeFileSync(
-    path.join(".", "static", "editor.json"),
-    JSON.stringify({ config }, null, 2)
-  );
+    // Per-language redirects for basic pages
+    for (let lang of config.languages) {
+      if (lang !== config.defaultLanguage) {
+        for (let path of config.nakedPaths)
+          createRedirect({
+            fromPath: path,
+            isPermanent: true,
+            toPath: "/" + lang + path,
+            Language: lang
+          });
+      }
+    }
 
-  return Promise.all(promises);
+    // Default language redirects for basic pages
+    for (let path of config.nakedPaths)
+      createRedirect({
+        fromPath: path,
+        isPermanent: true,
+        toPath: "/" + config.defaultLanguage + path
+      });
+
+    // Catch-all SPA redirect
+    createRedirect({
+      fromPath: "/*",
+      isPermanent: true,
+      toPath: "/en/index.html"
+    });
+
+    resolve(true);
+  });
 };

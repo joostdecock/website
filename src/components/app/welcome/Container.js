@@ -15,18 +15,13 @@ import Units from "./Units";
 import AvatarUpload from "./AvatarUpload";
 import AvatarPreview from "./AvatarPreview";
 import Social from "./Social";
-import remark from "remark";
-import html from "remark-html";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import FieldForm from "../account/FieldForm";
-import Tray from "../../Tray";
 import Breadcrumbs from "../../Breadcrumbs";
 import WhyIcon from "@material-ui/icons/Help";
-import TwoColumns from "../../TwoColumns";
-import Column from "../../Column";
 import TrayTitle from "../../TrayTitle";
-import CodeIcon from "@material-ui/icons/Code";
+import Markdown from "react-markdown";
 
 class WelcomeContainer extends React.Component {
   state = {
@@ -51,21 +46,9 @@ class WelcomeContainer extends React.Component {
   }
 
   usernameToState() {
-    this.renderMarkdownPreview(this.props.user.bio);
     this.setState({
       username: this.props.user.username
     });
-  }
-
-  renderMarkdownPreview(markdown) {
-    let self = this;
-    remark()
-      .use(html)
-      .process(markdown, (err, md) => {
-        self.setState({
-          markdownPreview: md.contents
-        });
-      });
   }
 
   saveAccount = (data, field) => {
@@ -130,14 +113,6 @@ class WelcomeContainer extends React.Component {
   getUnits = () => this.state.units || this.props.user.settings.units;
   getUsername = () => this.state.username || this.props.user.username;
   getAvatar = () => this.state.avatar || this.props.user.picture;
-  getBioPreview = () => {
-    if (this.state.bioPreview !== false) return this.state.bioPreview;
-    let result = "";
-    remark()
-      .use(html)
-      .process(this.props.user.bio, (err, md) => (result = md));
-    return result;
-  };
   getGithub = () =>
     this.state.github ||
     (this.props.user.social ? this.props.user.social.github : "");
@@ -210,7 +185,6 @@ class WelcomeContainer extends React.Component {
       ...state,
       bio: value
     }));
-    this.renderMarkdownPreview(value);
   };
 
   handleGithubChange = evt => {
@@ -283,13 +257,24 @@ class WelcomeContainer extends React.Component {
     let bio = {
       key: "bio",
       content: (
-        <FieldForm
-          intl={this.props.intl}
-          field="bio"
-          data={this.props.data}
-          value={this.state.bio || this.props.user.bio}
-          handleValueUpdate={this.handleBioChange}
-        />
+        <React.Fragment>
+          <FieldForm
+            intl={this.props.intl}
+            field="bio"
+            data={this.props.data}
+            value={this.state.bio || this.props.user.bio}
+            handleValueUpdate={this.handleBioChange}
+          />
+          <h5>
+            <FormattedMessage id="app.preview" />
+          </h5>
+          <div className="notes">
+            <div className="filename">
+              <FormattedMessage id="account.bio" />
+            </div>
+            <Markdown source={this.state.bio || this.props.user.bio} />
+          </div>
+        </React.Fragment>
       )
     };
     let social = {
@@ -306,7 +291,6 @@ class WelcomeContainer extends React.Component {
         />
       )
     };
-
     let steps = [
       units,
       username,
@@ -320,90 +304,76 @@ class WelcomeContainer extends React.Component {
 
   render() {
     const { activeStep, maxSteps } = this.state;
+    if (activeStep === 5) return null;
     let step = this.getStepContent(activeStep);
     return (
-      <div>
+      <React.Fragment>
         <Breadcrumbs>
           <FormattedMessage id="app.welcome" />
         </Breadcrumbs>
-        <h1>
-          <FormattedMessage id="app.completeSignupTitle" />
-        </h1>
-        <TwoColumns>
-          <Column>
-            <p className="my1">
-              <FormattedMessage id="app.completeSignupText" />
-            </p>
-            <form>
-              <MobileStepper
-                steps={maxSteps}
-                position="static"
-                activeStep={activeStep}
-                classes={{ root: "nobg" }}
-                nextButton={
-                  <Button size="small" onClick={this.handleNext}>
-                    <FormattedMessage id="app.save" />
-                    <KeyboardArrowRight />
-                  </Button>
-                }
-                backButton={
-                  <Button
-                    size="small"
-                    onClick={this.handleBack}
-                    disabled={activeStep === 0}
-                  >
-                    <KeyboardArrowLeft />
-                    <FormattedMessage id="app.back" />
-                  </Button>
-                }
-              />
-              {step.content}
-              {activeStep === 3 ? (
-                <Tray
-                  className="mt1 force-expanded"
-                  title={<FormattedMessage id="app.preview" />}
-                  icon={<CodeIcon />}
+        <div className="wrap narrow">
+          <h1 className="txt-center">
+            <FormattedMessage id="app.welcome" />
+          </h1>
+          <h4 className="txt-center">
+            <FormattedMessage id="app.letUsSetupYourAccount" />
+          </h4>
+          <form>
+            <MobileStepper
+              steps={maxSteps}
+              position="static"
+              activeStep={activeStep}
+              classes={{ root: "nobg" }}
+              nextButton={
+                <Button size="small" color="primary" onClick={this.handleNext}>
+                  <FormattedMessage id="app.continue" />
+                  <KeyboardArrowRight />
+                </Button>
+              }
+              backButton={
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={this.handleBack}
+                  disabled={activeStep === 0}
                 >
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: this.state.markdownPreview
-                    }}
-                  />
-                </Tray>
-              ) : (
-                ""
-              )}
-            </form>
-          </Column>
-          <Column right>
-            <Tray
-              className="my1 always-expanded"
-              icon={<WhyIcon />}
-              title={<FormattedMessage id={"app.whatIsThis"} />}
-            >
-              <p>
-                <FormattedHTMLMessage id={"account." + step.key + "Info"} />
-              </p>
-              {step.key === "bio"
-                ? [
-                    <TrayTitle icon={<WhyIcon />}>
-                      {
-                        this.props.data.markdownHelp["/docs/markdown"]
-                          .frontmatter.title
-                      }
-                    </TrayTitle>,
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: this.props.data.markdownHelp["/docs/markdown"]
-                          .html
-                      }}
-                    />
-                  ]
-                : ""}
-            </Tray>
-          </Column>
-        </TwoColumns>
-      </div>
+                  <KeyboardArrowLeft />
+                  <FormattedMessage id="app.back" />
+                </Button>
+              }
+            />
+            {step.content}
+            <p className="txt-center mt1">
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.handleNext}
+              >
+                <FormattedMessage id="app.continue" />
+                <KeyboardArrowRight className="ml1" />
+              </Button>
+            </p>
+          </form>
+          <blockquote>
+            <FormattedHTMLMessage id={"account." + step.key + "Info"} />
+          </blockquote>
+          {step.key === "bio"
+            ? [
+                <TrayTitle icon={<WhyIcon />}>
+                  {
+                    this.props.data.markdownHelp["/docs/markdown"].frontmatter
+                      .title
+                  }
+                </TrayTitle>,
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.data.markdownHelp["/docs/markdown"].html
+                  }}
+                />
+              ]
+            : ""}
+        </div>
+      </React.Fragment>
     );
   }
 }

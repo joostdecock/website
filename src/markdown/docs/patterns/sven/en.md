@@ -43,10 +43,10 @@ Sven is a very simply pattern, and consists of two main parts plus some strips f
 
 Below is a typical draft layout:
 
-![A typical Sven draft](/img/patterns/sven/layout.svg)
+![A typical Sven draft](layout.svg)
 % include scalebox.html %}
 
-> The [notation legend](/docs/patterns/notation) explains all the different markings and lines on your draft.
+> The [notation legend](/en/docs/patterns/notation) explains all the different markings and lines on your draft.
 
 ## Construction
 

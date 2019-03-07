@@ -1,0 +1,33 @@
+body.light {
+  svg.freesewing.draft.api-example  {
+    .fill-note {
+      fill: $link;
+    }
+    .note {
+      stroke: $link;
+      stroke-opacity: 0.75;
+    }
+    .x {
+      stroke: $warning;
+      fill: none;
+    }
+  }
+}
+.example-x {
+  stroke: $warning;
+  stroke-width: 0.25;
+  fill: none;
+}
+
+.example-notch-out {
+  stroke: $success;
+  fill: none;
+  stroke-width: 0.25;
+}
+
+.example-notch-in {
+  stroke: none;
+  fill: $success;
+  fill-opacity: 0.8;
+}
+

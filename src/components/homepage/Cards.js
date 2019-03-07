@@ -17,7 +17,7 @@ import { injectIntl } from "react-intl";
 const Cards = props => (
   <Grid container spacing={40} direction="row" justify="flex-start" wrap="wrap">
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-      <Card classes={{ root: "nobg card" }}>
+      <Card classes={{ root: "nobg card center" }}>
         <Link
           to={locLang.set("/patterns", props.language)}
           title={props.intl.formatMessage({ id: "app.patterns" })}
@@ -54,7 +54,7 @@ const Cards = props => (
       </Card>
     </Grid>
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-      <Card classes={{ root: "nobg card" }}>
+      <Card classes={{ root: "nobg card center" }}>
         <Link
           to={locLang.set("/showcase", props.language)}
           title={props.intl.formatMessage({ id: "app.showcase" })}
@@ -85,7 +85,7 @@ const Cards = props => (
       </Card>
     </Grid>
     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-      <Card classes={{ root: "nobg card" }}>
+      <Card classes={{ root: "nobg card center" }}>
         <Link
           to={locLang.set("/blog", props.language)}
           title={props.intl.formatMessage({ id: "app.blog" })}

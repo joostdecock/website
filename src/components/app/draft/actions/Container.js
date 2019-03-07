@@ -149,9 +149,7 @@ class ActionContainer extends React.Component {
     };
     for (let handle of Object.keys(this.props.models)) {
       let valid = true;
-      for (let requiredMeasurement of this.props.patternInfo[
-        this.props.gist.pattern
-      ].measurements) {
+      for (let requiredMeasurement of this.props.patternInfo.measurements) {
         if (
           typeof this.props.models[handle].measurements === "undefined" ||
           typeof this.props.models[handle].measurements[requiredMeasurement] ===

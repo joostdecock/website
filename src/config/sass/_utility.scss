@@ -17,7 +17,7 @@
 .pr1 { padding-right:  1rem; }
 .pb1 { padding-bottom: 1rem; }
 .pl1 { padding-left:   1rem; }
-
+.px2px { padding: 0 2px };
 .overpad1-always {
   margin-left: -1rem;
   margin-right: -1rem;
@@ -45,9 +45,11 @@
 .mt2 { margin-top: 2rem; }
 .mr1, button.mr1 { margin-right:  1rem!important; }
 .mr2, button.mr2 { margin-right:  2rem!important; }
-.mb1 { margin-bottom: 1rem; }
+.mb0 { margin-bottom: 0!important; }
+.mb1 { margin-bottom: 1rem!important; }
 .ml1 { margin-left:   1rem!important; }
-
+.h2-mt2 h2 { margin-top: 5rem;}
+.h2-mt2 h2:first-child { margin-top: 0; }
 .mr05, button.mr05 { margin-right: 0.5rem!important; }
 .mr-05 { margin-right: -0.5rem; }
 
@@ -58,7 +60,7 @@
 .indent4 { margin-left: 30px;}
 .indent5 { margin-left: 40px;}
 
-.vspacer { margin: 50px 0; }
+.vspacer { margin: 30px 0; }
 
 // Colors
 .color-success { color: $success; }
@@ -67,9 +69,16 @@
 .color-link { color: $link; }
 .color-accent { color: $accent; }
 .color-muted { color: $bw5; }
+.hover-box {
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.hover-box:hover { background: $bw6; }
 body.dark {
   .color-danger { color: $dangerFaded; }
+  .hover-box:hover { background: $bw2; }
 }
+.avatar { background: $bw1 }
 // Text size
 p.mini,
 .mini {
@@ -90,6 +99,7 @@ p.mini,
 .w100 { width: 100%; }
 .maxw700 { max-width: 700px; }
 .minh70vh { min-height: 70vh; }
+.center { max-width: 700px;  margin: auto; }
 
 // Filters
 .grayscale { filter: grayscale(100%); }
@@ -109,6 +119,10 @@ body.dark .shadow1 { @include shadow-dark; }
 .hidden {display: none!important;}
 .semi-transparent {opacity: 0.6;}
 .rotate90 { transform: rotate(90deg);}
+.border { border: 1px solid $bw6; }
+body.dark .border { border: 1px solid $bw3; }
+.bg-header { background-color: $bw7; }
+body.dark .bg-header { background-color: $bw2; }
 .smaller {
   font-size: 90%;
   line-height: 1.25;
@@ -127,6 +141,8 @@ textarea.fixed-width {
   padding: 1rem;
   @include fixed-font;
 }
+.posrel { position: relative; }
+.outline-none { outline: none; }
 body.dark .nobg.card { @include shadow-dark; }
 // FIXME: These should go somewhere where they make sense
 

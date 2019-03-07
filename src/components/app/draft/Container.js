@@ -6,6 +6,7 @@ import { setDrafts } from "../../../store/actions/drafts";
 import { injectIntl } from "react-intl";
 import TwoColumns from "../../TwoColumns";
 import Column from "../../Column";
+import Drawers from "../../Drawers";
 import Center from "../../Center";
 import Spinner from "../../Spinner";
 import { locLang } from "../../../utils";
@@ -13,11 +14,15 @@ import DraftPreview from "./DraftPreview";
 import OptionDocs from "./options/Docs";
 import Gist from "./Gist";
 import Export from "./Export";
-import Sidebar from "./Sidebar";
 import backend from "../../../apis/backend";
 import { navigate } from "gatsby";
 import LayoutBuilder from "./LayoutBuilder";
 import draftSettings from "../../../config/draftsettings";
+import OptionsIcon from "@material-ui/icons/Tune";
+import SettingsIcon from "@material-ui/icons/Settings";
+import SettingsPicker from "../draft/SettingsPicker";
+import ActionsIcon from "@material-ui/icons/Directions";
+import Actions from "./actions/Container";
 
 class DraftContainer extends React.Component {
   state = {
@@ -39,7 +44,6 @@ class DraftContainer extends React.Component {
   };
 
   updateDisplay = (key, data = null) => {
-    console.log("display update", key, data);
     switch (key) {
       case "docs":
         this.setState({ display: "docs", docs: data });
@@ -53,17 +57,10 @@ class DraftContainer extends React.Component {
     if (val === "true") val = true;
     else if (val === "false") val = false;
     else if (typeof val === "number") val = Math.round(val * 1000) / 1000;
-
     let gist = this.state.gist;
-    gist.settings.options[key] = val;
-    this.setState({ gist, display: "draft" });
-  };
-
-  updateSetting = (key, val) => {
-    if (val === "true") val = true;
-    if (val === "false") val = false;
-    let gist = this.state.gist;
-    gist.settings[key] = val;
+    if (Object.keys(draftSettings.config).indexOf(key) === -1)
+      gist.settings.options[key] = val;
+    else gist.settings[key] = val;
     this.setState({ gist, display: "draft" });
   };
 
@@ -74,7 +71,6 @@ class DraftContainer extends React.Component {
   };
 
   clearGist = () => {
-    console.log("clearing gist");
     this.props.setGist(false);
   };
 
@@ -132,6 +128,70 @@ class DraftContainer extends React.Component {
     }
   };
 
+  getDrawers = () => {
+    let gist = this.state.gist ? this.state.gist : this.props.gist;
+    let pickerProps = {
+      language: this.props.language,
+      patternInfo: this.props.patternInfo,
+      gist,
+      display: this.state.display,
+      units: "metric",
+      methods: {
+        updateDisplay: this.updateDisplay,
+        updateOption: this.updateOption,
+        updateMeasurements: this.updateMeasurements,
+        clearGist: this.clearGist
+      }
+    };
+    return {
+      options: {
+        config: {
+          title: "app.patternOptions",
+          icon: <OptionsIcon />
+        },
+        content: (
+          <div className="overpad2-always">
+            <SettingsPicker {...pickerProps} mode="pattern" />
+          </div>
+        )
+      },
+      settings: {
+        config: {
+          title: "app.draftSettings",
+          icon: <SettingsIcon />
+        },
+        content: (
+          <div className="overpad2-always">
+            <SettingsPicker {...pickerProps} mode="draft" />
+          </div>
+        )
+      },
+      actions: {
+        config: {
+          title: "app.actions",
+          icon: <ActionsIcon />
+        },
+        content: (
+          <div className="overpad2-always">
+            <Actions
+              gist={gist}
+              language={this.props.language}
+              units={this.props.user.settings.units}
+              patron={this.props.user.patron}
+              patternInfo={this.props.patternInfo}
+              saveDraft={this.saveDraft}
+              exportGist={this.exportGist}
+              exportDraft={this.exportDraft}
+              updateMeasurements={this.updateMeasurements}
+              clearGist={this.clearGist}
+              fromGist={this.props.fromGist}
+            />
+          </div>
+        )
+      }
+    };
+  };
+
   render() {
     let main = "";
     if (this.state.display === "docs")
@@ -165,7 +225,7 @@ class DraftContainer extends React.Component {
           gist={this.state.gist}
           intl={this.props.intl}
           units={this.props.user.settings.units}
-          updateSetting={this.updateSetting}
+          updateOption={this.updateOption}
         />
       );
     }
@@ -176,29 +236,30 @@ class DraftContainer extends React.Component {
         </Column>
         <Column right narrow>
           <div className="stick">
-            <Sidebar
-              gist={this.state.gist}
-              language={this.props.language}
-              units={this.props.user.settings.units}
-              display={this.state.display}
-              methods={{
-                saveDraft: this.saveDraft,
-                exportGist: this.exportGist,
-                exportDraft: this.exportDraft,
-                updateDisplay: this.updateDisplay,
-                updateOption: this.updateOption,
-                updateSetting: this.updateSetting,
-                updateMeasurements: this.updateMeasurements,
-                clearGist: this.clearGist
-              }}
-              fromGist={this.props.fromGist || false}
-            />
+            <Drawers drawers={this.getDrawers()} />
           </div>
         </Column>
       </TwoColumns>
     );
   }
 }
+//<Sidebar
+//  gist={this.state.gist}
+//  language={this.props.language}
+//  units={this.props.user.settings.units}
+//  display={this.state.display}
+//  methods={{
+//    saveDraft: this.saveDraft,
+//    exportGist: this.exportGist,
+//    exportDraft: this.exportDraft,
+//    updateDisplay: this.updateDisplay,
+//    updateOption: this.updateOption,
+//    updateSetting: this.updateSetting,
+//    updateMeasurements: this.updateMeasurements,
+//    clearGist: this.clearGist
+//  }}
+//  fromGist={this.props.fromGist || false}
+///>
 
 const mapStateToProps = state => ({
   gist: state.gist

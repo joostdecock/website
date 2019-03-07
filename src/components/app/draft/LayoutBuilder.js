@@ -68,7 +68,6 @@ class LayoutBuilder extends React.Component {
         <Draggable
           onStop={this.handleDragStop}
           onStart={this.handleDragStart}
-          onMouseDown={this.handleMouseDown}
           //bounds={this.partBounds(part, partId)}
           position={{ x: 0, y: 0 }}
           scale={scale}
@@ -294,10 +293,6 @@ class LayoutBuilder extends React.Component {
     this.setState({ layout, height });
   };
 
-  handleMouseDown = (evt, data) => {
-    console.log("mouse down");
-  };
-
   distillLayout = () => {
     let distilled = {
       width: this.state.width,
@@ -471,7 +466,7 @@ class LayoutBuilder extends React.Component {
             color="primary"
             className="mt1"
             onClick={() =>
-              this.props.updateSetting("layout", this.distillLayout())
+              this.props.updateOption("layout", this.distillLayout())
             }
           >
             <FormattedMessage id="app.applyThisLayout" />

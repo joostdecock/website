@@ -9,6 +9,7 @@ const allBlogPosts = `{
       node {
         fileAbsolutePath
         html
+        rawMarkdownBody
         tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
           date
@@ -16,6 +17,9 @@ const allBlogPosts = `{
           title
           linktitle
   			  img {
+            name
+            ext
+            publicURL
             childImageSharp {
               fluid(maxWidth: 2000) {
                  base64
@@ -45,11 +49,15 @@ const allShowcasePosts = `{
       node {
         fileAbsolutePath
         html
+        rawMarkdownBody
         frontmatter {
           date
           path
           title
   			  img {
+            name
+            ext
+            publicURL
             childImageSharp {
               fluid(maxWidth: 2000) {
                  base64
@@ -135,12 +143,16 @@ const blogpostPreviews = `{
 
 const allDocumentation = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
       node {
         fileAbsolutePath
+        rawMarkdownBody
         html
         tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
@@ -151,78 +163,39 @@ const allDocumentation = `{
           pattern
           option
           setting
+          components
+          hidden
+          index
         }
       }
     }
   }
 }`;
 
-const cmsDocumentation = `{
+const allDocumentationWithComponents = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        components: {eq: true}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
       node {
+        fileAbsolutePath
+        htmlAst
         frontmatter {
           path
-          title
-          measurement
-          patternOptions
-          pattern
-          option
-          setting
-        }
-      }
-    }
-  }
-}`;
-
-const cmsBlogPosts = `{
-  allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/blog/"}}}
-      sort: {fields: [frontmatter___date], order: ASC}
-    ) {
-    edges {
-      node {
-        frontmatter {
-          date
-          path
-          title
-          linktitle
-  			  img {
-            relativePath
-            relativeDirectory
+        	i18n {
+            boxTitle
+            boxInfo
+            boxWhy
+            i18nTitle
+            i18nInfo
+            i18nData
           }
-          caption
-          author
-          category
-          blurb
-        }
-      }
-    }
-  }
-}`;
-
-const cmsShowcasePosts = `{
-  allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/showcase/"}}}
-      sort: {fields: [frontmatter___date], order: ASC}
-    ) {
-    edges {
-      node {
-        frontmatter {
-          date
-          path
-          title
-  			  img {
-            relativePath
-            relativeDirectory
-          }
-          caption
-          author
-          patterns
-        }
+				}
       }
     }
   }
@@ -230,7 +203,10 @@ const cmsShowcasePosts = `{
 
 const documentationList = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/"}}}
+      filter: {frontmatter: {
+        path: {regex: "/docs/"}
+        hidden: {ne: true}
+      }}
       sort: {fields: [frontmatter___path], order: ASC}
     ) {
     edges {
@@ -262,18 +238,31 @@ const markdownHelp = `{
   }
 }`;
 
-const demoHelp = `{
+const developerDocumentation = `{
   allMarkdownRemark(
-      filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
+      filter: {frontmatter: {path: {regex: "/docs/developer/"}}}
       sort: {fields: [frontmatter___title], order: ASC}
     ) {
     edges {
       node {
-        html
-        tableOfContents(pathToSlugField: "frontmatter.path")
         frontmatter {
           path
           title
+        }
+      }
+    }
+  }
+}`;
+
+const demoHelp = `{
+  allMarkdownRemark(
+      filter: {frontmatter: {path: {regex: "/docs/demo/"}}}
+    ) {
+    edges {
+      node {
+        rawMarkdownBody
+        frontmatter {
+          path
         }
       }
     }
@@ -354,6 +343,25 @@ const patternCoverImages = `{
 	}
 }`;
 
+const markdownImages = `{
+	allFile(
+    filter: {
+      absolutePath: {
+      	regex: "/markdown/"
+      }
+      ext: {
+      	regex: "/jpg|jpeg|png|gif|svg/"
+      }
+    }) {
+    edges {
+      node {
+        relativePath
+        publicURL
+      }
+    }
+  }
+}`;
+
 const individualPatternCoverImages = {};
 const individualPatternShowcasePreviews = {};
 
@@ -418,12 +426,12 @@ for (let pattern of patternList) {
 }
 
 module.exports = {
+  developerDocumentation,
+  markdownImages,
   allBlogPosts,
   allShowcasePosts,
   allDocumentation,
-  cmsBlogPosts,
-  cmsShowcasePosts,
-  cmsDocumentation,
+  allDocumentationWithComponents,
   markdownHelp,
   demoHelp,
   measurementsHelp,

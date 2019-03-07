@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl";
 import LanguageIcon from "@material-ui/icons/Language";
 import Button from "@material-ui/core/Button";
 import Tray from "./Tray";
+import { Link } from "gatsby";
 
 const LanguageNotAvailable = props => {
   return (
@@ -11,13 +12,11 @@ const LanguageNotAvailable = props => {
       icon={<LanguageIcon />}
       title={<FormattedMessage id="app.thisContentIsNotAvailableInLanguage" />}
       footer={
-        <Button
-          href="https://developer.freesewing.org/i18n"
-          target="_BLANK"
-          rel="noopener noreferrer"
-        >
-          <FormattedMessage id="app.helpUsTranslate" />
-        </Button>
+        <Link to={"/" + props.language + "/docs/translator"}>
+          <Button>
+            <FormattedMessage id="app.helpUsTranslate" />
+          </Button>
+        </Link>
       }
     >
       <p>

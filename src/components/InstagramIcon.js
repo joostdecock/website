@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "./Icon";
-import { instagram } from "../data/icons";
+import { instagram } from "../config/icons";
 
 const InstagramIcon = props => {
   return (

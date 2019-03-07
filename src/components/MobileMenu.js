@@ -8,7 +8,7 @@ import { FormattedMessage } from "react-intl";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
-import BlogIcon from "@material-ui/icons/RssFeed";
+import SearchIcon from "@material-ui/icons/Search";
 import MobileSubMenu from "./MobileSubMenu";
 import {
   communityMenu,
@@ -19,7 +19,7 @@ import LoginIcon from "@material-ui/icons/VpnKey";
 import SignupIcon from "@material-ui/icons/PersonAdd";
 import MenuItem from "@material-ui/core/MenuItem";
 import Icon from "./Icon";
-import { tshirt } from "../data/icons";
+import { tshirt } from "../config/icons";
 
 const styles = {
   root: {
@@ -136,6 +136,20 @@ class MobileMenu extends React.Component {
                 <FormattedMessage id="app.home" />
               </MenuItem>
               <MenuItem
+                key="search"
+                button={true}
+                component="a"
+                onClick={this.handleClose}
+                href={locLang.set("/search", this.props.language)}
+                title={this.props.intl.formatMessage({
+                  id: "app.search"
+                })}
+                color="secondary"
+              >
+                <SearchIcon className="mr1" />
+                <FormattedMessage id="app.search" />
+              </MenuItem>
+              <MenuItem
                 key="patterns"
                 button={true}
                 component="a"
@@ -148,20 +162,6 @@ class MobileMenu extends React.Component {
               >
                 <Icon className="mr1" pathString={tshirt} />
                 <FormattedMessage id="app.patterns" />
-              </MenuItem>
-              <MenuItem
-                key="blog"
-                button={true}
-                component="a"
-                onClick={this.handleClose}
-                href={locLang.set("/blog/", this.props.language)}
-                title={this.props.intl.formatMessage({
-                  id: "app.blog"
-                })}
-                color="secondary"
-              >
-                <BlogIcon className="mr1" />
-                <FormattedMessage id="app.blog" />
               </MenuItem>
               <MobileSubMenu
                 language={this.props.language}

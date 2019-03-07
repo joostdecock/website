@@ -1,13 +1,15 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import GithubIcon from "../GithubIcon";
-import { fileOnGithub, capitalize } from "../../utils";
+import { editLink, fileOnGithub, capitalize } from "../../utils";
 import Breadcrumbs from "../Breadcrumbs";
 import OptionsList from "../OptionsList";
 import Column from "../Column";
 import TwoColumns from "../TwoColumns";
 import Tray from "../Tray";
 import OptionsIcon from "@material-ui/icons/Tune";
+import EditIcon from "@material-ui/icons/Edit";
+import { Link } from "gatsby";
 
 export default props => {
   return (
@@ -40,6 +42,10 @@ export default props => {
         <FormattedMessage
           id={"options." + props.pattern + "." + props.option + ".title"}
         />
+        &nbsp;&nbsp;
+        <Link to={editLink(props.location)}>
+          <EditIcon />
+        </Link>
         &nbsp;&nbsp;
         <a href={fileOnGithub(props.fileAbsolutePath)}>
           <GithubIcon color={"#2979ff"} />
