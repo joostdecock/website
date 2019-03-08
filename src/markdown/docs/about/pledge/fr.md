@@ -3,8 +3,8 @@ title: Engagement des donations pour Freesewing
 path: /fr/docs/about/pledge
 ---
 
-> Je, Joost De Cock, fondateur et responsable du projet freesewing et réceptionnaire 
-> de ses donations, fais le serment par la présente, que tous les dons que je recevrai seront 
+> Moi, Joost De Cock, fondateur et responsable du projet freesewing et réceptionnaire 
+> de ses donations, je fais le serment par la présente, que tous les dons que je recevrai seront 
 > transmis aux 
 > [Médecins Sans Frontières (MSF)](http://www.msf.org/).
 
