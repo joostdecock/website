@@ -8,7 +8,7 @@ patterns: [florent]
 author: wim2
 ---
 
-Voici Kim avec la casquette plate Florent.
+Voici Wim avec la casquette plate Florent.
 
 
 ![Une autre image de cette casquette Florent](/img/showcase/florent-by-wim/2.jpg)
