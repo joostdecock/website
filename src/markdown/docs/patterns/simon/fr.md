@@ -298,124 +298,124 @@ Votre dos devrait maintenant être pris en sandwich entre les faces endroits de 
 
 Si c'est le cas, cousez les en place le long de la ligne dos/empiècement, en veillant à respecter la marge de couture.
 
-> If you added a label in step 1, make sure to put the yoke with your label at the bad side of your back.
+> Si vous avez ajouté une étiquette à l'étape 5, assurez-vous de placer l'empiècemnt avec votre étiquette sur l'envers de votre dos.
 
-When you're done, don't forget to give it a good press to make the seam lie flat.
+Lorsque vous avez fini, n'oubliez pas de bien repasser pour aplatir la couture.
 
-### Step 7: Edge-stitch the yoke
+### Etape 7 : Faire une piqûre de bordure sur l'empiècement
   
-![Edge-stitch the yoke](7.png)
+![Faire une piqûre de bordure sur l'empiècement](7.png)
 
-With your yokes attached to the back, we are going to edge-stitch along the seam we just made, on the yoke side.
+Avec vos empiècements assemblés à votre dos, nous allons faire une piqûre de bordure le long de la couture que nous venons d'effectuer, du côté de l'empiècement.
 
-> Fold the inner yoke out of the way. Our edge stitching will catch outer yoke, back and all the seam allowances, but not the inner yoke.
+> Plier l'empiècement interne pour le mettre de côté. Notre piqûre de bordure va prendre l'empiècement externe, le dos et les marges de coutures, mais pas l'empiècement intérieur.
 
-Just sew right next to the seam joining the outer yoke to the back.
+Cousez juste au bord de la couture qui assemble l'empiècement externe et le dos.
 
-> Edge-stitching is like top-stitching, but right next to the seam
+> Faire une piqûre de bordure s'apparente à de la surpiqûre, mais juste au bord de la couture.
 
-### Step 8: Close the back darts
+### Etape 8 : Fermer les pinces arrières
 
-![Fold the back with good sides together to close the darts](8a.png)
-![Sew the darts](8b.png)
-![Press darts towards the side seams](8c.png)
+![Plier le dos endroit contre endroit pour fermer les pinces](8a.png)
+![Coudre les pinces](8b.png)
+![Repassez les pinces vers les coutures des côtés](8c.png)
 
-> Depending on your measurements, your pattern might not have back darts at all. In that case, proceed to the next step.
+> En fonction de vos mensurations, votre patron peut ne pas avoir de pinces du tout. Dans ce cas, passez à l'étape suivante.
 
-Your pattern may or may not have back darts. If it has them, you should close them now.
+Votre patron peut avoir ou ne pas avoir de pinces. S'il en a, vous devriez les fermer maintenant.
 
-Place your back down with the good side up, and fold it back from the side seam so the fold runs from the top to the bottom of your dart.
+Placez votre dos à l'endroit et pliez le à partir de la couture de côté de façon à ce que le pli aille du haut vers le bas de votre pince.
 
-Do the same for the other dart, so that both sides are folded back.
+Faites la même chose pour l'autre pince, pour que chaque côté soit plié.
 
-Feel free to gently press in this crease, it will help you to neatly sew the darts.
+Vous êtes libre de repasser doucement ces plis, cela vous aidera à coudre nettement les pinces.
 
-Sew across the line marking the dart to close the darts. Be careful to make sure the top and bottom of your darts are precisely where they need to be. If one dart sits higher than the other, it will look bad.
+Cousez le long de la ligne marquant les pinces pour les fermer. Veillez à ce que le haut et le bas de vos pinces soient exactement là où ils devraient être. Si une pince repose plus haut que l'autre, cela aura mauvaise allure.
 
-When you're done, don't forget to give it a good press. Press the extra fabric of the dart towards the side seams.
+Une fois que c'est fait, n'oubliez pas de bien repasser. Couchez les pinces vers les côtés.
 
-### Step 9: Prepare the button placket
+### Etape 9 : Préparer la patte de boutonnage
 
-> If you have chosen a grown-on placket, you can skip the first two sub-steps and skip ahead to [Fold the button placket](#fold-the-button-placket).
+> Si vous avez choisi une patte à replier directement depuis la partie devant, vous pouvez sauter les deux premières sous-étapes et aller directement à l'étape [Plier la patte de boutonnage](#plier-la-patte-de-boutonnage).
 
-#### Sew on the button placket
+#### Coudre la patte de boutonnage
 
-![Sew on the button placket](9a.png)
+![Coudre la patte de boutonnage](9a.png)
 
-If you have chosen a separate button placket, sew it to the Front Right piece.
+Si vous avez choisi une patte de boutonnage séparée, cousez la à la partie devant droit.
 
-Place the Front Right (piece 1) down with the good side up, and place the Button Placket (piece 1b) on top of it with the good side down, making sure to align the seam.
+Placez le Devant Droit (pièce 1) à l'endroit, et placer la Patte de Boutonnage (Pièce 1b) dessus à l'envers, en alignant bien la couture.
 
-Sew it in place with the default seam allowance.
+Cousez là en place avec la marge de couture par défaut.
 
-#### Press seam allowance to placket side
-Place your front with the good side down, and press the seam allowance to the button placket side.
+#### Repasser la marge de couture vers la patte
+Placez votre devant à l'endroit, et repassez la marge de couture vers la patte de boutonnage.
 
-#### Fold the button placket
+#### Plier la patte de boutonnage
 
-![Fold the button placket](9b.png)
+![Plier la patte de boutonnage](9b.png)
 
-Now, fold over the button placket on the first fold line, and press this fold in place.
+Maintenant, rabattez la patte de boutonnage sur le première ligne de pliure, et repassez pour marquer ce pli en place.
 
-Then, fold the placket over again, making sure to have the fabric extend just beyond the seam that joins your placket to the front.
+Puis, pliez de nouveau la patte, en vous assurant que le tissu s'étende juste après la couture qui assemble la patte au devant.
 
-When you're happy, press the folded placket.
+Quand vous êtes content, repassez la patte pliée.
 
-#### Sew down the folded placket
+#### Coudre la patte pliée
 
-![Sew down the folded placket](9c.png)
+![Coudre la patte pliée](9c.png)
 
-> This is the classic approach. If you have chosen the seamless Button placket style, you don't have to do this.
+> C'est une approche classique. Si vous avez choisi un style de patte de boutonnage sans couture, vous n'avez pas besoin de faire ça.
 >
-> Rather than sew the placket down, simply leave it folded. The folds will be secured in place when we attach the buttons later.
+> Plutôt que de coudre la patte, laissez-la simplemet pliée. Le pli va être sécurisé plus tard lorsque nous fixerons les boutons.
 
-From the good side of your shirt, sew down the folded placket by stitching in the ditch.
+Sur l'endroit de votre chemise, cousez la patte pliée en piquant dans le sillon.
 
-To do so, sew exactly on top of your earlier seam. Since you folded the fabric of your placket a bit passed this seam, it will get caught at the back, fixing your folded placket in place, and locking the seam allowance inside.
+Pour faire ça, cousez exactement par dessus de la couture précédente. Puisque vous avez plié le tissu de votre patte un peu au delà de cette couture, elle sera prise à l'arrière, ce qui fixera la patte en place et bloquera la marge de couture à l'intérieur.
 
 
-### Step 10: Prepare the buttonhole placket
+### Etape 10 : Préparer la patte de boutonnières
 
-> If you have chosen a grown-on placket, you can skip the first two sub-steps and skip ahead to Understanding a classic buttonhole placket.
+> Si vous avez choisi une patte à replier directement depuis la partie devant, vous pouvez sauter les deux premières sous-étapes et aller directement à l'étape [Comprendre une patte de boutonnières classique](#comprendre-une-patte-de-boutonnières-classique).
 
-#### Sew on the buttonhole placket
+#### Coudre la patte de boutonnières
 
-![Sew on the butonhole placket](10a.png)
+![Coudre la patte de boutonnières](10a.png)
 
-If you have chosen a separate buttonhole placket, sew it to the Front Left piece.
+Si vous avez choisi une patte de boutonnières séparée, cousez-la sur la partie Devant Gauche.
 
-Place the Front Left (piece 2) down with the good side up, and place the Buttonhole Placket (piece 2b) on top of it with the good side down, making sure to align the seam.
+Placez le Devant Gauche (pièce 2) à l'endroit, et posez par dessus la Patte de Boutonnières (pièce 2b) à l'envers, en veillant à bien aligner la couture.
 
-Sew it in place with the default seam allowance.
+Cousez-la en place avec la marge de couture par défaut.
 
-When you're done, don't forget to give it a good press. Press the seam allowance towards the placket side.
+Lorsque vous avez fini, n'oubliez pas de donner un bon coup de fer. Repassez la marge de couture en direction de la patte.
 
-#### Press seam allowance to the placket side
-Place your front with the good side down, and press the seam allowance to the buttonhole placket side.
+#### Repasser la marge de couture vers la patte
+Placez le devant à l'envers, et repassez la marge de couture en direction de la patte de boutonnière.
 
-#### Understanding a classic buttonhole placket
+#### Comprendre une patte de boutonnières classique
 
-> If you have chosen a seamless placket, you should follow the steps of the button placket, as the construction is identical.
+> Si vous avez choisi une patte sans couture, vous devriez suivre les étapes de la patte de boutonnage, comme la construction est identique.
 >
-> The steps below are for a classic buttonhole placket.
+> Les étapes ci-après sont pour une patte de boutonnières classique.
 
-![Understanding a classic buttonhole placket](10b.png)
+![Comprendre une patte de boutonnières classique](10b.png)
 
-Your placket has a bunch of lines on it, so let's first clarify what they are:
+Il y a un ensemble de lignes sur votre patte, alors commençons tout d'abord par clarifier ce qu'elles représentent:
 
- - The buttonhole line has long dashes with buttonholes on it. It marks where the buttonholes should go
- - The two fold lines have long dashes and sit at an equal distance right and left of the buttonhole line
- - The two+two sew lines are dotted lines that sit at an equal distance of each fold line
+ - La ligne de boutonnières a de longs tirets avec les boutonnières dessus. Elle marque où les boutonnières doivent être placées
+ - Les deux lignes de plis ont des longs tirets et se trouve à une égale distance à droite et à gauche de la ligne de boutonnières
+ - Les deux+deux lignes de couture sont des lignes en pointillés qui se trouvent à une égale distance de chaque ligne de pli
 
-#### Trim back seam allowance
+#### Découper le surplus de couture
 
-> If you have chosen a grown-on placket, this does not apply.
+> Si vous avez choisi une patte sans couture, cela ne s'applique pas.
 
-![Trim back seam allowance](10c.png)
+![Découper les surplus de couture](10c.png)
 
-The seam allowance of where you sewed your buttonhole placket to your front should fit inside your folded placket.
+La marge de couture de là où vous avez cousu votre patte de boutonnières au devant se trouve à l'intérieur de votre patte pliée.
 
-For that, trim back the seam allowance so that it doesn't extend beyond the first fold line on the placket.
+Pour ça découpez le surplus de couture de façon à ce qu'il ne dépasse pas de la première ligne de pli de la patte.
 
 #### Fold the buttonhole placket
 
