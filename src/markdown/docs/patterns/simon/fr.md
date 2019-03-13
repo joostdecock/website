@@ -7,7 +7,7 @@ path: /fr/docs/patterns/simon
 
 Pour réaliser Simon, vous aurez besoin de ce qui suit :
 
- - Environ 2 mètres d'un tissu approprié (voir les [Options de tissu](#options-de-tissu)
+ - Environ 2 mètres d'un tissu approprié (voir les [Options de tissu](#options-de-tissu))
  - Boutons
  - Entoilage thermocollant pour le col et les poignets (et possiblement sur la patte de boutonnage avant)
 
@@ -235,7 +235,7 @@ Surpiquez le long du bord du col. Cela va bloquer la marge de couture et donner 
 
 ![Placer le col entre les pieds de col et bâtir en place](4a.png)
 
-Marquer le milieu de votre col et de votre pied de col avec une épingle. Les milieux de chaque pied de col sont en vérité décalés étant donné qu'une extrémité est plus longue que l'autre. A la place, trouvez le milieu entre les deux crans.
+Marquez le milieu de votre col et de votre pied de col avec une épingle. Les milieux de chaque pied de col sont en vérité décalés étant donné qu'une extrémité est plus longue que l'autre. A la place, trouvez le milieu entre les deux crans.
 
 Tout d'abord, placez un pied de col à l'endroit, puis votre col et dessous de col à l'endroit (et le côté non cousu sur le haut), et finalement le deuxième pied de col à l'envers.
 
@@ -267,7 +267,7 @@ Rabattez la marge de couture de votre pied de col sur le côté non cousu et rep
 
 > Dans la partie centrale, repassez la marge de couture sera facile. Mais à l'approche des pointes de votre col, le faire va être délicat sans faire de pli sur votre col.
 >
-> Repasser au mieux que vous pouvez sans créer de pli sur votre col. Nous repasserons de nouveau après avoir retourné le col.
+> Repassez au mieux que vous pouvez sans créer de pli sur votre col. Nous repasserons de nouveau après avoir retourné le col.
 
 #### Retourner le pied de col et repasser
 
@@ -308,7 +308,7 @@ Lorsque vous avez fini, n'oubliez pas de bien repasser pour aplatir la couture.
 
 Avec vos empiècements assemblés à votre dos, nous allons faire une piqûre de bordure le long de la couture que nous venons d'effectuer, du côté de l'empiècement.
 
-> Plier l'empiècement interne pour le mettre de côté. Notre piqûre de bordure va prendre l'empiècement externe, le dos et les marges de coutures, mais pas l'empiècement intérieur.
+> Pliez l'empiècement interne pour le mettre de côté. Notre piqûre de bordure va prendre l'empiècement externe, le dos et les marges de coutures, mais pas l'empiècement intérieur.
 
 Cousez juste au bord de la couture qui assemble l'empiècement externe et le dos.
 
@@ -417,238 +417,238 @@ La marge de couture de là où vous avez cousu votre patte de boutonnières au d
 
 Pour ça découpez le surplus de couture de façon à ce qu'il ne dépasse pas de la première ligne de pli de la patte.
 
-#### Fold the buttonhole placket
+#### Plier la patte de boutonnière
 
-![Fold the buttonhole placket](10d.png)
-![Fold the buttonhole placket again](10e.png)
+![Plier la patte de boutonnières](10d.png)
+![Plier de nouveau la patte de boutonnière](10e.png)
 
-Fold the placket on the first fold line. Press the fold in place.
+Pliez la patte sur la première ligne de pliure. Repassez pour marquer le pli.
 
-Then, fold the part you just folded again, this time on the second fold line. Press this fold in place too.
+Puis, pliez de nouveau, cette fois sur la seconde ligne de pliure. Repassez pour marquer ce pli aussi.
 
-> When your placket is folded and pressed, place a few pins along the length of your placket to keep things from shifting around
+> Lorsque votre patte est pliée et repassée, placez quelques épingles le long de votre patte pour maintenir les choses en place.
 
-#### Sew the buttonhole placket
+#### Coudre la patte de boutonnière
 
-![Sew on the first line](10f.png)
-![Sew on the second line](10g.png)
+![Coudre sur la première ligne](10f.png)
+![Coudre sur la seconde ligne](10g.png)
 
-Sew on the first sew line, closest to the edge.
+Cousez la première ligne de couture, la plus proche du bord.
 
-Then, flip your shirt over so that the good side is up, and your placket is up too. Then sew on the second sew line.
+Puis, retournez votre chemise de façon à la mettre à l'endroit, et la patte de boutonnière aussi. Puis cousez la seconde ligne de couture.
 
-> These two lines of top-stitching will always be visible, so make sure to keep it neat
+> Ces deux lignes de surpiqûre seront toujours visibles, alors assurez-vous qu'elles soient bien nettes.
 
-#### Press the buttonhole placket
+#### Repasser la patte de boutonnières
 
-![Press the buttonhole placket](10h.png)
+![Repasser la patte de boutonnières](10h.png)
 
-Congratulations, you made a classic buttonhole placket.
+Félicitations, vous avez réalisé une patte de boutonnières classique.
 
-Now press that baby. You know you want to.
+A présent, repassez donc ce trésor. Vous savez que vous en mourrez d'envie.
 
-### Step 11: Close the shoulder seams
+### Etape 11 : Fermer les coutures d'épaules
 
-> **Let's stuff a burrito**
+> **C'est parti pour le garnissage de burrito**
 >
-> We are going to close the shoulder seams with a technique that is commonly know as the **burrito method**.
+> Nous allons fermer les coutures d'épaule avec une technique connue sous le nom de la **méthode du burrito**.
 >
-> If you are familiar with the burrito method, you already know what to do. If not, read on for a clever way to neatly close your shirt's shoulder seams while locking all the unfinished edges out of sight.
+> Si vous êtes familier avec la méthode du burrito, vous savez déjà quoi faire. Sinon, continuez votre lecture pour apprendre une manière astucieuse pour fermer les coutures d'épaule de votre chemise tout en bloquant tous les bords non finis hors de vue.
 
-#### Pin the fronts to the outside yoke
+#### Epingler les devants à l'empiècement externe
 
-![Pin the fronts to the outside yoke](11a.png)
-![Pin the fronts to the outside yoke](11b.png)
+![Epingler les devants à l'empiècement externe](11a.png)
+![Epingler les devants à l'empiècement externe](11b.png)
 
-Place your back down with the good side up, but be careful to fold the inner yoke downward (as illustrated by the dotted line.
+Placez le dos à l'endroit, mais faites attention à plier l'empiècement interne vers le bas (comme illustré par la ligne en pointillés).
 
-Place your fronts on your back, with the good sides down. Pin fronts to the yoke at the shoulder seam, good sides together.
+Placez vos devants sur votre dos à l'envers. Epinglez les devant à l'empiècement au niveau de la couture d'épaule, endroit contre endroit.
 
-#### Roll, roll, roll your shirt, pin down and sew your seam
+#### Rouler, rouler, rouler la chemise, épingler et piquer
 
-![Roll your shift up between the yokes](11c.png)
+![Rouler la chemise entre les empiècements](11c.png)
 
-Roll up your back and fronts starting at the hem. Roll them into a neat sausage upwards until you can see the entire turned down yoke.
+Roulez vers le haut le dos et les devants en partant de l'ourlet. Roulez-les en une saucisse nette jusqu'à ce que vous puissiez voir tout l'empiècement à l'envers.
 
-Now, you can flip the inner yoke over your rolled sausage to align the shoulder seams with the other yoke and fronts.
+Maintenant, vous pouvez rabattre l'empiècement interne sur votre saucisse roulée pour aligner les coutures avec l'autre empiècement et les devants.
 
-Pin them in place, and then sew the shoulder seams, making sure to keep your sausage (or burrito stuffing) out of the way so it doesn't get caught in the seam.
+Epinglez-les en place, et effectuez les coutures d'épaule, en veillant à garder la saucisse (ou la garniture de burrito) en dehors du chemin pour qu'elle ne soit pas prise dans la couture.
 
-![Match the notches](11e.png)
+![Faire correspondre les crans](11e.png)
 
-> Made sure to align the actual seam line.
-> Due to the uneven angles at the neck opening, the fabric edge is often longer on one side than on the other.
+> Assurez-vous d'aligner cette ligne de couture.
+> A cause des angles inégaux à l'encolure, le bord du tissu est souvent plus long d'un côté que de l'autre.
 >
-> However, the seamlines are the same lenght, so make sure to match them carfully using the notches.
+> Toutefois, les lignes de couture ont la même longueur, alors soyez certain de les faire correspondre attentivement en utilisant les crans.
 
-#### Flip it inside out through the neck opening
-When you've sewn both shoulder seams, reach in through the neck opening, and pull out the back and front parts to inside-out your burrito.
+#### Retourner l'intérieur vers l'exérieur à travers l'encolure
+Lorsque vous aurez vousu les deux coutures d'épaule, passez la main à travers l'encolure, et tirer les parties dos et devants de l'intérieur vers l'extérieur de votre burrito.
 
-#### Press the shoulder seams
+#### Repasser les coutures d'épaule
 
-![Press the shoulder seams](11d.png)
+![Repasser les coutures d'épaule](11d.png)
 
-You did all this work, so now make sure you make it look super sharp by giving it a good press. Make sure that the seam allowance between your yokes lies nice and flat for that.
+Vous avez fait tout ce boulot, maintenant assurez-vous de le rendre super net en faisant travailler votre fer. Veillez à ce que la marge de couture entre vos empiècements repose bien à plat pour cela.
 
-### Step 12: Edge-stitch the shoulder seams of the yoke
+### Etape 12 : Faire une piqûre de bordure sur les coutures d'épaule
 
-![Edge-stitch the shoulder seams of the yoke](12.png)
+![Faire une piqûre de bordure sur les coutures d'épaule des empiècements](12.png)
 
-Just as we've edge-stitched the bottom seam of the yoke in Step 3, we're going to edge-stitch the yoke at the shoulder seams too.
+Juste comme nous avons fait une piqûre de bordure sur la couture du bas des empiècements à l'étape 3, nous allons faire de même au niveau des épaules.
 
-Since you've just pressed these shoulder seams, everything should lie nice and flat, and you just need to run a stitch right next to the seam.
+Etant donné que vous venez de repasser ces coutures d'épaule, tout devrait reposer bien à plat, et vous avez juste besoin de faire piquer votre aiguille juste à côté de la couture.
 
-> Make sure to edge-stitch on the yoke part, where you will catch all the seam allowance, and not on the front part.
+> Veillez à piquer côté empiècement, où vous prendrez toutes les marges de couture et non sur la partie devant.
 
-### Step 13: Construct the sleeve placket
+### Etape 13 : Construire les pattes des manches
 
-#### Sew in the cuff guard
+#### Coudre la garde du poignet
 
-![Sew in the cuff guard](13a.png)
-![Press the cuff guard](13b.png)
-![Edge-stitch the cuff guard in place](13c.png)
+![Coudre la garde du poignet](13a.png)
+![Repasser la garde du poignet](13b.png)
+![Effectuer une piqure de bordure pour maintenir la garde du poignet en place](13c.png)
 
- - Place your sleeve with the good side down, and your cuff guard on top, also with the good side down.
- - Align the edge of your cuff guard (aka sleeve placket underlap) with the cut in your sleeve, on the side shortest to the side seam.
- - Now sew along the fold line marked on the cuff guard, closest to the edge.
+ - Placez votre manche à l'enversn et votre garde de manche par-dessus, également à l'envers.
+ - Alignez le bord de votre garde de manche (dite patte de boutonnage de manche du dessous) avec la ligne de coupure dans votre manche, sur le côté plus court que la couture du côté.
+ - Maintenant, cousez le long de la ligne de pliure marquée sur la garde du poignet, le plus près du bord.
 
-> If during cutting out your pattern pieces you had not cut into your sleeve on the line where the sleeve placket needs to be put in, you need to do that first.
+> Si pendant la découpe des pièces de votre patron vous n'avez pas coupé dans votre manche sur la ligne où la patte de manche doit être mise, il faut que vous le fassiez d'abord.
 
- - Fold over the cuff guard, and press down this seam.
- - Turn your sleeve over with the good side up, and bring your cuff guard through the slit in your sleeve.
- - Fold it twice on the lines so that the unfinished seam is tucked inwards.
- - Make your folds so that the upper folds sits ever so slightly further than the seam you already made.
- - Press everything down, and then edge-stitch the cuff guard in place.
+ - Repliez la garde de poignet, et repassez cette couture.
+ - Retournez votre manche à l'endroit, et faites passer votre garde de poignet à travers la fente dans votre manche.
+ - Pliez la deux fois sur les lignes pour que la couture non finie soit repliée vers l'intérieur.
+ - Faites vos plis de façon à ce que le pli du haut se trouve légèrement plus loin que la couture déjà réalisée.
+ - Repassez le tout, et faites une piqûre de bordure pour maintenir la garde du poignet en place.
 
-#### Fold and press the placket
+#### Plier et repassez la patte
 
-![Fold and press the placket](13d.png)
+![Plier et repassez la patte](13d.png)
 
-Origami time! We're going to fold the sleeve placket overlap using the marked fold lines as our guide. This will be a lot easier if you press between each fold.
+Origami time ! Nous allons plier la patte de manche du dessus en utilisant les lignes de pliure comme guide. Cela sera bien plus facile si vous repassez entre chaque pli.
 
- - First, fold the outer edges of the placket inwards.
- - Next, fold the entire thing double.
- - Then, fold down both tips into a nice pointy shape.
- - Now give it a final good press.
+ - D'abord, pliez les bords externe de la patte vers l'intérieur.
+ - Ensuite, pliez deux fois l'ensemble.
+ - Puis, pliez les deux côtés de la pointe pour obtenir une belle forme pointue.
+ - Maintenant, donnez un bon coup de fer.
 
 @[youtube](kgd5eubxShM)
 
-> Here's [a very short YouTube video of me folding the placket](https://www.youtube.com/watch?v=kgd5eubxShM).
+> Voici [une très courte vidéo YouTube qui me montre en train de plier la patte](https://www.youtube.com/watch?v=kgd5eubxShM).
 
-#### Pin placket in place
+#### Epingler la patte en place
 
-![Slide placket in position](13e.png)
-![Pin placket in place](13f.png)
+![Glisser la patte en position](13e.png)
+![Epingler la patte en place](13f.png)
 
-Place your sleeve down with the good side up. The guard we have sewn in earlier sits against the other unfinished fabric edge of where you cut into your sleeve.
+Placez votre manche à l'endroit. La garde que nous avons cousue précédemment se trouve contre l'autre bord de tissu non fini de là où vous avez coupé votre manche.
 
-Place your placket around that edge, one side above it, one underneath.
+Placez la patte autour de ce bord, un côté par-dessus, un côté par-dessous.
 
-You need to slide the placket onto your sleeve until the middle of it (the tip) aligns with the cut in your sleeve.
+Vous avez besoin de glisser la patte sur votre manche jusqu'à ce que son milieu (la pointe) soit alignée avec la fente de votre manche.
 
-The idea is that the placket closes up the unfinished edge, but also covers the guard of the other edge.
+L'idée étant que la patte ferme le bord non fini, mais couvre également la garde de l'autre bord.
 
-When you've got it where you want it, pin the placket down.
+Lorsque vous l'aurez placée au bon endroit, épinglez-là en place.
 
-#### Sew the sleeve placket
+#### Coudre la patte de manche
 
-![Sew the sleeve placket](13g.png)
+![Coudre la patte de manche](13g.png)
 
-Start at the edge of the sleeve (the bottom of the sleeve placket) and edge-stitch along the edge upwards.
+Commencez au bord de la manche (le bas de la patte de manche) et faites une piqûre de bordure le long du bord vers le haut.
 
-Go around the tip, and come down again on the other side (the fold side) until you have passed the point where your guard ends.
+Faites le tour de la pointe, et redescendez de l'autre côté (le côté du pli) jusqu'à passer le point où la garde se finit.
 
-Then, sew horizontal to the other side of the placket to finish.
+Alors, cousez une ligne horizontale sur l'autre côté de la patte pour finir.
 
-> I have included an extra illustration here that only shows the outline of the placket. You can see that the end of the guard is caught in our stitching of the placket, and is thus neatly tucked away.
+> J'ai inclus une illustration supplémentaire ici qui montre seulement le contour de la patte. Vous pouvez voir que la fin de la garde est prise dans la couture de la patte, et se retrouve ainsi repliée nettement.
 
-### Step 14: Set in sleeves
+### Etape 14 : Monter les manches
 
-#### Remember, this is a flat-felled seam
+#### Souvenez-vous, c'est une couture rabattue
 
-![Aligning the fabric for a flat-felled seam](14c.png)
+![Aligner le tissu pour une couture rabattue](14c.png)
 
 
-> **Careful with the extra seam allowance for the flat-felled seam**
-> There is extra seam allowance on the sleeve to allow for the creation of the flat-felled seam.
+> **Attention à la marge de couture supplémentaire pour la couture rabattue**
+> Il y a une marge de couture supplémentaire pour permettre la réalisation d'une couture rabattue.
 >
-> As such, be careful to not align the fabric edge, but align the seam so that the sleeve sits out 1cm.
+> Alors, faites attention à ne pas aligner les bords du tissu, mais d'aligner la couture de façon à ce que la manche soit décalée de 1 cm.
 
-#### Pin shirt in place
+#### Epingler la chemise en place
 
-![Pin shirt in place](14a.png)
+![Epingler la chemise en place](14a.png)
 
-Spread your shirt open so that both fronts and back lie flat with their good sides up.
+Disposez votre chemise de façon à ce que les devants et le dos reposent à plat à l'endroit.
 
-Now place your sleeve on top with the good side down, matching the notch at the top of the sleeve with the shoulder seam.
+Maintenant placez votre manche dessus à l'envers, en faisant correspondre les crans de la couture de la tête de manche avec l'emmanchure.
 
-> Be careful, your sleeve is not symmetric, so be sure to have the double notch (and cuff guard) on the back side, and the single notch on the front side.
+> Faites attention, votre manche n'est pas symmétrique, alors assurez-vous d'avoir le double cran (et la garde de poignet) du côté du dos, et le cran unique du côté du devant.
 >
-> Also note that the double notches on the back of your sleeve do not have corresponding notches on the back. That's because it should match op with the seam where your yoke joins the back.
+> Notez également que le double cran au dos de votre manche n'a pas de crans correspondant sur le dos. C'est parce qu'il devrait correspondre avec la couture où l'empiècement est assemblé au dos.
 
-You now need to pin the sleeve to the armhole. To do so, make sure to:
+Vous avez maintenant besoin d'épingler la manche à l'emmanchure. Pour ce faire, veillez à :
 
- - Match the start and end of the sleevehead to the start and end of the armhole
- - Match the notches on the sleevehead to the notches on the back and fronts
- - Distribute the sleevecap ease between the notches as shown
+ - Faire correspondre le début et la fin de la tête de manche au début et à la fin de l'emmanchure
+ - Faire correspondre les crans de la tête de manche aux crans dos et devants
+ - Distribuer l'embu entre les crans comme c'est montré
 
-#### Distribute sleavecap ease
+#### Distribuer l'embu de la tête de manche
 
-![Distribute the sleevecap ease](14b.png)
+![Distribuer l'embu de la tête de manche](14b.png)
 
-The default sleevecap ease for this pattern is 0.5cm. If you have sleevecap ease, you need to distribute that extra length evenly between the notches as shown.
+L'embu par défaut pour la tête de manche de ce patron est de 0,5 cm. S'il y a de l'embu, il faut le distribuer uniformément entre les crans comme c'est montré.
 
-> If you are unsure what sleevecap ease is, have a look at the [documentation for the sleevecap ease pattern option](/en/docs/patterns/simon/options#sleevecapEase).
+> Si vous n'êtes pas sûr de ce qu'est l'embu, jetez un oeil à la [documentation pour l'option d'embu du patron](/fr/docs/patterns/simon/options#sleevecapEase).
 >
 
-#### Sew sleeve in armhole
-When you've got your sleeve neatly pinned in your armhole, sew it in place. Be careful to avoid any pleats in the part between the notches where you need to ease in the sleevecap ease.
+#### Coudre la manche dans l'emmanchure
+Lorsque votre manche est nettement épinglée à l'emmanchure, cousez la en place. Faites attention à ne pas créer de plis dans la partie entre les crans où vous devez absorber l'embu.
 
-> Needless to say, but I'll say it anyway: Repeat this step for the other sleeve.
+> Pas besoin de le dire, mais je vais le dire quand même : Répétez ces étapes pour l'autre manche.
 
-### Step 15: Flat-fell armhole seam
+### Etape 15 : Rabattre la couture de l'emmanchure
 
-#### Press seam allowance to one side
+#### Repasser la marge de couture sur le côté
 
-![Press seam allowance to once side](15a.png)
+![Repasser la marge de couture sur le côté](15a.png)
 
-Lay down your freshly sewn sleeve seam with the good side down
+Disposez votre manche fraichement cousue à l'endroit
 
-We are going to press the seam allowance to one side. To do so, identify the seam allowance that is wider (for the flat-felled seam).
+Nous allons repasser la marge de couture sur le côté. Pour ce faire, identifiez la marge de couture plus large (pour la couture rabattue).
 
-The longer seam allowance needs to lie on top of the shorter (standard seam allowance).
+La marge de couture plus longue doit être au dessus de la plus courte (marge de couture standard).
 
-Once you have verified that, press down the seam allowance.
+Une fois que vous aurez vérifié cela, repasser la marge de couture.
 
-#### Fold under extra seam allowance
+#### Plier la marge de couture supplémentaire
 
-![Fold under extra seam allowance](15b.png)
+![Plier la marge de couture supplémentaire](15b.png)
 
-Now, fold the extra seam allowance for the flat-felled seam under the standard seam allowance.
+A présent, pliez la marge de couture supplémentaire pour la couture rabattue sous la marge de couture standard.
 
-You can use pins to hold this in place, but it's simpler to just press it.
+Vous pouvez utiliser des épingles pour maintenir cela en place, mais il est plus simple de repasser tout simplement.
 
-> This will be relatively easy on the straight parts of the seam, but a bit more tricky at the curved sections. Take your time, and if needed you can cut into the extra seam allowance to allow it to flare open, or bend.
+> Cela sera relativement facile pour les parties droites de la couture, mais un peu plus délicat sur les parties courbes. Prenez votre temps, et si c'est nécessaire, vous pouvez cranter la marge de couture supplémentaire pour pouvoir l'aplatir, ou la courber.
 
-#### Sew the flat-felled seam
-Now, from the bad side of the fabric, sew the seam allowance down just at the edge where it folds under the other seam allowance.
+#### Effectuer la couture rabattue
+Maintenant, depuis l'envers du tissu, cousez la marge de couture juste au bord là où elle est repliée sous l'autre marge de couture.
 
-Important here it to keep an even distance from the seam of your sleeve. If you have a felling foot for your sewing machine, it will help you with that. But if not, just be careful.
+Il est important ici de garder une égale distance depuis la couture d'épaule. Si vous avez un pied ourleur pour votre machine à coudre, il peut vous aider pour cela. Sinon, soyez juste concentré.
 
-> It is more important to keep and even distance from the sleeve seam than to sew exactly at the edge of the fold. Ideally, the fold sits at an even distance anyhow, but if it doesn't, just make sure to sew parallel to the sleeve seam. Even if that means you deviate a bit from the folded edge.
+> Il est plus important de garder une distance égale par rapport à la couture de la manche que de coudre exactement au bord du pli. Idéalement, le pli se situe toujours à une distance égale, mais s'il n'y est pas, veillez juste à coudre parallèlement à la couture de la manche. Même si cela implique une légère déviation par rapport au bord plié.
 
-#### Press the flat-felled seam
-When it's all done, press the flat-felled seam from the good side so it lies nice and flat.
+#### Repasser la couture rabattue
+Lorsque c'est fait, repassez la couture rabattue sur l'endroit de façon à bien l'aplatir.
 
-### Step 16: Close the side/sleeve seams
+### Etape 16 : Fermer les coutures côté/manche
 
-![Close the side/sleeve seams](16a.png)
-![Remember, this is a flat-felles seam](16b.png)
+![Fermer les coutures côté/manche](16a.png)
+![Souvenez-vous, c'est une couture rabattue](16b.png)
 
-Place your shirt with the good sides together, and sew the side and sleeve seams to close the shirt.
+Placez votre chemise à l'endroit, et cousez les coutures côté et manche pour fermer la chemise.
 
-> There is extra seam allowance on the sleeve and front sides to allow for the creation of the flat-felled seam.
-> As such, be careful to not align the fabric edge, but align the seam so that the extra seam allowance sits out 1cm.
+> Il y a une marge de couture additionnelle sur la manche et les côtés des devants pour permettre la création d'une couture rabattue.
+> Ainsi, faites attention à ne pas aligner les bords du tissu, mais d'aligner la couture de façon à ce que la marge de couture supplémentaire soit décalée de 1 cm.
 
 ### Step 17: Flat-fell the side/sleeve seams
 
