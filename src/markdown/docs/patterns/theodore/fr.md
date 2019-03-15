@@ -306,124 +306,123 @@ Lorsque vous avez fini, enlevez les épingles que vous avez placées précédemm
 ![Rabattre le parement de braguette et épingler](step21a.png){.fs-row2}
 ![Rabattre le parement de braguette et épingler](step21b.png){.fs-row2}
 
-Flip everything over so that your fly shield lies at the bottom.
+Retournez le tout pour que le parement de braguette se retrouve en bas.
 
-Fold the lining of the fly shield around the fly, front piece and fly piece, making sure to double-fold it so the raw edge is hidden inside.
+Rabattez la doublure du parement de braguette autour de la braguette, de la pièce devant et de la braguette, en vous assurant de la plier en deux pour que le bord non fini soit caché à l'intérieur.
 
-Pin this down, and remove your previous pins.
+Epinglez-cela, et retirer vos épingles précédentes.
 
-### Step 22: Sew fly in place along zip
+### Etape 22 : Coudre la braguette en place le long du zip
 
-![Sew fly in place along zip](step22.png)
+![Coudre la braguette en place le long du zip](step22.png)
 
-Now you can sew along the double folded fly piece. This will fix the front, zip, fly shield and fly piece all in place.
+Maintenant vous pouvez coudre le long de la braguette pliée en deux. Cela va fixer en place le devant, la fermeture éclair, le parement de braguette et la braguette.
 
-> You will be sewing along your zip, so make sure to install your zipper foot for this.
+> Vous allez coudre le long du zip, alors veillez à installer votre pied pour fermeture éclair sur votre machine, si vous en avez un.
 
-### Step 23: Fold back fly and press
+### Etape 23 : Rabattre la braguette et repasser
 
-![Fold back fly and press](step23.png)
+![Rabattre la braguette et repasser](step23.png)
 
-When you're done, fold back the fly so that it extends from the front piece, and give it a thorough press from the back. And a gentle press from the front.
+Lorsque vous aveez fini, rabattez la braguette de façon à ce qu'elle s'étende à partir de la pièce devant, et donnez un coup de fer vigoureux depuis l'envers. Et un coup délicat sur l'endroit.
 
-### Step 24: Apply bias tape to second fly piece and press
+### Etape 24 : Appliquer du biais sur la seconde pièce de braguette et repasser
 
-![Apply bias tape to the edge with the large curve of your second fly piece](step24.png)
+![Appliquer du biais sur le bord avec la courbe large de la seconde pièce de braguette](step24.png)
 
-Apply bias tape to the edge with the large curve of your second fly piece.
+Appliquer du biais sur le bord avec la courbe large de la seconde pièce de braguette.
 
-Press the finished edge flat when you're done.
+Repassez le bord fini lorsque vous aurez terminé.
 
-> Bias tape is a way to finish a seam. If you are not sure what it is or how to apply it, let me know.
+> Utiliser du biais est une manière de finir une couture. Si vous n'êtes pas sûr de ce que c'est où comment l'appliquer, faites-le moi savoir.
 
-### Step 25: Pin and sew fly piece to crotch seam
+### Etape 25 : Epingler et coudre la pièce de braguette à la couture d'entrejambe
 
-![Pin and sew fly piece to crotch seam](step25.png)
+![Epingler et coudre la pièce de braguette à la couture d'entrejambe](step25.png)
 
-Place the left leg with the good side up. Place the second fly piece on top with the good side down, aligning the unfinished seam with the crotch seam.
+Placez la jambe gauche à l'endroit. Placez la seconde pièce de braguette au dessus à l'envers, en alignant au niveau de la couture non finie d'entrejambe.
 
-Pin the fly piece in place, then sew it in place along the crotch seam.
+Epingler la pièce de braguette en place, puis cousez-la en place le long de la couture d'entrejambe.
 
-> When you sew this in place, make sure to catch the front lining.
+> Lorsque vous cousez en place, veillez à bien prendre la doublure devant.
 
-Press the finished edge flat when you're done.
+Repassez le bord fini lorsque vous aurez fini.
 
-### Step 26: Roll the fly piece to the back, and press the seam
+### Etape 26 : Rouler la pièce de braguette vers l'arrière, et repasser la couture
 
-![Roll the fly piece to the back, and press the seam](step26.png)
+![Rouler la pièce de braguette vers l'arrière, et repasser la couture](step26.png)
 
-Fold the fly piece to the back. Before you press, make sure to roll the seam a bit backwards so that the front of the trousers sits a little further than the fly piece.
+Pliez la pièce de braguette vers l'arrière. Avant de repasser, veillez à rouler la couture un peu vers l'arrière pour que le devant de votre pantalon soit un peu plus loin que la pièce de braguette.
 
-This way, the seam or fly piece will not show from the front.
+De cette manière, la couture ou la pièce de braguette ne sera pas visible à l'avant.
 
-Give it a good press from the back.
+Donnez un bon coup de fer depuis l'envers.
 
-### Step 27: Pin and sew zip to fly piece
+### Etape 27 : Epingler et coudre la fermeture éclair à la pièce de braguette
 
-![Place both legs on top of eachother](step27a.png){.fs-row3}
-![Pin the zip along the edge](step27b.png){.fs-row3}
-![Sew in place](step27c.png){.fs-row3}
+![Placez les deux jambes l'une sur l'autre](step27a.png){.fs-row3}
+![Epinglez le zip le long du bord](step27b.png){.fs-row3}
+![Coudre en place](step27c.png){.fs-row3}
 
-Place the right leg down with the good side up. Place the leg on top of it with the good side down.
+Placez la jambe droite à l'endroit puis la jambe gauche par dessus à l'envers.
 
-With the crotch seams aligned, pin the zip along the edge of the fly piece with the good side of the zip down.
+Avec la couture d'entrejambe alignée, épinglez le zip à l'envers le long du bord de la pièce de braguette.
+Veillez à épingler le zip seulement à la pièce de braguette, pas aux autres couches en dessous.
 
-Make sure to pin the fly only to the fly piece. Not to any other layers underneath.
+> Je trouve plus facile d'épingler le zip à travers toutes les couches, et puis lorqu'il est bien maintenu en place ajouter des épingles supplémentaires qui ne traversent que le zip et la braguette. Lorsque c'est fait, vous pouvez retirer les épingles qui traversent toutes les couches.
 
-> I find it's easier to pin the zip through all layers, and then when it's secure in place add extra pins that pin it to the fly piece only. When that's done, you can remove the pins that go through all layers.
+Dernier point mais non le moindre, cousez le long du zip avec votre pied pour fermeture éclair pour le fixer à la braguette.
 
-Last but not least, sew along the zip with your zipper foot to attach it to the fly piece.
-
-> When aligning the zip, make sure to take the following into account:
+> Lorsque vous alignez le zip, veillez à prendre en compte ce qui suit :
 >
-> - The zip should be placed with the good side down
-> - The zip should sit a bit back from the edge of your fly piece
-> - Make sure to align the top of the zip with the other zip half on the right leg
+> - Le zip devrait être placé à l'envers
+> - Il devrait se trouver un peu en arrière du bord de votre braguette
+> - Veillez à bien aligner le haut du zip avec l'autre moitité sur la jambe droite
 
-### Step 28: Zig-zag the zip edge to the fly piece
+### Etape 28 : Faites un point zig-zag pour fixer le bord du zip avec la pièce de braguette
 
-![Zig-zag the zip edge to the fly piece](step28.png)
+![Faites un point zig-zag pour fixer le bord du zip avec la pièce de braguette](step28.png)
 
-With the fly in place, run a zig-zag stitch along the edge of the zip to secure it to the fly piece.
+Avec la braguette en place, faites courir un point zig-zag le long du bord du zip pour le fixer à la pièce de braguette.
 
-### Step 29: Bar-tack both fly pieces together
+### Etape 29 : Faire un point d'arrêt sur les pièces de braguette
 
-![Bar-tack both fly pieces together](step29.png)
+![Faire un point d'arrêt sur les pièces de braguette](step29.png)
 
-Place both fly pieces together, and move the front pieces out of the way.
+Placez les deux parties de braguettes ensemble, et écartez les pièces devant hors du chemin.
 
-Use a bar-tack to join them together at the bottom of the zip. Sew on both edges of the zip, and get as close to the zip as you can.
+Utilisez un point d'arrêt pour les assembler en bas du zip. Cousez sur les deux bords du zip, et aussi près que possible de ce dernier que vous le pouvez.
 
-> If your zip is too long, you can trim it below the bar-tacks.
+> Si votre zip est trop long, vous pouvez le couper en dessous des points d'arrêt.
 
-### Step 30: Join crotch seam
+### Etape 30 : Réaliser la couture d'entrejambe
 
-![Join crotch seam](step30a.png){.fs-row2}
-![Join crotch seam](step30b.png){.fs-row2}
+![Réaliser la couture d'entrejambe](step30a.png){.fs-row2}
+![Réaliser la couture d'entrejambe](step30b.png){.fs-row2}
 
-Place both fronts with the good sides up. They are now joined by the fly.
+Placez les deux devants à l'endroit. Ils sont à présent assemblés par la braguette.
 
-Make sure the fly is neatly tucked under, and pin together both fronts at the bottom of the fly, where you bar-tacked earlier. Make sure the pin is aligned to the fold of your front.
+Assurez-vous que la braguette est repliée nettement en dessous, et épinglez les deux devants ensembles en bas de la braguette, où vous avez effectué des points d'arrêt plus tôt. Assurez-vous que l'épingle soit alignée avec le pli de votre devant.
 
-Fold the fronts with the good sides together, and pin them together along the crotch.
+Pliez les devants endroit contre endroit, et épinglez les ensemble le long de l'entrejambe.
 
-You'll need to get the fly shields out of the way, so if you've pinned through all layers before, remove that pin now, making sure to replace it with a horizontal pin. This will tell you how far to sew.
+Vous aurez besoin de mettre le parement de braguette hors du chemin, de façon à ce que si vous avez épinglé à travers toutes les couches plus tôt, retirez cette épingle maintenant, en vous assurant de la remplacer avec une épingle horizontale. Cela vous indiquera jusqu'où coudre.
 
-Sew the crotch seam, starting at the cross-seam point, and going up to your horizontal pin.
+Coudre l'entrejambe, en démarrant au point de croisement de l'entrejambe, et en allant vers le haut vers votre épingle.
 
-> I find this step hard to explain, and hard to illustrate. I hope it will make sense when you're looking at your fly. If not, check the video instructions.
+> Je trouve cette étape difficile à expliquer, et à illustrer. J'espère que cela prendra son sens lorsque vous regarderez votre braguette. Sinon, jetez un oeil aux instructions vidéos.
 
-### Step 31: Pin fly closed and baste fly curve
+### Etape 31 : Epingler pour fermer la braguette et bâtir la courbe de la braguette
 
-![Pin fly closed and baste fly curve](step31.png)
+![Epingler pour fermer la braguette et bâtir la courbe de la braguette](step31.png)
 
-Close the fly, and pin the fronts together making sure the fly is neatly tucked away.
+Fermez la braguette, et épinglez les devants ensemble en veillant à ce que la braguette soit nettement repliée.
 
-We will be topstitching the fly curve next, and it's a good idea to baste it first.
+Nous allons ensuite surpiquer la courbe de la braguette, et c'est une bonne idée de la bâtir d'abord.
 
-You should start a bit above your earlier bar tack, and make sure you catch only the fly shield of the left leg.
+Vous devriez démarrer un peu au-dessus de vos points d'arrêt précédants, et veiller à ne prendre que le parement de braguette de la jambe gauche.
 
-Curve upwards toward the edge of the fly shield, and then proceed in parallel with the zip.
+faites une courbe vers le haut, vers le bord du parement de braguette, puis continuez parallèlement au zip.
 
 ### Step 32: Topstitch the fly curve
 
