@@ -79,7 +79,7 @@ It is a shared responsibility of all contributors to enforce this code of conduc
 
 ## Point of contact
 
-All complaints should be reported to joost@decock.org. 
+All complaints should be reported to joost@decock.org or ji.catherine@gmail.com. 
 
 ## Attribution
 

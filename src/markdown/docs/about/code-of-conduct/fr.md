@@ -80,7 +80,7 @@ de conduite.
 
 ## Point de contact
 
-Toutes les plaintes devront être adressées à joost@decock.org. 
+Toutes les plaintes devront être adressées à joost@decock.org ou ji.catherine@gmail.com. 
 
 ## Attribution
 
