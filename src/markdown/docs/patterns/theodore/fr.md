@@ -342,7 +342,7 @@ Repassez le bord fini lorsque vous aurez terminé.
 
 Placez la jambe gauche à l'endroit. Placez la seconde pièce de braguette au dessus à l'envers, en alignant au niveau de la couture non finie d'entrejambe.
 
-Epingler la pièce de braguette en place, puis cousez-la en place le long de la couture d'entrejambe.
+Epinglez la pièce de braguette en place, puis cousez-la en place le long de la couture d'entrejambe.
 
 > Lorsque vous cousez en place, veillez à bien prendre la doublure devant.
 
@@ -424,266 +424,266 @@ Vous devriez démarrer un peu au-dessus de vos points d'arrêt précédants, et 
 
 faites une courbe vers le haut, vers le bord du parement de braguette, puis continuez parallèlement au zip.
 
-### Step 32: Topstitch the fly curve
+### Etape 32: Surpiquer la courbe de la braguette
 
-![Topstitch your fly curve](step32.png)
+![Surpiquer la courbe de la braguette](step32.png)
 
-Now topstitch your fly curve, using your basting as a guide.
+A présent supiquez la courbe de votre braguette, avec votre bâti comme guide.
 
-When doing so, you will be locking your front, fly piece, pocket bag and lining all together.
+En faisant cela, vous allez bloquer vos devant, braguette, fond de poche et doublure ensemble.
 
-### Step 33: Pin together the inner leg seam
+### Etape 33 : Epingler la couture d'entrejambe
 
-![Pin together the inner leg seam](step33.png)
+![Epingler la couture d'entrejambe](step33.png)
 
-Close the legs with the good sides together, and pin together the inner leg seam. Start at the cross seam point and work your way to the bottom of the legs.
+Mettez les jambes l'une par dessus l'autre endroit contre endroit, et épinglez le long de la couture d'entrejambe. Débutez à la fourche et continuez vers le bas des jambes.
 
-Make sure to do this for both legs.
+N'oubliez pas de la faire pour les deux jambes.
 
-### Step 34: Sew the inner leg seams
+### Etape 34 : Coudre les coutures de l'interieur des jambes
 
-![Sew the inner leg seams](step34.png)
+![Coudre les coutures de l'interieur des jambes](step34.png)
 
-On both legs, sew the inner leg seams that you just pinned. Make sure to respect the seam allowance.
+Pour les deux jambes, cousez les coutures de l'intérieur des jambes que vous venez d'épingler. Veillez à bien respecter les marges de couture.
 
-### Step 35: Press open seam allowance of the inner leg seam
+### Etape 35 : Ouvrir les marges de couture de l'intérieur des jambes
 
-![Press open seam allowance of the inner leg seam](step35.png)
+![Ouvrir les marges de couture de l'intérieur des jambes](step35.png)
 
-Place your leg inside-out on your ironing board, and press open the seam allowance of the inner leg seam.
+Placez votre jambe sur l'envers, et ouvrez la couture de l'intérieur de la jambe au fer.
 
-### Step 36: Close the cross-seam
+### Etape 36 : Fermer la couture de la fourche
 
-![Close the cross-seam](step36.png)
+![Fermer la couture de la fourche](step36.png)
 
-We are now going to close the cross-seam, from the bottom of your fly between your legs, up your bum to the center back of where you'll add the waistband later.
+Nous allons maintenant fermer la couture de la fourche, du bas de la braguette entre vos jambes, jusqu'à vos fesses au milieu dos où vous ajouterez la ceinture plus tard.
 
-To do so, turn on of the legs inside out, so that that good side of the fabric is turned inside, and the bad side and lining sits on the outside.
+Pour ce faire, retournez une jambe sur l'envers, de façon à ce que le côté endroit du tissu principal soit à l'intérieur, et l'envers et la doublure à l'extérieur.
 
-The other leg should not be turned inside-out, but should just have its good side on the outside.
+L'autre jambe ne devrait pas être retournée, mais juste avoir son côté endroit à l'extérieur.
 
-Now, put the leg that has the good side out (the normal leg) into the leg that has the bad side out (the inside-out leg).
+Maintenant, mettez la jambe qui est à l'endroit dans la jambe qui est à l'envers.
 
-This way, the good sides of both legs will sit against each other, and this is how you should sew the cross seam.
+De cette façon, les côtés endroits des deux jambes vont se faire face, et c'est ainsi que vous allez effectuer la couture de la fourche.
 
-> Be careful that your leg is not twisted inside the other leg. When in doubt, turn the inside-out leg outside-out again after you've pinned the cross-seam to make sure it's all ok.
+> Faites attention que votre jambe ne soit pas vrillée dans l'autre jambe. S'il y a un doute, retrournez la jambe qui est à l'envers à l'endroit de nouveau après avoir épinglé la couture de fourche pour vous assurer que tout est bon.
 
-Pin the cross-seam in place, and then sew it close, starting at the side of the fly, and making sure to respect the seam allowance.
+Epinglez la couture de la fourche en place, et puis piquez-la, en commençant du côté de la braguette, et en respectant bien les marges de couture.
 
-When done, press the seam allowance open.
+Lorsque c'est fait, ouvrez la couture au fer.
 
-### Step 37: Press the leg crease in place
+### Etape 37 : Repasser les plis des jambes en place
 
-![Press the leg crease in place](step37.png)
+![Repasser les plis des jambes en place](step37.png)
 
-Turn your trousers good side out, and carefully place one leg on your ironing board so that it lies flat and folds exactly on the crease line your basted earlier.
+Retournez votre pantalon sur l'endroit, et placez avec attention une jambe sur votre table à repasser de façon à ce qu'elle repose bien à plat et se plie exactement sur la ligne de pli que vous avez bâtie plus tôt.
 
-When it's looking good, press the crease lines in your leg, front a back. Repeat for the other leg.
+Lorsque cela paraâit satisfaisant, repassez les lignes de pli sur votre jambe sur l'avant et l'arrière. Répétez pour l'autre jambe.
 
-Give it a firm press because you want the pleats to still be there after you wash your trousers (so you can see where to press them again).
+Donnez un coup de fer bien ferme car vous voulez que les plis restent même après avoir lavé votre pantalon (de façon à savoir où repasser de nouveau).
 
->In the industry, chemicals are applied along the crease line before it is pressed together. Some tailors use some sort of wooden hammer and anvil to bang the fibers in a permanent crease.
+>Dans l'industrie, des produits chimiques sont appliqués le long de la ligne de pli avant qu'elle soit repassé. Certains tailleurs utilisent une sorte de marteau en bois et une enclume pour frapper les fibres et rendre le pli permanent.
 
-Depending on your fabric, your crease might last longer, but ultimately, you can't expect to have a crease that can withstand a few washes without being reapplied.
+En fonction de votre tissu, votre pli durera plus ou moins longtemps, mais au final, vous ne pouvez pas espérer avoir un pli qui peut résister à plusieurs lavages sans avoir à être reformé au fer.
 
-> Maybe this goes without saying, but there's also another option: Do not press the crease. This give your trousers a more informal look.
+> Peut-être que cela va sans dire, mais il y a aussi une autre option. Ne repassez pas le pli. Cela donnera un look moins formel à votre pantalon.
 
-### Step 38: Fuse interfacing to waistband
+### Etape 38 : Thermocollez la ceinture
 
-![Fuse interfacing to waistband](step38.png)
+![Thermocollez la ceinture](step38.png)
 
-Fuse the waistband interfacing (Piece 3) to the waistband (Piece 4).
+Thermocollez l'entoilage de la ceinture (Pièce 3) à la ceinture (Pièce 4).
 
-Align the interfacing in the middle of the waistband, and make sure to keep it nicely aligned as you fuse it in place with your iron.
+Alignez l'entoilage au milieu de la ceinture, et veillez à le garder bien aligné tout en le fixant au fer.
 
-### Step 39: Close waistband and waistband lining
+### Etape 39 : Assembler la ceinture et la doublure de ceinture
 
-![Close waistband and waistband lining](step39.png)
+![Assembler la ceinture et la doublure de ceinture](step39.png)
 
-Join the waistband (Pieces 4a and 4b) by sewing both pieces good sides together.
+Assembler la ceinture (Pieces 4a and 4b) en cousant les deux pièces ensemble endroit contre endroit.
 
-Join the waistband lining (Pieces 5a and 5b) by sewing both pieces good sides together.
+Assembler la doublure de ceinture (Pieces 5a and 5b) en cousant les deux pièces endroit contre endroit.
 
-### Step 40: Sew waistband to waistband lining
+### Etape 40 : Coudre la ceinture à la doublure de ceinture
 
-![Sew waistband to waistband lining](step40.png)
+![Coudre la ceinture à la doublure de ceinture](step40.png)
 
-Place your waistband on the waistband lining, good sides together, so that the waistband interfacing is facing upwards.
+Placez votre ceinture sur sa doublure, endroit contre endroit, de façon à ce que l'entoilage de la doublure de ceinture soit devant vous.
 
-Align the edge, and pin them together.
+Alignez le bord, et épinglez-les ensemble.
 
-> We are going to sew along the edge of the interfacing, but we will sew about 3mm or 1/8 inch from the actual interfacing edge. This will prevent the lining from being visible from the front later.
+> Nous allons coudre le long de l'entoilage, mais nous allons coudre à environ 3 mm ou 1/8 inch du bord de cet entoilage. Cela empêchera que la doublure soit visible de l'avant plus tard.
 
-On one side of the waistband, end with a curve and then go down vertically along the edge of the waistband interfacing. Check the illustration to make sure you do it on the correct side.
+Sur un côté de la ceinture, finissez avec une courbe et puis descendez verticalement le long du bord de l'entoilage de ceinture. Regardez bien les illustrations pour être certain que vous le faites du bon côté.
 
-### Step 41: Roll fabric around interfacing edge and press waistband
+### Etape 41 : Rouler le tissu autour du bord de l'entoilage et repasser la ceinture
 
-![Roll fabric around interfacing edge and press waistband](step41.png)
+![Rouler le tissu autour du bord de l'entoilage et repasser la ceinture](step41.png)
 
-Before pressing the waistband, make sure to roll over the fabric around the edge of the interfacing.
+Avant de repasser la ceinture, veillez à rouler le tissu autour du bord de l'entoilage.
 
-Remember that in the previous step your sewed 3mm from the interfacing edge? You need to make the fold around the edge of the interfacing so that the actual seam sits 3mm more inwards.
+Vous souvenezvous que dans l'étape précédente vous avez cousu à 3 mm du bord de l'entoilage ? Vous avez besoin de faire le pli autour du bord de l'entoilage de façon à ce que votre couture soit 3 mm de plus vers l'intérieur.
 
-This will make sure that our lining fabric is never on display from the front of your trousers.
+Cela assurera que votre doublure ne sera jamais apparente sur le devant de votre pantalon.
 
-### Step 42: Pin waistband to trousers
+### Etape 42 : Epingler la ceinture au pantalon
 
-![Pin waistband to trousers](step42.png)
+![Epingler la ceinture au pantalon](step42.png)
 
-Pin the edge of your waistband (the side you did not sew the lining to) to the top of your trousers, good sides together.
+Epingler le bord de votre ceinture (le côté que vous ne l'avez pas cousu avec la doublure) sur le haut de votre pantalon, endroit contre endroit.
 
-Tuck the edge of your fly into the end of the waistband with the curved corner. On the other end of the waistband, it will be longer. In other words, your waistband will overlap here.
+Repliez le bord de votre braguette dans la fin de votre ceinture avec le coin courbé. Sur l'autre côté de la ceinture, il sera plus long. Autrement dit, votre ceinture chevauchera ici.
 
-> Be careful to match the vertical alignment of the waistband at the zip. With the zip closed, both sides of the waistband should sit at an equal height. This is easy to miss if you don't check it.
+> Veillez à faire correspondre l'alignement vertical de la ceinture au niveau du zip. Avers le zip fermé, les deux côtés de la ceinture devraient être à la même hauteur. Il est facile d'oublier ce détail si vous ne vérifiez pas.
 
-### Step 43: Sew waistband to trousers
+### Etape 43 : Coudre la ceinture au pantalon
 
-![Sew waistband to trousers](step43.png)
+![Coudre la ceinture au pantalon](step43.png)
 
-Now that the waistband is pinned to top of your trousers, sew it in place.
+Maintenant que votre ceinture est épinglée au haut de votre pantalon, cousez-la en place.
 
-On the side with the curved corner, get as close to the edge as possible. On the other side, stop when you reach the edge of your fly.
+Sur le côté avec le coin arrondi, cousez le plus près du bord possible. Sur l'autre côté, arrêtez-vous lorsque vous atteignez le bord de votre braguette.
 
-### Step 44: Press waistband
+### Etape 44 : Repasser la ceinture
 
-![Press waistband](step44.png)
+![Repasser la ceinture](step44.png)
 
-Give your newly sewn seam a good press. Do not press the seam open, instead press it towards the top (put both trousers and waistband seam allowance in the waistband).
+Repasser votre toute nouvelle couture. N'ouvrez pas les marges, mais couchez-les vers le haut (mettez les marges de couture du pantalon et de la ceinture dans la ceinture).
 
-### Step 45: Prepare the belt loops
+### Etape 45 : Préparer les passants de ceinture
 
-![Prepare the belt loops](step45.png)
+![Préparer les passants de ceinture](step45.png)
 
-The belt loops are a part of your trousers where you can let your creativity run free. There's load of different ways to make and shape belt loops, not to mention that where you place them is also up to you.
+Les passants de ceinture sont une partie de votre pantalon où vous pouvez laisser libre court à votre créativité. Il y a énormément de façons de former des passants de ceinture, sans parler du fait que vous pouvez les positionner à votre guise aussi.
 
-That being said, here's what to do to make a standard belt loop:
+Cela étant dit, voici ce qu'il faut faire pour réaliser un passant de ceinture standard :
 
-Find the belt loop pattern part, a small rectangular piece of fabric. There should be 8 of them, and these will become your belt loops. For each of them, take these steps:
+Prenez la partie de patron pour le passant de ceinture, un morceau rectangulaire de tissu. Il y en a 8, et ils deviendront chacun un passant de ceinture. Pour chacun d'entre eux, suivez ces étapes :
 
- - Zig-zag (or serge) along the longest edges of the rectangle
- - Fold one side back along the length, and press
- - Fold the other side back, along the length, and press
- - Hand sew along the back of the belt loop so that the folded sides stay in place, but the stitches do not show at the front
- - Give it a final good press when you're done
+ - Faites un point zig-zag (ou bien surjetez) les bords longs du rectangle
+ - Pliez vers l'arrière un côté le long du bord long, et repassez
+ - Pliez vers l'arrière l'autre côté le long du bord long, et repassez
+ - Cousez à la main le long de l'arrière du passant de façon à maintenir les côtés pliés en place, mais que les points ne soient pas visibles sur le devant.
+ - Repassez de nouveau, et c'est fini
 
-> While the width of your belt loops is not all that important, it does matter to make sure they are all the same width.
+> Tandis que la longueur des passants n'est pas si importante, il faut qu'ils soient de même largeur.
 >
-> To make it easier to have a consistent width, you can fold your belt loops around a strip of cardboard, thick paper, or plastic of the desired belt loop width.
+> Pour faciliter l'obtention d'une largeur uniforme, vous pouvez plier vos passants autour d'une bande de carton rigide, de papier épais ou de plastique de la largeur de passant désirée.
 >
-> This strip can also help you with the hand sewing. Keep it in your belt loop and it will prevent your needle from piercing through all layers and your thread won't show at the front.
+> Cette bande peut également vous aider pour la couture à la main. Gardez-la dans votre passant et elle empêchera votre aiguille de passer à travers toutes les épaisseurs, et votre fil n'apparaîtra pas sur le devant.
 
-### Step 46: Attach the belt loops: Bottom
+### Etape 46 : Assembler les passants : Bas
 
-![Attach the bottom of the belt loops](step46.png)
+![Assembler le bas des passants](step46.png)
 
-Attach the bottom of the belt loops to your trousers. Place them about 1.5 cm below your waistband, depending on your waistband width.
+Attachez le bas des passants de ceinture à votre pantalon. Placez-les à environ 1,5 cm du bord de votre ceinture, en fonction de la largeur de la ceinture.
 
-Place the good side of the belt loop down on the good side of the trousers (good sides together) and secure with a bar tack or narrow zig-zag.
+Placez l'endroit du passant contre l'endroit du pantalon et bloquez-le avec un point d'arrêt ou un point zig-zag.
 
-Then, zig zag the edge of the belt loop to the trousers.
+Puis, faites un point zig-zag sur le bord du passant.
 
-> It is important to get the waistband lining out of the way while doing this. Make sure to attach the belt loops only to your trousers, and not to the waistband lining.
+> Il est important de garder la doublure de la ceinture hors du chemin en faisant cela. Veillez à fixer les passants uniquement au pantalon, et non à la doublure de la ceinture.
 
-> You have 8 belt loops, so you need to distribute them around your waistband. Have a look at an existing pair if you are uncertain how to do this.
+> Vous avez 8 passants de ceinture, alors vous devez les distribuez autour de la ceinture. Regardez sur un pantalon existant si vous n'êtes pas sûr de la façon de le faire.
 >
-> Make sure to place belt hoops close to the center back, and not too close to each other at the front (for belt buckles).
+> Veillez à placer les passants près du milieu dos, et pas trop près les uns par rapport aux autres sur le devant (pour laisser de la place à la boucle de ceinture).
 
-### Step 47: Waistband facing
+### Etape 47 : Entoilage de ceinture
 
-![Waistband facing](step47.png)
+![Entoilage de ceinture](step47.png)
 
-The waistband facing needs to be cut out and attached to your waistband.
+L'entoilage de ceinture doit être coupé et fixé à votre ceinture.
 
-This will be a lot simpler to understand if you have a look at the relevant video:
+Cela sera bien plus simple à comprendre si vous jetez un oeil à la vidéo correspondante.
 
 @[youtube](https://www.youtube.com/embed/8dLOuOtb18U?list=PL1gv5yv3DoZOcmOJf6f0YWi522VXXv-mM)
 
-### Step 48: Trim waistband seam allowance
+### Etape 48 : Découper le surplus de couture de la ceinture
 
-![Trim waistband seam allowance](step48.png)
+![Découper le surplus de couture de la ceinture](step48.png)
 
-Before we finalize the waistband, we're going to trim back some of its seam allowance.
+Avant de finaliser la ceinture, nous allons découper l'excédent de marge de couture s'y trouvant.
 
-> **About seam allowance grading**
-> When trimming back different layers of seam allowance, always try to cut them at different lengths so that the bulk is reduced in incremental steps.
+> **A propos de la gradation de marge de couture**
+> Lorsque vous dégarnissez les différentes couches de marge de couture, essayez toujours de les couper à des largeurs différentes de façon à réduire le volume en étapes incrémentales.
 >
-> The layer that lies closest to the good side of the garment should be the longest, so trim back from there.
+> La couche qui se trouve le plus près de l'endroit du vêtement devrait être le plus large, alors découpez à partie de celle-ci.
 >
-> Doing so will make it less likely that the outline of the seam allowance is visible from the good side.
+> Faire ainsi diminuera le risque que la bordure de la marge de couture soit visible sur le côté endroit.
 
-### Step 49: Press and baste the waistband lining
+### Etape 49 : Repasser et bâtir la doublure de ceinture
 
-![Press and baste the waistband lining](step49.png)
+![Repasser et bâtir la doublure de ceinture](step49.png)
 
-The waistband lining will be sewn from the front of the trousers on top of the seam that joins the waistband to the trousers (so called _stitch in the ditch_).
+La doublure de ceinture sera cousus depuis le devant du pantlon au dessus de la couture qui joint la ceinture au pantalon (dite, couture dans le sillon).
 
-Doing so will catch the lining and secure it in place. However, since we'll be sewing this from the good side, the lining will lie beneath all other layers, and we won't see what we're doing.
+Faire ainsi permettra de prendre la doublure et de la sécuriser en place. Toutefois, étant donné que nous cousons sur l'endroit, la doublure sera en dessous des autres épaisseurs, et nous ne verrons pas ce que nous faisons.
 
-That is why, to make sure it all lies clean and flat, we will first press and baste the lining.
+C'est pourquoi, pour être sûr que tout repose bien proprement à plat, nous allons tout d'abord repasser et bâtir la doublure.
 
-The lining will extend downward from the top, and it needs to be folded back up under itself, so that it will get caught by the seam when we sew it in place later.
+La doublure va s'étendre vers le bas à partir du haut, et elle devra être repliée sur elle-même, de façon à ce qu'elle soit prise dans la couture lorsque nous la fixerons en place plus tard.
 
-To make sure things look pretty, the distance between the top of our waistband and the (folded back) bottom edge of our lining should be constant. You can mark an even distance from the top of your trousers, and then pin back the lining at this line. Last but not least, press that fold in your lining.
+Pour veillez à ce que les choses soient jolies, la distance entre le haut de notre ceinture, et le bord inférieur (replié) de notre doublure devrait être régulière. Vous pouvez marquer une distance égale depuis le haut de votre pantalon, et épingler la doublure sur cette ligne. Dernier point mais non le moindre, repassez ce pli sur votre doublure.
 
-When you're happy with how it looks, baste the lining in place just next to the seam joining the waistband and trousers.
+Lorsque vous êtes satisfait de l'aspect obtenu, bâtissez la doublure ne place juste à côté de la couture qui assemble la ceinture au pantalon.
 
-> It's best to baste next to the seam, and not actually in the seam. This will make it a lot easier to remove your basting when after we've sewn in the last step.
+> Il est mieux de bâtir à côté de la couture, mais non sur la couture. Cela sera plus facile de retirer le fil de bâti une fois la couture faite dans la prochaine étape.
 
-### Step 50: Sew the waistband lining in place
+### Etape 50 : Coudre la doublure de ceinture en place
 
-![Sew the waistband lining in place](step50.png)
+![Coudre la doublure de ceinture en place](step50.png)
 
-After you basted the waistband lining, sew it in place from the good side, exactly in the seam between the waistband and trousers.
+Après avoir bâti la doublure de ceinture, cousez-la en place sur l'endroit, exactement dans la couture entre la ceinture et le pantalon.
 
-### Step 51: Attach the belt loops: Top
+### Etape 51 : Attacher les passants : Haut
 
-![Attach the top of the belt loops](step51.png)
+![Attacher le haut des passants de ceinture](step51.png)
 
-With your waistband and lining properly secured, it's time to attach the top of the belt loops.
+Avec votre ceinture et sa doublure proprement bloquées, il est temps d'attacher le haut des passants de ceinture.
 
-Sew them in place just as you did at the bottom. That is, use a bar tack or close zig-zag to attach them, then zig-zag over the end to secure it.
+Cousez-les en place comme vous l'avez fait pour le bas. A savoir, utilisez un point d'arrêt ou un zig-zag serré pour les fixer, puis un point zig-zag pour les sécuriser.
 
-> Don't sew through the top of the belt loops. You'll have to work the foot of your sewing machine under the belt loop so you only sew the piece that is folded back.
+> Ne cousez pas à travers le haut des passants. Vous devrez travailler le pied de votre machine à coudre sous le passant de façon à ne coudre que sur la partie qui est repliée.
 
-> Feel free to trim back the length of your belt loops after you bar tack and before you zig-zag the end of them, as they might be too long.
+> N'hésitez-pas à découper la longueur de vos passants après avoir fait vos points d'arrêt ou après le point zig-zag sur leur extrémités, comme ils pourraient être trop longs.
 
-### Step 52: Finish the edge of the legs
+### Etape 52 : Finir le bords des jambes
 
-![Finish the edge of the legs](step52.png)
+![Finir le bord des jambes](step52.png)
 
-Before we hem the trousers, finish the raw edge of the legs with a zig-zag stitch or serger.
+Avant d'ourler le pantalon, finissez le bord des jambes avec un point zig-zag ou un point de surjet.
 
-> This would also be a good time to try on your trousers and mark exactly how long you want them to be after they are hemmed.
+> C'est également le bon moment d'essayer le pantalon pour marquer exactement la longueur que vous voulez qu'il ait après l'ourlet.
 
-### Step 53: (Optional) Sew in a hem ribbon
+### Etape 53 : (Optionnelle) Coudre un ruban d'ourlet
 
-![Optionally sew in a hem ribbon](step53.png)
+![Optionellement coudre un ruban d'ourlet](step53.png)
 
-> The hem ribbon is a ribbon that sits on the inside of your trouser hem. At the place your hem folds back, the fabric has to take a lot of abuse from bumping into shoes and other things.
+> Le ruban d'ourlet est un ruban qui se trouve à l'intérieur de votre ourlet de pantalon. A l'endroit où l'ourlet est replié, le tissu subit de mauvais traitements à cause des frottements répétés avec les chaussures et d'autres choses.
 >
-> Placing a ribbon inside the hem protects your fabric to some extent, and it is a neat finish.
+> Placer un ruban à l'intérieur de l'ourlet protège jusqu'à un certain point votre tissu, et c'est une finition très propre.
 
-Mark the hemline on your trousers (good side out).
+Marquer la ligne d'ourlet de votre pantalon (sur l'endroit).
 
-Place the ribbon as shown in the illustration making sure that it extends a few mm above the hemline. Sew it in place all the way around the leg, making sure to sew close but not on the hemline.
+Placez le ruban comme montré dans l'illustration en veillant à ce qu'il dépasse de quelques mm de la ligne d'ourlet. Cousez-le en place tout le tour de la jambe, en veillant à coudre près mais non sur la ligne d'ourlet.
 
-### Step 54: Press the hem
+### Etape 54 : Repasser l'ourlet
 
-![Press the hem](step54.png)
+![Repasser l'ourlet](step54.png)
 
-Fold back the trouser legs at the hemline, and press the hem.
+Repliez les jambes de pantalons à la ligne d'ourlet, et repassez l'ourlet.
 
-> If you've sewn in a hem ribbon, the ribbon will extend a few mm below the hem line, thereby protecting the fabric at the hem.
+> Si vous avez cousu un ruban d'ourlet, le ruban va dépasser de quelques mm en dessous de la ligne d'ourlet, protégeant ainsi le tissu au niveau de l'ourlet.
 
-### Step 55: Hem the legs
+### Etape 55 : Ourler les jambes
 
-![Hem the legs](step55.png)
+![Ourler les jambes](step55.png)
 
-With the hem neatly pressed, simply hand-sew the folded back part to the inside of your trousers.
+Avec l'ourlet proprement repassé, cousez cimplement à la main la partie repliée à l'intérieur de votre pantalon.
 
-> Hemming is done by hand because it's important that the stitches don't show on the front. So when hand-sewing the hem, don't push your needle through the fabric, but just catch a few threads so your stitches don't show on the front
+> L'ourlet est réalisé à la main car il est important que les points ne soient pas visibles sur le devant. Alors lorsque vous cousez à la main, ne poussez pas l'aiguille à travers le tissu mais attrapez juste quelques fils pour rendre les points invisibles sur le côté endroit du vêtement.
 > 
-> While there are machine alternatives, they aren't as neat (blind hem stitch) or probably not accessible to the home-sewer (industrial blind hem machine).
+> Bien qu'il y ait des alternatives mécaniques, elles ne sont pas aussi propres (point d'ourlet invisible) et probablement non accessibles au couturier amateur (machine industrielle pour ourlet invisible).
 
-### Step 56: Trim, clean up, and press
-Trim any loose threads or basting that remains, and give your trousers a good final press.
+### Etape 56 : Découper les surplus, nettoyer et repasser
+Découpez les fils qui pourraient encore dépasser, retirez les fils de bâti, et donnez un coup de fer final à votre pantalon.
