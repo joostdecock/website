@@ -53,7 +53,7 @@
     "react": "16.8.1",
     "react-dom": "16.8.1",
     "react-draggable": "3.1.1",
-    "react-dropzone": "8.1.0",
+    "react-dropzone": "10.0.6",
     "react-helmet": "^5.2.0",
     "react-instantsearch-dom": "5.4.0",
     "react-intl": "2.8.0",
