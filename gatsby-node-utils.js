@@ -308,7 +308,7 @@ exports.createNetlifyRedirects = function(queries, createRedirect) {
     createRedirect({
       fromPath: "/*",
       isPermanent: true,
-      toPath: "/en/index.html"
+      toPath: "/en/"
     });
 
     resolve(true);
