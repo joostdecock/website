@@ -266,23 +266,16 @@ exports.createJsPages = function(markdown, createPage) {
   return Promise.all(promises);
 };
 
-const imgPathToWebPath = (path, language) => {
+const imgPathToWebPath = path => {
   if (path.slice(0, 5) === "blog/") path = "blog/" + path.slice(15);
   if (path.slice(0, 9) === "showcase/") path = "showcase/" + path.slice(19);
+  //if (path.slice(0, 5) === "docs/") path = "docs/" + path.slice(15);
+
+  return path;
 };
 
 exports.createNetlifyRedirects = function(queries, createRedirect) {
   return new Promise((resolve, reject) => {
-    // Redirect for images in editor preview
-    for (let lang of config.languages) {
-      for (let img of queries.markdownImages.allFile.edges)
-        createRedirect({
-          fromPath: imgPathToWebPath(img.node.relativePath, lang),
-          isPermanent: true,
-          toPath: img.node.publicURL
-        });
-    }
-
     // Per-language redirects for basic pages
     for (let lang of config.languages) {
       if (lang !== config.defaultLanguage) {
@@ -302,6 +295,14 @@ exports.createNetlifyRedirects = function(queries, createRedirect) {
         fromPath: path,
         isPermanent: true,
         toPath: "/" + config.defaultLanguage + path
+      });
+
+    // Redirect for images in editor preview
+    for (let img of queries.markdownImages.allFile.edges)
+      createRedirect({
+        fromPath: "/:lang/edit/" + imgPathToWebPath(img.node.relativePath),
+        isPermanent: true,
+        toPath: img.node.publicURL
       });
 
     // Catch-all SPA redirect
