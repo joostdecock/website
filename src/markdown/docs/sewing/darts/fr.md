@@ -1,5 +1,5 @@
 ---
-title: Darts
+title: Pinces
 path: /fr/docs/sewing/darts
 ---
 

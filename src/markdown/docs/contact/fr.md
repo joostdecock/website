@@ -30,7 +30,8 @@ Vous pouvez également nous joindre sur les réseaux sociaux, sans parler de nou
 
 ## E-mail
 
-[Envoyer un email à Joost](mailto:joost@decock.org?subject=Freesewing)
+Envoyer un email à [Joost](mailto:joost@decock.org?subject=Freesewing) 
+ou [Catherine](mailto:ji.catherine@gmail.com?subject=Freesewing)
 
 > Cette dernière option ayant peu d'envergure, vous devriez considérer les autres options dans un premier temps.
 
