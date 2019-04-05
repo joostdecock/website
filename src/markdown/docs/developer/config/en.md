@@ -159,7 +159,7 @@ and pass [the ant-man test](https://github.com/freesewing/antman).
 
 Your percentage option should be an object with these properties:
 
- - `pct` : The percentage (between 0 and 100)
+ - `pct` : The percentage
  - `min` : The minimul that's allowed
  - `max` : The maximum that's allowed
 
@@ -246,10 +246,10 @@ options: {
 
 Use a list option when you want to offer an array of choices.
 
-Your array option should be an object with these properties:
+Your list option should be an object with these properties:
 
  - `dflt` : The default for this option
- - `[array]` : An array of available values options
+ - `list` : An array of available values options
 
 ```js
 options: {

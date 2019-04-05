@@ -1,9 +1,9 @@
 ---
 date: 2013-02-16
 path: /fr/showcase/linnen-theodore
-title: Pantalon Theodore en lin marron gris par joostdecock
+title: Pantalon Theodore en lin marron grisâtre par joostdecock
 img: showcase.jpg
-caption: Ce sont super en été
+caption: Il est formidable en été
 patterns: [theodore]
 author: joost
 ---

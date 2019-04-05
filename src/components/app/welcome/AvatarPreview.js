@@ -36,7 +36,7 @@ function AvatarPreview({ avatar, handleAvatarReset }) {
 }
 
 AvatarPreview.propTypes = {
-  avatar: PropTypes.bool
+  avatar: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
 };
 
 export default AvatarPreview;

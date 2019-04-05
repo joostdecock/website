@@ -64,6 +64,8 @@ import utils_beamsintersect from "raw-loader!../../../node_modules/@freesewing/e
 import utils_linesintersect from "raw-loader!../../../node_modules/@freesewing/examples/src/utils_linesintersect.js";
 import utils_curvesintersect from "raw-loader!../../../node_modules/@freesewing/examples/src/utils_curvesintersect.js";
 import utils_circlesintersect from "raw-loader!../../../node_modules/@freesewing/examples/src/utils_circlesintersect.js";
+import utils_curveintersectsx from "raw-loader!../../../node_modules/@freesewing/examples/src/utils_curveintersectsx.js";
+import utils_curveintersectsy from "raw-loader!../../../node_modules/@freesewing/examples/src/utils_curveintersectsy.js";
 
 function withFrontmatter(frontmatter) {
   return class ApiExample extends React.Component {
@@ -164,7 +166,9 @@ function withFrontmatter(frontmatter) {
         utils_beamsintersect,
         utils_linesintersect,
         utils_curvesintersect,
-        utils_circlesintersect
+        utils_circlesintersect,
+        utils_curveintersectsx,
+        utils_curveintersectsy
       };
       if (typeof code[this.partName()] === "string")
         return prism.highlight(code[this.partName()], prism.languages.js, "js");
