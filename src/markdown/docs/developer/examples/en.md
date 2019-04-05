@@ -1,7 +1,6 @@
 ---
 path: /en/docs/developer/examples
-title:  Learn by example
-components: true
+title: Learn by example
 ---
 
 ## Creating a new pattern design
@@ -23,7 +22,7 @@ const Sorcha = new freesewing.Design(config, plugins);
 
 > ###### freesewing.Design() is a super-constructor
 >
-> The only time you'll use the `freesewing.Design()` method when you're
+> The only time you'll use the `freesewing.Design()` method is when you're
 > creating a new pattern design. 
 >
 > Constructors are functions you can call with `new` to create an object. 
