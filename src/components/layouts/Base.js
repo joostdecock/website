@@ -24,7 +24,9 @@ import withRoot from "../../withRoot";
 import backend from "../../apis/backend";
 import LocationProvider from "../LocationProvider";
 // eslint-disable-next-line
-import titleFont from "typeface-roboto-condensed";
+import menuFont from "typeface-roboto-condensed";
+import titleFont from "typeface-roboto";
+import textFont from "typeface-open-sans";
 
 addLocaleData([...en, ...de, ...es, ...fr, ...nl]);
 
