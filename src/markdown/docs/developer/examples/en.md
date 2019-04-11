@@ -162,7 +162,7 @@ notation as we continue our examples.
 
 ## Accessing measurements
 
-Measusuremnets are stored in `pattern.settings.measurements`, but thanks to our 
+Measurements are stored in `pattern.settings.measurements`, but thanks to our 
 [shorthand](#using-shorthand)
 call earlier, we can simply write:
 
@@ -222,8 +222,7 @@ You can scale and rotate a snippet by setting the `data-scale` and `data-rotate`
 
 ## Using attributes
 
-Points, Paths, and Snippets all have [attributes](/api/#attributes) that you can use to
-influence how they behave.
+Points, Paths, and Snippets all have [attributes](/api/#attributes) that you can use to influence how they behave.
 
 A common scenario is to apply CSS classes to style a path;
 
