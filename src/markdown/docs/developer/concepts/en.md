@@ -44,6 +44,21 @@ Bezier curves are more intuitive as you might think. I find this illustration ra
 
 ![](./bezier.gif)
 
+## Pattern vs Draft vs Design
+
+What it means to *create a new pattern* depends on the context.
+
+You may be creating a new pattern design, like a Spiderman costume.
+Or you may be creating a new instance of said design, with your own
+measurements and options.
+
+For end-users, we say that a *pattern* refers to the design,
+while an instance of a pattern is a *draft*.
+
+In the developer documentation, we typically use the term *pattern* to refer
+to the design you're working on. 
+
+
 ## config vs settings
 
 When we say **config**, we mean the configuration of the pattern as created by the 

@@ -92,15 +92,15 @@ module.exports = {
         showSpinner: false
       }
     },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_API_ID,
-        apiKey: process.env.GATSBY_ALGOLIA_UPDATE_KEY,
-        queries: algolia,
-        chunkSize: 10000
-      }
-    },
+    //{
+    //  resolve: `gatsby-plugin-algolia`,
+    //  options: {
+    //    appId: process.env.GATSBY_ALGOLIA_API_ID,
+    //    apiKey: process.env.GATSBY_ALGOLIA_UPDATE_KEY,
+    //    queries: algolia,
+    //    chunkSize: 10000
+    //  }
+    //},
     "gatsby-plugin-netlify"
   ]
 };

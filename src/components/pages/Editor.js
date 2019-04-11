@@ -152,7 +152,9 @@ const EditorPage = props => {
     case "i18n":
       return (
         <BaseLayout>
-          <TranslationEditor i18n={i18n} language={language} path={path} />
+          <AuthContainer>
+            <TranslationEditor i18n={i18n} language={language} path={path} />
+          </AuthContainer>
         </BaseLayout>
       );
     default:

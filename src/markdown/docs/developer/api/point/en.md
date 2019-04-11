@@ -156,7 +156,7 @@ Returns a point that is shifted towards the target by a fraction of the distance
 ## Point.shiftOutwards()
 
 ```js
-Point point.shiftOutwards(Point direction, float fraction)
+Point point.shiftOutwards(Point direction, float distance)
 ```
 
 Returns a point that is shifted distance beyond target in the direction of target.

@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 import Button from "@material-ui/core/Button";
 
 const DemoLink = props => (
-  <div className="txt-center">
+  <div className="center">
     <h2>
       <FormattedMessage id="email.footerSlogan" />
     </h2>

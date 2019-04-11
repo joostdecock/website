@@ -1,5 +1,5 @@
 ---
-title: Armhole drop
+title: Shoulder strap placement
 path: /en/docs/patterns/aaron/options/shoulderstrapplacement
 pattern: aaron
 option: shoulderStrapPlacement

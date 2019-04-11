@@ -1,7 +1,6 @@
 ---
 path: /en/docs/developer/examples
 title: Learn by example
-
 ---
 
 ## Creating a new pattern design

@@ -23,6 +23,9 @@ import * as translations from "@freesewing/i18n";
 import BackIcon from "@material-ui/icons/Undo";
 import EditIcon from "@material-ui/icons/Edit";
 import YAML from "yaml";
+import { Base64 } from "js-base64";
+import { strOptions } from "yaml/schema";
+strOptions.fold.lineWidth = 0; // See https://github.com/eemeli/yaml/issues/58#issuecomment-446401097
 
 class TranslationEditor extends React.Component {
   state = {
@@ -209,7 +212,7 @@ class TranslationEditor extends React.Component {
 
   commitData = () => {
     return {
-      content: btoa(this.getYaml()),
+      content: Base64.encode(this.getYaml()),
       repo: "i18n",
       file: this.getFileName(),
       msg: this.state.msg,

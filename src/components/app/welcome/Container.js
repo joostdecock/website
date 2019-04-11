@@ -216,6 +216,7 @@ class WelcomeContainer extends React.Component {
       key: "units",
       content: (
         <Units
+          key="units"
           intl={this.props.intl}
           units={this.getUnits()}
           handleUnitsChange={this.handleUnitsChange}
@@ -226,9 +227,10 @@ class WelcomeContainer extends React.Component {
       key: "username",
       content: (
         <FieldForm
+          key="username"
           intl={this.props.intl}
           field="username"
-          value={this.state.username || this.props.username}
+          value={this.state.username || this.props.username || ""}
           handleValueUpdate={this.handleUsernameChange}
         />
       )
@@ -237,6 +239,7 @@ class WelcomeContainer extends React.Component {
       key: "avatar",
       content: (
         <AvatarUpload
+          key="avatarUpload"
           intl={this.props.intl}
           handleAvatarDrop={this.handleAvatarDrop}
           avatarPreview={this.state.avatarPreview}
@@ -247,6 +250,7 @@ class WelcomeContainer extends React.Component {
       key: "avatar",
       content: (
         <AvatarPreview
+          key="avatarPreview"
           intl={this.props.intl}
           avatar={this.state.avatar}
           avatarPreview={this.state.avatarPreview}
@@ -257,12 +261,12 @@ class WelcomeContainer extends React.Component {
     let bio = {
       key: "bio",
       content: (
-        <React.Fragment>
+        <React.Fragment key="bio">
           <FieldForm
             intl={this.props.intl}
             field="bio"
             data={this.props.data}
-            value={this.state.bio || this.props.user.bio}
+            value={this.state.bio || this.props.user.bio || ""}
             handleValueUpdate={this.handleBioChange}
           />
           <h5>
@@ -281,6 +285,7 @@ class WelcomeContainer extends React.Component {
       key: "social",
       content: (
         <Social
+          key="social"
           intl={this.props.intl}
           github={this.getGithub()}
           twitter={this.getTwitter()}
@@ -359,13 +364,14 @@ class WelcomeContainer extends React.Component {
           </blockquote>
           {step.key === "bio"
             ? [
-                <TrayTitle icon={<WhyIcon />}>
+                <TrayTitle icon={<WhyIcon />} key="bioTitle">
                   {
                     this.props.data.markdownHelp["/docs/markdown"].frontmatter
                       .title
                   }
                 </TrayTitle>,
                 <div
+                  key="bioContent"
                   dangerouslySetInnerHTML={{
                     __html: this.props.data.markdownHelp["/docs/markdown"].html
                   }}
