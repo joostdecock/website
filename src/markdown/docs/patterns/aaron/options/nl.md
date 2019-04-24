@@ -1,4 +1,5 @@
 ---
 patternOptions: aaron
-path: /nl/docs/patterns/aaron/options
+path: /en/docs/patterns/aaron/options
 ---
+
