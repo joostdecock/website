@@ -1,91 +1,65 @@
 ---
-title: Typographie
-path: /fr/docs/typography
+title: Typography
+path: /en/docs/typography
 ---
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor.
 
-## En-têtes (Ceci est l'en-tête 2)
+## Headers (This is heading 2)
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor. Text is just text. You can just start writing.
 
-### Ceci est l'en-tête 3
+### This is heading 3
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor. Text is just text. You can just start writing.
 
-#### Ceci est l'en-tête 4
+#### This is heading 4
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor. Text is just text. You can just start writing.
 
-##### Ceci est l'entête 5
+##### This is heading 5
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor. Text is just text. You can just start writing.
 
-###### Ceci est l'en-tête 6
+###### This is heading 6
 
-Markdown est un langage de balisage léger avec une syntaxe de formatage de texte brut. Il est 
-conçu pour être facilement lisible par les humains, mais également facilement converti en HTML 
-par les ordinateurs.
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed to be easily readable by humans, yet also easily converted to HTML by computers.
 
-Markdown est souvent utilisé pour formater la documentation, les commentaires en ligne ou 
-partout où vous voulez du texte enrichi avec un éditeur de texte brut.
-Le texte est juste du texte. Vous vous simplement commencer à écrire.
+Markdown is often used to format documentation, online comments, or anywhere where you want rich text while using a plain text editor. Text is just text. You can just start writing.
 
+## Lists
 
-## Listes
+### Bullet points
 
-### Puces
+- This is
+- and unordered
+- list of
+- four items
 
- - Voici
- - une liste
- - non ordonnée de
- - quatre éléments
+### Numbered lists
 
-### Listes numérotées
- 
- 1. Voici
- 2. une liste
- 3. numérotée de
- 4. quatre éléments
+1. This is
+2. and unordered
+3. list of
+4. four items
 
-## Citations grisées
+## Blockquotes
 
-> Ceci est une citation grisée
-
-> ###### Ceci est également une citation grisée
+> This is a blockquote
 > 
-> Mais celle-ci a un peu plus de contenu, ainsi qu' 
-> [un lien](/).
+> ###### This is also a blockquote
+> 
+> But this one has a bit more content to it, as wel as [a link](/).
 
 ## Code
 
@@ -105,4 +79,3 @@ npm run install
 ```svg
 <path d="M 0,0 L 100,100" />
 ```
-
