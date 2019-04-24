@@ -1,83 +1,69 @@
 ---
-title: Concepts de base
-path: /fr/docs/developer/concepts
+title: Basic concepts
+path: /en/docs/developer/concepts
 ---
 
-Si vous débutez avec freesewing (ou SVG), il va falloir que nous abordions quelque concepts fondamentaux ensemble.
+If you're new to freesewing (or SVG) we need to cover some fundamental concepts.
 
-## Le système de coordonnées
+## The coordinate system
 
-Les coordonnées se présentent comme du texte dans un livre. 
-Vous commencez en haut à gauche, vous allez vers la droite, et le fait d'aller vers le bas signifie que vous avancez.
+Coordinates are like text in a book. You start at the top on the left side, and going to the right and downwards means going ahead.
 
-![Le système de coordonnées SVG ; comme lire un livre](/fr/docs/developer/concepts/coordinates.svg)
+![The SVG coordinate system; Just like reading a book](./coordinates.svg)
 
-## Unités
+## Units
 
-De façon interne, freesewing utilise le millimètre. 
-Lorsque vous voyez 1, il s'agit d'1 mm. Lorsque nous disons 7,8, cela veut dire 7,8 mm.
+Internally, freesewing uses millimeter. When you see 1, that's one mm. When we say 7.8, that's 7.8mm.
 
-Bien que nous prenons en charge des données de sorties métriques et impériales, toutes les données d'entrée doivent être en mm.
+While we support both metric and imperial output, all input should be in mm.
 
 ## SVG
 
-Les patrons sont rendus sous forme de SVG, acronyme pour [Scalable Vector 
-Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) —, 
-un format d'image vectorielle basée sur XML, libre et standard.
+Patterns are rendered as SVG — short for [Scalable Vector Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) —, an XML-based vector image format and an open standard.
 
-Même si vous n'avez nul besoin d'être un expert en SVG, une compréhension basique
-de ce format vous aidera grandement à comprendre freesewing.
+While you don't need to be an SVG expert, a basic understanding of the format will greatly help you to understand freesewing.
 
-## Courbes de Bézier
+## Bezier curves
 
-Alors que les lignes droites sur les ordinateurs sont facile à stocker avec un point de départ et un point d'arrêt, les courbes requièrent plus d'informations.
+While lines on computers are easy to store with a start and end point, curves require more information.
 
-Dans freesewing, comme en SVG et nombre d'autres applications, les courbes sont stockées en tant que courbes de Bézier.
-Elles ont :
+In freesewing, as in SVG and countless of other applications, curves are stored as Bezier curves. They have:
 
- - Un point de départ
- - Un premier point de contrôle qui est lié au point de départ
- - Un second point de contrôle lié au point d'arrêt
- - Un point d'arrêt
+- A start point
+- A first control point that's linked to the start piont
+- A second control point that's linked to the end point
+- An end point
 
-Les courbes de Bézier sont plus intuitives que vous ne l'imaginez. Je trouve cette illustration plutôt utile :
+Bezier curves are more intuitive as you might think. I find this illustration rather helpful:
 
-![](/fr/docs/developer/concepts/bezier.gif)
+![](./bezier.gif)
 
-## Patron vs Ebauche vs Modèle
+## Pattern vs Draft vs Design
 
-Ce que *créer un nouveau patron" veut dire dépend du contexte.
+What it means to *create a new pattern* depends on the context.
 
-Vous pourriez créer un nouveu modèle de patron, comme un costume de Spiderman.
-Ou bien vous pourriez créer un nouvel exemple dudit modèle, avec vos propres mensurations et options.
+You may be creating a new pattern design, like a Spiderman costume. Or you may be creating a new instance of said design, with your own measurements and options.
 
-Pour les utilisateurs finaux, nous parlons de *patron* en référence au modèle, 
-alors qu'un exemple de ce patron est une *ébauche*.
+For end-users, we say that a *pattern* refers to the design, while an instance of a pattern is a *draft*.
 
-Dans la documentation pour le développeur, nous utilisons en général le terme *patron* en référence au modèle sur lequel nous travaillons. 
+In the developer documentation, we typically use the term *pattern* to refer to the design you're working on.
 
+## config vs settings
 
-## config vs réglages
+When we say **config**, we mean the configuration of the pattern as created by the pattern designer/developer.
 
-Lorsque nous parlons de **config**, nous voulons dire la configuration du patron tel que l'a conçu le créateur/développeur du patron.
+For example, whether or not there is an option to change the collar style is a config matter.
 
-Par exemple, si oui ou non il y a une option pour changer le style de col est une affaire de config.
+When we say **settings** we mean the settings the user specifies to create their draft.
 
-Lorsque nous disons **réglages**, nous parlons des réglages que l'utilisateur spécifie pour créer son ébauche.
+Whether to include seam allowance or not is a settings matter.
 
-Le fait d'inclure ou non des marges de couture est une affaire de réglages.
+## draft vs render
 
-## ébauche vs rendu final
+Generating a pattern is a two-step process. First, the pattern is **drafted**. It will calculate the coordinates for all the points, and do everything needed to bring your pattern object to a state where it has all the information required to **render** it. Rendering then turns your pattern into SVG output.
 
-Générer un patron est un processus en deux étapes. D'abord, le patron est **ébauché**. 
-Cela va calculer les coordonnées de tous les points, et faire tout ce qui est requis 
-pour amener votre objet patron à un état où il disposera de toutes les informations requises pour donner un 
-**rendu final**. Effectuer le rendu final transformera alors votre patron en un fichier de sortie SVG.
-
-> ###### Vous ne voulez pas de SVG ? Pas de souci !
->
-> La raison pour laquelle ces deux types d'objet sont séparés (ébauche et rendu final) est de donner la possibilité de prendre en charge différents formats de sortie.
+> ###### Don't want SVG? No problem
 > 
-> Dans le cas où vous voudriez avoir un rendu final avec du PostScript, ou du HTML Canvas, vous pourriez écrire un plugin 
-> qui fournirait une méthode de rendu personnalisée.
-
+> The reason these two are seperated is to be able to support different output formats.
+> 
+> If you wanted to render to PostScript, or HTML Canvas, you could write a plugin that provides a custom render method.
