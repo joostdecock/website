@@ -1,13 +1,12 @@
 ---
 date: 2018-02-05
-path: /fr/showcase/airline-blanket-sven
-title: Un Sven fait à partir de couvertures d'avion
+path: /en/showcase/airline-blanket-sven
+title: A Sven made out of two airline blankets
 img: showcase.jpg
-caption: "Vous ne verrez plus jamais ces couvertures qu'on vous fournit dans les avions de la même façon."
-patterns: [sven]
+caption: "You'll never look at those blankets on a plane the same way again."
+patterns:
+  - sven
 author: funloveadventure
 ---
 
-[Cette image](https://www.instagram.com/p/BeKLaPfhGbU/) 
-vient du [compte Instagram de funloveadventure](https://www.instagram.com/funloveadventure/).
-Elle est reproduite ici avec permission.
+[This image](https://www.instagram.com/p/BeKLaPfhGbU/) is from [the Instagram feed of funloveadventure](https://www.instagram.com/funloveadventure/). It is published here with permission.
