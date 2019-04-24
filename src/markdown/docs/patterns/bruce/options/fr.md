@@ -1,4 +1,5 @@
 ---
 patternOptions: bruce
-path: /fr/docs/patterns/bruce/options
+path: /en/docs/patterns/bruce/options
 ---
+
