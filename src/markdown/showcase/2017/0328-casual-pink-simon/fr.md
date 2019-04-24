@@ -1,9 +1,11 @@
 ---
 date: 2017-03-28
-path: /fr/showcase/casual-pink-simon
-title: Joost fait Simon
+path: /en/showcase/casual-pink-simon
+title: Joost does Simon
 img: showcase.jpg
-caption: Une chemise Simon par Joost
-patterns: [simon]
+caption: A Simon shirt by Joost
+patterns:
+  - simon
 author: joost
 ---
+
