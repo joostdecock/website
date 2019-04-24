@@ -1,10 +1,10 @@
 ---
-title: Réaliser Theo
-path: /fr/docs/patterns/theo
+title: Making Theo
+path: /en/docs/patterns/theo
 ---
 
-### Voir les instructions pour Theodore
+### See Theodore instructions
 
-Theo est une version en coupe amincie de Theodore et leurs instructions sont identiques.
+Theo is the slimline version of Theodore and their construction is identical.
 
-Ainsi, merci de consulter [les instructions de Theodore](/fr/docs/patterns/theodore).
+As such, please consult [the Theodore constructions](/en/docs/patterns/theodore).
