@@ -1,12 +1,12 @@
 ---
-path: /nl/showcase/bruces-by-paul
-author: Tiger751023
-caption: Een paar versies van Bruces om wat overgebleven t-shirt en jurken stofjes te gebruiken.
-date: 2018-12-19T00:00:00.000Z
+path: /en/showcase/bruces-by-paul
+date: 2018-12-19
+title: Bruces by Paul
 img: showcase.jpg
+caption: "A few bruces to use up left over textile from t-shirts and dresses"
 patterns:
   - bruce
-title: Bruces by Paul
+author: Tiger751023
 ---
 
 ![View of the back](back.jpg)
