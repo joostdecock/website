@@ -1,10 +1,11 @@
 ---
 date: 2018-10-07
-path: /fr/showcase/hugo-by-karin
-title: Un sweat à capuche Hugo hacké par Karin
+path: /en/showcase/hugo-by-karin
+title: A hacked Hugo Hoodie by Karin
 img: hugo.jpg
-caption: "Du boulot sur l'ajustement et les manches, mais un résultat final grandiose."
-patterns: [hugo]
+caption: "Some work on fit and sleeves, but a great end result."
+patterns:
+  - hugo
 ---
 
-Karin montre plus de détails sur cette réalisation sur [son blog](https://www.karinkay.nl/freesewing-hugo-hoodie/). 
+Karin has more details of this make [on her blog](https://www.karinkay.nl/freesewing-hugo-hoodie/).
