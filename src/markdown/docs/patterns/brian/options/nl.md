@@ -1,4 +1,5 @@
 ---
 patternOptions: brian
-path: /nl/docs/patterns/brian/options
+path: /en/docs/patterns/brian/options
 ---
+
