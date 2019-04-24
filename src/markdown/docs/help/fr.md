@@ -1,33 +1,31 @@
 ---
-title: Obtenir de l'aide
-path: /fr/docs/help
+title: Getting help
+path: /en/docs/help
 nocomments: true
 ---
 
-## Chatter avec nous sur Gitter
-La communauté freesewing sur Gitter est le meilleur endroit pour poser des questions, rencontrer d'autres 
-freesewers, ou bien juste passer un bon moment et rigoler un peu.
+## Chat with us on Gitter
 
-[Chatter avec nous sur Gitter](https://gitter.im/freesewing/freesewing){.btn .primary .px-4}
+The freesewing community on Gitter is the best place to ask questions, meet other freesewers, or just hang out and share a laugh.
 
-## Nous joindre sur Twitter
+[Chat with us on Gitter](https://gitter.im/freesewing/freesewing ""){.btn.primary.px-4}
 
-Chatter n'est pas votre truc ?
-Le compte Twitter [@freesewing_org](https://twitter.com/intent/follow?screen_name=freesewing_org){.btn .px-4 .primary}
-est la deuxième meilleure option. 
+## Reach out on Twitter
 
-Vous pouvez également le suivre pour être tenu au courant de l'actualité de freesewing.
+Is chat not your thing? The [@freesewing_org](https://twitter.com/freesewing_org) account on Twitter is the next best thing.
 
-## Créer une issue sur GitHub
+You can also follow it for timely updates on freesewing.
 
-Vous avez remarqué une erreur ? Vous avez une suggestion pour une amélioration ?
-Merci de bien vouloir créer une issue sur GitHub. Vous aurez besoin d'un compte GitHub que vous pouvez créer gratuitement pour cela.
+[@freesewing_org on Twitter](https://twitter.com/intent/follow?screen_name=freesewing_org ""){.btn.px-4.primary}
 
-[Créer une issue sur GitHub](https://github.com/freesewing/site/issues/new){.btn .px-4 .primary}
+## Create an issue on GitHub
 
-## Envoyer un email à Joost
+Did you spot a mistake? Have a suggestion for an improvement? Please file an issue on GitHub. You'll need a GitHub account, but they are free.
 
-> Cette dernière option ayant peu d'envergure, vous devriez considérer les autres options dans un premier temps.
+[Create an issue on GitHub](https://github.com/freesewing/site/issues/new ""){.btn.px-4.primary}
 
-[Envoyer un email](mailto:joost@decock.org?subject=Freesewing){.btn .px-4 .primary}
+## Send an email to Joost
 
+> This one does not scale very well, so you might want to consider the options above first.
+
+[Send an email](mailto:joost@decock.org?subject=Freesewing ""){.btn.px-4.primary}
