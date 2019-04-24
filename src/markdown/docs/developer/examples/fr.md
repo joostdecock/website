@@ -1,332 +1,285 @@
 ---
-path: /fr/docs/developer/examples
-title:  Apprendre par l'exemple
-components: true
+path: /en/docs/developer/examples
+title: Learn by example
 ---
 
-## Créer un nouveau modèle de patron (design)
+## Creating a new pattern design
 
-Pour créer un nouveau patron, appelez `new freesewing.Design()`.
-Cela prend comme paramètres votre configuration de patron, 
-et les plugins que vous voulez charger.
+To create a new pattern, call `new freesewing.Design()`. It takes your pattern configuration, and any plugins you want to load as parameters.
 
-Par exemple, si nous voulons créer un nouveau patron nommé `Sorcha`:
+For example, if we were creating a new pattern called `Sorcha`:
 
 ```js
 import freesewing from "freesewing";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
 
-// Création d'un nouveau modèle
+// Create new design
 const Sorcha = new freesewing.Design(config, plugins);
 ```
 
-> ###### freesewing.Design() est un super-constructeur
->
-> La seule fois où vous  utiliserez la méthode `freesewing.Design()` est lorsque 
-> vous allez créer un nouveau modèle de patron. 
->
-> Les constructeurs sont des fonctions que vous pouvez appeler avec `new` pour créer un objet. 
-> Mais ce constructeur ne retourne pas un objet `Design`, mais une méthode de construction 
-> pour votre patron.
->
-> Voici un exemple :
->
+> ###### freesewing.Design() is a super-constructor
+> 
+> The only time you'll use the `freesewing.Design()` method is when you're creating a new pattern design.
+> 
+> Constructors are functions you can call with `new` to create an object. But this constructor does not return a `Design` object. Instead it returns a constructor method for your pattern.
+> 
+> Here's an example:
+> 
 > ```js
-> import freesewing from "freesewing";
-> import plugins from "@freesewing/plugin-bundle";
-> import config from "../config";
-> 
-> // Création d'un nouveau modèle
-> const Sorcha = new freesewing.Design(config, plugins);
->
-> // Reste du code de votre patron
->
-> export default Sorcha;
-> ```
->
-> Lors de l'import de votre patron, c'est lui-même un constructeur :
->
-> ```js
-> import Sorcha from "@freesewing/sorcha";
-> 
-> // Sorcha est un constructeur pour votre patron. 
-> let pattern = new Sorcha();
-> ```
-> 
-> Comme `freesewing.Design()` retourne un constructeur, vous pouvez le considérer comme un super-constructeur.
+import freesewing from "freesewing";
+import plugins from "@freesewing/plugin-bundle";
+import config from "../config";
 
-## Ajouter des parties de patrons (parts)
+// Create new design
+const Sorcha = new freesewing.Design(config, plugins);
 
-Etant donné que les parties de patrons sont listées dans 
-[le fichier de configuration](/fr/docs/developer/config), freesewing a connaissance de toutes les parties 
-qui constituent votre patron.
+// Rest of your pattern code
 
-Le code s'attend à ce que chaque patron ait sa propre méthode d'ébauche, qui est appelée `draft`
-suivi par le nom de la partie de patron avec la première lettre en majuscule.
+export default Sorcha;
+```
 
-Par exemple, si notre patron `Sorcha` possède une partie nommée `back`, vous devriez
-avoir une méthode `draftBack`. Cela fait partie des bonnes pratiques que chaque partie ait son propre fichier, 
-alors créez un fichier appelé `back.js`. A l'intérieur, vous exportez votre méthode 
-pour ébaucher cette partie :
+When importing your pattern, it is itself a constructor:
+
+```js
+import Sorcha from "@freesewing/sorcha";
+
+// Sorcha is a constructor for your pattern. 
+let pattern = new Sorcha();
+```
+
+As `freesewing.Design()` returns a constructor, you can think of it as a super-constructor.
+
+## Adding pattern parts
+
+Since the patterns parts are listed in [the configuration file](/en/docs/developer/config), freesewing knows about all the parts that belong to your pattern.
+
+It expects that each pattern has it's own draft method, that is called `draft` followed by the capitalized name of the pattern part.
+
+For example, if our pattern `Sorcha` has a part called `back`, you should have a `draftBack` method. It's good practice to keep each part in its own file, so create a file called `back.js`. Inside, you export your method to draft this part:
 
 ```js
 export default part => {
-  // Votre code pour cette partie
+  // Your part code here
 }
 ```
 
-Alors, dans votre fichier `index.js`, vous importez ce fichier, et joignez la 
-méthode au prototype de votre patron :
+Then, in your `index.js` file, you import this file, and attach the method to your pattern's prototype:
 
 ```js
 import freesewing from "freesewing";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
-// Parties
+// Parts
 import draftBack from "./back";
 
-// Création d'un nouveau modèle
+// Create new design
 const Sorcha = new freesewing.Design(config, plugins);
 
-// Méthodes d'ébauche par partie
+// Per-part draft methods
 Sorcha.prototype.draftBack = part => draftBack(part);
 ```
 
-## Enrichir d'autres patrons
+## Extending other patterns
 
-Si votre patron enrichit, ou se base sur un autre patron, vos 
-parties de patron devront être ébauchées par le patron parent.
+If your pattern is based on, or extending, another pattern (some of) your pattern parts will need to be drafted by the parent pattern.
 
-Dans ce cas, plutôt que de retourner votre propre méthode d'ébauche pour cette partie, 
-vous devriez instancier le patron parent, et retourner la méthode d'ébauche de sa partie :
+In such a case, rather than return our own draft method for the part, you should instantiate the parent pattern, and return its part draft method:
 
 ```js
 import freesewing from "freesewing";
 import Brian from "@freesewing/brian";
 import plugins from "@freesewing/plugin-bundle";
 import config from "../config";
-// Parties
+// Parts
 import draftBack from "./back";
 
-// Création d'un nouveau modèle
+// Create new design
 const Sorcha = new freesewing.Design(config, plugins);
 
-// Méthodes d'ébauche par partie
+// Per-part draft methods
 Sorcha.prototype.draftBack = part => draftBack(part);
 Sorcha.prototype.draftBase = function(part) {
-  // Obtention de la partie de base à partir de Brian
+  // Getting the base part from Brian
   return new Brian(this.settings).draftBase(part);
 };
 ```
 
-> ###### N'utilisez pas de fonction directionnelle lorsque vous employez cela
->
-> Parce que nous utilisons le mot-clé `this` ici, vous ne pouvez pas employer 
-> une notation de flèche pour ces méthodes.
+> ###### Do not use an arrow function when using this
+> 
+> Because we're using to the `this` keyword here, you cannot use the arrow notation for these methods.
 
-## Utilisation d'abbréviations (shorthand)
+## Using shorthand
 
-La méthode [Part.shorthand()](/api/part/#shorthand) va devenir votre meilleure amie.
+The [Part.shorthand()](/api/part/#shorthand) method will become your best friend.
 
-En utilisant la [destructuration d'objet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) vous allez avoir accès à un ensemble de 
-de variables pratiques pour rendre votre code plus concis et lisible.
+By using [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) you'll get access to a bunch of handy variables to make your code more concise and readable.
 
-[Part.shorthand()](/api/#part-shorthand) fournit beaucoup de choses, et vous n'aurez globalement 
-pas besoin de tout, mais voici tout ce qu'elle a à offrir :
+[Part.shorthand()](/api/#part-shorthand) provides a lot of things, and you typically don't need all of them, but here's everything it has to offer:
 
 ```js
   let {
-    options,      // Options du patron
-    measurements, // Mensurations du modèle
-    Point,        // Constructeur de point
-    Path,         // Constructeur de chemin
-    Snippet,      // Constructeur de fragment
-    points,       // Contient les points des parties
-    paths,        // Contient les chemins des parties
-    snippets,     // Contient les fragments des parties
-    store,        // Le store vous permet de partager des données entre différentes parties
-    utils,        // Une collection d'utilitaires
-    macro,        // Méthode pour appeler une macro
-    debug,        // Méthode pour enregistrer les info de débugage
-    sa,           // Marge de couture demandée
-    final,        // Ebaucher ou non un patron complet
-    paperless,    // Ebaucher ou non un patron sans papier
-    units,        // Unités demandées
+    options,      // Pattern options
+    measurements, // Model measurements
+    Point,        // Point constructor
+    Path,         // Path constructor
+    Snippet,      // Snippet constructor
+    points,       // Holds part points
+    paths,        // Holds part paths
+    snippets,     // Holds part snippets
+    store,        // The store allows you to share data between parts
+    utils,        // A collection of utilities
+    macro,        // Method to call a macro
+    debug,        // Method to log debug info
+    sa,           // Requested seam allowance
+    final,        // Whether to draft a complete pattern or not
+    paperless,    // Whether to draft a paperless pattern or not
+    units,        // Requested units
   } = part.shorthand();
 ```
 
-Nous allons utiliser notre notation  
-[shorthand](#using-shorthand)
-dans les exemples qui suivent.
+We will use our [shorthand](#using-shorthand) notation as we continue our examples.
 
-## Accéder aux mensurations (measurements)
+## Accessing measurements
 
-Les mesures sont stockées dans `pattern.settings.measurements`, mais grâce à notre appel préalable à 
-[shorthand](#using-shorthand), 
-nous pouvons simplement écrire :
+Measurements are stored in `pattern.settings.measurements`, but thanks to our [shorthand](#using-shorthand) call earlier, we can simply write:
 
 ```js
 let quarterChest = measurements.chestCircumference / 4;
 ```
-## Accéder aux options
-Même histoire pour les options, qui sont stockées dans `pattern.settings.options`.
 
-Après un appel à
-[shorthand](#using-shorthand), 
-nous pouvons écrire :
+## Accessing options
+
+Similar story for options, who are stored stored in `pattern.settings.options`.
+
+After a [shorthand](#using-shorthand) call, we can write:
 
 ```js
 let sleeveBonus = measurements.shoulderToWrist * (1 + options.sleeveLengthBonus);
 ```
 
-## Ajouter des points (points)
+## Adding points
 
-Après notre appel à 
-[shorthand](#using-shorthand), 
-**Point** contient le constructeur de point, alors que **points** fait référence à `part.points`,
-où vous devriez stocker vos points.
+After our [shorthand](#using-shorthand) call, **Point** contains the point constructor, while **points** is a reference to `part.points`, which is where you should store your points.
 
-A présent, les choses vont *juste marcher* lorsque nous écrivons ceci :
+Things will now *just work* when we write this:
 
 ```js
 points.centerBack  = new Point(0,0);
 ```
 
-## Ajouter des chemins (paths)
-Avec notre appel plus tôt à 
-[shorthand](#using-shorthand), 
-**Path** contient maintenant le constructeur de chemin, alors que **paths** fait référence auis a reference to `part.paths`,
-où vous devriez stocker vos chemins.
+## Adding paths
 
-Nous pouvons maintenant faire ceci :
+Due to our [shorthand](#using-shorthand) call earlier, **Path** now contains the path constructor, while **paths** is a reference to `part.paths`, which is where you should store your paths.
+
+We can now do this:
 
 ```js
 paths.example = new Path();
 ```
 
-## Ajouter des fragments (snippets)
+## Adding snippets
 
-Enfin, notre appel à  
-[shorthand](#using-shorthand)
-fournit également un constructeur de fragment dans **Snippet**, et **snippets** est l'endroit où stocker nos fragments :
+Finally, our [shorthand](#using-shorthand) call also provides the snippet constructor in **Snippet**, and **snippets** is the place to store our snippets:
 
 ```js
 snippets.logo = new Snippet('logo', points.logoAnchor);
 ```
 
-Vous pouvez également changer l'échelle et tourner un fragment en réglant respectivement les attributs `data-scale` et `data-rotate`.
+You can scale and rotate a snippet by setting the `data-scale` and `data-rotate` attributes respectively.
 
- - **data-scale** : Soit un facteur d'échelle unique, ou bien un set de 2 facteurs d'échelle pour les axes X et Y respectivement. Voir [La transformation d'échelle SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Scale) pour plus de détails.
- - **data-rotate**: Une rotation en degrés. Le centre de cette rotation sera le point d'ancrage du fragment.
+- **data-scale** : Either a single scale factor, or a set of 2 scale factors for the X and Y axis respectively. See [the SVG scale transform](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Scale) for details.
+- **data-rotate**: A rotation in degrees. The center of the rotation will be the snippet's anchor point
 
-## Utiliser les attributs
+## Using attributes
 
-Les points (Points), chemins (Paths) et fragments (Snippets), ont tous des [attributs](/api/#attributes) que vous employez pour influencer leur comportement.
+Points, Paths, and Snippets all have [attributes](/api/#attributes) that you can use to influence how they behave.
 
-Un scénario commun est d'appliquer des classes CSS pout donner un style à un chemin ;
+A common scenario is to apply CSS classes to style a path;
 
 ```js
 paths.example.attr('class', 'lining dashed');
 ```
 
-> ###### attr() est une abbréviation pour régler des attributs
->
-> Nous utilisons ici la méthode [Path.attr()](/api/#path-attr).
-> Nous aurions également pu accéder à la propriété `attributes` du chemin et appeler 
-> [Attributes.add()](/api/#attributes-add) dessus comme ça :
+> ###### attr() is a shortcut to set attributes
+> 
+> We're using the [Path.attr()](/api/#path-attr) method here. We could have also acccessed the path's `attributes` property and call [Attributes.add()](/api/#attributes-add) on it like this:
 > 
 > ```js
-> paths.example.attributes.add('class', 'lining dashed');
-> ```
-> Mais le moins est le mieux, n'est-ce-pas ?
+paths.example.attributes.add('class', 'lining dashed');
+```
+
+But less is more, right?
 
 ## Adding text
 
-Il y a un autre usage moins intuitif des attributs qui consiste à ajouter du texte à votre patron.
+There's another, less intuitive, use for attributes. And that is to add text to your pattern.
 
-Pour ajouter du texte, tout ce que vous avez à faire est de l'ajouter à l'attribut `data-text`.
-De plus, tous les attributs qui ont un préfixe `data-text-` vont s'appliquer au texte, plutôt que le point :
+To add text, all you have to do is add it to the `data-text` attribute. In addition, all attributes that have a `data-text-` prefix will apply to the text, rather than the point:
 
 <api-example o="point" m="attr" box="1" strings='{ "msg": "Hello world!\nThis is\na line break"}'></api-example>
 
-> ###### Texte multiligne
+> ###### Multi-line text
 > 
-> Notre example ci-dessus a plus d'un tour dans son sac : le texte multiligne.
-> Ajouter un caractère de saut de ligne (`\n`) à votre texte fera démarrer une nouvelle ligne.
+> Our example above has one more trick up its sleeve: Multi-line text. Adding a linebreak character (`\n`) to your text will start a new line.
 > 
-> Malheureusement, la prise en charge du texte multiligne dans SVG est inégale au mieux. 
-> Et bien que vous pouvez formatter votre texte avec des classes CSS, il n'y a pas de paragraphe dans SVG.
+> Sadly, SVG support for multi-line text is patchy at best. And while you can style the text with CSS classes, there's no such thing as a paragraph in SVG.
 > 
-> C'est pourquoi vous avez une arme secrète à disposition : l'attribut `data-text-lineheight`.
-> Réglez-le, et nous vous rendrons votre SVG multiligne avec la hauteur de ligne que vous aurez choisi.
+> That's why you have a secret weapon at your disposal: the `data-text-lineheight` attribute. Set it, and we will render your multiline SVG with the line height you set in it.
 > 
-> La hauteur de ligne par défaut pour du texte multiligne est de 12 mm.
+> The default lineheight for multi-line text is 12mm
 
-## Texte sur des chemins
+## Text on paths
 
-Le texte sur des chemins (une assez belle fonction de SVG) fonctionne exactement de la même manière que pour ajouter du texte sur des points.
-Réglez simplement l'attribut `data-text`.
+Text on paths (which is a rather nice SVG feature) works exactly the same way as adding text on points. Simply set the `data-text` attribute.
 
 <api-example o="path" m="attr" strings='{ "msg": "I am text on a path"}'></api-example>
 
-## Dessiner des cercles
+## Drawing circles
 
-De vrais cercles sont rarement utilisés dans la conception de patron, et ils ne font pas partie de la spécification de chemin SVG, 
-mais représente plutôt un élément SVG différent.
+Real circles are rarely used in pattern design, and they are not part of the SVG path specification, but rather a different SVG element.
 
-Malgré tout, si vous voulez un cercle, vous pouvez en dessiner un en réglant un attribut de point `data-circle` 
-au rayon du cercle que vous voulez dessiner.
+Still, if you want a circle, you can draw one by setting a Point's `data-circle` attribute to the radius of the circle you want to draw.
 
-De plus, tous les attributs qui ont un préfixe `data-circle-` vont s'appliquer au cercle, plutôt qu'au point.
+In addition, all attributes that have a `data-circle-` prefix will apply to the circle, rather than the point.
 
 <api-example o="utils" m="circlesintersect"></api-example>
 
-## Ajouter une marge de couture
+## Adding seam allowance
 
-Grâce à notre appel à 
-[shorthand](#using-shorthand),
-la variable **sa** contient la marge de couture que notre utilisateur désire.
+Thanks to our [shorthand](#using-shorthand) call, the **sa** variable holds the seam allowance our user wants.
 
-Tout ce que vous avez à faire est de laisser [Path.offset()](/api/#path-offset) faire le sale boulot à votre place.
+All you have to do now is let [Path.offset()](/api/#path-offset) do the dirty work for you.
 
 <api-example o="settings" m="sa"></api-example>
 
-## Utiliser des macros
+## Using macros
 
-Les macros sont un moyen de faciliter la conception de patron en groupant un ensemble d'actions individuelles dans une petite routine.
+Macros are a way to facilitate pattern design by bundling a bunch of individual actions into a little routine.
 
-Les macros sont fournies par des [plugins](/extend/). En voici quelques exemples :
+Macros are provided by [plugins](/extend/). Here are some examples:
 
- - **grainline** : Ajoute un droit fil à votre patron
- - **cutonfold** : Ajoute un indicateur de découpe au pli à votre patron
- - **title** : Ajoute un nom de partie
- - **dimension** : Utilisé pour ajouter des dimensions sur un patron sans papier
+- **grainline** : Adds a grainline to your pattern
+- **cutonfold** : Adds a cut-on-fold indicator to your pattern
+- **title** : Adds a part title
+- **dimension** : Used to add dimensions on paperless patterns
 
-Grâce à notre appel à 
-[shorthand](#using-shorthand),
-vous pouvez simplement appeler la méthode macro et introduire le nom de la macro que 
-voulez lancer, et ses arguments :
+Thanks to our [shorthand](#using-shorthand) call, you can simply call the macro method and pass it the name of the macro you want to run, and its arguments:
 
 <api-example o="plugin" m="dimension"></api-example>
 
-## Transmettre des données entre différentes parties
+## Passing data between parts
 
-Parfois, vous voudrez accéder aux données d'une autre partie.
-Par exemple, vous allez peut-être stocker la longueur de l'emmanchure de vos parties devant et dos, 
-et puis lire cette valeur avant d'ébaucher la manche de manière à pouvoir vérifier que la manche soit bien ajustée à l'emmanchure.
+Sometimes, you'll want to access data from another part. For example, you may store the length of the armhole in your front and back parts, and then read that value when drafting the sleeve so you can verify the sleeve fits the armhole.
 
-Notre appel à 
-[shorthand](#using-shorthand)
-fournit l'objet [Store](/api/#store) que vous pouvez employer pour cela.
+Our [shorthand](#using-shorthand) call provides the [Store](/api/#store) object which you can use for this.
 
 ```js
 { store } = parts.onePart.shorthand();
 store.set('hello', 'world');
 
-{ store } = parts.anotherPart.shorthand(); // Note: partie différente 
+{ store } = parts.anotherPart.shorthand(); // Note: different part
 store.get('hello'); // Returns 'world'
 ```
 
-Dans un cas comme celui-ci, vous devez vous assurer que `onePart` est ébauché avant 
-`anotherPart`, ce qui est quelque chose que vous pouvez régler  dans votre [configuration de patron](/config/).
+In a case like this, you need to make certain that `onePart` is drafted before `anotherPart`, which is something you can setup in your [pattern configuration](/config/).
