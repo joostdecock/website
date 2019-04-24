@@ -1,9 +1,11 @@
 ---
 date: 2013-02-16
-path: /fr/showcase/linnen-theodore
-title: Pantalon Theodore en lin marron grisâtre par joostdecock
+path: /en/showcase/linnen-theodore
+title: Brown greyish linnen Theodore trousers by joostdecock
 img: showcase.jpg
-caption: Il est formidable en été
-patterns: [theodore]
+caption: These are great in summer
+patterns:
+  - theodore
 author: joost
 ---
+
