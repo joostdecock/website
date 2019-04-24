@@ -1,21 +1,19 @@
 ---
-title: A propos de la démo
-path: /fr/docs/demo
+title: About the demo
+path: /en/docs/demo
 ---
 
-Bienvenue sur notre démo, où vous pouvez essayer freesewing sans avoir à créer de compte.
+Welcome to our demo, where you can try out freesewing without the need for an account.
 
-Choisissez un patron pour commencer. Une fois que c'est fait, un aperçu va apparaître ici, accompagné de toutes les 
-options de configuration avec lesquelles vous pourrez jouer.
+Choose a pattern to get started. Once you do, a preview will appear here, along with all the patterns configuration options for you to play with.
 
-> ##### La réalité est encore mieux
->
-> Bien que cette aire de jeux vous donne une bonne idée de ce à quoi vous pouvez vous attendre, il y a quelques limitations :
->
-> - Vous ne pouvez pas sauvegarder ou télécharger votre patron
-> - Nous utilisons un set par défaut de mensurations, donc vous ne pouvez pas ébaucher un patron à votre propre taille
+> ##### The real thing is even better
+> 
+> While this playground gives you a good idea of what to expect, there are some limitations:
+> 
+> - You cannot save or download your pattern
+> - We use a default set of measurements, so you can't draft a pattern to your own size
 
-Un compte freesewing account est gratuit, et vous permet de faire tout cela et encore plus !
-Si vous le souhaitez, vous pouvez [vous inscrire ici](/fr/signup).
+A freesewing account is free of charge, and allows you to do this and more. If you'd like, you can [sign up here](/en/signup).
 
-Si vous avez des questions, notre [FAQ](/fr/docs/faq) est un bon endroit pour débuter.
+If you have questions, our [frequently asked questions](/en/docs/faq) is a good place to start.
