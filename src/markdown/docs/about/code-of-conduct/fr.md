@@ -1,6 +1,6 @@
 ---
-title: Code de Conduite
-path: /fr/docs/about/code-of-conduct
+title: Code of conduct
+path: /en/docs/about/code-of-conduct
 ---
 
 <!-- 
@@ -17,75 +17,48 @@ section at the end, rather than in the 'Enforcement' section.
 
 -->
 
-## Notre engagement
+## Our pledge
 
-Dans l’intérêt de favoriser un environnement ouvert et accueillant, nous nous 
-engageons, en tant que responsables et en tant que personnes contribuant à ce projet, 
-à faire de la participation une expérience exempte de harcèlement pour tout le monde, 
-quel que soit le niveau d’expérience, le sexe, l’identité ou l’expression de genre, 
-l’orientation sexuelle, le handicap, l’apparence personnelle, la taille physique, 
-l’origine ethnique, l’âge, la religion ou la nationalité.
+In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## Nos critères
+## Our standards
 
-Exemples de comportements qui contribuent à créer un environnement positif :
+Examples of behavior that contributes to creating a positive environment include:
 
-* l’utilisation d’un langage ouvert et accueillant
-* le respect des différents points de vue et expériences vécues
-* accepter poliment les critiques constructives
-* se concentrer sur ce qui est meilleur pour la communauté
-* faire preuve d’empathie envers les autres membres de la communauté
+* Using welcoming and inclusive language
+* Being respectful of differing viewpoints and experiences
+* Gracefully accepting constructive criticism
+* Focusing on what is best for the community
+* Showing empathy towards other community members
 
-Exemples de comportements non acceptables :
+Examples of unacceptable behavior by participants include:
 
-* l’utilisation de langage ou d’imagerie sexualisés et les avances sexuelles non sollicitées
-* le trolling, les commentaires insultants ou désobligeants, et les attaques personnelles ou d’ordre politique
-* le harcèlement en public ou en privé
-* la publication d’informations privées de tierces personnes, telles que des adresses physiques ou électroniques, sans permission explicite
-* toute conduite qui pourrait être raisonnablement considérée comme inappropriée dans le milieu professionnel
+* The use of sexualized language or imagery and unwelcome sexual attention or advances
+* Trolling, insulting/derogatory comments, and personal or political attacks
+* Public or private harassment
+* Publishing others' private information, such as a physical or electronic address, without permission
+* Other conduct which is considered inappropriate among friends
 
-## Nos responsabilités
+## Our responsibilities
 
-Les responsables du projet doivent clarifier les critères de comportement acceptables 
-de ce projet : il est attendu que ces personnes prennent les mesures correctives 
-justes comme réponse à tout comportement inacceptable.
+Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
-Les personnes qui assurent la maintenance du projet ont le droit et la responsabilité 
-de supprimer, modifier ou rejeter les commentaires, commits, code, modifications du 
-wiki, questions et autres contributions qui ne respectent pas ce Code de Conduite, ou 
-de bannir temporairement ou définitivement quiconque, suite à des comportements jugés 
-inappropriés, menaçants, injurieux, ou nuisibles.
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
 
-## Objectifs
+## Scope
 
-Ce Code de Conduite s’applique à la fois au sein des espaces du projet ainsi que dans 
-les espaces publics lorsqu’un individu représente le projet ou sa communauté. 
-Font parties des exemples de représentation d’un projet ou d’une communauté le fait 
-d’utiliser une adresse email propre au projet, de poster sur les réseaux sociaux avec 
-un compte officiel, ou d’intervenir pour représenter le projet au cours d’un événement 
-en-ligne ou hors-ligne. La représentation du projet pourra être autrement définie et 
-clarifiée par les responsables du projet.
+This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
 
-## Application
+## Enforcement
 
-Les cas de comportements abusifs, harcelants ou tout autre comportement inacceptable 
-doivent être signalés. L’équipe du projet s’engage à garder confidentielles les 
-informations de la personne qui remonte un incident. Après étude et examination, une 
-réponse appropriée aux circonstances sera apportée. 
-Plus de détails sur la politique de mise en application des règles peuvent être publiés 
-séparément.
+All instances of abuse, harassing, or otherwise unacceptable behavior should be reported. They will be treated with confidentiality with regard to the reporter of an incident. After investigation, they will result in a response that is deemed necessary and appropriate to the circumstances.
 
-Il va de la responsabilité de tous les contributeurs de mettre en application ce code 
-de conduite.
+It is a shared responsibility of all contributors to enforce this code of conduct.
 
-## Point de contact
+## Point of contact
 
-Toutes les plaintes devront être adressées à joost@decock.org ou ji.catherine@gmail.com. 
+All complaints should be reported to joost@decock.org or ji.catherine@gmail.com.
 
 ## Attribution
 
-Ce Code de Conduite est adapté du [Contributor Covenant][homepage], version 1.4,
-disponible sur [http://contributor-covenant.org/version/1/4][version]
-
-[homepage]: http://contributor-covenant.org
-[version]: https://www.contributor-covenant.org/fr/version/1/4/code-of-conduct
+This Code of Conduct is an almost verbatim copy of the [Contributor Covenant](http://contributor-covenant.org), version 1.4, available at [http://contributor-covenant.org/version/1/4](http://contributor-covenant.org/version/1/4/)
