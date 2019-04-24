@@ -1,14 +1,13 @@
 ---
-path: /fr/docs/developer/do
-title: Meilleures pratiques
+path: /en/docs/developer/do
+title: Best practices
 ---
 
-## Utiliser des noms qui ont du sens
+## Use meaningful names
 
-Donner des noms qui ont du sens à vos points, chemins et fragments. 
-Cela facilite grandement la tâche aux gens pour comprendre ce qu'il se passe.
+Give your points, paths and snippets meaningful names. It makes it a lot easier for people to understand what's going on.
 
-Ce code est génial :
+This is great:
 
 ```js
 part.paths.seam = new Path()
@@ -16,14 +15,18 @@ part.paths.seam = new Path()
   .line(points.hemSide)
   .line(points.waistSide)
 ```
-Celui-là ne l'est pas :
+
+This is not:
+
 ```js
 part.paths.s = new Path()
   .move(points.a)
   .line(points.b)
   .line(points.c)
 ```
-Celui-ci est tout bonnement affreux :
+
+This is awful:
+
 ```js
 part.paths[part.getId()] = new Path()
   .move(new Point(12,23))
@@ -31,25 +34,20 @@ part.paths[part.getId()] = new Path()
   .line(new Point(0,12))
 ```
 
-## Partir dans le sens anti-horaire
+## Go counter-clockwise
 
-Parcourez vos chemins dans le sens anti-horaire.
+Follow your paths counter-clockwise.
 
-Cela s'applique à la fois au fait de nommer les points (en particulier les points de contrôle des courbes)
-et à l'ordre dans lequel vous définissez vos points.
+This applies both to naming points (specifically the control points of curves) and the order in which you define your points.
 
-Evidemment, l'ordre dans lequel vous ajoutez vos points à votre code doit être relégué au second plan 
-par rapport à la logique de votre code. Mais généralement, ce que vous faites c'est construire le contour 
-(d'une partie) d'un vêtement.
+Obviously, the order in which you add points to your code needs to take a backseat to the logic of your code. But typically what you're doing is constructing an outline of (a part of) a garment.
 
-Alors choisissez un point, et faites votre chemin dans le sens anti-horaire. 
+So pick a point, and make your way around counter-clockwise.
 
-Lorsque vous nommez les points de contrôle pour les coubes, réutilisez le nom du point auquel ils sont rattachés
-et ajoutez `Cp1` au point de contrôle précédant le point et `Cp2` au point de contrôle qui lui succède si, 
-une fois encore, vous parcourez votre chemin dans le sens anti-horaire.
+When naming control points for curves, re-use the name of the point they are attached to and add `Cp1` to the control point before and `Cp2` to the control point after the point if , once again, you'd follow your path counter-clockwise.
 
+For example:
 
-Par exemple :
 ```js
 part.paths.seam = new Path()
   .move(points.hemCenter)
@@ -58,77 +56,63 @@ part.paths.seam = new Path()
   .curve(points.waistSideCp2, points.armholeCp1, points.armhole)
 ```
 
-## Utiliser des pourcentages dans les options
+## Use percentages as options
 
-Ne cédez pas à la tentation d'ajouter des valeurs absolues à vos patrons, vu qu'elles ne vont pas s'adapter à une échelle donnée. 
-Au lieu de ça, adoptez des pourcentages comme options.
+Don't be tempted to add absolute values to your patterns, as they don't scale. Instead, embrace percentages as options.
 
-## Ne pas réinventer la roue
+## Don't re-invent the wheel
 
-###### Réutiliser les mesures existantes
+###### Re-use measurements
 
-Lorsque vous concevez des patrons, réutilisez autant que possible les mesures qui sont déjà d'usage.
-Personne n'est gagnant quand chaque patron nécessite son propre set de mesures, ou nomme
-certaines mesures différemment.
+When designing patterns, re-use the measurements that are already in use as much as possible. Nobody wins when every pattern requires its own set of measurements, or names certain measurements differently.
 
-> ######  Voir les packages de nos modèles pour les noms de mesure standards
+> ###### See our models packages for standard measurement names
 > 
-> Le package des [modèles freesewing](https://github.com/freesewing/models)
-> contient tous nos noms de mesure standards.
+> The [freesewing models](https://github.com/freesewing/models) package contains all our standard measurement names.
 
-###### Réemployer les options existantes
+###### Re-use options
 
-La même chose est (en quelque sorte) valable pour les options. Bien que votre patron puisse requérir à 
-quelques options très spécifiques, il y en a surement une poignée qui est similaire à d'autres patrons. 
-Réutilisez ces noms.
+The same is (somewhat) true for options. While your pattern may require some very specific options, there's probably a bunch that are similar to other patterns. Re-use those names.
 
-Par exemple, `bicepsEase` (aisance du bras) existe. Alors n'allez pas créer une option `upperArmEase` (aisance du bras supérieur).
+As in, `bicepsEase` exists. So don't go creating an `upperArmEase` option.
 
-###### Réutiliser les classes CSS
+###### Re-use CSS classes
 
-Alors que vous pouvez styliser votre patron de la manière que vous voulez, essayez tout de même de réutiliser les noms de classes CSS 
-qui sont d'usage dans notre [plugin de thème](https://github.com/freesewing/plugin-theme) par défaut.
+While you can style your pattern however you want, try to re-use the CSS class names that are in use in our default [theme plugin](https://github.com/freesewing/plugin-theme).
 
-Le faire de cette manière assure une esthétique homogène à nos patrons.
+Doing so will ensure consistent styling for patterns.
 
-## Séparer votre code
+## Split up your code
 
-Créez un fichier par partie de patron que vous incluez. Plutôt que d'avoir tout votre code dans un seul fichier.
+Create a file per pattern part that you include. Rather than have all your code in one file.
 
-## Utiliser des clés de traduction, plutôt que du texte
+## Use translation keys, rather than text
 
-N'insérez pas du texte littéral dans vos patrons. Au lieu de cela, insérez une clé qui ainsi peut être traduite.
+Don't insert literal text in your patterns. Instead, insert a key that can then be translated.
 
-Par exemple, si vous voulez mettre *Finish with bias tape* (finir avec du ruban de biais) dans votre patron, ne soyez 
-pas tenté de faire ceci :
+For example, if you want to put *Finish with bias tape* on your pattern, don't be tempted to do this:
 
 ```js
 path.seam.attr("data-text", "Finish with bias tape");
 ```
 
-Cette chaîne de caractères (en anglais) est alors programmée en dur dans votre patron. Comme freesewing prend en charge 
-la traduction, ce serait vraiment dommage de ne pas l'employer.
+That (English) string is now hard-coded in your pattern. As freesewing supports translation out of the box, it would be a real shame not to make use of it.
 
-A là place, insérer une clé pour identifier la chaîne de caractères :
+Instead, insert a key to identiy the string:
 
 ```js
 path.seam.attr("data-text", "finishWithBiasTape");
 ```
 
-## Utiliser le test de l'homme-fourmi
+## Use the ant-man test
 
+When designing patterns, you should refrain from using absolute values.
 
-Lorsque vous concevez des patrons, vous devriez vous abstenir d'utiliser des valeurs absolues.
+That 6cm ease you add might be fine for all scenarios you tested, but then somebody comes around who is twice your size, or who is making clothes for a doll, and things will go off the rails.
 
-Cette aisance de 6 cm que vous ajoutez est peut-être correcte pour tous les scénarios que vous avez testés, 
-mais c'est alors que quelqu'un qui fait deux fois votre taille fait son apparition, ou bien quelqu'un qui fabrique des vêtements pour une poupée, 
-et là, les choses déraillent.
+To check how well your pattern scales, you can use [the ant-man test](https://github.com/freesewing/antman) by sampling the pattern for 2 models:
 
-Pour vérifier que vos patrons se mettent bien à l'échelle, vous pouvez 
-utiliser [le test de l'homme-fourmi](https://github.com/freesewing/antman) en échantillonnant votre patron pour 2 mannequins :
+- A model with measurements of avarage person (the man)
+- A model with measurements 1/10th of an average person (the ant)
 
- - Un mannequin avec les mensurations d'une personne moyenne (l'homme)
- - Un mannequin avec le dixième des mensurations d'une personne moyenne (la fourmi)
-
-Un patron bien conçu va diminuer son échelle d'un facteur 10 et garder sa forme. 
-Si votre patron a des présomptions sur la taille, ce test le mettra en évidence.
+A well-designed pattern will scale a factor 10 down and hold its shape. If your pattern makes assumptions about size, this test will show that.
