@@ -1,10 +1,14 @@
 ---
 date: 2018-01-02
-path: /fr/showcase/outfit-wahid-theodore-simon-by-paul
-title: Tenue - Simon, Theodore & Wahid par Paul
+path: /en/showcase/outfit-wahid-theodore-simon-by-paul
+title: Outfit - Simon, Theodore & Wahid by Paul
 img: showcase.jpg
-caption: "Tenue - Simon, Theodore & Wahid par Paul"
-patterns: [simon,wahid,theodore]
+caption: "Outfit - Simon, Theodore & Wahid by Paul"
+patterns:
+  - simon
+  - wahid
+  - theodore
 author: Tiger751023
 ---
-![Tenue par Paul](/img/showcase/outfit-wahid-theodore-simon-by-paul/high_back.jpg)
+
+![Outfit by Paul](/img/showcase/outfit-wahid-theodore-simon-by-paul/high_back.jpg)
