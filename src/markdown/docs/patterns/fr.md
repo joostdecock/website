@@ -1,7 +1,7 @@
 ---
-path: /fr/docs/patterns
-title: Documentation des patrons
+path: /en/docs/patterns
+title: Pattern documentation
 index: true
 ---
 
-Cliquer sur n'importe lequel de nos patrons pour accéder à sa documentation :
+Click through to any of our patterns for its documentation:
