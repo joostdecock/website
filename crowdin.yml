@@ -1,4 +1,4 @@
-content segmentation: 0
+content_segmentation: no
 files:
   - source: src/markdown/**/en.md
     translation: /src/markdown/**/%two_letters_code%.md
