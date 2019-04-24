@@ -1,9 +1,11 @@
 ---
 date: 2018-10-08
-path: /nl/showcase/sandy-by-adam
-title: Sandy rok door Adam
+path: /en/showcase/sandy-by-adam
+title: Sandy Skirt by Adam
 img: showcase.jpg
-caption: Een eenvoudige Sandy rok gemaakt van een oude gordijn
-patterns: [sandy]
+caption: "A simple Sandy skirt made from an old curtain."
+patterns:
+  - sandy
 author: artomkins
 ---
+
