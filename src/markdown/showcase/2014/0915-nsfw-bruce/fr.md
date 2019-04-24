@@ -1,9 +1,11 @@
 ---
 date: 2014-09-15
-path: /fr/showcase/nsfw-bruce
-title: Un cliché intimiste de Bruce sur un vrai être humain
+path: /en/showcase/nsfw-bruce
+title: The lesser-spotted shot of Bruce on an actual human being
 img: showcase.jpg
-caption: En fonction de votre boulot, cette image pourrait paraître inappropriée sur un écran professionnel.
-patterns: [bruce]
+caption: Depending on your job, this might be NSFW
+patterns:
+  - bruce
 author: joost
 ---
+
