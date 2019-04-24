@@ -1,9 +1,11 @@
 ---
 date: 2013-02-16
-path: /es/showcase/linnen-theodore
-title: Pantalones Theodore de lino marrón grisáceo por joostdecock
+path: /en/showcase/linnen-theodore
+title: Brown greyish linnen Theodore trousers by joostdecock
 img: showcase.jpg
-caption: Geniales en verano
-patterns: [theodore]
+caption: These are great in summer
+patterns:
+  - theodore
 author: joost
 ---
+
