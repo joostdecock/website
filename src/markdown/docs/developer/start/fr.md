@@ -1,52 +1,35 @@
 ---
-title: Pour commencer
-path: /fr/docs/developer/start
+title: Getting started
+path: /en/docs/developer/start
 ---
 
-Freesewing est une librairie en JavaScript pour patrons de couture sur mesure.  
-Ou, plus généralement, c'est une boîte à outils pour concevoir de façon paramétrique des dessins en 2D.
+Freesewing is a JavaScript library for made-to-measure sewing patterns.  
+Or, more generally, it is a toolbox for parametric design of 2D drawings.
 
-## Construire des blocs
+## Building blocks
 
-Créer un patron avec freesewing est assez similaire à ce que l'on ferait sur du papier. 
-Vous avez besoin des mêmes outils, mais ils sont à présent sous forme de code.
+Creating a pattern with freesewing is very much like doing it on paper. You need all the same tools, but now they are code.
 
-Vous utilisez freesewing pour développer des **patrons** (pattern). Vous finirez par exporter une méthode de construction de 
-[Patron](/fr/docs/developer/api/pattern) :
+You use freesewing to develop **patterns**. You'll end up exporting a [Pattern](/en/docs/developer/api/pattern) constructor method:
 
+![Freesewing building blocks](./buildingblocks.svg)
 
-![Blocs de construction de freesewing](./buildingblocks.svg)
+A pattern comes with a [configuration](/en/docs/developer/config) and a [store](/en/docs/developer/api/store) and acts as a container for your pattern [parts](/en/docs/developer/api/part).
 
-Un patron vient avec une [configuration](/fr/docs/developer/config) et 
-un [entrepôt](/en/docs/developer/api/store) (store) et agit comme un contenant pour les 
-[parties](/en/docs/developer/api/part) (part) de votre patron.
+The main work is done in these **parts**. They hold the actual information, that make up your pattern. The [points](/en/docs/developer/api/point) that we need to draw the [paths](/en/docs/developer/api/path) and perhaps some [snippets](/en/docs/developer/api/snippet) too. They are reusable embelishments that you can add to your pattern. Like a notch, or a button, and so on.
 
-Le travail principal est fait dans ces **parties**. Elles contiennent l'information qui permet la construction de votre patron. 
-Les [points](/fr/docs/developer/api/point) dont nous avons besoin pour dessiner 
-les [chemins](/fr/docs/developer/api/path) (paths) et peut-être également quelques 
-[fragments](/fr/docs/developer/api/snippet) (snippets). Ce sont des embellissements réutilisables 
-que vous pouvez ajouter à votre patron. Comme un cran, un bouton, et ainsi de suite.
+In a typical scenario, your pattern will be instantiated with a bunch of user settings, after [drafting and rendering it](#draftvsrender), it will come out on the other end as SVG.
 
-Dans un scénario typique, votre patron sera instancié avec un ensemble de 
-réglages utilisateur, après l'avoir [ébauché et rendu](#draftvsrender), il sortira sous forme de 
-SVG.
+## Inheritance
 
-## Héritage
+Sewing patterns are rarely designed from scratch. A pattern is typically based on a block or sloper, or on another pattern. A western shirt pattern might be based on a button-down shirt pattern, which in turn is based on a menswear block, you get the idea.
 
-Les patrons de couture sont rarement conçus à partir de rien. Un patron est généralement basé sur un patron de base, ou un autre patron.
-Le patron d'une chemise western peut être basé sur celui d'une chemise boutonnée, qui lui-même peut-être basé sur un patron
-de base de buste masculin, vous voyez où je veux en venir.
+In software, we call this *inheritance*. You may want to design your own pattern starting from nothing, but often, you can get started from something that's already halfway to where you want to go.
 
-En programmation, nous appelons cela l'*héritage*. Vous souhaitez peut être partir de rien, 
-mais bien souvent, vous démarrez de quelque chose qui est déjà à mi-chemin de ce que vous souhaitez obtenir.
-
-Par exemple, la patron Jaeger de freesewing est basée sur Bent, qui lui-même est basé sur Brian.
+For example, Freesewing's Jaeger pattern is based on Bent, which in turn is based on Brian.
 
 ## Options
 
-Pour un patron papier, les choses sont telles qu'elles sont. Pour un patron codé en revanche, 
-il est possible de donner des choix. Manches longues ? Manches courtes ? Un peu plus d'aisance au niveau de la taille ? 
-Ou ajusté comme un gant ?
+When we draw a pattern on paper, things are the way they are. When we code a pattern, we have the option to provide choices. Long sleeves? Short sleeves? Bit more ease in the waist, or fitted like a glove?
 
-Vous pouvez en apprendre plus sur tous les types d'option que freesewing prend en charge dans 
-la documentation sur la [configuration](/fr/docs/developer/config).
+You can learn about all the types of options freesewing supports in the [configuration](/en/docs/developer/config) documentation.
