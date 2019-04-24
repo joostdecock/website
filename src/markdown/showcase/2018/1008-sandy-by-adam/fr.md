@@ -1,9 +1,11 @@
 ---
 date: 2018-10-08
-path: /fr/showcase/sandy-by-adam
-title: Jupe Sandy par Adam
+path: /en/showcase/sandy-by-adam
+title: Sandy Skirt by Adam
 img: showcase.jpg
-caption: "Une jupe simple Sandy faite à partir d'un vieux rideau."
-patterns: [sandy]
+caption: "A simple Sandy skirt made from an old curtain."
+patterns:
+  - sandy
 author: artomkins
 ---
+
