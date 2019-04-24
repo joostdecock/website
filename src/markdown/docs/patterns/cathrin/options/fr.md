@@ -1,4 +1,5 @@
 ---
 patternOptions: cathrin
-path: /fr/docs/patterns/cathrin/options
+path: /en/docs/patterns/cathrin/options
 ---
+
