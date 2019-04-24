@@ -1,9 +1,11 @@
 ---
 date: 2016-08-16
-path: /fr/showcase/tight-aaron
-title: Aaron en violet signature, mais trop discutablement serré
+path: /en/showcase/tight-aaron
+title: Aaron in signature purple, but arguably too tight
 img: showcase.jpg
-caption: J'ai mal évalué l'élasticité de ce tissu, et il est super moulant
-patterns: [aaron]
+caption: I misjudged the stretch on this fabric, and it's super clingy
+patterns:
+  - aaron
 author: joost
 ---
+
