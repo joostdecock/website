@@ -1,3 +1,7 @@
+# DEPRECATED
+
+The freesewing website is maintained in the [freesewing.org](https://github.com/freesewing/freesewing.org) repository.
+
 <p align="center">
   <a title="Go to freesewing.org" href="https://freesewing.org/"><img src="https://freesewing.org/img/logo/black.svg" align="center" width="150px" alt="Freesewing logo"/></a>
 </p>
